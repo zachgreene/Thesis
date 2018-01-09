@@ -34,7 +34,7 @@ polar coordinates gives
 ds^{2} = -c^{2}dt^{2} + a(t)^{2} \bigg( \frac{dr^{2}}{1 - kr^{2}} + r^{2}d\Omega^{2} \bigg)
 \end{equation}
 
-where ds is the distance traversed in space-time, $a(t)$ is the scale factor ($a=1$ today), and $k$ is the curvature of the
+\noindent where ds is the distance traversed in space-time, $a(t)$ is the scale factor ($a=1$ today), and $k$ is the curvature of the
 universe and can be -1, 0, or 1 for open, flat, or closed, respectively.  These values are also known as hyper-spherical,
 Euclidean, or spherical.
 
@@ -61,7 +61,7 @@ $\Omega$ into \eqref{eq:friedman1} gives the density parameter
 \Omega - 1 = \frac{k}{H^{2}{a^{2}}}
 \end{equation}
 
-with $\Omega = \sum \Omega_{i}$ where $\Omega_{i}$ is a component of the universe.  Current measurements give density
+\noindent  $\Omega = \sum \Omega_{i}$ where $\Omega_{i}$ is a component of the universe.  Current measurements give density
 parameters of $\Omega_{b} ~ 0.05$ for baryonic matter, $\Omega_{dm} = 0.26$ for non-baryonic matter, $\Omega_{r} \sim 0$
 for radiation, and $\Omega_{\Lambda} \sim 0.68$ for dark energy (see \ref{subsec:cmb}).  Because cold dark matter
 and dark energy dominate $\Omega$ this is referred to as the $\Lambda CDM$ model.
@@ -157,7 +157,7 @@ is a magnification of the source given by
 \mu = \frac{1}{(1-\kappa)^{2} + \gamma^{2}}
 \end{equation}
 
-that produces an increase in brightness when the source and lens are close to one another.  This has given astronomers
+\noindent that produces an increase in brightness when the source and lens are close to one another.  This has given astronomers
 a tool to see objects that previously were thought to be too faint to observe.
 
 In the case of strong lensing an observer will see a misshapen source in the form of arcs.  Because the magnitude of the
@@ -273,13 +273,13 @@ amount of each component - thus, by finding the correlation function
 C(\theta) = \Big \langle \delta T( \hat{n}) \delta T(\hat{n}^\prime) \Big \rangle
 \end{equation}
 
-we can identify the correction cosmological makeup.  To do this we make use of
+\noindent we can identify the correction cosmological makeup.  To do this we make use of
 
 \begin{equation}
 \delta T = \sum\limits_{l=0}^{\infty} \sum\limits_{m=-l}^{l} a_{lm}Y_{lm}(\theta, \phi)
 \end{equation}
 
-where $\delta T = T(\theta, \phi) - \langle T \rangle$ for a given $\theta , \phi$
+\noindent where $\delta T = T(\theta, \phi) - \langle T \rangle$ for a given $\theta , \phi$
 on the map, $Y_{lm}(\theta, \phi)$ corresponds to spherical harmonics, and $a_{lm}$ the preceding coefficients
 with the condition that $\sum\limits_{l,m} |a_{lm}|^{2} = 1$.  This gives a correlation function of
 
@@ -287,7 +287,7 @@ with the condition that $\sum\limits_{l,m} |a_{lm}|^{2} = 1$.  This gives a corr
 C(\theta) = \frac{1}{4 \pi} \sum\limits_{l=0}^{\infty} (2l + 1) C_{l} P_{l}(cos \theta)
 \end{equation}
 
-where $P_{l}$ are the Legendre polynomials and $C_{l} = \frac{1}{2l + 1} \sum\limits_{m=-l}^{l} a_{lm}$.  The
+\noindent where $P_{l}$ are the Legendre polynomials and $C_{l} = \frac{1}{2l + 1} \sum\limits_{m=-l}^{l} a_{lm}$.  The
 only unknown is $C_{l}$, which is typically shown in an angular power spectrum with
 $D_{l}^{TT} \equiv l(l+1)C_{l}/2\pi$ such as in \figref{fig:cmb_power_spectrum}.
 
@@ -372,7 +372,7 @@ $\Lambda$CDM model the density of DM in the universe today is given by
 \Omega_{dm}h^{2} = \frac{3 \dot 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
 \end{equation}
 
-where $h$ is the Hubble Constant divided by 100 and $\langle \sigma_{\mathrm{ann}} v \rangle$ is
+\noindent where $h$ is the Hubble Constant divided by 100 and $\langle \sigma_{\mathrm{ann}} v \rangle$ is
 the thermally averaged self-annihilation cross section
 for dark matter.  Assuming DM has a cross-section and mass on the order of the weak force, such a
 particle would give roughly the correct relic density of DM.  This is known as the ``WIMP miracle".
@@ -383,10 +383,37 @@ predict WIMP-like particles of similar masses.  This has historically been one o
 for dark matter.
 
  %========
-\subsection{Hot vs. Cold} \label{subsec:hot_vs_cold}
+\subsection{Cold, Warm, or Hot} \label{subsec:hot_vs_cold}
+An important property of dark is whether or not it was relativistic in the early universe.  Hot dark matter (HDM)
+is defined as being relativistic at the time it decoupled from other components, $t_{mathrm{dec}}$, and at
+matter-radiation equality, $t_{\mathrm{rm}}$.  Warm dark matter (WDM) would have been relativistic at $t_{\mathrm{dec}}$
+but not at $t_{\mathrm{rm}}$.  Cold dark matter (CDM) would have been non-relativistic at both.  Candidates for CDM include
+WIMPs, axions, and primordial black holes while WDM might be the gravitino.  Neutrinos are possible candidates for both
+WDM and HDM.
 
+Understanding which DM universe we live in can come from looking at structure in the universe.  Because the structure
+today came from fluctuations in the earliest moments of the Big Bang (\secref{subsec:cmb}) the cosmological layout
+can illuminate the answer.
 
+In HDM the relativistic particles are able to smooth out density perturbations, which is known as free
+streaming.  In this case the first structures to form would be superclusters, followed by smaller-scale
+features.  Observations show that this is not the case; galaxies have been around since before the universe
+was 1 billion years old ($z \sim 6$) and superclusters are just forming today (\citeref{Ryden2003}).
 
+CDM allows the early density perturbations to persist, causing smaller structures to materialize before
+larger, consistent with galaxy surveys between $\sim 1$ Mpc to the horizon.  At scales $< 1$ Mpc and
+$M \sim \mathrm{M_{\odot}}$ there are discrepancies, including under-dense cores for many galaxies that are DM-dominated
+and significantly fewer satellite dwarf and small galaxies than predicted (\citeref{Moore1999}, \citeref{Klypin1999}).  Possible
+solutions to the latter may be that dwarf galaxies have not accumulated enough baryonic matter to be visible
+(\citeref{Simon2007}), merged, or been stripped by tidal forces of larger galaxies.
+
+WDM has received a lot of interest since the CDM problems were observed.  Simulations have shown that
+WDM would result in fewer subhalos, though other model-observation contradictions have been less
+successful (\citeref{Bullock2017}, \citeref{Ogiya2017}).  However, since neutrinos have mass demonstrate there
+was at least some non-CDM in the early universe.
+
+Despite the problems with CDM, it remains the most favorable model for dark matter.  One possible outcome is
+there is a mix of CDM and WDM, but if that's the case CDM would make up the considerable bulk of dark matter.
 
 
 %====================================
@@ -444,7 +471,7 @@ non-relativistic (\secref{subsec:hot_vs_cold}), we can calculate the differentia
 v f(\boldsymbol{v}, t) \frac{d\sigma_{\chi}}{dE}(E, t)\ d^{3}v
 \end{equation}
 
-where $\rho_{0}$ is the local dark matter density, $m_{\chi}$ is the mass of a
+\noindent where $\rho_{0}$ is the local dark matter density, $m_{\chi}$ is the mass of a
 dark matter particle, $m_{\mathrm{A}}$ is the mass of the traget element, $v_{\mathrm{min}}$ is the minium velocity to produce
 a recoil of energy E, $v_{\mathrm{esc}}$ is the escape velocity for WIMPs from the galaxy,
 $f(\boldsymbol{v}, t)$ is the local velocity dispersion, and $\frac{d\sigma_{\chi}}{dE}(E, t)$ is the DM differential

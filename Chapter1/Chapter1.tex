@@ -205,7 +205,7 @@ If the mass of the lens is well known, the luminous portion can be subtracted, y
 be done for strong lenses as shown in \figref{fig:lensing} but is more difficult for weak.
 
 A galaxy collision provides a unique setting to study dark matter.  1E0657-56 (Bullet Cluster) is two galaxies that passed
-through one another $\sim150$ million years ago at $4500_{-800}^{+1100}\ \mathrm{km\ s^{-1}}$ \citeref{Markevitch2004}.  \figref{bullet_cluster} shows the x-ray map in pink and the mass
+through one another $\sim150$ million years ago at $4500_{-800}^{+1100}\ \mathrm{km\ s^{-1}}$ \citeref{Markevitch2004}.  \figref{fig:bullet_cluster} shows the x-ray map in pink and the mass
 distribution from gravitational lensing in blue in the left panel, along with mass contours in the right.  The separation of
 mass from baryonic matter can be explained by incorporating dark matter.  As the galaxies collide intergalactic dust interacts
 and heats up, creating x-rays and slowing the speed at which they pass.  The dark matter does not interact and passes
@@ -304,7 +304,7 @@ The first peak in the spectrum is related to the curvature of the universe, whil
 first and the second peaks provides details about the amount of baryonic matter.  The best fit gives
 $H_{0} = 67.81 \pm 0.92\ \mathrm{km\ s^{-1}\ Mpc^{-1}}$, $\Omega_{\Lambda} = 0.692 \pm 0.012$,
 $\Omega_{b} = 0.0484 \pm 0.0005$, $\Omega_{dm} = 0.258 \pm 0.004$, and
-$\Omega_{k} \equiv 1 - \Omega_{\Lambda} - \Omega_{b} - \Omega_{dm} =  -0.005_{-0.017}^{0.016}$.
+$\Omega_{k} \equiv 1 - \Omega_{\Lambda} - \Omega_{b} - \Omega_{dm} =  -0.005_{-0.017}^{+0.016}$.
 
 
 %[5] Adams, F.C., Freese, K. & Guth, A.H. [1991], Phys. Rev. D43, 965.
@@ -325,8 +325,8 @@ $\Omega_{k} \equiv 1 - \Omega_{\Lambda} - \Omega_{b} - \Omega_{dm} =  -0.005_{-0
 %\endcsname
 
 %====================================
-%\section[Dark Matter Candidates][Dark Matter Candidates]{Dark Matter Candidates}
-%\label{sec:dmcandidates}
+\section[Dark Matter Candidates][Dark Matter Candidates]{Dark Matter Candidates}
+\label{sec:dmcandidates}
 Despite a strong claim for the existence of dark matter, there is no evidence for what its composition may
 be.  A candidate for dark matter must have a lifetime much larger than the age of the universe, be electrically
 neutral, and have a small matter-dark matter cross section.  Of course there may be more than one particle
@@ -369,7 +369,7 @@ particle had a ``freeze-out", when they could no longer transfer freely to other
 $\Lambda$CDM model the density of DM in the universe today is given by
 
 \begin{equation}
-\Omega_{dm}h^{2} = \frac{3 \dot 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
+\Omega_{dm}h^{2} = \frac{3 \times 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
 \end{equation}
 
 \noindent where $h$ is the Hubble Constant divided by 100 and $\langle \sigma_{\mathrm{ann}} v \rangle$ is
@@ -400,9 +400,9 @@ streaming.  In this case the first structures to form would be superclusters, fo
 features.  Observations show that this is not the case; galaxies have been around since before the universe
 was 1 billion years old ($z \sim 6$) and superclusters are just forming today (\citeref{Ryden2003}).
 
-CDM allows the early density perturbations to persist, causing smaller structures to materialize before
-larger, consistent with galaxy surveys between $\sim 1$ Mpc to the horizon.  At scales $< 1$ Mpc and
-$M \sim \mathrm{M_{\odot}}$ there are discrepancies, including under-dense cores for many galaxies that are DM-dominated
+CDM allows the early density perturbations to persist, causing smaller structures to materialize first,
+consistent with galaxy surveys between $\sim 1$ Mpc to the horizon.  At scales $< 1$ Mpc and
+$M \sim 10^{11} \ M_{\odot}$ there are discrepancies, including under-dense cores for many galaxies that are DM-dominated
 and significantly fewer satellite dwarf and small galaxies than predicted (\citeref{Moore1999}, \citeref{Klypin1999}).  Possible
 solutions to the latter may be that dwarf galaxies have not accumulated enough baryonic matter to be visible
 (\citeref{Simon2007}), merged, or been stripped by tidal forces of larger galaxies.
@@ -443,9 +443,10 @@ may come from dark matter annihilation, wherein two DM particles annihilate and 
 gamma rays or other particle-antiparticle pairs.  Alternatively if DM is unstable it may decay into
 standard model particles that can be detected.
 
-Indirect experiments look towards regions where they expect a large number of interactions.  One insight is
-there could be relic DM trapped in the Sun, which would cause an observable flux of high energy
-neutrinos (\citeref{Ellis1988}).  Other theories suspect DM annihilation in the galactic halo would produce
+Indirect experiments look towards regions where they expect a large number of interactions.  The local
+dark matter density is estimated to be 0.2-0.56 GeV/cm$^{3}$ (\citeref{Read2014}) and scientists are observing
+the Sun, where they hope to find an observable flux of high energy neutrinos (\citeref{Ellis1988}).  Other theories suspect
+DM annihilation in the galactic halo would produce
 antiprotons, positrons, and gamma rays that would be detectable on Earth.  Because the the galactic center
 has a large flux of cosmic rays it is difficult to distinguish dark matter from other astrophysical
 sources.  Nearby ($\sim 50$ kpc) dwarf spherical
@@ -466,51 +467,228 @@ Direct detection looks for low energy ($\sim 1-100$ keV) nuclear recoil (a few t
 but they will not be discussed) (\citeref{Kopp2009}).  Given that the majority of dark matter must be
 non-relativistic (\secref{subsec:hot_vs_cold}), we can calculate the differential recoil spectrum as \citeref{Undagoitia2016}
 
-\begin{equation}
+\begin{equation} \label{eq:dr_de}
 \frac{dR}{dE}(E, t) = \frac{\rho_{0}}{m_{\chi}m_{\mathrm{A}}} \int_{v_{\mathrm{min}}}^{v_{\mathrm{esc}}}
 v f(\boldsymbol{v}, t) \frac{d\sigma_{\chi}}{dE}(E, t)\ d^{3}v
 \end{equation}
 
-\noindent where $\rho_{0}$ is the local dark matter density, $m_{\chi}$ is the mass of a
-dark matter particle, $m_{\mathrm{A}}$ is the mass of the traget element, $v_{\mathrm{min}}$ is the minium velocity to produce
-a recoil of energy E, $v_{\mathrm{esc}}$ is the escape velocity for WIMPs from the galaxy,
-$f(\boldsymbol{v}, t)$ is the local velocity dispersion, and $\frac{d\sigma_{\chi}}{dE}(E, t)$ is the DM differential
-cross-section.  Assuming the standard halo model (SHM) as discussed in \secref{subsec:dynamics} we can treat the WIMP
-velocity to follow the Maxwell-Boltzmann distribution.
+\noindent where $\rho_{0}$ is the local dark matter density of 0.2-0.56 GeV/cm$^{3}$ (\secref{subsec:indirect}), $m_{\chi}$ is
+the mass of a
+dark matter particle, $m_{\mathrm{A}}$ is the mass of the target element, $v_{\mathrm{esc}}$ is the escape velocity for WIMPs from the galaxy,
+$f(\boldsymbol{v}, t)$ is the local velocity dispersion, and $\frac{d\sigma_{\chi}}{dE}(E, t)$ is the nucleon-DM differential
+cross-section.  $v$ is the velocity of the DM in the rest frame of the detector.  The minimum velocity produce
+a recoil of energy E is given by
+
+\begin{equation}
+v_{\mathrm{min}} = \sqrt{\frac{m_{\mathrm{A}} E}{2 \mu^{2}}}
+\end{equation}
+
+\noindent where the WIMP-nucleus reduced mass $\mu_{\mathrm{A}} = m_{\mathrm{A}} m_{\chi} /( m_{\mathrm{A}} + m_{\chi})$
+and the velocity for
+WIMPs to overcome the gravity of our galaxy has been measured to be $v_{\mathrm{esc}} = 533_{-41}^{+54}\ \mathrm{km\ s^{-1}}$
+(\citeref{Piffl2014}).
+
+Assuming the standard halo model (SHM)
+Though there has been disagreement as to whether the DM velocity distribution can be described as Maxwell-Boltzmann
+(\citeref{Diemand2004}, \citeref{Kuhlen2009}), we assume that this is the case.  For WIMP searches most experiments
+are looking at spin-independent (SI) or spin-dependent (SD) interactions.  For spin-independent all nucleons
+contribute equally.  For spin-dependent, atoms must have an odd number
+of protons or neutrons since only unpaired nucleons contribute to the search.  The differential cross-section can then be written as
+
+\begin{equation} \label{eq:diff_sigma_si}
+\frac{d \sigma_{\chi}}{dE} = \frac{m_{\mathrm{A}}}{2 \mu_{\mathrm{A}}^{2} v^{2}} \big( \sigma_{0}^{\mathrm{SI}} F_{\mathrm{SI}}^{2}(E) +
+\sigma_{0}^{\mathrm{SD}} F_{\mathrm{SD}}^{2}(E) \big)
+\end{equation}
+
+\noindent where $\sigma_{0}^{\mathrm{SI}}$ and $\sigma_{0}^{\mathrm{SD}}$ is the cross section at zero momentum for
+spin-independent and spin-dependent DM.  $F_{\mathrm{SI}}^{2}(E)$ and $F_{\mathrm{SD}}^{2}(E)$ are the form factors, which
+account for the cross-section decrease as energy increases (\citeref{Lewin1996}).  The SI form factor is
+the Fourier transform of the mass density ground state, and for the parameterization given in \citeref{Helm1956} is given by
+
+\begin{equation}
+F_{\mathrm{SI}} = \frac{3 j_{1}(qr_{\mathrm{n}})}{qr_{\mathrm{n}}} e^{-(qs)^{2}/2}
+\end{equation}
+
+\noindent where $j_1(r_{\mathrm{n}}p)$ is a Bessel function of the first kind, $q = \sqrt{2m_{\mathrm{A}}E}$ is the momentum,
+$r_{\mathrm{n}} = \sqrt{1.2A^{2/3} - 5s^{2}}$, and $s \sim 1$ fm is a measure of the nuclear skin (\citeref{Lewin1996},
+\citeref{Engel1991}).  The cross section is then given by
+
+\begin{equation} \label{eq:sigma_si}
+\sigma_{0}^{\mathrm{SI}} = \sigma_{\mathrm{p}} \frac{\mu_{\mathrm{A}}^{2}}{\mu_{\mathrm{p}}^{2}} \frac{\big[ Z f^{p} +
+(A - Z) f^{n} \big]^{2}}{(f^{p})^{2}}
+\end{equation}
+
+\noindent where $\sigma_{\mathrm{p}}$ is the cross section of a proton Z is the number of protons and $\mu_{\mathrm{p}}$ is
+the WIMP-nucleon reduced mass. $f^{p/n}$ is the coupling strength for protons and neutrons, which are assumed to be
+equivalent (see \citeref{Yaguna2017} for $f^{p} \neq f^{n}$).  Substituting \eqnref{eq:sigma_si} into \eqnref{eq:diff_sigma_si}
+gives a spin-independent cross-section of
+
+\begin{equation}
+\frac{d \sigma_{\chi}}{dE} = \frac{m_{\mathrm{A}} \sigma_{\mathrm{p}}^{\mathrm{SI}}}{2 \mu_{\mathrm{p}}^{2} v^{2}}
+ A^{2} \big| F(E) \big |^{2}
+\end{equation}
+
+\noindent This gives the differential rate as 
+
+\begin{equation}
+\label{eq:dr_de_final}
+\frac{dR}{dE} = \frac{\rho_{0} A^{2} \sigma_{\mathrm{p}}^{\mathrm{SI}}}{2 m_{\mathrm{\chi}} \mu_{\mathrm{p}}^{2}}
+  \big| F(E) \big |^{2} \int_{v_{\mathrm{min}}}^{v_{\mathrm{esc}}}
+\frac{f(v)}{v}\ dv
+\end{equation}
+
+\noindent A direct detection experiment that is sensitive between energies $E_{\mathrm{min}}$ and $E_{\mathrm{max}}$ can count the number
+of observed signals over a time $T$ for their target mass $M$ as
+
+\begin{equation} \label{eq:counts}
+N ( m_{\chi}, \sigma_{p}^{\mathrm{SI}}) = T \times M \times \int_{E_{\mathrm{min}}}^{E_{\mathrm{max}}} \frac{dR}{dE} dE
+\end{equation}
+
+\noindent \eqnref{eq:dr_de_final} and \eqref{eq:counts} state that the sensitivity of an experiment improves linearly with time and
+target mass, but quadratically with $A$.  This makes heavier elements an important consideration when designing a direct detection
+experiment.
+
+%For SD interactions the cross-section is
+
+%\begin{equation}
+%\sigma_{0}^{\mathrm{SD}} = \frac{32}{\pi} \mu_{\mathrm{A}}^{2} G_{\mathrm{F}}^{2} \big[ a_{\mathrm{p}} \langle S^{\mathrm{p}} \rangle +
+%a_{\mathrm{n}} \langle S^{\mathrm{n}} \rangle \big] \frac{J + 1}{J}
+%\end{equation}
+
+%\noindent where $G_{\mathrm{F}}$ is the Ferm coupling constant, $a_{\mathrm{p/n}}$ is the coupling constants, and $J$ is
+%the total nuclear spin.
 
 
 
-The
-density of dark matter to be 0.2-0.56 GeV/cm$^{3}$ (\citeref{Read2014}) 
+
+% https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.28.214 for distribution of WIMP scatters assumed to be same
+% as charge distribution derived from electron and muon scattering 
 
 
-Because current theory
-predicts the DM distribution to be in a halo around the galaxy (\secref{subsec:dynamics}), DM particles should
-be passing through Earth and - if they're WIMPS - interact with the nuclei of standard model atoms.
+%correctly describes DM velocity
+%as discussed in \secref{subsec:dynamics} assume the WIMP velocity the Maxwell-Boltzmann distribution
 
 
 
-The
-energy deposited in such a collision would be manifested as scintillation, excitation (nucleus or electron),
-ionization, or phonons.
+%Because current theory
+%predicts the DM distribution to be in a halo around the galaxy (\secref{subsec:dynamics}), DM particles should
+%be passing through Earth and - if they're WIMPS - interact with the nuclei of standard model atoms.
 
- %====
-\subsubsection{Bubble Chambers} \label{subsubsec:bubbles}
-Superheated liquid detectors, also known as bubble chambers, consist of a liquid held in equilibrium by temperature and
-pressure just below boiling point.  Typical
-mediums are refrigerants such as CF$_{3}$I, C$_{2}$ClF$_{5}$, or C$_{4}$F$_{10}$.  The temperature
-and pressure are maintained such that the refrigerant is just below boiling point, and can be set such that
-the detector is insensitive to electronic interactions and has high rejection of alphas
-(\citeref{Amole2015}).  If Nucleations in the liquid are recorded acoustically or visually, 
-will transfer some
-of its heat, vaporizing a small volume into gas, which is recorded acoustically or visually.  
-a particle interacts with the liquid the heat from its interaction is sufficient to vaporize a small region, thereby creating
-a bubble.
 
-When superheated liquid detectors were first considered for WIMP detectors there were some crucial points
-that needed to be addressed.  The downtime of such a detector was high because the temperature
-For WIMP searches modifications had to be made from the original
-devices including increased stability for near-continuous operation and operation as a counting experiment
-(\citeref{Pullia2014}).
+
+%The
+%energy deposited in such a collision would be manifested as scintillation, excitation (nucleus or electron),
+%ionization, or phonons.
+
+
+
+
+%====================================
+ \section[Direct Detection Experiments][Direct Detection Experiments]{Direct Detection Experiments}
+ A moving particle that interacts with a detector will deposit some of its energy, causing different effects.  Some of the energy
+ will be expelled as heat or propagated through the medium as phonons.  Additionally the atoms in the detector may become
+ excited or ionized, producing scintillation and free electrons.  The different energy channels can be seen in
+ \figref{fig:energy_channels}.  Experiments are probing all three of these observables, with many able to measure two
+ simultaneously.
+ 
+ Direct detection experiments look for some anomalous signal outside of their expected background.  This requires a comprehensive
+ understanding of detector materials and physical location as both can produce radiation that will contaminate any signal.  For the
+ former, major efforts are going into screening outsourced material and limiting the number of radioactive contaminates in
+ production.  For on-site background radiation, shielding has been essential for many experiments who without would have orders
+ of magnitude higher event rates.
+ 
+ Even with a priori screening and effective shielding background events are inevitable.  Identifying a signal may be too
+ difficult if the signal-to-background ratio is small.  In 1986 it was proposed
+ that due to the Earth's relative motion around the Sun there should be a modulation in signal (\citeref{Drukier1986}).  Thus
+ detectors could look for a an annual variation in event rate with a maximum in May, when the Earth's velocity around the
+ Sun aligned with to the Sun's velocity around the galaxy.
+ 
+ 
+ \begin{figure}
+  \label{fig:energy_channels}
+ \end{figure}
+ 
+ 
+ %========
+\subsection{Superheated Liquid Detectors} \label{subsubsec:bubbles}
+Superheated liquid detectors have peak sensitivity to WIMP masses in the tens of GeV range.  Their limits for spin-independent
+WIMPs are not as stringent as dual-phase noble gas detectors (\secref{subsec:dual_phase}), but they have consistently provided the
+strongest constraints in the spin-dependent sector (\citeref{PICO2017}).  Their strong sensitivity comes from using fluorinated
+halocarbons, as $^{19}$F is preferred over other detector materials due to its isotopic abundance of 100\% unpaired proton
+almost always carrying 1/2 spin (\citeref{Ellis1991}, \citeref{PICASSO2012}).
+
+At ambient temperatures and pressures fluorinated halocarbons in a metastable state.  A particle will transfer some of its heat,
+which can result in nucleation and is observed acoustically or optically.  By varying the temperature and pressure settings
+the superheated detectors can reduce $\gamma$ and $\beta$ interactions by a factor of 10$^{9}$, making them a great candidate for
+SD dark matter discovery.
+
+Additional superheated detector collaborations include PICASSO (\citeref{PICASSO2017}), COUPP (\citeref{COUPP2012}),
+PICO (\citeref{PICO2017}), SIMPLE (\citeref{SIMPLE2012}), and MOSCAB (\citeref{MOSCAB2017}).
+
+
+%When superheated liquid detectors were first considered for WIMP detectors there were some crucial points
+%that needed to be addressed.  The downtime of such a detector was high because the temperature
+%For WIMP searches modifications had to be made from the original
+%devices including increased stability for near-continuous operation and operation as a counting experiment
+%(\citeref{Pullia2014}).
+
+ %========
+\subsection{Scintillation Crystals} \label{subsec:crystals}
+Another target for DM searches is highly radiopure scintillating crystals.  Typically sodium iodide (NaI) or cesium iodide (CsI) is chosen,
+with NaI being the most common.  Their sensitivity to SI and SD, low energy threshold, can be run at room temperature,
+and ability to run over long periods of time
+make them an attractive option.  Doping with thallium causes an increase in wavelength providing high detection efficiency and large
+crystal transparency (\citeref{Undagoitia2016}).  However, traces of $^{40}$K, and to a lesser extend $^{238}$U, $^{232}$Th,
+and $^{87}$Rb in the NaI(Tl) crystals contribute a 3 \kevee peak (X-ray/Auger electron from $^{40}\mathrm{K} \rightarrow ^{40}\mathrm{Ar}$)
+and flat background, which has made improved radiopurity an immediate goal (\citeref{Shields2015}).  Additionally, the scintillation
+does not have unique features for different interactions, so particle discrimination is not possible, with the excepting of
+multiple hits rejection.  Thus separating background from signal on and event by even basis is not possible.
+
+The DAMA/NaI and its successor DAMA/LIBRA experiments are located underground at the Laboratori Nazionali del Gran Sassa (LNGS) in
+Italy.  They use NaI(Tl) crystals that are sensitive.  For 14 annual cycles they have observed an annual modulation in the 2-6 \kevee
+range with 9.3$\sigma$ (\citeref{DAMA2013}).  This would give WIMP masses of 10-15 GeV for scattering off Na
+and 60-100 GeV for I.  Because NaI(Tl) cannot distinguish scatterings by different particles there is doubt on if their signal
+is caused by WIMPs, or even dark matter.  Outside of spin-independent, spin-dependent or mixed coupling (\citeref{Bernabei2001})
+and inelastic scattering (\citeref{Bernabei2002}) WIMPs 
+have been considered.  Because DAMA/LIBRA cannot know if the interactions are with nuclei or electrons, alternative dark matter
+electron-coupling models (\citeref{Bernabei2006}) have also been examined.  The results are controversial because other experiments
+have surpassed the DAMA/LIBRA sensitivity and see no signal (\citeref{Aprile2017}).  This has provided motivation to explain the annual modulation via
+standard particles.  Hypotheses include known variation in muon flux due to changing stratosphere temperatures, which exhibits
+annual modulation in similar phase with DAMA/LIBRA's findings (\citeref{Blum2011}), an incomplete understanding of neutron backgrounds
+(\citeref{Ralston2010}), or using a combination of muon-induced neutrons and soloar neutrinos (\citeref{2014Davis}) (though this
+has been received pushback in \citeref{Barbea2014} and \citeref{Klinger2015}).
+
+
+ %========
+\subsection{Germanium Detectors} \label{subsec:germanium}
+High purity germanium (HPGe) detectors measure ionization and offer great energy resolution.  As with scintillation crystals,
+they can reach very low energies ($\sim$0.5 keV), making them a promising candidate for low-mass WIMPs ($\sim 10$ GeV).  It is not
+possible to identify nuclear recoils from electronic, but p-type doped detectors have a dead layer on the surface and can use the
+pulse rise time to reject background surface events.  In 2010 CoGeNT
+announced it observed an annual modulation, similar to DAMA/LIBRA.  After continued observation showed a preference for the modulation
+at 2.2$\sigma$ with a best-fit WIMP mass of $m_{\chi}\sim 8$ GeV (\citeref{CoGeNT2014}).  However, subsequent analyses with different
+background assumptions showed that this preference is well below 1.7$\sigma$ (\citeref{Aalseth2014}, \citeref{Davis2014}).  Another
+experiment, CDEX, uses the same setup as CoGeNT and found contradictory results (\citeref{CDEX2014}), as did CDMS II for NR only
+(\citeref{CDMS2012}).
+
+
+%========
+\subsection{Cryogenic Bolometers} \label{subsec:bolometers}
+Cryogenic bolometers are typically cooled to $10-100$ mK so they can detect phonons, allowing a low energy threshold and
+outstanding energy resolution.  The CDMS collaboration uses silicon and germanium detectors where they measure both phonons
+and ionization.  The ionization-to-phonon ratio is used for discrimination where less than 1 in $10^{6}$ of all ER events
+are rejected in the $10-100$ keV range (\citeref{CDMS2015}).  In 2013 an excess of events was reported with a best-fit
+WIMP mass of 8.6 GeV (\citeref{Agnese2013}).  However, later measurements did not observe such an excess, nor did EDELWEISS,
+which has an analogous setup (\citeref{EDELWEISS2016}).
+
+The CREST-II experiment measured phonons as well as scintillation in CaWO$_{4}$ crystals.  They also observed an excess of
+events at WIMP masses of 11.6 at 4.2$\sigma$ and 25.3 GeV at 4.7$\sigma$ (\citeref{CRESST2012}), but in a later publication
+ruled them out (\citeref{CRESST2015}).
+
+
+ %========
+\subsection{Liquid Noble Gas Detectors} \label{subsec:noble_gas}
+
+
 
 % read https://www.hindawi.com/journals/ahep/2014/387493/ to rewrite above section

@@ -2,21 +2,202 @@
 
 %The following command starts your chapter. If you want different titles used in your ToC and at the top of the page throughout the chapter, you can specify those values here. Since Columbia doesn't want extra information in the headers and footers, the "Top of Page Title" value won't actually appear.
 
-\chapter[Liquid Xenon and Time Projection Chambers][Liquid Xenon Detection]{Liquid Xenon Detection}
+\chapter[Liquid Xenon and Time Projection Chambers][Liquid Xenon and Time Projection Chambers]{Liquid Xenon and Time Projection Chambers}
 \label{chap:liquid_xe}
 
+Liquid xenon (LXe) direct detection experiments have dominated the sensitivity for WIMP masses $\gtrsim 20$ for approximately as
+decade.  Even over liquid argon (LAr) the LXe results have been paved the way to new limits, surpassing on the way only those of other
+LXe experiments.
 
-
+Commercial business, such as steelmaking and coal gasification, rely relatively pure oxygen or nitrogen.  During the separation,
+the small amount of xenon and krypton in the air is extracted into a mixture as a by-product.  A distillation process can uncouple
+the two, leaving highly pure xenon.
 
 %====================================
-\section{Genearl Properties}
+\section{General Properties}
 \label{sec:properties}
+Xenon has an atomic number of 54 with a mean mass of 131.293 g mol$^{-1}$.  Because it is a noble gas it does not easily undergo chemical
+reactions with other elements.  It makes up 87 parts per billion (ppb) of the Earth's atmosphere at a density of
+5.894 g L$^{-1}$.  \tabref{tab:xe_properties} gives some general chemical properties for xenon.
 
+Xenon is the heaviest noble gas that is non-radioactive, with an atomic molar mass of $A = 131.293\ \mathrm{g\ mol^{-1}}$.  The naturally
+occurring Xe isotopes are listed in
+\tabref{tab:xe_isotopes}.  $^{136}Xe$, with a fractional percentage of 8.8573\%,
+has been measured to undergo double beta decay with a half-life of $> 2.4 \times 10^{21}\ \mathrm{yrs}$ via
+$2\nu \beta^{-} \beta^{-}$.  So while technically naturally occurring xenon is radioactive, the process is extremely rare.
+
+Primary and secondary scintillation, which are the measured parameters in a time-projection chamber, occur when a particle interacts
+with a Xe atom.  In the case of a neutron or neutrino scattering from the Xe nucleus a number of nuclear excitations are possible,
+and are listed in \tabref{tab:xe_radioactive}.  The 39.6 and 80.2 keV lines from $^{129}$Xe and $^{131}$Xe are short-lived and typically cannot
+be resolved from the scintillation of the scatter.  However, the 163.9 and 236.14 keV lines from $^{131\mathrm{m}}$Xe and
+$^{129\mathrm{m}}$Xe are long-lived
+enough to become uniformly distributed throughout the detector and can be used as a calibration source and measuring the electron
+lifetime (\chapref{chap:purity}).
+
+Xenon has several advantages that make it a good source for DM detection.  At \$2000 it is scaleable for larger detectors.  Its
+large molar mass provides strong self-shielding, which reduces contamination in the region of interest due to external radiation
+(discussed in \secref{}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe, which gives it sensitivity to
+spin-dependent interactions.  Its light and charge yields (\secref{}) are the highest among noble gases.  Finally, the amount of
+intrinsic radioactivity comes only from 
+
+ 
+\begin{table}[t]
+ \centering
+ \begin{tabular}{cc}
+ \hline
+ Chemical Property & Value \\
+ \hline
+ Atomic Number & 54 \\
+ Molar mass & 131.293 g mol$^{-1}$ \\
+ Melting point (1 atm) & -111.75 $^{\circ}$C \\
+ Boiling point (1 atm) & -108.099 $^{\circ}$C \\
+ Density as gas (0 $^{\circ}$C, 1 atm)  &  5.894 g L$^{-1}$ \\
+ Density as liquid (-108.099 $^{\circ}$C, 1 atm) & 2.942 g cm$^{-3}$ \\
+ Critical point & 16.59 $^{\circ}$C, 57.65 atm, 1.155 g cm$^{-3}$ \\
+ Dielectric constant (liquid) & 1.95 \\
+ Triple point & -111.74 $^{\circ}$C, 0.805 atm, 3.08 g cm$^{-3}$ \\
+ Thermal conductivity & $5.65 \times 10^{-3}\ \mathrm{W\ m^{-1}\ K^{-1}}$ \\
+ Covalent radius & $140 \pm 9$ pm \\
+ \hline
+ \end{tabular}
+ \caption{Chemical properties for Xe}
+\label{tab:xe_properties}
+\end{table}[t]
+
+
+\begin{table}
+ \centering
+ \begin{tabular}{ccccc}
+ \hline
+ Isotope & Natural Abundance [\%] & Spin & Half-life & Decay mode \\
+ \hline
+ $^{124}$Xe & 0.0952 & 0 &  $> 1.6 \times 10^{14}\ \mathrm{yrs}$ & $2\nu \beta^{+} \beta^{+}$ \\
+ $^{126}$Xe & 0.0890 & 0 & $> 4.7-12 \times 10^{25}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{128}$v & 1.9102 & 0 & stable & - \\
+ $^{129}$Xe & 26.4006 & 1/2 & stable & - \\
+ $^{130}$Xe & 4.0710 & 0 & stable & - \\
+ $^{131}$Xe & 21.232 & 3/2 & stable & - \\
+ $^{132}$Xe & 26.9086 & 0 & stable & - \\
+ $^{134}$Xe & 10.4357 & 0 &  $> 5.8 \times 10^{22}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{136}$Xe & 8.8573 & 0 &  $> 2.4 \times 10^{21}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ \hline
+ \end{tabular}
+ \caption{Properties of naturally occurring Xe isotopes.  Decays of $^{124}Xe$, $^{126}Xe$, and $^{134}Xe$ have not been observed
+ but are predicted.  Half-life and decay information is taken from \citeref{Singh2007, Barros2014}.}
+\label{tab:xe_isotoes}
+\end{table}
+
+
+\begin{table}
+ \centering
+ \begin{tabular}{ccc}
+ \hline
+ Isotope & Energy & Half-life \\
+ \hline
+ $^{129}$Xe & 39.6 keV 0.97 ns & \\
+ $^{129\mathrm{m}}$Xe & 236.14 keV & 8.88 d \\
+ $^{131}$Xe & 80.2 keV & 0.48 ns \\
+ $^{131\mathrm{m}}$Xe & 163.9 keV & 11.93 d \\
+ \hline
+ \end{tabular}
+ \caption{Nuclear excited states for naturally occurring xenon in the energy range direct DM searches are sensitive too.}
+ \label{tab:xe_radioactive}
+\end{table}
 
 
 %====================================
 \section{Primary Scintillation}
 \label{sec:primary_scintillation}
+
+Radiation scattering off a xenon atom will produce a prompt or primary scintillation as a result of electronic excitation or recombination
+from ionized electrons that emit photons as they de-excite.  Secondary scintillation results from ionized
+electrons that do not recombine and is measured only in a time-projection
+chamber (TPC).  \secref{sec:secondary_scintillation} discusses secondary scintillation in depth.  In this section
+and the remainder of the chapter I will consider interactions in xenon in the presence of an electric field, unless otherwise
+specified.
+
+When a particle scatters off a Xe atom it can excited or ionize its valence electrons.  Here we refer to excited atoms Xe$^{*}$ as
+excitons.  An ionized electron can then escape or recombine with the Xe$^{+1}$.  Excitons can form with another Xe atom to create
+dimers, Xe$_{2}^{*}$, commonly referred to as excimers.  The processes recombination is shown in \eqnref{eq:recomb}, where $Q$
+represents heat.  It should be stated that the $e^{-}$ in the recombination process is from the same or another ionized atom.  If
+no electric field is , so the primary scintillation will not reflect the true
+
+If
+an electric field is applied some $e^{-}$ will be forced away from the interaction, thereby lowering recombination and the primary
+scintillation.  This effect depends on the strength of the electric field.  However, even if no field is applied there will not be
+100\% recombination as some free $e^{-}$ will escape the electromagnetic pull.
+
+\begin{equation}
+\mathrm{Xe}^{+} + \mathrm{Xe} \rightarrow \mathrm{Xe}_{2}^{+} \\
+\mathrm{Xe}_{2}^{+} + e^{-} \rightarrow \mathrm{Xe}^{**} + \mathrm{Xe}
+\mathrm{Xe}^{**} \rightarrow \mathrm{Xe}^{*} + Q
+\label{eq:recomb}
+\end{equation}
+
+\noindent At this point the Xe$^{*}$ that has been born of the ionization and recombination process is equivalent to one from simply the
+excitation.  At this point they must de-excited via \eqref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
+($^{1}\Sigma$) or triplet ($^{3}\Sigma$) state, and de-excites to the ground state.
+
+\begin{equation}
+\mathrm{Xe}^{*} + \mathrm{Xe} \rightarrow \mathrm{Xe}_{2}^{*}
+\mathrm{Xe}_{2}^{*} \rightarrow 2\mathrm{Xe} + \gamma
+\label{eq:deexcite}
+\end{equation}
+
+\noindent $\gamma$ is the average de-excitation energy that carries a wavelength of 178 nm.  \eqnref{eq:recomb} and \eqnref{eq:deexcite}
+depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in high linear
+energy transfer (LET) with $\alpha$ or fission fragments it has been observed that two excitons may collide and free an electron as
+shown in \eqnref{eq:biexitonic}.
+
+\begin{equation}
+Xe^{*} + Xe^{*} \rightarrow Xe + Xe^{+} + e^{-}
+\label{eq:biexitonic}
+\end{equation}
+
+\noindent This is called biexcitonic quenching because it results in less primary scintillation than expected.
+
+
+The lifetimes for the singlet and triplet
+excimers are $3.1 \pm 0.7$ ns and $24 \pm 1$ ns, respectively (\citeref{Mock2014}).  The single-to-triplet ratios for
+various interaction types are shown in \tabref{tab:singlet_to_triplet}.  An important method for detecting WIMPS is ER-NR
+discrimination, and we see that NR recoils result in a substantially higher fraction of singlet states.  Unfortunately the lifetimes
+are too short to resolve in a TPC, so we cannot use this in our discrimination.
+
+
+\begin{table}[t]
+ \centering
+ \begin{tabular}{cc}
+ \hline
+ Event & Single/Triplet Ratio \\
+ \hline
+ ER (direct excitation from $\gamma$) & $0.17 \pm 0.05$ \\
+ ER (recombination from $\gamma$) & $0.8 \pm 0.2$ \\
+ ER (from $\alpha$) & $2.3 \pm 0.51$
+ NR (from neutron) & $7.8 \pm 1.5$
+ \hline
+ \end{tabular}
+ \caption{Error-weighted average of world data for single/triplet ratio for various scattering cases (\citeref{Mock2014}).}
+\label{tab:singlet_to_triplet}
+\end{table}[t]
+
+
+
+
+
+In addition to improving the likelihood of spin-independent DM-nucleon scattering (\eqnref{eq:dr_de_final}), the average molar mass
+$A = 131.293\ \mathrm{g\ mol^{-1}}$ provides much better stopping power than its noble gas counterparts.  The stopping power $dE/dx$
+is the amount of energy lost per distance, and at low energies can be broken down into electronic and nuclear stopping power.
+
+The electronic stopping power is the energy lost due to electronic excitations as a particle travels through the detector.  
+
+The strong self-shielding of xenon grants a larger fiducial volume (FV) - the physical
+region of search.
+
+
+
+% for stopping power look at A Model of Nuclear Recoil Scintillation Efficiency in Noble Liquids
+%D.-M. Mei a,∗ Z.-B. Yin a,b,1, L.C. Stonehill c, A. Hime c
+
 
 
 
@@ -30,8 +211,7 @@
 \section{Particle Interactions}
 \label{sec:particles}
 
-\section*{New Section}
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
 
+% for kr/xe level
+%E Aprile, J Aalbers, F Agostini, M Alfonsi, F. Amaro, M Anthony, F Arneodo, P Barrow, L Baudis, B. Bauermeister, et al., “Removing krypton from xenon by cryogenic distillation to the ppq level,” The European Physical Journal C, vol. 77, no. 5, p. 275, 2017.

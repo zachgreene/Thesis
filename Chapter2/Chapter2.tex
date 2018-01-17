@@ -2,6 +2,8 @@
 
 %The following command starts your chapter. If you want different titles used in your ToC and at the top of the page throughout the chapter, you can specify those values here. Since Columbia doesn't want extra information in the headers and footers, the "Top of Page Title" value won't actually appear.
 
+\pagestyle{cu}
+\graphicspath{{./Chapter2/Figures/}}
 \chapter[Liquid Xenon and Time Projection Chambers][Liquid Xenon and Time Projection Chambers]{Liquid Xenon and Time Projection Chambers}
 \label{chap:liquid_xe}
 
@@ -105,14 +107,48 @@ intrinsic radioactivity comes only from
 \end{table}
 
 
-%====================================
-\section{Primary Scintillation}
-\label{sec:primary_scintillation}
+A charged particle passing through a medium will lose energy through inelastic collisions with electrons, prompting ionization or excited
+states.  The energy lost per unit
+length is the electronic stopping power and denoted $dE/dx$, which is related to the linear energy transfer (LET).  It depends on the
+type and energy of the particle and properties of the
+medium including density and composition.  A larger electronic stopping power indicates the particle will slow more quickly, thereby
+depositing its energy densely along its trajectory.  This is known as self-shielding, and is an
+important characteristic of a detector.  A larger self-shielding will restrain external radiation from penetrating deep in the detector,
+which allows a larger fiducial volume (FV) for dark matter detection.  Because the stopping power is proportional to the
+density of the medium, LXe is more effective at self-shielding than liquid argon ($1.395\ \mathrm{g\ cm^{-3}}$) and liquid neon
+($1.207\ \mathrm{g\ cm^{-3}}$).
 
+By dividing the stopping power by the medium's density we get a function that is mainly a function of the radiating particle known as
+the mass stopping power.  This is shown for $\alpha$, $e^{-}$, and protons in \figref{fig:mass_stopping_power}.  We see that for the DM
+region of interest ($1--100$ keV) as \electron
+energy increases the stopping power decreases, while for \alpha and protons the reverse is true.  Multiplying by the density of LXe
+$\rho_{\mathrm{LXe}}$ gives an electron stopping power of $0.65--30$ keV/$\mathrm{\mu m}$ for \electron and $\sim 20--900$
+keV$\mathrm{\mu m}$ for \alpha and protons.
+
+We can see that in
+the dark matter search region ($1-100$ keV) $e^{-}$ decrease by a factor of $\sim 10$.  Multiplying by the density of LXe we get the
+electronic stopping power to be $\sim 0.65--30\ \mathrm{keV/\mu m}$.  $\alpha$ decays are typically $> 5.5$ MeV and thus have a stopping
+power of $\sim 600--2000\ \mathrm{keV/\mu m}$.  We see that particle tracks are on the order of $10 \mathrm{\mu m}$, so particles that
+originate at or outside the surface of the detector will never make it into the FV with any reasonable probability.
+
+\begin{figure}[t]
+\includegraphics[width=0.8\textwidth]{MassStoppingPower}
+\caption{Electron mass stopping power for $\alpha$, $e^{-}$, and protons.  (\citeref{Berger2018a})}
+\label{fig:mass_stopping_power}
+\end{figure}[t]
+
+Since a higher stopping power translates to a larger decrease in energy, there will be a higher ionization density in the particle
+track.  This has implications that will be discussed in \secref{}.
+
+
+
+%====================================
+\section{Primary and Secondary Scintillation}
+\label{sec:scintillation}
 Radiation scattering off a xenon atom will produce a prompt or primary scintillation as a result of electronic excitation or recombination
 from ionized electrons that emit photons as they de-excite.  Secondary scintillation results from ionized
 electrons that do not recombine and is measured only in a time-projection
-chamber (TPC).  \secref{sec:secondary_scintillation} discusses secondary scintillation in depth.  In this section
+chamber (TPC).  In this section
 and the remainder of the chapter I will consider interactions in xenon in the presence of an electric field, unless otherwise
 specified.
 
@@ -125,12 +161,12 @@ no electric field is , so the primary scintillation will not reflect the true
 If
 an electric field is applied some $e^{-}$ will be forced away from the interaction, thereby lowering recombination and the primary
 scintillation.  This effect depends on the strength of the electric field.  However, even if no field is applied there will not be
-100\% recombination as some free $e^{-}$ will escape the electromagnetic pull.
+100\% recombination as some of the freed $e^{-}$ will escape the electromagnetic pull.
 
 \begin{equation}
 \mathrm{Xe}^{+} + \mathrm{Xe} \rightarrow \mathrm{Xe}_{2}^{+} \\
-\mathrm{Xe}_{2}^{+} + e^{-} \rightarrow \mathrm{Xe}^{**} + \mathrm{Xe}
-\mathrm{Xe}^{**} \rightarrow \mathrm{Xe}^{*} + Q
+\mathrm{Xe}_{2}^{+} + e^{-} \rightarrow \mathrm{Xe}^{**} + \mathrm{Xe} \\
+\mathrm{Xe}^{**} \rightarrow \mathrm{Xe}^{*} + Q \\
 \label{eq:recomb}
 \end{equation}
 
@@ -139,30 +175,18 @@ excitation.  At this point they must de-excited via \eqref{eq:deexcite}.  Xe$_{2
 ($^{1}\Sigma$) or triplet ($^{3}\Sigma$) state, and de-excites to the ground state.
 
 \begin{equation}
-\mathrm{Xe}^{*} + \mathrm{Xe} \rightarrow \mathrm{Xe}_{2}^{*}
+\mathrm{Xe}^{*} + \mathrm{Xe} \rightarrow \mathrm{Xe}_{2}^{*} \\
 \mathrm{Xe}_{2}^{*} \rightarrow 2\mathrm{Xe} + \gamma
 \label{eq:deexcite}
 \end{equation}
 
-\noindent $\gamma$ is the average de-excitation energy that carries a wavelength of 178 nm.  \eqnref{eq:recomb} and \eqnref{eq:deexcite}
-depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in high linear
-energy transfer (LET) with $\alpha$ or fission fragments it has been observed that two excitons may collide and free an electron as
-shown in \eqnref{eq:biexitonic}.
-
-\begin{equation}
-Xe^{*} + Xe^{*} \rightarrow Xe + Xe^{+} + e^{-}
-\label{eq:biexitonic}
-\end{equation}
-
-\noindent This is called biexcitonic quenching because it results in less primary scintillation than expected.
-
-
-The lifetimes for the singlet and triplet
+\noindent $\gamma$ is the average de-excitation energy that carries a wavelength of 178 nm.  The lifetimes for the singlet and triplet
 excimers are $3.1 \pm 0.7$ ns and $24 \pm 1$ ns, respectively (\citeref{Mock2014}).  The single-to-triplet ratios for
 various interaction types are shown in \tabref{tab:singlet_to_triplet}.  An important method for detecting WIMPS is ER-NR
 discrimination, and we see that NR recoils result in a substantially higher fraction of singlet states.  Unfortunately the lifetimes
-are too short to resolve in a TPC, so we cannot use this in our discrimination.
-
+are too short to resolve in a TPC to be able to use for discrimination.  This makes single-phase LXe detectors
+less desirable than liquid argon (LAr), which has single and triplet states of $< 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
+(\citeref{Heindl2011}).
 
 \begin{table}[t]
  \centering
@@ -172,13 +196,78 @@ are too short to resolve in a TPC, so we cannot use this in our discrimination.
  \hline
  ER (direct excitation from $\gamma$) & $0.17 \pm 0.05$ \\
  ER (recombination from $\gamma$) & $0.8 \pm 0.2$ \\
- ER (from $\alpha$) & $2.3 \pm 0.51$
- NR (from neutron) & $7.8 \pm 1.5$
+ ER (from $\alpha$) & $2.3 \pm 0.51$ \\
+ NR (from neutron) & $7.8 \pm 1.5$ \\
  \hline
  \end{tabular}
  \caption{Error-weighted average of world data for single/triplet ratio for various scattering cases (\citeref{Mock2014}).}
 \label{tab:singlet_to_triplet}
 \end{table}[t]
+
+
+\eqnref{eq:recomb} and \eqnref{eq:deexcite}
+depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in high linear
+energy transfer (LET) with $\alpha$ or fission fragments it has been observed that two excitons may collide and free an electron as
+shown in \eqnref{eq:biexitonic}.
+
+\begin{equation}
+\mathrm{Xe}^{*} + \mathrm{Xe}^{*} \rightarrow \mathrm{Xe} + \mathrm{Xe}^{+} + e^{-}
+\label{eq:biexitonic}
+\end{equation}
+
+\noindent This effect is known as biexcitonic quenching and is expected to be the result of excitons being close enough to
+interact.  In \beta and \gamma interactions the energy track is sufficiently sparse such that the chances of two excitons doing so
+is close to 0.  However, for particles that have a large electron stopping power - such as \alpha or fission fragments - the
+density of energized atoms is enough to provoke this.  Biexcitonic quenching signifies the reduction of observed signal, as what would
+have been two emitted photons is instead a single \electron with energy close to that of an exciton.
+
+Interactions inside a LXe will free \electron with various energies.  The Onsager radius is defined to be the radius between parent
+ion and \electron where the Coulomb energy equals the \electron thermal energy (\citeref{Onsager1938}).  An \electron within this
+radius will be unlikely to
+escape so will recombine with its parent (the probability of escape at the Onsager radius is $e^{-1}$).  On the contrary, an \electron
+with $E_{thermal} > E_{Coulomb}$ will escape - even without the presence of an Electric field.  This results in a decrease of expected
+photons.  It is expected in the absence of a field recombination may occur on timescales $> 1$ ms but this is much larger than the
+observation window.  The thermalization range for LXe is $4000--5000$ nm, far higher than the Onsager radius of $49$ nm
+\citeref{Doke2002}.  If an electric field is applied the \electron that have sufficiently large thermal energy are drifted for
+proportional scintillation, conserving the measurable quantity.
+
+The decrease in scintillation yield for \beta and \gamma is only observed at low LET where the ionization density is relatively low.  The
+lack of neighboring $\mathrm{Xe}^{+}$ limits the probability of recombination with a non-parent ion.  At higher LET the ion density
+is sufficient for essentially 100\% recombination and results in a flat top region as seen in \figref{fig:scintillation_yield}.  This
+effect is not technically quenching because there is no true decrease in photons and electrons.
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{ScintillationYield}
+\caption{Scintillation yield as a function of LET in LXe.  Open circle represent electrons, alpha particles, and fission fragments.  Solid
+circles represent relativistic heavy particles.  Open squares represent gamma-ray.  Solid lines represent various fits to the \beta-\gamma
+data performed in \citeref{Doke2002} and are not discussed here.  Image credit: \citeref{Doke2002}.}
+\label{fig:scintillation_yield}
+\end{figure}
+
+Another source of quenching besides biexcitonic is atomic motion.  As energy is passed to the Xe atom some of this may cause it to move,
+thereby decreasing the photons and electrons produced.  Atomic motion in LXe experiments is not observable, so this will produce quenching
+in the photons and electrons.  Moreover, energized electrons can transfer a very small amount of energy to the motion of the atom, but
+the reverse is not true.  The fraction of energy lost to atomic motion $f_{n}$ is commonly characterized with the Lindhard model
+(\citeref{Lindhard1965})
+
+\begin{equation}
+f_{n} = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
+\end{equation}
+
+\noindent where $k = 0.133Z^{2/3}A{1/2}$, $g(\epsilon) = 3\epsilon^{0.15} + 0.7\epsilon^{0.6} + \epsilon$, and
+$\epsilon = 11.5 E_{R} Z^{-7/3}$ where $Z$ is the atomic number and $A$ is the number of nucleons.  $k$ is proportional to the ratio of
+electronic stopping power to particle velocity of the recoiling Xe atom (\citeref{Sorensen2011}) and $g(\epsilon)$ is proportional
+to the ratio of electronic to nuclear scaling factor (\citeref{NEST2015}).  There has been some debate about
+the coefficient in $k$ and I use the value from \citeref{Lewin1996}.  Studies have shown that energy is only lost to atomic motion for
+nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard} for the relevant energy search region.
+
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{Lindhard}
+\caption{Fraction of nuclear energy passed to atomic motion in xenon using Lindhard's theory (\citeref{Lindhard1965}).}
+\label{fig:lindhard}
+\end{figure}
+
 
 
 
@@ -193,18 +282,32 @@ The electronic stopping power is the energy lost due to electronic excitations a
 The strong self-shielding of xenon grants a larger fiducial volume (FV) - the physical
 region of search.
 
+In a dual-phase LXe detector an electric field is applied to measure the freed electrons.  There is a small gap of gas xenon (GXe)
+that the $e^{-}$ are pulled towards, at which point they are extracted across, producing proportional, or secondary scintillation.
+
 
 
 % for stopping power look at A Model of Nuclear Recoil Scintillation Efficiency in Noble Liquids
 %D.-M. Mei a,∗ Z.-B. Yin a,b,1, L.C. Stonehill c, A. Hime c
 
 
+%Lewin and Smith (1996) - Lindhard factor
+%Doke et al., 2002 - LET
+%Miller et al., 1968 - drift velocity
+
 
 
 %====================================
-\section{Secondary Scintillation}
-\label{sec:secondary_scintillation}
+\section{Electronic Recoils}
+\label{sec:er}
 
+
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
+ \label{fig:phot_atten}
+\end{figure}
 
 
 %====================================

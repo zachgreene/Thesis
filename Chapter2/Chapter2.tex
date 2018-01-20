@@ -40,8 +40,9 @@ Xenon has several advantages that make it a good source for DM detection.  At \$
 large molar mass provides strong self-shielding, which reduces contamination in the region of interest due to external radiation
 (discussed in \secref{}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe, which gives it sensitivity to
 spin-dependent interactions.  Its light and charge yields (\secref{}) are the highest among noble gases.  Finally, the amount of
-intrinsic radioactivity comes only from 
+intrinsic radioactivity comes only from trace amounts of radioactive noble gases that are present.
 
+% use Fig. 1 from Aprile2009 for phase diagram
  
 \begin{table}[t]
  \centering
@@ -267,11 +268,106 @@ nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard}
 \label{fig:lindhard}
 \end{figure}
 
-Photons can interact with atoms via Compton scattering pair production, or photoelectric absorption.  In Compton scattering the photon
-recoils off of an \electron, transfer a portion of its energy.  If the angle of the scatter is known the change in energy can be
-determined.
+Photons can interact with atoms via Compton scattering pair production, or photoelectric absorption, as shown in
+\figref{fig:phot_atten}.  In Compton scattering the photon
+recoils off of an \electron, transferring a portion of its energy.  Nuclear Compton scattering is possible but much rarer.  If the
+angle of the scatter is known the change in energy can be determined.
+
+Pair production is when a high-energy photon produces a particle-antiparticle pair.  Typically this refers to a photon passing sufficiently
+near to an atom's nucleus creating an electron-positon pair.  The proximity of the nucleus is required to conserve momentum so it
+recoils slightly as well.  The photon must have an energy of at least twice the mass of the electron $m_{e}$, or 1.022 MeV.  Pair production
+also occurs for a photon in the presence of an atomic electron but is less probable and requires an energy of at least $4m_{e}$.  This
+is known as triplet production since the recoiling electron will create a track in addition to the electron-positon pair
+(\citeref{Hubbell2006}).  At high energies pair production becomes the dominant interaction for photons and matter.
+
+Photoelectric absorption is when an electron absorbs the energy of the photon and is freed from its electron shell.  In this case the
+photon disappears entirely and the kinetic energy of the electron is equal to the photon's energy minus the electron binding energy.  This
+is a useful tool for calibrating small detectors with mono-energetic \gammarays such as \cesium (661.7 keV), and \cobaltsixty
+(1.1732 and 1.3325 MeV).  For larger detectors however the self-shielding prevents even the higher \gammarays from reaching the fiducial
+volume, so external sources cannot be used for calibration.  Photoelectric absorption is the dominant interaction in the WIMP detection
+energy region of interest, as shown in \figref{fig:phot_atten}.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
+ \label{fig:phot_atten}
+\end{figure}
+
+In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
+to the field at drift velocity $v_{d}$.  For $E \lesim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \ltsim E \ltsim 10^{3--4}$
+\vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
+
+\begin{table}
+ \centering
+ \begin{tabular}{cc}
+ \hline
+ $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
+ \hline
+ $\ltsim 100$ & \vd$\propto E$
+ $\sim 100-10^{3--4}$ & \vd$\propto E^{1/2}$
+ $\gtrsim 10^{4}$ & \vd$\sim 3$
+ \hline
+ \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{Fig. 6 from Miller1968}
+\label{fig:drift_velocity}
+\end{figure}
+
+Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
+material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
+lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqref{eq:imp_attach}.
+
+\begin{equation}
+e^{-} + S \rightarrow S^{-}
+\label{eq:imp_attach}
+\end{equation}
+
+\noindent The amount of \electron captured is dependent on the time in the LXe.  Thus an advantage of larger \efields is a larger
+\vd (up to a point) and thus less time in the liquid.  Doping LXe with organic materials such as butane can increase \vd at higher
+\efields but they are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  By setting the rate at which
+electrons are absorbed by impurities $dq/dt = -qk_{S}S$ where $S$ is the impurity concentration and $k_{S}$ is the attachment rate
+constant we find
+
+\begin{equation}
+q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
+\label{eq:lifetime_equation}
+\end{equation}
+
+\noindent where $\tau_{e} = (k_{S}S)^{-1}$ and is known as the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
+\otwo,
+N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
+decerase.  Typically impurity concentration is given in \otwo-equivalent values - that is, the concentration of \otwo if it was solely
+responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
+\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in \secref{}.
 
 
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{AttachmentRate}
+\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
+larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
+\label{fig:attachment_rate}
+\end{figure}
+
+In a TPC a cathode at the bottom of the detector applies an electric field in the LXe.  The \electron drift towards the top where a
+grounded gate rests a few millimeters below the LXe surface.  Directly above the gate by a couple centimeters is the anode, which
+applies a strong electric field that extracts the electrons into the gas xenon (GXe).  An extracted electron will ionize and excite
+GXe atoms, whose freed electrons will do so as well in what is known as electroluminescence.  The number of ionized and excited atoms
+is proportional to the number of \electron extracted, hence it is also known as proportional scintillation.  The number of photons
+$N_{\mathrm{ph}}$ produced traveling a distance $z$ is
+
+\begin{equation}
+\frac{dN_{mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
+\label{eq:electronlum}
+\end{equation}
+
+\noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $E_{g}$ and $P$ are the
+GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
+
+%====================================
+\section{Electronic Recoils}
+\label{sec:er}
 
 
 In addition to improving the likelihood of spin-independent DM-nucleon scattering (\eqnref{eq:dr_de_final}), the average molar mass
@@ -298,17 +394,7 @@ that the $e^{-}$ are pulled towards, at which point they are extracted across, p
 
 
 
-%====================================
-\section{Electronic Recoils}
-\label{sec:er}
 
-
-
-\begin{figure}
- \centering
- \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
- \label{fig:phot_atten}
-\end{figure}
 
 
 %====================================

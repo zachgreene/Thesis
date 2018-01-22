@@ -216,20 +216,79 @@ shown in \eqnref{eq:biexitonic}.
 \label{eq:biexitonic}
 \end{equation}
 
-\noindent This effect is known as biexcitonic quenching and is expected to be the result of excitons being close enough to
+\noindent This effect is known as biexcitonic or Penning quenching and is expected to be the result of excitons being close enough to
 interact.  In \beta and \gamma interactions the energy track is sufficiently sparse such that the chances of two excitons doing so
 is close to 0.  However, for particles that have a large electron stopping power - such as \alpha or fission fragments - the
 density of energized atoms is enough to provoke this.  Biexcitonic quenching signifies the reduction of observed signal, as what would
 have been two emitted photons is instead a single \electron with energy close to that of an exciton.
 
-Interactions inside a LXe will free \electron with various energies.  The Onsager radius is defined to be the radius between parent
+Interactions with LXe will free \electron with various energies.  An earlier theory by Onsager addressed this by defining what is known
+as the Onsager radius, or the distance between parent
 ion and \electron where the Coulomb energy equals the \electron thermal energy (\citeref{Onsager1938}).  An \electron within this
 radius will be unlikely to
 escape so will recombine with its parent (the probability of escape at the Onsager radius is $e^{-1}$).  On the contrary, an \electron
 with $E_{thermal} > E_{Coulomb}$ will escape - even without the presence of an Electric field.  This results in a decrease of expected
 photons.  It is expected in the absence of a field recombination may occur on timescales $> 1$ ms but this is much larger than the
 observation window.  The thermalization range for LXe is $4000--5000$ nm, far higher than the Onsager radius of $49$ nm
-\citeref{Doke2002}.  If an electric field is applied the \electron that have sufficiently large thermal energy are drifted for
+\citeref{Doke2002}.
+
+A shortcoming of the Onsager radius is that it treats the interactions between Xe$^{+}$ and \electron as strictly Coulomb.  However,
+the high coefficient of polarization of LXe produces dipole moments in the ions, causing the electric field to fall faster than
+$1/r$.  In fact, the potential is steep enough that it travels via phonon-assisted tunneling (\citeref{Thomas1987}), forcing its
+mobility to be significantly smaller than that of the electrons.
+
+A separate model was subsequently proposed that used diffusion but with a term that represents the rate of recombination depends on
+the density of \electron and ions independently, first proposed in \citeref{Jaffe1913}.  It is governed by
+
+\begin{equation}
+\frac{\partial N_{+}}{\partial t} = -u_{+} \mathbf{E} \cdot \del N_{+} + d_{+} \del^{2} N_{+} - \alpha N_{+} N_{-}
+\label{eq:diff_plus}
+\end{equation}
+
+\begin{equation}
+\frac{\partial N_{-}}{\partial t} = u_{-} \mathbf{E} \cdot \del N_{-} + d_{-} \del^{2} N_{+} - \alpha N_{+} N_{-}
+\label{eq:diff_minus}
+\end{equation}
+
+\noindent where $N_{\pm}$ are the ion ($+$) or electron ($-$) charge distributions, $\mu_{\pm}$ are the electron mobilities, $d_{\pm}$
+and $\alpha$
+are the coefficients for diffusion and recombination, and $\mathbf{E}$ is the electric field.  The terms on the right sides of
+\eqref{eq:diff_plus} and \eqref{eq:diff_minus} correspond to the diffusion, drift, and recombination, going from left to right.  The
+diffusion in xenon is small and can be ignored.  Likewise the ion mobility $\mu_{+}$ is several orders of magnitude smaller than that
+of the electron and is disregarded.  Thus \eqref{eq:diff_plus} and \eqref{eq:diff_minus} can be simplified to
+
+\begin{equation}
+\frac{\partial N_{+}}{\partial t} = - \alpha N_{+} N_{-}
+\label{eq:diff_simple_plus}
+\end{equation}
+
+\begin{equation}
+\frac{\partial N_{-}}{\partial t} = u_{-} \mathbf{E} \cdot \frac{\partial d_{-}}{\partial z} - \alpha N_{+} N_{-}
+\label{eq:diff_simple_minus}
+\end{equation}
+
+\noindent which can be solved exactly.  After some integration and algebra, which is not shown here but is detailed in
+\citeref{Thomas1987}, the recombination fraction can be solved as
+
+\begin{equation}
+r = 1 - \frac{1}{\xi} ln(1 + \xi),\ \ \xi = \frac{N_{i} \alpha}{4 a^{2} u_{-} E}
+\label{eq:ti_recomb}
+\end{equation}
+
+\noindent where a box of dimension $a$ contains charge quantity $N_{i}$ uniformly spread.  This is known as the Thomas-Imel box model,
+and has been successful at explaining recombination measurements as shown in \figref{fig:ti_recomb}.  Zero recombination corresponds to
+$\xi \rightarrow 0$ and total is given by $\xi \rightarrow \infty$.  Note that $E = 0$ equates to total recombination, though as
+mentioned above, this may occur outside of the typical observation window.
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{TIRecombination}
+\caption{Measurements of charge collected $\q \propt 1 - r$ for LAr and LXe vs. $E$.  Squares correspond to LXe and were measured with
+$\xi E = 0.15\ \mathrm{kV\ cm^{-1}}$.  Triangles and circles are LAr and were measured at $\xi E = 0.84\ \mathrm{kV\ cm^{-1}}$.  Curves
+are best fit for box model (\citeref{Thomas1987}).}
+\label{fig:ti_recomb}
+\end{figure}
+
+If an electric field is applied the \electron that have sufficiently large thermal energy are drifted for
 proportional scintillation, conserving the measurable quantity.
 
 The decrease in scintillation yield for \beta and \gamma is only observed at low LET where the ionization density is relatively low.  The
@@ -315,6 +374,10 @@ to the field at drift velocity $v_{d}$.  For $E \lesim 100\ \mathrm{V\ cm^{-1}}$
 \label{fig:drift_velocity}
 \end{figure}
 
+As the electron cloud drifts it will diffuse both longitudinally (in the direction of $E$) and transversely (perpendicular to $E$).  The
+diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
+be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/$\vd is the drift time and $d$ is the drift distance.
+
 Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
 material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
 lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqref{eq:imp_attach}.
@@ -368,6 +431,25 @@ GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
 %====================================
 \section{Electronic Recoils}
 \label{sec:er}
+
+An electronic recoil signifies that the interaction occurred with the electron shell of an atom and the particle.  Because no energy
+is lost to atomic motion the number of quanta produced is \nquant$ = $\energyer$ / W$ where \energyer is the electronic recoil energy
+and $W = 13.2\ \mathrm{eV}$ (\citeref{Dahl2009}) is the energy needed to produce a single quanta.  This can be broken up into
+
+\begin{equation}
+N_{q} = N_{\mathrm{ex}} + N_{\mathrm{i}}
+\label{eq:quanta}
+\end{equation}
+
+\noindent where \nex and \nion is the number of excitons and ions, respectively.  Rearranging we can find the probability that a
+given quanta is an ion
+
+\begin{equation}
+p_{\mathrm{ion}} = \frac{1}{1 + \frac{\nex}{\nion}}
+\end{equation}
+
+\noindent with $p_{\mathrm{ex}} = 1 - p_{\mathrm{ion}}$.  The ratio \nex$/$\nion has been calculated to be 0.06 (\citeref{Takahashi1975})
+but measurements disagree (\citeref{Doke2002, Aprile2007}).  Currently \nex$/$\nion is taken to be between 0.13-0.2.
 
 
 In addition to improving the likelihood of spin-independent DM-nucleon scattering (\eqnref{eq:dr_de_final}), the average molar mass

@@ -49,7 +49,7 @@ ax.plot(
 
 ax.plot(
 	df.PhotonEnergy,
-	df.ElectronPrd,
+	df.ElectronPrd + df.NuclearPr,
 #	color='fuchsia',
 	color='b',
 	linewidth=3,

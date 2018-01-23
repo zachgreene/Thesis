@@ -327,31 +327,6 @@ nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard}
 \label{fig:lindhard}
 \end{figure}
 
-Photons can interact with atoms via Compton scattering pair production, or photoelectric absorption, as shown in
-\figref{fig:phot_atten}.  In Compton scattering the photon
-recoils off of an \electron, transferring a portion of its energy.  Nuclear Compton scattering is possible but much rarer.  If the
-angle of the scatter is known the change in energy can be determined.
-
-Pair production is when a high-energy photon produces a particle-antiparticle pair.  Typically this refers to a photon passing sufficiently
-near to an atom's nucleus creating an electron-positon pair.  The proximity of the nucleus is required to conserve momentum so it
-recoils slightly as well.  The photon must have an energy of at least twice the mass of the electron $m_{e}$, or 1.022 MeV.  Pair production
-also occurs for a photon in the presence of an atomic electron but is less probable and requires an energy of at least $4m_{e}$.  This
-is known as triplet production since the recoiling electron will create a track in addition to the electron-positon pair
-(\citeref{Hubbell2006}).  At high energies pair production becomes the dominant interaction for photons and matter.
-
-Photoelectric absorption is when an electron absorbs the energy of the photon and is freed from its electron shell.  In this case the
-photon disappears entirely and the kinetic energy of the electron is equal to the photon's energy minus the electron binding energy.  This
-is a useful tool for calibrating small detectors with mono-energetic \gammarays such as \cesium (661.7 keV), and \cobaltsixty
-(1.1732 and 1.3325 MeV).  For larger detectors however the self-shielding prevents even the higher \gammarays from reaching the fiducial
-volume, so external sources cannot be used for calibration.  Photoelectric absorption is the dominant interaction in the WIMP detection
-energy region of interest, as shown in \figref{fig:phot_atten}.
-
-\begin{figure}
- \centering
- \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
- \label{fig:phot_atten}
-\end{figure}
-
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
 to the field at drift velocity $v_{d}$.  For $E \lesim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \ltsim E \ltsim 10^{3--4}$
 \vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
@@ -428,10 +403,100 @@ $N_{\mathrm{ph}}$ produced traveling a distance $z$ is
 \noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $E_{g}$ and $P$ are the
 GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
 
+
+
+%====================================
+\sec{Interactions}
+\label{sec:interactions}
+Because WIMP searches usually expect an interaction with an atom's nucleus, electronic recoils are not investigated for possible
+signal.  Instead they play two major roles - the first is for calibrating the detector.  For larger detectors external sources are
+not efficient since the the self-shielding of Xe makes it nearly impossible for radiation to penetrate the interior.  Thus internal
+sources with short half-lifes such as \krypton_meta and \radon_cal are used.  The second role ER play is background to the DM
+search.  Detector materials have radioactive elements that decay inside the detector, and long-lived intrinsic sources such as
+the inevitable residual \krypton and \radon that passed the Xe distillation process.  The latter is much more concerning as events from
+detectors materials cannot breach the fiducial volume, but intrinsic sources are uniformly distributed and must be understood.
+
+\subsec{Photons}
+\label{subsec:photons}
+Photons produce electron recoils as they interact with \electron via Compton scattering pair production, or photoelectric absorption
+as shown in \figref{fig:phot_atten}.  In Compton scattering the photon
+recoils off of an \electron, transferring a portion of its energy.  Nuclear Compton scattering is possible but much rarer.  If the
+angle of the scatter is known the change in energy can be determined.
+
+Pair production is when a high-energy photon produces a particle-antiparticle pair.  Typically this refers to a photon passing sufficiently
+near to an atom's nucleus creating an electron-positon pair.  The proximity of the nucleus is required to conserve momentum so it
+recoils slightly as well.  The photon must have an energy of at least twice the mass of the electron $m_{e}$, or 1.022 MeV.  Pair production
+also occurs for a photon in the presence of an atomic electron but is less probable and requires an energy of at least $4m_{e}$.  This
+is known as triplet production since the recoiling electron will create a track in addition to the electron-positon pair
+(\citeref{Hubbell2006}).  At high energies pair production becomes the dominant interaction for photons and matter.
+
+Photoelectric absorption is when an electron absorbs the energy of the photon and is freed from its electron shell.  In this case the
+photon disappears entirely and the kinetic energy of the electron is equal to the photon's energy minus the electron binding energy.  This
+is a useful tool for calibrating small detectors with mono-energetic \gammarays from elements such as \cesium (661.7 keV) and \cobaltsixty
+(1.1732 and 1.3325 MeV).  For larger detectors however the self-shielding prevents even the higher \gammarays from reaching the fiducial
+volume, so external sources cannot be used for calibration.  Photoelectric absorption is the dominant interaction in the WIMP detection
+energy region of interest, as shown in \figref{fig:phot_atten}.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
+ \label{fig:phot_atten}
+\end{figure}
+
+
+\subsec{$\beta$-Decays}
+\label{subsec:beta}
+\beta decays are the emission of an electron-antineutrino (positron-neutrino) from a neutron (proton).  As with photons, they interact
+with the \electron shell and thereby produce electronic recoils.  Because the neutrino carries
+some momentum, the energy spectrum of the \electron is not mono-energetic, which makes it harder to identify the origin.  In Xe
+experiments \betadecays contribute the most contamination in the search region for this reason and that they occur roughly uniformly
+throughout the detector.  \krypton decays via
+
+\begin{equation}
+\ce{^{85}Kr \rightarrow \ce{^{85}Rb} + e^{-} + \overline{\nu_{e}}
+\end{equation}
+
+\noindent with an energy of 687 keV with 99.53\% and 173 keV followed by a 514 \gamma with 0.47\%.  These low-energy \betadecays
+contaminate the search region, and a half-life of 10.72 years ensures \krypton will be present throughout the lifetime of the
+experiment.
+
+\radon presents a similar problem.  As a daughter of the \uranium decay chain it emanates from the detector materials and distributes
+uniformly throughout the detector.  Its two most dangerous daughters or \leadtwofourteen and \bismuthtwofourteen, each of which
+undergo \betadecay.  \bismuthtwofourteen is easily identifiable because its daughter \poloniumtwofourteen has a half-life of
+$160\ mathrm{\mu s}$ and undergoes \alphadecay.  Thus a cut on coincidence can remove such events.  \leadtwofourteen is more
+dangerous, as it has no coincidence cut with its parent or daughter.  Its end-point energy when it decays to the ground state of
+\bismuthtwofourteen is 1019 keV, which contaminates the region of interest.  More concerning is a decay to higher energy levels, which
+if near the border of the fiducial volume has a risk of the subsequent \gammaray exiting undetected.  In XENON100 recoiling daughters of
+the \radon decay chain were observed to drift towards the cathode, possibly the result of becoming positively ionized
+(\citeref{Weber2013}), lowering the number of \betadecays in the region of interest.
+
+
+\subsec{Neutrinos}
+\label{subsec:neutrinos}
+Neutrinos impact both electronic and nuclear recoil spectra at low energies.  Solar neutrinos can elastically scatter off \electron
+producing an ER.  \textit{pp} neutrinos make up 92\% of these scatters, with \ce{^{7}Be} making 7\%, and all other sources contributing
+$< 1$\% (\citeref{Aprile2016}).
+
+Coherent neutrino-nucleus scattering produces nuclear recoils.  The majority of the interactions in the ROI come from Solar \ce{^{8}Be}
+and \textit{hep} neutrinos, as those at higher energy from sources such as diffuse supernovae and the atmosphere have a significantly
+lower rate.
+
+Neutrinos are an irreducible background that affects our detector uniformly.
+
+
+\subsec{Neutrons}
+\label{subsec:neutrons}
+Neutrons have a mean free path on the order of tens of cm, which makes them much more difficult to shield than $\gamma$, $\beta$, or
+$\alpha$ scatters.  A neutron scatter is indistinguishable from an expected WIMP scatter, which mandates the neutron background is
+very well understood.  Typically neutrons come from decays of detector materials via spontaneous fission, or muons passing through the
+rock above the detector.
+
+
+
+
 %====================================
 \section{Electronic Recoils}
 \label{sec:er}
-
 An electronic recoil signifies that the interaction occurred with the electron shell of an atom and the particle.  Because no energy
 is lost to atomic motion the number of quanta produced is \nquant$ = $\energyer$ / W$ where \energyer is the electronic recoil energy
 and $W = 13.2\ \mathrm{eV}$ (\citeref{Dahl2009}) is the energy needed to produce a single quanta.  This can be broken up into
@@ -449,7 +514,30 @@ p_{\mathrm{ion}} = \frac{1}{1 + \frac{\nex}{\nion}}
 \end{equation}
 
 \noindent with $p_{\mathrm{ex}} = 1 - p_{\mathrm{ion}}$.  The ratio \nex$/$\nion has been calculated to be 0.06 (\citeref{Takahashi1975})
-but measurements disagree (\citeref{Doke2002, Aprile2007}).  Currently \nex$/$\nion is taken to be between 0.13-0.2.
+but measurements disagree (\citeref{Doke2002, Aprile2007}).  Currently \nex$/$\nion is taken to be between 0.13-0.2.  The number of
+photons and electrons after recombination can be found as
+
+\begin{equation}
+N_{\mathrm{phot}} = N_{\mathrm{ex}} + rN_{\mathrm{i}} \\
+N_{\mathrm{e}} = (1 - r)N_{\mathrm{i}}
+\end{equation}
+
+\noindent where \nphot is the number of photons produced and \nelect is the number of \electron that do not recombine and are extracted as
+proportional scintillation.
+
+Although noble gas detectors allow ER-NR discrimination, the two regions are near one another and have overlap where an event could
+be considered with reasonable probability to be either.  In the DM search only the region of NR-space where the NR likelihood is
+significantly more probable is used.  To minimize the risk of ER, or background events from occurring in the signal region it is
+critical to reduce the background as much as possible, and with the ton-scale era of DM detectors underway much effort is being put into
+material screening and enhanced xenon distillation.
+
+
+%====================================
+\section{Nuclear Recoils}
+\label{sec:nr}
+Although the vast majority of background comes from electronic recoils, nuclear recoils are more dangerous because they replicate
+WIMP interactions.  Therefore the NR background must be well-modeled to avoid mistaking a background event for a WIMP or vice
+versa.
 
 
 In addition to improving the likelihood of spin-independent DM-nucleon scattering (\eqnref{eq:dr_de_final}), the average molar mass

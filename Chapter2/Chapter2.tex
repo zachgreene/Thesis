@@ -108,39 +108,6 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
 \end{table}
 
 
-A charged particle passing through a medium will lose energy through inelastic collisions with electrons, prompting ionization or excited
-states.  The energy lost per unit
-length is the electronic stopping power and denoted $dE/dx$, which is related to the linear energy transfer (LET).  It depends on the
-type and energy of the particle and properties of the
-medium including density and composition.  A larger electronic stopping power indicates the particle will slow more quickly, thereby
-depositing its energy densely along its trajectory.  This is known as self-shielding, and is an
-important characteristic of a detector.  A larger self-shielding will restrain external radiation from penetrating deep in the detector,
-which allows a larger fiducial volume (FV) for dark matter detection.  Because the stopping power is proportional to the
-density of the medium, LXe is more effective at self-shielding than liquid argon ($1.395\ \mathrm{g\ cm^{-3}}$) and liquid neon
-($1.207\ \mathrm{g\ cm^{-3}}$).
-
-By dividing the stopping power by the medium's density we get a function that is mainly a function of the radiating particle known as
-the mass stopping power.  This is shown for $\alpha$, $e^{-}$, and protons in \figref{fig:mass_stopping_power}.  We see that for the DM
-region of interest ($1--100$ keV) as \electron
-energy increases the stopping power decreases, while for \alpha and protons the reverse is true.  Multiplying by the density of LXe
-$\rho_{\mathrm{LXe}}$ gives an electron stopping power of $0.65--30$ keV/$\mathrm{\mu m}$ for \electron and $\sim 20--900$
-keV$\mathrm{\mu m}$ for \alpha and protons.
-
-We can see that in
-the dark matter search region ($1-100$ keV) $e^{-}$ decrease by a factor of $\sim 10$.  Multiplying by the density of LXe we get the
-electronic stopping power to be $\sim 0.65--30\ \mathrm{keV/\mu m}$.  $\alpha$ decays are typically $> 5.5$ MeV and thus have a stopping
-power of $\sim 600--2000\ \mathrm{keV/\mu m}$.  We see that particle tracks are on the order of $10 \mathrm{\mu m}$, so particles that
-originate at or outside the surface of the detector will never make it into the FV with any reasonable probability.
-
-\begin{figure}[t]
-\includegraphics[width=0.8\textwidth]{MassStoppingPower}
-\caption{Electron mass stopping power for $\alpha$, $e^{-}$, and protons.  (\citeref{Berger2018a})}
-\label{fig:mass_stopping_power}
-\end{figure}[t]
-
-Since a higher stopping power translates to a larger decrease in energy, there will be a higher ionization density in the particle
-track.  This has implications that will be discussed in \secref{}.
-
 
 
 %====================================
@@ -216,9 +183,9 @@ shown in \eqnref{eq:biexitonic}.
 \label{eq:biexitonic}
 \end{equation}
 
-\noindent This effect is known as biexcitonic or Penning quenching and is expected to be the result of excitons being close enough to
-interact.  In \beta and \gamma interactions the energy track is sufficiently sparse such that the chances of two excitons doing so
-is close to 0.  However, for particles that have a large electron stopping power - such as \alpha or fission fragments - the
+\noindent This effect is known as biexcitonic quenching and is expected to be the result of excitons being close enough to
+interact.  In $\beta$ and $\gamma$ interactions the energy track is sufficiently sparse such that the chances of two excitons doing so
+is close to 0.  However, for particles that have a large electron stopping power - such as $\alpha$ or fission fragments - the
 density of energized atoms is enough to provoke this.  Biexcitonic quenching signifies the reduction of observed signal, as what would
 have been two emitted photons is instead a single \electron with energy close to that of an exciton.
 
@@ -226,11 +193,11 @@ Interactions with LXe will free \electron with various energies.  An earlier the
 as the Onsager radius, or the distance between parent
 ion and \electron where the Coulomb energy equals the \electron thermal energy (\citeref{Onsager1938}).  An \electron within this
 radius will be unlikely to
-escape so will recombine with its parent (the probability of escape at the Onsager radius is $e^{-1}$).  On the contrary, an \electron
-with $E_{thermal} > E_{Coulomb}$ will escape - even without the presence of an Electric field.  This results in a decrease of expected
+escape so will recombine with its parent (the probability of escape at the Onsager radius is e$^{-1}$).  On the contrary, an \electron
+with $E_{\mathrm{thermal}} > E_{\mathrm{Coulomb}}$ will escape - even without the presence of an Electric field.  This results in a decrease of expected
 photons.  It is expected in the absence of a field recombination may occur on timescales $> 1$ ms but this is much larger than the
-observation window.  The thermalization range for LXe is $4000--5000$ nm, far higher than the Onsager radius of $49$ nm
-\citeref{Doke2002}.
+observation window.  The thermalization range for LXe is $4000-5000$ nm, far higher than the Onsager radius of $49$ nm
+(\citeref{Doke2002}).
 
 A shortcoming of the Onsager radius is that it treats the interactions between Xe$^{+}$ and \electron as strictly Coulomb.  However,
 the high coefficient of polarization of LXe produces dipole moments in the ions, causing the electric field to fall faster than
@@ -241,12 +208,12 @@ A separate model was subsequently proposed that used diffusion but with a term t
 the density of \electron and ions independently, first proposed in \citeref{Jaffe1913}.  It is governed by
 
 \begin{equation}
-\frac{\partial N_{+}}{\partial t} = -u_{+} \mathbf{E} \cdot \del N_{+} + d_{+} \del^{2} N_{+} - \alpha N_{+} N_{-}
+\frac{\partial N_{+}}{\partial t} = -u_{+} \mathbf{E} \cdot \nabla N_{+} + d_{+} \nabla^{2} N_{+} - \alpha N_{+} N_{-}
 \label{eq:diff_plus}
 \end{equation}
 
 \begin{equation}
-\frac{\partial N_{-}}{\partial t} = u_{-} \mathbf{E} \cdot \del N_{-} + d_{-} \del^{2} N_{+} - \alpha N_{+} N_{-}
+\frac{\partial N_{-}}{\partial t} = u_{-} \mathbf{E} \cdot \nabla N_{-} + d_{-} \nabla^{2} N_{+} - \alpha N_{+} N_{-}
 \label{eq:diff_minus}
 \end{equation}
 
@@ -263,7 +230,7 @@ of the electron and is disregarded.  Thus \eqref{eq:diff_plus} and \eqref{eq:dif
 \end{equation}
 
 \begin{equation}
-\frac{\partial N_{-}}{\partial t} = u_{-} \mathbf{E} \cdot \frac{\partial d_{-}}{\partial z} - \alpha N_{+} N_{-}
+\frac{\partial N_{-}}{\partial t} = u_{-} E \frac{\partial d_{-}}{\partial z} - \alpha N_{+} N_{-}
 \label{eq:diff_simple_minus}
 \end{equation}
 
@@ -271,7 +238,7 @@ of the electron and is disregarded.  Thus \eqref{eq:diff_plus} and \eqref{eq:dif
 \citeref{Thomas1987}, the recombination fraction can be solved as
 
 \begin{equation}
-r = 1 - \frac{1}{\xi} ln(1 + \xi),\ \ \xi = \frac{N_{i} \alpha}{4 a^{2} u_{-} E}
+r = 1 - \frac{1}{\xi} \mathrm{ln}(1 + \xi),\ \ \xi = \frac{N_{i} \alpha}{4 a^{2} u_{-} E}
 \label{eq:ti_recomb}
 \end{equation}
 
@@ -282,7 +249,7 @@ mentioned above, this may occur outside of the typical observation window.
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{TIRecombination}
-\caption{Measurements of charge collected $\q \propt 1 - r$ for LAr and LXe vs. $E$.  Squares correspond to LXe and were measured with
+\caption{Measurements of charge collected $q \propto 1 - r$ for LAr and LXe vs. $E$.  Squares correspond to LXe and were measured with
 $\xi E = 0.15\ \mathrm{kV\ cm^{-1}}$.  Triangles and circles are LAr and were measured at $\xi E = 0.84\ \mathrm{kV\ cm^{-1}}$.  Curves
 are best fit for box model (\citeref{Thomas1987}).}
 \label{fig:ti_recomb}
@@ -291,7 +258,7 @@ are best fit for box model (\citeref{Thomas1987}).}
 If an electric field is applied the \electron that have sufficiently large thermal energy are drifted for
 proportional scintillation, conserving the measurable quantity.
 
-The decrease in scintillation yield for \beta and \gamma is only observed at low LET where the ionization density is relatively low.  The
+The decrease in scintillation yield for $\beta$ and $\gamma$ is only observed at low LET where the ionization density is relatively low.  The
 lack of neighboring $\mathrm{Xe}^{+}$ limits the probability of recombination with a non-parent ion.  At higher LET the ion density
 is sufficient for essentially 100\% recombination and results in a flat top region as seen in \figref{fig:scintillation_yield}.  This
 effect is not technically quenching because there is no true decrease in photons and electrons.
@@ -299,27 +266,11 @@ effect is not technically quenching because there is no true decrease in photons
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{ScintillationYield}
 \caption{Scintillation yield as a function of LET in LXe.  Open circle represent electrons, alpha particles, and fission fragments.  Solid
-circles represent relativistic heavy particles.  Open squares represent gamma-ray.  Solid lines represent various fits to the \beta-\gamma
+circles represent relativistic heavy particles.  Open squares represent gamma-ray.  Solid lines represent various fits to the
+$\beta$-$\gamma$
 data performed in \citeref{Doke2002} and are not discussed here.  Image credit: \citeref{Doke2002}.}
 \label{fig:scintillation_yield}
 \end{figure}
-
-Another source of quenching besides biexcitonic is atomic motion.  As energy is passed to the Xe atom some of this may cause it to move,
-thereby decreasing the photons and electrons produced.  Atomic motion in LXe experiments is not observable, so this will produce quenching
-in the photons and electrons.  Moreover, energized electrons can transfer a very small amount of energy to the motion of the atom, but
-the reverse is not true.  The fraction of energy lost to atomic motion $f_{n}$ is commonly characterized with the Lindhard model
-(\citeref{Lindhard1965})
-
-\begin{equation}
-f_{n} = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
-\end{equation}
-
-\noindent where $k = 0.133Z^{2/3}A{1/2}$, $g(\epsilon) = 3\epsilon^{0.15} + 0.7\epsilon^{0.6} + \epsilon$, and
-$\epsilon = 11.5 E_{R} Z^{-7/3}$ where $Z$ is the atomic number and $A$ is the number of nucleons.  $k$ is proportional to the ratio of
-electronic stopping power to particle velocity of the recoiling Xe atom (\citeref{Sorensen2011}) and $g(\epsilon)$ is proportional
-to the ratio of electronic to nuclear scaling factor (\citeref{NEST2015}).  There has been some debate about
-the coefficient in $k$ and I use the value from \citeref{Lewin1996}.  Studies have shown that energy is only lost to atomic motion for
-nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard} for the relevant energy search region.
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{Lindhard}
@@ -328,7 +279,7 @@ nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard}
 \end{figure}
 
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
-to the field at drift velocity $v_{d}$.  For $E \lesim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \ltsim E \ltsim 10^{3--4}$
+to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
 \vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
 
 \begin{table}
@@ -337,15 +288,17 @@ to the field at drift velocity $v_{d}$.  For $E \lesim 100\ \mathrm{V\ cm^{-1}}$
  \hline
  $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
  \hline
- $\ltsim 100$ & \vd$\propto E$
- $\sim 100-10^{3--4}$ & \vd$\propto E^{1/2}$
- $\gtrsim 10^{4}$ & \vd$\sim 3$
+ $\lesssim 100$ & \vd$\propto E$ \\
+ $\sim 100-10^{3-4}$ & \vd$\propto E^{1/2}$ \\
+ $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
  \hline
  \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
+ \end{tabular}
 \end{table}
 
 \begin{figure}
-\includegraphics[width=0.8\textwidth]{Fig. 6 from Miller1968}
+\includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
+\caption{Drift velocity for solid and liquid xenon}
 \label{fig:drift_velocity}
 \end{figure}
 
@@ -374,9 +327,9 @@ q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
 \end{equation}
 
 \noindent where $\tau_{e} = (k_{S}S)^{-1}$ and is known as the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
-\otwo,
+O$_{2}$,
 N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
-decerase.  Typically impurity concentration is given in \otwo-equivalent values - that is, the concentration of \otwo if it was solely
+decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values - that is, the concentration of \otwo if it was solely
 responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
 \figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in \secref{}.
 
@@ -396,7 +349,7 @@ is proportional to the number of \electron extracted, hence it is also known as 
 $N_{\mathrm{ph}}$ produced traveling a distance $z$ is
 
 \begin{equation}
-\frac{dN_{mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
+\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
 \label{eq:electronlum}
 \end{equation}
 
@@ -406,17 +359,83 @@ GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
 
 
 %====================================
-\sec{Interactions}
+\section{Stopping Power}
+\label{sec:stopping_power}
+A particle that produces an electronic recoil will lose energy through inelastic collisions with electrons, prompting ionization or
+excited states.  The energy lost per unit
+length is the electronic stopping power and denoted $dE/dx$, which is related to the linear energy transfer (LET).  It depends on the
+type and energy of the particle and properties of the
+medium including density and composition.  A larger electronic stopping power indicates the particle will slow more quickly, thereby
+depositing its energy densely along its trajectory.  This is known as self-shielding, and is an
+important characteristic of a detector.  A larger self-shielding will restrain external radiation from penetrating deep in the detector,
+which allows a larger fiducial volume (FV) for dark matter detection.  Because the stopping power is proportional to the
+density of the medium, LXe is more effective at self-shielding than liquid argon ($1.395\ \mathrm{g\ cm^{-3}}$) and liquid neon
+($1.207\ \mathrm{g\ cm^{-3}}$).
+
+By dividing the stopping power by the medium's density we get a function that is mainly a function of the radiating particle known as
+the mass stopping power.  This is shown for $\alpha$, $e^{-}$, and protons in \figref{fig:mass_stopping_power}.  We see that for the DM
+region of interest ($1-100$ keV) as \electron
+energy increases the stopping power decreases, while for $\alpha$ and protons the reverse is true.  Multiplying by the density of LXe
+$\rho_{\mathrm{LXe}}$ gives an electron stopping power of $0.65-30\ \mathrm{keV\ \mu m^{-1}}$ for \electron and
+$\sim 20-900\ \mathrm{keV\ \mu m^{-1}}$ for $\alpha$ and protons.
+
+We can see that in
+the dark matter search region ($1-100$ keV) $e^{-}$ decrease by a factor of $\sim 10$.  Multiplying by the density of LXe we get the
+electronic stopping power to be $\sim 0.65-30\ \mathrm{keV\ \mu m^{-1}}$.  \alphadecays are typically $> 5.5$ MeV and thus have a stopping
+power of $\sim 600-2000\ \mathrm{keV\ \mu m^{-1}}$.  We see that particle tracks are on the order of $10 \mathrm{\mu m}$, so particles that
+originate at or outside the surface of the detector will never make it into the FV with any reasonable probability.
+
+\begin{figure}[t]
+\includegraphics[width=0.8\textwidth]{MassStoppingPower}
+\caption{Electron mass stopping power for $\alpha$, $e^{-}$, and protons.  (\citeref{Berger2018a})}
+\label{fig:mass_stopping_power}
+\end{figure}[t]
+
+Since a higher stopping power translates to a larger decrease in energy, there will be a higher ionization density in the particle
+track.  This has implications that will be discussed in \secref{}.
+
+For particles that induce a nuclear recoil we must also consider the nuclear stopping power, which is the energy lost per unit length from
+atomic collisions that transfer kinetic energy to the nucleus.  Thus for NR the total stopping power is
+
+\begin{equation}
+\bigg( \frac{dE}{dx} \bigg)_{\mathrm{tot}} = \bigg( \frac{dE}{dx} \bigg)_{\mathrm{elec}} + \bigg( \frac{dE}{dx} \bigg)_{\mathrm{nuc}}
+\end{equation}
+
+\noindent Atomic motion in liquid noble gas experiments is not observable so the number of quanta $N_{q}$ produced will be lower
+than for an an electronic recoil scatter with the same recoil energy.  While energized electrons are capable of transferring very small
+amounts of energy to the motion of the nucleus, the reverse is not true.  Thus all translational energy acquired by the nucleus is
+resigned to be unobservable.  The fraction of energy lost to atomic motion is characterized by $f_{n}$.
+
+Moreover, energized electrons can transfer a very small amount
+of energy to the motion of the atom, but
+the reverse is not true.  The fraction of energy lost to atomic motion $f_{n}$ is commonly characterized with the Lindhard model
+(\citeref{Lindhard1965})
+
+\begin{equation}
+f_{n} = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
+\label{eq:linhard_quenching}
+\end{equation}
+
+\noindent where $k = 0.133Z^{2/3}A^{1/2}$, $g(\epsilon) = 3\epsilon^{0.15} + 0.7\epsilon^{0.6} + \epsilon$, and
+$\epsilon = 11.5 (E_{R} / Z^{7/3})$ where $Z$ is the atomic number and $A$ is the number of nucleons.  $k$ is proportional to the ratio of
+electronic stopping power to particle velocity of the recoiling Xe atom (\citeref{Sorensen2011}) and $g(\epsilon)$ is proportional
+to the ratio of electronic to nuclear scaling factor (\citeref{NEST2015}).  There has been some debate about
+the coefficient in $k$ and I use the value from \citeref{Lewin1996}.  Studies have shown that energy is only lost to atomic motion for
+nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard} for the relevant energy search region.
+
+
+%====================================
+\section{Interactions}
 \label{sec:interactions}
 Because WIMP searches usually expect an interaction with an atom's nucleus, electronic recoils are not investigated for possible
 signal.  Instead they play two major roles - the first is for calibrating the detector.  For larger detectors external sources are
 not efficient since the the self-shielding of Xe makes it nearly impossible for radiation to penetrate the interior.  Thus internal
-sources with short half-lifes such as \krypton_meta and \radon_cal are used.  The second role ER play is background to the DM
+sources with short half-lifes such as \kryptonmeta and \radoncal are used.  The second role ER play is background to the DM
 search.  Detector materials have radioactive elements that decay inside the detector, and long-lived intrinsic sources such as
 the inevitable residual \krypton and \radon that passed the Xe distillation process.  The latter is much more concerning as events from
 detectors materials cannot breach the fiducial volume, but intrinsic sources are uniformly distributed and must be understood.
 
-\subsec{Photons}
+\subsection{Photons}
 \label{subsec:photons}
 Photons produce electron recoils as they interact with \electron via Compton scattering pair production, or photoelectric absorption
 as shown in \figref{fig:phot_atten}.  In Compton scattering the photon
@@ -440,30 +459,33 @@ energy region of interest, as shown in \figref{fig:phot_atten}.
 \begin{figure}
  \centering
  \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
+ \caption{Mass attenuation coefficient for photon energies $10^{-3} - 10^{4} \mathrm{MeV}$.  In addition to the total, values for
+ photoelectric absorption,
+ Compton scattering, and pair production are shown}
  \label{fig:phot_atten}
 \end{figure}
 
 
-\subsec{$\beta$-Decays}
+\subsection{$\beta$-Decays}
 \label{subsec:beta}
-\beta decays are the emission of an electron-antineutrino (positron-neutrino) from a neutron (proton).  As with photons, they interact
+\betadecays are the emission of an electron-antineutrino (positron-neutrino) from a neutron (proton).  As with photons, they interact
 with the \electron shell and thereby produce electronic recoils.  Because the neutrino carries
 some momentum, the energy spectrum of the \electron is not mono-energetic, which makes it harder to identify the origin.  In Xe
 experiments \betadecays contribute the most contamination in the search region for this reason and that they occur roughly uniformly
 throughout the detector.  \krypton decays via
 
 \begin{equation}
-\ce{^{85}Kr \rightarrow \ce{^{85}Rb} + e^{-} + \overline{\nu_{e}}
+\ce{^{85}Kr} \rightarrow \ce{^{85}Rb} + e^{-} + \overline{\nu_{e}}
 \end{equation}
 
-\noindent with an energy of 687 keV with 99.53\% and 173 keV followed by a 514 \gamma with 0.47\%.  These low-energy \betadecays
+\noindent with an energy of 687 keV with 99.53\% and 173 keV followed by a 514 $\gamma$ with 0.47\%.  These low-energy \betadecays
 contaminate the search region, and a half-life of 10.72 years ensures \krypton will be present throughout the lifetime of the
 experiment.
 
 \radon presents a similar problem.  As a daughter of the \uranium decay chain it emanates from the detector materials and distributes
 uniformly throughout the detector.  Its two most dangerous daughters or \leadtwofourteen and \bismuthtwofourteen, each of which
 undergo \betadecay.  \bismuthtwofourteen is easily identifiable because its daughter \poloniumtwofourteen has a half-life of
-$160\ mathrm{\mu s}$ and undergoes \alphadecay.  Thus a cut on coincidence can remove such events.  \leadtwofourteen is more
+$160\ \mathrm{\mu s}$ and undergoes \alphadecay.  Thus a cut on coincidence can remove such events.  \leadtwofourteen is more
 dangerous, as it has no coincidence cut with its parent or daughter.  Its end-point energy when it decays to the ground state of
 \bismuthtwofourteen is 1019 keV, which contaminates the region of interest.  More concerning is a decay to higher energy levels, which
 if near the border of the fiducial volume has a risk of the subsequent \gammaray exiting undetected.  In XENON100 recoiling daughters of
@@ -471,11 +493,11 @@ the \radon decay chain were observed to drift towards the cathode, possibly the 
 (\citeref{Weber2013}), lowering the number of \betadecays in the region of interest.
 
 
-\subsec{Neutrinos}
+\subsection{Neutrinos}
 \label{subsec:neutrinos}
 Neutrinos impact both electronic and nuclear recoil spectra at low energies.  Solar neutrinos can elastically scatter off \electron
 producing an ER.  \textit{pp} neutrinos make up 92\% of these scatters, with \ce{^{7}Be} making 7\%, and all other sources contributing
-$< 1$\% (\citeref{Aprile2016}).
+$<1$\% (\citeref{Aprile2016}).
 
 Coherent neutrino-nucleus scattering produces nuclear recoils.  The majority of the interactions in the ROI come from Solar \ce{^{8}Be}
 and \textit{hep} neutrinos, as those at higher energy from sources such as diffuse supernovae and the atmosphere have a significantly
@@ -484,15 +506,61 @@ lower rate.
 Neutrinos are an irreducible background that affects our detector uniformly.
 
 
-\subsec{Neutrons}
+\subsection{Neutrons}
 \label{subsec:neutrons}
-Neutrons have a mean free path on the order of tens of cm, which makes them much more difficult to shield than $\gamma$, $\beta$, or
-$\alpha$ scatters.  A neutron scatter is indistinguishable from an expected WIMP scatter, which mandates the neutron background is
-very well understood.  Typically neutrons come from decays of detector materials via spontaneous fission, or muons passing through the
-rock above the detector.
+Neutrons in our detector come from two main sources: the spontaneous fission (mainly $\alpha$) of isotopes of primordial chains of
+\uranium, \ce{^{235}U}, and \ce{^{232}Th} from detector materials (radiogenic neutrons), and muons
+passing through the rock and material above and around the detector (cosmogenic neutrons).  The former has energies in the MeV range
+while the latter can reach tens of GeV (\citeref{Aprile2016}).  Neutrons have a mean free path on the order of tens of cm, which makes
+them more difficult to shield than $\alpha$, $\beta$, or $\gamma$ scatters.  Furthermore, neutrons can produce nuclear recoils, making
+them indistinguishable from WIMPs.  It is critical then to have a thorough understanding of the neutron background so a reliable
+estimate of the number of events in the signal region to avoid mistaking a neutron as a WIMP or vice versa.
 
+Neutrons will scatter elastically, inelastically, or be radiatively absorbed by the Xe nucleus.  Radiative absorption is when the
+Xe nucleus captures the neutron, extending its atomic mass by one.  Fortunately, such an increase typically leads to another stable
+xenon atom.  Exceptions are \ce{^{125}Xe}, \ce{^{127}Xe}, \ce{^{133}Xe}, and \ce{^{135}Xe}, which are listed in \tabref{tab:ncaption_xe}
+along with subsequent decays and half-lives.  \ce{^{125}I} and \ce{^{135}Cs} have sufficiently long half-lives that they will be removed
+by the getters from the LXe before they decay along with stable daughters \ce{^{127}I} and \ce{^{133}Cs}.
 
+\bgroup
+\def\arraystretch{1.4}
+\begin{table}
+ \centering
+ \begin{tabular}{cccc}
+ \centering
+ Isotope & Decay & Energy [keV] & Half-Life \\
+ \hline
+ \ce{^{125}Xe} & $\ce{^{125}Xe} \rightarrow \ce{^{125}I} + \beta^{+} + \nu_{e}$ & 622.17 & 16.89 h \\
+  & $\ce{^{125}I} + e^{-} \rightarrow \ce{^{125}Te} + \nu_{e}$ & 185.77 & 59.38 d \\
+ \ce{^{127}Xe} & $\ce{^{127}Xe} + e^{-} \rightarrow \ce{^{127}I} + \nu_{e}$ & 662.33 & 36.34 d \\
+ \ce{^{133}Xe} & $\ce{^{133}Xe} \rightarrow \ce{^{133}Cs} + \beta^{-} + \overline{\nu_{e}}$ & 427.36 & 5.24 d \\
+ \ce{^{135}Xe} & $\ce{^{135}Xe} \rightarrow \ce{^{135}Cs} + \beta^{-} + \overline{\nu_{e}}$ & 1164.8 & 9.14 h \\
+  & $\ce{^{135}Cs} \rightarrow \ce{^{135}Ba} + \beta^{-} + \overline{\nu_{e}}$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
+ \hline
+ \end{tabular}
+ \caption{Radioactive isotopes of Xe produced from neutron capture.  Decays are shown to stable elements along with decay energies and
+ half-lives}
+ \label{tab:ncaption_xe}
+\end{table}
+\egroup
 
+Inelastic scattering involves the neutron exciting the Xe nucleus.  It will still recoil from a nuclear interaction, but the Xe
+activation follows with emission of a $\gamma$-ray.  The most relevant isotopes for our detector are \ce{^{129}Xe} and \ce{^{131}Xe},
+which have half-lives of 0.97 and 0.48 ns and decay with energies 36.9 and 80.2 keV, respectively.  These lifetimes are so short that
+they will most likely be merged with the energy deposit of the nuclear recoil.  Additionally longer-lived activations for metastable
+states \ce{^{129m}Xe} and \ce{^{131m}Xe} that decay with with half-lives 8.88 and 11.93 days and energies 236.14 and 163.93 keV.  The
+longer lifetimes allow the metastable xenon to become distributed uniformly throughout the detector, providing an internal calibration
+over a period of weeks, which can be taken during dark matter data taking.
+
+\begin{figure}
+\includegraphics[\width=0.8\textwidth]{Fig. 2 from https://arxiv.org/pdf/1512.00460.pdf}
+\label{fig:nr_elastic_inelastic}
+\end{figure}
+The final interaction type is elastic scattering.  In this scenario the neutron rebounds from the nucleus and kinetic energy after the
+scatter is preserved and distributed between the neutron and recoiling Xe atom.  This is discussed further in \secref{sec:nr} and
+\chapref{}.
+
+https://arxiv.org/pdf/1512.00460.pdf
 
 %====================================
 \section{Electronic Recoils}
@@ -510,11 +578,13 @@ N_{q} = N_{\mathrm{ex}} + N_{\mathrm{i}}
 given quanta is an ion
 
 \begin{equation}
-p_{\mathrm{ion}} = \frac{1}{1 + \frac{\nex}{\nion}}
+p_{\mathrm{ion}} = \frac{1}{1 + \frac{ N_{\mathrm{ex}} }{ N_{\mathrm{ion}} }}
 \end{equation}
 
-\noindent with $p_{\mathrm{ex}} = 1 - p_{\mathrm{ion}}$.  The ratio \nex$/$\nion has been calculated to be 0.06 (\citeref{Takahashi1975})
-but measurements disagree (\citeref{Doke2002, Aprile2007}).  Currently \nex$/$\nion is taken to be between 0.13-0.2.  The number of
+\noindent with $p_{\mathrm{ex}} = 1 - p_{\mathrm{ion}}$.  The ratio $N_{\mathrm{ex}} / N_{\mathrm{ion}}$ has been calculated to be
+0.06 (\citeref{Takahashi1975})
+but measurements disagree (\citeref{Doke2002, Aprile2007}).  Currently $N_{\mathrm{ex}} / N_{\mathrm{ion}}$ is taken to be between
+0.13-0.2.  The number of
 photons and electrons after recombination can be found as
 
 \begin{equation}
@@ -539,18 +609,21 @@ Although the vast majority of background comes from electronic recoils, nuclear 
 WIMP interactions.  Therefore the NR background must be well-modeled to avoid mistaking a background event for a WIMP or vice
 versa.
 
+Because some energy in nuclear recoils goes into atomic motion the number of excitons and ions is reduced compared to ERs.  The toal
+number of quanta is $N_{q} = L E_{R} / W$ where $L$ is the Linhard quenching factor defined in \eqref{eq:linhard_quenching}.
+
+
+
+
+
+
+
 
 In addition to improving the likelihood of spin-independent DM-nucleon scattering (\eqnref{eq:dr_de_final}), the average molar mass
 $A = 131.293\ \mathrm{g\ mol^{-1}}$ provides much better stopping power than its noble gas counterparts.  The stopping power $dE/dx$
 is the amount of energy lost per distance, and at low energies can be broken down into electronic and nuclear stopping power.
 
 The electronic stopping power is the energy lost due to electronic excitations as a particle travels through the detector.  
-
-The strong self-shielding of xenon grants a larger fiducial volume (FV) - the physical
-region of search.
-
-In a dual-phase LXe detector an electric field is applied to measure the freed electrons.  There is a small gap of gas xenon (GXe)
-that the $e^{-}$ are pulled towards, at which point they are extracted across, producing proportional, or secondary scintillation.
 
 
 

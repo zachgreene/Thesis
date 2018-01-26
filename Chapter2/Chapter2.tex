@@ -44,7 +44,7 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
 
 \begin{figure}
 \includegraphics[width=0.6\textwidth]{PhaseDiagram}
-\caption{Phase diagram of xenon (\citeref{Aprile2009})
+\caption{Phase diagram of xenon(\citeref{Aprile2009})}
 \label{fig:phase_diagram}
 \end{figure}
  
@@ -80,7 +80,7 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  \hline
  $^{124}$Xe & 0.0952 & 0 &  $> 1.6 \times 10^{14}\ \mathrm{yrs}$ & $2\nu \beta^{+} \beta^{+}$ \\
  $^{126}$Xe & 0.0890 & 0 & $> 4.7-12 \times 10^{25}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
- $^{128}$v & 1.9102 & 0 & stable & - \\
+ $^{128}$Xe & 1.9102 & 0 & stable & - \\
  $^{129}$Xe & 26.4006 & 1/2 & stable & - \\
  $^{130}$Xe & 4.0710 & 0 & stable & - \\
  $^{131}$Xe & 21.232 & 3/2 & stable & - \\
@@ -99,12 +99,12 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  \centering
  \begin{tabular}{ccc}
  \hline
- Isotope & Energy & Half-life \\
+ Isotope & Energy [keV] & Half-life \\
  \hline
- $^{129}$Xe & 39.6 keV 0.97 ns & \\
- $^{129\mathrm{m}}$Xe & 236.14 keV & 8.88 d \\
- $^{131}$Xe & 80.2 keV & 0.48 ns \\
- $^{131\mathrm{m}}$Xe & 163.9 keV & 11.93 d \\
+ $^{129}$Xe & 39.6 & 0.97 ns & \\
+ $^{129\mathrm{m}}$Xe & 236.1 & 8.88 d \\
+ $^{131}$Xe & 80.2 & 0.48 ns \\
+ $^{131\mathrm{m}}$Xe & 163.9 & 11.93 d \\
  \hline
  \end{tabular}
  \caption{Nuclear excited states for naturally occurring xenon in the energy range direct DM searches are sensitive too.}
@@ -113,7 +113,7 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{Fig. 1 from SeeFig15.pdf}
+\includegraphics[width=0.8\textwidth]{Figure 1 from SeeFig15}
 \end{figure}
 
 
@@ -186,20 +186,9 @@ less desirable than liquid argon (LAr), which has single and triplet states of $
 \end{table}
 
 \eqnref{eq:recomb} and \eqnref{eq:deexcite}
-depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in high linear
-energy transfer (LET) with $\alpha$ or fission fragments it has been observed that two excitons may collide and free an electron as
-shown in \eqnref{eq:biexitonic}.
+depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in nuclear recoils
+it has been observed that two excitons may collide and free an electron as shown in \eqnref{eq:biexitonic}.
 
-\begin{equation}
-\mathrm{Xe}^{*} + \mathrm{Xe}^{*} \rightarrow \mathrm{Xe} + \mathrm{Xe}^{+} + e^{-}
-\label{eq:biexitonic}
-\end{equation}
-
-\noindent This effect is known as biexcitonic quenching and is expected to be the result of excitons being close enough to
-interact.  In $\beta$ and $\gamma$ interactions the energy track is sufficiently sparse such that the chances of two excitons doing so
-is close to 0.  However, for particles that have a large electron stopping power - such as $\alpha$ or fission fragments - the
-density of energized atoms is enough to provoke this.  Biexcitonic quenching signifies the reduction of observed signal, as what would
-have been two emitted photons is instead a single \electron with energy close to that of an exciton.
 
 
 
@@ -338,6 +327,7 @@ atomic collisions that transfer kinetic energy to the nucleus.  Thus for NR the 
 \end{equation}
 
 
+
 %========
 \subsection{Recombination}
 \label{subsec:recombination}
@@ -444,6 +434,29 @@ density is so high only a small percent of \electron avoid recombination, even a
 (for electrons this would be nearly 100\%) (\citeref{Chepel2013}).  The consistency in charge collection across different fields causes
 difficulties in distinguishing recombination from initial excitation.
 
+Birk's saturation law gives rise to biexcitonic quenching, which was briefly mentioned in \secref{subsec:primary}.  The process is
+
+\begin{equation}
+\mathrm{Xe}^{*} + \mathrm{Xe}^{*} \rightarrow \mathrm{Xe} + \mathrm{Xe}^{+} + e^{-}
+\label{eq:biexcitonic_again}
+\end{equation}
+
+\noindent where the \electron escapes with kinetic energy $E = 2E_{\mathrm{ex}} - E_{\mathrm{g}}$.  $E_{\mathrm{ex}}$ is the energy
+of an exciton and $E_{\mathrm{g}}$ is that of the band gap.  The \electron will quickly lose its energy and subsequently recombine,
+resulting in a single photon emission instead of the two from the initial excitons.  For nuclear recoils the quenching factor can
+be parameterized by
+
+\begin{equation}
+f_{l} = \frac{1}{1 + kB \frac{dE}{dx}}
+\label{eq:nr_scint_quench}
+\end{equation}
+
+\noindent where $dE/dx$ here is the electronic stopping power.  In $\beta$ and $\gamma$ interactions the energy track is
+sufficiently sparse that the chances of two excitons doing so is close to 0.
+
+This was first parameterized by
+\citeref{Hitachi1992, Hitachi2002, Hitachi2005}
+
 
 
 If an electric field is applied the \electron that have sufficiently large thermal energy are drifted for
@@ -462,17 +475,6 @@ $\beta$-$\gamma$
 data performed in \citeref{Doke2002} and are not discussed here.  Image credit: \citeref{Doke2002}.}
 \label{fig:scintillation_yield}
 \end{figure}
-
-\begin{figure}
-\includegraphics[width=0.8\textwidth]{Lindhard}
-\caption{Fraction of nuclear energy passed to atomic motion in xenon using Lindhard's theory (\citeref{Lindhard1965}).}
-\label{fig:lindhard}
-\end{figure}
-
-
-
-
-
 
 
 
@@ -531,10 +533,10 @@ throughout the detector.  \krypton decays via
 \end{equation}
 
 \noindent with an energy of 687 keV with 99.53\% and 173 keV followed by a 514 $\gamma$ with 0.47\%.  These low-energy \betadecays
-contaminate the search region, and a half-life of 10.72 years ensures \krypton will be present throughout the lifetime of the
+contaminate the search region, and a half-life of 10.72 years ensures \ce{^{85}Kr} will be present throughout the lifetime of the
 experiment.
 
-\ce{^{222}Rn} presents a similar problem.  As a daughter of the \uranium decay chain it emanates from the detector materials and distributes
+\ce{^{222}Rn} presents a similar problem.  As a daughter of the \ce{^{238}U} decay chain it emanates from the detector materials and distributes
 uniformly throughout the detector.  Its two most dangerous daughters or \leadtwofourteen and \ce{^{214}Bi}, each of which
 undergo $\beta$-decay.  \ce{^{214}Bi} is easily identifiable because its daughter \poloniumtwofourteen has a half-life of
 $160\ \mathrm{\mu s}$ and undergoes $\alpha$-decay.  Thus a cut on coincidence can remove such events.  \leadtwofourteen is more
@@ -637,7 +639,7 @@ is lost to atomic motion the number of quanta produced is
 
 \begin{equation}
 N_{q} = \frac{E_{\mathrm{ER}}}{W}
-\label{eq:nquanta_er}
+\label{eq:nquant_er}
 \end{equation}
 
 \noindent where \energyer is the electronic recoil energy
@@ -676,7 +678,7 @@ p_{\mathrm{ion}} = \frac{1}{1 + \frac{ N_{\mathrm{ex}} }{ N_{\mathrm{ion}} }}
 
 \noindent with $p_{\mathrm{ex}} = 1 - p_{\mathrm{ion}}$.  The ratio $N_{\mathrm{ex}} / N_{\mathrm{ion}}$ has been calculated to be
 0.06 (\citeref{Takahashi1975})
-but measurements disagree (\citeref{Doke2002, Aprile2007}).  Currently $N_{\mathrm{ex}} / N_{\mathrm{ion}}$ is taken to be between
+but measurements today disagree (\citeref{Doke2002, Aprile2007}).  Currently $N_{\mathrm{ex}} / N_{\mathrm{ion}}$ is taken to be between
 0.13-0.2.  The number of
 photons and electrons after recombination can be found as
 
@@ -722,14 +724,21 @@ the coefficient in $k$ and I use the value from \citeref{Lewin1996}.  Studies ha
 nuclear recoils.  When parameterized by the Lindhard model the quenching factor $f_{n}$ is sometimes written as $L(E)$.  It is
 shown in \figref{fig:lindhard} for the relevant energy search region.
 
-The total number of quanta is
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{Lindhard}
+\caption{Fraction of nuclear energy passed to atomic motion in xenon using Lindhard's theory (\citeref{Lindhard1965}).}
+\label{fig:lindhard}
+\end{figure}
+
+In addition primary scintillation is subject to biexcitonic quenching and reduced by a factor of $1 - f_{l}$.  The total number of quanta
+is
 
 \begin{equation}
 N_{q} = \frac{L(E) E_{\mathrm{NR}}}{W}
 \label{eq:nquant_nr}
 \end{equation}
 
-\noindent Note the difference between \eqref{eq:nquant_er} and \eq{eq:nquant_nr} is simply $L(E)$ as well as the the recoil energy
+\noindent Note the difference between \eqref{eq:nquant_er} and \eqref{eq:nquant_nr} is simply $L(E)$ as well as the the recoil energy
 scale (discussed in \secref{}).  Unlike ERs, $N_{\mathrm{ex}} / N_{\mathrm{i}} \sim 1$ (\citeref{Sorensen2011, Angle2011}) due to the
 higher density tracks.
 

@@ -30,8 +30,8 @@ $2\nu \beta^{-} \beta^{-}$.  So while technically naturally occurring xenon is r
 
 Primary and secondary scintillation, which are the measured parameters in a time-projection chamber, occur when a particle interacts
 with a Xe atom.  In the case of a neutron or neutrino scattering from the Xe nucleus a number of nuclear excitations are possible,
-and are listed in \tabref{tab:xe_radioactive}.  The 39.6 and 80.2 keV lines from $^{129}$Xe and $^{131}$Xe are short-lived and typically cannot
-be resolved from the scintillation of the scatter.  However, the 163.9 and 236.14 keV lines from $^{131\mathrm{m}}$Xe and
+and are listed in \tabref{tab:xe_radioactive}.  The 39.6 and 80.2 keV lines from $^{129}$Xe and $^{131}$Xe are short-lived and typically
+cannot be resolved from the scintillation of the scatter.  However, the 163.9 and 236.14 keV lines from $^{131\mathrm{m}}$Xe and
 $^{129\mathrm{m}}$Xe are long-lived
 enough to become uniformly distributed throughout the detector and can be used as a calibration source and measuring the electron
 lifetime (\chapref{chap:purity}).
@@ -119,7 +119,7 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
 
 
 %====================================
-\section{Primary and Secondary Scintillation}
+\section{Signal Production}
 \label{sec:scintillation}
 Radiation scattering off a xenon atom will produce a prompt or primary scintillation as a result of electronic excitation or recombination
 from ionized electrons that emit photons as they de-excite.  Secondary scintillation results from ionized
@@ -128,6 +128,11 @@ chamber (TPC).  In this section
 and the remainder of the chapter I will consider interactions in xenon in the presence of an electric field, unless otherwise
 specified.
 
+
+
+%========
+\subsection{Primary Scintillation}
+\label{subsec:primary}
 When a particle scatters off a Xe atom it can excited or ionize its valence electrons.  Here we refer to excited atoms Xe$^{*}$ as
 excitons.  An ionized electron can then escape or recombine with the Xe$^{+}$.  Excitons can form with another Xe atom to create
 dimers, Xe$_{2}^{*}$, commonly referred to as excimers.  The processes recombination is shown in \eqnref{eq:recomb}, where $Q$
@@ -198,6 +203,142 @@ have been two emitted photons is instead a single \electron with energy close to
 
 
 
+%========
+\subsection{Secondary Scintillation}
+\label{subsec:secondary}
+In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
+to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
+\vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
+
+\begin{table}
+ \centering
+ \begin{tabular}{cc}
+ \hline
+ $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
+ \hline
+ $\lesssim 100$ & \vd$\propto E$ \\
+ $\sim 100-10^{3-4}$ & \vd$\propto E^{1/2}$ \\
+ $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
+ \hline
+ \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
+ \end{tabular}
+\end{table}
+
+\begin{figure}
+\includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
+\caption{Drift velocity for solid and liquid xenon}
+\label{fig:drift_velocity}
+\end{figure}
+
+As the electron cloud drifts it will diffuse both longitudinally (in the direction of $E$) and transversely (perpendicular to $E$).  The
+diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
+be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
+
+Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
+material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
+lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqref{eq:impurity_attach}.
+
+\begin{equation}
+e^{-} + S \rightarrow S^{-}
+\label{eq:impurity_attach}
+\end{equation}
+
+\noindent The amount of \electron captured is dependent on the time in the LXe.  Thus an advantage of larger \efields is a larger
+\vd (up to a point) and thus less time in the liquid.  Doping LXe with organic materials such as butane can increase \vd at higher
+\efields but they are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  By setting the rate at which
+electrons are absorbed by impurities $dq/dt = -qk_{S}S$ where $S$ is the impurity concentration and $k_{S}$ is the attachment rate
+constant we find
+
+\begin{equation}
+q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
+\label{eq:lifetime_equation}
+\end{equation}
+
+\noindent where $\tau_{e} = (k_{S}S)^{-1}$ and is known as the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
+O$_{2}$,
+N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
+decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values - that is, the concentration of \otwo if it was solely
+responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
+\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in \secref{}.
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{AttachmentRate}
+\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
+larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
+\label{fig:attachment_rate}
+\end{figure}
+
+In a TPC a cathode at the bottom of the detector applies an electric field in the LXe.  The \electron drift towards the top where a
+grounded gate rests a few millimeters below the LXe surface.  Directly above the gate by a couple centimeters is the anode, which
+applies a strong electric field that extracts the electrons into the gas xenon (GXe).  An extracted electron will ionize and excite
+GXe atoms, whose freed electrons will do so as well in what is known as electroluminescence.  The number of ionized and excited atoms
+is proportional to the number of \electron extracted, hence it is also known as proportional scintillation.  The number of photons
+$N_{\mathrm{ph}}$ produced traveling a distance $z$ is
+
+\begin{equation}
+\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
+\label{eq:electronlum}
+\end{equation}
+
+\noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $E_{g}$ and $P$ are the
+GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
+
+
+
+%====================================
+\subsection{Stopping Power}
+\label{subsec:stopping_power}
+The track structure is defined by the distribution of \electron, ions, and excitons when all \electron have slowed to sub-excitation
+speed (\citeref{Chepel2013}).  This has a major role in determining the subsequent response of atoms and \electron.  Track structures
+vary considerably with respect to different particles and linear energy transfer (LET).  Still, tracks typically have a cylindrical
+structure with secondary branches resulting from $\delta$-rays.
+
+A particle that loses energy through inelastic collisions with electrons (prompting excitation and ionization) will produce an electronic
+recoil.  The energy lost per unit
+length is the electronic stopping power $dE/dx$.  It is related to the LET and depends on the
+type and energy of the particle and properties of the
+medium, including density and composition.  A larger electronic stopping power indicates the particle will slow more quickly, thereby
+depositing its energy more densely along its track.
+
+The energy density affects recombination between \electron and ions and is discussed in \secref{subsec:recombination}.  Xenon
+has a large stopping power - in part to its large atomic mass - that slows particles relatively efficiently.  One benefit of this
+is self-shielding, which protects the interior of the detector from outside radiation.  Higher self-shielding restrains external
+radiation from penetrating deep into the detector,
+allowing a larger fiducial volume (FV) for dark matter searches.  Because the stopping power is proportional to the
+density of the medium, LXe is more effective at self-shielding than liquid argon ($1.395\ \mathrm{g\ cm^{-3}}$) and liquid neon
+($1.207\ \mathrm{g\ cm^{-3}}$).
+
+By dividing the stopping power by the medium's density we get a function that is mainly a function of the radiating particle known as
+the mass stopping power.  This is shown for $\alpha$, $e^{-}$, and protons in \figref{fig:mass_stopping_power}.  We see that for the DM
+region of interest ($1-100$ keV) as \electron
+energy increases the stopping power decreases, while for $\alpha$ and protons the reverse is true.  Multiplying by the density of LXe
+$\rho_{\mathrm{LXe}}$ gives an electron stopping power of $0.65-30\ \mathrm{keV\ \mu m^{-1}}$ for \electron and
+$\sim 20-900\ \mathrm{keV\ \mu m^{-1}}$ for $\alpha$ and protons.
+
+We can see that in
+the dark matter search region ($1-100$ keV) $e^{-}$ decrease by a factor of $\sim 10$.  Multiplying by the density of LXe we get the
+electronic stopping power to be $\sim 0.65-30\ \mathrm{keV\ \mu m^{-1}}$.  \alphadecays are typically $> 5.5$ MeV and thus have a stopping
+power of $\sim 600-2000\ \mathrm{keV\ \mu m^{-1}}$.  We see that particle tracks are $\mathcal{O}(10)\ \mathrm{\mu m}$, so particles
+that originate at or outside the surface of the detector will never make it into the FV with any reasonable probability.
+
+\begin{figure}[t]
+\includegraphics[width=0.8\textwidth]{MassStoppingPower}
+\caption{Electron mass stopping power for $\alpha$, $e^{-}$, and protons.  (\citeref{Berger2018a})}
+\label{fig:mass_stopping_power}
+\end{figure}
+
+Since a higher stopping power translates to a larger decrease in energy, there will be a higher ionization density in the particle
+track.  This has implications that will be discussed in \secref{}.
+
+For particles that induce a nuclear recoil we must also consider the nuclear stopping power, which is the energy lost per unit length from
+atomic collisions that transfer kinetic energy to the nucleus.  Thus for NR the total stopping power is
+
+\begin{equation}
+\bigg( \frac{dE}{dx} \bigg)_{\mathrm{tot}} = \bigg( \frac{dE}{dx} \bigg)_{\mathrm{elec}} + \bigg( \frac{dE}{dx} \bigg)_{\mathrm{nuc}}
+\end{equation}
+
+
+%========
 \subsection{Recombination}
 \label{subsec:recombination}
 An essential ingredient to understanding the particle interaction and energy is recombination.  It is related to ionization density,
@@ -272,7 +413,7 @@ are best fit for box model (\citeref{Thomas1987}).}
 \end{figure}
 
 The Thomas-Imel box model works well for short particle tracks but does not accurately predict long.  At longer particle tracks a Birks'
-Law (\citeref{Birks1964}) derivation for liquid noble gases yields
+Law (originally developed for foro organic scintillators, \citeref{Birks1964}) derivation for liquid noble gases yields
 
 \begin{equation}
 \frac{dN_{\pm}}{dt} = -\alpha N_{+} N_{-}
@@ -298,6 +439,12 @@ non-geminate and geminate recombination, respectively.  Geminate recombination (
 (volume) recombination is when an \electron is captured by an ion that is not its parents.  This has been shown to be valid at
 $E \gtrsim 80\ \mathrm{keV}$ for \gammarays as well as light ions and $\sim 1\ \mathrm{MeV}$ electrons.
 
+The considerable LET for $\alpha$-particles forms high-density tracks that lead to very strong and quick recombination.  The
+density is so high only a small percent of \electron avoid recombination, even at high $E$-fields of $\sim 10\ \mathrm{kV\ cm^{-1}}$
+(for electrons this would be nearly 100\%) (\citeref{Chepel2013}).  The consistency in charge collection across different fields causes
+difficulties in distinguishing recombination from initial excitation.
+
+
 
 If an electric field is applied the \electron that have sufficiently large thermal energy are drifted for
 proportional scintillation, conserving the measurable quantity.
@@ -322,159 +469,11 @@ data performed in \citeref{Doke2002} and are not discussed here.  Image credit: 
 \label{fig:lindhard}
 \end{figure}
 
-In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
-to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
-\vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
-
-\begin{table}
- \centering
- \begin{tabular}{cc}
- \hline
- $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
- \hline
- $\lesssim 100$ & \vd$\propto E$ \\
- $\sim 100-10^{3-4}$ & \vd$\propto E^{1/2}$ \\
- $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
- \hline
- \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
- \end{tabular}
-\end{table}
-
-\begin{figure}
-\includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
-\caption{Drift velocity for solid and liquid xenon}
-\label{fig:drift_velocity}
-\end{figure}
-
-As the electron cloud drifts it will diffuse both longitudinally (in the direction of $E$) and transversely (perpendicular to $E$).  The
-diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
-be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
-
-Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
-material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
-lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqref{eq:impurity_attach}.
-
-\begin{equation}
-e^{-} + S \rightarrow S^{-}
-\label{eq:impurity_attach}
-\end{equation}
-
-\noindent The amount of \electron captured is dependent on the time in the LXe.  Thus an advantage of larger \efields is a larger
-\vd (up to a point) and thus less time in the liquid.  Doping LXe with organic materials such as butane can increase \vd at higher
-\efields but they are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  By setting the rate at which
-electrons are absorbed by impurities $dq/dt = -qk_{S}S$ where $S$ is the impurity concentration and $k_{S}$ is the attachment rate
-constant we find
-
-\begin{equation}
-q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
-\label{eq:lifetime_equation}
-\end{equation}
-
-\noindent where $\tau_{e} = (k_{S}S)^{-1}$ and is known as the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
-O$_{2}$,
-N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
-decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values - that is, the concentration of \otwo if it was solely
-responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
-\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in \secref{}.
-
-
-\begin{figure}
-\includegraphics[width=0.8\textwidth]{AttachmentRate}
-\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
-larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
-\label{fig:attachment_rate}
-\end{figure}
-
-In a TPC a cathode at the bottom of the detector applies an electric field in the LXe.  The \electron drift towards the top where a
-grounded gate rests a few millimeters below the LXe surface.  Directly above the gate by a couple centimeters is the anode, which
-applies a strong electric field that extracts the electrons into the gas xenon (GXe).  An extracted electron will ionize and excite
-GXe atoms, whose freed electrons will do so as well in what is known as electroluminescence.  The number of ionized and excited atoms
-is proportional to the number of \electron extracted, hence it is also known as proportional scintillation.  The number of photons
-$N_{\mathrm{ph}}$ produced traveling a distance $z$ is
-
-\begin{equation}
-\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
-\label{eq:electronlum}
-\end{equation}
-
-\noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $E_{g}$ and $P$ are the
-GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
 
 
 
-%====================================
-\section{Stopping Power}
-\label{sec:stopping_power}
-The track structure is defined by the distribution of \electron, ions, and excitons when all \electron have slowed to sub-excitation
-speed (\citeref{Chepel2013}).  This has a major role in determining the subsequent response of atoms and \electron.  Track structures
-vary considerably with respect to different particles and linear energy transfer (LET).  Still, tracks typically have a cylindrical
-structure with secondary branches resulting from $\delta$-rays.
 
-A particle that loses energy through inelastic collisions with electrons (prompting excitation and ionization) will produce an electronic
-recoil.  The energy lost per unit
-length is the electronic stopping power $dE/dx$.  It is related to the LET and depends on the
-type and energy of the particle and properties of the
-medium, including density and composition.  A larger electronic stopping power indicates the particle will slow more quickly, thereby
-depositing its energy more densely along its track.
 
-The energy density affects recombination between \electron and ions and is discussed in \secref{recombination}.  Xenon
-has a large stopping power - in part to its large atomic mass - that slows particles relatively efficiently.  One benefit of this
-is self-shielding, which protects the interior of the detector from outside radiation.  Higher self-shielding restrains external
-radiation from penetrating deep into the detector,
-allowing a larger fiducial volume (FV) for dark matter searches.  Because the stopping power is proportional to the
-density of the medium, LXe is more effective at self-shielding than liquid argon ($1.395\ \mathrm{g\ cm^{-3}}$) and liquid neon
-($1.207\ \mathrm{g\ cm^{-3}}$).
-
-By dividing the stopping power by the medium's density we get a function that is mainly a function of the radiating particle known as
-the mass stopping power.  This is shown for $\alpha$, $e^{-}$, and protons in \figref{fig:mass_stopping_power}.  We see that for the DM
-region of interest ($1-100$ keV) as \electron
-energy increases the stopping power decreases, while for $\alpha$ and protons the reverse is true.  Multiplying by the density of LXe
-$\rho_{\mathrm{LXe}}$ gives an electron stopping power of $0.65-30\ \mathrm{keV\ \mu m^{-1}}$ for \electron and
-$\sim 20-900\ \mathrm{keV\ \mu m^{-1}}$ for $\alpha$ and protons.
-
-We can see that in
-the dark matter search region ($1-100$ keV) $e^{-}$ decrease by a factor of $\sim 10$.  Multiplying by the density of LXe we get the
-electronic stopping power to be $\sim 0.65-30\ \mathrm{keV\ \mu m^{-1}}$.  \alphadecays are typically $> 5.5$ MeV and thus have a stopping
-power of $\sim 600-2000\ \mathrm{keV\ \mu m^{-1}}$.  We see that particle tracks are on the order of $10\ \mathrm{\mu m}$, so particles
-that originate at or outside the surface of the detector will never make it into the FV with any reasonable probability.
-
-\begin{figure}[t]
-\includegraphics[width=0.8\textwidth]{MassStoppingPower}
-\caption{Electron mass stopping power for $\alpha$, $e^{-}$, and protons.  (\citeref{Berger2018a})}
-\label{fig:mass_stopping_power}
-\end{figure}
-
-Since a higher stopping power translates to a larger decrease in energy, there will be a higher ionization density in the particle
-track.  This has implications that will be discussed in \secref{}.
-
-For particles that induce a nuclear recoil we must also consider the nuclear stopping power, which is the energy lost per unit length from
-atomic collisions that transfer kinetic energy to the nucleus.  Thus for NR the total stopping power is
-
-\begin{equation}
-\bigg( \frac{dE}{dx} \bigg)_{\mathrm{tot}} = \bigg( \frac{dE}{dx} \bigg)_{\mathrm{elec}} + \bigg( \frac{dE}{dx} \bigg)_{\mathrm{nuc}}
-\end{equation}
-
-\noindent Atomic motion in liquid noble gas experiments is not observable so the number of quanta $N_{q}$ produced will be lower
-than for an an electronic recoil scatter with the same recoil energy.  While energized electrons are capable of transferring very small
-amounts of energy to the motion of the nucleus, the reverse is not true.  Thus all translational energy acquired by the nucleus is
-resigned to be unobservable.  The fraction of energy lost to atomic motion is characterized by $f_{n}$.
-
-Moreover, energized electrons can transfer a very small amount
-of energy to the motion of the atom, but
-the reverse is not true.  The fraction of energy lost to atomic motion $f_{n}$ is commonly characterized with the Lindhard model
-(\citeref{Lindhard1965})
-
-\begin{equation}
-f_{n} = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
-\label{eq:linhard_quenching}
-\end{equation}
-
-\noindent where $k = 0.133Z^{2/3}A^{1/2}$, $g(\epsilon) = 3\epsilon^{0.15} + 0.7\epsilon^{0.6} + \epsilon$, and
-$\epsilon = 11.5 (E_{R} / Z^{7/3})$ where $Z$ is the atomic number and $A$ is the number of nucleons.  $k$ is proportional to the ratio of
-electronic stopping power to particle velocity of the recoiling Xe atom (\citeref{Sorensen2011}) and $g(\epsilon)$ is proportional
-to the ratio of electronic to nuclear scaling factor (\citeref{NEST2015}).  There has been some debate about
-the coefficient in $k$ and I use the value from \citeref{Lewin1996}.  Studies have shown that energy is only lost to atomic motion for
-nuclear recoils.  The quenching factor $f_{n}$ is shown in \figref{fig:lindhard} for the relevant energy search region.
 
 
 %====================================
@@ -634,7 +633,14 @@ energies $E_{R}$ and larger WIMP masses the gap of the discrepancy decreases.  E
 \section{Electronic Recoils}
 \label{sec:er}
 An electronic recoil signifies that the interaction occurred with the electron shell of an atom and the particle.  Because no energy
-is lost to atomic motion the number of quanta produced is $N_{q} = E_{\mathrm{ER}} / W$ where \energyer is the electronic recoil energy
+is lost to atomic motion the number of quanta produced is
+
+\begin{equation}
+N_{q} = \frac{E_{\mathrm{ER}}}{W}
+\label{eq:nquanta_er}
+\end{equation}
+
+\noindent where \energyer is the electronic recoil energy
 and $W = 13.2\ \mathrm{eV}$ (\citeref{Dahl2009}) is the energy needed to produce a single quanta.  This can be broken up into
 
 \begin{equation}
@@ -642,8 +648,27 @@ N_{q} = N_{\mathrm{ex}} + N_{\mathrm{i}}
 \label{eq:quanta}
 \end{equation}
 
-\noindent where \nex and \nion is the number of excitons and ions, respectively.  Rearranging we can find the probability that a
-given quanta is an ion
+\noindent where \nex and \nion is the number of excitons and ions, respectively.  The number of electron-ion pairs when a particle
+deposits all of its energy has a root mean square of
+
+\begin{equation}
+\delta = F \times N_{\mathrm{i}}
+\label{eq:fano}
+\end{equation}
+
+\noindent where $F < 1$ and known as the Fano factor (\citeref{Fano1947}).  Thus the fluctuations of $N_{\mathrm{i}}$ are smaller than a
+Poisson
+distribution ($F = 1$).  Several experiments have attempted to measure $F$ for LXe (\citeref{Doke1976, Seguinot1995}) with an
+estimated value of $F = 0.056$ for \electron and $\gamma$-rays.  This places a limit on the fundamental energy resolution of
+
+\begin{equation}
+\Delta E = \sqrt{F W E}
+\end{equation}
+
+\noindent where $\Delta E$ is in keV, $W$ is in eV, and the energy $E$ is in MeV (\citeref{Aprile2009}).  Current LXe experiments have
+not yet even achieved Poisson resolution, so there is a lot of progress that can be made in the future.
+
+Rearranging \eqref{eq:quanta} we find the probability that a particular quanta is an ion
 
 \begin{equation}
 p_{\mathrm{ion}} = \frac{1}{1 + \frac{ N_{\mathrm{ex}} }{ N_{\mathrm{ion}} }}
@@ -677,8 +702,36 @@ Although the vast majority of background comes from electronic recoils, nuclear 
 WIMP interactions.  Therefore the NR background must be well-modeled to avoid mistaking a background event for a WIMP or vice
 versa.
 
-Because some energy in nuclear recoils goes into atomic motion the number of excitons and ions is reduced compared to ERs.  The toal
-number of quanta is $N_{q} = L E_{R} / W$ where $L$ is the Linhard quenching factor defined in \eqref{eq:linhard_quenching}.
+\noindent Atomic motion in liquid noble gas experiments is not observable any energy that is passed on as kinetic energy to the nucleus
+is lost.  While energized electrons are capable of transferring very small
+amounts of energy to the motion of the nucleus, the reverse is not true.  Atomic motion has only been observed in nuclear recoils,
+which implies for the same energy deposition $N_{q}$ will differ between electronic and nuclear recoils.  The fraction of energy lost
+to atomic motion is characterized by $f_{n}$, which is commonly characterized by the Lindhard model
+(\citeref{Lindhard1965})
+
+\begin{equation}
+f_{n} = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
+\label{eq:linhard_quenching}
+\end{equation}
+
+\noindent where $k = 0.133Z^{2/3}A^{1/2}$, $g(\epsilon) = 3\epsilon^{0.15} + 0.7\epsilon^{0.6} + \epsilon$, and
+$\epsilon = 11.5 (E_{R} / Z^{7/3})$ where $Z$ is the atomic number and $A$ is the number of nucleons.  $k$ is proportional to the ratio of
+electronic stopping power to particle velocity of the recoiling Xe atom (\citeref{Sorensen2011}) and $g(\epsilon)$ is proportional
+to the ratio of electronic to nuclear scaling factor (\citeref{NEST2015}).  There has been some debate about
+the coefficient in $k$ and I use the value from \citeref{Lewin1996}.  Studies have shown that energy is only lost to atomic motion for
+nuclear recoils.  When parameterized by the Lindhard model the quenching factor $f_{n}$ is sometimes written as $L(E)$.  It is
+shown in \figref{fig:lindhard} for the relevant energy search region.
+
+The total number of quanta is
+
+\begin{equation}
+N_{q} = \frac{L(E) E_{\mathrm{NR}}}{W}
+\label{eq:nquant_nr}
+\end{equation}
+
+\noindent Note the difference between \eqref{eq:nquant_er} and \eq{eq:nquant_nr} is simply $L(E)$ as well as the the recoil energy
+scale (discussed in \secref{}).  Unlike ERs, $N_{\mathrm{ex}} / N_{\mathrm{i}} \sim 1$ (\citeref{Sorensen2011, Angle2011}) due to the
+higher density tracks.
 
 
 

@@ -810,8 +810,10 @@ reflectance when immersed in LXe to 178 nm, the xenon scintillation wavelength (
 \label{subsec:tpcs_pmts}
 Photomultiplier tubes (PMTs) are used for light detection in TPCs.  A digram of a PMT is shown in \figref{fig:tpcs_pmts_pmt_diagram}.  An
 incoming photon that
-passes through the window of the PMT will most often hit the photocathode, freeing a photoelectron via the photoelectric effect.  The
-probability that an incident photon will eject a photoelectron, or the quantum efficiency (QE), is only approximately one third.  This
+passes through the window of the PMT will most often hit the photocathode, freeing a photoelectron via the photoelectric effect.  Single
+photoelectron emission (SPE) refers to a photon freeing a single \electron from the photocathode.  The
+quantum efficiency (QE), which is the ratio of electrons ejected from the photocathode divided by incident photons, is approximately
+one third.  This
 makes the reflectivity of the TPC wall material critical (\secref{tpcs_tpc}).  The photoelectron then passes through the focusing
 electrode, which directs it towards the first dynode.  The dynodes are coupled to one another through resistors, lowering the electric
 potential with each successive one.  As the photoelectron hits the first dynode it will free electrons.  These will then pass to the
@@ -826,16 +828,41 @@ freed, creating an amplified signal that is eventually output.  Image credit: \c
 \end{figure}
 
 In some cases an incident photon may pass through the photocathode and directly hit the first dynode, freeing an electron.  This will
-lead to an under-amplified response as the cascade effect will effectively occur with one less dynode.  Wavelengths are 178, 128, and
-78 nm for Xe, Ar, and Ne.
+cause the same response as a photocathode ionization except with one fewer dynode, leading to an under-amplified current.  Additionally,
+if the incident photon has at least double the workfunction of the photocathode we would expect the number of photoelectrons emitted to
+follow a Poisson distribution.  However, a recent study of several Hamamatsu vacuum ultraviolet-sensitive (VUV) PMTs showed the double
+photoelectron emission
+(DPE) fraction was between 18-24\% depending on the PMT, higher than the expected $\sim 15\%$.  This includes the PMTs that are used in
+XENON100 and XENON1T.
 
-Details of the PMTs used in XENON1T can be found in \secref{}.
+Afterpulses are an increase in PMT signal directly following and as a consequence of the true signal.  Afterpulses precipitate from one of
+two categories.  The first is the elastic scattering of \electron with the initial dynode, prompting afterpulses in the range of a few
+to tens of nanoseconds.  The second is triggered by positive ions of residual gases in the body of the PMT striking the photocathode,
+expelling additional photoelectrons.  The number of photoelectrons (amplitude of afterpulse) depends on the ion and position of
+ionization.  The delay between true signal and afterpulse of this class is between hundreds of nanoseconds and several microseconds,
+depending on the ion and voltage of the PMT.  Afterpulse amplitude vs. delay time can be seen in \figref{fig:tpcs_pmts_ap}.  Afterpulses
+constitute a problem because, depending on the delay and magnitude of the true
+signal, can be difficult to distinguish from the actual signal.  The extent of afterpulses from the second classification is directly
+related to the number of residual gas in the PMT.  Thus achieving excellent vacuum is a necessity - indeed, too much residual gas will
+lead to deterioration of and ultimately inability to operate the PMT.
 
-The sides of the chamber consist of a material that reflects the wavelength of the scintillation emitted inside the TPC.  Just outside
-is a field cage: a series of rings stacked parallel to the meshes and connected via resistors.  These help maintain drift field uniformity
-between the cathode and gate.
+\begin{figure}
+\includegraphics[\width=\textwidth]{Afterpulse}
+\caption{Afterpulses for one of the PMTs from XENON1T.}
+\label{fig:tpcs_pmts_ap}
+\end{figure}
 
-Below the cathode and above the anode are photomultiplier tubes.
+Liquid noble gases used in dark matter searches emit ultraviolet light.  Scintillation is at 178 nm for xenon, 128 nm for argon, and
+78 nm for neon.  LAr experiments have to use wavelength shifters because current PMTs are not sensitive to such low wavelengths.  For
+LXe this is not a problem as PMTs have good sensitivity to 178 nm.  Details of the PMTs used in XENON1T can be found in \secref{}.
+
+
+
+\subsection{Signals}
+\labels{subsec:tpcs_signals}
+
+
+
 
 
 

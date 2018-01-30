@@ -196,7 +196,19 @@ it has been observed that two excitons may collide and free an electron as shown
 \subsection{Secondary Scintillation}
 \label{subsec:secondary}
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
-to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
+to the field at drift velocity $v_{d}$.  At low field ($E \lesssim 100\ \mathrm{V\ cm^{-1}}$) $v_{d} \propto E$ but as the strength
+increases \vd begins to flatten, reaching $\sim 3\ \mathrm{mm\ \mu s^{-2}}$ at $E \gtrsim 10^{4}\ \mathrm{V\ cm^{-1}}$.  Relation between
+\vd and $E$ is given in \tabref{tab:drif_velocity} and shown in \figref{fig:drift_velocity}.
+
+The strength of $E$ affects the number of electrons freed, as a larger field decreases
+recombination electron-ion recombination.  In liquid noble gas detectors used for DM searches such a field can be used to drift the
+\electron to the surface of the liquid, where they are extracted across a small region of gas.  Doing so will produce secondary
+scintillation as the \electron will energize the atoms in the gas, freeing more \electron in turn.  Because the amount of scintillation
+produced per electron is independent of the number of electrons extracted this is also known as proportional scintillation.  Thus, by
+measuring this scintillation the number of \electron extracted can be determined.  Details of \electron drift and proportional
+scintillation is found in \secref{subsec:tpcs_working_principle}.
+
+For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
 \vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
 
 \begin{table}
@@ -211,6 +223,7 @@ to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}
  \hline
  \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
  \end{tabular}
+ \label{tab:drift_velocity}
 \end{table}
 
 \begin{figure}
@@ -219,58 +232,6 @@ to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}
 \label{fig:drift_velocity}
 \end{figure}
 
-As the electron cloud drifts it will diffuse both longitudinally (in the direction of $E$) and transversely (perpendicular to $E$).  The
-diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
-be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
-
-Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
-material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
-lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqref{eq:impurity_attach}.
-
-\begin{equation}
-e^{-} + S \rightarrow S^{-}
-\label{eq:impurity_attach}
-\end{equation}
-
-\noindent The amount of \electron captured is dependent on the time in the LXe.  Thus an advantage of larger \efields is a larger
-\vd (up to a point) and thus less time in the liquid.  Doping LXe with organic materials such as butane can increase \vd at higher
-\efields but they are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  By setting the rate at which
-electrons are absorbed by impurities $dq/dt = -qk_{S}S$ where $S$ is the impurity concentration and $k_{S}$ is the attachment rate
-constant we find
-
-\begin{equation}
-q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
-\label{eq:lifetime_equation}
-\end{equation}
-
-\noindent where $\tau_{e} = (k_{S}S)^{-1}$ and is known as the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
-O$_{2}$,
-N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
-decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values - that is, the concentration of \otwo if it was solely
-responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
-\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in \secref{}.
-
-\begin{figure}
-\includegraphics[width=0.8\textwidth]{AttachmentRate}
-\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
-larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
-\label{fig:attachment_rate}
-\end{figure}
-
-In a TPC a cathode at the bottom of the detector applies an electric field in the LXe.  The \electron drift towards the top where a
-grounded gate rests a few millimeters below the LXe surface.  Directly above the gate by a couple centimeters is the anode, which
-applies a strong electric field that extracts the electrons into the gas xenon (GXe).  An extracted electron will ionize and excite
-GXe atoms, whose freed electrons will do so as well in what is known as electroluminescence.  The number of ionized and excited atoms
-is proportional to the number of \electron extracted, hence it is also known as proportional scintillation.  The number of photons
-$N_{\mathrm{ph}}$ produced traveling a distance $z$ is
-
-\begin{equation}
-\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
-\label{eq:electronlum}
-\end{equation}
-
-\noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $E_{g}$ and $P$ are the
-GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
 
 
 
@@ -744,16 +705,140 @@ higher density tracks.
 
 
 
+%====================================
+\section{Time Projection Chambers}
+\label{sec:tpcs}
+Time projection chambers (TPCs) measures the light and charge of an interaction in the noble liquid.  They have been leading the
+spin-independent search for WIMP masses $> 10\ \mathrm{GeV}$ and as the ton-scale era progresses are poised to continue.  In this section
+only liquid noble gases TPCs relevant for dark matter searches are discussed.
+
+\subsection{Working Principle}
+\label{subsec:tpcs_working_principle}
+TPCs consist of a liquid noble element with a small gas gap at the top.  At least three meshes are required for a functioning TPC: the
+cathode, gate, and anode, all of which are parallel.  A diagram of a TPC with an event is shown in \figref{fig:tpcs_tpc}.  The cathode is
+at the bottom of the detector and applies an electric field - known as the drift field $E_{d}$ - between
+it and the gate, which is grounded.  The liquid level is set to just above the gate.  As briefly covered in \secref{subsec:secondary}
+$E_{d}$ will push any \electron that do not recombine towards the surface of the liquid at drift velocity $v_{d}$.  Typically an electric
+field cage consisting
+of metal rings stacked vertically, or parallel to the cathode and gate.  They are connected via resistors such that they mirror the
+the drift field, helping to maintain field uniformity.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{}
+\label{fig:tpcs_tpc}
+\end{figure}
+
+The body of \electron that move along $E_{d}$ are known as the electron cloud.  As the electron cloud drifts it diffuses both
+longitudinally (in the direction of $E_{d}$) and transversely (perpendicular to $E_{d}$).  The
+diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
+be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
+
+While xenon distillation inevitably leaves residual noble gases, it is much more effective at removing other elements.  Nonetheless
+impurities that outgas from detector materials contaminate the noble gas.  Electronegative impurities in particular present a problem
+since they attach to drifting $e^{-1}$,
+lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
+is
+\eqref{eq:impurity_attach}.
+
+\begin{equation}
+e^{-} + S \rightarrow S^{-}
+\label{eq:impurity_attach}
+\end{equation}
+
+\noindent where $S$ is the impurity.  The number of \electron captured is dependent drift time $t_{d}$ and the
+attachment rate of
+the impurities $k_{S}$, both of which depend on $E_{d}$.  Clearly then an advantage of larger
+\efields is a larger
+\vd (up to a point, see \figref{fig:drift_velocity}) and thus less time in the liquid.  Doping LXe with organic materials such as butane
+can increase \vd at stronger
+\efields but are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  The rate at which electrons are
+absorbed by impurities is proportional to the number of electrons, impurities, and impurity attachment rate.  Assuming the the density
+of impurities in the liquid and $E_{d}$ are uniform we find
+
+\begin{equation}
+$dq/dt = -qk_{S}S$
+\label{eq:lifetime_diff_eq}
+\end{equation}
+
+\begin{equation}
+q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
+\label{eq:lifetime_equation}
+\end{equation}
+
+\noindent where $\tau_{e} = (k_{S}S)^{-1}$ is the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
+O$_{2}$,
+N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
+decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values, or the concentration of \otwo if it was solely
+responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
+\figref{fig:attachment_rate} gives a good approximation as it is expected to the most dominant (\textbf{check this}).  Removing these
+impurities
+will be discussed in detail in \secref{}.
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{AttachmentRate}
+\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
+larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
+\label{fig:attachment_rate}
+\end{figure}
+
+About a centimeter (\textbf{check this}) above the gate is the anode.  The electric field between the gate and anode $E_{g}$ must be strong
+enough to extract the \electron that reach the liquid surface into the gas.  To do this the anode is typically set to
+$V_{a} \sim 4000\ \mathrm{kV\ cm^{-1}$.  An extracted \electron will quickly gain enough kinetic energy to ionize atoms in the gas,
+whose \electron in turn ionize others, creating a cascade effect.  Because the scintillation per electron is independent of
+the total number of electrons extracted this is known as proportional scintillation.  It is also known as secondary scintillation or
+electroluminescence.  The number of photons $N_{\mathrm{ph}}$ produced over a distance $z$ per \electron is
+
+\begin{equation}
+\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
+\label{eq:electronlum}
+\end{equation}
+
+\noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $P$ is the pressure in the
+gas (\citeref{Belogurov1995}).
+
+TPCs have photodetectors at the top (above the gate) and bottom (below the cathode).  While proportional scintillation occurs at the top
+and in most detector settings produces enough light to guarantee detection, prompt scintillation - especially for low energy events - does
+not have this benefit.  Depending on the geometry of the detector the fraction of light that is directed towards the photodetectors can
+be small, and the photodetectors themselves can have less than unity detection efficiency (see \secref{subsec:tpcs_pmts} for details on
+PMTs).  To increase the intensity of light that reaches the photodetectors, and thereby improve the likelihood that an event is
+detected, the wall of the TPC is covered in a reflective material just inside the field cage.  Polytetrafluoroethylene (PTFE) is
+reflective for liquid noble gas scintillation (in the UV range) and is a common choice.  It has been shown to have $> 97 \%$
+reflectance when immersed in LXe to 178 nm, the xenon scintillation wavelength (\citeref{Neves2017}).
+
+
+\subsection{Photomultiplier Tubes}
+\label{subsec:tpcs_pmts}
+Photomultiplier tubes (PMTs) are used for light detection in TPCs.  A digram of a PMT is shown in \figref{fig:tpcs_pmts_pmt_diagram}.  An
+incoming photon that
+passes through the window of the PMT will most often hit the photocathode, freeing a photoelectron via the photoelectric effect.  The
+probability that an incident photon will eject a photoelectron, or the quantum efficiency (QE), is only approximately one third.  This
+makes the reflectivity of the TPC wall material critical (\secref{tpcs_tpc}).  The photoelectron then passes through the focusing
+electrode, which directs it towards the first dynode.  The dynodes are coupled to one another through resistors, lowering the electric
+potential with each successive one.  As the photoelectron hits the first dynode it will free electrons.  These will then pass to the
+second dynode, repeating this procedure.  This results in a cascade effect ending at the anode, where the charge is output to a
+voltage reading device such as an oscilloscope or digitizer.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{PMT1}
+\caption{Diagram of a PMT.  An incident photon hits the photocathode, freeing a photoelectron.  With each dynode the more \electron are
+freed, creating an amplified signal that is eventually output.  Image credit: \citeref{CHROMacademy}.}
+\label{fig:tpcs_pmts_pmt_diagram}
+\end{figure}
+
+In some cases an incident photon may pass through the photocathode and directly hit the first dynode, freeing an electron.  This will
+lead to an under-amplified response as the cascade effect will effectively occur with one less dynode.  Wavelengths are 178, 128, and
+78 nm for Xe, Ar, and Ne.
+
+Details of the PMTs used in XENON1T can be found in \secref{}.
+
+The sides of the chamber consist of a material that reflects the wavelength of the scintillation emitted inside the TPC.  Just outside
+is a field cage: a series of rings stacked parallel to the meshes and connected via resistors.  These help maintain drift field uniformity
+between the cathode and gate.
+
+Below the cathode and above the anode are photomultiplier tubes.
 
 
 
-
-
-In addition to improving the likelihood of spin-independent DM-nucleon scattering (\eqnref{eq:dr_de_final}), the average molar mass
-$A = 131.293\ \mathrm{g\ mol^{-1}}$ provides much better stopping power than its noble gas counterparts.  The stopping power $dE/dx$
-is the amount of energy lost per distance, and at low energies can be broken down into electronic and nuclear stopping power.
-
-The electronic stopping power is the energy lost due to electronic excitations as a particle travels through the detector.  
 
 
 
@@ -769,10 +854,6 @@ The electronic stopping power is the energy lost due to electronic excitations a
 
 
 
-
-%====================================
-\section{Particle Interactions}
-\label{sec:particles}
 
 
 

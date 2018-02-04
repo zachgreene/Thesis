@@ -497,7 +497,8 @@ throughout the detector.  \krypton decays via
 contaminate the search region, and a half-life of 10.72 years ensures \ce{^{85}Kr} will be present throughout the lifetime of the
 experiment.
 
-\ce{^{222}Rn} presents a similar problem.  As a daughter of the \ce{^{238}U} decay chain it emanates from the detector materials and distributes
+\ce{^{222}Rn} presents a similar problem.  As a daughter of the \ce{^{238}U} decay chain it emanates from the detector materials and
+distributes
 uniformly throughout the detector.  Its two most dangerous daughters or \leadtwofourteen and \ce{^{214}Bi}, each of which
 undergo $\beta$-decay.  \ce{^{214}Bi} is easily identifiable because its daughter \poloniumtwofourteen has a half-life of
 $160\ \mathrm{\mu s}$ and undergoes $\alpha$-decay.  Thus a cut on coincidence can remove such events.  \leadtwofourteen is more
@@ -783,7 +784,7 @@ larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6
 
 About a centimeter (\textbf{check this}) above the gate is the anode.  The electric field between the gate and anode $E_{g}$ must be strong
 enough to extract the \electron that reach the liquid surface into the gas.  To do this the anode is typically set to
-$V_{a} \sim 4000\ \mathrm{kV\ cm^{-1}$.  An extracted \electron will quickly gain enough kinetic energy to ionize atoms in the gas,
+$V_{a} \sim 4000\ \mathrm{kV\ cm^{-1}}$.  An extracted \electron will quickly gain enough kinetic energy to ionize atoms in the gas,
 whose \electron in turn ionize others, creating a cascade effect.  Because the scintillation per electron is independent of
 the total number of electrons extracted this is known as proportional scintillation.  It is also known as secondary scintillation or
 electroluminescence.  The number of photons $N_{\mathrm{ph}}$ produced over a distance $z$ per \electron is
@@ -847,6 +848,7 @@ related to the number of residual gas in the PMT.  Thus achieving excellent vacu
 lead to deterioration of and ultimately inability to operate the PMT.
 
 \begin{figure}
+\centering
 \includegraphics[\width=\textwidth]{Afterpulse}
 \caption{Afterpulses for one of the PMTs from XENON1T.}
 \label{fig:tpcs_pmts_ap}
@@ -860,7 +862,70 @@ LXe this is not a problem as PMTs have good sensitivity to 178 nm.  Details of t
 
 \subsection{Signals}
 \labels{subsec:tpcs_signals}
+Primary and secondary scintillation are measured in units of photoelectrons and denoted S1 and S2, respectively.  An example of an
+interaction is shown in \figref{fig:tpcs_signal_tpc}.  In the left side a particle scatters with the LXe, prompting photons almost
+immediately that are observed by the PMTs.  The right side shows the freed \electron that have drifted to the LXe-GXe interface and
+are extracted by the anode across the GXe.  The PMTs are colored with relative intensity they would observe.  For a typical S1 the
+bottom PMTs observed more light due to reflection off the LXe surface (though the amount depends on where in the TPC the interaction
+occurs).  For S2s the top PMTs see more light since the amplification occurs close and directly underneath them.  Note that for S2s
+the top PMTs have an intensity profile centered around where the \electron are extracted.  The bottom PMTs have a roughly uniform
+distribution as the light has more area to separate, as well as reflect off the walls.  The light distribution in the top PMT panel
+can be used to reconstruct the x-y position of the interaction.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{LUXTPC}
+\caption{A diagram of an interaction in a LXe TPC.  The primary scintillation (S1) is immediately
+observed by the PMT arrays.  The \electron drift under $E_{d}$ towards the top of the detector, where they are extracted across GXe,
+creating secondary scintillation (S2).  The plot at the bottom depicts what a typical waveform looks like.  Note the S2 is significantly
+higher than the S1 due to the amplification during electroluminescence.  The relative intensity of light in the PMTs, or PMT hit
+pattern, can be used to determine the x- and y-coordinates of the interaction.}
+\label{fig:tpcs_signal_tpc}
+\end{figure}
+
+\subsubsection{Position Reconstruction}
+\label{subsubsec:tpcs_signals_posrec}
+
+\subsubsection{Discrimination}
+\label{subsubsec:tpcs_signals_discr}
+As discussed in \secref{subsec:stopping_power} the track structure affects recombination (\secref{subsec:recombination}), thereby
+influencing the S1 and S2.  \figref{fig:mass_stopping_power} shows that the stopping power, and therefore track structure, changes
+with energy for a given particle, so we expect S2/S1 to vary.  Because the track structure of a neutron is denser than $\beta$ and
+$\gamma$ recombination should yield different prompt and proportional scintillations.  While we know nuclear recoils lose a
+non-negligible fraction of energy to atomic motion
+(\secref{sec:nr}), it is still possible to apply ER-NR discrimination by looking at S1-space instead.
+
+\figref{fig:tpcs_signals_ernr} shows S2 vs. S1 for electronic and nuclear recoils.  The electronic are from a \ce{^{220}Rn} calibration
+where the \ce{^{212}Pb} daughter undergoes $\beta^{-}$-decay.  The short lifetime of the \ce{^{220}Rn} decay chain, low energy
+recoil (569.9 end-point energy), and uniform distribution throughout the detector make \ce{^{220}Rn} an excellent choice for
+ER calibration.
+
+Unfortunately there are no noble gas neutron sources
+for calibrating inside the TPC and other elements would lower the purity of the detector, significantly decreasing the electron
+lifetime.  Therefore nuclear calibrations must be done with external sources, limiting the number of events in the FV.  For XENON1T
+these were done with americium beryllium (AmBe) and a neutron generator.  The nuclear recoils in \figref{fig:tpcs_signal_ernr} are from
+an AmBe calibration during Science Run 1 with $E = ?\ \mathrm{kV\ cm^{-1}}$.
+
+As expected from the less concentrated track structure we see that the \ce{^{220}Rn}
+has on average larger S2s for a given S1, meaning that even though we are not comparing energies, the change in stopping
+power between the ER and NR energies still results in a denser track for NR.  This holds true in general, giving
+
+\begin{equation}
+\Big( \frac{S2}{S1} \Big)_{\mathrm{ER}} > \Big( \frac{S2}{S1} \Big)_{\mathrm{NR}}
+\end{equation}
+
+for all S1s.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ERNRComparison}
+\caption{S2 (proportional) vs. S1 (prompt) for recoils in LXe.  Electronic recoils are from the \ce{^{220}Rn} decay chain where
+\ce{^{212}Pb} undergoes $\beta^{-}$-decay with an end-point energy of 569.9 keV (\textbf{check this}) and are shown in red.  Nuclear
+recoils are from americium beryllium (AmBe) and are shown in blue.  We see the ratio of S2/S1 is larger for electronic recoils,
+allowing discrimination between possible WIMPs and ER background.
+\label{fig:tpcs_signals_ernr}
+\end{figure}
 
 
 

@@ -101,10 +101,10 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  \hline
  Isotope & Energy [keV] & Half-life \\
  \hline
- $^{129}$Xe & 39.6 & 0.97 ns & \\
- $^{129\mathrm{m}}$Xe & 236.1 & 8.88 d \\
- $^{131}$Xe & 80.2 & 0.48 ns \\
- $^{131\mathrm{m}}$Xe & 163.9 & 11.93 d \\
+ \ce{^{129}Xe} & 39.6 & 0.97 ns \\
+ \ce{^{129m}Xe} & 236.1 & 8.88 d \\
+ \ce{^{131}Xe} & 80.2 & 0.48 ns \\
+ \ce{^{131m}Xe} & 163.9 & 11.93 d \\
  \hline
  \end{tabular}
  \caption{Nuclear excited states for naturally occurring xenon in the energy range direct DM searches are sensitive too.}
@@ -187,7 +187,7 @@ less desirable than liquid argon (LAr), which has single and triplet states of $
 
 \eqnref{eq:recomb} and \eqnref{eq:deexcite}
 depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in nuclear recoils
-it has been observed that two excitons may collide and free an electron as shown in \eqnref{eq:biexitonic}.
+it has been observed that two excitons may collide and free an electron as shown in \eqnref{eq:biexcitonic}.
 
 
 
@@ -196,9 +196,11 @@ it has been observed that two excitons may collide and free an electron as shown
 \subsection{Secondary Scintillation}
 \label{subsec:secondary}
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
-to the field at drift velocity $v_{d}$.  At low field ($E \lesssim 100\ \mathrm{V\ cm^{-1}}$) $v_{d} \propto E$ but as the strength
-increases \vd begins to flatten, reaching $\sim 3\ \mathrm{mm\ \mu s^{-2}}$ at $E \gtrsim 10^{4}\ \mathrm{V\ cm^{-1}}$.  Relation between
-\vd and $E$ is given in \tabref{tab:drif_velocity} and shown in \figref{fig:drift_velocity}.
+to the field at drift velocity $v_{d}$.  At fields of $\lesssim 100\ \mathrm{V\ cm^{-1}}$ drift velocity is nearly proportional to
+$E$ and is given by $v_{d} = \mu E$
+where $\mu$ is the electron mobility.  For this energy region $\mu \sim 2200\ \mathrm{cm^{2}\ V^{-2}\ s^{-1}}$ (\citeref{Yoo2015}).  As
+$E$ increases $v_{d} \propto E^{1/2}$ and ultimately flattens at $\sim 3\ \mathrm{mm\ \mu s}$.  \figref{fig:drift_velocity} shows \vd
+as a function of $E$ and \tabref{tab:drift_velocity} gives the approximate relationship.
 
 The strength of $E$ affects the number of electrons freed, as a larger field decreases
 recombination electron-ion recombination.  In liquid noble gas detectors used for DM searches such a field can be used to drift the
@@ -757,7 +759,7 @@ absorbed by impurities is proportional to the number of electrons, impurities, a
 of impurities in the liquid and $E_{d}$ are uniform we find
 
 \begin{equation}
-$dq/dt = -qk_{S}S$
+\frac{dq}{dt} = -qk_{S}S
 \label{eq:lifetime_diff_eq}
 \end{equation}
 
@@ -800,8 +802,9 @@ gas (\citeref{Belogurov1995}).
 TPCs have photodetectors at the top (above the gate) and bottom (below the cathode).  While proportional scintillation occurs at the top
 and in most detector settings produces enough light to guarantee detection, prompt scintillation - especially for low energy events - does
 not have this benefit.  Depending on the geometry of the detector the fraction of light that is directed towards the photodetectors can
-be small, and the photodetectors themselves can have less than unity detection efficiency (see \secref{subsec:tpcs_pmts} for details on
-PMTs).  To increase the intensity of light that reaches the photodetectors, and thereby improve the likelihood that an event is
+be small, and the photodetectors themselves can have less than unity photon detection efficiency (\secref{subsec:tpcs_pmts}).  PMTs cannot
+be fixed around the cylindrical portion of the TPC because it would interfere with the drift field created by the field cage.  To increase
+the intensity of light that reaches the photodetectors, and thereby improve the likelihood that an event is
 detected, the wall of the TPC is covered in a reflective material just inside the field cage.  Polytetrafluoroethylene (PTFE) is
 reflective for liquid noble gas scintillation (in the UV range) and is a common choice.  It has been shown to have $> 97 \%$
 reflectance when immersed in LXe to 178 nm, the xenon scintillation wavelength (\citeref{Neves2017}).
@@ -814,18 +817,21 @@ incoming photon that
 passes through the window of the PMT will most often hit the photocathode, freeing a photoelectron via the photoelectric effect.  Single
 photoelectron emission (SPE) refers to a photon freeing a single \electron from the photocathode.  The
 quantum efficiency (QE), which is the ratio of electrons ejected from the photocathode divided by incident photons, is approximately
-one third.  This
-makes the reflectivity of the TPC wall material critical (\secref{tpcs_tpc}).  The photoelectron then passes through the focusing
+one third.  Because of this relatively low value choosing a highly reflective material for the TPC wall is critical.  The QE spectrum for
+the PMTs used in XENON1T, Hamamatsu R11410, is shown in \figref{fig:tpcs_pmts_qe}.  Note the maximum is near 178 nm, making it a good
+choice for LXe TPCs.  Once ejected, the photoelectron passes through the focusing
 electrode, which directs it towards the first dynode.  The dynodes are coupled to one another through resistors, lowering the electric
 potential with each successive one.  As the photoelectron hits the first dynode it will free electrons.  These will then pass to the
 second dynode, repeating this procedure.  This results in a cascade effect ending at the anode, where the charge is output to a
 voltage reading device such as an oscilloscope or digitizer.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{PMT1}
-\caption{Diagram of a PMT.  An incident photon hits the photocathode, freeing a photoelectron.  With each dynode the more \electron are
-freed, creating an amplified signal that is eventually output.  Image credit: \citeref{CHROMacademy}.}
-\label{fig:tpcs_pmts_pmt_diagram}
+\centering
+\includegraphics[width=0.6\textwidth]{Fig4FromLung2012}
+\caption{Quantum efficiency with respect to wavelength for the Hamamatsu R11410 PMT, used in XENON1T.  The peak efficiency occurs near
+the xenon scintillation wavelength 178 nm at $\sim 35 \%$.  The sharp cutoff to the left is due to the quartz window.  Image credit:
+\citeref{Lung2012}.}
+\label{fig:tpcs_pmts_qe}
 \end{figure}
 
 In some cases an incident photon may pass through the photocathode and directly hit the first dynode, freeing an electron.  This will
@@ -835,6 +841,14 @@ follow a Poisson distribution.  However, a recent study of several Hamamatsu vac
 photoelectron emission
 (DPE) fraction was between 18-24\% depending on the PMT, higher than the expected $\sim 15\%$.  This includes the PMTs that are used in
 XENON100 and XENON1T.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{PMT1}
+\caption{Diagram of a PMT.  An incident photon hits the photocathode, freeing a photoelectron.  With each dynode the more \electron are
+freed, creating an amplified signal that is eventually output.  Image credit: \citeref{CHROMacademy}.}
+\label{fig:tpcs_pmts_pmt_diagram}
+\end{figure}
 
 Afterpulses are an increase in PMT signal directly following and as a consequence of the true signal.  Afterpulses precipitate from one of
 two categories.  The first is the elastic scattering of \electron with the initial dynode, prompting afterpulses in the range of a few
@@ -849,7 +863,7 @@ lead to deterioration of and ultimately inability to operate the PMT.
 
 \begin{figure}
 \centering
-\includegraphics[\width=\textwidth]{Afterpulse}
+\includegraphics[width=\textwidth]{Afterpulse}
 \caption{Afterpulses for one of the PMTs from XENON1T.}
 \label{fig:tpcs_pmts_ap}
 \end{figure}
@@ -861,7 +875,7 @@ LXe this is not a problem as PMTs have good sensitivity to 178 nm.  Details of t
 
 
 \subsection{Signals}
-\labels{subsec:tpcs_signals}
+\label{subsec:tpcs_signals}
 Primary and secondary scintillation are measured in units of photoelectrons and denoted S1 and S2, respectively.  An example of an
 interaction is shown in \figref{fig:tpcs_signal_tpc}.  In the left side a particle scatters with the LXe, prompting photons almost
 immediately that are observed by the PMTs.  The right side shows the freed \electron that have drifted to the LXe-GXe interface and
@@ -869,8 +883,7 @@ are extracted by the anode across the GXe.  The PMTs are colored with relative i
 bottom PMTs observed more light due to reflection off the LXe surface (though the amount depends on where in the TPC the interaction
 occurs).  For S2s the top PMTs see more light since the amplification occurs close and directly underneath them.  Note that for S2s
 the top PMTs have an intensity profile centered around where the \electron are extracted.  The bottom PMTs have a roughly uniform
-distribution as the light has more area to separate, as well as reflect off the walls.  The light distribution in the top PMT panel
-can be used to reconstruct the x-y position of the interaction.
+distribution as the light has more area to separate, as well as reflect off the walls.
 
 \begin{figure}
 \centering
@@ -883,8 +896,35 @@ pattern, can be used to determine the x- and y-coordinates of the interaction.}
 \label{fig:tpcs_signal_tpc}
 \end{figure}
 
+
+
 \subsubsection{Position Reconstruction}
 \label{subsubsec:tpcs_signals_posrec}
+In addition to knowing the z-coordinate of the interaction ($\mathrm{z} = v_{d} t_{d}$) TPCs can recove the x and y positions.  The S2
+hit pattern in the top PMT panel in \figref{fig:tpcs_signal_tpc} very clearly shows an intensity distribution that peaks at one
+PMT and dissipates outwards.  It seems likely then that the S2 was extracted beneath or nearly beneath this PMT then.  A variety of
+algorithms can be applied to PMT hit patterns to estimate the x-y position of the event.  Typically the resolution of event
+reconstruction depends on the number and area of PMTs as well as the S2 size.  \figref{fig:tpcs_signals_posrec} shows the event
+distribution for XENON1T Science Run 1.  The majority of events are near the wall, a consequence from the
+traces of radioactivity present in detector materials.  The large self-shielding of LXe constrains nearly all of these to within
+$\sim 5\ \mathrm{cm}$ of the wall, enabling a reasonably large fiducial volume.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{PosRecXY}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{PosRecRZ}
+    \end{subfigure}
+    \caption{Position reconstruction for events in XENON1T Science Run 1.  Top PMT hit patterns are used to determine x-y while
+    $\mathrm{z} = v_{d} t_{d}$.  The number of events drops dramatically at lower radii due to the self-shielding of LXe.}
+	\label{fig:tpcs_signals_posrec}
+\end{figure}
+
+
 
 \subsubsection{Discrimination}
 \label{subsubsec:tpcs_signals_discr}
@@ -896,7 +936,7 @@ non-negligible fraction of energy to atomic motion
 (\secref{sec:nr}), it is still possible to apply ER-NR discrimination by looking at S1-space instead.
 
 \figref{fig:tpcs_signals_ernr} shows S2 vs. S1 for electronic and nuclear recoils.  The electronic are from a \ce{^{220}Rn} calibration
-where the \ce{^{212}Pb} daughter undergoes $\beta^{-}$-decay.  The short lifetime of the \ce{^{220}Rn} decay chain, low energy
+where the \ce{^{212}Pb} daughter undergoes $\beta^{-}$ decay.  The short lifetime of the \ce{^{220}Rn} decay chain, low energy
 recoil (569.9 end-point energy), and uniform distribution throughout the detector make \ce{^{220}Rn} an excellent choice for
 ER calibration.
 
@@ -911,21 +951,60 @@ has on average larger S2s for a given S1, meaning that even though we are not co
 power between the ER and NR energies still results in a denser track for NR.  This holds true in general, giving
 
 \begin{equation}
-\Big( \frac{S2}{S1} \Big)_{\mathrm{ER}} > \Big( \frac{S2}{S1} \Big)_{\mathrm{NR}}
+\Big( \frac{\mathrm{S}2}{\mathrm{S}1} \Big)_{\mathrm{ER}} > \Big( \frac{\mathrm{S}2}{\mathrm{S}1} \Big)_{\mathrm{NR}}
 \end{equation}
 
 for all S1s.
-
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ERNRComparison}
 \caption{S2 (proportional) vs. S1 (prompt) for recoils in LXe.  Electronic recoils are from the \ce{^{220}Rn} decay chain where
-\ce{^{212}Pb} undergoes $\beta^{-}$-decay with an end-point energy of 569.9 keV (\textbf{check this}) and are shown in red.  Nuclear
+\ce{^{212}Pb} undergoes $\beta^{-}$ decay with an end-point energy of 569.9 keV (\textbf{check this}) and are shown in red.  Nuclear
 recoils are from americium beryllium (AmBe) and are shown in blue.  We see the ratio of S2/S1 is larger for electronic recoils,
-allowing discrimination between possible WIMPs and ER background.
+allowing discrimination between possible WIMPs and ER background.}
 \label{fig:tpcs_signals_ernr}
 \end{figure}
+
+It is possible to reconstruct the number of photons and electrons from an S1 and S2.  Doing so requires knowing a number of detector
+variables, including PMT quantum efficiency, light per extracted $e^{-1}$, light collection efficiency (LCE) variation throughout
+the TPC, and more.  These are discussed in detail in \secref{}.  If these are well-understood the number of photons and electrons,
+can be calculated.  Typically these are given in photoelectrons per photon and photoelectrons per \electron and are designated by
+light and charge yield, respectively (details in \secref{}).  \figref{figs:tpcs_signals_drift_field} shows the ratios of light and
+charge yield as a function of drift field for 122 keV electron recoils (\ce{^{57}Co} $\gamma$-rays), 56.5 keV elastic nuclear recoils, and
+5.5 MeV $\alpha$-decays.  Expectedly at larger drift fields the light yield declines while the charge increases.  The sparser
+ionization density directs electronic recoils to be significantly more influenced than nuclear or alphas.  This dissimilarity reveals
+the drift field can be optimized for ER-NR discrimination.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{LightChargeYieldDriftField}
+\caption{Ratio of light (S(E)/S$_{0}$, red) and charge (Q(E)/Q$_{0}$, blue) yields vs. drift field.  S$_{0}$ and Q$_{0}$ are taken at
+infinite field.  Electronic recoils are shown as solid diamonds and are from the 122 keV \gammaray of \ce{^{57}Co}.  Nuclear recoils
+are shown as empty squares and are from elastic 56.5 keV scatters.  Solid circles represent the 5.5 MeV $\alpha$-decay of
+\ce{^{241}Am}.  Sparser ionization densities precipitate stronger field-dependence for electronic scatters than for nuclear and
+alpha, signifying $E_{d}$ can be tuned for improved ER-NR discrimination.  Image credit: \citeref{Aprile2006}.}
+\label{fig:tpcs_signals_drift_field}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

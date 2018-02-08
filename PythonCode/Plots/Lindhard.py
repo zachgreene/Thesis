@@ -22,6 +22,10 @@ ax.plot(
 ax.set_xscale('log')
 ax.set_xlabel('Nuclear Recoil Energy [keV]', size=17)
 ax.set_ylabel(r'$f_{n}$', size=20)
+for tick in ax.xaxis.get_major_ticks():
+	tick.label.set_fontsize(15)
+for tick in ax.yaxis.get_major_ticks():
+	tick.label.set_fontsize(15)
 plt.tight_layout()
-#plt.savefig('/Users/Zach/XENON/Thesis/Chapter2/Figures/Lindhard.png', format='png')
+plt.savefig('/Users/Zach/XENON/Thesis/Chapter2/Figures/Lindhard.png', format='png')
 plt.show()

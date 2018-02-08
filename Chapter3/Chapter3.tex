@@ -4,19 +4,109 @@
 
 \pagestyle{cu}
 \graphicspath{{./Chapter3/Figures/}}
-\chapter[Table of Contents Title][Top of Page Title]{Title of Chapter 3}
+\chapter[The XENON1T Dark Matter Search][The XENON1T Dark Matter Search]{The XENON1T Dark Matter Search}
 
 % https://arxiv.org/pdf/1801.07231.pdf for electron emission from wires
 
-Here you can write some introductory remarks about your chapter.
-I like to give each sentence its own line.
 
-When you need a new paragraph, just skip an extra line.
+XENON1T is the third generation experiment of the XENON collaboration.  With a fiducial mass of $> 1000\ \mathrm{kg}$ it is the first
+liquid xenon dark matter detector to reach the ton-scale era of DM detection.  Its large target mass and low radioactive background
+makes it the most sensitive detector to spin-independent WIMPs.
 
-\section*{New Section}
+In this chapter I describe the XENON1T experiment (\secref{sec:xenon1t_detector}) and give the results of the second science run
+(\secref{sec:xenon1t_sr1}).
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+Lots of good info in Aprile2017b (instrument paper).
+
+\section{The XENON1T Detector}
+\label{sec:xenon1t_detector}
+
+
+
+
+\subsection{PMTs}
+\label{subsec:xenon1t_pmts}
+A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
+maximize resolution of $r$ position reconstruction.  The 121 in the bottom array are packed as densely as possible to maximize light
+collection.  The R11410 window is 76.2 mm in diameter and a bialkali-LT photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
+standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QE results from preselecting PMTs with $\mathrm{QE} > 28\%$ for
+screening.
+
+PMTs with the highest QE are placed in the bottom array while those with the lowest are stationed along the outside of the
+top.  The difference in arrangement is strategic.  Due to liquid xenon's relatively large dielectric constant (1.95) an S1 will
+often reflect off the surface and be redirected towards the bottom of the TPC.  For low-energy events - the relevant range for WIMP DM
+searches - a nuclear recoils may only emit a small number ($\lesssim 100$) of photons, many of which never reach the PMTs.  Thus it is
+most advantageous to position those with the highest quantum efficiency in the region most likely to see scintillation from an
+S1.  Likewise, S2s easily produce enough scintillation to be observed by both arrays.  Therefore the QE of the top PMTs is comparatively
+unimportant, and may even be advantageous for larger S2s where saturation can occur.
+
+The PMT window is constructed from quartz and fixed to the faceplate flange via aluminum seal.  \figref{fig:xenon1t_hamamatsu_pmt} shows a
+schematic of the PMT.
+
+An additional six Hamamatsu
+R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have been used in a number of
+LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for details on XENON100).
+
+PMTs contribute a large amount of radioactivity, details in Aprile2015.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Fig1FromAprile2015}
+\label{fig:xenon1t_hamamatsu_pmt}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{PMTTopArray}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{PMTBottomArray}
+    \end{subfigure}
+    \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
+    to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
+    limits interference between the PMT and cathode electric fields, both of which can be seen in the figure.  They are packed tightly
+    together to maximize lightcollection.  Image credit: \citeref{Aprile2017b}.}
+	\label{fig:xenon1t_pmt_array}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{PMTQuantumEfficiency}
+\caption{Quantum efficiency of top (left) and bottom (right) PMT arrays.  PMTs with highest QE are placed in the center of the bottom
+array to maximize light collection while those with the lowest are placed in the outer region of the top.  Image credit:
+\citeref{Aprile2017b}.}
+\label{fig:xenon1t_pmt_qe}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Fig4Barrow2017}
+\caption{(Left) Single photoelectron spectrum.}
+\label{fig:xenon1t_pmt_spe}
+\end{figure}
+
+
+
+
+\subsection{TPC}
+\label{subsec:xenon1t_tpc}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{XENON1TTPC}
+\label{fig:xenon1t_tpc_tpc}
+\end{figure}
+
+\begin{figure}
+\centering
+\incluegraphics[width=0.6\textwidth]{Fig3Aprile2017b}
+\label{fig:xenon1t_tpc_efield}
+\end{figure}
+
+
 
 \begin{figure}
 \includegraphics[\width=0.8\textwidth]{AbsorptionSpectra}

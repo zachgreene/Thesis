@@ -74,6 +74,11 @@ ax.set_yscale('log')
 ax.set_xlabel('Photon Energy [MeV]', size=25)
 #ax.set_ylabel('$\\rm{Mass\ Attenution\ Coefficiency\ [cm^{2}\ g^{-1}}$]', size=15)
 ax.set_ylabel('Mass Attenution Coefficiency [cm$^{2}$ g$^{-1}$]', size=25)
+
+for tick in ax.xaxis.get_major_ticks():
+	tick.label.set_fontsize(20)
+for tick in ax.yaxis.get_major_ticks():
+	tick.label.set_fontsize(20)
 ax.legend(fontsize=25)
 plt.savefig('/Users/Zach/XENON/Thesis/Chapter2/Figures/PhotonAttenuation.png', format='png')
 plt.show()

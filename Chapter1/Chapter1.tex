@@ -358,7 +358,7 @@ to convert axions in microwaves.  Others, like CASPEr apply NMR.
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{AxionLimits}
-\label{fig:axons}
+\label{fig:axions}
 \end{figure}
 
 
@@ -435,7 +435,7 @@ observable.  These methods are outlined in \figref{fig:detection_methods}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{ColliderIndirectDirectDiagram}
+\includegraphics[width=0.8\textwidth]{ColliderIndirectDirectDiagramMaybeFig5Cushman2013}
 \label{fig:detection_methods}
 \end{figure}
 
@@ -645,7 +645,8 @@ least to the relative motion of the Sun around the Milky Way in the case of an n
  
  
  %========
-\subsection{Superheated Liquid Detectors} \label{subsubsec:bubbles}
+\subsection{Superheated Liquid Detectors}
+\label{subsec:bubbles}
 Superheated liquid detectors have peak sensitivity to WIMP masses in the tens of GeV range.  Their limits for spin-independent
 WIMPs are not as stringent as dual-phase noble gas detectors (\secref{subsec:dual_phase}), but they have consistently provided the
 strongest constraints in the spin-dependent sector (\citeref{PICO2017}).  Their strong sensitivity comes from using fluorinated
@@ -680,7 +681,8 @@ PICO (\citeref{PICO2017}), SIMPLE (\citeref{SIMPLE2012}), and MOSCAB (\citeref{M
 %(\citeref{Pullia2014}).
 
  %========
-\subsection{Scintillation Crystals} \label{subsec:crystals}
+\subsection{Scintillation Crystals}
+\label{subsec:crystals}
 Another target for DM searches is highly radiopure scintillating crystals.  Typically sodium iodide (NaI) or cesium iodide (CsI) is chosen,
 with NaI being the most common.  Their sensitivity to SI and SD, low energy threshold, can be run at room temperature,
 and ability to run over long periods of time
@@ -692,14 +694,14 @@ does not have unique features for different interactions, so particle discrimina
 multiple hits rejection.  Thus separating background from signal on and event by even basis is not possible.
 
 The DAMA/NaI and its successor DAMA/LIBRA experiments are located underground at the Laboratori Nazionali del Gran Sassa (LNGS) in
-Italy.  They use NaI(Tl) crystals that are sensitive.  For 14 annual cycles they have observed an annual modulation in the 2-6 \kevee
+Italy.  They use NaI(Tl) crystals that are sensitive.  For over 14 annual cycles they have observed an annual modulation in the 2-6 \kevee
 range with 9.3$\sigma$ (\citeref{DAMA2013}).  This would give WIMP masses of 10-15 GeV for scattering off Na
-and 60-100 GeV for I.  Because NaI(Tl) cannot distinguish scatterings by different particles there is doubt on if their signal
+and 60-100 GeV for I.  Their results are shown in \figref{fig:dama}.  Because NaI(Tl) cannot distinguish scatterings by different particles there is doubt on if their signal
 is caused by WIMPs, or even dark matter.  Outside of spin-independent, spin-dependent or mixed coupling (\citeref{Bernabei2001})
 and inelastic scattering (\citeref{Bernabei2002}) WIMPs 
 have been considered.  Because DAMA/LIBRA cannot know if the interactions are with nuclei or electrons, alternative dark matter
 electron-coupling models (\citeref{Bernabei2006}) have also been examined.  The results are controversial because other experiments
-have surpassed the DAMA/LIBRA sensitivity and see no signal (\citeref{Aprile2017}).  This has provided motivation to explain the annual modulation via
+have surpassed the DAMA/LIBRA sensitivity and see no signal (\citeref{Aprile2017a}).  This has provided motivation to explain the annual modulation via
 standard particles.  Hypotheses include known variation in muon flux due to changing stratosphere temperatures, which exhibits
 annual modulation in similar phase with DAMA/LIBRA's findings (\citeref{Blum2011}), an incomplete understanding of neutron backgrounds
 (\citeref{Ralston2010}), or using a combination of muon-induced neutrons and soloar neutrinos (\citeref{2014Davis}) (though this
@@ -707,17 +709,20 @@ has been received pushback in \citeref{Barbea2014} and \citeref{Klinger2015}).
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{DAMAModulation}
-\caption{Oscillating event rate between 2-6 \kevee captured by DAMA and DAMA/LIBRA.  For 14 years they have observed this annual
+\includegraphics[width=\textwidth]{DAMAModulation}
+\caption{Oscillating event rate between 2-6 \kevee captured by DAMA and DAMA/LIBRA.  A fit of $A \cos \omega (t - t_{0})$ where
+$t_{0} = \mathrm{June\ 2nd}$ and $A$ is the best-fit amplitude is overlaid, with verticale dashed lines corresponding to expected
+maxima.  For 14 years they have observed an annual
 modulation with $9.3\sigma$.  Claiming this modulation to be produced by dark matter is controversial however, as they are unable to
 discriminate between electronic and nuclear recoils and a number of experiments have surpassed their sensitivity with no significant
-findings.}
+findings.  Image credit: \citeref{Bernabei2013}.}
 have surpassed 
 \label{fig:dama}
 \end{figure}
 
  %========
-\subsection{Germanium Detectors} \label{subsec:germanium}
+\subsection{Germanium Detectors}
+\label{subsec:germanium}
 High purity germanium (HPGe) detectors measure ionization and offer great energy resolution.  As with scintillation crystals,
 they can reach very low energies ($\sim 0.5\ \mathrm{keV}$), making them a promising candidate for low-mass WIMPs ($\sim 10$ GeV).  It is not
 possible to identify nuclear recoils from electronic, but p-type doped detectors have a dead layer on the surface and can use the
@@ -730,7 +735,8 @@ experiment, CDEX, uses the same setup as CoGeNT and found contradictory results 
 
 
 %========
-\subsection{Cryogenic Bolometers} \label{subsec:bolometers}
+\subsection{Cryogenic Bolometers}
+\label{subsec:bolometers}
 Cryogenic bolometers are typically cooled to $10-100$ mK so they can detect phonons, allowing a low energy threshold and
 outstanding energy resolution.  The CDMS collaboration uses silicon and germanium detectors where they measure both phonons
 and ionization.  The ionization-to-phonon ratio is used for discrimination where less than 1 in $10^{6}$ of all ER events
@@ -750,11 +756,23 @@ Liquid noble gas detectors have led the field for spin-independent WIMP masses $
 used either liquid argon (LAr) or liquid xenon (LXe) and the DEAP/CLEAN collaboration is constructing a detector than can house
 LAr and liquid neon (LNe) independently (\citeref{Kearns2012, CLEAN2015}).  Advantages of liquid noble gas detectors
 include scaleability, particle discrimination, and self-shielding, among others.  As the target mass of these detectors passes
-the 1-ton mark they are becoming sensitive to neutrinos, offering another branch of physics to study.
+the 1-ton mark they are becoming sensitive to neutrinos, offering another branch of physics to study.  Predicted integral rates for xenon,
+argon, and neon, as well as germanium are shown in \figref{fig:material_wimp_rate}.
 
-Liquid noble gas detectors can be single- or dual-phase.  Single-phase detectors measure only the scintillation and are generally
-spherical and benefit from 4$\pi$ photo-detection.  Dual-phase apply an electric field to extract the free electrons for
-measurement.  LXe experiments will be discussed in detail in \chapref{chap:liquid_xe}.
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{IntegralRateTargets}
+\caption{Expected integral spectra for Xe, Ge, Ar, and Ne for spin-independent elastic scattering of a 100 GeV WIMP with cross section
+$\sigma_{\chi}^{\mathrm{SI}} = 10^{-45}\ \mathrm{cm^{2}}$ per nucleon.  The rates assume perfect energy resolution and are calculated with
+standard halo parameters.  The dots correspond to average thresholds for each element.  Image credit: \citeref{Cushman2013}.}
+\label{fig:material_wimp_rate}
+\end{figure}
+
+Liquid noble gas detectors can be single- or dual-phase.  Dual phase use an electric field to drift electrons to the liquid surface, where
+they are extracted across a gas gap generating a second scintillation.  Single-phase detectors measure only the scintillation and typically
+spherical.  Because they do not drift electrons they benefit from 4$\pi$ photo-detection (in dual phase this would interfere with the
+drift field.  Dual phase experiments are discussed discussed in detail in \chapref{chap:liquid_xe}.  \figref{fig:si_limits} shows the
+current status of spin-independent limits.
 
 \begin{figure}
 \centering

@@ -28,7 +28,7 @@ Lots of good info in Aprile2017b (instrument paper).
 \label{subsec:xenon1t_pmts}
 A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
 maximize resolution of $r$ position reconstruction.  The 121 in the bottom array are packed as densely as possible to maximize light
-collection.  The R11410 window is 76.2 mm in diameter and a bialkali-LT photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
+collection.  The R11410 window is 76.2 mm in diameter and the photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
 standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QE results from preselecting PMTs with $\mathrm{QE} > 28\%$ for
 screening.
 
@@ -40,20 +40,55 @@ most advantageous to position those with the highest quantum efficiency in the r
 S1.  Likewise, S2s easily produce enough scintillation to be observed by both arrays.  Therefore the QE of the top PMTs is comparatively
 unimportant, and may even be advantageous for larger S2s where saturation can occur.
 
-The PMT window is constructed from quartz and fixed to the faceplate flange via aluminum seal.  \figref{fig:xenon1t_hamamatsu_pmt} shows a
-schematic of the PMT.
-
-An additional six Hamamatsu
-R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have been used in a number of
-LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for details on XENON100).
-
-PMTs contribute a large amount of radioactivity, details in Aprile2015.
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{PMTQuantumEfficiency}
+\caption{Quantum efficiency of top (left) and bottom (right) PMT arrays.  PMTs with highest QE are placed in the center of the bottom
+array to maximize light collection while those with the lowest are placed in the outer region of the top.  Image credit:
+\citeref{Aprile2017b}.}
+\label{fig:xenon1t_pmt_qe}
+\end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{Fig1FromAprile2015}
 \label{fig:xenon1t_hamamatsu_pmt}
 \end{figure}
+
+The R11410-21 has 12 dynodes following the focusing electrode disk.  The first dynode is the largest and extends to the electrode to
+maximize the probability of capturing photoelectrons.  A schematic can be be seen in \figref{fig:xenon1t_hamamatsu_pmt}.  The electrode,
+dynode, and shield are stainless steel and are insulated with L-shaped quartz plates.  The window is
+also made of quartz, since it is transparent to vacuum ultraviolet (VUV) photons.  Deposited on it is a low-temperature bialkali
+photocathode.  The window is fixed with an aluminum seal to the faceplate flange, which along with the stem flange is constructed from
+Kovar.  Because of the PMT body's large mass (71\% of total Kovar, 35\% of total) a low-\ce{^{60}Co} Kovar is chosen.  Finally, to insulate
+the connections to each dynode the stem is ceramic.
+
+Because radioactivity limits the fiducial volume and increases the event rate, making accidental coincidence and outlier events more
+likely, XENON and Hamamatsu worked together to develop a highly radio-pure PMT.  There were several iterations of the R11410 model before
+the R11410-21 was determined to be adequate.  Nearly all the \ce{^{137}Cs} and \ce{^{60}Co} comes from the Kovar, though the \ce{^{137}Cs}
+content is negligible and the \ce{^{60}Co} is 3-10 times lower than older models.  The remaining screened isotopes, \ce{^{238}U},
+\ce{^{228}Th}, \ce{^{228}Ra}, \ce{^{226}Ra}, and \ce{^{40}K}, are dominated by the ceramic stem (\citeref{Aprile2015}).  Unfortunately a
+material that is more radio-pure and can insulate the dynode connections has not been found.  Sapphire was used in an iteration but
+ultimately showed any improvement was minimal.
+
+The dark count rate, or the number of signals per second above a threshold without a light source, is an important property to
+characterize.  At ambient temperatures the primary cause is thermal electrons that scale with PMT voltage.  This becomes subdominant at
+cryogenic temperatures to electron field emission and radioactivity (internal and external) as well as cosmic rays.  In a detector such
+as XENON1T higher dark count rates make accidental coincidence more likely, which produces fake additional background and in the worst case
+can place fake events in the signal region.  Because the rate is dependent on the threshold it can effectively be tuned.  However, because
+for DM search we would like as low of a threshold as possible, choosing PMTs with low dark count rate is essential.
+
+Another problematic feature is light emission from the phototube itself.  It has been observed to mainly occur in one of two ways.  The
+first is through a discharge of intense light that can last for several seconds.  This so-called ``flash" is easily observable to other
+PMTs that are facing it so identifying such a flash is simple.
+
+
+
+An additional six Hamamatsu
+R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have been used in a number of
+LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for details on XENON100).
+
+PMTs contribute a large amount of radioactivity, details in Aprile2015.
 
 \begin{figure}
     \centering
@@ -70,15 +105,6 @@ PMTs contribute a large amount of radioactivity, details in Aprile2015.
     limits interference between the PMT and cathode electric fields, both of which can be seen in the figure.  They are packed tightly
     together to maximize lightcollection.  Image credit: \citeref{Aprile2017b}.}
 	\label{fig:xenon1t_pmt_array}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{PMTQuantumEfficiency}
-\caption{Quantum efficiency of top (left) and bottom (right) PMT arrays.  PMTs with highest QE are placed in the center of the bottom
-array to maximize light collection while those with the lowest are placed in the outer region of the top.  Image credit:
-\citeref{Aprile2017b}.}
-\label{fig:xenon1t_pmt_qe}
 \end{figure}
 
 \begin{figure}

@@ -843,15 +843,19 @@ reflectance when immersed in LXe to 178 nm, the xenon scintillation wavelength (
 Photomultiplier tubes (PMTs) are used for light detection in TPCs.  A digram of a PMT is shown in \figref{fig:tpcs_pmts_pmt_diagram}.  An
 incoming photon that
 passes through the window of the PMT will most often hit the photocathode, freeing a photoelectron via the photoelectric effect.  Single
-photoelectron emission (SPE) refers to a photon freeing a single \electron from the photocathode.  The
+photoelectron emission (SPE) refers to a photon freeing a single \electron from the photocathode.  Once ejected, the photoelectron passes
+through the focusing
+electrode, which directs it towards the first dynode.  The dynodes are coupled to one another through resistors, lowering the electric
+potential with each successive one.  As the photoelectron hits the first dynode it will induce secondary emission.  The newly freed
+\electron will then pass to the
+second dynode, repeating this procedure.  The result is a cascade effect, amplifying the current by as much as 100 millions and ending
+at the anode, where the charge is output to a voltage reading device such as an oscilloscope or digitizer.
+
+The
 quantum efficiency (QE), which is the ratio of electrons ejected from the photocathode divided by incident photons, is approximately
 one third.  Because of this relatively low value choosing a highly reflective material for the TPC wall is critical.  The QE spectrum for
 the PMTs used in XENON1T, Hamamatsu R11410, is shown in \figref{fig:tpcs_pmts_qe}.  Note the maximum is near 178 nm, making it a good
-choice for LXe TPCs.  Once ejected, the photoelectron passes through the focusing
-electrode, which directs it towards the first dynode.  The dynodes are coupled to one another through resistors, lowering the electric
-potential with each successive one.  As the photoelectron hits the first dynode it will free electrons.  These will then pass to the
-second dynode, repeating this procedure.  This results in a cascade effect ending at the anode, where the charge is output to a
-voltage reading device such as an oscilloscope or digitizer.
+choice for LXe TPCs.  
 
 \begin{figure}
 \centering
@@ -887,7 +891,7 @@ depending on the ion and voltage of the PMT.  Afterpulse amplitude vs. delay tim
 constitute a problem because, depending on the delay and magnitude of the true
 signal, can be difficult to distinguish from the actual signal.  The extent of afterpulses from the second classification is directly
 related to the number of residual gas in the PMT.  Thus achieving excellent vacuum is a necessity - indeed, too much residual gas will
-lead to deterioration of and ultimately inability to operate the PMT.
+lead to deterioration of and ultimately inability to operate the PMT.  Look at Barrow2017 for third type of afterpulse.
 
 \begin{figure}
 \centering

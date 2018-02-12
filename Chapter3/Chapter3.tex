@@ -38,7 +38,8 @@ often reflect off the surface and be redirected towards the bottom of the TPC.  
 searches - a nuclear recoils may only emit a small number ($\lesssim 100$) of photons, many of which never reach the PMTs.  Thus it is
 most advantageous to position those with the highest quantum efficiency in the region most likely to see scintillation from an
 S1.  Likewise, S2s easily produce enough scintillation to be observed by both arrays.  Therefore the QE of the top PMTs is comparatively
-unimportant, and may even be advantageous for larger S2s where saturation can occur.
+unimportant, and may even be advantageous for larger S2s where saturation can occur.  The layout of the PMTs with respect to QE is shown
+in \figref{fig:xenon1t_pmt_qe}.
 
 \begin{figure}
 \centering
@@ -47,6 +48,23 @@ unimportant, and may even be advantageous for larger S2s where saturation can oc
 array to maximize light collection while those with the lowest are placed in the outer region of the top.  Image credit:
 \citeref{Aprile2017b}.}
 \label{fig:xenon1t_pmt_qe}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{PMTTopArray}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{PMTBottomArray}
+    \end{subfigure}
+    \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
+    to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
+    limits interference between the PMT and cathode electric fields, both of which can be seen in the figure.  They are packed tightly
+    together to maximize lightcollection.  Image credit: \citeref{Aprile2017b}.}
+	\label{fig:xenon1t_pmt_array}
 \end{figure}
 
 \begin{figure}
@@ -78,34 +96,61 @@ as XENON1T higher dark count rates make accidental coincidence more likely, whic
 can place fake events in the signal region.  Because the rate is dependent on the threshold it can effectively be tuned.  However, because
 for DM search we would like as low of a threshold as possible, choosing PMTs with low dark count rate is essential.
 
-Another problematic feature is light emission from the phototube itself.  It has been observed to mainly occur in one of two ways.  The
-first is through a discharge of intense light that can last for several seconds.  This so-called ``flash" is easily observable to other
-PMTs that are facing it so identifying such a flash is simple.
+Another problematic feature is light emission from the phototube itself, where light is created inside the PMT and escapes through the
+window.  It has been observed to mainly occur in one of two ways.  The first is through a discharge of intense light that can last for
+several seconds.  This so-called ``flash" is bright enough to be easily observable to itself and by PMTs that are facing its
+window.  However, the intensity can be so strong that it can take anywhere from several minutes to several hours for them to
+recover.  Because they seem to occur spontaneously and are not well understood it is impossible to predict when a flash will occur.
 
+The second variety is a subtle but often continuous stream of light.  Known as ``micro light emission" it is considerably harder to
+identify.  Doing so requires facing two phototubes towards one another and measuring the dark rate of each one with and without the other
+on.  The level of emission increases with temperature and bias voltage.  Keeping the PMTs at cryogenic temperatures during DM runs reduces
+such effects, and voltages can be lowered to help further.  Still, if micro light emission continues the PMT cannot be used as it risks
+contaminating the detected light from the true event population.
 
+Directly following the pulse of a PMT hit a secondary pulse may occur.  Known as afterpulses, they can occur within 10s of
+nanoseconds.  This can make them difficult to resolve from true pulses - especially S2s - that can have widths of several
+microseconds.  However, they are an inevitable side effect when using PMTs so characterizing them properly is important.  There are three
+mechanisms known to cause afterpulses.
 
-An additional six Hamamatsu
-R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have been used in a number of
-LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for details on XENON100).
+The first is elastic scattering of the photoelectron with the first dynode, freeing \electron that shortly return to the dynode.  This
+prompts afterpulses in the range of a few to tens of nanoseconds.  A second kind is thought to stem
+from dark noise and single electrons but is not well understood.  It has a relatively uniform distribution in delay time up to several
+microseconds.  Both of these afterpulses have relatively small areas of $\lessim 2\ \mathrm{PE}$.
 
-PMTs contribute a large amount of radioactivity, details in Aprile2015.
+A photoelectron may occasionally ionize residual gas inside the PMT along its trajectory to the first dynode.  The molecule then drifts
+towards the photocathode, expelling additional electrons.  The number of newly ejected electrons (area of afterpulse) depends
+on the ion and the position of ionization.  The responsible ion can be determined by calculating the time between the true pulse and
+afterpulse.  For R11410-21 this gives
+
+\begin{equation}
+\delta t_{\mathrm{ap}} = \frac{\pi}{4} \sqrt{\frac{2 m}{q V_{0}}} L
+\end{equation}
+
+where $\delta t_{\mathrm{ap}}$ is the delay time, $m$ and $q$ are the ion's mass and charge, and $V_{0}$ and $L$ are the potential
+difference and length between the photocathode and first dynode (see \citeref{Barrow2017} for details).  Note that $\delta t_{\mathrm{ap}}$
+does not depend on where the ionization occurred.  Thus, if we know the time between the true and afterpulse the ion - or more specifically
+charge to mass ratio - can be calculated.  Pulse time differences range from several hundred nanoseconds to several microseconds.  These
+correspond to the ``lines" in \figref{fig:xenon1t_pmts_ap} that extend to larger afterpulses.  The short timescales of S1s make them
+unlikely to be grouped with an afterpulse, though for S2s this is more likely.
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{PMTTopArray}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{PMTBottomArray}
-    \end{subfigure}
-    \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
-    to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
-    limits interference between the PMT and cathode electric fields, both of which can be seen in the figure.  They are packed tightly
-    together to maximize lightcollection.  Image credit: \citeref{Aprile2017b}.}
-	\label{fig:xenon1t_pmt_array}
+\centering
+\includegraphics[width=\textwidth]{Afterpulse}
+\caption{Afterpulses for one of the PMTs from XENON1T.}
+\label{fig:xenon1t_pmts_ap}
 \end{figure}
+
+Because it is not possible to remove all residual gas any PMT will suffer from some ionization-based afterpulsing.  A better vacuum
+corresponds to fewer afterpulses and a healthier PMT in general.  If the concentration of gas in the PMT vacuum were to increase it would
+escalate the afterpulse rate.  Therefore if when using in xenon the Xe peaks grow over time the PMT most likely has a leak and should
+be removed, as continued worsening of the vacuum will lead to deterioration and inability to operate the PMT.  All PMTs were tested before
+being installed in XENON1T.  73 were rejected and replaced: 12 due to high dark count rates, 53 for light emission, and 8 for
+afterpulsing.
+
+An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
+been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for
+details on XENON100).
 
 \begin{figure}
 \centering

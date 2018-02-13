@@ -29,7 +29,7 @@ Lots of good info in Aprile2017b (instrument paper).
 A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
 maximize resolution of $r$ position reconstruction.  The 121 in the bottom array are packed as densely as possible to maximize light
 collection.  The R11410 window is 76.2 mm in diameter and the photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
-standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QE results from preselecting PMTs with $\mathrm{QE} > 28\%$ for
+standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QEs result from preselecting PMTs with $\mathrm{QE} > 28\%$ for
 screening.
 
 PMTs with the highest QE are placed in the bottom array while those with the lowest are stationed along the outside of the
@@ -50,6 +50,11 @@ array to maximize light collection while those with the lowest are placed in the
 \label{fig:xenon1t_pmt_qe}
 \end{figure}
 
+The two PMT arrays are supported by oxygen-free high thermal conductivity (OFHC) copper, with holes in which the PMTs are placed.  The
+copper is then covered with polytetrafluoroethylene (PTFE) on the TPC-facing sides.  A screening mesh sits between the anode and the
+top array to impede electric field interference between the two.  Likewise this is the case for the bottom array, where the screening mesh
+rests below the cathode.  The finished arrays are shown in \figref{fig:xenon1t_pmt_array}.
+
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
@@ -62,7 +67,7 @@ array to maximize light collection while those with the lowest are placed in the
     \end{subfigure}
     \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
     to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
-    limits interference between the PMT and cathode electric fields, both of which can be seen in the figure.  They are packed tightly
+    limits interference between the PMT and cathode electric fields, both of which can be seen.  They are packed tightly
     together to maximize lightcollection.  Image credit: \citeref{Aprile2017b}.}
 	\label{fig:xenon1t_pmt_array}
 \end{figure}
@@ -148,9 +153,33 @@ be removed, as continued worsening of the vacuum will lead to deterioration and 
 being installed in XENON1T.  73 were rejected and replaced: 12 due to high dark count rates, 53 for light emission, and 8 for
 afterpulsing.
 
-An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
-been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for
-details on XENON100).
+The transit time (TT) is the time between the freed photoelectron and the arrival of the electron avalanche at the anode.  Variations in
+the photoelectron's initial position as well as emitted velocity and angle cause deviations in the TT, which is characterized by the
+transit time spread (TTS).  Because an event is observed by many PMTs the TTS quantifies how close together there signals should be.  Thus
+smaller TTSs lead to a smaller integration window, decreasing accidental coincidence.  The TTS for all R11410-21 PMTs was measured, giving
+a mean of $9.1 \pm 1.3\ \mathrm{ns}$ - a fraction of an S1.
+
+The charge that reaches the anode can change for a single phototube and varies between different.  Increasing the bias voltage amplifies
+the gain, heightening sensitivity or conversely lowering can help prevent saturation.  Gains may also deviate from variations in
+temperature (\textbf{check this}), overexposure to light, count rate, wear, and more.  Phototubes may differ from one another
+for all the reasons just mentioned, as well as inevitable - however tiny - differences in parts.  Monitoring the single photoelectron (SPE)
+response for each PMT then is essential for accurately reconstructing the number of photoelectrons and by extension the energy of the
+event.  This is typically done with an LED inside the TPC.  Typically blue light is used since ultraviolet is unavailable, which despite
+being far outside of the 178 nm range ejects a photoelectron some small fraction of the time.  Each time the LED flashes we can record the
+PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{}).  After a large ($\mathcal{O}(100,000)$)
+number of trials a histogram can be fit to find the SPE gain as shown in \figref{fig:xenon1t_pmt_spe}.  Note that technically the charge
+is plotted but the gain is easily found as $g = \mu_{e} / e$ where $\mu_{e}$ is the mean number of \electron and $e$ is the electron charge.  We
+see a large peak centered at 0 that corresponds to the baseline noise when a photoelectron is not released.  At larger gain a series of
+smaller wider peaks are visible that represent integer numbers of photoelectrons, starting with 1 at the leftmost.  There is a ``shoulder"
+between the baseline and first peak that cannot be explained by only considering signal from integer PEs.  As briefly mentioned in
+\secref{subsec:tpcs_pmts} this comes from photons that pass through the photocathode and free an electron on the first dynode, causing an
+under-amplified charge.  This is generally the most challenging aspect to model.
+
+In \figref{fig:xenon1t_pmt_spe} the spectrum is fit assuming the noise baseline and PE peaks are gaussian and the under-amplification is
+an exponential.  The PE gaussians are constrained by $\mu_{N} = N \mu_{e}$ and $\sigma_{N} = \sqrt{N} \sigma_{e}$ where $\sigma_{e}$ is the
+standard deviation of the single photoelectron peak and $\mu_{N}$ and $\sigma_{N}$ are the mean and standard deviation for the peak with
+$N$ photoelectrons.  As this model is simplistic and can add bias recent efforts have gone in to alternative methods
+of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the combined fit (green) appears to agree will with the data.
 
 \begin{figure}
 \centering
@@ -158,6 +187,13 @@ details on XENON100).
 \caption{(Left) Single photoelectron spectrum.}
 \label{fig:xenon1t_pmt_spe}
 \end{figure}
+
+We can use the SPE spectrum to calculate the resolution $R = \sigma_{e} / \mu_{e}$.  As the gain grows the resolution should sharpen
+initially until it eventually levels off.  For the R11410-21 models the resolution above $2-3 \times 10^{6}$ did not change.
+
+An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
+been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for
+details on XENON100).
 
 
 

@@ -51,9 +51,11 @@ array to maximize light collection while those with the lowest are placed in the
 \end{figure}
 
 The two PMT arrays are supported by oxygen-free high thermal conductivity (OFHC) copper, with holes in which the PMTs are placed.  The
-copper is then covered with polytetrafluoroethylene (PTFE) on the TPC-facing sides.  A screening mesh sits between the anode and the
-top array to impede electric field interference between the two.  Likewise this is the case for the bottom array, where the screening mesh
-rests below the cathode.  The finished arrays are shown in \figref{fig:xenon1t_pmt_array}.
+copper is then covered with polytetrafluoroethylene (PTFE) on the TPC-facing sides.  Screening meshes are situated between the bottom
+array and cathode as well as the anode and top array.  Each can be biased to minimize electrical interference between the
+phototubes and the drift and extraction fields.  While \citeref{Baudis2013} showed normal operation of R11410 PMTs at
+$\geq 11\ \mathrm{kV\ cm^{-1}}$ the expected voltage for the cathode was $10-100\ \mathrm{kV\ cm^{-1}}$ and decreasing the stress on the
+phototubes is likely to be beneficial longterm.  The finished arrays are shown in \figref{fig:xenon1t_pmt_array}.
 
 \begin{figure}
     \centering
@@ -74,7 +76,8 @@ rests below the cathode.  The finished arrays are shown in \figref{fig:xenon1t_p
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{Fig1FromAprile2015}
+\includegraphics[width=0.8\textwidth]{PMTSchematic}
+\caption{Schematic of the R11410-21 PMT.
 \label{fig:xenon1t_hamamatsu_pmt}
 \end{figure}
 
@@ -121,7 +124,7 @@ mechanisms known to cause afterpulses.
 The first is elastic scattering of the photoelectron with the first dynode, freeing \electron that shortly return to the dynode.  This
 prompts afterpulses in the range of a few to tens of nanoseconds.  A second kind is thought to stem
 from dark noise and single electrons but is not well understood.  It has a relatively uniform distribution in delay time up to several
-microseconds.  Both of these afterpulses have relatively small areas of $\lessim 2\ \mathrm{PE}$.
+microseconds.  Both of these afterpulses have relatively small areas of $\lesssim 2\ \mathrm{PE}$.
 
 A photoelectron may occasionally ionize residual gas inside the PMT along its trajectory to the first dynode.  The molecule then drifts
 towards the photocathode, expelling additional electrons.  The number of newly ejected electrons (area of afterpulse) depends
@@ -166,7 +169,7 @@ for all the reasons just mentioned, as well as inevitable - however tiny - diffe
 response for each PMT then is essential for accurately reconstructing the number of photoelectrons and by extension the energy of the
 event.  This is typically done with an LED inside the TPC.  Typically blue light is used since ultraviolet is unavailable, which despite
 being far outside of the 178 nm range ejects a photoelectron some small fraction of the time.  Each time the LED flashes we can record the
-PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{}).  After a large ($\mathcal{O}(100,000)$)
+PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{}).  After a large ($\mathcal{O}(10^{5})$)
 number of trials a histogram can be fit to find the SPE gain as shown in \figref{fig:xenon1t_pmt_spe}.  Note that technically the charge
 is plotted but the gain is easily found as $g = \mu_{e} / e$ where $\mu_{e}$ is the mean number of \electron and $e$ is the electron charge.  We
 see a large peak centered at 0 that corresponds to the baseline noise when a photoelectron is not released.  At larger gain a series of
@@ -183,13 +186,20 @@ of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the comb
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{Fig4Barrow2017}
+\includegraphics[width=0.8\textwidth]{SPESpectrum}
 \caption{(Left) Single photoelectron spectrum.}
 \label{fig:xenon1t_pmt_spe}
 \end{figure}
 
 We can use the SPE spectrum to calculate the resolution $R = \sigma_{e} / \mu_{e}$.  As the gain grows the resolution should sharpen
-initially until it eventually levels off.  For the R11410-21 models the resolution above $2-3 \times 10^{6}$ did not change.
+initially until it eventually levels off.  For the R11410-21 models the plateau began around $2-3 \times 10^{6}$ at a resolution of
+27\%.  Because the stress on the PMT raises with bias voltage and larger gains lead to greater saturation we decided there was no benefit
+to exceeding this gain.
+
+The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
+important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
+the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
+peak-to-valley ratio is $\sim 3$.
 
 An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
 been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for
@@ -200,6 +210,15 @@ details on XENON100).
 
 \subsection{TPC}
 \label{subsec:xenon1t_tpc}
+The XENON1T time projection chamber is cylindrical with a 97 cm height and 96 cm diamater.  It encloses a target mass of 2.0 tons where
+light and charge can be measured.  A schematic is shown in \figref{fig:xenon1t_tpc_tpc}.  The interior of the vertical wall consists of 24
+PTFE panels that were treated with diamond tools to
+maximize VUV reflectivity.  Each interlocks with adjacent panels to achieve light-tightness, and the system is designed so that despite
+the high thermal expansion coefficient the radius does not contract when lowered to $-96^{\circ}\ \mathrm{C}$.  Outside the PTFE are 74
+field shaping rings made of low-radioactivity OFHC copper, each with a cross section of $\sim 10 \times 5\ \mathrm{mm^{2}}$.  They are
+supported by 18 PTFE pillars stationed around the circumference.  Two redundant
+chains connect adjoining rings via $5\ \mathrm{G \Omega}$ resistors, each with a $25\ \mathrm{G \Omega}$ resistor between the bottom and
+cathode.
 
 \begin{figure}
 \centering
@@ -207,16 +226,97 @@ details on XENON100).
 \label{fig:xenon1t_tpc_tpc}
 \end{figure}
 
+There are five TPC electrodes that control the electric fields: the cathode, gate, anode, and top and bottom screening meshes.  They have
+wired diameters of $\mathcal{O}(100)\ \mathrm{\mu m}$ and were designed to maximize S1 light collection.  The cathode is connected to a
+PNC150000-1 NEG high voltage supply and pre-filling tests successfully reached voltages beyond -100 kV.  48
+cm below the cathode is the bottom screening mesh (mentioned in \secref{subsec:xenon1t_pmts}).  The mesh is 12 mm above the bottom PMT
+array and can be biased to reduce unwanted effects from the PMT and cathode E-fields.  The cathode and bottom screening mesh consist of
+parallel wires and are gold-plated stainless steel, the latter of which increases the workfunction.  The gate rests just below the
+liquid-gas interface and defines $z = 0$.  The anode is
+situated 5 mm above the gate and is connected to a CAEN A1526P unit.  The fifth and final electrode is the top screening mesh 58 mm above
+the anode and 11 mm below the top PMT array, and serves the same function is the same as the bottom mesh.  The top three electrodes are
+made of stainless steel and are hex-etched.  Details for each electrode can be seen in \tabref{tab:xenon1t_tpc_electrodes} and
+\figref{fig:xenon1t_tpc_efield} shows the simulated electric field for the settings during the first science run,Science Run 0.
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+Electrode & Type & Wire Diamater & Material & Transparency & Position \\
+\hline
+Top screening & hex meshed & $178\ \mathrm{\mu m}$ & stainless steel & 96.5\% & 63 mm \\
+Anode & hex meshed & $178\ \mathrm{\mu m}$ & stainless steel & 89.8\% & 5 mm \\
+Gate & hex meshed & $127 \mathrm{\mu m}$ & stainless steel & 92.7\% & 0 mm \\
+Cathode & parallel wires & $216\ \mathrm{\mu m}$ & gold-plated stainless steel & 97.2\% & -969 mm \\
+Bottom screening & parallel wires & $216\ \mathrm{\mu m}$ & gold-plated stainless steel & 97.2\% & -1017 mm \\
+\hline
+\end{tabular}
+\caption{Properties for TPC electrodes.  The cathode and bottom screening mesh have high transparency to optimize S1 light collection and
+are gold-plated to increase workfunction.}
+\label{tab:xenon1t_tpc_electrodes}
+\end{table}
+
 \begin{figure}
 \centering
-\incluegraphics[width=0.6\textwidth]{Fig3Aprile2017b}
+\includegraphics[width=0.6\textwidth]{ElectricField}
+\caption{Finite element (COMSOL Multiphysics) simulation for E-field inside and around the TPC.  Field and equipotential lines are
+shown.  The voltages for the cathode, gate, and anode are -12, 0, and 4 keV, respectively, or the settings for Science Run 0.  The field
+is mostly uniform throughout the detector, minimizing possible biases that come from recombination, impurity attachment, etc.  Image
+credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_tpc_efield}
 \end{figure}
 
+Four parallel-plate capacitors measure the liquid level.  They have a range of 10 mm with $30\ \mathrm{\mu s}$ precision and can be used
+for observing tilts or raising (lowering) the TPC.  The liquid level's height is adjustable a gas-exhaust tube, and maintained with a
+so-called ``diving bell" that uses controlled gas flow from purification to pressurize the GXe inside the TPC.  Two cylindrical levelmeters
+with a range of 1360 mm extend from the bottom PMT array to above the diving bell and are used for filling and recovery.  Placed around the
+field cage are cable trays that power and transfer signal from the PMTs.  They are made of PTFE and the cables are held
+in place by PTFE spacers (\textbf{check if spacers is right word}).
 
+
+
+\subsection{Cryogenics}
+\label{subsec:xenon1t_cryo}
+The TPC is stationed in the center of the water Cherenkov detector (\secref{}) and is encompassed by the inner cryostat.  The cryostat
+is stainless steel and electropolished to reduce radon emanation (\secref{}), since it is in direct contact with the xenon.  It is 1960 mm
+tall by 1100 mm diamater and is metal-sealed
+with Helicoflex.  Surrounding it is the 2490 mm tall by 1620 mm diamater outer cryostat.  It is also composed of stainless steel but
+because there is no contact with xenon electropolishing is unncessary.  Materials were screened prior to construction for low-radioactivity
+selection.  The two are thermally isolated by Torlon polyamide-imide spacers and
+vacuum between them.  Heat loss is further mitigated to $\sim 75\ \mathrm{W}$ by aluminized mylar foil wrapped around the inner vessel.
+
+A 10 m high stainless steel support structure was built inside the water tank.  Attached are three M20 rods that suspend the
+cryostat.  They can be adjusted independently to tilt the cryostat, thereby changing the inclination of the LXe level with respect to the
+TPC.  A chain secures the bottom of the outer vessel to the water tank floor to counteract buoyancy forces when the cryostat is empty.  A
+double-walled pipe with inner and outer diameters 254 and 406 mm, respectively, connects with purification (\secref{subsec:xenon1t_pur}),
+cooling,
+pressurization for diving bell, and emergency recovery, and carries the PMT and auxiliary cables.  The voltage for the cathode is guided
+in a separate pipe.  A schematic of the cryostat is shown
 
 \begin{figure}
-\includegraphics[\width=0.8\textwidth]{AbsorptionSpectra}
+\centering
+\includegraphics[width=0.6\textwidth]{CryoDiagram}
+\caption{Diagram of the cryostat.  Image credit: \citeref{Aprile2017c}.}
+\label{fig:xenon1t_cryo_cryostat_diagram}
+\end{figure}
+
+A total of 3.5 tons of xenon is stored in the cryostat.  In addition to the 2.0 inside the TPC, the extra 1.5 is LXe between the
+TPC and inner vessel or GXe above the liquid level.  The nominal LXe temperature is $T_{0} = -96^{\circ}\ \mathrm{C}$.  Gas near the top of
+the cryostat is liquified by
+pulse-tube refrigerators (PTRs) and flows back to the TPC.  The two PTRs occupy independent cooling towers and can each deliver
+$\sim 250\ \mathrm{W}$ of cooling power, and with
+a total heat xenon heat load of $\sim 150\ \mathrm{W}$ only one needs to be active at any time.  Each PTR connects to a copper cold finger
+inside the inner cryostat so they can be removed without exposing the xenon to air.  A proportional-integral-derivative (PID) controller
+monitors and adjusts the temperature of a resistive heater on the coldfinger to maintain stable pressure and temperature.
+
+A third cooling tower uses liquid nitrogen and is used in the case of an emergency if both PTRs are being serviced or the heat load becomes
+too great.
+
+\subsection{Purification}
+\label{subsec:xenon1t_pur}
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
 \caption{\citeref{Ozone2005}}
 \end{figure}
 

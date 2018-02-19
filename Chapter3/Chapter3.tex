@@ -202,7 +202,7 @@ the baseline noise.  As with $R$ it increases for low gains and eventually level
 peak-to-valley ratio is $\sim 3$.
 
 An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
-been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012} for
+been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012a} for
 details on XENON100).
 
 
@@ -295,25 +295,102 @@ in a separate pipe.  A schematic of the cryostat is shown
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{CryoDiagram}
+\includegraphics[width=0.6\textwidth]{CryostatDiagram}
 \caption{Diagram of the cryostat.  Image credit: \citeref{Aprile2017c}.}
 \label{fig:xenon1t_cryo_cryostat_diagram}
 \end{figure}
 
 A total of 3.5 tons of xenon is stored in the cryostat.  In addition to the 2.0 inside the TPC, the extra 1.5 is LXe between the
 TPC and inner vessel or GXe above the liquid level.  The nominal LXe temperature is $T_{0} = -96^{\circ}\ \mathrm{C}$.  Gas near the top of
-the cryostat is liquified by
-pulse-tube refrigerators (PTRs) and flows back to the TPC.  The two PTRs occupy independent cooling towers and can each deliver
-$\sim 250\ \mathrm{W}$ of cooling power, and with
-a total heat xenon heat load of $\sim 150\ \mathrm{W}$ only one needs to be active at any time.  Each PTR connects to a copper cold finger
+the cryostat is liquified by pulse-tube refrigerators (PTRs) into a funnel and flows back to the TPC through a designated pipe and
+deposited in the inner vessel beneath the TPC.  Because
+the PTRs are higher than the TPC the flow is guided by gravity.  \figref{fig:xenon1t_cryogenics_schmatic} shows the layout of the cryogenic
+system.  The two PTRs occupy independent cooling towers and can each deliver $\sim 250\ \mathrm{W}$ of cooling power, and with
+a total heat xenon heat load of $\sim 150\ \mathrm{W}$ only one needs to be active at any time.  The cooling towers along with much of the
+GXe are located in the service building outside of the water tank  Each PTR connects to a copper cold finger
 inside the inner cryostat so they can be removed without exposing the xenon to air.  A proportional-integral-derivative (PID) controller
 monitors and adjusts the temperature of a resistive heater on the coldfinger to maintain stable pressure and temperature.
 
-A third cooling tower uses liquid nitrogen and is used in the case of an emergency if both PTRs are being serviced or the heat load becomes
-too great.
+A third cooling tower uses liquid nitrogen ($\mathrm{LN_2}$) and is used in the case of an emergency if both PTRs are being serviced or the
+heat load becomes too great from e.g. loss of power or insulation vacuum.  The $\mathrm{LN_2}$ flows from the $10 \mathrm{m^3}$ tank that
+is used by ReStoX (\secref{}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation rate.  In the event the PTRs
+lose power the $\mathrm{LN_2}$ cooling tower must react immediately to prevent rising pressure that can be damaging to PMTs among other
+things.  Sensors and controllers monitoring such a power loss are powered with uninterruptible power supplies (UPSs) to ensure a successful
+transition and operation of $\mathrm{LN_2}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Fig7Aprile2017b}
+\caption{Layout of the cryogenic system.  Three cooling towers - two with PTRs and one backup $\mathrm{LN_2}$ - liquify GXe to return to
+the TPC.  LXe is carried from the bottom of the cryostat to the purification system (\secref{subsec:xenon1t_pur}) through a heat exchanger
+system, where
+returning xenon is inserted into the bottom of the TPC with excess gas diffusing into the GXe.  A fraction of purified GXe is extracted
+before the heat exchanger and used to maintain pressure inside the diving bell.  ReStoX (\secref{}) connections are also shown.  Image
+credit: \citeref{Aprile2017b}.}
+\label{fig:xenon1t_cryogenics_schematic}
+\end{figure}
+
+Connections to purification and ReStoX are shown in \figref{fig:xenon1t_cryogenics_schematic}.  The LXe carried to the purification system
+passes through a heat exchanger system discussed in \secref{subsec:xenon1t_pur}.  This is not the case for recuperation since the xenon
+does not need to be gaseous.
+
+LXe from the beneath the TPC (near liquid line from PTRs) is removed for purification.  Once the xenon removed from the LXe it passes
+through a two-phase heat exchanger system.  The function of the heat exchanger is for GXe (returning to the TPC) and LXe (leaving) to
+exchange thermal energy.  This way the returning xenon is cooled before it reaches the TPC, and likewise removed xenon is heated before
+the purification.  The first step of the system is the ``tube-in-tube" component where two concentric tubes carrying LXe (GXe) away from
+(towards)
+the TPC.  The second component is a plate heat exchanger and is closer to the purification system (i.e. returning xenon passes through
+before tube-in-tube).
+
+We can define the heat exchange
+efficiency $\epsilon$ as the fraction of heat necessary for temperature change and vaporization that stays outside of the system.  A higher
+efficiency results in greater thermal energy transferred between the GXe and LXe and thus decreases the heat load on the system.  This is
+because instead of GXe entering the cryostat at roughly
+room temperature, it returns at approximately that of LXe, with much of it having condensed to LXe, putting less stress on the
+PTRs.  An essential ingredient of the heat transfer is the latent heat, which comprises $\sim 80\%$ of the total exchange.  The difference
+in vaporization temperature of the outgoing xenon and condensation temperature of incoming xenon is given by
+
+\begin{equation}
+\Delta T_{\mathrm{ph}} = T_{\mathrm{gl}} (P_i) - T_{\mathrm{gl}} (P_o)
+\label{eq:xenon1t_pur_latent}
+\end{equation}
+
+where $T_{\mathrm{gl}} (P)$ is the temperature of the gas-liquid phase transition that depends on pressure, and $P_i$ and $P_o$ are the
+pressures of the incoming and outgoing xenon, respectively.  Because the conditions of the dynamical gas flow
+(\secref{subsec:xenon1t_pur}) cause $P_i > P_o$, $\Delta T_{\mathrm{ph}} > 0$, making it effective at heat transfer
+(\citeref{Aprile2012b}).
+
+A study with the Demonstrator - the
+experiment used to for research and development for XENON1T - showed a heat exchange efficiency of
+two heat exchangers in series of $\geq 96\%$ (\citeref{Aprile2012b}).
+
+
 
 \subsection{Purification}
 \label{subsec:xenon1t_pur}
+Contamination in LXe can present a number of problems.  As mentioned in \secref{subsec:tpcs_working_principle} electronegative
+impurities (e.g. O$_2$, H$_2$O, N$_2$O, etc.) will attach to drifting $e^-$, reducing the number that reach
+the liquid surface and thus the S2.  They will also absorb scintillation, which pushes our energy threshold up as fainter signals become
+harder to detect.  \figref{fig:xenon1t_pur_absorption_spectra} shows the Xe scintillation spectrum along with the \otwo and \htwoo vapor
+absorption coefficients.  We can see there is large overlap - especially for H$_2$O.  In addition to electronegative there are intrinsic
+impurities including Kr and Rn but these are discussed in \secref{xenon1t_distillation}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
+\caption{Xe scintillation spectrum along with absorption coefficients for oxygen and water vapor.  \otwo has a maximum value of overlap
+with Xe of $\sim 0.1$ around 166 nm.  \htwoo covers a larger range of xenon's spectrum and has a much more significant impact, with a
+maximum value of $> 0.4$ at approximately 172 nm and $\sim 0.2$ at 178 nm.  Image credit: \citeref{}.}
+\label{fig:xenon1t_pur_absorption_spectra}
+\end{figure}
+
+Electronegative impurities come primarily from outgassing of detector materials.  They have different \electron attachment rates (see
+\figref{fig:attachment_rate} for examples) so are measured in O$_2$-equivalent - that is, the analogous concentration of oxygen if it
+were the only contaminant.  For LXe experiments the necessary concentration is $\mathcal{O}(10^{-9}$ parts per billion (ppb) or less.
+
+
+
+
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{AbsorptionSpectra}

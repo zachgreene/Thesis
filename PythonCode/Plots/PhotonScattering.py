@@ -26,7 +26,7 @@ columnsToPlot= [
 #		'TotwoCoherent'
 #		}
 
-fig, ax = plt.subplots(1, 1, figsize=(16, 12))
+fig, ax = plt.subplots(1, 1, figsize=(18, 12))
 
 ax.plot(
 	df.PhotonEnergy,
@@ -45,6 +45,16 @@ ax.plot(
 	linestyle='dashed',
 	dashes=(10, 4),
 	label='Compton Scattering'
+)
+
+ax.plot(
+	df.PhotonEnergy,
+	df.CoherentScat,
+	color='purple',
+	linewidth=3,
+	linestyle='dashed',
+	dashes=(20, 4),
+	label='Rayleigh Scattering'
 )
 
 ax.plot(
@@ -76,9 +86,10 @@ ax.set_xlabel('Photon Energy [MeV]', size=25)
 ax.set_ylabel('Mass Attenution Coefficiency [cm$^{2}$ g$^{-1}$]', size=25)
 
 for tick in ax.xaxis.get_major_ticks():
-	tick.label.set_fontsize(20)
+	tick.label.set_fontsize(25)
 for tick in ax.yaxis.get_major_ticks():
-	tick.label.set_fontsize(20)
-ax.legend(fontsize=25)
+	tick.label.set_fontsize(25)
+ax.tick_params(length=6, width=1, which='both')
+ax.legend(fontsize=25, frameon=False)
 plt.savefig('/Users/Zach/XENON/Thesis/Chapter2/Figures/PhotonAttenuation.png', format='png')
 plt.show()

@@ -199,7 +199,7 @@ to exceeding this gain.
 The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
 important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
 the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
-peak-to-valley ratio is $\sim 3$.
+peak-to-valley ratio is ${\sim} 3$.
 
 An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
 been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012a} for
@@ -215,7 +215,7 @@ light and charge can be measured.  A schematic is shown in \figref{fig:xenon1t_t
 PTFE panels that were treated with diamond tools to
 maximize VUV reflectivity.  Each interlocks with adjacent panels to achieve light-tightness, and the system is designed so that despite
 the high thermal expansion coefficient the radius does not contract when lowered to $-96^{\circ}\ \mathrm{C}$.  Outside the PTFE are 74
-field shaping rings made of low-radioactivity OFHC copper, each with a cross section of $\sim 10 \times 5\ \mathrm{mm^{2}}$.  They are
+field shaping rings made of low-radioactivity OFHC copper, each with a cross section of ${\sim} 10 \times 5\ \mathrm{mm^{2}}$.  They are
 supported by 18 PTFE pillars stationed around the circumference.  Two redundant
 chains connect adjoining rings via $5\ \mathrm{G \Omega}$ resistors, each with a $25\ \mathrm{G \Omega}$ resistor between the bottom and
 cathode.
@@ -283,7 +283,7 @@ tall by 1100 mm diamater and is metal-sealed
 with Helicoflex.  Surrounding it is the 2490 mm tall by 1620 mm diamater outer cryostat.  It is also composed of stainless steel but
 because there is no contact with xenon electropolishing is unncessary.  Materials were screened prior to construction for low-radioactivity
 selection.  The two are thermally isolated by Torlon polyamide-imide spacers and
-vacuum between them.  Heat loss is further mitigated to $\sim 75\ \mathrm{W}$ by aluminized mylar foil wrapped around the inner vessel.
+vacuum between them.  Heat loss is further mitigated to ${\sim} 75\ \mathrm{W}$ by aluminized mylar foil wrapped around the inner vessel.
 
 A 10 m high stainless steel support structure was built inside the water tank.  Attached are three M20 rods that suspend the
 cryostat.  They can be adjusted independently to tilt the cryostat, thereby changing the inclination of the LXe level with respect to the
@@ -305,15 +305,15 @@ TPC and inner vessel or GXe above the liquid level.  The nominal LXe temperature
 the cryostat is liquified by pulse-tube refrigerators (PTRs) into a funnel and flows back to the TPC through a designated pipe and
 deposited in the inner vessel beneath the TPC.  Because
 the PTRs are higher than the TPC the flow is guided by gravity.  \figref{fig:xenon1t_cryogenics_schmatic} shows the layout of the cryogenic
-system.  The two PTRs occupy independent cooling towers and can each deliver $\sim 250\ \mathrm{W}$ of cooling power, and with
-a total heat xenon heat load of $\sim 150\ \mathrm{W}$ only one needs to be active at any time.  The cooling towers along with much of the
+system.  The two PTRs occupy independent cooling towers and can each deliver ${\sim} 250\ \mathrm{W}$ of cooling power, and with
+a total heat xenon heat load of ${\sim} 150\ \mathrm{W}$ only one needs to be active at any time.  The cooling towers along with much of the
 GXe are located in the service building outside of the water tank  Each PTR connects to a copper cold finger
 inside the inner cryostat so they can be removed without exposing the xenon to air.  A proportional-integral-derivative (PID) controller
 monitors and adjusts the temperature of a resistive heater on the coldfinger to maintain stable pressure and temperature.
 
 A third cooling tower uses liquid nitrogen ($\mathrm{LN_2}$) and is used in the case of an emergency if both PTRs are being serviced or the
 heat load becomes too great from e.g. loss of power or insulation vacuum.  The $\mathrm{LN_2}$ flows from the $10 \mathrm{m^3}$ tank that
-is used by ReStoX (\secref{}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation rate.  In the event the PTRs
+is used by ReStoX (\secref{subsec:xenon1t_restox}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation rate.  In the event the PTRs
 lose power the $\mathrm{LN_2}$ cooling tower must react immediately to prevent rising pressure that can be damaging to PMTs among other
 things.  Sensors and controllers monitoring such a power loss are powered with uninterruptible power supplies (UPSs) to ensure a successful
 transition and operation of $\mathrm{LN_2}$.
@@ -347,7 +347,7 @@ efficiency $\epsilon$ as the fraction of heat necessary for temperature change a
 efficiency results in greater thermal energy transferred between the GXe and LXe and thus decreases the heat load on the system.  This is
 because instead of GXe entering the cryostat at roughly
 room temperature, it returns at approximately that of LXe, with much of it having condensed to LXe, putting less stress on the
-PTRs.  An essential ingredient of the heat transfer is the latent heat, which comprises $\sim 80\%$ of the total exchange.  The difference
+PTRs.  An essential ingredient of the heat transfer is the latent heat, which comprises ${\sim} 80\%$ of the total exchange.  The difference
 in vaporization temperature of the outgoing xenon and condensation temperature of incoming xenon is given by
 
 \begin{equation}
@@ -358,11 +358,10 @@ in vaporization temperature of the outgoing xenon and condensation temperature o
 where $T_{\mathrm{gl}} (P)$ is the temperature of the gas-liquid phase transition that depends on pressure, and $P_i$ and $P_o$ are the
 pressures of the incoming and outgoing xenon, respectively.  Because the conditions of the dynamical gas flow
 (\secref{subsec:xenon1t_pur}) cause $P_i > P_o$, $\Delta T_{\mathrm{ph}} > 0$, making it effective at heat transfer
-(\citeref{Aprile2012b}).
-
-A study with the Demonstrator - the
+(\citeref{Aprile2012b}).  A study with the Demonstrator - the
 experiment used to for research and development for XENON1T - showed a heat exchange efficiency of
-two heat exchangers in series of $\geq 96\%$ (\citeref{Aprile2012b}).
+two heat exchangers in series of $\geq 96\%$ (\citeref{Aprile2012b}).  Following the parallel-plate exchanger a heater provides additional
+thermal energy to the xenon moving towards the purification system.
 
 
 
@@ -370,32 +369,118 @@ two heat exchangers in series of $\geq 96\%$ (\citeref{Aprile2012b}).
 \label{subsec:xenon1t_pur}
 Contamination in LXe can present a number of problems.  As mentioned in \secref{subsec:tpcs_working_principle} electronegative
 impurities (e.g. O$_2$, H$_2$O, N$_2$O, etc.) will attach to drifting $e^-$, reducing the number that reach
-the liquid surface and thus the S2.  They will also absorb scintillation, which pushes our energy threshold up as fainter signals become
-harder to detect.  \figref{fig:xenon1t_pur_absorption_spectra} shows the Xe scintillation spectrum along with the \otwo and \htwoo vapor
-absorption coefficients.  We can see there is large overlap - especially for H$_2$O.  In addition to electronegative there are intrinsic
-impurities including Kr and Rn but these are discussed in \secref{xenon1t_distillation}.
+the liquid surface and thus the S2.
+
+Impurities will also attenuate scintillation, which pushes our energy threshold up as fainter signals become harder to detect.  This is
+described by
+
+\begin{equation}
+I(x) = I_0 e^{-x / \lambda_{\mathrm{att}}}
+\label{eq:xenon1t_pur_atten}
+\end{equation}
+
+where $I_0$ is initial number of photons, $I(x)$ is the number after traveling a distance $x$, and $\lambda_{\mathrm{att}}$ is the
+attenuation length.  $\lambda_{\mathrm{att}}$ is dependent on the absorption and scatter lengths, $\lambda_{\mathrm{abs}}$ and
+$\lambda_{\mathrm{scat}}$.  The absorption length describes the true loss of photons while the scatter refers to photons that elastically
+scatter without energy loss.  The attenuation length can then be written
+$1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{scat}}$.  \figref{fig:xenon1t_pur_absorption_spectra} shows
+the Xe scintillation spectrum along with the absorption coefficients for \otwo and \htwoo vapor at concentrations of 1 ppm.  We can see
+there is large overlap at lower wavelengths - especially for H$_2$O - and that observations under these circumstances would lead to an
+incorrect measurement of the scintillation spectrum.  In addition to electronegative there are intrinsic
+impurities including Kr and Rn but these are discussed in \secref{xenon1t_kr_dist}.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
-\caption{Xe scintillation spectrum along with absorption coefficients for oxygen and water vapor.  \otwo has a maximum value of overlap
-with Xe of $\sim 0.1$ around 166 nm.  \htwoo covers a larger range of xenon's spectrum and has a much more significant impact, with a
-maximum value of $> 0.4$ at approximately 172 nm and $\sim 0.2$ at 178 nm.  Image credit: \citeref{}.}
+\caption{Xe scintillation spectrum along with absorption coefficients for oxygen and water vapor present at 1 ppm.  \otwo has a maximum
+value of overlap
+with Xe of ${\sim} 0.1$ around 166 nm.  \htwoo covers a larger range of xenon's spectrum and has a much more significant impact, with a
+maximum value of $> 0.4$ at approximately 172 nm and ${\sim} 0.2$ at 178 nm.  Image credit: \citeref{Ozone2005}.}
 \label{fig:xenon1t_pur_absorption_spectra}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Fig4.1FromOzone2005}
+\label{fig:xenon1t_pur_absorp_dist}
 \end{figure}
 
 Electronegative impurities come primarily from outgassing of detector materials.  They have different \electron attachment rates (see
 \figref{fig:attachment_rate} for examples) so are measured in O$_2$-equivalent - that is, the analogous concentration of oxygen if it
-were the only contaminant.  For LXe experiments the necessary concentration is $\mathcal{O}(10^{-9}$ parts per billion (ppb) or less.
+were the only contaminant.  For LXe experiments the necessary concentration is $\mathcal{O}(10^{-9})$ parts per billion (ppb) or less.
 
+In addition
+to the GXe from the TPC (after passing through heat exchanger and heater as described in \secref{subsec:xenon1t_cryo}), connections are
+made between
+each of the cooling towers and the purification system.  Because impurities are lighter than xenon we can anticipate them having a larger
+presence in the gas.  While the GXe impurity concentration has no direct effect on \electron loss, impurities should migrate between the
+LXe and GXe.  Purifying the GXe then should largely reduce the impurities that pass into the liquid.
 
-
-
+Xenon from ReStoX  (\secref{subsec:xenon1t_restox}) and bottles are also connected to the purification system.  A separate heat exchanger
+sits between ReStoX and purification but is less effective when xenon is not incoming and outgoing (not during detector filling).  In
+addition to cleaning the Xe as it is transfered to the from RestoX to the cryostat, the purification system connects ReStoX to the Kr
+distillation column (\secref{subsec:xenon1t_kr_dist}).  The column returns the xenon after distillation to purification.  All systems that
+feed into the purification system do so before the getters and are available as outputs as well.  A small tube between the purification
+and cryostat before the heat exchanger siphons GXe to the TPC bell to maintain pressure, and is regulated by a flow controller.  The
+numerous connections makes the purification system a hub for transferring xenon between systems.
 
 \begin{figure}
-\includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
-\caption{\citeref{Ozone2005}}
+\centering
+\includegraphics[width=0.8\textwidth]{Fig8Aprile2017b}
+\label{fig:xeno1t_pur_schematic}
 \end{figure}
+
+The purification system consists of two redundant purification loops, each of which can operate independently of the other.  The flow
+is driven by CHART QDrives, with one on one loop and two on the other.  They were chosen for their high-capacity and hermetically sealed
+pump volume, the latter of which was not true with KNF pumps that were used in XENON100 (\textbf{check this}).  This is important because
+exposure to air could cause a significant drop in purity, and has occurred in the past with KNFs.  They are
+magnetically-resonant and operate via a compression space with oscillating externally-driven pistons.  Motors, valves, and pistons are
+not lubricated, making it an excellent choice for high-purity.  Unfortunately QDrives emanate \ce{^{222}Rn} can require frequent
+maintenance if operated at too great a voltage (for larger flow).  For the former \ce{Rn} emanation measurements were made prior to
+installation with the lowest being chosen.  For the latter they are operated at safe conditions and since the beginning of Science Run 0
+no issues have arisen.  It turns out the limiting factor on our circulation speed is not a result of the pumps but the pressure difference
+from tubes leading to the system caused by too small a radius.  With the upgrade to XENONnT these will be replaced with larger-radii.  One
+QDrive is installed in one loop and two in the other.
+
+The flow of the GXe is maintained by two MKA 1579A mass-flow controllers - one on either branch.  The assumption before the experiment went
+online was these would limit the speed when necessary, but because we did not achieve our goal these have minimal impact.  Still, they can
+be used for further restriction.  The xenon then passes through SAES PS4-MT50-R high-temperature rare-gas purifiers, or getters.  They
+use heated ($400^{\circ}\ \mathrm{C}$) zirconium to form unbreakable bonds with carbide, nitride, and oxide, lowering the impurity content
+to < 1 ppb.  A bypass valve allows the xenon to pass un-purified in the event that the it does not need to be cleaned.
+
+A Tiger Optics HALO+ H$_2$O monitor measures the water content in the purified GXe to track the purification efficiency.  It can measure
+concentrations down to 400 ppt.  As with the getters, it can be bypassed.  The Xe is then forwarded to the cryostat, bell, ReStoX, or
+bottles (Kr column occurs after the purification loops before the HALO).
+
+The components of the system are electropolished and able to be baked up to ${\sim} 120^{\circ}\ \mathrm{C}$ for decreased outgassing during
+operation.  The purification system has a number of valves that allow the versatility described in this section.  The majority are pneumatic and can
+be operated remotely with the slow control system.  The remainder are manual valves situated in select locations: to and from the cryostat,
+inside the calibration box, and before the vacuum pump, which can be used to evacuate individual sections or all of the system.  These are
+in place as a precaution against accidental openings of the actuated valves that could produce problems.
+
+
+\subsection{ReStoX}
+\label{subsec:xenon1t_restox}
+The Recovery and Storage system for XENON1T (ReStoX) hosts xenon not in use by other systems.  With a volume of 4.95 m$^{3}$
+(diameter of 2.1 m), wall thickness of 28 mm, and ability to withstand pressures up to 73 bar, it can support as much as 7.6 tons of xenon
+as a gas, liquid, or super-critical fluid.  It is constructed from stainless steel and insulated with vacuum from an outer sphere, where
+thermal conductance is minimized with superinsulation and limited contact to an external heat load of ${\sim}50\ \mathrm{W}$.
+
+As discussed in \secref{xenon1t_pur} the
+purification system doubles as a router between the different systems.  This offers an advantage over previous LXe experiments.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Fig10Aprile2017b}
+\label{fig:xenon1t_restox_pic}
+\end{figure}
+
+
+
+\subsection{Kr Distillation}
+\label{subsec:xenon1t_kr_dist}
+
+
 
 
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel

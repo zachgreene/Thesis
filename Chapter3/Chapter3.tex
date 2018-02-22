@@ -77,7 +77,7 @@ phototubes is likely to be beneficial longterm.  The finished arrays are shown i
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{PMTSchematic}
-\caption{Schematic of the R11410-21 PMT.
+\caption{Schematic of the R11410-21 PMT.}
 \label{fig:xenon1t_hamamatsu_pmt}
 \end{figure}
 
@@ -246,7 +246,7 @@ Electrode & Type & Wire Diamater & Material & Transparency & Position \\
 \hline
 Top screening & hex meshed & $178\ \mathrm{\mu m}$ & stainless steel & 96.5\% & 63 mm \\
 Anode & hex meshed & $178\ \mathrm{\mu m}$ & stainless steel & 89.8\% & 5 mm \\
-Gate & hex meshed & $127 \mathrm{\mu m}$ & stainless steel & 92.7\% & 0 mm \\
+Gate & hex meshed & $127\ \mathrm{\mu m}$ & stainless steel & 92.7\% & 0 mm \\
 Cathode & parallel wires & $216\ \mathrm{\mu m}$ & gold-plated stainless steel & 97.2\% & -969 mm \\
 Bottom screening & parallel wires & $216\ \mathrm{\mu m}$ & gold-plated stainless steel & 97.2\% & -1017 mm \\
 \hline
@@ -277,7 +277,8 @@ in place by PTFE spacers (\textbf{check if spacers is right word}).
 
 \subsection{Cryogenics}
 \label{subsec:xenon1t_cryo}
-The TPC is stationed in the center of the water Cherenkov detector (\secref{}) and is encompassed by the inner cryostat.  The cryostat
+The TPC is stationed in the center of the water Cherenkov detector (\secref{subsec:xenon1t_water_shield}) and is encompassed by the inner
+cryostat.  The cryostat
 is stainless steel and electropolished to reduce radon emanation (\secref{}), since it is in direct contact with the xenon.  It is 1960 mm
 tall by 1100 mm diamater and is metal-sealed
 with Helicoflex.  Surrounding it is the 2490 mm tall by 1620 mm diamater outer cryostat.  It is also composed of stainless steel but
@@ -320,13 +321,13 @@ transition and operation of $\mathrm{LN_2}$.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Fig7Aprile2017b}
+\includegraphics[width=\textwidth]{CryostatSchematic}
 \caption{Layout of the cryogenic system.  Three cooling towers - two with PTRs and one backup $\mathrm{LN_2}$ - liquify GXe to return to
 the TPC.  LXe is carried from the bottom of the cryostat to the purification system (\secref{subsec:xenon1t_pur}) through a heat exchanger
 system, where
 returning xenon is inserted into the bottom of the TPC with excess gas diffusing into the GXe.  A fraction of purified GXe is extracted
-before the heat exchanger and used to maintain pressure inside the diving bell.  ReStoX (\secref{}) connections are also shown.  Image
-credit: \citeref{Aprile2017b}.}
+before the heat exchanger and used to maintain pressure inside the diving bell.  ReStoX (\secref{subsec:xenon1t_restox}) connections are
+also shown.  Image credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_cryogenics_schematic}
 \end{figure}
 
@@ -387,7 +388,7 @@ $1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{
 the Xe scintillation spectrum along with the absorption coefficients for \otwo and \htwoo vapor at concentrations of 1 ppm.  We can see
 there is large overlap at lower wavelengths - especially for H$_2$O - and that observations under these circumstances would lead to an
 incorrect measurement of the scintillation spectrum.  In addition to electronegative there are intrinsic
-impurities including Kr and Rn but these are discussed in \secref{xenon1t_kr_dist}.
+impurities including Kr and Rn but these are discussed in \secref{subsec:xenon1t_kr_dist}.
 
 \begin{figure}
 \centering
@@ -426,7 +427,8 @@ numerous connections makes the purification system a hub for transferring xenon 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{Fig8Aprile2017b}
+\includegraphics[width=\textwidth]{PurificationLayout}
+\caption{Image credit: \citeref{Aprile2017b}.}
 \label{fig:xeno1t_pur_schematic}
 \end{figure}
 
@@ -461,24 +463,94 @@ in place as a precaution against accidental openings of the actuated valves that
 
 \subsection{ReStoX}
 \label{subsec:xenon1t_restox}
-The Recovery and Storage system for XENON1T (ReStoX) hosts xenon not in use by other systems.  With a volume of 4.95 m$^{3}$
+The Recovery and Storage system for XENON1T (ReStoX) hosts xenon not in use by other systems.  It is located roughly 7 on the ground floor of the
+service building.  With a volume of 4.95 m$^{3}$
 (diameter of 2.1 m), wall thickness of 28 mm, and ability to withstand pressures up to 73 bar, it can support as much as 7.6 tons of xenon
 as a gas, liquid, or super-critical fluid.  It is constructed from stainless steel and insulated with vacuum from an outer sphere, where
-thermal conductance is minimized with superinsulation and limited contact to an external heat load of ${\sim}50\ \mathrm{W}$.
+thermal conductance is minimized with superinsulation and limited contact to an external heat load of ${\sim}50\ \mathrm{W}$.  To limit
+impurity contamination while the Xe is in ReStoX the vessel and valves are metal sealed and electropolished.
 
-As discussed in \secref{xenon1t_pur} the
-purification system doubles as a router between the different systems.  This offers an advantage over previous LXe experiments.
+The xenon is cooled by LN$_2$ that is housed in a 10 m$^3$ dewar adjacent to the service building.  This is done in part with 16 LN$_2$
+lines that are welded to the inner vessel's outer surface.  To prevent over-cooling 16 stainless steel fins inside increase heat
+exchanging.  A condenser and heater in the middle are used when the xenon is stored as a liquid, which is the nominal state of
+operations.  The heater ensures solid xenon does not block pipes so Xe can transfer freely with other systems.  The total cooling power is
+spread over 4.3 m$^2$ of copper with magnitude of over $>3\ \mathrm{kW}$.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{Fig10Aprile2017b}
+\includegraphics[width=0.8\textwidth]{ReStoX}
+\caption{Image credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_restox_pic}
 \end{figure}
 
+Previous LXe experiments would fill the detectors by condensing the GXe from storage.  Similarly, recovery was done by allowing the LXe
+in the cryostat to evaporate.  While this was achievable for detectors with $\mathcal{O}(100)\ mathrm{kg}$ of xenon, doing so
+(\textbf{maybe it is just for filling, check}) for XENON1T would require approximately two months, and fast recovery in the event of an
+emergency would not be possible.  This is solved through the purification system, which as mentioned in \secref{subsec:xenon1t_pur} can
+pump xenon between systems (\textbf{check with someone about how xenon is recovered}).
 
 
-\subsection{Kr Distillation}
+
+\subsection{Krypton Distillation}
 \label{subsec:xenon1t_kr_dist}
+Commercial high-purity xenon generally has \ce{Kr} concentrations from 1 ppm down to 10 ppb.  This is not clean enough for LXe dark matter
+detectors so additional distillation is necessary.  The reason for restricting the
+krypton content is \ce{^{85}Kr}, which undergoes \betadecay with an end-point energy of 687 keV and a half-life of 10.76 years.  With
+an expected fraction $\mathrm{^{85}Kr / ^{nat}Kr = 2 \times 10^{-11}}$ the required \ce{^{nat}Kr}/Xe concentration for its background to be
+less than radon is $< 200\ \mathrm{ppq}$.  Details of the \ce{^{85}Kr} background can be found in \secref{sec:backgrounds}.
+
+To achieve the intended purity we use a Kr distillation column, seen in \figref{fig:xenon1t_kr_dist_column}.  The column is has a total
+height of 5.5 m and is kept in an insulation vessel at $10^{-5}\ \mathrm{mbar}$ to minimize thermal losses (citeref{Aprile2016b}).  GXe
+that is passed to the column enters through a heat exchanger and is
+liquified by the input condenser.  The input condenser uses a cryo-cooler (Leybold CP-50) at $-98^{\circ}\ \mathrm{C}$ and maximal power
+of 100 W.  Next it passes to the package tube, built with 2.8 m of structured stainless steel package material (Sulzer EX) 45 cm in
+diamater that has feeding ports for both liquid and gaseous xenon.  At the top of the tube is a second cryo-cooler (Leybold CP-140T)
+operating at $-98^{\circ}\ \mathrm{C}$ with 200 W.  Liquified xenon will fall towards the bottom, where it is stored and heated by a
+reboiler with a maximum of 300 W.  The Kr, with a lower atomic mass will drift towards the top of the column but will not liquify as its
+boiling point is lower than $-98^{\circ}\ \mathrm{C}$.  Siphoning the xenon at the top then removes Kr at a much higher concentration than
+present in the inlet GXe.  Purer Xe at the bottom is extracted where it passes through the heat exchanged before returning to the
+purification system or ReStoX (\textbf{check this}).
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{KrColumn}
+\caption{Image credit: \citeref{Aprile2017b}.}
+\label{fig:xeno1t_kr_dist_column}
+\end{figure}
+
+After installed at LNGS the reduction of \ce{^{nat}Kr}/Xe was found to be $6.4_{-1.4}^{+1.9} \times 10^{5}$
+(\citeref{Aprile2016b}).  Inlet flows have been shown to be stable up to 18 SLPM, but running all ReStoX xenon through distillation before
+cryostat filling would take ${\sim}3$ weeks.  For this reason an ``online" removal system was used, where the xenon was distilled during
+science run data taking.  Over 70 days 7\% of xenon passing through purification was diverted to the column and a total 0.07\% was
+removed.  An initial \ce{^{nat}Kr}/Xe concentration of 60 ppb was decreased to $360 \pm 60\ \mathrm{ppq}$, the lowest ever realized in a
+LXe dark matter experiment.  Such low concentrations are measured by a rare gas mass spectrometer (RGMS) that uses cryogenic gas
+chromotography to separate the Kr from Xe, followed by a mass spectrometer for Kr measurement (\citeref{Lindemann2014}).
+
+A second low-energy background comes from the \ce{^{222}Rn} decay chain.  While the distillation column was built and intended for Kr,
+it was shown to work in a single stage distillation (\citeref{Bruenner2017}) and subsequently XENON100
+(\citeref{Aprile2017d}).  It operates using the reverse principle, i.e. Rn-enriched xenon is coalesces near the bottom of the column.
+
+
+
+\subsection{Water Shield}
+\label{subsec:xenon1t_water_shield}
+Limiting external radiation is essential to a dark matter search.  In XENON100 lead bricks were used for shielding, but with the expected
+sensitivity increase in XENON1T a water shield is instead used.
+
+
+
+
+
+\section{Backgrounds}
+\label{sec:backgrounds}
+While the majority of background events come from detector materials (wall, PMTs, etc.) and are stopped within the first few cm of LXe,
+there is a small amount distributed roughly uniformly throughout the entirety of the detector.  With the exception of long-lived Xe
+isotopes and excited metastable states (usually following a nuclear recoil calibration, \secref{}) these come other nobles gases of which
+trace amounts are left after distillation.  And because they have the same electronic properties as xenon they are not filtered by the
+getters.  It is essential to reduce these backgrounds to minimize the likelihood that an event is
+mistaken for dark matter.
+
+Low-energy decays are the most dangerous since they fall in our region of interest.  
 
 
 

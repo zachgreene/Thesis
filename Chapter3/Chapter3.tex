@@ -353,7 +353,7 @@ in vaporization temperature of the outgoing xenon and condensation temperature o
 
 \begin{equation}
 \Delta T_{\mathrm{ph}} = T_{\mathrm{gl}} (P_i) - T_{\mathrm{gl}} (P_o)
-\label{eq:xenon1t_pur_latent}
+\label{eq:xenon1t_cryo_latent}
 \end{equation}
 
 where $T_{\mathrm{gl}} (P)$ is the temperature of the gas-liquid phase transition that depends on pressure, and $P_i$ and $P_o$ are the
@@ -362,7 +362,17 @@ pressures of the incoming and outgoing xenon, respectively.  Because the conditi
 (\citeref{Aprile2012b}).  A study with the Demonstrator - the
 experiment used to for research and development for XENON1T - showed a heat exchange efficiency of
 two heat exchangers in series of $\geq 96\%$ (\citeref{Aprile2012b}).  Following the parallel-plate exchanger a heater provides additional
-thermal energy to the xenon moving towards the purification system.
+thermal energy to the xenon moving towards the purification system.  The different systems that handle the xenon can be seen in
+\figref{fig:xenon1t_cryo_overview}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{CryoOverview}
+\caption{The various systems that handle xenon in the experiment: cryostat, cryogenics, purification, cryogenic distillation column,
+ReStoX, bottle racks, and gas analytics station.  The water shield flange defines the region between the service building and the water
+Cherenkov detector.  Image credit: \citeref{Aprile2017b}.}
+\label{fig:xenon1t_cryo_overview}
+\end{figure}
 
 
 
@@ -429,7 +439,7 @@ numerous connections makes the purification system a hub for transferring xenon 
 \centering
 \includegraphics[width=\textwidth]{PurificationLayout}
 \caption{Image credit: \citeref{Aprile2017b}.}
-\label{fig:xeno1t_pur_schematic}
+\label{fig:xenon1t_pur_schematic}
 \end{figure}
 
 The purification system consists of two redundant purification loops, each of which can operate independently of the other.  The flow
@@ -534,12 +544,94 @@ it was shown to work in a single stage distillation (\citeref{Bruenner2017}) and
 
 \subsection{Water Shield}
 \label{subsec:xenon1t_water_shield}
-Limiting external radiation is essential to a dark matter search.  In XENON100 lead bricks were used for shielding, but with the expected
-sensitivity increase in XENON1T a water shield is instead used.
+Limiting radiation from outside the experiment is essential to a dark matter search.  An active water Cherenkov detector encompasses the
+cryostat, spanning 9.6 m in diamater and 10.2 m high.  It is filled with deionized water, which can fill the detector at up to
+$2.2\ \mathrm{m^{3}/hour}$.  The tank shields the cryostat from neutrons and \gammarays that originate underground (from e.g. rocks),
+decreasing the event rate by orders of magnitude.  It can identify muons as well as muon-induced neutrons by detecting showers initiating
+outside the water tank.  If an event in the TPC coincides with one in the water tank it will usually be excluded incase the two are
+related, acting as a muon veto.  The flux of muons at LNGS is $3.31 \pm 0.03 \times 10^{-8}\ \mathrm{cm^2\ s^{-1}}$ with average energy
+${\sim}270\ \mathrm{GeV}$ (\citeref{Aprile2017b}).  The flux of muons for various underground laboratories is shown in
+\figref{fig:xenon2t_water_shield_flux}.
+
+\begin{figure}
+\centering
+\includegraphics[with=0.8\textwidth]{MuonFluxOverDepth}
+\label{fig:xenon1t_water_shield_flux}
+\end{figure}
+
+84 Hamamatsu R5912ASSY PMTs are placed in five rings along the inner wall of the tank, each 2.5 m apart in height.  The lowest
+($z = 0\ \mathrm{m}$) and highest ($z = 10\ \mathrm{m}$) each contain 24, while the three between them have 12.  The quantum efficiency
+is ${\sim}30\%$ between 300-600 nm.  To increase the chance of photon detection the inner wall is coated with foil (3M DF2000MA) that has
+nearly 100\% reflectivity at $> 400\ \mathrm{nm}$, (\citeref{2017Geis}).  However, ${\sim}90\%$ of light is absorbed for $<370 \mathrm{nm}$
+and 3-7.5\% from $250 < \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifted to more favorable values for the PMTs.
 
 
 
+\subsection{Calibrations}
+\label{subsec:xenon1t_calibrations}
+Calibrations are used for a host of purposes including understanding energy resolution, light collection efficiency, electron lifetime,
+g1, g2, electronic and nuclear recoil bands, and many more.  Depending on the source they can be performed inside the TPC (internal) or
+outside (external).  Here I cover the different calibrations and the purposes they serve; additional details and results are in
+\secref{sec:calibrations}.
 
+\subsubsection{Internal}
+\label{subsubsec:xenon1t_calibrations_internal}
+Internal calibrations allow us to describe how our detector observes events throughout the entire TPC.  This is preferabel to external
+calibrations, where only part is used.  The calibration source box is installed in the purification system (pink region in
+\figref{fig:xenon1t_pur_schematic}) and contains valves opening to the GXe both before and after the getters.  When the valves are opened,
+the source will flow into the GXe stream and into the cryostat and mix with the xenon.  We therefore only use sources that do not introduce
+electronegative impurities.  The source will quickly spread itself throughout the entirety of the xenon, giving a uniform distribution,
+and allowing us to improve our understanding of how variation in observables relates to position.
+
+\kryptonmeta has two monoenergetic decays at 32.15 ($t_{1/2} = 1.83\ \mathrm{h}$) and 9.4 keV ($t_{1/2} = 154.4\ \mathrm{ns}$).  The short
+half-lives coupled with its final decay product, \ce{^{83}Kr} being stable makes it a great choice to calibrate the light collection
+efficiency (LCE) and measure the electron lifetime.
+
+\radoncal is used to calibrate the ER band as \ce{^{212}Pb} - one of its daughters, is a $\beta$-emitter with endpoint energy
+569.91 keV.  There are additional $\alpha$, $\beta$, and $\gamma$ emissions throughout the chain that can be used for additional studies,
+including measuring the electron lifetime with the \ce{^{212}Bi} $\alpha$-decay (6.207 MeV).  The longest half-life in the chain is
+\ce{^{212}Pb} with $t_{1/2} = 10.6\ \mathrm{h}$ (next longest is \ce{^{212}Bi} with $t_{1/2} = 1.00\ \mathrm{h}$), which allows DM data
+to resume within several days.
+
+Tritiated methane (CH$_{3}$T) is a very attractive candidate because of it's low-energy $\beta$-emission.  With a 18.6 keV endpoint energy,
+it is an ideal candidate for calibrating the low-energy (cs1 < 100 pe, \textbf{check this}) ER band, and even measuring the light and
+charge yield in a relatively unexplored but important
+region.  This was originally done by LUX (\citeref{LUX2016}) and subsequently performed with XENON100 (\citeref{Aprile2017e}).  However,
+with a half-life of $t_{1/2} = 12.3\ \mathrm{y}$ it must be removed completely by the getters to avoid introducing a new background.  This
+is further complicated by a suspicion that the methane adheres to the cryostat, prohibiting total removal.  For this reason a CH$_3$T
+calibration has not yet been conducted in XENON1T.
+
+PMT gains are calibrated using blue LEDs at low light levels.  Unlike the previous sources this calibration is done using cables that are
+carried from the data acquisition (\secref{subsec:xenon1t_daq}) into the TPC.  They are fixed at various heights and angles and flash
+at periodic intervals.  The result is an SPE spectrum as shown in \figref{fig:xenon1t_pmt_spe}.
+
+\subsubsection{External}
+\label{subsubsec:xenon1t_calibrations_external}
+External calibrations are performed with a source outside the cryostat.  In XENON100 this was done by inserting a source inside the lead
+shielding; however, the water tank in XENON1T makes this a more complicated task.  The resolution was the installation of two ``I-belts"
+along the height of the detector and one ``U-belt" that also extends underneath, as shown in \figref{fig:xenon1t_calibration_belts}.  These
+allow the sources to be lowered from the roof of the tank, as well as calibrate from different locations, so long as they are on the
+belts.  They are removed during dark matter data taking.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{TPCCalibrations}
+\caption{Image credit: \citeref{Aprile2017b}.}
+\label{fig:xenon1t_calibrations_belts}
+\end{figure}
+
+External $\gamma$ sources include \ce{^{137}Cs}, with an energy of 661.7 keV, and \ce{^{228}Th}, with a number of energies between 511 keV
+and 2.614 MeV.  These are installed in W-collimators that restrict the \gammarays to a cone of $40^{\circ}$.  Additionally, \ce{^{60}Co}
+in the cryostat flanges with 1.173 and 1.333 MeV lines can also be used.
+
+Nuclear recoil sources AmBe and a deuterium-deuterium (DD) neutron generator (NG) are also done outside the TPC.  It is also deployed in a
+W-collimator and emits MeV neutrons.  The NG (NSD Gradel Fusion NSD-35-DD-C-W-S) emits neutrons at ${\sim} 2.2,\ 2.7\ \mathrm{MeV}$ in
+$4\pi$ and is capable of emission rates as low as 10 n/s (to reduce pile-up) and as high as $10^{7}\ \mathrm{n/s}$ (\citeref{Lang2017}).
+
+
+
+\subsection{Data Acquisition}
+\label{sec:xenon1t_daq}
 
 \section{Backgrounds}
 \label{sec:backgrounds}
@@ -552,6 +644,11 @@ mistaken for dark matter.
 
 Low-energy decays are the most dangerous since they fall in our region of interest.  
 
+
+
+\section{Calibrations}
+\label{sec:calibrations}
+% look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
 
 
 

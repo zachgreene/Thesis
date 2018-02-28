@@ -849,16 +849,102 @@ have mean free paths of $\mathcal{O}(10)$ cm, allowing them to move through the 
 that it scatters once inside the FV.  Neutrinos move freely and cannot be shielded.  The nuclear recoil background is composed of
 radiogenic and muon-induced neutrons as well as from astrophysical neutrinos.
 
+
+
 \subsubsection{Radiogenic Neutrons}
 \label{subsubsec:backgrounds_nuclear_radiogenic}
-Detector materials can cause a neutron to be ejected during decays.
+Radiogenic neutrons are produced by primordial decay chains \ce{^{238}U}, \ce{^{235}U} and \ce{^{232}Th} in detector materials
+(see \secref{subsec:backgrounds_detector_materials} for discussion on electronic and $\alpha$ recoils).  They are released in
+$(\alpha, \mathrm{n})$ reactions that result from the $\alpha$-emissions along the decay chains, as well as spontaneous fission (SF).  For
+heavier nuclei radiogenic neutrons are generated almost exclusively by SF as the $(\alpha, \mathrm{n})$ reaction is suppressed by the
+large Coulomb barrier (\citeref{Aprile2016a}).
+
+\figref{fig:backgrounds_nuclear_radiogenic_rates} shows the neutron yield as a function of energy for PTFE and copper from Monte Carlo
+predictions.  The chains are
+separated to $\mathrm{^{238}U} \rightarrow \mathrm{^{230}Th}$ and $\mathrm{^{226}Ra} \rightarrow \mathrm{^{206}Pb}$, and
+$\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \rightarrow \mathrm{^{208}Pb}$ to account for the disequilibrium
+that was observed.  The PTFE has on average a lighter $Z$ than the copper, giving it a larger $(\alpha, \mathrm{n})$ contribution (dashed
+lines represent SF-only).  We can see in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that for $E \gtrsim 3\ \mathrm{keV}$
+radiogenic neutrons are the dominating factor for the NR backgrounds.  The expected rate for 1 ton is
+$0.6 \pm 0.1\ \mathrm{y^{-1}}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Fig6AprileMCPaper}
+\caption{Image credit: \citeref{Aprile2016a}.}
+\label{fig:backgrounds_nuclear_radiogenic_rates}
+\end{figure}
+
+
+
+\subsubsection{Muon Induced Neutrons}
+\label{subsubsec:backgrounds_nuclear_muon_induced}
+Cosmic muons interacting with the rock above the detector can produce up to GeV neutrons.  The large mean free path from such high energy
+makes it not unlikely that they pass through the water shield (\secref{subsec:xenon1t_water_shield}).  However, simulations show that if
+the associated showers from the muon interaction also enter the tank the tagging efficiency is $> 70\%$.  Still the predicted rate is just
+$< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{MuonFluxWithDepth}
+\label{fig:backgrounds_nuclear_muon_induced_flux}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Fig7Aprile2016a}
+\caption{Image credit: \citeref{Fig7Aprile2016a}.}
+\label{fig:backgrounds_nuclear_muon_induced_nr_rate}
+\end{figure}
+
+
+
+\subsubection{Neutrinos}
+\label{subsubsec:backgrounds_nuclear_neutrinos}
+The final contribution to the NR background comes from neutrinos that participate in coherent neutrino-nucleus scattering.  The primary
+contributor to the integrated NR rate is solar \ce{^{8}B}, which is orders of magnitude larger than other sources and dominant at
+recoil energies $< 3\ \mathrm{keV}$.  Solar $hep$, atmosphere, and diffuse supernova neutrinos also contribute.  We can see in
+\figref{fig:backgrounds_nuclear_muon_induced_nr_fate} that neutrinos are the principal source for recoils at $< 3\ \mathrm{keV}$.  The
+number of detected events at $> 1\ mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}$.  While this is below our
+threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
+to our threshold (${sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
+\secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background due to the inability
+to shield them.
 
 
 
 \section{Calibrations}
 \label{sec:calibrations}
+Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
+been done with \ce{^{83m}Kr}, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
 % look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
 
+
+
+\subsection{\ce{^{83m}Kr}}
+\label{subsec:calibrations_kr}
+The most common calibration source is \ce{^{83m}Kr}.  Being a noble gas it can be injected directly into the xenon so to be used as an
+internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to the purification system
+(\secref{subsec:xenon1t_calibrations_internal}) and decays via
+
+\begin{equation}
+\mathrm{{83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
+\end{equation}
+
+with a 74.8\% branching ratio to the metastable state \ce{^{83m}Kr}.
+
+
+
+\subsection{AmBe}
+\label{subsec:calibrations_ambe}
+Americium beryllium (AmBe) is used for nuclear recoil calibrations.  \ce{^{241}Am} decays to \ce{^{237}Np} through
+$\alpha$-emission.  The large \ce{^{9}Be} cross-section to $\alpha$ particles produces a second decay via
+
+\begin{equation}
+\mathrm{^{9}Be} + \mathrm{^{4}He} \rightarrow \mathrm{^{12}C + n} + \gamma
+\end{equation}
+
+\noindent where a neutron is emitted.
 
 
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel

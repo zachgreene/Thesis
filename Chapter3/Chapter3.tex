@@ -27,7 +27,8 @@ Lots of good info in Aprile2017b (instrument paper).
 \subsection{PMTs}
 \label{subsec:xenon1t_pmts}
 A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
-maximize resolution of $r$ position reconstruction.  The 121 in the bottom array are packed as densely as possible to maximize light
+maximize resolution of $r$ position reconstruction (\secref{subsec:calibrations_position_reconstruction}).  The 121 in the bottom array
+are packed as densely as possible to maximize light
 collection.  The R11410 window is 76.2 mm in diameter and the photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
 standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QEs result from preselecting PMTs with $\mathrm{QE} > 28\%$ for
 screening.
@@ -925,13 +926,143 @@ been done with \ce{^{83m}Kr}, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Ameri
 \label{subsec:calibrations_kr}
 The most common calibration source is \ce{^{83m}Kr}.  Being a noble gas it can be injected directly into the xenon so to be used as an
 internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to the purification system
-(\secref{subsec:xenon1t_calibrations_internal}) and decays via
+(\secref{subsec:xenon1t_calibrations_internal}) and decays through electron capture
 
 \begin{equation}
 \mathrm{{83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
 \end{equation}
 
-with a 74.8\% branching ratio to the metastable state \ce{^{83m}Kr}.
+with a 74.8\% branching ratio to the metastable state \ce{^{83m}Kr}.  \ce{^{83m}Kr} then de-excites in two steps: emission of a 32.1 keV
+conversion electron with half-life $t_{1/2} = 1.83\ \mathrm{h}$ followed by a second conversion electron at 9.4 keV with
+$t_{1/2} = 154\ \mathrm{ns}$.  The short
+interval between the two decays makes tagging events easy.  Furthermore the mono-energetic $\gamma$ lines can be used for a number of
+detector characterizations including light collection efficiency (LCE), S2 position correction maps, position reconstruction, and electron
+lifetime.
+
+\subsection{Light Collection Efficiency}
+\label{subsec:calibrations_lce}
+The light observed by a PMT depends on - among other things - the position of the event.  The light collection efficiency (LCE) - seen
+in \figref{calibrations_lce_lce} - quantifies these differences.  Such position-dependent variations exist simply because the location of
+the interaction dictates subsequent effects due to detector features and physics.  First, the the solid angle of an event is not uniform
+throughout the detector.  It is greatest near the bottom or top of the TPC at small radii.  The measured strength of the scintillation
+from the S1 depends then on the number of PMTs the light can reach and how far the light must travel to each.  Interactions near the
+wall have a lower observed intensity because of this.  The quantum efficiency (QE) of the PMTs (\figref{fig:xenon1t_pmt_array}) is also a
+factor, with those at larger values more likely to produce a photoelectron.  Because the PMTs with the highest QE were placed in the
+center of the bottom array (\secref{subsec:xenon1t_pmts}) events that happen near there should have a higher likelihood of detection,
+while those in in near the top corners should have the lowest.
+
+Because PTFE has some small but $> 0$ absorption the intensity of the scintillation decreases with each reflection.  Therefore light
+that is emitted perpendicular to the PMT arrays can be severely dampened.  This is amplified by the absorption of light by
+impurities in the LXe, meaning that longer traversed distances imply decreased scintillation.
+
+The index of refraction of LXe ${\sim} 1.7$
+gives a critical angle $\theta_c = 36^{\circ}$.  The light then that reaches the top PMTs for an event at
+$z = -10\ \mathrm{cm}$ is restricted to a radius of just 13.6 cm at the liquid surface, with the total solid angle from
+$r = 0\ \mathrm{cm}$ of $83.9^{\circ}$.  While the light will be internally reflected and progress towards the bottom array, it is likely
+to be lessened from reflections with the PTFE and extended travel distances as discussed in the previous paragraph. In comparison light
+directed towards the surface from an event 10 cm above the cathode ($r = 0$)
+has $< \theta_c$ everywhere.  Some scintillation that reflects off the PTFE on the way up will rebound off the surface, but its
+contribution is relatively small.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{Fig20Aprile2017b}
+        \label{fig:calibrations_lce_lce_hist}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{Fig21Aprile2017b}
+        \label{fig:calibrations_lce_cle_map}
+    \end{subfigure}
+    \caption{Image credit: \citeref{Aprile2017b}.}
+	\label{fig:calibrations_lce_lce}
+\end{figure}
+
+Calibrating the LCE requires a mono-energetic peak - preferably one near our DM energy range.  For this we use the light from the
+\ce{^{83m}Kr} 32.1 keV conversion electron.  The left panel in \figref{fig:calibrations_lce_lce} shows fits to S1s measured below the gate
+(red), in the TPC center (blue), and above the cathode (green).  The mean from these fits correspond to the values shown in the right
+panel.
+
+It is important to point out that because recombination depends on recoil energy and electric field the derived LCE map is not
+technically correct for other energies.  However, field non-uniformities are small, especially after more than a few cm inside of the
+wall, so applying it universally is acceptable.
+
+In the case of high-energy events PMT saturation can
+affect the measured signal so the latter becomes important.
+
+
+
+\subsection{S2 Position Correction}
+\label{subsec:s2_position_correction}
+We must also account for positional variations in S2.  However, because all S2s happen in the GXe an $x-y$ correction is sufficient.  For
+this we use the 41.5 keV peak of \ce{^{83m}Kr} (the 154 ns half-life of the 9.4 keV decay makes it difficult to separate the two
+S2s).  Most of the light seen by the top array is focused on a small group of PMTs directly over the extraction site, while the light on
+the bottom array is more uniformly spread due to a larger solid angle.
+
+The top and bottom correction maps are shown in \figref{fig:calibrations_s2_maps}.  The local variations are primarily
+caused by nonfunctional PMTs.  The observed signal in the top array being more densely concentrated causes steeper local variations.  The
+slightly higher S2s at low radii result from a small sagging of the anode.  The increase in the bottom array as $r \rightarrow 0$ is 
+mainly due to the higher QE.  The large solid angle creates a roughly homogeneous azimuthal distribution.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{S2MapTopUseDataFromBlessedPlots}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{S2MapBottom}
+    \end{subfigure}
+    \caption{}
+	\label{fig:calibrations_s2_maps}
+\end{figure}
+
+
+
+\subsection{Position Reconstruction}
+\label{subsec:calibrations_position_reconstruction}
+As mentioned in \secref{subsubsec:tpcs_signals_posrec} TPCs allow 3-dimensional position reconstruction.  Since the drift velocity $v_d$
+is constant in LXe the depth is easily found as $z = -v_d t_d$ where $t_d$ is the drift time ($z$ is defined to be negative with
+$z = 0$ at gate).  For Science Run 1 (SR1) the drift field $E_d = 81.3\ \mathrm{kV\ cm^{-1}}$ giving
+$v_d = 1.332\ \mathrm{mm\ \mu s^{-1}}$ and maximum drift time of $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9 cm at
+$-100^{\circ}\ \mathrm{C}$).
+
+The $x-y$ coordinates are found by applying an algorithm to the intensity each PMT in the top array observed from the S2 (also known as
+PMT hit pattern).  For XENON1T two reconstruction algorithms were mainly used.  The first was a neural net using the Fast Artificial
+Neural Network (FANN) library with 24 and 29 nodes in the two hidden layers (sequentially).  The second matches the real hit pattern with
+an expected after weighting four other algorithms for its seed, and is known as top pattern fit (TPF).  Both algorithms were trained on MC
+and optimized with \ce{^{83m}Kr} data, and achieved a position resolution of $\lesssim 2\ \mathrm{cm}$.  For SR1 the NN was ultimately
+chosen, as the TPF algorithm was more sensitive to dead PMTs and showed some artificial discontinuity in the radial
+direction.  \figref{fig:calibrations_position_reconstruction} shows the position distribution of events in SR1.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{S2XY}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{S2RZ}
+    \end{subfigure}
+    \caption{}
+	\label{fig:calibrations_position_reconstruction}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{S1S2}
+\label{fig:calibrations_kr_s1_s2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{KrElectronLifetime}
+\label{fig:calibrations_kr_kr_elifetime}
+\end{figure}
 
 
 

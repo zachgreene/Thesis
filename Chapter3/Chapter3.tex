@@ -163,45 +163,6 @@ transit time spread (TTS).  Because an event is observed by many PMTs the TTS qu
 smaller TTSs lead to a smaller integration window, decreasing accidental coincidence.  The TTS for all R11410-21 PMTs was measured, giving
 a mean of $9.1 \pm 1.3\ \mathrm{ns}$ - a fraction of an S1.
 
-The charge that reaches the anode can change for a single phototube and varies between different.  Increasing the bias voltage amplifies
-the gain, heightening sensitivity or conversely lowering can help prevent saturation.  Gains may also deviate from variations in
-temperature (\textbf{check this}), overexposure to light, count rate, wear, and more.  Phototubes may differ from one another
-for all the reasons just mentioned, as well as inevitable - however tiny - differences in parts.  Monitoring the single photoelectron (SPE)
-response for each PMT then is essential for accurately reconstructing the number of photoelectrons and by extension the energy of the
-event.  This is typically done with an LED inside the TPC.  Typically blue light is used since ultraviolet is unavailable, which despite
-being far outside of the 178 nm range ejects a photoelectron some small fraction of the time.  Each time the LED flashes we can record the
-PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{}).  After a large ($\mathcal{O}(10^{5})$)
-number of trials a histogram can be fit to find the SPE gain as shown in \figref{fig:xenon1t_pmt_spe}.  Note that technically the charge
-is plotted but the gain is easily found as $g = \mu_{e} / e$ where $\mu_{e}$ is the mean number of \electron and $e$ is the electron charge.  We
-see a large peak centered at 0 that corresponds to the baseline noise when a photoelectron is not released.  At larger gain a series of
-smaller wider peaks are visible that represent integer numbers of photoelectrons, starting with 1 at the leftmost.  There is a ``shoulder"
-between the baseline and first peak that cannot be explained by only considering signal from integer PEs.  As briefly mentioned in
-\secref{subsec:tpcs_pmts} this comes from photons that pass through the photocathode and free an electron on the first dynode, causing an
-under-amplified charge.  This is generally the most challenging aspect to model.
-
-In \figref{fig:xenon1t_pmt_spe} the spectrum is fit assuming the noise baseline and PE peaks are gaussian and the under-amplification is
-an exponential.  The PE gaussians are constrained by $\mu_{N} = N \mu_{e}$ and $\sigma_{N} = \sqrt{N} \sigma_{e}$ where $\sigma_{e}$ is the
-standard deviation of the single photoelectron peak and $\mu_{N}$ and $\sigma_{N}$ are the mean and standard deviation for the peak with
-$N$ photoelectrons.  As this model is simplistic and can add bias recent efforts have gone in to alternative methods
-of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the combined fit (green) appears to agree will with the data.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{SPESpectrum}
-\caption{(Left) Single photoelectron spectrum.}
-\label{fig:xenon1t_pmt_spe}
-\end{figure}
-
-We can use the SPE spectrum to calculate the resolution $R = \sigma_{e} / \mu_{e}$.  As the gain grows the resolution should sharpen
-initially until it eventually levels off.  For the R11410-21 models the plateau began around $2-3 \times 10^{6}$ at a resolution of
-27\%.  Because the stress on the PMT raises with bias voltage and larger gains lead to greater saturation we decided there was no benefit
-to exceeding this gain.
-
-The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
-important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
-the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
-peak-to-valley ratio is ${\sim} 3$.
-
 An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
 been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012a} for
 details on XENON100).
@@ -659,63 +620,8 @@ The data acquisition (DAQ) is on the second floor of the service building.
 \label{fig:xenon1t_panoramic}
 \end{figure}
 
-Since 2014 I have worked as a researcher in experimental dark matter detection with a focus in 
-analyzing the physics of atomic recoils from particle collisions.  My role has been measuring signal loss and predicting observables
-for dark matter discovery.
-
-Frequent internal and public presentations in a collaboration of over 150 people have made me an experienced speaker.  Furthermore, in the
-more than 8 years since I begin working in astrophysics I have supported myself with more than \$200,000 in fellowships.
-
-My experience from working in a collaboration of over 150 people has
-made me an effective.  Working in a collaboration of over 150 people has made me an effective communicator.
-
-My technical background comes from daily use of python and unix-based environments.  I developed code for and specialized in analyzing
-signal loss for detector collisions, which allowed accurate reconstruction.
-
-As part of a collaboration with over 150 people I have developed my communication and leadership skills, with regular presentations at
-workshops, conferences, and internally.
-
-Working in a collaborative environment with over 150 colleagues has developed my communication and leadership skills
 
 
-
-
-
-
-
-
-Since 2009, I have worked as a researcher in the field of experimental particle physics focusing on analyzing the physics of
-high energy proton collisions. My role has developing signal extraction techniques and corresponding statistical interpretations
-for new exotic particle searches in a large collaboration of more than 4000 members.
-
-The collaborative nature of my work and the scale of the experiment has made me an experienced public speaker and communicator
-of technical material. Additionally, in my 8 years of experience in the field I have successfully funded myself with more than
-$200k+ of external grants, fellowships, and scholarships.
-
-My technical experience has developed from daily use of C++, python, and unix based environments. I specialized in developing the
-algorithms used during live data taking to determine when a collision is interesting enough to write down within a strictly constrained
-amount of time.
-
-
-Since 2009, I have worked as a researcher in the field of experimental particle physics focusing on analyzing the
-physics of high energy proton collisions. My role has developing signal extraction techniques and corresponding statistical
-interpretations for new exotic particle searches in a large collaboration of more than 4000 members.
-
-The collaborative nature of my work and the scale of the experiment has made me an experienced public speaker and communicator of technical material. Additionally, in my 8 years of experience in the field I have successfully funded myself with more than $200k+ of external grants, fellowships, and scholarships.
-
-My technical experience has developed from daily use of C++, python, and unix based environments. I specialized in developing the algorithms used during live data taking to determine when a collision is interesting enough to write down within a strictly constrained amount of time.Since 2009, I have worked as a researcher in the field of experimental particle physics focusing on analyzing the physics of high energy proton collisions. My role has developing signal extraction techniques and corresponding statistical interpretations for new exotic particle searches in a large collaboration of more than 4000 members.
-
-The collaborative nature of my work and the scale of the experiment has made me an experienced public speaker and communicator of technical material. Additionally, in my 8 years of experience in the field I have successfully funded myself with more than $200k+ of external grants, fellowships, and scholarships.
-
-My technical experience has developed from daily use of C++, python, and unix based environments. I specialized in developing the algorithms used during live data taking to determine when a collision is interesting enough to write down within a strictly constrained amount of time.Since 2009, I have worked as a researcher in the field of experimental particle physics focusing on analyzing the physics of high energy proton collisions. My role has developing signal extraction techniques and corresponding statistical interpretations for new exotic particle searches in a large collaboration of more than 4000 members.
-
-The collaborative nature of my work and the scale of the experiment has made me an experienced public speaker and communicator of technical material. Additionally, in my 8 years of experience in the field I have successfully funded myself with more than $200k+ of external grants, fellowships, and scholarships.
-
-My technical experience has developed from daily use of C++, python, and unix based environments. I specialized in developing the algorithms used during live data taking to determine when a collision is interesting enough to write down within a strictly constrained amount of time.
-
-
-
-experience, physics, technical, developing, particle, field
 \section{Backgrounds}
 \label{sec:backgrounds}
 To reach the desired sensitivity it is crucial to lower our backgrounds as much as possible, and just as importantly, understand
@@ -906,7 +812,7 @@ The final contribution to the NR background comes from neutrinos that participat
 contributor to the integrated NR rate is solar \ce{^{8}B}, which is orders of magnitude larger than other sources and dominant at
 recoil energies $< 3\ \mathrm{keV}$.  Solar $hep$, atmosphere, and diffuse supernova neutrinos also contribute.  We can see in
 \figref{fig:backgrounds_nuclear_muon_induced_nr_fate} that neutrinos are the principal source for recoils at $< 3\ \mathrm{keV}$.  The
-number of detected events at $> 1\ mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}$.  While this is below our
+number of detected events at $> 1\ mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
 threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
 to our threshold (${sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
 \secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background due to the inability
@@ -919,6 +825,48 @@ to shield them.
 Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
 been done with \ce{^{83m}Kr}, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
 % look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
+
+
+\subsection{PMT Gain}
+\label{subsec:calibrations_pmt_gain}
+The charge that reaches the anode can change for a single phototube and varies between different.  Increasing the bias voltage amplifies
+the gain, heightening sensitivity or conversely lowering can help prevent saturation.  Gains may also deviate from variations in
+temperature (\textbf{check this}), overexposure to light, count rate, wear, and more.  Phototubes may differ from one another
+for all the reasons just mentioned, as well as inevitable - however tiny - differences in parts.  Monitoring the single photoelectron (SPE)
+response for each PMT then is essential for accurately reconstructing the number of photoelectrons and by extension the energy of the
+event.  This is typically done with an LED inside the TPC.  Typically blue light is used since ultraviolet is unavailable, which despite
+being far outside of the 178 nm range ejects a photoelectron some small fraction of the time.  Each time the LED flashes we can record the
+PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{}).  After a large ($\mathcal{O}(10^{5})$)
+number of trials a histogram can be fit to find the SPE gain as shown in \figref{fig:xenon1t_pmt_spe}.  Note that technically the charge
+is plotted but the gain is easily found as $g = \mu_{e} / e$ where $\mu_{e}$ is the mean number of \electron and $e$ is the electron charge.  We
+see a large peak centered at 0 that corresponds to the baseline noise when a photoelectron is not released.  At larger gain a series of
+smaller wider peaks are visible that represent integer numbers of photoelectrons, starting with 1 at the leftmost.  There is a ``shoulder"
+between the baseline and first peak that cannot be explained by only considering signal from integer PEs.  As briefly mentioned in
+\secref{subsec:tpcs_pmts} this comes from photons that pass through the photocathode and free an electron on the first dynode, causing an
+under-amplified charge.  This is generally the most challenging aspect to model.
+
+In \figref{fig:xenon1t_pmt_spe} the spectrum is fit assuming the noise baseline and PE peaks are gaussian and the under-amplification is
+an exponential.  The PE gaussians are constrained by $\mu_{N} = N \mu_{e}$ and $\sigma_{N} = \sqrt{N} \sigma_{e}$ where $\sigma_{e}$ is the
+standard deviation of the single photoelectron peak and $\mu_{N}$ and $\sigma_{N}$ are the mean and standard deviation for the peak with
+$N$ photoelectrons.  As this model is simplistic and can add bias recent efforts have gone in to alternative methods
+of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the combined fit (green) appears to agree will with the data.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{SPESpectrum}
+\caption{(Left) Single photoelectron spectrum.}
+\label{fig:xenon1t_pmt_spe}
+\end{figure}
+
+We can use the SPE spectrum to calculate the resolution $R = \sigma_{e} / \mu_{e}$.  As the gain grows the resolution should sharpen
+initially until it eventually levels off.  For the R11410-21 models the plateau began around $2-3 \times 10^{6}$ at a resolution of
+27\%.  Because the stress on the PMT raises with bias voltage and larger gains lead to greater saturation we decided there was no benefit
+to exceeding this gain.
+
+The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
+important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
+the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
+peak-to-valley ratio is ${\sim} 3$.
 
 
 
@@ -973,11 +921,23 @@ contribution is relatively small.
     \end{subfigure}%
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{Fig21Aprile2017b}
+        \includegraphics[height=4.5cm]{Fig21Aprile2017b} \\
+        \label{fig:calibrations_lce_cle_map}
+    \end{subfigure}
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{LCEMapPolar}
         \label{fig:calibrations_lce_cle_map}
     \end{subfigure}
     \caption{Image credit: \citeref{Aprile2017b}.}
 	\label{fig:calibrations_lce_lce}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{LCEMapPolar}
+\caption{Light yield in slices of $z$ and $\phi$.}
+\label{fig:calibrations_lce_polar}
 \end{figure}
 
 Calibrating the LCE requires a mono-energetic peak - preferably one near our DM energy range.  For this we use the light from the
@@ -995,7 +955,7 @@ affect the measured signal so the latter becomes important.
 
 
 \subsection{S2 Position Correction}
-\label{subsec:s2_position_correction}
+\label{subsec:calibrations_s2_position_correction}
 We must also account for positional variations in S2.  However, because all S2s happen in the GXe an $x-y$ correction is sufficient.  For
 this we use the 41.5 keV peak of \ce{^{83m}Kr} (the 154 ns half-life of the 9.4 keV decay makes it difficult to separate the two
 S2s).  Most of the light seen by the top array is focused on a small group of PMTs directly over the extraction site, while the light on
@@ -1052,6 +1012,25 @@ direction.  \figref{fig:calibrations_position_reconstruction} shows the position
 	\label{fig:calibrations_position_reconstruction}
 \end{figure}
 
+
+
+\subsection{Electron Lifetime}
+\label{subsec:calibrations_elifetime}
+The electron lifetime $\tau_e$ (see \secref{subsec:tpcs_working_principle} for impurity attachment details) quantifies the charge $q$ that
+is lost as it drifts to the liquid-gas interface.  It is given by
+
+\begin{equation}
+q(t_d) = q_0 e^{-t_d / \tau_e}
+\end{equation}
+
+where $q_0$ is the charge that escapes recombination.  Calibrations with mono-energetic interactions are an excellent method of
+measuring $\tau_e$.  The large number of statistics means it can be measured with much higher precision than the
+nominal method of using the low-rate background \ce{^{222}Rn} and \ce{^{218}Po} $\alpha$-decays.
+
+The 41.5 keV \ce{^{83m}Kr} de-excitation offers a relatively low-energy electronic recoil to measure $\tau_e$.  The number of events
+from a typical calibration of 2-3 days is in the millions and any background is negligible.  The left panel of
+\figref{fig:calibrations_elifetime_kr} shows a standard electron lifetime calculated using \ce{^{83m}Kr}.
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{S1S2}
@@ -1059,10 +1038,103 @@ direction.  \figref{fig:calibrations_position_reconstruction} shows the position
 \end{figure}
 
 \begin{figure}
-\centering
-\includegraphics[width=\textwidth]{KrElectronLifetime}
-\label{fig:calibrations_kr_kr_elifetime}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{KrElectronLifetime}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{Bi212ElectronLifetime}
+    \end{subfigure}
+    \caption{}
+	\label{fig:calibrations_elifetime}
 \end{figure}
+
+Another high-statistic calibration used for measurement is \ce{^{220}Rn}.  Primarily used for the 569.9 keV $\beta$-emission of its
+decay chain daughter \ce{^{212}Pb}, a number of elements along the chain undergo $\alpha$-decays that can be
+used.  \tabref{tab:alpha_decays} lists the main $\alpha$-emitters in both the \ce{^{222}Rn} and \ce{^{220}Rn} chains.  Because calibration
+data is only used after the source valve is closed, the 55.6 s and 145 ms half-lives of the first two $\alpha$-emitters \ce{^{220}Rn} and
+\ce{^{218}Po}, respectively cannot be used.  However \ce{^{212}Bi} releases a 6.207 MeV $\alpha$ in its decay to \ce{^{208}Tl} with a
+branching ratio of 36.9\%.  A typical electron lifetime is shown in the right panel of \figref{fig:calibrations_elifetime}.
+
+Other sources can be used for measuring $\tau_e$ but with less success.  In past experiments the 661.7 \gammaray of \ce{^{137}Cs} was
+used, but an early trial in XENON1T showed that very few actually reached the active volume, making the method inefficient.  Additionally
+the 163.9 and 236.1 keV de-excitations of \ce{^{131m}Xe} and \ce{^{129m}Xe}, respectively, following a nuclear recoil calibration are
+usable initially but longer time windows are required as they de-excite, and they do not offer the large statistics of \ce{^{83m}Kr} or
+\ce{^{220}Rn}.
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+Isotope & Daughter & Energy & $t_{1/2}$ & Chain \\
+\hline
+\ce{^{222}Rn} & \ce{^{218}Po} & 5.590 MeV & 3.82 d & \ce{^{222}Rn} \\
+\ce{^{218}Po} & \ce{^{214}Pb} & 6.115 MeV & 3.10 m & \ce{^{222}Rn} \\
+\ce{^{214}Po} & \ce{^{210}Pb} & 7.833 MeV & $164.3\ \mathrm{\mu s}$ & \ce{^{222}Rn} \\
+\ce{^{210}Po} & \ce{^{206}Pb} & 5.407 MeV & 138.4 d & \ce{^{222}Rn} \\
+\ce{^{220}Rn} & \ce{^{216}Po} & 6.405 MeV & 55.6 s & \ce{^{220}Rn} \\
+\ce{^{216}Po} & \ce{^{212}Pb} & 6.906 MeV & 145 ms & \ce{^{220}Rn} & \\
+\ce{^{212}Bi} & \ce{^{208}Tl} & 6.207 MeV & 1.01 d & \ce{^{220}Rn} & \\
+\ce{^{212}Po} & \ce{^{208}Pb} & 8.954 MeV & 299 ns & \ce{^{220}Rn} & \\
+\hline
+\end{tabular}
+\caption{$\alpha$-decays with high likelihoods for \ce{^{222}Rn} and \ce{^{220}Rn} decay chains.  \ce{^{222}Rn} makes up part of our
+background so it an \ce{^{218}Po} are used to continually monitor the $\tau_e$.  The \ce{^{220}Rn} content in our background is
+insignificant but it is used in calibrations, where \ce{^{212}Bi} allows high-statistic measurement.  Those with negligible probability
+(\ce{^{218}At}, \ce{^{218}Rn}, \ce{^{214}Bi}, \ce{^{210}Bi}, \ce{^{210}Pb}, \ce{^{209}Pb} for \ce{^{222}Rn} chain, \ce{^{220}Ra} and
+\ce{^{216}Rn} for \ce{^{220}Rn} chain) are not listed.}
+\label{tab:alpha_decays}
+\end{table}
+
+
+
+\subsection{Single Electron Gain}
+\label{subsec:calibrations_single_electron_gain}
+In measuring the S2 we know the total number of photoelectrons freed from the photocathodes of the PMTs.  However, our parameter of
+interest is the number of \electron that were extracted across the GXe.  To convert between the two we need to measure the number of
+detected photons per $e^-$, also known as the \textit{single electron gain}, or \textit{gas gain}, $G_e$.  To do so we look at the
+smallest features in the waveforms of events that have the width of an S2, and therefore must be single $e^-$.  These generally result
+from photoionization of detector metals such as the gate or cathode, photoionization of impurities in the LXe, and delayed extraction
+of \electron from the liquid.
+
+The number of photons emitted depends on - among other things - the electric field between the anode and gate $E_g$.  Details of the
+exact relation can be found in \secref{subsec:tpcs_working_principle} and \eqref{eq:electronlum}.  The sagging - although small - of the
+anode changes $E_g$ slightly along $r$ as mentioned in \secref{subsec:calibrations_s2_position_correction} and shown in
+\figref{fig:calibrations_s2_maps} (top).  Additionally the dielectric constant of LXe and GXe are different, so a change in liquid level
+would cause a nonuniform shift in field, so is monitored over the course of data taking.
+
+Poisson processes give a good approximation to both $G_e$ and the number of photons detected by the PMTs.  Effects like variation in $E_g$
+and PMT detection efficiencies apply a smearing.  If this is taken to be Gaussian the number of photons detected is represented by a
+Poisson distribution convolved with a Gaussian.  \figref{fig:calibrations_single_electron_gain_num_photons} shows the distribution of
+the gas gain for a PMT in SR1.  The spectrum is given in hits, where a hit is defined as the PMT voltage surpassing its assigned threshold
+inside the time window that defines the event.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{GasGainImage}
+\label{fig:calibrations_single_electron_gain_num_photons}
+\end{figure}
+
+
+
+\subsection{Average Photon Detection and Charge Extraction Efficiencies}
+\label{subsec:photon_charge_efficiencies}
+The processes for light and charge production were described in \secref{sec:scintillation}.  For electronic recoils atomic motion is
+not a factor so all of the energy produces a number of quanta $n_q = E_{er} / W$ where $E_{er}$ is the ER energy and
+$W = 13.7 \pm 0.2\ \mathrm{eV}$ is the average energy to create an exciton or electron-ion pair.  The number of quanta can be broken
+down as
+
+\begin{equation}
+n_q = n_{\gamma} + n_e
+\end{equation}
+
+where $n_{\gamma}$ are $n_e$ are the number of photons and \electron produced, respectively.
+
+\begin{equation}
+\frac{E_{er}}{W} = \frac{S1}{g1} + \frac{S2}{\eta G_e}
+\end{equation}
 
 
 

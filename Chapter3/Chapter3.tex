@@ -820,7 +820,7 @@ to shield them.
 
 
 
-\section{Calibrations}
+\section{Detector Characterization}
 \label{sec:calibrations}
 Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
 been done with \ce{^{83m}Kr}, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
@@ -866,7 +866,15 @@ to exceeding this gain.
 The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
 important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
 the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
-peak-to-valley ratio is ${\sim} 3$.
+peak-to-valley ratio is ${\sim} 3$.  The PMT gains are regularly measured to identify any changes in gain.  This is shown for five
+PMTs - all of which are stable - in
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{PMTGainStability}
+\caption{Gains for five PMTs monitored from SR0 until the end of SR1.  Means and $\pm 3\%$ are shown.  All appear to be stable.}
+\label{fig:xenon1t_pmt_time}
+\end{figure}
 
 
 
@@ -1120,7 +1128,7 @@ inside the time window that defines the event.
 
 
 \subsection{Average Photon Detection and Charge Extraction Efficiencies}
-\label{subsec:photon_charge_efficiencies}
+\label{subsec:calibrations_photon_charge_efficiencies}
 The processes for light and charge production were described in \secref{sec:scintillation}.  For electronic recoils atomic motion is
 not a factor so all of the energy produces a number of quanta $n_q = E_{er} / W$ where $E_{er}$ is the ER energy and
 $W = 13.7 \pm 0.2\ \mathrm{eV}$ is the average energy to create an exciton or electron-ion pair.  The number of quanta can be broken
@@ -1130,15 +1138,80 @@ down as
 n_q = n_{\gamma} + n_e
 \end{equation}
 
-where $n_{\gamma}$ are $n_e$ are the number of photons and \electron produced, respectively.
+\noindent where $n_{\gamma}$ are $n_e$ are the number of photons and \electron produced, respectively.  This can be rewritten in terms of
+observables as
 
 \begin{equation}
-\frac{E_{er}}{W} = \frac{S1}{g1} + \frac{S2}{\eta G_e}
+\frac{E_{er}}{W} = \frac{\mathrm{S1}}{g1} + \frac{\mathrm{S2}}{\eta G_e}
+\label{eq:calibrations_s1_s2}
 \end{equation}
 
+\noindent where $n_{\gamma} = \mathrm{S1} / g1$ and $n_e = \mathrm{S2} / \eta G_e$ where $g1$ is the average light collection efficiency and $\eta$
+is the \textit{extraction efficiency} - that is, the probability of extracting an \electron from the liquid into the gas.  The average
+gain for an \electron then that escapes recombination is $g2 = \eta G_e$.  If $G_e$ is known
+(\secref{subsec:calibrations_single_electron_gain}) there energy of an event is known \eqref{eq:calibrations_s1_s2} has two unknowns:
+$g1$ and $\eta$ (or $g2$).  Rearranging gives
+
+\begin{equation}
+\frac{\mathrm{S2}}{E_{er}} = \frac{\eta G_e}{g1} \frac{\mathrm{S1}}{E_{er}} - \frac{\eta G_e}{W}
+\end{equation}
+
+\noindent that shows these can be solved using a linear fit if more than one energies are
+used.  \figref{fig:calibrations_photon_charge_efficiencies_g1_g2} (left) presents this for several lines in our detector during SR1, giving
+$g1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
+($g2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}} PE/e^-$).  If we account for the emission of two photoelectrons by a single
+photon (\citeref{Faham2015}) the
+photon detection efficiency becomes $g1 = $.  Because $g1$ depends on the PMTs, $\eta$ on the anode-gate electric field, and $G_e$ on
+$E_g$, $P$, and distance between the gate and anode they are independent of the drift field.  $g1$ and $g2$ were monitored over the
+course of SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
+were stable.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{g1g2Anticorrelation}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{TimeDependence}
+    \end{subfigure}
+    \caption{}
+	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
+\end{figure}
+
+Returning to \eqref{eq:calibrations_s1_s2} we see after solving for $g1/\eta/g2$ we can reconstruct $E$ for any ER event.  The (ER)
+background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Key peaks are
+labeled with their respective energy and responsible isotope.  We can see that during DM data taking some \ce{^{83m}Kr} is present, most
+likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  \ce{^{129m}Xe} and \ce{^{131m}Xe} are clearly
+visible though the majority of their de-excitations occur in the weeks following the AmBe and the NG.  Other well-defined features
+include \be{^{214}Bi} (609.3, 1764.5, and 2204.1 keV), \ce{^{60}Co} (1173.2 and 1332.5 keV), \ce{^{40}K} (1460.8 keV), and \ce{^{208}Tl}
+(2614.5 keV).  They sit on a continuous energy spectrum caused by $\gamma$-rays that deposit part of their energy before leaving the
+detector, $\beta$-decays, and the $2 \nu \beta \beta$ emission of \ce{^{136}Xe}.
+
+The energy resolution is a measure of how well different energy depositions can be distinguished from one another.  Better resolution
+allows differentiation of nearby energy features, which allows improved discrimination between signal and background.  It is calculated
+by fitting a mono-energetic \gammaray line with a gaussian and dividing the width by the mean.  This is done for a number of background
+lines as shown in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  Our energy resolution improves at higher energies
+as $\sigma / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ including high energy (> 1.5 MeV) lines and
+$\sigma / E = (30.98 \pm 0.43) / \sqrt{E} + (0.37 \pm 0.03)$ without.  The second term refers to the fundamental limit of the
+resolution.  We can see our energy resolution is better than XENON100, PandaX, and LUX.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{EnergySpectrum}
+\label{fig:calibrations_photon_charge_efficiencies_ces}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{EnergyResolution}
+\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
+\end{figure}
 
 
-\subsection{AmBe}
+
+\subsection{Electronic and Nuclear Band Calibrations}
 \label{subsec:calibrations_ambe}
 Americium beryllium (AmBe) is used for nuclear recoil calibrations.  \ce{^{241}Am} decays to \ce{^{237}Np} through
 $\alpha$-emission.  The large \ce{^{9}Be} cross-section to $\alpha$ particles produces a second decay via

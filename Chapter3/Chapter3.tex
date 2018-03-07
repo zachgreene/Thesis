@@ -27,7 +27,7 @@ Lots of good info in Aprile2017b (instrument paper).
 \subsection{PMTs}
 \label{subsec:xenon1t_pmts}
 A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
-maximize resolution of $r$ position reconstruction (\secref{subsec:calibrations_position_reconstruction}).  The 121 in the bottom array
+maximize resolution of $r$ position reconstruction (\secref{subsec:det_char_position_reconstruction}).  The 121 in the bottom array
 are packed as densely as possible to maximize light
 collection.  The R11410 window is 76.2 mm in diameter and the photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
 standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QEs result from preselecting PMTs with $\mathrm{QE} > 28\%$ for
@@ -220,7 +220,7 @@ are gold-plated to increase workfunction.}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{ElectricField}
+\includegraphics[width=0.8\textwidth]{ElectricField}
 \caption{Finite element (COMSOL Multiphysics) simulation for E-field inside and around the TPC.  Field and equipotential lines are
 shown.  The voltages for the cathode, gate, and anode are -12, 0, and 4 keV, respectively, or the settings for Science Run 0.  The field
 is mostly uniform throughout the detector, minimizing possible biases that come from recombination, impurity attachment, etc.  Image
@@ -258,7 +258,7 @@ in a separate pipe.  A schematic of the cryostat is shown
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{CryostatDiagram}
+\includegraphics[width=0.8\textwidth]{CryostatDiagram}
 \caption{Diagram of the cryostat.  Image credit: \citeref{Aprile2017c}.}
 \label{fig:xenon1t_cryo_cryostat_diagram}
 \end{figure}
@@ -374,7 +374,7 @@ maximum value of $> 0.4$ at approximately 172 nm and ${\sim} 0.2$ at 178 nm.  Im
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Fig4.1FromOzone2005}
+\includegraphics[width=\textwidth]{AbsorptionWithDistance}
 \label{fig:xenon1t_pur_absorp_dist}
 \end{figure}
 
@@ -517,7 +517,8 @@ ${\sim}270\ \mathrm{GeV}$ (\citeref{Aprile2017b}).  The flux of muons for variou
 
 \begin{figure}
 \centering
-\includegraphics[with=0.8\textwidth]{MuonFluxOverDepth}
+\includegraphics[width=0.8\textwidth]{MuonFluxOverDepth}
+\caption{Image credit: \citeref{Mei2006}.}
 \label{fig:xenon1t_water_shield_flux}
 \end{figure}
 
@@ -546,7 +547,8 @@ and 3-7.5\% from $250 < \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifte
 Calibrations are used for a host of purposes including understanding energy resolution, light collection efficiency, electron lifetime,
 g1, g2, electronic and nuclear recoil bands, and many more.  Depending on the source they can be performed inside the TPC (internal) or
 outside (external).  Here I cover the different calibrations and the purposes they serve; additional details and results are in
-\secref{sec:calibrations}.
+\secref{sec:det_char}.
+
 
 \subsubsection{Internal}
 \label{subsubsec:xenon1t_calibrations_internal}
@@ -579,6 +581,14 @@ PMT gains are calibrated using blue LEDs at low light levels.  Unlike the previo
 carried from the data acquisition (\secref{subsec:xenon1t_daq}) into the TPC.  They are fixed at various heights and angles and flash
 at periodic intervals.  The result is an SPE spectrum as shown in \figref{fig:xenon1t_pmt_spe}.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{WaterTankInside}
+\label{fig:water_tank_inside}
+\end{figure}
+
+
+
 \subsubsection{External}
 \label{subsubsec:xenon1t_calibrations_external}
 External calibrations are performed with a source outside the cryostat.  In XENON100 this was done by inserting a source inside the lead
@@ -600,7 +610,8 @@ in the cryostat flanges with 1.173 and 1.333 MeV lines can also be used.
 
 Nuclear recoil sources AmBe and a deuterium-deuterium (DD) neutron generator (NG) are also done outside the TPC.  It is also deployed in a
 W-collimator and emits MeV neutrons.  The NG (NSD Gradel Fusion NSD-35-DD-C-W-S) emits neutrons at ${\sim} 2.2,\ 2.7\ \mathrm{MeV}$ in
-$4\pi$ and is capable of emission rates as low as 10 n/s (to reduce pile-up) and as high as $10^{7}\ \mathrm{n/s}$ (\citeref{Lang2017}).
+$4\pi$ and is capable of emission rates as low as $10\ \mathrm{n\ s^{-1}}$ (to reduce pile-up) and as high as $10^{7}\ \mathrm{n\ s^{-1}}$
+(\citeref{Lang2017}).
 
 
 
@@ -653,20 +664,21 @@ grow.  The measured increase for \ce{^{222}Rn} and \ce{^{218}Po} is shown in \fi
 
 At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by the detector materials, except for
 ${\sim} 1400-2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  For the energy region for spin-independent WIMP dark matter
-though it is outpaced by more than an order of magnitude inside a 1-ton FV.  \figref{fig:backgrounds_er_spectrum} and
-\figref{fig:backgrounds_er_spectrum_zoomed} show the predicted ER backgrounds using Monte Carlo.
+though it is outpaced by more than an order of magnitude inside a 1-ton FV.  \figref{fig:backgrounds_er_spectrum} shows the predicted ER
+backgrounds using Monte Carlo.
 
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{Decay_Chain_of_Thorium-232}
+        \includegraphics[width=0.45\textwidth]{Decay_Chain_of_Thorium-232}
     \end{subfigure}%
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{Decay_Chain_of_Uranium-238}
+        \includegraphics[width=0.45\textwidth]{Decay_Chain_of_Uranium-238}
     \end{subfigure}
-    \caption{Image credit: https://commons.wikimedia.org/wiki/File:Decay_Chain_of_Uranium-238.svg.}
+    \caption{Image credit: %https://commons.wikimedia.org/wiki/File:Decay_Chain_of_Uranium-238.svg
+    .}
 	\label{fig:backgrounds_decay_chains}
 \end{figure}
 
@@ -705,28 +717,32 @@ relative decrease was significantly smaller than with Kr.
 \ce{^{222}Rn} undergoes $\alpha$-emission and therefore is not a danger to a WIMP search.  However, there are two daughters that undergo
 $\beta^-$-decay: \ce{^{214}Pb} and \ce{^{214}Bi} (\ce{^{210}Tl} is also a $\beta^-$-emitter but has a branching ratio of just
 0.021\%).  The most dangerous is the decay of \ce{^{214}Pb} to the ground state of \ce{^{214}Bi}, with an end-point energy of 1019 keV and
-branching ratio of 10.9\%.  In \figref{fig:backgrounds_er_spectrum_zoomed} we can see that it is the leading contributor to the ER
+branching ratio of 10.9\%.  In the right panel of \figref{fig:backgrounds_er_spectrum} we can see that it is the leading contributor to
+the ER
 background rate.  The $\beta^-$-decay of \ce{^{214}Bi} is not concerning because its daughter, \ce{^{214}Po}, has a half-life of
 $164.3\ \mathrm{\mu s}$ so a simple coincidence cut can remove the events.
 
 \ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
 is more likely to bond to the detector wall.  However, \ce{^{220}Rn} is used in calibrations to study the electronic recoil band, which is
-discussed in detail in \secref{}.
+discussed in detail in \secref{subsec:er_nr_calibrations_rn220}.
 
 Both Rn chains have a number of $\alpha$-decays - primarily from Rn and Po isotopes.  These can be useful in studying properties of the
 detector (e.g. the wall charging mentioned in \secref{subsubsec:backgrounds_electronic_kr}) and also monitoring parameters such as
 the electron lifetime.
 
 \begin{figure}
-\centering
-\incluegraphics[width=\textwidth]{Fig5LeftMCPaper}
-\label{fig:backgrounds_er_spectrum}
-\end{figure}
-
-\begin{figure}
-\centering
-\incluegraphics[width=\textwidth]{Fig5RightMCPaper}
-\label{fig:backgrounds_er_spectrum_zoomed}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{ERRateMCFull}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=4.5cm]{ERRateMCZoomed}
+    \end{subfigure}
+    \caption{Image credit: %https://commons.wikimedia.org/wiki/File:Decay_Chain_of_Uranium-238.svg
+    .}
+	\label{fig:backgrounds_er_spectrum}
 \end{figure}
 
 
@@ -736,7 +752,7 @@ the electron lifetime.
 \ce{^{136}Xe} is the only unstable isotope of natural xenon.  It undergoes $2 \nu \beta^- \beta^-$ decay with
 $t_{1/2} = 2.17 \times 10^{21}\ \mathrm{years}$ (\citeref{Albert2014}) and a Q-value of 2458 keV.  Because of its abundance in natural
 xenon (\ce{^{136}Xe}/\ce{Xe} = 8.9\%) its presence is unavoidable.  At the scale of XENON1T it is subdominant - only responsible for
-${\sim}2 \%$ of the total ER background, as seen in \figref{fig:backgrounds_er_spectrum_zoomed}.  However, as detectors continue to grow
+${\sim}2 \%$ of the total ER background, as seen in \figref{fig:backgrounds_er_spectrum} (right).  However, as detectors continue to grow
 it will become much more consequential.
 
 
@@ -744,7 +760,7 @@ it will become much more consequential.
 \subsubsection{Solar Neutrinos}
 \label{subsubsec:backgrounds_electronic_solar_neutrinos}
 Solar neutrinos can elastically scatter off electrons, causing low-energy electronic recoils.  The recoil spectrum is the green line in
-\figref{fig:backgrounds_er_spectrum} and \figref{fig:backgrounds_er_spectrum_zoom}.  As with the \ce{^{136}Xe} $2 \nu \beta^- \beta^-$
+\figref{fig:backgrounds_er_spectrum}.  As with the \ce{^{136}Xe} $2 \nu \beta^- \beta^-$
 decay its contribution is small, but as an irreducible background it will become more problematic as detectors grow.
 
 
@@ -777,7 +793,7 @@ $0.6 \pm 0.1\ \mathrm{y^{-1}}$.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Fig6AprileMCPaper}
+\includegraphics[width=\textwidth]{NeutronYields}
 \caption{Image credit: \citeref{Aprile2016a}.}
 \label{fig:backgrounds_nuclear_radiogenic_rates}
 \end{figure}
@@ -793,7 +809,7 @@ $< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{MuonFluxWithDepth}
+\includegraphics[width=\textwidth]{MuonFluxOverDepth}
 \label{fig:backgrounds_nuclear_muon_induced_flux}
 \end{figure}
 
@@ -806,7 +822,7 @@ $< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref
 
 
 
-\subsubection{Neutrinos}
+\subsubsection{Neutrinos}
 \label{subsubsec:backgrounds_nuclear_neutrinos}
 The final contribution to the NR background comes from neutrinos that participate in coherent neutrino-nucleus scattering.  The primary
 contributor to the integrated NR rate is solar \ce{^{8}B}, which is orders of magnitude larger than other sources and dominant at
@@ -821,14 +837,14 @@ to shield them.
 
 
 \section{Detector Characterization}
-\label{sec:calibrations}
+\label{sec:det_char}
 Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
 been done with \ce{^{83m}Kr}, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
 % look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
 
 
 \subsection{PMT Gain}
-\label{subsec:calibrations_pmt_gain}
+\label{subsec:det_char_pmt_gain}
 The charge that reaches the anode can change for a single phototube and varies between different.  Increasing the bias voltage amplifies
 the gain, heightening sensitivity or conversely lowering can help prevent saturation.  Gains may also deviate from variations in
 temperature (\textbf{check this}), overexposure to light, count rate, wear, and more.  Phototubes may differ from one another
@@ -845,12 +861,6 @@ between the baseline and first peak that cannot be explained by only considering
 \secref{subsec:tpcs_pmts} this comes from photons that pass through the photocathode and free an electron on the first dynode, causing an
 under-amplified charge.  This is generally the most challenging aspect to model.
 
-In \figref{fig:xenon1t_pmt_spe} the spectrum is fit assuming the noise baseline and PE peaks are gaussian and the under-amplification is
-an exponential.  The PE gaussians are constrained by $\mu_{N} = N \mu_{e}$ and $\sigma_{N} = \sqrt{N} \sigma_{e}$ where $\sigma_{e}$ is the
-standard deviation of the single photoelectron peak and $\mu_{N}$ and $\sigma_{N}$ are the mean and standard deviation for the peak with
-$N$ photoelectrons.  As this model is simplistic and can add bias recent efforts have gone in to alternative methods
-of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the combined fit (green) appears to agree will with the data.
-
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{SPESpectrum}
@@ -858,16 +868,16 @@ of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the comb
 \label{fig:xenon1t_pmt_spe}
 \end{figure}
 
+In \figref{fig:xenon1t_pmt_spe} the spectrum is fit assuming the noise baseline and PE peaks are gaussian and the under-amplification is
+an exponential.  The PE gaussians are constrained by $\mu_{N} = N \mu_{e}$ and $\sigma_{N} = \sqrt{N} \sigma_{e}$ where $\sigma_{e}$ is the
+standard deviation of the single photoelectron peak and $\mu_{N}$ and $\sigma_{N}$ are the mean and standard deviation for the peak with
+$N$ photoelectrons.  As this model is simplistic and can add bias recent efforts have gone in to alternative methods
+of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the combined fit (green) appears to agree will with the data.
+
 We can use the SPE spectrum to calculate the resolution $R = \sigma_{e} / \mu_{e}$.  As the gain grows the resolution should sharpen
 initially until it eventually levels off.  For the R11410-21 models the plateau began around $2-3 \times 10^{6}$ at a resolution of
 27\%.  Because the stress on the PMT raises with bias voltage and larger gains lead to greater saturation we decided there was no benefit
 to exceeding this gain.
-
-The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
-important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
-the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
-peak-to-valley ratio is ${\sim} 3$.  The PMT gains are regularly measured to identify any changes in gain.  This is shown for five
-PMTs - all of which are stable - in
 
 \begin{figure}
 \centering
@@ -876,16 +886,22 @@ PMTs - all of which are stable - in
 \label{fig:xenon1t_pmt_time}
 \end{figure}
 
+The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
+important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
+the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
+peak-to-valley ratio is ${\sim} 3$.  The PMT gains are regularly measured to identify any changes in gain.  This is shown for five
+PMTs - all of which are stable - in
+
 
 
 \subsection{\ce{^{83m}Kr}}
-\label{subsec:calibrations_kr}
+\label{subsec:det_char_kr}
 The most common calibration source is \ce{^{83m}Kr}.  Being a noble gas it can be injected directly into the xenon so to be used as an
 internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to the purification system
 (\secref{subsec:xenon1t_calibrations_internal}) and decays through electron capture
 
 \begin{equation}
-\mathrm{{83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
+\mathrm{{^83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
 \end{equation}
 
 with a 74.8\% branching ratio to the metastable state \ce{^{83m}Kr}.  \ce{^{83m}Kr} then de-excites in two steps: emission of a 32.1 keV
@@ -896,7 +912,7 @@ detector characterizations including light collection efficiency (LCE), S2 posit
 lifetime.
 
 \subsection{Light Collection Efficiency}
-\label{subsec:calibrations_lce}
+\label{subsec:det_char_lce}
 The light observed by a PMT depends on - among other things - the position of the event.  The light collection efficiency (LCE) - seen
 in \figref{calibrations_lce_lce} - quantifies these differences.  Such position-dependent variations exist simply because the location of
 the interaction dictates subsequent effects due to detector features and physics.  First, the the solid angle of an event is not uniform
@@ -963,7 +979,7 @@ affect the measured signal so the latter becomes important.
 
 
 \subsection{S2 Position Correction}
-\label{subsec:calibrations_s2_position_correction}
+\label{subsec:det_char_s2_position_correction}
 We must also account for positional variations in S2.  However, because all S2s happen in the GXe an $x-y$ correction is sufficient.  For
 this we use the 41.5 keV peak of \ce{^{83m}Kr} (the 154 ns half-life of the 9.4 keV decay makes it difficult to separate the two
 S2s).  Most of the light seen by the top array is focused on a small group of PMTs directly over the extraction site, while the light on
@@ -991,7 +1007,7 @@ mainly due to the higher QE.  The large solid angle creates a roughly homogeneou
 
 
 \subsection{Position Reconstruction}
-\label{subsec:calibrations_position_reconstruction}
+\label{subsec:det_char_position_reconstruction}
 As mentioned in \secref{subsubsec:tpcs_signals_posrec} TPCs allow 3-dimensional position reconstruction.  Since the drift velocity $v_d$
 is constant in LXe the depth is easily found as $z = -v_d t_d$ where $t_d$ is the drift time ($z$ is defined to be negative with
 $z = 0$ at gate).  For Science Run 1 (SR1) the drift field $E_d = 81.3\ \mathrm{kV\ cm^{-1}}$ giving
@@ -1023,7 +1039,7 @@ direction.  \figref{fig:calibrations_position_reconstruction} shows the position
 
 
 \subsection{Electron Lifetime}
-\label{subsec:calibrations_elifetime}
+\label{subsec:det_char_elifetime}
 The electron lifetime $\tau_e$ (see \secref{subsec:tpcs_working_principle} for impurity attachment details) quantifies the charge $q$ that
 is lost as it drifts to the liquid-gas interface.  It is given by
 
@@ -1072,6 +1088,8 @@ the 163.9 and 236.1 keV de-excitations of \ce{^{131m}Xe} and \ce{^{129m}Xe}, res
 usable initially but longer time windows are required as they de-excite, and they do not offer the large statistics of \ce{^{83m}Kr} or
 \ce{^{220}Rn}.
 
+\bgroup
+\def\arraystretch{1.4}
 \begin{table}
 \centering
 \begin{tabular}{cccccc}
@@ -1095,11 +1113,12 @@ insignificant but it is used in calibrations, where \ce{^{212}Bi} allows high-st
 \ce{^{216}Rn} for \ce{^{220}Rn} chain) are not listed.}
 \label{tab:alpha_decays}
 \end{table}
+\egroup
 
 
 
 \subsection{Single Electron Gain}
-\label{subsec:calibrations_single_electron_gain}
+\label{subsec:det_char_single_electron_gain}
 In measuring the S2 we know the total number of photoelectrons freed from the photocathodes of the PMTs.  However, our parameter of
 interest is the number of \electron that were extracted across the GXe.  To convert between the two we need to measure the number of
 detected photons per $e^-$, also known as the \textit{single electron gain}, or \textit{gas gain}, $G_e$.  To do so we look at the
@@ -1109,7 +1128,7 @@ of \electron from the liquid.
 
 The number of photons emitted depends on - among other things - the electric field between the anode and gate $E_g$.  Details of the
 exact relation can be found in \secref{subsec:tpcs_working_principle} and \eqref{eq:electronlum}.  The sagging - although small - of the
-anode changes $E_g$ slightly along $r$ as mentioned in \secref{subsec:calibrations_s2_position_correction} and shown in
+anode changes $E_g$ slightly along $r$ as mentioned in \secref{subsec:det_char_s2_position_correction} and shown in
 \figref{fig:calibrations_s2_maps} (top).  Additionally the dielectric constant of LXe and GXe are different, so a change in liquid level
 would cause a nonuniform shift in field, so is monitored over the course of data taking.
 
@@ -1128,8 +1147,12 @@ inside the time window that defines the event.
 
 
 \subsection{Average Photon Detection and Charge Extraction Efficiencies}
-\label{subsec:calibrations_photon_charge_efficiencies}
-The processes for light and charge production were described in \secref{sec:scintillation}.  For electronic recoils atomic motion is
+\label{subsec:det_char_photon_charge_efficiencies}
+Applying the above corrections leads to $\mathrm{S1} \rightarrow \mathrm{cS1}$ and $\mathrm{S2} \rightarrow \mathrm{cS2}$ where cS1 and
+cS2 are the corrected S1 and S2.  An event of the same energy at the same electric field will result in a cS1 and cS2 independent of
+detector effects.  For XENON1T we ignore the top PMT array for S2s.  To differentiate \stwob and \cstwob are used to represent the portion
+of the S2 and cS2 observed by the bottom array.  Everything that follows in this chapter uses \stwob and $\mathrm{cS2_b}$.  The processes
+for light and charge production were described in \secref{sec:scintillation}.  For electronic recoils atomic motion is
 not a factor so all of the energy produces a number of quanta $n_q = E_{er} / W$ where $E_{er}$ is the ER energy and
 $W = 13.7 \pm 0.2\ \mathrm{eV}$ is the average energy to create an exciton or electron-ion pair.  The number of quanta can be broken
 down as
@@ -1142,25 +1165,27 @@ n_q = n_{\gamma} + n_e
 observables as
 
 \begin{equation}
-\frac{E_{er}}{W} = \frac{\mathrm{S1}}{g1} + \frac{\mathrm{S2}}{\eta G_e}
+\frac{E_{er}}{W} = \frac{\mathrm{cS1}}{g1} + \frac{\mathrm{cS2_b}}{\eta G_e}
 \label{eq:calibrations_s1_s2}
 \end{equation}
 
-\noindent where $n_{\gamma} = \mathrm{S1} / g1$ and $n_e = \mathrm{S2} / \eta G_e$ where $g1$ is the average light collection efficiency and $\eta$
+\noindent where $n_{\gamma} = \mathrm{cS1} / g1$ and $n_e = \mathrm{cS2_b} / \eta G_e$ (here we now take $G_e$ to be the single electron
+gain as measured by the bottom PMT array) where $g1$ is the average light collection
+efficiency and $\eta$
 is the \textit{extraction efficiency} - that is, the probability of extracting an \electron from the liquid into the gas.  The average
 gain for an \electron then that escapes recombination is $g2 = \eta G_e$.  If $G_e$ is known
-(\secref{subsec:calibrations_single_electron_gain}) there energy of an event is known \eqref{eq:calibrations_s1_s2} has two unknowns:
+(\secref{subsec:det_char_single_electron_gain}) there energy of an event is known \eqref{eq:calibrations_s1_s2} has two unknowns:
 $g1$ and $\eta$ (or $g2$).  Rearranging gives
 
 \begin{equation}
-\frac{\mathrm{S2}}{E_{er}} = \frac{\eta G_e}{g1} \frac{\mathrm{S1}}{E_{er}} - \frac{\eta G_e}{W}
+\frac{\mathrm{cS2_b}}{E_{er}} = \frac{\eta G_e}{g1} \frac{\mathrm{cS1}}{E_{er}} - \frac{\eta G_e}{W}
 \end{equation}
 
 \noindent that shows these can be solved using a linear fit if more than one energies are
 used.  \figref{fig:calibrations_photon_charge_efficiencies_g1_g2} (left) presents this for several lines in our detector during SR1, giving
 $g1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
-($g2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}} PE/e^-$).  If we account for the emission of two photoelectrons by a single
-photon (\citeref{Faham2015}) the
+($g2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  If we account for the emission of two photoelectrons by
+a single photon with probability $p_{\mathrm{dpe}} = 0.18-0.24$ (\citeref{Faham2015}) the
 photon detection efficiency becomes $g1 = $.  Because $g1$ depends on the PMTs, $\eta$ on the anode-gate electric field, and $G_e$ on
 $E_g$, $P$, and distance between the gate and anode they are independent of the drift field.  $g1$ and $g2$ were monitored over the
 course of SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
@@ -1185,7 +1210,7 @@ background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} f
 labeled with their respective energy and responsible isotope.  We can see that during DM data taking some \ce{^{83m}Kr} is present, most
 likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  \ce{^{129m}Xe} and \ce{^{131m}Xe} are clearly
 visible though the majority of their de-excitations occur in the weeks following the AmBe and the NG.  Other well-defined features
-include \be{^{214}Bi} (609.3, 1764.5, and 2204.1 keV), \ce{^{60}Co} (1173.2 and 1332.5 keV), \ce{^{40}K} (1460.8 keV), and \ce{^{208}Tl}
+include \ce{^{214}Bi} (609.3, 1764.5, and 2204.1 keV), \ce{^{60}Co} (1173.2 and 1332.5 keV), \ce{^{40}K} (1460.8 keV), and \ce{^{208}Tl}
 (2614.5 keV).  They sit on a continuous energy spectrum caused by $\gamma$-rays that deposit part of their energy before leaving the
 detector, $\beta$-decays, and the $2 \nu \beta \beta$ emission of \ce{^{136}Xe}.
 
@@ -1205,14 +1230,69 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{EnergyResolution}
+\includegraphics[width=0.8\textwidth]{EnergyResolution}
 \label{fig:calibrations_photon_charge_efficiences_ces_resolution}
 \end{figure}
 
 
 
-\subsection{Electronic and Nuclear Band Calibrations}
-\label{subsec:calibrations_ambe}
+\subsection{Bias and Smearing}
+\label{subsec:det_char_bias_smearing}
+
+
+
+\section{Electronic and Nuclear Recoil Bands}
+\label{subsec:er_nr_calibrations}
+To differentiate our nuclear from electronic recoil bands we need to calibrate each independently.  While the detector characterizations
+discussed in \secref{sec:det_char} lead to improved accuracy and precision or are in some cases very important, these are critical as
+they allow discrimination between at potential WIMP and ER background.  As mentioned in
+\secref{subsec:det_char_elifetime} \ce{^{220}Rn} is used for our ER band because of the \ce{^{212}Pb} \betadecay with Q-value
+569.9 keV and its electronic shell properties allow an internal calibration.  For NR we use \ce{^{241}AmBe} and a neutron generator (NG),
+each of which are positioned in the water tank outside the cryostat.
+
+Science Run 1 marks the first time the electronic and nuclear recoil bands were fit simultaneously (for SR0 they were independent).  This
+is significant because shared detector parameters (e.g. $W$, $g1$, $g2$, $p_{\mathrm{dpe}}$, etc.) are constrained to a single value
+across calibrations.  Using the physical processes from the interaction itself to the final values of cS1 and \cstwob in the fit is made
+possible by running on GPUs, which provide a $10^{2-3}$ times speed increase.
+
+
+
+\subsection{Purpose of Calibrations}
+\label{subsec:er_nr_calibrations_purpose}
+The electronic and nuclear recoil calibrations are important because they create a probability density function (PDF)
+such that for any event we can quantify the likelihood of what caused it.  This provides dramatically improved sensitivity
+to purely statistical approaches (\secref{sec:direct_detect}).  Doing so requires a complete understanding of the TPC background, which
+in addition to nominal electronic recoils includes accidental coincidence (AC) and wall leakage events \secref{}.  It also demands that
+the physical processes that occur starting from the exciton-ion ratio through the data acquisition are correctly modeled and able to be
+simulated on a reasonable time scale.
+
+Following the ER and NR fits a signal PDF is generated.  For our DM search the
+signal is a WIMP but in general it is not constrained to this.  The shape of the PDF depends on the WIMP mass.  The data can be compared
+to the PDF for a given WIMP mass and cross-section to see whether it agrees with a signal.  A limit is set if all cross-sections below
+some value match the data, while a discovery can be claimed if the data prefers a particular mass and cross-section over others.
+
+\figref{fig:er_nr_calibrations_wimp_contours} shows the background model with contours for a 50 GeV WIMP overlaid.  The ER band is clearly
+present and we can see the overlap between the two, which exemplifies the necessity of lowering the overall background for improved
+sensitivity.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{WIMPContours}
+\caption{Some on SR0 blessed plots page}
+\label{fig:er_nr_calibrations_wimp_contours}
+\end{figure}
+
+
+
+\subsection{\ce{^{220}Rn}}
+\label{subsec:er_nr_calibrations_rn220}
+The \ce{^{220}Rn} decay chain is shown in the left panel of \figref{fig:backgrounds_decay_chains}.
+The fits are performed using a Markov Chain Monte Carlo (\citeref{Foreman-Mackey}).
+
+
+
+\subsection{\ce{^{241}AmBe}}
+\label{subsec:er_nr_calibrations_ambe}
 Americium beryllium (AmBe) is used for nuclear recoil calibrations.  \ce{^{241}Am} decays to \ce{^{237}Np} through
 $\alpha$-emission.  The large \ce{^{9}Be} cross-section to $\alpha$ particles produces a second decay via
 
@@ -1221,6 +1301,27 @@ $\alpha$-emission.  The large \ce{^{9}Be} cross-section to $\alpha$ particles pr
 \end{equation}
 
 \noindent where a neutron is emitted.
+
+
+
+\subsection{Parameter Determination}
+\label{subsec:er_nr_calibrations_parameter_determ}
+This approach compares the distribution of Monte Carlo events with the data.  Because of the nearly flat distribution of events at relevant
+energies along with homogenous distribution, Monte Carlo features $E$, $x$, $y$, $z$, for \ce{^{220}Rn} are randomly sampled from a
+uniform distribution.  \ce{^{241}AmBe} and neutron generator Monte Carlo are generated using GEANT4, and also include the number of
+scatters for each neutron.  The $\beta$ from \ce{^{220}Rn} should not scatter so this is fixed to 1.
+
+\figref{fig:er_nr_calibrations_parameter_determ_flow_chart} shows the flow chart for the band matching.  Each Monte Carlo event is run
+through a series of events that mimic the true sequence as closely as possible.  The parameters used in this estimation come from
+a variety of sources including physical properties reported from literature and detector characterization measurements
+(\secref{sec:det_char}).  Once the   Priors are included for each parameter.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{FlowChart}
+\label{fig:er_nr_calibrations_parameter_determ_flow_chart}
+\end{figure}
 
 
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel

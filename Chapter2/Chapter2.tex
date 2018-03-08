@@ -215,7 +215,7 @@ produced per electron is independent of the number of electrons extracted this i
 measuring this scintillation the number of \electron extracted can be determined.  Details of \electron drift and proportional
 scintillation is found in \secref{subsec:tpcs_working_principle}.
 
-For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
+For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3 \ mdash 4}$
 \vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
 
 \begin{table}
@@ -225,7 +225,7 @@ For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesss
  $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
  \hline
  $\lesssim 100$ & \vd$\propto E$ \\
- $\sim 100-10^{3-4}$ & \vd$\propto E^{1/2}$ \\
+ $\sim 100-10^{3 \mdash 4}$ & \vd$\propto E^{1/2}$ \\
  $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
  \hline
  \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
@@ -267,15 +267,15 @@ density of the medium, LXe is more effective at self-shielding than liquid argon
 
 By dividing the stopping power by the medium's density we get a function that is mainly a function of the radiating particle known as
 the mass stopping power.  This is shown for $\alpha$, $e^{-}$, and protons in \figref{fig:mass_stopping_power}.  We see that for the DM
-region of interest ($1-100$ keV) as \electron
+region of interest ($1 \mdash 100$ keV) as \electron
 energy increases the stopping power decreases, while for $\alpha$ and protons the reverse is true.  Multiplying by the density of LXe
 $\rho_{\mathrm{LXe}}$ gives an electron stopping power of $0.65-30\ \mathrm{keV\ \mu m^{-1}}$ for \electron and
-$\sim 20-900\ \mathrm{keV\ \mu m^{-1}}$ for $\alpha$ and protons.
+$\sim 20 \mdash 900\ \mathrm{keV\ \mu m^{-1}}$ for $\alpha$ and protons.
 
 We can see that in
 the dark matter search region ($1-100$ keV) $e^{-}$ decrease by a factor of $\sim 10$.  Multiplying by the density of LXe we get the
 electronic stopping power to be $\sim 0.65-30\ \mathrm{keV\ \mu m^{-1}}$.  \alphadecays are typically $> 5.5$ MeV and thus have a stopping
-power of $\sim 600-2000\ \mathrm{keV\ \mu m^{-1}}$.  We see that particle tracks are $\mathcal{O}(10)\ \mathrm{\mu m}$, so particles
+power of $\sim 600 \mdash 2000\ \mathrm{keV\ \mu m^{-1}}$.  We see that particle tracks are $\mathcal{O}(10)\ \mathrm{\mu m}$, so particles
 that originate at or outside the surface of the detector will never make it into the FV with any reasonable probability.
 
 \begin{figure}[t]
@@ -310,7 +310,7 @@ radius will be unlikely to
 escape so will recombine with its parent (the probability of escape at the Onsager radius is e$^{-1}$).  On the contrary, an \electron
 with $E_{\mathrm{thermal}} > E_{\mathrm{Coulomb}}$ will escape - even without the presence of an Electric field.  This results in a decrease of expected
 photons.  It is expected in the absence of a field recombination may occur on timescales $> 1$ ms but this is much larger than the
-observation window.  The thermalization range for LXe is $4000-5000$ nm, far higher than the Onsager radius of $49$ nm
+observation window.  The thermalization range for LXe is $4000 \mdash 5000$ nm, far higher than the Onsager radius of $49$ nm
 (\citeref{Doke2002}).
 
 A shortcoming of the Onsager radius is that it treats the interactions between Xe$^{+}$ and \electron as strictly Coulomb.  However,
@@ -480,9 +480,9 @@ energy region of interest, as shown in \figref{fig:phot_atten}.
 \begin{figure}
  \centering
  \includegraphics[width=0.8\textwidth]{PhotonAttenuation}
- \caption{Mass attenuation coefficient for photon energies $10^{-3} - 10^{4} \mathrm{MeV}$.  In addition to the total, values for
+ \caption{Mass attenuation coefficient for photon energies $10^{-3} \mdash 10^{4} \mathrm{MeV}$.  In addition to the total, values for
  photoelectric absorption, Compton scattering, Rayleigh scattering, and pair production are shown.  The two sharp rises in the
- $10^{-3} - 10^{-2}$ range are due to the L- and K-shell, in order of increasing energy.}
+ $10^{-3} \mdash 10^{-2}$ range are due to the L- and K-shell, in order of increasing energy.}
  \label{fig:phot_atten}
 \end{figure}
 
@@ -606,7 +606,7 @@ An electronic recoil signifies that the interaction occurred with the electron s
 is lost to atomic motion the number of quanta produced is
 
 \begin{equation}
-N_{q} = \frac{E_{\mathrm{ER}}}{W}
+n_{q} = \frac{E_{\mathrm{er}}}{W}
 \label{eq:nquant_er}
 \end{equation}
 
@@ -614,7 +614,7 @@ N_{q} = \frac{E_{\mathrm{ER}}}{W}
 and $W = 13.7 \pm 0.2\ \mathrm{eV}$ (\citeref{Dahl2009}) is the energy needed to produce a single quanta.  This can be broken up into
 
 \begin{equation}
-N_{q} = N_{\mathrm{ex}} + N_{\mathrm{i}}
+n_{q} = n_{\mathrm{ex}} + n_{\mathrm{ion}}
 \label{eq:quanta}
 \end{equation}
 
@@ -622,14 +622,13 @@ N_{q} = N_{\mathrm{ex}} + N_{\mathrm{i}}
 deposits all of its energy has a root mean square of
 
 \begin{equation}
-\delta = F \times N_{\mathrm{i}}
+\delta = F \times n_{\mathrm{ion}}
 \label{eq:fano}
 \end{equation}
 
-\noindent where $F < 1$ and known as the Fano factor (\citeref{Fano1947}).  Thus the fluctuations of $N_{\mathrm{i}}$ are smaller than a
-Poisson
-distribution ($F = 1$).  Several experiments have attempted to measure $F$ for LXe (\citeref{Doke1976, Seguinot1995}) with an
-estimated value of $F = 0.056$ for \electron and $\gamma$-rays.  This places a limit on the fundamental energy resolution of
+\noindent where $F < 1$ and known as the Fano factor (\citeref{Fano1947}).  Thus the fluctuations of $n_{\mathrm{i}}$ are smaller than a
+Poisson distribution ($F = 1$).  Several experiments have attempted to measure $F$ for LXe (\citeref{Doke1976, Seguinot1995}) with an
+estimated value of $F = 0.059$ for \electron and $\gamma$-rays.  This places a limit on the fundamental energy resolution of
 
 \begin{equation}
 \Delta E = \sqrt{F W E}
@@ -641,7 +640,7 @@ not yet even achieved Poisson resolution, so there is a lot of progress that can
 Rearranging \eqref{eq:quanta} we find the probability that a particular quanta is an ion
 
 \begin{equation}
-p_{\mathrm{ion}} = \frac{1}{1 + \frac{ N_{\mathrm{ex}} }{ N_{\mathrm{ion}} }}
+p_{\mathrm{ion}} = \frac{1}{1 + \frac{ n_{\mathrm{ex}} }{ n_{\mathrm{ion}} }}
 \end{equation}
 
 \noindent with $p_{\mathrm{ex}} = 1 - p_{\mathrm{ion}}$.  The ratio $N_{\mathrm{ex}} / N_{\mathrm{ion}}$ has been calculated to be
@@ -731,7 +730,7 @@ most instances an identical treatment can be applied to LAr and LNe as well.
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{SensitivityEvolutionBetter}
-\caption{Spin-independent cross-section evolution for WIMP with $\m_{\chi} = 50-100\ \mathrm{GeV}$.  Solid markers represent already realized
+\caption{Spin-independent cross-section evolution for WIMP with $\m_{\chi} = 50 \mdash 100\ \mathrm{GeV}$.  Solid markers represent already realized
 values while empty squares denote projected.  Purple markers refer to germanium (\secref{subsec:germanium}) as well as CsI and NaI
 detectors (\secref{subsec:crystals}), orange represent cryogenic bolometers (\secref{subsec:bolometers}), turquoise denotes single-phase
 noble liquid chambers, and green symbolizes dual-phase.  It is

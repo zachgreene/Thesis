@@ -545,7 +545,7 @@ and 3-7.5\% from $250 < \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifte
 \subsection{Calibrations}
 \label{subsec:xenon1t_calibrations}
 Calibrations are used for a host of purposes including understanding energy resolution, light collection efficiency, electron lifetime,
-g1, g2, electronic and nuclear recoil bands, and many more.  Depending on the source they can be performed inside the TPC (internal) or
+$g1$, $g2$, electronic and nuclear recoil bands, and many more.  Depending on the source they can be performed inside the TPC (internal) or
 outside (external).  Here I cover the different calibrations and the purposes they serve; additional details and results are in
 \secref{sec:det_char}.
 
@@ -608,10 +608,8 @@ External $\gamma$ sources include \ce{^{137}Cs}, with an energy of 661.7 keV, an
 and 2.614 MeV.  These are installed in W-collimators that restrict the \gammarays to a cone of $40^{\circ}$.  Additionally, \ce{^{60}Co}
 in the cryostat flanges with 1.173 and 1.333 MeV lines can also be used.
 
-Nuclear recoil sources AmBe and a deuterium-deuterium (DD) neutron generator (NG) are also done outside the TPC.  It is also deployed in a
-W-collimator and emits MeV neutrons.  The NG (NSD Gradel Fusion NSD-35-DD-C-W-S) emits neutrons at ${\sim} 2.2,\ 2.7\ \mathrm{MeV}$ in
-$4\pi$ and is capable of emission rates as low as $10\ \mathrm{n\ s^{-1}}$ (to reduce pile-up) and as high as $10^{7}\ \mathrm{n\ s^{-1}}$
-(\citeref{Lang2017}).
+Nuclear recoil sources \ambe and a deuterium-deuterium (DD) neutron generator (NG) are also done outside the TPC.  It is also deployed in a
+W-collimator and emits MeV neutrons.  Details are discussed in \secref{subsubsec:er_nr_calibrations_parameter_determ_nr}.
 
 
 
@@ -669,13 +667,13 @@ backgrounds using Monte Carlo.
 
 \begin{figure}
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[width=0.45\textwidth]{Decay_Chain_of_Thorium-232}
+        \includegraphics[width=\textwidth]{Decay_Chain_of_Thorium-232}
     \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[width=0.45\textwidth]{Decay_Chain_of_Uranium-238}
+        \includegraphics[width=\textwidth]{Decay_Chain_of_Uranium-238}
     \end{subfigure}
     \caption{Image credit: %https://commons.wikimedia.org/wiki/File:Decay_Chain_of_Uranium-238.svg
     .}
@@ -809,7 +807,7 @@ $< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{MuonFluxOverDepth}
+\includegraphics[width=0.8\textwidth]{MuonFluxOverDepth}
 \label{fig:backgrounds_nuclear_muon_induced_flux}
 \end{figure}
 
@@ -839,7 +837,7 @@ to shield them.
 \section{Detector Characterization}
 \label{sec:det_char}
 Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
-been done with \ce{^{83m}Kr}, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
+been done with $\mathrm{^{83m}Kr}$, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
 % look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
 
 
@@ -863,7 +861,7 @@ under-amplified charge.  This is generally the most challenging aspect to model.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{SPESpectrum}
+\includegraphics[width=0.6\textwidth]{SPESpectrum}
 \caption{(Left) Single photoelectron spectrum.}
 \label{fig:xenon1t_pmt_spe}
 \end{figure}
@@ -875,7 +873,7 @@ $N$ photoelectrons.  As this model is simplistic and can add bias recent efforts
 of characterization (\secref{Saldanha2017, 2017Anthony}).  Nonetheless, the combined fit (green) appears to agree will with the data.
 
 We can use the SPE spectrum to calculate the resolution $R = \sigma_{e} / \mu_{e}$.  As the gain grows the resolution should sharpen
-initially until it eventually levels off.  For the R11410-21 models the plateau began around $2-3 \times 10^{6}$ at a resolution of
+initially until it eventually levels off.  For the R11410-21 models the plateau began around $2 \mdash 3 \times 10^{6}$ at a resolution of
 27\%.  Because the stress on the PMT raises with bias voltage and larger gains lead to greater saturation we decided there was no benefit
 to exceeding this gain.
 
@@ -888,23 +886,23 @@ to exceeding this gain.
 
 The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as the photoelectron peaks are hard to distinguish.  An
 important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
-the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2-3 \times 10^{6}$ the mean
+the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2 \mdash 3 \times 10^{6}$ the mean
 peak-to-valley ratio is ${\sim} 3$.  The PMT gains are regularly measured to identify any changes in gain.  This is shown for five
 PMTs - all of which are stable - in
 
 
 
-\subsection{\ce{^{83m}Kr}}
+\subsection{$\mathrm{^{83m}Kr}$}
 \label{subsec:det_char_kr}
-The most common calibration source is \ce{^{83m}Kr}.  Being a noble gas it can be injected directly into the xenon so to be used as an
+The most common calibration source is $\mathrm{^{83m}Kr}$.  Being a noble gas it can be injected directly into the xenon so to be used as an
 internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to the purification system
 (\secref{subsec:xenon1t_calibrations_internal}) and decays through electron capture
 
 \begin{equation}
-\mathrm{{^83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
+\mathrm{^{83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
 \end{equation}
 
-with a 74.8\% branching ratio to the metastable state \ce{^{83m}Kr}.  \ce{^{83m}Kr} then de-excites in two steps: emission of a 32.1 keV
+with a 74.8\% branching ratio to the metastable state $\mathrm{^{83m}Kr}$.  $\mathrm{^{83m}Kr}$ then de-excites in two steps: emission of a 32.1 keV
 conversion electron with half-life $t_{1/2} = 1.83\ \mathrm{h}$ followed by a second conversion electron at 9.4 keV with
 $t_{1/2} = 154\ \mathrm{ns}$.  The short
 interval between the two decays makes tagging events easy.  Furthermore the mono-energetic $\gamma$ lines can be used for a number of
@@ -965,7 +963,7 @@ contribution is relatively small.
 \end{figure}
 
 Calibrating the LCE requires a mono-energetic peak - preferably one near our DM energy range.  For this we use the light from the
-\ce{^{83m}Kr} 32.1 keV conversion electron.  The left panel in \figref{fig:calibrations_lce_lce} shows fits to S1s measured below the gate
+$\mathrm{^{83m}Kr}$ 32.1 keV conversion electron.  The left panel in \figref{fig:calibrations_lce_lce} shows fits to S1s measured below the gate
 (red), in the TPC center (blue), and above the cathode (green).  The mean from these fits correspond to the values shown in the right
 panel.
 
@@ -981,7 +979,7 @@ affect the measured signal so the latter becomes important.
 \subsection{S2 Position Correction}
 \label{subsec:det_char_s2_position_correction}
 We must also account for positional variations in S2.  However, because all S2s happen in the GXe an $x-y$ correction is sufficient.  For
-this we use the 41.5 keV peak of \ce{^{83m}Kr} (the 154 ns half-life of the 9.4 keV decay makes it difficult to separate the two
+this we use the 41.5 keV peak of $\mathrm{^{83m}Kr}$ (the 154 ns half-life of the 9.4 keV decay makes it difficult to separate the two
 S2s).  Most of the light seen by the top array is focused on a small group of PMTs directly over the extraction site, while the light on
 the bottom array is more uniformly spread due to a larger solid angle.
 
@@ -1018,22 +1016,15 @@ The $x-y$ coordinates are found by applying an algorithm to the intensity each P
 PMT hit pattern).  For XENON1T two reconstruction algorithms were mainly used.  The first was a neural net using the Fast Artificial
 Neural Network (FANN) library with 24 and 29 nodes in the two hidden layers (sequentially).  The second matches the real hit pattern with
 an expected after weighting four other algorithms for its seed, and is known as top pattern fit (TPF).  Both algorithms were trained on MC
-and optimized with \ce{^{83m}Kr} data, and achieved a position resolution of $\lesssim 2\ \mathrm{cm}$.  For SR1 the NN was ultimately
+and optimized with $\mathrm{^{83m}Kr}$ data, and achieved a position resolution of $\lesssim 2\ \mathrm{cm}$.  For SR1 the NN was ultimately
 chosen, as the TPF algorithm was more sensitive to dead PMTs and showed some artificial discontinuity in the radial
 direction.  \figref{fig:calibrations_position_reconstruction} shows the position distribution of events in SR1.
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{S2XY}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{S2RZ}
-    \end{subfigure}
-    \caption{}
-	\label{fig:calibrations_position_reconstruction}
+\centering
+\includegraphics[width=\textwidth]{FVBoth}
+\caption{Background events in SR1.}
+\label{fig:calibrations_position_reconstruction}
 \end{figure}
 
 
@@ -1051,9 +1042,9 @@ where $q_0$ is the charge that escapes recombination.  Calibrations with mono-en
 measuring $\tau_e$.  The large number of statistics means it can be measured with much higher precision than the
 nominal method of using the low-rate background \ce{^{222}Rn} and \ce{^{218}Po} $\alpha$-decays.
 
-The 41.5 keV \ce{^{83m}Kr} de-excitation offers a relatively low-energy electronic recoil to measure $\tau_e$.  The number of events
+The 41.5 keV $\mathrm{^{83m}Kr}$ de-excitation offers a relatively low-energy electronic recoil to measure $\tau_e$.  The number of events
 from a typical calibration of 2-3 days is in the millions and any background is negligible.  The left panel of
-\figref{fig:calibrations_elifetime_kr} shows a standard electron lifetime calculated using \ce{^{83m}Kr}.
+\figref{fig:calibrations_elifetime_kr} shows a standard electron lifetime calculated using $\mathrm{^{83m}Kr}$.
 
 \begin{figure}
 \centering
@@ -1065,18 +1056,19 @@ from a typical calibration of 2-3 days is in the millions and any background is 
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{KrElectronLifetime}
+        \includegraphics[width=\textwidth]{KrElectronLifetime}
     \end{subfigure}%
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{Bi212ElectronLifetime}
+        \includegraphics[width=\textwidth]{Bi212ElectronLifetime}
     \end{subfigure}
     \caption{}
 	\label{fig:calibrations_elifetime}
 \end{figure}
 
 Another high-statistic calibration used for measurement is \ce{^{220}Rn}.  Primarily used for the 569.9 keV $\beta$-emission of its
-decay chain daughter \ce{^{212}Pb}, a number of elements along the chain undergo $\alpha$-decays that can be
+decay chain daughter \ce{^{212}Pb} (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}), a number of elements along the chain
+undergo $\alpha$-decays that can be
 used.  \tabref{tab:alpha_decays} lists the main $\alpha$-emitters in both the \ce{^{222}Rn} and \ce{^{220}Rn} chains.  Because calibration
 data is only used after the source valve is closed, the 55.6 s and 145 ms half-lives of the first two $\alpha$-emitters \ce{^{220}Rn} and
 \ce{^{218}Po}, respectively cannot be used.  However \ce{^{212}Bi} releases a 6.207 MeV $\alpha$ in its decay to \ce{^{208}Tl} with a
@@ -1084,12 +1076,12 @@ branching ratio of 36.9\%.  A typical electron lifetime is shown in the right pa
 
 Other sources can be used for measuring $\tau_e$ but with less success.  In past experiments the 661.7 \gammaray of \ce{^{137}Cs} was
 used, but an early trial in XENON1T showed that very few actually reached the active volume, making the method inefficient.  Additionally
-the 163.9 and 236.1 keV de-excitations of \ce{^{131m}Xe} and \ce{^{129m}Xe}, respectively, following a nuclear recoil calibration are
-usable initially but longer time windows are required as they de-excite, and they do not offer the large statistics of \ce{^{83m}Kr} or
+the 163.9 and 236.1 keV de-excitations of $\mathrm{^{131m}Xe}$ and $\mathrm{^{129m}Xe}$, respectively, following a nuclear recoil calibration are
+usable initially but longer time windows are required as they de-excite, and they do not offer the large statistics of $\mathrm{^{83m}Kr}$ or
 \ce{^{220}Rn}.
 
 \bgroup
-\def\arraystretch{1.4}
+\def\arraystretch{1.2}
 \begin{table}
 \centering
 \begin{tabular}{cccccc}
@@ -1195,11 +1187,11 @@ were stable.
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{g1g2Anticorrelation}
+        \includegraphics[width=\textwidth]{g1g2Anticorrelation}
     \end{subfigure}%
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{TimeDependence}
+        \includegraphics[width=\textwidth]{TimeDependence}
     \end{subfigure}
     \caption{}
 	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
@@ -1207,8 +1199,8 @@ were stable.
 
 Returning to \eqref{eq:calibrations_s1_s2} we see after solving for $g1/\eta/g2$ we can reconstruct $E$ for any ER event.  The (ER)
 background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Key peaks are
-labeled with their respective energy and responsible isotope.  We can see that during DM data taking some \ce{^{83m}Kr} is present, most
-likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  \ce{^{129m}Xe} and \ce{^{131m}Xe} are clearly
+labeled with their respective energy and responsible isotope.  We can see that during DM data taking some $\mathrm{^{83m}Kr}$ is present, most
+likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  $\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$ are clearly
 visible though the majority of their de-excitations occur in the weeks following the AmBe and the NG.  Other well-defined features
 include \ce{^{214}Bi} (609.3, 1764.5, and 2204.1 keV), \ce{^{60}Co} (1173.2 and 1332.5 keV), \ce{^{40}K} (1460.8 keV), and \ce{^{208}Tl}
 (2614.5 keV).  They sit on a continuous energy spectrum caused by $\gamma$-rays that deposit part of their energy before leaving the
@@ -1246,14 +1238,13 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 To differentiate our nuclear from electronic recoil bands we need to calibrate each independently.  While the detector characterizations
 discussed in \secref{sec:det_char} lead to improved accuracy and precision or are in some cases very important, these are critical as
 they allow discrimination between at potential WIMP and ER background.  As mentioned in
-\secref{subsec:det_char_elifetime} \ce{^{220}Rn} is used for our ER band because of the \ce{^{212}Pb} \betadecay with Q-value
-569.9 keV and its electronic shell properties allow an internal calibration.  For NR we use \ce{^{241}AmBe} and a neutron generator (NG),
+\secref{subsec:det_char_elifetime} \ce{^{220}Rn} is used for our ER band.  For NR we use \ce{^{241}AmBe} and a neutron generator (NG),
 each of which are positioned in the water tank outside the cryostat.
 
 Science Run 1 marks the first time the electronic and nuclear recoil bands were fit simultaneously (for SR0 they were independent).  This
 is significant because shared detector parameters (e.g. $W$, $g1$, $g2$, $p_{\mathrm{dpe}}$, etc.) are constrained to a single value
 across calibrations.  Using the physical processes from the interaction itself to the final values of cS1 and \cstwob in the fit is made
-possible by running on GPUs, which provide a $10^{2-3}$ times speed increase.
+possible by running on GPUs, which provide a $10^{2 \mdash 3}$ times speed increase.
 
 
 
@@ -1282,25 +1273,7 @@ sensitivity.
 \label{fig:er_nr_calibrations_wimp_contours}
 \end{figure}
 
-
-
-\subsection{\ce{^{220}Rn}}
-\label{subsec:er_nr_calibrations_rn220}
-The \ce{^{220}Rn} decay chain is shown in the left panel of \figref{fig:backgrounds_decay_chains}.
 The fits are performed using a Markov Chain Monte Carlo (\citeref{Foreman-Mackey}).
-
-
-
-\subsection{\ce{^{241}AmBe}}
-\label{subsec:er_nr_calibrations_ambe}
-Americium beryllium (AmBe) is used for nuclear recoil calibrations.  \ce{^{241}Am} decays to \ce{^{237}Np} through
-$\alpha$-emission.  The large \ce{^{9}Be} cross-section to $\alpha$ particles produces a second decay via
-
-\begin{equation}
-\mathrm{^{9}Be} + \mathrm{^{4}He} \rightarrow \mathrm{^{12}C + n} + \gamma
-\end{equation}
-
-\noindent where a neutron is emitted.
 
 
 
@@ -1309,13 +1282,17 @@ $\alpha$-emission.  The large \ce{^{9}Be} cross-section to $\alpha$ particles pr
 This approach compares the distribution of Monte Carlo events with the data.  Because of the nearly flat distribution of events at relevant
 energies along with homogenous distribution, Monte Carlo features $E$, $x$, $y$, $z$, for \ce{^{220}Rn} are randomly sampled from a
 uniform distribution.  \ce{^{241}AmBe} and neutron generator Monte Carlo are generated using GEANT4, and also include the number of
-scatters for each neutron.  The $\beta$ from \ce{^{220}Rn} should not scatter so this is fixed to 1.
+scatters for each neutron.  The $\beta$ from \ce{^{220}Rn} should not scatter so this is fixed to 1.  These represent the ``truth''
+information - that is, these are the true interaction values.
 
 \figref{fig:er_nr_calibrations_parameter_determ_flow_chart} shows the flow chart for the band matching.  Each Monte Carlo event is run
 through a series of events that mimic the true sequence as closely as possible.  The parameters used in this estimation come from
 a variety of sources including physical properties reported from literature and detector characterization measurements
-(\secref{sec:det_char}).  Once the   Priors are included for each parameter.
-
+(\secref{sec:det_char}).  The process takes the simulated energy from a Monte Carlo event and ultimately outputs observables cS1 and
+$\mathrm{cS2_b}$.  These in turn are binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$ space, and the likelihood for equivalent bins
+between data and MC is calculated (discussed in \secref{subsec:er_nr_calibrations_likelihood}).  As the parameters vary the likelihood
+should increase or decrease, allowing a minimizer to find the best-fit values.  An important consideration is the penalty terms from the
+priors are included in the likelihood so the simulated PDF is constrained.
 
 \begin{figure}
 \centering
@@ -1323,30 +1300,114 @@ a variety of sources including physical properties reported from literature and 
 \label{fig:er_nr_calibrations_parameter_determ_flow_chart}
 \end{figure}
 
+The number of events simulated for each likelihood iteration is $\mathcal{O}(10^6)$.  Such large statistics are necessary for convergence;
+however, nominal running time is far greater than any sensible time-scale.  This was solved by using graphical processing units (GPUs),
+which can run the events in parallel, providing a boost in speed is $10^{2 \mdash 3}$ times and reducing the required time to a
+reasonable level.
+
+The author will refer to the conversion of truth MC to cS1 and \cstwob as a ``fast MC'' (the parameters used in each event are pulled
+from a random number generator).  ``Truth MC'' will refer to the simulated events before the fast MC (actual $E$, $x$, $y$, $z$, and number
+of scatters as described above).  ``MC'' will denote the sum of all the fast MC components, usually in the form of a PDF (histogram), for
+a single data-MC comparison.  Finally, a Markov Chain Monte Carlo (MCMC) is used to fit the data and Monte Carlo.  The best-fit values
+then are derived from the posterior.  \secref{subsubsec:er_nr_calibrations_parameter_determ_er} (ER) and
+\secref{subsubsec:er_nr_calibrations_parameter_determ_nr} (NR) discusses the physical steps that occur beginning with a single energy
+deposition until final cS1 and $\mathrm{cS2_b}$ (and by extension the operations applied in the fast MC).
+
+
+
+\subsubsection{Electronic Recoils}
+\label{subsubsec:er_nr_calibrations_parameter_determ_er}
+The electronic recoil calibration is performed using \ce{^{220}Rn} (decay chain shown in the left panel of
+\figref{fig:backgrounds_decay_chains}).  It is used because of the \ce{^{212}Pb} \betadecay with Q-value 569.9 keV and can be performed
+as an internal calibration.  T
+
+When energy is deposited in the LXe a number of quanta will be produced.  For electronic recoils this follows the normal distribution
+
+\begin{equation}
+n_q \sim \mathrm{N} \bigg( \mu = \frac{E}{W},\ \sigma^2 = \frac{E F}{W} \bigg)
+\end{equation}
+
+\noindent where $F$ is the Fano Factor (\citeref{Fano1947}) introduced in \secref{sec:er}.  Its derivation and subsequent measurements
+demonstrates
+that fluctuations in $n_q$ are smaller than a Poisson distribution, and is estimated to be $F = 0.059$ (\citeref{Doke1976}).  For the
+fast MC $F$ is held fixed, although it should be noted that a later measurement found different best-fit values, though their result was
+compatible with \citeref{Doke1976} when including uncertainty (\citeref{Seguinot1995}).  $W$, the average energy to produce a single
+quanta, is constrained by a Gaussian with $\mu = 13.7,\ \sigma = 0.2\ \mathrm{eV}$ following the measurement of \citeref{Dahl2009}.
+
+For ER any quenching is considered negligible so is not considered.  The quanta will be divided into excitons and electron-ion pairs
+$n_q = n_{\mathrm{ex}} + n_{\mathrm{ion}}$ and will be divided according to a binomial distribution
+
+\begin{equation}
+n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 + \frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}}} \Bigg)
+\end{equation}
+
+\noindent where $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ is between 0.06-0.2 and expected to be independent of energy
+(\citeref{NEST2011}).  Next we must consider the recombination fraction $r$ where some \electron will reattach to a \ce{Xe^+} to form
+excitons and upon decay to their ground state emit photons.  $r$ depends on the field in the LXe and the interaction energy, and has
+intrinsic fluctuation $\delta r$ that cannot be ignored (\citeref{LUX2016, Aprile2017e}).  We assume a truncated Gaussian
+
+\begin{equation}
+r \sim \mathrm{N} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\delta r)^2 Big)
+\end{equation}
+
+\noindent where $r = 0 \mdash 1$ and is parameterized as a fourth order polynomial with some energy threshold
+$E_{\mathrm{thresh}}$ such that if $E < E_{\mathrm{thresh}},\ r = 0$.  Recombination fluctuations are defined as
+$\delta r = A(1 - e^{E/B})$.  All eight parameters (five from polynomial, one from $E_{\mathrm{thresh}}$, two from $\delta r$) are allowed
+to vary freely (with no penalty term in likelihood) though $A,B > 0$.  The number of electron-ion pairs that recombine is
+
+\begin{equation}
+n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
+\end{equation}
+
+\noindent yielding a final number of photons and electrons
+
+%\begin{equation}
+\begin{align}
+n_{\mathrm{ph}} = n_{\mathrm{ex}} + r n_{\mathrm{rec}} \\
+n_{\mathrm{e}} = (1 - r) n_{\mathrm{rec}}
+\end{align}
+%\end{equation}
+
+\noindent  As mentioned above \ce{^{220}Rn} is homogeneously spread throughout the TPC and has an energy spectrum that is nearly flat
+between 0-30 keV so its truth MC values ($E$, $x$, $y$, and $z$) were each randomly sampled from a uniform distribution.
+
+
+
+\begin{Nuclear Recoils}
+\label{subsubsec:er_nr_calibrations_parameter_determ_nr}
+Two nuclear recoil sources were used for calibrations: americium beryllium (\ambe) and a neutron generator (NG).  \ambe decays to
+\ce{^{237}Np} through $\alpha$-emission where the large \ce{^{9}Be} $\alpha$ cross-section prompts a second decay via
+
+\begin{equation}
+\mathrm{^{9}Be} + \mathrm{^{4}He} \rightarrow \mathrm{^{12}C + n} + \gamma
+\end{equation}
+
+\noindent emitting a $< 11\ \mathrm{MeV}$ neutron.  The neutron generator (NSD Gradel Fusion NSD-35-DD-C-W-S) uses
+deuterium-deuterium (DD) fusion
+
+\begin{equation}
+\mathrm{^{2}D} + \mathrm{^{2}D} \rightarrow \mathrm{^{3}He} + \mathrm{n}
+\end{equation}
+
+where the \ce{^{3}He} and n are expelled at 0.82 and 2.45 MeV, respectively.  It can operate at rates as low as $10\ \mathrm{n\ s^{-1}}$
+and as high as $10^7\ \mathrm{n\ s^{-1}}$, which allows gives our objectives more flexibility.
+
+  The NG (NSD Gradel Fusion NSD-35-DD-C-W-S) emits neutrons at ${\sim} 2.2,\ 2.7\ \mathrm{MeV}$ in
+$4\pi$ and is capable of emission rates as low as $10\ \mathrm{n\ s^{-1}}$ (to reduce pile-up) and as high as $10^{7}\ \mathrm{n\ s^{-1}}$
+(\citeref{Lang2018}).
+
+
+
+
+
+
+
+
 
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
 to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
 \vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
 
-\begin{table}
- \centering
- \begin{tabular}{cc}
- \hline
- $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
- \hline
- $\lesssim 100$ & \vd$\propto E$ \\
- $\sim 100-10^{3-4}$ & \vd$\propto E^{1/2}$ \\
- $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
- \hline
- \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
- \end{tabular}
-\end{table}
-
-\begin{figure}
-\includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
-\caption{Drift velocity for solid and liquid xenon}
-\label{fig:drift_velocity}
-\end{figure}
 
 As the electron cloud drifts it will diffuse both longitudinally (in the direction of $E$) and transversely (perpendicular to $E$).  The
 diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can

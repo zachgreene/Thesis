@@ -62,9 +62,9 @@ phototubes is likely to be beneficial longterm.  The finished arrays are shown i
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{PMTTopArray}
+        \includegraphics[width=\textwidth]{PMTTopArray}
     \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{width=textwidth}
         \centering
         \includegraphics[height=4.5cm]{PMTBottomArray}
     \end{subfigure}
@@ -172,7 +172,7 @@ details on XENON100).
 
 \subsection{TPC}
 \label{subsec:xenon1t_tpc}
-The XENON1T time projection chamber is cylindrical with a 97 cm height and 96 cm diamater.  It encloses a target mass of 2.0 tons where
+The XENON1T time projection chamber is cylindrical with a 96.9 cm height and 47.9 cm diamater.  It encloses a target mass of 2.0 tons where
 light and charge can be measured.  A schematic is shown in \figref{fig:xenon1t_tpc_tpc}.  The interior of the vertical wall consists of 24
 PTFE panels that were treated with diamond tools to
 maximize VUV reflectivity.  Each interlocks with adjacent panels to achieve light-tightness, and the system is designed so that despite
@@ -826,7 +826,7 @@ The final contribution to the NR background comes from neutrinos that participat
 contributor to the integrated NR rate is solar \ce{^{8}B}, which is orders of magnitude larger than other sources and dominant at
 recoil energies $< 3\ \mathrm{keV}$.  Solar $hep$, atmosphere, and diffuse supernova neutrinos also contribute.  We can see in
 \figref{fig:backgrounds_nuclear_muon_induced_nr_fate} that neutrinos are the principal source for recoils at $< 3\ \mathrm{keV}$.  The
-number of detected events at $> 1\ mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
+number of detected events at $> 1\ \mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
 threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
 to our threshold (${sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
 \secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background due to the inability
@@ -1018,12 +1018,19 @@ Neural Network (FANN) library with 24 and 29 nodes in the two hidden layers (seq
 an expected after weighting four other algorithms for its seed, and is known as top pattern fit (TPF).  Both algorithms were trained on MC
 and optimized with $\mathrm{^{83m}Kr}$ data, and achieved a position resolution of $\lesssim 2\ \mathrm{cm}$.  For SR1 the NN was ultimately
 chosen, as the TPF algorithm was more sensitive to dead PMTs and showed some artificial discontinuity in the radial
-direction.  \figref{fig:calibrations_position_reconstruction} shows the position distribution of events in SR1.
+direction.  \figref{fig:calibrations_position_reconstruction} shows the position distribution of events in SR1 along with the 1 ton FV
+that was used in SR0 (\citeref{Aprile2017f}), the 1.3 ton used in SR1, and the active volume.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{FVBoth}
-\caption{Background events in SR1.}
+\caption{Positions of background events plotted in $x$ vs. $y$ and $r$ ($r^2$) vs. $z$ for SR1.  The 1 ton FV originally used
+in SR0 is shown in green and defined by $-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$.  The 1.3 ton FV for SR1 is outlined in
+blue, with the maximum radius plotted in the left panel.  Its shape is more complicated but has $z_\mathrm{min} = -94\ \mathrm{cm}$,
+$z_{\mathrm{max}} = -8\ \mathrm{cm}$, and $r_{\mathrm{max}} = 42.84\ \mathrm{cm}$.  The active volume (surrounded by the cathode, wall,
+and gate) is marked in black.  The events that appear outside the wall are wall events that were not properly
+reconstructed.  The events below the cathode result from field inhomogeneities that lead to extended drift times, which is why they
+become more exaggerated towards the bottom corner of the TPC.}
 \label{fig:calibrations_position_reconstruction}
 \end{figure}
 
@@ -1313,6 +1320,10 @@ then are derived from the posterior.  \secref{subsubsec:er_nr_calibrations_param
 \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} (NR) discusses the physical steps that occur beginning with a single energy
 deposition until final cS1 and $\mathrm{cS2_b}$ (and by extension the operations applied in the fast MC).
 
+The calibrations were fit in the SR0 FV ($-92.9 < z < -9\ mathrm{cm}$, $r < 36.94\ \mathrm{cm}$
+\figref{fig:calibrations_position_reconstruction}) despite it being different from SR1.  This was done to minimize wall events as well as
+contamination from materials at the top and bottom of the TPC (mainly PMTs).
+
 
 
 \subsubsection{Electronic Recoils}
@@ -1339,6 +1350,7 @@ $n_q = n_{\mathrm{ex}} + n_{\mathrm{ion}}$ and will be divided according to a bi
 
 \begin{equation}
 n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 + \frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}}} \Bigg)
+\label{eq:er_nr_calibrations_parameter_determ_er_nions}
 \end{equation}
 
 \noindent where $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ is between 0.06-0.2 and expected to be independent of energy
@@ -1361,12 +1373,12 @@ n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
 
 \noindent yielding a final number of photons and electrons
 
-%\begin{equation}
-\begin{align}
+\begin{equation}
+\begin{aligned}
 n_{\mathrm{ph}} = n_{\mathrm{ex}} + r n_{\mathrm{rec}} \\
 n_{\mathrm{e}} = (1 - r) n_{\mathrm{rec}}
-\end{align}
-%\end{equation}
+\end{aligned}
+\end{equation}
 
 \noindent  As mentioned above \ce{^{220}Rn} is homogeneously spread throughout the TPC and has an energy spectrum that is nearly flat
 between 0-30 keV so its truth MC values ($E$, $x$, $y$, and $z$) were each randomly sampled from a uniform distribution.
@@ -1389,12 +1401,195 @@ deuterium-deuterium (DD) fusion
 \mathrm{^{2}D} + \mathrm{^{2}D} \rightarrow \mathrm{^{3}He} + \mathrm{n}
 \end{equation}
 
-where the \ce{^{3}He} and n are expelled at 0.82 and 2.45 MeV, respectively.  It can operate at rates as low as $10\ \mathrm{n\ s^{-1}}$
-and as high as $10^7\ \mathrm{n\ s^{-1}}$, which allows gives our objectives more flexibility.
+\noindent where the \ce{^{3}He} and n are expelled at 0.82 and 2.45 MeV, respectively.  The energy spectrum can be seen in
+\figref{fig:er_nr_calibrations_parameter_determ_nr_ng_energy}.  It shows two peaks - one at 2.2 MeV and the other at 2.7 MeV.  These
+are the energies as seen in the lab frame (2.45 MeV was in the deuteron's) and correspond to neutrons emitted at $180^{\circ}$ and
+$0^{\circ}$, respectively.  The NG can operate at rates as low as $10\ \mathrm{n\ s^{-1}}$
+and as high as $10^7\ \mathrm{n\ s^{-1}}$, which allows more flexibility in our objectives.  A higher-energy neutron
+population is produced by tritium via
 
-  The NG (NSD Gradel Fusion NSD-35-DD-C-W-S) emits neutrons at ${\sim} 2.2,\ 2.7\ \mathrm{MeV}$ in
-$4\pi$ and is capable of emission rates as low as $10\ \mathrm{n\ s^{-1}}$ (to reduce pile-up) and as high as $10^{7}\ \mathrm{n\ s^{-1}}$
-(\citeref{Lang2018}).
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{Fig5Lang2018}
+\caption{Image credit: \citeref{Lang2018}.}
+\label{fig:er_nr_calibrations_parameter_determ_nr_ng_energy}
+\end{figure}
+
+\begin{equation}
+\begin{aligned}
+\mathrm{^{2}D} + \mathrm{^{2}D} \rightarrow \mathrm{^{3}T} + \mathrm{p} \\
+\mathrm{^{3}T} + \mathrm{^{2}D} \rightarrow \mathrm{^{4}He} + \mathrm{n}
+\end{aligned}
+\end{equation}
+
+\noindent that expels neutrons at 14.1 MeV.  The contribution of deuterium-tritium fusion was measured to be $3.5 \pm 0.2\%$ before
+installation at LNGS (\citeref{Lang2018}).  Because the tritium is created in deuterium-deuterium fusion and has
+$t_{1/2} = 1.3\ \mathrm{y}$ this fraction is expected to increase with continued use.  For details on the characterization of the NG
+please refer to \citeref{Lang2018}.
+
+The energies and positions for \ambe and the NG are shown in \figref{fig:er_nr_calibrations_parameter_determ_nr_ambe_spectrum}.  The
+interactions are clustered near a particular $\phi$ that corresponds to the location of the calibration source.  However, we expect our
+detector does not vary along $\phi$ so the lopsided position distribution can be applied to the entire active volume.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{AmBeEnergy}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{AmBePositions}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{NGEnergy}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{NGPositions}
+    \end{subfigure}
+    \caption{}
+	\label{fig:er_nr_calibrations_parameter_determ_nr_ambe_spectrum}
+\end{figure}
+
+The processes that follow a nuclear recoil differ quite a bit from ER (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  As
+discussed in \secref{sec:nr} a sizable portion of the energy is lost to atomic motion.  To model this we use the Lindhard theory
+as shown in \eqref{eq:er_nr_calibrations_parameter_determ_nr_lindhard}.
+
+\begin{equation}
+\begin{aligned}
+\epsilon = 11.5 Big( \frac{E}{\mathrm{keV}} Z^{-7/3} \Big)
+g(\epsilon) = 3 \epsilon^{0.15} + 0.7 \epsilon^{0.6} + \epsilon \\
+L(\epsilon) = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
+\label{eq:er_nr_calibrations_parameter_determ_nr_lindhard}
+\end{aligned}
+\end{equation}
+
+Here $k$ represents the proportionality constant between the electronic stopping power and recoiling nucleus velocity.  The Linhard factor
+$L$ is the fraction of energy not converted to excitons or electron-ion pairs
+
+\begin{equation}
+n_{\mathrm{q}} \sim P \Big( \mu = \frac{E L}{W} \Big)
+\end{equation}
+
+\noindent that uses a Poisson distribution as an approximation.  In reality the track structure of nuclear recoils makes the true
+distribution more complicated.  From the number of quanta we follow from \eqref{eq:er_nr_calibrations_parameter_determ_er_nions} for
+electronic recoils
+
+\begin{equation}
+n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 + \frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}}} \Bigg)
+\end{equation}
+
+\noindent and $n_{\mathrm{ex}} = n_{\mathrm{q}} - n_{\mathrm{ion}}$.  Recombination is given by
+
+\begin{equation}
+n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
+\end{equation}
+
+\noindent but $r$ now is described by the Thomas-Imel model (\citeref{Thomas1987}).
+
+\begin{equation}
+r = 1 - \frac{\mathrm{ln} (1 + n_{\mathrm{ion}} \varsigma)}{n_{\mathrm{ion}} \varsigma}
+\end{equation}
+
+\noindent where $\varsigma$ is field-dependent.  Unlike ER, no recombination fluctuations have been observed for nuclear recoils so
+$\delta r$ is not considered.  We must also consider biexcitonic quenching and the Penning process, both of which decrease
+$\mathrm{n_{ph}}$.  The former arises when two
+\ce{Xe^{*}} interact to free an $e^-$, which in turn quickly loses its kinetic energy
+and recombines with a \ce{Xe^{+}}.  Thus what would have been two photons instead results in one.  The Penning process describes when
+two excimers interact and result in an excited and ground state (\citref{Mei2008}).  Both of these depend on the exciton density, which
+is proportional to the ionization density and therefore stopping power $dE / dx$.  Both of these processes result in quenching and can be
+described by Birks' saturation law, shown in \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} (\citeref{Birks1951, Birks1964}).
+
+\begin{equation}
+f_l = \frac{1}{1 + k_{B}B \frac{dE}{dx}} = \frac{1}{1 + \eta \epsilon^{\lambda}}
+\label{eq:er_nr_calibrations_parameter_determ_nr_birks}
+\end{equation}
+
+where $k_B$ is Birks' constant (calculated in \citeref{Mei2008} to be $2.015 \times 10^{-3}\ \mathrm{g\ MeV^{-1}\ cm^{-2}}$), $B$ is
+the coefficient to the stopping power, and $\eta$ is defined to be their product.  The total quenching due to biexcitonic quenching and
+the Penning process is then
+
+\begin{equation}
+n_{\mathrm{q}} = B(n = n_{\mathrm{ex}},\ p = f_l)
+\end{equation}
+
+\noindent reducing $n_{\mathrm{ex}} \rightarrow n_{\mathrm{ex}} - n_{\mathrm{q}} \rightarrow n_{\mathrm{ex}}$.
+
+For the \ambe and NG calibrations we constrained our nuclear recoil model based on previous measurements of light and charge yield,
+instead of performing an independent measurement.  This decision was made to prevent detector effects from compensating for changes
+in the liquid xenon response model.  We applied the results from \citeref{NEST2015}, which uses nuclear recoil light and charge yield
+measurements between $1 \mdash 300\ \mathrm{keV}$ and electric fields of $0 \mdash 4060\ \mathrm{V\ cm^{-1}}$ to fit the model
+detailed in this section.  Although the none of the measurements were made for light and charge yield simultaneously, \citeref{NEST2015}
+performed a single fit including all data.
+
+The model is parameterized by setting
+
+\begin{equation}
+\frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}} = \alpha F_{E}^{\zeta} ( 1 - e^{-\beta \epsilon})
+\label{eq:er_nr_calibrations_parameter_determ_nr_nex_nion}
+\end{equation}
+
+\begin{equation}
+\varsigma = \gamma F_{E}^{- \delta}
+\label{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma}
+\end{equation}
+
+\noindent where, to differentiate from energy $E$ and the Fano Factor $F$, the electric field is referred to as $F_E$.  Note that
+from \eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ has a power dependence on $F_E$,
+which is suspected to be caused by geminate recombination: when electrons and parent ions recombine much more quickly than Thomas-Imel
+recombination.  In addition $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ depends exponentially on energy such that at higher $E$ a larger fraction
+of excitons is favored.
+
+We see in \eqref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} that $\varsigma$ is proportional to a power of $F_E$.  As
+mentioned in \secref{subsec:recombination} the Thomas-Imel theory predicts
+
+\begin{equation}
+\varsigma = \frac{\alpha^{'}}{4 a^2 u_- F_E}
+\end{equation}
+
+\noindent where $\alpha^'$ is a recombination coefficient, $a$ is the dimension of the box, and $u_-$ is the electron mobility.  While
+here $\delta = 1$ strictly, Dahl's model predicts $\delta {\sim} 0.1$ (\citeref{Dahl2009}).
+
+\citeref{NEST2015} leaves $k$ (\eqref{er_nr_calibrations_parameter_determ_nr_lindhard}), $\eta$ and $\lambda$
+(\eqref{eq:er_nr_calibrations_parameter_determ_nr_birks}), $\alpha$, $\zeta$ and $\beta$
+(\eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion}), and $\gamma$ and $\delta$
+(\eqref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma}) as free parameters to fit.  The results are shown in
+\tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}.
+
+\bgroup
+\def\arraystretch{1.2}
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+\hline
+Parameter & Best Fit & Equation \\
+\hline
+$\alpha$ & $1.240_{-0.073}^{+0.079}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\zeta$ & $4.72_{-0.73}^{+0.88} \times 10^{-2} $ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\beta$ & $239_{-8.8}^{+28}$ \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\gamma$ & $1.385_{-0.073}^{+0.058} \times 10^{-2}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\delta$ & $6.20_{-0.64}^{+0.56} \times 10^{-2}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$k$ & $0.1394_{-0.0026}^{+0.0032}$ & \eqref{er_nr_calibrations_parameter_determ_nr_lindhard} \\
+$\eta$ & $3.3_{-0.7}^{+5.3}$ &  \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\lambda$ & $1.14_{-0.09}^{+0.45}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+\hline
+\end{tabular}
+\caption{Best fit values along with 68\% confidence intetervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
+charge yields.}
+\label{tab:er_nr_calibrations_parameter_determ_nr_nest}
+\end{table}
+\egroup
+
+For the SR1 NR fit the values listed in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest} are used as priors.  Each parameter is
+constrained by a gaussian with standard deviation equal to the mean of the $+$ and $-$ uncertainties.  In the future these will be
+constrained by asymmetric gaussians.
+
+
+
+
 
 
 

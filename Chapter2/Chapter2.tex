@@ -353,25 +353,25 @@ of the electron and is disregarded.  Thus \eqref{eq:diff_plus} and \eqref{eq:dif
 \citeref{Thomas1987}, the recombination fraction can be solved as
 
 \begin{equation}
-r = 1 - \frac{1}{\xi} \mathrm{ln}(1 + \xi),\ \ \xi = \frac{N_{i} \alpha}{4 a^{2} u_{-} E}
+r = 1 - \frac{\mathrm{ln} (1 + n_{\mathrm{ion}} \varsigma)}{n_{\mathrm{ion}} \varsigma},\ \varsigma = \frac{\alpha}{4 a^{2} u_{-} E}
 \label{eq:ti_recomb}
 \end{equation}
 
 \noindent where a box of dimension $a$ contains charge quantity $N_{i}$ uniformly spread.  This is known as the Thomas-Imel box model,
 and has been successful at explaining recombination measurements as shown in \figref{fig:ti_recomb}.  Zero recombination corresponds to
-$\xi \rightarrow 0$ and total is given by $\xi \rightarrow \infty$.  Note that $E = 0$ equates to total recombination, though as
-mentioned above, this may occur outside of the typical observation window.
+$\varsigma \rightarrow 0$ and total is given by $\varsigma \rightarrow \infty$.  Note that $E = 0$ equates to total recombination, though
+as mentioned above, this may occur outside of the typical observation window.
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{TIRecombination}
 \caption{Measurements of charge collected $q \propto 1 - r$ for LAr and LXe vs. $E$.  Squares correspond to LXe and were measured with
-$\xi E = 0.15\ \mathrm{kV\ cm^{-1}}$.  Triangles and circles are LAr and were measured at $\xi E = 0.84\ \mathrm{kV\ cm^{-1}}$.  Curves
-are best fit for box model (\citeref{Thomas1987}).}
+$\varsigma E = 0.15\ \mathrm{kV\ cm^{-1}}$.  Triangles and circles are LAr and were measured at
+$\varsigma E = 0.84\ \mathrm{kV\ cm^{-1}}$.  Curves are best fit for box model (\citeref{Thomas1987}).}
 \label{fig:ti_recomb}
 \end{figure}
 
 The Thomas-Imel box model works well for short particle tracks but does not accurately predict long.  At longer particle tracks a Birks'
-Law (originally developed for foro organic scintillators, \citeref{Birks1964}) derivation for liquid noble gases yields
+Law (originally developed for foro organic scintillators, \citeref{Birks1951, Birks1964}) derivation for liquid noble gases yields
 
 \begin{equation}
 \frac{dN_{\pm}}{dt} = -\alpha N_{+} N_{-}
@@ -402,7 +402,8 @@ density is so high only a small percent of \electron avoid recombination, even a
 (for electrons this would be nearly 100\%) (\citeref{Chepel2013}).  The consistency in charge collection across different fields causes
 difficulties in distinguishing recombination from initial excitation.
 
-Birk's saturation law gives rise to biexcitonic quenching, which was briefly mentioned in \secref{subsec:primary}.  The process is
+Birk's saturation law gives explains both biexcitonic quenching and the Penning process.  Biexcitonic quenching was briefly mentioned in
+\secref{subsec:primary}.  The process is
 
 \begin{equation}
 \mathrm{Xe}^{*} + \mathrm{Xe}^{*} \rightarrow \mathrm{Xe} + \mathrm{Xe}^{+} + e^{-}
@@ -415,12 +416,14 @@ resulting in a single photon emission instead of the two from the initial excito
 be parameterized by
 
 \begin{equation}
-f_{l} = \frac{1}{1 + kB \frac{dE}{dx}}
+f_{l} = \frac{1}{1 + k_B B \frac{dE}{dx}}
 \label{eq:nr_scint_quench}
 \end{equation}
 
-\noindent where $dE/dx$ here is the electronic stopping power.  In $\beta$ and $\gamma$ interactions the energy track is
-sufficiently sparse that the chances of two excitons doing so is close to 0.
+\noindent where $k_B$ is Birks' constant and $dE/dx$ is the electronic stopping power.  The Penning process is when two excimers interact
+to form one excited
+state and one ground state, which results in an additional quenching (\citeref{Mei2008}).  In $\beta$ and $\gamma$ interactions the energy
+track is sufficiently sparse that the chances of two excitons doing so is close to 0.
 
 This was first parameterized by \citeref{Hitachi1992, Hitachi2002, Hitachi2005}
 

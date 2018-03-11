@@ -28,10 +28,10 @@ Lots of good info in Aprile2017b (instrument paper).
 \label{subsec:xenon1t_pmts}
 A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
 maximize resolution of $r$ position reconstruction (\secref{subsec:det_char_position_reconstruction}).  The 121 in the bottom array
-are packed as densely as possible to maximize light
-collection.  The R11410 window is 76.2 mm in diameter and the photocathode yields an average QE to 178 nm of 34.5\% with 2.8\%
-standard deviation (\citeref{Aprile2017b, Barrow2017}).  The high QEs result from preselecting PMTs with $\mathrm{QE} > 28\%$ for
-screening.
+are packed as densely as possible to maximize light collection.  The most important characteristic of a PMT is its quantum efficiency
+(QE), or the ratio of photoelectrons (electrons produced in the photocathode) divided by number of incident photons.  The R11410 window is
+76.2 mm in diameter and the photocathode yields an average quantum efficiency to 178 nm of 34.5\% with 2.8\%
+standard deviation (\citeref{Aprile2017b, Barrow2017}).
 
 PMTs with the highest QE are placed in the bottom array while those with the lowest are stationed along the outside of the
 top.  The difference in arrangement is strategic.  Due to liquid xenon's relatively large dielectric constant (1.95) an S1 will
@@ -64,9 +64,9 @@ phototubes is likely to be beneficial longterm.  The finished arrays are shown i
         \centering
         \includegraphics[width=\textwidth]{PMTTopArray}
     \end{subfigure}%
-    \begin{subfigure}[t]{width=textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{PMTBottomArray}
+        \includegraphics[width=\textwidth]{PMTBottomArray}
     \end{subfigure}
     \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
     to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
@@ -163,6 +163,24 @@ transit time spread (TTS).  Because an event is observed by many PMTs the TTS qu
 smaller TTSs lead to a smaller integration window, decreasing accidental coincidence.  The TTS for all R11410-21 PMTs was measured, giving
 a mean of $9.1 \pm 1.3\ \mathrm{ns}$ - a fraction of an S1.
 
+It was shown by \citeref{Faham2015} that the probability of double photoelectron emission (DPE) in a number of PMTs, including the
+R11410, is generally in the range of 0.18-0.24 - much higher than previously thought.  For The R11410 in particular they found the
+probability to be $p_{\mathrm{dpe}} = 0.225 \pm 0.01$.  Any $p_{\mathrm{dpe}} > 0$ has some effect on a number of elements in a DM
+search - however, with such a large value these cannot be ignored.  First it may be useful to define a second quantity closely
+related to but not the same as the QE.  Following \citeref{Faham2015} the QE will be denoted as $\eta_{\mathrm{\mu}}$ and the fraction of
+incident photons that produce one or more photoelectrons denoted $eta_{\mathrm{p}}$.  Then they are related to one another by
+
+\begin{equation}
+\eta_{\mathrm{\mu}} = (1 + p_{\mathrm{dpe}}) \eta_{\mathrm{p}}
+\end{equation}
+
+\noindent and we see that the measured QE alone will be misleading.  For one, it is common to require a PMT coincidence for an event to
+be considered good - that is, $n$ PMTs must see a signal within a predetermined time window.  Using $\eta_{\mathrm{\mu}}$ will
+\textit{overestimate} the likelihood of this happening, and $\eta_{\mathrm{p}}$ should instead be used.  Additionally, when the PMT
+response is easily over threshold DPEs lead to incorrect resolution and yields unless accounted for.  In
+\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys} during the electronic and recoil band fitting details on how to
+appropriately account for all of these effects are shown.
+
 An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
 been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012a} for
 details on XENON100).
@@ -204,7 +222,7 @@ made of stainless steel and are hex-etched.  Details for each electrode can be s
 \centering
 \begin{tabular}{cccccc}
 \hline
-Electrode & Type & Wire Diamater & Material & Transparency & Position \\
+Electrode & Type & Diamater & Material & Transparency & Position \\
 \hline
 Top screening & hex meshed & $178\ \mathrm{\mu m}$ & stainless steel & 96.5\% & 63 mm \\
 Anode & hex meshed & $178\ \mathrm{\mu m}$ & stainless steel & 89.8\% & 5 mm \\
@@ -456,7 +474,7 @@ spread over 4.3 m$^2$ of copper with magnitude of over $>3\ \mathrm{kW}$.
 \end{figure}
 
 Previous LXe experiments would fill the detectors by condensing the GXe from storage.  Similarly, recovery was done by allowing the LXe
-in the cryostat to evaporate.  While this was achievable for detectors with $\mathcal{O}(100)\ mathrm{kg}$ of xenon, doing so
+in the cryostat to evaporate.  While this was achievable for detectors with $\mathcal{O}(100)\ \mathrm{kg}$ of xenon, doing so
 (\textbf{maybe it is just for filling, check}) for XENON1T would require approximately two months, and fast recovery in the event of an
 emergency would not be possible.  This is solved through the purification system, which as mentioned in \secref{subsec:xenon1t_pur} can
 pump xenon between systems (\textbf{check with someone about how xenon is recovered}).
@@ -614,7 +632,8 @@ W-collimator and emits MeV neutrons.  Details are discussed in \secref{subsubsec
 
 
 \subsection{Data Acquisition}
-\label{sec:xenon1t_daq}
+\label{subsec:xenon1t_daq}
+
 The data acquisition (DAQ) is on the second floor of the service building.
 
 \begin{figure}
@@ -722,7 +741,7 @@ $164.3\ \mathrm{\mu s}$ so a simple coincidence cut can remove the events.
 
 \ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
 is more likely to bond to the detector wall.  However, \ce{^{220}Rn} is used in calibrations to study the electronic recoil band, which is
-discussed in detail in \secref{subsec:er_nr_calibrations_rn220}.
+discussed in detail in \secref{subsubsec:er_nr_calibrations_parameter_determ_er}.
 
 Both Rn chains have a number of $\alpha$-decays - primarily from Rn and Po isotopes.  These can be useful in studying properties of the
 detector (e.g. the wall charging mentioned in \secref{subsubsec:backgrounds_electronic_kr}) and also monitoring parameters such as
@@ -828,7 +847,7 @@ recoil energies $< 3\ \mathrm{keV}$.  Solar $hep$, atmosphere, and diffuse super
 \figref{fig:backgrounds_nuclear_muon_induced_nr_fate} that neutrinos are the principal source for recoils at $< 3\ \mathrm{keV}$.  The
 number of detected events at $> 1\ \mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
 threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
-to our threshold (${sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
+to our threshold (${\sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
 \secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background due to the inability
 to shield them.
 
@@ -837,7 +856,7 @@ to shield them.
 \section{Detector Characterization}
 \label{sec:det_char}
 Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
-been done with $\mathrm{^{83m}Kr}$, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, Americium beryllium, a neutron generator, and LEDs.
+been done with $\mathrm{^{83m}Kr}$, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, americium beryllium, a neutron generator, and LEDs.
 % look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
 
 
@@ -850,7 +869,8 @@ for all the reasons just mentioned, as well as inevitable - however tiny - diffe
 response for each PMT then is essential for accurately reconstructing the number of photoelectrons and by extension the energy of the
 event.  This is typically done with an LED inside the TPC.  Typically blue light is used since ultraviolet is unavailable, which despite
 being far outside of the 178 nm range ejects a photoelectron some small fraction of the time.  Each time the LED flashes we can record the
-PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{}).  After a large ($\mathcal{O}(10^{5})$)
+PMTs (during normal data taking this requires a pulse larger than some threshold, \secref{subsec:xenon1t_daq}).  After a large
+($\mathcal{O}(10^{5})$)
 number of trials a histogram can be fit to find the SPE gain as shown in \figref{fig:xenon1t_pmt_spe}.  Note that technically the charge
 is plotted but the gain is easily found as $g = \mu_{e} / e$ where $\mu_{e}$ is the mean number of \electron and $e$ is the electron charge.  We
 see a large peak centered at 0 that corresponds to the baseline noise when a photoelectron is not released.  At larger gain a series of
@@ -931,7 +951,7 @@ $z = -10\ \mathrm{cm}$ is restricted to a radius of just 13.6 cm at the liquid s
 $r = 0\ \mathrm{cm}$ of $83.9^{\circ}$.  While the light will be internally reflected and progress towards the bottom array, it is likely
 to be lessened from reflections with the PTFE and extended travel distances as discussed in the previous paragraph. In comparison light
 directed towards the surface from an event 10 cm above the cathode ($r = 0$)
-has $< \theta_c$ everywhere.  Some scintillation that reflects off the PTFE on the way up will rebound off the surface, but its
+has $\theta < \theta_c$ everywhere.  Some scintillation that reflects off the PTFE on the way up will rebound off the surface, but its
 contribution is relatively small.
 
 \begin{figure}
@@ -978,7 +998,7 @@ affect the measured signal so the latter becomes important.
 
 \subsection{S2 Position Correction}
 \label{subsec:det_char_s2_position_correction}
-We must also account for positional variations in S2.  However, because all S2s happen in the GXe an $x-y$ correction is sufficient.  For
+We must also account for positional variations in S2.  However, because all S2s happen in the GXe an $x \mdash y$ correction is sufficient.  For
 this we use the 41.5 keV peak of $\mathrm{^{83m}Kr}$ (the 154 ns half-life of the 9.4 keV decay makes it difficult to separate the two
 S2s).  Most of the light seen by the top array is focused on a small group of PMTs directly over the extraction site, while the light on
 the bottom array is more uniformly spread due to a larger solid angle.
@@ -1012,7 +1032,7 @@ $z = 0$ at gate).  For Science Run 1 (SR1) the drift field $E_d = 81.3\ \mathrm{
 $v_d = 1.332\ \mathrm{mm\ \mu s^{-1}}$ and maximum drift time of $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9 cm at
 $-100^{\circ}\ \mathrm{C}$).
 
-The $x-y$ coordinates are found by applying an algorithm to the intensity each PMT in the top array observed from the S2 (also known as
+The $x \mdash y$ coordinates are found by applying an algorithm to the intensity each PMT in the top array observed from the S2 (also known as
 PMT hit pattern).  For XENON1T two reconstruction algorithms were mainly used.  The first was a neural net using the Fast Artificial
 Neural Network (FANN) library with 24 and 29 nodes in the two hidden layers (sequentially).  The second matches the real hit pattern with
 an expected after weighting four other algorithms for its seed, and is known as top pattern fit (TPF).  Both algorithms were trained on MC
@@ -1032,6 +1052,18 @@ and gate) is marked in black.  The events that appear outside the wall are wall 
 reconstructed.  The events below the cathode result from field inhomogeneities that lead to extended drift times, which is why they
 become more exaggerated towards the bottom corner of the TPC.}
 \label{fig:calibrations_position_reconstruction}
+\end{figure}
+
+An important consideration is how close to the true position do we get when we reconstruct.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{PosRecRes}
+\caption{Position reconstruction resolution for for SR1 as a function of number of electrons and $\mathrm{S2_b}$.  At lower $n_e$ the
+resolution becomes much worse due to the limited S2 scintillation seen by the top PMTs.  At low-energies ($n_e \lesssim 100\ e^-$,
+$\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) the position resolution becomes extremely poor.  Note that this refers only to $x \mdash y$
+((\Delta x^2 + \Delta y^2)^{0.5}), as the drift time should almost always allow precise $z$-reconstruction.}
+\label{fig:calibrations_position_reconstruction_res}
 \end{figure}
 
 
@@ -1126,7 +1158,7 @@ from photoionization of detector metals such as the gate or cathode, photoioniza
 of \electron from the liquid.
 
 The number of photons emitted depends on - among other things - the electric field between the anode and gate $E_g$.  Details of the
-exact relation can be found in \secref{subsec:tpcs_working_principle} and \eqref{eq:electronlum}.  The sagging - although small - of the
+exact relation can be found in \secref{subsec:tpcs_working_principle} and \eqnref{eq:electronlum}.  The sagging - although small - of the
 anode changes $E_g$ slightly along $r$ as mentioned in \secref{subsec:det_char_s2_position_correction} and shown in
 \figref{fig:calibrations_s2_maps} (top).  Additionally the dielectric constant of LXe and GXe are different, so a change in liquid level
 would cause a nonuniform shift in field, so is monitored over the course of data taking.
@@ -1173,7 +1205,7 @@ gain as measured by the bottom PMT array) where $g1$ is the average light collec
 efficiency and $\eta$
 is the \textit{extraction efficiency} - that is, the probability of extracting an \electron from the liquid into the gas.  The average
 gain for an \electron then that escapes recombination is $g2 = \eta G_e$.  If $G_e$ is known
-(\secref{subsec:det_char_single_electron_gain}) there energy of an event is known \eqref{eq:calibrations_s1_s2} has two unknowns:
+(\secref{subsec:det_char_single_electron_gain}) there energy of an event is known \eqnref{eq:calibrations_s1_s2} has two unknowns:
 $g1$ and $\eta$ (or $g2$).  Rearranging gives
 
 \begin{equation}
@@ -1183,9 +1215,7 @@ $g1$ and $\eta$ (or $g2$).  Rearranging gives
 \noindent that shows these can be solved using a linear fit if more than one energies are
 used.  \figref{fig:calibrations_photon_charge_efficiencies_g1_g2} (left) presents this for several lines in our detector during SR1, giving
 $g1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
-($g2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  If we account for the emission of two photoelectrons by
-a single photon with probability $p_{\mathrm{dpe}} = 0.18-0.24$ (\citeref{Faham2015}) the
-photon detection efficiency becomes $g1 = $.  Because $g1$ depends on the PMTs, $\eta$ on the anode-gate electric field, and $G_e$ on
+($g2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g1$ depends on the PMTs, $\eta$ on the anode-gate electric field, and $G_e$ on
 $E_g$, $P$, and distance between the gate and anode they are independent of the drift field.  $g1$ and $g2$ were monitored over the
 course of SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
 were stable.
@@ -1204,7 +1234,7 @@ were stable.
 	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
 \end{figure}
 
-Returning to \eqref{eq:calibrations_s1_s2} we see after solving for $g1/\eta/g2$ we can reconstruct $E$ for any ER event.  The (ER)
+Returning to \eqnref{eq:calibrations_s1_s2} we see after solving for $g1/\eta/g2$ we can reconstruct $E$ for any ER event.  The (ER)
 background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Key peaks are
 labeled with their respective energy and responsible isotope.  We can see that during DM data taking some $\mathrm{^{83m}Kr}$ is present, most
 likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  $\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$ are clearly
@@ -1224,7 +1254,7 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{EnergySpectrum}
-\label{fig:calibrations_photon_charge_efficiencies_ces}
+\label{fig:calibrations_photon_charge_efficiences_ces}
 \end{figure}
 
 \begin{figure}
@@ -1249,7 +1279,7 @@ they allow discrimination between at potential WIMP and ER background.  As menti
 each of which are positioned in the water tank outside the cryostat.
 
 Science Run 1 marks the first time the electronic and nuclear recoil bands were fit simultaneously (for SR0 they were independent).  This
-is significant because shared detector parameters (e.g. $W$, $g1$, $g2$, $p_{\mathrm{dpe}}$, etc.) are constrained to a single value
+is significant because shared detector parameters (e.g. $W$, $g1$, $g2$, LCE, etc.) are constrained to a single value
 across calibrations.  Using the physical processes from the interaction itself to the final values of cS1 and \cstwob in the fit is made
 possible by running on GPUs, which provide a $10^{2 \mdash 3}$ times speed increase.
 
@@ -1287,10 +1317,12 @@ The fits are performed using a Markov Chain Monte Carlo (\citeref{Foreman-Mackey
 \subsection{Parameter Determination}
 \label{subsec:er_nr_calibrations_parameter_determ}
 This approach compares the distribution of Monte Carlo events with the data.  Because of the nearly flat distribution of events at relevant
-energies along with homogenous distribution, Monte Carlo features $E$, $x$, $y$, $z$, for \ce{^{220}Rn} are randomly sampled from a
+energies along with homogenous distribution, Monte Carlo features $E_{\mathrm{true}}$, $x_{\mathrm{true}}$, $y_{\mathrm{true}}$,
+$z_{\mathrm{true}}$, for \ce{^{220}Rn} are randomly sampled from a
 uniform distribution.  \ce{^{241}AmBe} and neutron generator Monte Carlo are generated using GEANT4, and also include the number of
-scatters for each neutron.  The $\beta$ from \ce{^{220}Rn} should not scatter so this is fixed to 1.  These represent the ``truth''
-information - that is, these are the true interaction values.
+scatters for each neutron.  The $\beta$ from \ce{^{220}Rn} should not scatter so this is fixed to 1.  These values represent the ``truth''
+information - that is, these are the true interaction values.  For consistency reconstructed values will still be referred to as $E$, $x$,
+$y$, and $z$.
 
 \figref{fig:er_nr_calibrations_parameter_determ_flow_chart} shows the flow chart for the band matching.  Each Monte Carlo event is run
 through a series of events that mimic the true sequence as closely as possible.  The parameters used in this estimation come from
@@ -1313,14 +1345,15 @@ which can run the events in parallel, providing a boost in speed is $10^{2 \mdas
 reasonable level.
 
 The author will refer to the conversion of truth MC to cS1 and \cstwob as a ``fast MC'' (the parameters used in each event are pulled
-from a random number generator).  ``Truth MC'' will refer to the simulated events before the fast MC (actual $E$, $x$, $y$, $z$, and number
+from a random number generator).  ``Truth MC'' will refer to the simulated events before the fast MC ($E_{\mathrm{true}}$,
+$x_{\mathrm{true}}$, $y_{\mathrm{true}}$, $z_{\mathrm{true}}$, and number
 of scatters as described above).  ``MC'' will denote the sum of all the fast MC components, usually in the form of a PDF (histogram), for
 a single data-MC comparison.  Finally, a Markov Chain Monte Carlo (MCMC) is used to fit the data and Monte Carlo.  The best-fit values
 then are derived from the posterior.  \secref{subsubsec:er_nr_calibrations_parameter_determ_er} (ER) and
 \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} (NR) discusses the physical steps that occur beginning with a single energy
 deposition until final cS1 and $\mathrm{cS2_b}$ (and by extension the operations applied in the fast MC).
 
-The calibrations were fit in the SR0 FV ($-92.9 < z < -9\ mathrm{cm}$, $r < 36.94\ \mathrm{cm}$
+The calibrations were fit in the SR0 FV ($-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$
 \figref{fig:calibrations_position_reconstruction}) despite it being different from SR1.  This was done to minimize wall events as well as
 contamination from materials at the top and bottom of the TPC (mainly PMTs).
 
@@ -1356,10 +1389,10 @@ n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 +
 \noindent where $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ is between 0.06-0.2 and expected to be independent of energy
 (\citeref{NEST2011}).  Next we must consider the recombination fraction $r$ where some \electron will reattach to a \ce{Xe^+} to form
 excitons and upon decay to their ground state emit photons.  $r$ depends on the field in the LXe and the interaction energy, and has
-intrinsic fluctuation $\delta r$ that cannot be ignored (\citeref{LUX2016, Aprile2017e}).  We assume a truncated Gaussian
+intrinsic fluctuation $\Delta r$ that cannot be ignored (\citeref{LUX2016, Aprile2017e}).  We assume a truncated Gaussian
 
 \begin{equation}
-r \sim \mathrm{N} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\delta r)^2 Big)
+r \sim \mathrm{N} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Big)
 \end{equation}
 
 \noindent where $r = 0 \mdash 1$ and is parameterized as a fourth order polynomial with some energy threshold
@@ -1385,7 +1418,7 @@ between 0-30 keV so its truth MC values ($E$, $x$, $y$, and $z$) were each rando
 
 
 
-\begin{Nuclear Recoils}
+\subsubsection{Nuclear Recoils}
 \label{subsubsec:er_nr_calibrations_parameter_determ_nr}
 Two nuclear recoil sources were used for calibrations: americium beryllium (\ambe) and a neutron generator (NG).  \ambe decays to
 \ce{^{237}Np} through $\alpha$-emission where the large \ce{^{9}Be} $\alpha$ cross-section prompts a second decay via
@@ -1417,14 +1450,14 @@ population is produced by tritium via
 
 \begin{equation}
 \begin{aligned}
-\mathrm{^{2}D} + \mathrm{^{2}D} \rightarrow \mathrm{^{3}T} + \mathrm{p} \\
-\mathrm{^{3}T} + \mathrm{^{2}D} \rightarrow \mathrm{^{4}He} + \mathrm{n}
+\mathrm{^{2}D} + \mathrm{^{2}D} &\rightarrow \mathrm{^{3}T} + \mathrm{p} \\
+\mathrm{^{3}T} + \mathrm{^{2}D} &\rightarrow \mathrm{^{4}He} + \mathrm{n}
 \end{aligned}
 \end{equation}
 
 \noindent that expels neutrons at 14.1 MeV.  The contribution of deuterium-tritium fusion was measured to be $3.5 \pm 0.2\%$ before
 installation at LNGS (\citeref{Lang2018}).  Because the tritium is created in deuterium-deuterium fusion and has
-$t_{1/2} = 1.3\ \mathrm{y}$ this fraction is expected to increase with continued use.  For details on the characterization of the NG
+$t_{1/2} = 12.3\ \mathrm{y}$ this fraction is expected to increase with continued use.  For details on the characterization of the NG
 please refer to \citeref{Lang2018}.
 
 The energies and positions for \ambe and the NG are shown in \figref{fig:er_nr_calibrations_parameter_determ_nr_ambe_spectrum}.  The
@@ -1456,13 +1489,13 @@ detector does not vary along $\phi$ so the lopsided position distribution can be
 
 The processes that follow a nuclear recoil differ quite a bit from ER (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  As
 discussed in \secref{sec:nr} a sizable portion of the energy is lost to atomic motion.  To model this we use the Lindhard theory
-as shown in \eqref{eq:er_nr_calibrations_parameter_determ_nr_lindhard}.
+as shown in \eqnref{eq:er_nr_calibrations_parameter_determ_nr_lindhard}.
 
 \begin{equation}
 \begin{aligned}
-\epsilon = 11.5 Big( \frac{E}{\mathrm{keV}} Z^{-7/3} \Big)
-g(\epsilon) = 3 \epsilon^{0.15} + 0.7 \epsilon^{0.6} + \epsilon \\
-L(\epsilon) = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
+\epsilon &= 11.5 \Big( \frac{E}{\mathrm{keV}} \Big) Z^{-7/3} \\
+g( \epsilon ) &= 3 \epsilon ^{0.15} + 0.7 \epsilon ^{0.6} + \epsilon \\
+L( \epsilon ) &= \frac{k g( \epsilon ) }{1 + k g( \epsilon )}
 \label{eq:er_nr_calibrations_parameter_determ_nr_lindhard}
 \end{aligned}
 \end{equation}
@@ -1475,7 +1508,7 @@ n_{\mathrm{q}} \sim P \Big( \mu = \frac{E L}{W} \Big)
 \end{equation}
 
 \noindent that uses a Poisson distribution as an approximation.  In reality the track structure of nuclear recoils makes the true
-distribution more complicated.  From the number of quanta we follow from \eqref{eq:er_nr_calibrations_parameter_determ_er_nions} for
+distribution more complicated.  From the number of quanta we follow from \eqnref{eq:er_nr_calibrations_parameter_determ_er_nions} for
 electronic recoils
 
 \begin{equation}
@@ -1495,22 +1528,22 @@ r = 1 - \frac{\mathrm{ln} (1 + n_{\mathrm{ion}} \varsigma)}{n_{\mathrm{ion}} \va
 \end{equation}
 
 \noindent where $\varsigma$ is field-dependent.  Unlike ER, no recombination fluctuations have been observed for nuclear recoils so
-$\delta r$ is not considered.  We must also consider biexcitonic quenching and the Penning process, both of which decrease
+$\Delta r$ is not considered.  We must also consider biexcitonic quenching and the Penning process, both of which decrease
 $\mathrm{n_{ph}}$.  The former arises when two
 \ce{Xe^{*}} interact to free an $e^-$, which in turn quickly loses its kinetic energy
 and recombines with a \ce{Xe^{+}}.  Thus what would have been two photons instead results in one.  The Penning process describes when
-two excimers interact and result in an excited and ground state (\citref{Mei2008}).  Both of these depend on the exciton density, which
+two excimers interact and result in an excited and ground state (\citeref{Mei2008}).  Both of these depend on the exciton density, which
 is proportional to the ionization density and therefore stopping power $dE / dx$.  Both of these processes result in quenching and can be
-described by Birks' saturation law, shown in \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} (\citeref{Birks1951, Birks1964}).
+described by Birks' saturation law, shown in \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} (\citeref{Birks1951, Birks1964}).
 
 \begin{equation}
 f_l = \frac{1}{1 + k_{B}B \frac{dE}{dx}} = \frac{1}{1 + \eta \epsilon^{\lambda}}
 \label{eq:er_nr_calibrations_parameter_determ_nr_birks}
 \end{equation}
 
-where $k_B$ is Birks' constant (calculated in \citeref{Mei2008} to be $2.015 \times 10^{-3}\ \mathrm{g\ MeV^{-1}\ cm^{-2}}$), $B$ is
-the coefficient to the stopping power, and $\eta$ is defined to be their product.  The total quenching due to biexcitonic quenching and
-the Penning process is then
+\noindent where $k_B$ is Birks' constant (calculated in \citeref{Mei2008} to be $2.015 \times 10^{-3}\ \mathrm{g\ MeV^{-1}\ cm^{-2}}$),
+$B$ is the coefficient to the stopping power, and $\eta$ is defined to be their product.  The total quenching due to biexcitonic quenching
+and the Penning process is then
 
 \begin{equation}
 n_{\mathrm{q}} = B(n = n_{\mathrm{ex}},\ p = f_l)
@@ -1528,7 +1561,7 @@ performed a single fit including all data.
 The model is parameterized by setting
 
 \begin{equation}
-\frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}} = \alpha F_{E}^{\zeta} ( 1 - e^{-\beta \epsilon})
+\frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}} = \alpha F_{E}^{-\zeta} ( 1 - e^{-\beta \epsilon})
 \label{eq:er_nr_calibrations_parameter_determ_nr_nex_nion}
 \end{equation}
 
@@ -1538,25 +1571,25 @@ The model is parameterized by setting
 \end{equation}
 
 \noindent where, to differentiate from energy $E$ and the Fano Factor $F$, the electric field is referred to as $F_E$.  Note that
-from \eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ has a power dependence on $F_E$,
+from \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ has a power dependence on $F_E$,
 which is suspected to be caused by geminate recombination: when electrons and parent ions recombine much more quickly than Thomas-Imel
 recombination.  In addition $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ depends exponentially on energy such that at higher $E$ a larger fraction
 of excitons is favored.
 
-We see in \eqref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} that $\varsigma$ is proportional to a power of $F_E$.  As
+We see in \eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} that $\varsigma$ is proportional to a power of $F_E$.  As
 mentioned in \secref{subsec:recombination} the Thomas-Imel theory predicts
 
 \begin{equation}
-\varsigma = \frac{\alpha^{'}}{4 a^2 u_- F_E}
+\varsigma = \frac{\alpha^{\prime}}{4 a^2 u_- F_E}
 \end{equation}
 
-\noindent where $\alpha^'$ is a recombination coefficient, $a$ is the dimension of the box, and $u_-$ is the electron mobility.  While
-here $\delta = 1$ strictly, Dahl's model predicts $\delta {\sim} 0.1$ (\citeref{Dahl2009}).
+\noindent where $\alpha ^{\prime}$ is a recombination coefficient, $a$ is the dimension of the box, and $u_-$ is the electron mobility.  While
+here $\delta = 1$ strictly, Dahl's model predicts $\delta \sim 0.1$ (\citeref{Dahl2009}).
 
-\citeref{NEST2015} leaves $k$ (\eqref{er_nr_calibrations_parameter_determ_nr_lindhard}), $\eta$ and $\lambda$
-(\eqref{eq:er_nr_calibrations_parameter_determ_nr_birks}), $\alpha$, $\zeta$ and $\beta$
-(\eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion}), and $\gamma$ and $\delta$
-(\eqref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma}) as free parameters to fit.  The results are shown in
+\citeref{NEST2015} leaves $k$ (\eqnref{eq:er_nr_calibrations_parameter_determ_nr_lindhard}), $\eta$ and $\lambda$
+(\eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks}), $\alpha$, $\zeta$ and $\beta$
+(\eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion}), and $\gamma$ and $\delta$
+(\eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma}) as free parameters to fit.  The results are shown in
 \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}.
 
 \bgroup
@@ -1567,14 +1600,14 @@ here $\delta = 1$ strictly, Dahl's model predicts $\delta {\sim} 0.1$ (\citeref{
 \hline
 Parameter & Best Fit & Equation \\
 \hline
-$\alpha$ & $1.240_{-0.073}^{+0.079}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
-$\zeta$ & $4.72_{-0.73}^{+0.88} \times 10^{-2} $ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
-$\beta$ & $239_{-8.8}^{+28}$ \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
-$\gamma$ & $1.385_{-0.073}^{+0.058} \times 10^{-2}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
-$\delta$ & $6.20_{-0.64}^{+0.56} \times 10^{-2}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
-$k$ & $0.1394_{-0.0026}^{+0.0032}$ & \eqref{er_nr_calibrations_parameter_determ_nr_lindhard} \\
-$\eta$ & $3.3_{-0.7}^{+5.3}$ &  \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
-$\lambda$ & $1.14_{-0.09}^{+0.45}$ & \eqref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\alpha$ & $1.240_{-0.073}^{+0.079}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\zeta$ & $4.72_{-0.73}^{+0.88} \times 10^{-2} $ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\beta$ & $239_{-8.8}^{+28}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\gamma$ & $1.385_{-0.073}^{+0.058} \times 10^{-2}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\delta$ & $6.20_{-0.64}^{+0.56} \times 10^{-2}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$k$ & $0.1394_{-0.0026}^{+0.0032}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_lindhard} \\
+$\eta$ & $3.3_{-0.7}^{+5.3}$ &  \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\lambda$ & $1.14_{-0.09}^{+0.45}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
 \hline
 \end{tabular}
 \caption{Best fit values along with 68\% confidence intetervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
@@ -1584,10 +1617,39 @@ charge yields.}
 \egroup
 
 For the SR1 NR fit the values listed in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest} are used as priors.  Each parameter is
-constrained by a gaussian with standard deviation equal to the mean of the $+$ and $-$ uncertainties.  In the future these will be
-constrained by asymmetric gaussians.
+constrained by a gaussian with standard deviation equal to the mean of the $+$ and $-$ uncertainties.\footnote{In the future we will use
+asymmetric gaussians as constraints.}
 
 
+
+\subsubection{Detector Effects}
+\label{subsubsec:er_nr_calibrations_parameter_determ_det_phys}
+Once the physical processes that determine light and charge yield have finished, the properties of our detector drive the following
+processes, converting $n_{\mathrm{ph}} \rightarrow \mathrm{S1}$ and $n_{\mathrm{e}} \rightarrow S2$.  This is in part why the
+characterizations detailed in \secref{sec:det_char} are essential.  Although the \ce{^{220}Rn}, \ce{^{241}AmBe}, and the NG calibrations
+were performed at different times they were fit simultaneously.\footnote{In SR0 \ce{^{220}Rn} and \ambe were fit independently.}  This
+ensures our detector parameters - none of which showed any
+time-variation - have a single posterior.  The only exception is the electron lifetime $\tau_e$ because the purity of the LXe is generally
+changing.
+
+The first effect we must consider is position reconstruction (\secref{subsec:subsec:det_char_position_reconstruction}).  The reason is that
+any position-dependent correction is applied to the position we measure since we cannot know the truth.  The $x \mdash y$ position
+reconstruction resolution ($((x - x_{\mathrm{true}})^2 + (y - y_{\mathrm{true}})^2)^0.5$) is shown in
+\figref{fig:calibrations_position_reconstruction_res}.  The poor resolution at
+$n_e \lesssim 100\ e^-$ ($\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) indicates that in our lowest dark matter energy region events inside
+(outside) the FV will have a reasonable chance of being reconstructed outside (inside) - especially near the boundary.  This will
+ultimately result in fewer events inside the FV.  We can set $z = z_{\mathrm{truth}}$ since $t_d$ allows excellent depth-resolution
+throughout almost the entire TPC - including the FV used in the fit.  Once $x_{\mathrm{truth}} \rightarrow x$ and
+$y_{\mathrm{truth}} \rightarrow y$ the truth values are no longer considered in the fast MC and we use strictly $x$ and $y$.
+
+
+Photons from the interaction site are weighted by the light collection efficiency (LCE) at the reconstructed positions
+(\secref{subsec:det_char_lce}).  Next we must account for the probability of double photoelectron emission (DPE)
+(\secref{subsec:xenon1t_pmts}).  Recall that the probability of DPE for Hamamatsu R11410 PMTs was found to be
+$p_{\mathrm{dpe}} = 0.225 \pm 0.01$ with values ranging from 0.18-0.24 collectively for the different PMT models (\citeref{Faham2015}).
+If we account for the emission of two photoelectrons by
+a single photon with probability $p_{\mathrm{dpe}} = 0.18-0.24$ (\citeref{Faham2015}) the
+photon detection efficiency becomes $g1 = $.
 
 
 
@@ -1610,7 +1672,7 @@ be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is t
 
 Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
 material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
-lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqref{eq:impurity_attach}.
+lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqnref{eq:impurity_attach}.
 
 \begin{equation}
 e^{-} + S \rightarrow S^{-}

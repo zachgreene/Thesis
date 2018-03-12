@@ -172,6 +172,7 @@ incident photons that produce one or more photoelectrons denoted $eta_{\mathrm{p
 
 \begin{equation}
 \eta_{\mathrm{\mu}} = (1 + p_{\mathrm{dpe}}) \eta_{\mathrm{p}}
+\label{eq:xenon1t_pmts_dpe}
 \end{equation}
 
 \noindent and we see that the measured QE alone will be misleading.  For one, it is common to require a PMT coincidence for an event to
@@ -931,8 +932,9 @@ lifetime.
 
 \subsection{Light Collection Efficiency}
 \label{subsec:det_char_lce}
-The light observed by a PMT depends on - among other things - the position of the event.  The light collection efficiency (LCE) - seen
-in \figref{calibrations_lce_lce} - quantifies these differences.  Such position-dependent variations exist simply because the location of
+The light observed by a PMT depends on - among other things - the position of the event.  The light collection efficiency (LCE),
+$c_{\mathrm{lce}}(x, y, z)$ - seen in \figref{calibrations_lce_lce} - quantifies these differences.  Such position-dependent variations
+exist simply because the location of
 the interaction dictates subsequent effects due to detector features and physics.  First, the the solid angle of an event is not uniform
 throughout the detector.  It is greatest near the bottom or top of the TPC at small radii.  The measured strength of the scintillation
 from the S1 depends then on the number of PMTs the light can reach and how far the light must travel to each.  Interactions near the
@@ -1546,7 +1548,7 @@ $B$ is the coefficient to the stopping power, and $\eta$ is defined to be their 
 and the Penning process is then
 
 \begin{equation}
-n_{\mathrm{q}} = B(n = n_{\mathrm{ex}},\ p = f_l)
+n_{\mathrm{q}} = \mathrm{Binom} (n = n_{\mathrm{ex}},\ p = f_l)
 \end{equation}
 
 \noindent reducing $n_{\mathrm{ex}} \rightarrow n_{\mathrm{ex}} - n_{\mathrm{q}} \rightarrow n_{\mathrm{ex}}$.
@@ -1643,13 +1645,88 @@ throughout almost the entire TPC - including the FV used in the fit.  Once $x_{\
 $y_{\mathrm{truth}} \rightarrow y$ the truth values are no longer considered in the fast MC and we use strictly $x$ and $y$.
 
 
-Photons from the interaction site are weighted by the light collection efficiency (LCE) at the reconstructed positions
-(\secref{subsec:det_char_lce}).  Next we must account for the probability of double photoelectron emission (DPE)
-(\secref{subsec:xenon1t_pmts}).  Recall that the probability of DPE for Hamamatsu R11410 PMTs was found to be
-$p_{\mathrm{dpe}} = 0.225 \pm 0.01$ with values ranging from 0.18-0.24 collectively for the different PMT models (\citeref{Faham2015}).
-If we account for the emission of two photoelectrons by
-a single photon with probability $p_{\mathrm{dpe}} = 0.18-0.24$ (\citeref{Faham2015}) the
-photon detection efficiency becomes $g1 = $.
+The number of photons from the interaction site that produce one or more photoelectrons is dependent on two effects.  The first is
+the position-dependent light collection efficiency (LCE), which accounts for detector effects (e.g. $<100\%$ PTFE reflectivity,
+absorption of
+scintillation due to impurities in LXe) that influence the amount of light that reaches the PMTs, denoted $c_{\mathrm{lce}}(x, y, z)$
+(\secref{subsec:det_char_lce}).  The second is the probability of double photon emission (DPE) $p_{\mathrm{dpe}}$, which was found
+to be much higher than originally thought, ranging from 0.18-0.24 for the various PMTs tested by \citeref{Faham2015} and $0.225 \pm 0.01$
+for the Hamamatsu R11410 model.  The parameter of interest then is not the quantum efficiency $\eta_{\mathrm{\mu}}$ but rather the
+fraction of incident photons that generate at least one PE $\eta_{\mathrm{p}}$.  As shown in \eqref{eq:xenon1t_pmts_dpe}
+$\eta_{\mathrm{\mu}} / \eta_{\mathrm{p}} = 1 + p_{\mathrm{dpe}}$.  Accounting for both of these effects the number of photons that
+generate $\geq 1\ \mathrm{PE}$ is shown in \eqref{eq:er_nr_calibrations_parameter_determ_det_phys_npe}.
+
+\begin{equation}
+n_{\mathrm{p}} = \mathrm{Binom} \bigg( n = n_{\mathrm{ph}},\ p = \frac{g1 c_{\mathrm{lce}}(x, y, z)}{1 + p_{\mathrm{dpe}}} \bigg)
+\label{eq:er_nr_calibrations_parameter_determ_det_phys_npe}
+\end{equation}
+
+To calculate the total number of photons that produce DPE we
+
+\begin{equation}
+\begin{aligned}
+n_{\mathrm{dpe}} &= \mathrm{Binom} (n = n_{\mathrm{p}},\ p = p_{\mathrm{dpe}} ) \\
+n_{\mathrm{pe}} &= n_{\mathrm{p}} + n_{\mathrm{dpe}}
+\end{aligned}
+\end{equation}
+
+\noindent where $n_{\mathrm{pe}}$ is the total number of photoelectrons.
+
+The signals from the PMTs are then fed into and recorded by the DAQ (\secref{subsec:xenon1t_daq}), which introduces three effects:
+efficiency, bias, and smearing - all of which are most influential at lower photon counts.  The efficiency is the probability that the
+signal will be recognized and reconstructed as an S1 by the
+classification algorithm.  We require a 3-PMT coincidence - otherwise it is discarded.  Even if it meets this requirement, the processor
+may not identify that there is a signal at low photon count.  This processor efficiency is difficult to model using data since it is
+not plausible to know when a possible signal was not found.  Instead we use simulated waveforms and pass them through the processor.  The
+waveforms are made with DAQ conditions that have been measured to replicate real waveforms as well as possible.  Although its performance
+may not be as good as using real data, its accuracy is expected to be sufficient.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ProcessorEfficiency}
+\label{fig:er_nr_calibrations_parameter_determ_det_phys_proc_eff}
+\end{figure}
+
+Bias and smearing refer to the change in area of the scintillation due to PMT and processor effects.  As with the efficiency, it is
+difficult to measure directly from data since the true area is not known beforehand.  By using waveform simulations however, we can input
+the truth and compare with the post-processed value.  The bias and smearing for S1s is shown in the left panel of
+\figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}, where both are defined as
+$(\mathrm{processed} - \mathrm{truth}) / \mathrm{truth}$.  We fit slices in S1 of the bias with a gaussian, taking the mean to be the bias
+$\mu_b$ and standard deviation to be the smearing $\sigma_s$ for each bin.  This is applied in the fast MC via
+\eqref{eq:er_nr_calibrations_parameter_determ_det_phys_bias_smear}.
+
+\begin{equation}
+\mathrm{S1} = n_{\mathrm{pe}} (1 + \mathrm{N}(\mu = \mu_b,\ \sigma^2 = \sigma_s^2))
+\label{eq:er_nr_calibrations_parameter_determ_det_phys_bias_smear}
+\end{equation}
+
+Because multiple scatters happen so close in time the S1s are typically not resolvable.  Thus in our fast MC all S1s are summed, though
+this only affects \ambe and NG data (\betadecay of \ce{^{212}Pb} should not scatter).  Finally, we use the LCE map
+
+\begin{equation}
+\mathrm{cS1} = \frac{\mathrm{S1}}{c_{\mathrm{lce}}(x, y, z)}
+\label{eq:er_nr_calibrations_parameter_determ_det_phys_cs1}
+\end{equation}
+
+\noindent to obtain the corrected S1.  In the case of multiple scatters the S1 will be corrected by a single $c_{\mathrm{lce}}(x, y, z)$
+(with $x, y, z$ calculated from the S2, \secref{subsec:det_char_position_reconstruction}) when in reality the various interactions have
+likely occurred in different regions of the detector.  The cS1 then is not fully representative of the total light yield.  To be
+consistent we apply an identical correction in the fast MC, so (assuming our GEANT4 MC is sufficiently valid) this does not impact our
+results.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{S1BiasSmearing}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{S2BiasSmearing}
+    \end{subfigure}
+    \caption{}
+	\label{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}
+\end{figure}
 
 
 

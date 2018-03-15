@@ -1410,8 +1410,9 @@ r \sim \mathrm{N} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Big)
 
 \noindent where $r = 0 \mdash 1$ and is parameterized as a fourth order polynomial with some energy threshold
 $E_{\mathrm{thresh}}$ such that if $E < E_{\mathrm{thresh}},\ r = 0$.  Recombination fluctuations are defined as
-$\delta r = A(1 - e^{-E/B})$.  All eight parameters (five from polynomial, one from $E_{\mathrm{thresh}}$, two from $\delta r$) are allowed
-to vary freely (with no penalty term in likelihood) though $A,B > 0$.  The number of electron-ion pairs that recombine is
+$\Delta r = A(1 - e^{-E/B})$.  All eight parameters (five from polynomial, one from $E_{\mathrm{thresh}}$, two from $\Delta r$) are allowed
+to vary freely (with no penalty term in likelihood) though $A,B > 0$.  Additional restrictions $0 \geq r,\ \Delta r \geq 1$ and
+are applied.  The number of electron-ion pairs that recombine is
 
 \begin{equation}
 n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
@@ -1421,7 +1422,7 @@ n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
 
 \begin{equation}
 \begin{aligned}
-n_{\mathrm{ph}} = n_{\mathrm{ex}} + r n_{\mathrm{rec}} \\
+n_{\mathrm{ph}} = n_{\mathrm{ex}} + r\, n_{\mathrm{rec}} \\
 n_{\mathrm{e}} = (1 - r) n_{\mathrm{rec}}
 \end{aligned}
 \end{equation}
@@ -1698,14 +1699,14 @@ may not be as good as using real data, its accuracy is expected to be sufficient
 
 Bias and smearing refer to the change in area of the scintillation due to PMT and processor effects.  As with the efficiency, it is
 difficult to measure directly from data since the true area is not known beforehand.  By using waveform simulations however, we can input
-the truth and compare with the post-processed value.  The bias and smearing for S1s is shown in the left panel of
-\figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}, where both are defined as
-$(\mathrm{processed} - \mathrm{truth}) / \mathrm{truth}$.  We fit slices in S1 of the bias with a gaussian, taking the mean to be the bias
-$\mu_{b}^{\mathrm{S1}}$ and standard deviation to be the smearing $\sigma_{s}^{\mathrm{S1}}$ for each bin.  This is applied in the fast MC via
-\eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear}.
+the truth and compare with the post-processed value.  We fit slices in S1 of the resulting distribution with a gaussian, taking the mean
+as the bias $\mu_{b}^{\mathrm{S1}}$ and standard deviation as the smearing $\sigma_{b}^{\mathrm{S1}}$ for each bin.  Both are defined
+as $(\mathrm{processed} - \mathrm{truth}) / \mathrm{truth}$ and can be seen in the left panel of
+\figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}.  They are constrained to the shaded regions and applied in
+the fast MC via \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear}.
 
 \begin{equation}
-\mathrm{S1} = n_{\mathrm{pe,S1}} \Big( 1 + \mathrm{N} \big( \mu = \mu_{b}^{\mathrm{S1}},\ \sigma^2 = (\sigma_{s}^{\mathrm{S1}})^2 \big)
+\mathrm{S1} = n_{\mathrm{pe,S1}} \Big( 1 + \mathrm{N} \big( \mu = \mu_{b}^{\mathrm{S1}},\ \sigma^2 = (\sigma_{b}^{\mathrm{S1}})^2 \big)
 \Big)
 \label{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear}
 \end{equation}
@@ -1758,12 +1759,14 @@ The electron lifetime used is randomly selected from the collection of lifetimes
 systematic error in measured lifetimes \eqnref{eq:det_char_elifetime} with a normal distribution
 
 \begin{equation}
-\tau_{e}^{\mathrm{true}} = \tau_{e}^{\mathrm{rec}} \bigg( 1 + \mathrm{N} \big( \mu = \tau_{e}^{\mathrm{rec}},\ \sigma^2 = 0.02^2 \big)
+\tau_{e}^{\mathrm{true}} = \tau_{e}^{\mathrm{rec}} \bigg( 1 + \mathrm{N} \big( \mu = \tau_{e}^{\mathrm{rec}},\ \sigma^2 = \sigma_{e}^2
+\big)
 \bigg)
 \end{equation}
 
 \noindent where $\tau_{e}^{mathrm{rec}}$ and $\tau_{e}^{\mathrm{true}}$ refer to the reconstructed (measured) and true electron
-lifetimes.  The true and reconstructed electron loss probabilities are given in
+lifetimes, and $\sigma_e = 0.02$ is the uncertainty on $\tau_{e}^{\mathrm{rec}}$.  The true and reconstructed electron loss probabilities
+are given in
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}.  We can find the number of \electron that survive to the surface
 $n_{\mathrm{surv}}$ using \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_drift_electrons} where $p_{\mathrm{wall}}$ refers to
 the probability an \electron attaches to the wall; however, because is only relevant in the $1 \mdash 2\ \mathrm{cm}$ nearest to the wall
@@ -1812,20 +1815,21 @@ n_{\mathrm{pe,S2_b}} =  \mathrm{N} \bigg( \mu = n_{\mathrm{extr}} G(x, y),\
 to a lesser degree.  Using the same assumptions we find
 
 \begin{equation}
-\mathrm{S2_b} = n_{\mathrm{pe,S2_b}} \Big( 1 + \mathrm{N}(\mu = \mu_{b}^{\mathrm{S2_b}},\ \sigma^2 = (\sigma_{s}^{\mathrm{S2_b}})^2) \Big)
+\mathrm{S2_b} = n_{\mathrm{pe,S2_b}} \Big( 1 + \mathrm{N}(\mu = \mu_{b}^{\mathrm{S2_b}},\ \sigma^2 = (\sigma_{b}^{\mathrm{S2_b}})^2) \Big)
 \label{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear}
 \end{equation}
 
-\noindent where $\mu_{b}^{\mathrm{S2_b}}$ and $\sigma_{s}^{\mathrm{S2_b}}$ are the \stwob bias and smearing,
+\noindent where $\mu_{b}^{\mathrm{S2_b}}$ and $\sigma_{b}^{\mathrm{S2_b}}$ are the \stwob bias and smearing,
 respectively.  In practice \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_gg,
 eq:er_nr_calibrations_parameter_determ_det_phys_s2_num_pe, eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} are be applied
 for the total S2 - however, the fast MC this is treated
 slightly differently.  After \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_num_pe} we calculate
 $\mathrm{S2} = \mathrm{S2_b} / (1 - f_{\mathrm{aft}})$ where $f_{\mathrm{aft}} = 0.627$ (fixed) is the fraction of a standard S2 that
 is observed by the top PMT array.  Bias and smearing are subsequently accounted for, though while in reality the total bias and smearing
-may differ from that of just the bottom, to save memory we apply $\mu_{b}^{\mathrm{S2_b}}$ and $\sigma_{s}^{\mathrm{S2_b}}$.  Any
-difference is too small to be relevant and can be disregarded.  $\mu_{b}^{\mathrm{S2_b}}$ and $\sigma_{s}^{\mathrm{S2_b}}$ are shown in
-the right panel of \figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}.
+may differ from that of just the bottom, to save memory we apply $\mu_{b}^{\mathrm{S2_b}}$ and $\sigma_{b}^{\mathrm{S2_b}}$.  Any
+difference is too small to be relevant and can be disregarded.  $\mu_{b}^{\mathrm{S2_b}}$ and $\sigma_{b}^{\mathrm{S2_b}}$ are shown in
+the right panel of \figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear} and as with the S1, are constrained to the
+shaded regions.
 
 Lastly we apply the electron lifetime and S2 position correction find the corrected S2.
 
@@ -1857,22 +1861,87 @@ Each parameter is
 constrained by a gaussian with standard deviation equal to the mean of the $+$ and $-$ uncertainties.\footnote{In the future we will use
 asymmetric gaussians as constraints.}
 
+
+
+\subsubsection{Monte Carlo Matching}
+\label{subsubsec:er_nr_calibrations_parameter_determ_mc_match}
+With the fast Monte Carlo complete we can input any truth MC ($E_{\mathrm{true}}$, $x_{\mathrm{true}}$, $y_{\mathrm{true}}$,
+$z_{\mathrm{true}}$, and number of scatters) and obtain the corresponding cS1 and \cstwob distributions.  However, simply doing this with
+the initial parameter values is not sufficient since we are interested in the best-fit data-Monte Carlo comparison.
+
+To do so use we a binned likelihood approach using Bayesian analysis.  The fast MC events (typically run $\mathcal(O)(10^6)$) and data are
+each binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$ histograms.  The likelihood between equivalent bins \li is computed as
+
+\begin{equation}
+\begin{aligned}
+\mathcal{L}_i &=\frac{\hat{b}_{i}^{b_i} e^{-\hat{b}_{i}}}{b_{i}!} \\
+\mathcal{L} &= \prod_i \mathcal{L}_i \\
+\mathrm{ln}\, \mathcal{L} &= \sum_i \mathrm{ln}\, \mathcal{L}_i = \sum_i b_i\, \mathrm{ln} (\hat{b}_i) - \hat{b}_i - \mathrm{ln} (b_i !)
+\end{aligned}
+\end{equation}
+
+\noindent where \bhi and $b_i$ is are the expected and true number of events in a bin, respectively.  The parameters responsible
+for the fast Monte Carlo ($\hat{b}_i$) were detailed earlier in this section and are listed in
+\tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.  As discussed, each parameter is constrained by our understanding before
+the fit using a prior distribution.  For the cases where we expect the error to be either negligible or contained in a dependent parameter
+we fix the prior.  In instances where we have good knowledge of a component's uncertainty (e.g. $W$, $g_1$, $g_{2b}$ etc.) we use a normal
+distribution.  Parameters for which a range of possible values is known (e.g. $n_{\mathrm{ex}} / n_{\mathrm{ion}}$, $p_{\mathrm{dpe}}$,
+bias and smearing, etc.) are restricted to within these bounds.  Finally, in cases where there is very little knowledge the priors
+are left free - though this is only applied to the eight electronic recoil recombination parameters: five in the fourth order polynomial
+plus the energy threshold $E_{\mathrm{thresh}}$, and the two describing recombination fluctuations (these final two must be
+$> 0$) - however, conditions are applied such that $0 \geq r \geq 1$ and $0 \geq \Delta r \geq 1$
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  Applying more stringent constraints on well-known parameters provides us
+with information on those that are less understood.
+
+The objective in Bayesian analysis is to have a posterior distribution of the parameters based on the data in Bayes' formula
+
+\begin{equation}
+p(\overrightarrow{theta}|\overrightarrow{x}) = \frac{p(\overrightarrow{x}|\overrightarrow{\theta})
+p(\overrightarrow{\theta})}{p(\overrightarrow{x})} = \frac{\mathcal{L}(\overrightarrow{\theta})
+p(\overrightarrow{\theta})}{p(\overrightarrow{x})}
+\end{equation}
+
+\noindent where $p(\overrightarrow{x}|\overrightarrow{\theta})$ is the probability of the data $\overrightarrow{x}$ given the parameters
+$\overrightarrow{\theta}$, and equivalent to the likelihood.  $p(\overrightarrow{\theta})$ estimates the probability of the
+model before data, and is also known as the \textit{prior probability}.  $p(\rightarrow{x})$ is known as the \textit{marginal likelihood}
+and can be computed using \eqnref{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}.  Because it does not depend on
+$\overrightarrow{\theta}$ it is model-independent and does not contribute to determine the relative probability between different
+hypotheses.
+
+\begin{equation}
+p(\overrightarrow{x}) = \int_{\Theta} p(\overrightarrow{x}|\overrightarrow{\theta})\, d\overrightarrow{\theta}
+\label{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}
+\end{equation}
+
 \bgroup
 \def\arraystretch{1.2}
 \begin{table}
 \centering
-\begin{tabular}{ccccc}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{cccccc}
 \hline
-Parameter & Initial & Prior & Posterior & Units & Note \\
+Parameter & Value & Prior Distribution & Posterior & Units & Note \\
 \hline
 $F$ & $0.0059$ & fixed & $-$ &  & Fano factor \\
 $\eta$ & $0.933$ & fixed & $-$ &  & extraction efficiency \\
 $\sigma_G$ & $0.250$ & fixed &  & $-$ & gas gain resolution \\
 $v_d$ & $0.134$ & fixed & $-$ & $\mathrm{mm\ \mu s^{-1}}$ & drift velocity \\
 $f_{\mathrm{aft}}$ & $0.627$ & fixed & $-$ &  & \\
-$F_{\mathrm{E}}$ & $82$ & fixed & $-$ & $\mathrm{kV\ cm^{-1}$ & \\
+$F_{\mathrm{E}}$ & $82$ & fixed & $-$ & $\mathrm{kV\ cm^{-1}}$ & \\
 $W$ & $\mu = 0.0137,\ \sigma = 0.0002$ & norm &  & keV & \\
 $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & $[0.06,0.2]$ & uniform &  &  & \\
+$g_1$ & $\mu = 0.1424,\ \sigma = 0.0062$ & Normal &  & PE/ph & \\
+$g_{2b}$ & $\mu = 11.44,\ \sigma = 0.2$ & Normal &  & $\mathrm{PE} / e^-$ & \\
+Processor Efficiency & $[0, 1]$ & Normal &  &  & \\
+S1 Cut Acceptance & $[0, 1]$ & Normal &  &  & \\
+S2 Cut Acceptance & $[0, 1]$ & Normal &  &  & \\
+Multiscatter Cut & $[0, 1]$ &  &  &  & \\
+$p_{\mathrm{dpe}}$ & $[0.18, 0.24]$ & uniform &  &  & \\
+$\mu_{b}^{\mathrm{S1}}$ & $[0, 1]$ & uniform &  &  & \\
+$\sigma_{b}^{\mathrm{S1}}$ & $[0, 1]$ & uniform &  &  & \\
+$\mu_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  &  & \\
+$\sigma_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  &  & \\
+$\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & norm &  &  & \\
 $\alpha$ & $\mu = 1.240,\ \sigma = 0.079$ & norm &  &  & NR light and charge yield \\
 $\zeta$ & $\mu = 0.0472,\ \sigma = 0.0088$ & norm &  &  & NR light and charge yield \\
 $\beta$ & $\mu = 239,\ \sigma = 28$ & norm &  &  & NR light and charge yield \\
@@ -1883,9 +1952,10 @@ $\eta$ & $\mu = 3.3,\ \sigma = 0.7$ & norm &  &  & NR light and charge yield \\
 $\lambda$ & $\mu = 1.14,\ \sigma = 0.45$ & norm &  &  & NR light and charge yield \\
 \hline
 \end{tabular}
+}
 \caption{Best fit values along with 68\% confidence intetervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
 charge yields.}
-\label{tab:er_nr_calibrations_parameter_determ_nr_nest}
+\label{tab:er_nr_calibrations_parameter_determ_mc_match}
 \end{table}
 \egroup
 

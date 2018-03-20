@@ -634,8 +634,22 @@ W-collimator and emits MeV neutrons.  Details are discussed in \secref{subsubsec
 
 \subsection{Data Acquisition}
 \label{subsec:xenon1t_daq}
+The data acquisition (DAQ) is in a temperature-controlled room on the second floor of the service building.  It can record the TPC and
+muon veto PMTs either independently or simultaneously.  The signals from the TPC first pass through Phillips Scientific 776 amplifiers
+where they undergo 10-fold amplitude increase.  They, along with the muon veto signals, are then digitized via 100 MHz CAEN V1724 flash
+ADC boards (32 in total) that have 40 MHz bandwith, 14 bit resolution, and 2.25 V or 0.5 V, respectively.  A single independent clock
+connects to each ADC to ensure they are properly aligned and a 0.1 Hz synchronization signal is passed from a custom-developed GPS-synched
+module.
 
-The data acquisition (DAQ) is on the second floor of the service building.
+The TPC DAQ reads every pulse $> 0.3\ \mathrm{PE}$ from each PMT independently and regardless of any signal from other
+channels.  The read-outs of the ADC boards are passed to six computers at up to $300\ \mathrm{MB\ s^{-1}$ (${\sim}100\ \mathrm{Hz}$) and
+are stored - along with relevant information such as time and channel - in a MongoDB database.  The sum of the bottom PMTs along with veto
+and busy information is constantly read by a separate computer to determine the deadtime.
+
+A software eventbuilder on three server-grade machines decides if an interaction has occurred in real-time by examining the
+time-clustering of PMT signals, and opts whether or not to trigger.  Metadata from the trigger decision is recorded and can be monitored
+online to check performance or offline for analysis.  At larger than 200 PE (${\sim}7\ e^-$) the trigger efficiency is $> 99\%$.  The muon
+veto uses a simple coincidence trigger that is directed by a CAEN V1495 VME unit.
 
 \begin{figure}
 \centering
@@ -1893,7 +1907,7 @@ $> 0$) - however, conditions are applied such that $0 \geq r \geq 1$ and $0 \geq
 (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  Applying more stringent constraints on well-known parameters provides us
 with information on those that are less understood.
 
-The objective in Bayesian analysis is to have a posterior distribution of the parameters based on the data in Bayes' formula
+The objective in Bayesian analysis is to have a posterior density of the parameters based on the data in Bayes' formula
 
 \begin{equation}
 p(\overrightarrow{theta}|\overrightarrow{x}) = \frac{p(\overrightarrow{x}|\overrightarrow{\theta})
@@ -1901,17 +1915,87 @@ p(\overrightarrow{\theta})}{p(\overrightarrow{x})} = \frac{\mathcal{L}(\overrigh
 p(\overrightarrow{\theta})}{p(\overrightarrow{x})}
 \end{equation}
 
-\noindent where $p(\overrightarrow{x}|\overrightarrow{\theta})$ is the probability of the data $\overrightarrow{x}$ given the parameters
-$\overrightarrow{\theta}$, and equivalent to the likelihood.  $p(\overrightarrow{\theta})$ estimates the probability of the
+\noindent where $p(\overrightarrow{\theta}|\overrightarrow{x})$ is the probability of the parameters $\overrightarrow{\theta}$ given the
+data $\overrightarrow{x}$ and is known as the posterior probability density, or target
+density.  $p(\overrightarrow{x}|\overrightarrow{\theta})$ is the probability of the data $\overrightarrow{x}$ given the parameters
+$\overrightarrow{\theta}$.  It is equivalent to the likelihood.  $p(\overrightarrow{\theta})$ estimates the probability of the
 model before data, and is also known as the \textit{prior probability}.  $p(\rightarrow{x})$ is known as the \textit{marginal likelihood}
 and can be computed using \eqnref{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}.  Because it does not depend on
-$\overrightarrow{\theta}$ it is model-independent and does not contribute to determine the relative probability between different
+$\overrightarrow{\theta}$ it is model-independent and does not contribute to the relative probability between different
 hypotheses.
 
 \begin{equation}
 p(\overrightarrow{x}) = \int_{\Theta} p(\overrightarrow{x}|\overrightarrow{\theta})\, d\overrightarrow{\theta}
 \label{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}
 \end{equation}
+
+Unfortunately $p(\overrightarrow{x})$ is not calculable for nearly all models, including those of interest to
+us.  \secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc} discusses a solution that allows us to estimate the posterior without
+needing to consider the marginal likelihood.
+
+
+
+\subsubsection{Markov Chain Monte Carlo}
+\label{subsubsec:er_nr_calibrations_parameter_determ_mcmc}
+To estimate the values of parameters $\overrightarrow{\theta}$ that are best fit by $\overrightarrow{x}$ we employ a Markov Chain
+Monte Carlo (MCMC).  MCMCs give complete knowledge of the full posterior probability distribution, making them a desired algorithm in
+general.  They have become increasingly popular in recent years as advances in MCMC methods and computer processing speed have made them a
+powerful tool that can be run in a reasonable timescale.  The steps of a Metroplis-Hastings - the most commonly used MCMC - are outlined
+below (\citeref{Chib1995}).
+
+\begin{enumerate}
+\item For each iteration the parameters are in some state $\overrightarrow{\theta}_i$.  For the first iteration the parameters are set
+in some state that are initialized in a manner determined by the user (we randomly sample from $p(\overrightarrow{\theta})$).  The
+likelihood function $g_t = \mathcal{L}(\overrightarrow{\theta}_t) p(\overrightarrow{\theta}_t)$ is calculated.
+\item Look at a new set of randomly proposed parameters $\overrightarrow{\theta}_{p}$ and calculate 
+$g_p = \mathcal{L}(\overrightarrow{\theta}_p) p(\overrightarrow{\theta}_p)$.
+\item Let $\mathcal{F} \def \frac{g_p}{g_t}$ and set $\overrightarrow{\theta}_{t+1} = \overrightarrow{\theta}_p$ when
+$\mathcal{F} \geq 1$ - otherwise move with probability $\mathcal{F}$.  If the proposed step is not taken simply set
+$\overrightarrow{\theta}_{t+1} = \overrightarrow{\theta}_t$.
+\item Record $\overrightarrow{\theta}_{t+1}$ and repeat.
+\end{enumerate}
+
+Here $\mathcal{F}$ is known as the acceptance fraction.  There is no consensus on an optimal acceptance fraction.  $\mathcal{F} {\sim} 0$
+would mean nearly all steps are rejected so there would be few independent samples and the target density would be poorly
+explored.  Meanwhile $\mathcal{F} {\sim} 1$ means nearly every proposal is accepted in which case the chain is in a random walk with
+little regard for the posterior.  A reasonable range is considered $0.2 \mdash 0.5$.  Note that the issue of calculating the marginal
+likelihood as discussed in
+\secref{subsubsec:er_nr_calibrations_parameter_determ_mc_match} is no longer a concern as it is not considered when assessing
+$\mathcal{F}$.  As the routine continues it will randomly sample the posterior distribution, though the proof is outside the scope of this
+work.  We find that
+
+\begin{equation}
+\mathcal{F} = \frac{g_p}{g_t} = \frac{\mathcal{L}(\overrightarrow{\theta}_p) p(\overrightarrow{\theta}_p)}
+{\mathcal{L}(\overrightarrow{\theta}_t) p(\overrightarrow{\theta}_t)} = 
+\frac{\frac{\mathcal{L}(\overrightarrow{\theta}_p) p(\overrightarrow{\theta}_p)}{p(\overrightarrow{x})}}
+{\frac{\mathcal{L}(\overrightarrow{\theta}_t) p(\overrightarrow{\theta}_t)}{p(\overrightarrow{x})}} =
+\frac{p(\overrightarrow{theta_p}|\overrightarrow{x})}{p(\overrightarrow{theta_t}|\overrightarrow{x})}
+\label{eq:er_nr_calibrations_parameter_determ_mcmc_acc_ratio}
+\end{equation}
+
+\noindent so $\mathcal{F}$ is just the ratio of the posterior probability distributions.  Note the nonzero probability of accepting the
+proposed parameters when $g_p < g_t$ means we do not only move towards better positions in the posterior distribution.
+
+For this analysis we use the affine-invariant ensemble sampler outlined in \citeref{Foreman2013}.  This algorithm has a couple
+distinctions from the procedure outlined above.  The first is there is an ensemble of $k$ \textit{walkers} that are simultaneously
+evolving.  On each iteration the proposal for
+each walker comes from the distribution of the complementary $k - 1$ walkers.  A walker with parameters $\overrightarrow{\theta}_{t}^i$
+is updated by randomly selecting an ensemble walker $\overrightarrow{\theta}_{t}^j$ such that $i \neq j$ and proposing
+
+\begin{equation}
+\overrightarrow{\theta}_{p}^{i} = \overrightarrow{\theta}_{t}^{i} + z(\overrightarrow{\theta}_{t}^{j} - \overrightarrow{\theta}_{t}^{i})
+\end{equation}
+
+\noindent where $z$ is randomly drawn from some predetermined distribution $g(z)$.  Changing $g(z)$ can increase or decrease
+$\mathcal{F}$.  The integration increases the efficiency with which the walkers explore the parameter space since each proposal is more
+intelligently selected than simply choosing a random $\overrightarrow{\theta}_p$.
+
+An MCMC is guaranteed to converge as $t \rightarrow \inf$.  However, with a finite number of samples we can test for convergence, though
+it should be made clear that convergence cannot actually be proved.  One such test is the autocorrelation time, which measures the numbe
+of evaluations to produce independent samples of the target density and is recommended by \citeref{Foreman2013}.  The affine-invariant
+implementation has a smaller autocorrelation time, an advantage over Metropolis-Hastings.  A second metric and the one that was used in
+our analysis is the Gelman-Rubin statistic (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
+between chains, with the idea roughly being the two should be nearly equivalent when the fit has converged.
 
 \bgroup
 \def\arraystretch{1.2}

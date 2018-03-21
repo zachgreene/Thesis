@@ -568,6 +568,11 @@ $g_1$, $g_2$, electronic and nuclear recoil bands, and many more.  Depending on 
 outside (external).  Here I cover the different calibrations and the purposes they serve; additional details and results are in
 \secref{sec:det_char}.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Panoramic}
+\label{fig:xenon1t_panoramic}
+\end{figure}
 
 \subsubsection{Internal}
 \label{subsubsec:xenon1t_calibrations_internal}
@@ -644,23 +649,22 @@ module.
 The TPC DAQ reads every pulse $> 0.3\ \mathrm{PE}$ from each PMT independently and regardless of any signal from other
 channels.  The read-outs of the ADC boards are passed to six computers at up to $300\ \mathrm{MB\ s^{-1}$ (${\sim}100\ \mathrm{Hz}$) and
 are stored - along with relevant information such as time and channel - in a MongoDB database.  The sum of the bottom PMTs along with veto
-and busy information is constantly read by a separate computer to determine the deadtime.
+and busy information is constantly read by a separate computer to determine the deadtime.  The DAQ continuously monitors data quality
+parameters such as baseline, trigger, and noise.
 
 A software eventbuilder on three server-grade machines decides if an interaction has occurred in real-time by examining the
 time-clustering of PMT signals, and opts whether or not to trigger.  Metadata from the trigger decision is recorded and can be monitored
 online to check performance or offline for analysis.  At larger than 200 PE (${\sim}7\ e^-$) the trigger efficiency is $> 99\%$.  The muon
 veto uses a simple coincidence trigger that is directed by a CAEN V1495 VME unit.
 
+Two 10 Gbps fibers transfer the raw data to buffer-storage at LNGS for temporarily housing.  The raw data is then moved to the US Open
+Science Grid and European Grid Infrastructure for processing and backed up in Stockholm.  \figref{fig:xenon1t_daq_schematic} shows an
+overview of the DAQ system.
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{DAQ}
 \label{fig:xenon1t_daq_schematic}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Panoramic}
-\label{fig:xenon1t_panoramic}
 \end{figure}
 
 
@@ -737,7 +741,20 @@ measurements show that $\mathrm{^{85}Kr / ^{nat}Kr} = 2 \times 10^{-11}$ (\citer
 contamination threaten WIMP DM searches, especially if \ce{^{nat}Kr}/\ce{Xe} is left at the ppm to ppb level.  As discussed in
 \secref{subsec:xenon1t_kr_dist} a krypton distillation column was installed in the service building and connected to the cryostat through
 the purification system.  In the first science run a level of $0.36 \pm 0.06\ \mathrm{ppt}$ was reached, corresponding to a rate of
-around 50 low-energy electronic recoils per year in a FV of 1 ton.
+around 50 low-energy electronic recoils per year in a FV of 1 ton.  In Science Run 1 a $\mathrm{^{nat}Kr / Xe}$ increase of
+$0.788_{-0.023}^{+0.024}\ \mathrm{ppt\ y^{-1}}$ was observed from February to July, 2017, as shown in
+\figref{fig:backgrounds_electronic_krypton_rate_increase}.  The rise suggests that a small leak may be present, which is further supported
+by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the drop in September does not follow
+the trend.  While it is of course possible that no leak was present, it is worth mentioning that the filament at RGMS was replaced between
+the July and September measurements.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{KrRateIncrease}
+\label{fig:backgrounds_electronic_krypton_rate_increase}
+\caption{$\mathrm{^{nat}Kr}$ concentration during Science Run 1.  An increase of $0.788_{-0.023}^{+0.024}\ \mathrm{ppt\ y^{-1}}$ is
+observed at the beginning of the run, though later measurements show a stabilization.}
+\end{figure}
 
 \subsubsection{\ce{^{222}Rn}}
 \label{subsubsec:backgrounds_electronic_radon}
@@ -1104,12 +1121,14 @@ q(t_d) = q_0 e^{-t_d / \tau_e}
 \label{eq:det_char_elifetime}
 \end{equation}
 
-where $q_0$ is the charge that escapes recombination.  Calibrations with mono-energetic interactions are an excellent method of
-measuring $\tau_e$.  The large number of statistics means it can be measured with much higher precision than the
-nominal method of using the low-rate background \ce{^{222}Rn} and \ce{^{218}Po} $\alpha$-decays.
+\noindent where $q_0$ is the charge that escapes recombination.  Generally when calculating $\tau_e$ a mono-energetic source is used so
+that $q_0$ is the same throughout the detector.  During dark matter data taking the electron lifetime is monitored through
+$\alpha$-decays of \ce{^{222}Rn} and \ce{^{218}Po} that are unavoidable in our background.  Because materials with low \ce{^{222}Rn}
+emanation were chosen, electron lifetime measurements were typically done with 24-48 hours of data.  Alternatively, calibrations can
+have significantly higher (${\sim}50\ \mathrm{Hz}$) statistics, allowing measurements with much higher precision.
 
 The 41.5 keV $\mathrm{^{83m}Kr}$ de-excitation offers a relatively low-energy electronic recoil to measure $\tau_e$.  The number of events
-from a typical calibration of 2-3 days is in the millions and any background is negligible.  The left panel of
+from a typical calibration of 2-3 days is in the millions, making any contamination from background negligible.  The left panel of
 \figref{fig:calibrations_elifetime_kr} shows a standard electron lifetime calculated using $\mathrm{^{83m}Kr}$.
 
 \begin{figure}
@@ -1137,8 +1156,9 @@ decay chain daughter \ce{^{212}Pb} (\secref{subsubsec:er_nr_calibrations_paramet
 undergo $\alpha$-decays that can be
 used.  \tabref{tab:alpha_decays} lists the main $\alpha$-emitters in both the \ce{^{222}Rn} and \ce{^{220}Rn} chains.  Because calibration
 data is only used after the source valve is closed, the 55.6 s and 145 ms half-lives of the first two $\alpha$-emitters \ce{^{220}Rn} and
-\ce{^{218}Po}, respectively cannot be used.  However \ce{^{212}Bi} releases a 6.207 MeV $\alpha$ in its decay to \ce{^{208}Tl} with a
-branching ratio of 36.9\%.  A typical electron lifetime is shown in the right panel of \figref{fig:calibrations_elifetime}.
+\ce{^{216}Po}, respectively cannot be used.  However \ce{^{212}Bi} releases a 6.207 MeV $\alpha$ in its decay to \ce{^{208}Tl} with a
+branching ratio of 36.9\%.  A typical electron lifetime using \ce{^{212}Bi} is shown in the right panel of
+\figref{fig:calibrations_elifetime}.
 
 Other sources can be used for measuring $\tau_e$ but with less success.  In past experiments the 661.7 \gammaray of \ce{^{137}Cs} was
 used, but an early trial in XENON1T showed that very few actually reached the active volume, making the method inefficient.  Additionally
@@ -1172,6 +1192,19 @@ insignificant but it is used in calibrations, where \ce{^{212}Bi} allows high-st
 \label{tab:alpha_decays}
 \end{table}
 \egroup
+
+The electron lifetimes from $\alpha$-decays was observed to be smaller than using $\beta$s or $\gamma$s.  While $\alpha$ energies are
+significantly higher the charge yield is extremely low (\figref{fig:tpcs_signals_drift_field}).  Because our sensitive region is at
+low-energy and is not affected by $\alpha$ interactions we decided to use the electron lifetime derived from $\mathrm{^{83m}Kr}$.  The
+electron lifetime used for Science Run 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flatness in $\tau_e$ is not
+expected and may be indicative of a small leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the electron
+lifetime model are discussed in \chapref{4}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ElectronLifetimeEvolution}
+\label{fig:det_char_elifetime_evolution}
+\end{figure}
 
 
 
@@ -1997,6 +2030,30 @@ implementation has a smaller autocorrelation time, an advantage over Metropolis-
 our analysis is the Gelman-Rubin statistic (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
 between chains, with the idea roughly being the two should be nearly equivalent when the fit has converged.
 
+For this analysis the MCMC was run with $k = 200$ walkers over $12,000$ iterations.
+
+
+
+\subsection{Results}
+\label{subsec:er_nr_calibrations_results}
+With the physical parameters and procedure outlined in \secref{subsec:er_nr_calibrations_parameter_determ} the results are now
+presented.
+
+The microphysics for electronic recoils discussed in \secref{subsubsec:er_nr_calibrations_parameter_determ_er} has eight free parameters
+that govern its recombination and recombination fluctuations.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ERcS1}
+\label{fig:er_nr_calibrations_results_er_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NRcS1}
+\label{fig:er_nr_calibrations_results_nr_cs1}
+\end{figure}
+
 \bgroup
 \def\arraystretch{1.2}
 \begin{table}
@@ -2004,29 +2061,58 @@ between chains, with the idea roughly being the two should be nearly equivalent 
 \resizebox{\textwidth}{!}{
 \begin{tabular}{cccccc}
 \hline
-Parameter & Value & Prior Distribution & Posterior & Units & Note \\
+Parameter & Value & Prior Distribution & Posterior & Note \\
 \hline
-$F$ & $0.0059$ & fixed & $-$ &  & Fano factor \\
-$\eta$ & $0.933$ & fixed & $-$ &  & extraction efficiency \\
-$\sigma_G$ & $0.250$ & fixed &  & $-$ & gas gain resolution \\
-$v_d$ & $0.134$ & fixed & $-$ & $\mathrm{mm\ \mu s^{-1}}$ & drift velocity \\
-$f_{\mathrm{aft}}$ & $0.627$ & fixed & $-$ &  & \\
-$F_{\mathrm{E}}$ & $82$ & fixed & $-$ & $\mathrm{kV\ cm^{-1}}$ & \\
-$W$ & $\mu = 0.0137,\ \sigma = 0.0002$ & norm &  & keV & \\
-$n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & $[0.06,0.2]$ & uniform &  &  & \\
-$g_1$ & $\mu = 0.1424,\ \sigma = 0.0062$ & Normal &  & PE/ph & \\
-$g_{2b}$ & $\mu = 11.44,\ \sigma = 0.2$ & Normal &  & $\mathrm{PE} / e^-$ & \\
-Processor Efficiency & $[0, 1]$ & Normal &  &  & \\
-S1 Cut Acceptance & $[0, 1]$ & Normal &  &  & \\
-S2 Cut Acceptance & $[0, 1]$ & Normal &  &  & \\
+$W$ & $13.7 \pm 0.2\ \mathrm{eV}$ & Normal &  & \citeref{Dahl2009} \\
+$F$ & 0.059 & Fixed & $-$ & \citeref{Doke1976} & \\
+$n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & 0.06-0.2 & Uniform & \\
+$c_0$ &  & Free &  & ER photon yield \\
+$c_1$ &  & Free &  & ER photon yield \\
+$c_2$ &  & Free &  & ER photon yield \\
+$c_3$ &  & Free &  & ER photon yield \\
+$c_4$ &  & Free &  & ER photon yield \\
+$E_{\mathrm{thresh}}$ &  & Free &  & ER energy threshold \\
+$A$ & $\geq 0$ & Free &  & ER RF \\
+$B$ & $\geq 0$ & Free &  & ER RF \\
+\hline
+\end{tabular}
+}
+\caption{Best fit values along with 68\% confidence intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
+charge yields.}
+\label{tab:er_nr_calibrations_parameter_determ_mc_match}
+\end{table}
+\egroup
+
+
+\bgroup
+\def\arraystretch{1.2}
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{cccccc}
+\hline
+Parameter & Value & Prior Distribution & Posterior & Note \\
+\hline
+$\eta$ & $0.933$ & fixed & $-$ & extraction efficiency \\
+$\sigma_G$ & $0.250$ & fixed & $-$ & gas gain resolution \\
+$v_d$ & $0.134\ \mathrm{mm\ \mu s^{-1}}$ & fixed & $-$ & drift velocity \\
+$f_{\mathrm{aft}}$ & $0.627$ & fixed & $-$ & \\
+$F_{\mathrm{E}}$ & $82\ \mathrm{kV\ cm^{-1}}$ & fixed & $-$ & \\
+$W$ & $\mu = 0.0137,\ \sigma = 0.0002\ \mathrm{kev}$ & norm &  & \\
+$n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & $[0.06,0.2]$ & uniform &  & \\
+$g_1$ & $\mu = 0.1424,\ \sigma = 0.0062\ \mathrm{PE / ph}$ & Normal &  & \\
+$g_{2b}$ & $\mu = 11.44,\ \sigma = 0.2\ \mathrm{PE} / e^-$ & Normal &  & \\
+$p_{\mathrm{dpe}}$ & $[0.18, 0.24]$ & uniform &  & \citeref{Faham2015} \\
+Processor Efficiency & $[0, 1]$ & Normal &  & \\
+S1 Cut Acceptance & $[0, 1]$ & Normal &  & \\
+S2 Cut Acceptance & $[0, 1]$ & Normal &  & \\
 Multiscatter Cut & $[0, 1]$ &  &  &  & \\
-$p_{\mathrm{dpe}}$ & $[0.18, 0.24]$ & uniform &  &  & \\
 S1 Bias & $[0, 1]$ & uniform &  &  & \\
-$\sigma_{b}^{\mathrm{S1}}$ & $[0, 1]$ & uniform &  &  & \\
-$\mu_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  &  & \\
-$\sigma_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  &  & \\
-$\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & norm &  &  & \\
-$\alpha$ & $\mu = 1.240,\ \sigma = 0.079$ & norm &  &  & NR light and charge yield \\
+$\sigma_{b}^{\mathrm{S1}}$ & $[0, 1]$ & uniform &  & \\
+$\mu_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  & \\
+$\sigma_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  &  \\
+$\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & norm &  & \\
+$\alpha$ & $\mu = 1.240,\ \sigma = 0.079$ & norm &  & NR light and charge yield \\
 $\zeta$ & $\mu = 0.0472,\ \sigma = 0.0088$ & norm &  &  & NR light and charge yield \\
 $\beta$ & $\mu = 239,\ \sigma = 28$ & norm &  &  & NR light and charge yield \\
 $\gamma$ & $\mu = 0.01385,\ \sigma = 0.00073$ & norm &  &  & NR light and charge yield \\
@@ -2037,7 +2123,7 @@ $\lambda$ & $\mu = 1.14,\ \sigma = 0.45$ & norm &  &  & NR light and charge yiel
 \hline
 \end{tabular}
 }
-\caption{Best fit values along with 68\% confidence intetervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
+\caption{Best fit values along with 68\% confidence intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
 charge yields.}
 \label{tab:er_nr_calibrations_parameter_determ_mc_match}
 \end{table}

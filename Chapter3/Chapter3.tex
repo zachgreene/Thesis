@@ -1034,8 +1034,8 @@ affect the measured signal so the latter becomes important.
 As mentioned in \secref{subsubsec:tpcs_signals_posrec} TPCs allow 3-dimensional position reconstruction.  Since the drift velocity $v_d$
 is constant in LXe the depth is easily found as $z = -v_d t_d$ where $t_d$ is the drift time ($z$ is defined to be negative with
 $z = 0$ at gate).  For Science Run 1 (SR1) the drift field $E_d = 81.3\ \mathrm{kV\ cm^{-1}}$ giving
-$v_d = 1.332\ \mathrm{mm\ \mu s^{-1}}$ and maximum drift time of $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9 cm at
-$-100^{\circ}\ \mathrm{C}$).
+$v_d = 1.332\ \mathrm{mm\ \mu s^{-1}}$ and maximum drift time of $t_{d, \mathrm{max}} = 727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9
+cm at$-100^{\circ}\ \mathrm{C}$).
 
 The $x \mdash y$ coordinates are found by applying an algorithm to the intensity each PMT in the top array observed from the S2 (also known as
 PMT hit pattern).  For XENON1T two reconstruction algorithms were mainly used.  The first was a neural net using the Fast Artificial
@@ -1734,7 +1734,7 @@ efficiency, bias, and smearing - all of which are most influential at lower phot
 signal will be recognized and reconstructed as an S1 by the
 classification algorithm.  We require a 3-PMT coincidence - otherwise it is discarded.  Even if it meets this requirement, the processor
 may not identify that there is a signal at low photon count.  This processor efficiency is difficult to model using data since it is
-not plausible to know when a possible signal was not found.  Instead we use simulated waveforms and pass them through the processor.  The
+not realistic to know when a signal was not found.  Instead we use simulated waveforms and pass them through the processor.  The
 waveforms are made with DAQ conditions that have been measured to replicate real waveforms as well as possible.  Although its performance
 may not be as good as using real data, its accuracy is expected to be sufficient.
 
@@ -1910,6 +1910,61 @@ asymmetric gaussians as constraints.}
 
 
 
+\subsubsection{Additional Components}
+\label{subsubsec:er_nr_calibrations_parameter_determ_additional_components}
+While the vast majority of events recorded during a calibration will be from the respective source, a small subset is expected to come
+from background.  These need to be considered in the analysis to avoid fitting the entire population with the electronic and nuclear
+recoil spectra alone.
+
+In some circumstances we may not be able to observe both the S1 and S2.  Interactions with only an S1, or lone-S1 events, result almost
+entirely from PMT dark rate pile-up at low energies, and below-cathode scatters at higher.  Those with just an S2, or lone-S2 events,
+come from interactions near the cathode and gate where the large electric field can significantly quench the S1.  The lone-S2s
+could at least in part be explained by \ce{^{210}Pb}, which given its presence on the PTFE panels, suggest it may also exist on the
+electrodes.
+
+Generally lone-S1 and lone-S2 events do impact our data, but occasionally if they occur close to one another can mimic a real event, known
+as accidental coincidence (AC).  Because we cannot know which events are AC, those that pass our cuts 
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_cuts}) will end up in our final data
+selection.  It is therefore important to calculate the number of expected events and the distribution.  The rate of AC events is given by
+
+\begin{equation}
+R_{\mathrm{ac}} = R_{\mathrm{LS1}} R_{\mathrm{LS2}} t_{d, \mathrm{max}}
+\label{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence}
+\end{equation}
+
+\noindent where $R_{\mathrm{LS1}}$ and $R_{\mathrm{LS2}}$ are the lone-S1
+and lone-S2 rates and $t_{d, \mathrm{max}}$ is the maximum TPC drift time.  S1s, especially at low energy, are too small trigger the
+DAQ.  Therefore, to calculate $R_{\mathrm{LS1}}$ we select higher energy good events that contain and S1 and S2, and search the region
+before the primary S1.  This method makes two assumptions.  The first is that lone-S1s should be uncorrelated in time, and thus
+distributed uniformly over large timescales.  The second is that the S1s we find do not have a complementary S2.  For the former this
+seems reasonable since we do not expect PMT dark rates and below-cathode scatters to follow any pattern.  The latter is valid because
+the probability of having two interactions in the same time window is negligible.
+
+Accidental coincidence does not benefit from fiducialization like much of our other background.  In fact, we can see from
+\eqnref{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence} that $R_{\mathrm{ac}}$ actually increases
+with detector size.  Still, its total contribution is comparatively small.  AC distributions for \ce{^{220}Rn},
+$\mathrm{^{241}AmBe}$, and the NG each were included in the fit.
+
+A major constraint on the radius of our fiducial volume comes from radioactivity on the surface of the PTFE panels.  While a chemical
+treatment was applied during commissioning to each of the PTFE pieces to remove surface contaminants, the \ce{^{222}Rn} concentration in
+the air while assembling the TPC facilitated the attachment of \ce{^{210}Pb}.  In addition, once installed \ce{^{222}Rn} may diffuse
+through materials into the detector, and some components (e.g. Q-Drives) are known to have high emanation.  With
+$t_{1/2} = 22.2\ \mathrm{y}$ and an endpoint energy of $63.5\ \mathrm{keV}$ the \ce{^{210}Pb} decays are fairly low energy - albeit higher
+than our region of interest - and will remain nearly constant over the lifetime of the detector.
+
+While the $\beta^-$ from \ce{^{210}Pb} should interact with xenon in the immediate vicinity of the wall, our position reconstruction
+(\secref{subsec:det_char_position_reconstruction}) may place it radially inward, closer to our FV.  Furthermore, the charge loss an S2
+experiences when near the wall can shift these events into our nuclear recoil band.  This would exaggerate the uncertainty in the position
+reconstruction, and could lead to a \ce{^{210}Pb} event imitating a WIMP inside our region of interest.  While the band calibrations were
+done for $r < 36.94\ \mathrm{cm}$ where wall leakage could be neglected, the results were compared at larger radii and $z$, and are
+relevant for dark matter data.
+
+While \ambe and NG calibrations measured the nuclear recoil response, background (ER) events were present.  To account for this small
+contamination the electronic recoil band was included in the NR fits.
+
+
+
+
 \subsubsection{Monte Carlo Matching}
 \label{subsubsec:er_nr_calibrations_parameter_determ_mc_match}
 With the fast Monte Carlo complete we can input any truth MC ($E_{\mathrm{true}}$, $x_{\mathrm{true}}$, $y_{\mathrm{true}}$,
@@ -2040,7 +2095,15 @@ With the physical parameters and procedure outlined in \secref{subsec:er_nr_cali
 presented.
 
 The microphysics for electronic recoils discussed in \secref{subsubsec:er_nr_calibrations_parameter_determ_er} has eight free parameters
-that govern its recombination and recombination fluctuations.
+that govern both recombination and recombination fluctuations.  They, along with $W$, the Fano Factor, and exciton-to-ion ratio, are
+listed in \tabref{tab:er_nr_calibrations_results_er}.  The initial value, prior constraint, and posterior are listed for each
+parameter.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ERNRAcceptances}
+\label{fig:er_nr_calibrations_results_acceptances}
+\end{figure}
 
 \begin{figure}
 \centering
@@ -2079,10 +2142,16 @@ $B$ & $\geq 0$ & Free &  & ER RF \\
 }
 \caption{Best fit values along with 68\% confidence intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
 charge yields.}
-\label{tab:er_nr_calibrations_parameter_determ_mc_match}
+\label{tab:er_nr_calibrations_results_er}
 \end{table}
 \egroup
 
+The total acceptance along with each of the contributors (\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys}) are shown in
+\figref{fig:er_nr_calibrations_results_acceptances}.  The yellow band denotes the acceptance from the S2 threshold
+($\mathrm{S2} > 200\ \mathrm{PE}$) condition so is only relevant at lower energies.  Also only impactful at low $E$ is the efficiency of
+the professor in identifying an S1, represented in pink.  The S1 and S2 cut acceptances are shown in red and green, respectively.  They
+correspond to the fraction of good events that are removed by cuts, and show limited variation over energy.  The total acceptance is
+shown in blue.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2098,8 +2167,6 @@ $\sigma_G$ & $0.250$ & fixed & $-$ & gas gain resolution \\
 $v_d$ & $0.134\ \mathrm{mm\ \mu s^{-1}}$ & fixed & $-$ & drift velocity \\
 $f_{\mathrm{aft}}$ & $0.627$ & fixed & $-$ & \\
 $F_{\mathrm{E}}$ & $82\ \mathrm{kV\ cm^{-1}}$ & fixed & $-$ & \\
-$W$ & $\mu = 0.0137,\ \sigma = 0.0002\ \mathrm{kev}$ & norm &  & \\
-$n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & $[0.06,0.2]$ & uniform &  & \\
 $g_1$ & $\mu = 0.1424,\ \sigma = 0.0062\ \mathrm{PE / ph}$ & Normal &  & \\
 $g_{2b}$ & $\mu = 11.44,\ \sigma = 0.2\ \mathrm{PE} / e^-$ & Normal &  & \\
 $p_{\mathrm{dpe}}$ & $[0.18, 0.24]$ & uniform &  & \citeref{Faham2015} \\
@@ -2107,10 +2174,10 @@ Processor Efficiency & $[0, 1]$ & Normal &  & \\
 S1 Cut Acceptance & $[0, 1]$ & Normal &  & \\
 S2 Cut Acceptance & $[0, 1]$ & Normal &  & \\
 Multiscatter Cut & $[0, 1]$ &  &  &  & \\
-S1 Bias & $[0, 1]$ & uniform &  &  & \\
-$\sigma_{b}^{\mathrm{S1}}$ & $[0, 1]$ & uniform &  & \\
-$\mu_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  & \\
-$\sigma_{b}^{\mathrm{S2}}$ & $[0, 1]$ & uniform &  &  \\
+S1 Bias $\mu_{b}^{\mathrm{S1}}$ & $0-1$ & uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
+S1 Smearing $\sigma_{b}^{\mathrm{S1}}$ & $0-1$ & uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
+S2 Bias $\mu_{b}^{\mathrm{S2}}$ & $0-1$ & uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
+S2 Smearing $\sigma_{b}^{\mathrm{S2}}$ & $0-1$ & uniform &  & \eqnref{er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
 $\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & norm &  & \\
 $\alpha$ & $\mu = 1.240,\ \sigma = 0.079$ & norm &  & NR light and charge yield \\
 $\zeta$ & $\mu = 0.0472,\ \sigma = 0.0088$ & norm &  &  & NR light and charge yield \\

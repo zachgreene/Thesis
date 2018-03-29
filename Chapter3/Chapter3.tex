@@ -1256,7 +1256,7 @@ n_q = n_{\gamma} + n_e
 observables as
 
 \begin{equation}
-\frac{E_{er}}{W} = \frac{\mathrm{cS1}}{g_1} + \frac{\mathrm{cS2_b}}{\eta G_e}
+\frac{E_{er}}{W} = \frac{\mathrm{cS1}}{g_1} + \frac{\mathrm{cS2_b}}{\eta_{EE} G_e}
 \label{eq:calibrations_s1_s2}
 \end{equation}
 
@@ -1269,7 +1269,7 @@ gain for an \electron then that escapes recombination is $g_2 = \eta G_e$.  If $
 $g_1$ and $\eta$ (or $g_2$).  Rearranging gives
 
 \begin{equation}
-\frac{\mathrm{cS2_b}}{E_{er}} = \frac{\eta G_e}{g_1} \frac{\mathrm{cS1}}{E_{er}} - \frac{\eta G_e}{W}
+\frac{\mathrm{cS2_b}}{E_{er}} = \frac{\eta_{EE} G_e}{g_1} \frac{\mathrm{cS1}}{E_{er}} - \frac{\eta_{EE} G_e}{W}
 \end{equation}
 
 \noindent that shows these can be solved using a linear fit if more than one energies are
@@ -1840,10 +1840,10 @@ p_{\mathrm{surv}} = p_{\mathrm{true}} \times p_{\mathrm{wall}}
 \end{equation}
 
 The number of electrons extracted from the liquid $n_{\mathrm{extr}}$ depends only on $n_{\mathrm{surv}}$ and the probability of
-extraction $\eta$
+extraction $\eta_{EE}$
 
 \begin{equation}
-n_{\mathrm{extr}} = \mathrm{Binom} \Big( n = n_{\mathrm{surv}},\ p = \eta \Big)
+n_{\mathrm{extr}} = \mathrm{Binom} \Big( n = n_{\mathrm{surv}},\ p = \eta_{EE} \Big)
 \end{equation}
 
 \noindent where $\eta = 0.933$ and is fixed in the fast MC.  The single electron gain is given by
@@ -2145,7 +2145,7 @@ found by NEST in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}, with 
 Parameter & Value & Prior Distribution & Source & Posterior & Comment \\
 \hline
 $W$ & $13.7 \pm 0.2\ \mathrm{eV}$ & Normal &  & \ce{^{220}Rn}, \ce{^{241}AmBe}, NG & \citeref{Dahl2009} \\
-$F$ & 0.059 & Fixed & $-$ & \ce{^{220}Rn} & \citeref{Doke1976} & \eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta} \\
+$F$ & 0.059 & Fixed & $-$ & \ce{^{220}Rn} & \citeref{Doke1976}, \eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta} \\
 $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & 0.06-0.2 & Uniform & See \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} for NR \\
 $c_0$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
 $c_1$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
@@ -2178,28 +2178,15 @@ adopted from \citref{NEST2013} (ER) and \citeref{NEST2015} (NR).}
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{ERNRAcceptances}
-\label{fig:er_nr_calibrations_results_acceptances}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{ERcS1}
+\includegraphics[width=\textwidth]{ERcs1_components_log}
 \label{fig:er_nr_calibrations_results_er_cs1}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{NRcS1}
-\label{fig:er_nr_calibrations_results_nr_cs1}
-\end{figure}
-
-The total acceptance along with each of the contributors (\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys}) are shown in
-\figref{fig:er_nr_calibrations_results_acceptances}.  The yellow band denotes the acceptance from the S2 threshold
-($\mathrm{S2} > 200\ \mathrm{PE}$) condition so is only relevant at lower energies.  Also only impactful at low $E$ is the efficiency of
-the professor in identifying an S1, represented in pink.  The S1 and S2 cut acceptances are shown in red and green, respectively.  They
-correspond to the fraction of good events that are removed by cuts, and show limited variation over energy.  The total acceptance is
-shown in blue.
+Once the microphysics of the interaction has concluded, the photons and \electron are subject to detector effects
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys}).  In addition, as discussed in
+\secref{subsubsec:er_nr_calibrations_parameter_determ_cuts}, an S2 threshold requirement, processor efficiency, and S1 and S2 cut
+acceptances are applied.  All parameters are shared between the three calibrations and given
+in \tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2210,24 +2197,25 @@ shown in blue.
 \hline
 Parameter & Value & Prior Distribution & Posterior & Comment \\
 \hline
-$\eta$ & $0.933$ & Fixed & $-$ & extraction efficiency \\
+$\eta_{EE}$ & $0.933$ & Fixed & $-$ & extraction efficiency \\
 $\sigma_G$ & $0.250$ & Fixed & $-$ & gas gain resolution \\
 $v_d$ & $0.134\ \mathrm{mm\ \mu s^{-1}}$ & Fixed & $-$ & drift velocity \\
 $f_{\mathrm{aft}}$ & $0.627$ & Fixed & $-$ & \\
 $F_{\mathrm{E}}$ & $82\ \mathrm{kV\ cm^{-1}}$ & Fixed & $-$ & \\
-$g_1$ & $\mu = 0.1424,\ \sigma = 0.0062\ \mathrm{PE / ph}$ & Normal &  & \\
-$g_{2b}$ & $\mu = 11.44,\ \sigma = 0.2\ \mathrm{PE} / e^-$ & Normal &  & \\
-$p_{\mathrm{dpe}}$ & $[0.18, 0.24]$ & Uniform &  & \citeref{Faham2015} \\
+$g_1$ & $0.1424 \pm 0.0062\ \mathrm{PE / ph}$ & Normal &  & \\
+$g_{2b}$ & $11.44 \pm 0.20\ \mathrm{PE} / e^-$ & Normal &  & \\
+$p_{\mathrm{dpe}}$ & $0.18 \mdash 0.24$ & Uniform &  & \citeref{Faham2015} \\
 $\sigma_e$ & $0 \pm 0.02$ & Normal &  & Electron lifetime uncertainty\\
-Processor Efficiency & $0 \mdash 1$ & Normal &  & \\
-S1 Cut Acceptance & $0 \mdash 1$ & Normal &  & \\
-S2 Cut Acceptance & $0 \mdash 1$ & Normal &  & \\
 Multiscatter Cut & $0 \mdash 1$ &  &  &  & \\
 S1 Bias $\mu_{b}^{\mathrm{S1}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
 S1 Smearing $\sigma_{b}^{\mathrm{S1}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
 S2 Bias $\mu_{b}^{\mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
 S2 Smearing $\sigma_{b}^{\mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
 $\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & Normal &  & \\
+S2 Threshold & $\mathrm{S2} \geq 200\ \mathrm{PE}$ & Fixed & $-$ & Requirement \\
+Processor Efficiency & $0 \mdash 1$ & Normal &  & \\
+S1 Cut Acceptance & $0 \mdash 1$ & Normal &  & \\
+S2 Cut Acceptance & $0 \mdash 1$ & Normal &  & \\
 \hline
 \end{tabular}
 }
@@ -2237,18 +2225,73 @@ charge yields.}
 \end{table}
 \egroup
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AmBecs1_components_log}
+\label{fig:er_nr_calibrations_results_ambe_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NGcs1_components_log}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AmBecs2Slices_1_col_components_log}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AmBecs2Slices_2_col_components_log}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NGcs2Slices_1_col_components_log}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NGcs2Slices_2_col_components_log}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AmBecs1log10_cs2_cs1_components}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NGcs1log10_cs2_cs1_components}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AmBecs1cs2_components}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NGcs1cs2_components}
+\label{fig:er_nr_calibrations_results_ng_cs1}
+\end{figure}
+
 Finally we must consider accidental coincidence and electronic recoil backgrounds during calibrations (due to our $r < 36.94\ \mathrm{cm}$
 requirement wall leak is completely negligible, \secref{subsubsec:er_nr_calibrations_parameter_determ_additional_components}).  The method
 described in \secref{subsubsec:er_nr_calibrations_parameter_determ_additional_components} allows us to tightly constrain AC.  The AC
 distributions and expectations are computed independently for each source.  The ER background - only relevant for \ambe and NG
 (for \ce{^{220}Rn} it simply contributes to the ER band) - is left free.  The initial values, ranges, and posteriors are given in
-\tabref{tab:er_nr_calibrations_results_backgrounds}.
-
-For each of the \ambe and NG
-fits accidental coincidence and background electronic recoil events were included, as normal and free distributions, respectively
-(\secref{subsubsec:er_nr_calibrations_parameter_determ_additional_components}).  In addition the single and multiple scatter distributions
-could be separated to better understand how each impacts the final fit.  Note that the latter means neutrons that scattered more than once
-but still passed the single scatter cut (those that did not were rejected).
+\tabref{tab:er_nr_calibrations_results_backgrounds}.  \figref{fig:er_nr_calibrations_results_ambe_cs1} shows the AC (pink) and ER (yellow)
+spectra.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2259,7 +2302,7 @@ but still passed the single scatter cut (those that did not were rejected).
 \hline
 Parameter & Value & Prior Distribution & Posterior & Comment \\
 \hline
-\multicolumn{5}{c}{\ce{^{220}Rn} \\ \cline{2-5}
+\multicolumn{5}{c}{\ce{^{220}Rn}} \\ \cline{2-5}
 \hline
 \ce{^{220}Rn} & $\geq 0$ & Free &  & \\
 AC \ce{^{220}Rn} & $5.94 \pm 1.19$ & Normal &  & \\
@@ -2287,9 +2330,31 @@ calibrations.  AC can be tightly constrained via the method outlined in
 
 Another parameter of interest is the influence of neutrons that scatter more than once in the TPC.  As mentioned in
 \secref{subsubsec:er_nr_calibrations_parameter_determ_cuts} a single scatter cut is applied to remove multi-scatter events.  However,
-it is difficult in some cases to determine if in fact other scatters occurred - especially when they are low-energy.  The fast-MC
-framework applies the same cut as data to replicate this effect as closely as possible.  In extracting the spectra of single and multiple
-scatters separately we gain a powerful tool to examine unexplored physics.
+it is difficult in some cases to determine if in fact other scatters occurred - particularly at low-energy.  The fast-MC
+framework applies the same cut as the data to replicate this effect as closely as possible.  In extracting the spectra of single and
+multiple scatters separately we gain a powerful tool to examine unexplored physics.
+
+We find the fraction of \ambe data that comes from single scatters to be $f_{\mathrm{^{241}AmBe, ss}} = 0.6742_{-0.0081}^{+0.0096}$
+(fraction of multiple scatters is $f_{\mathrm{^{241}AmBe, ms}} = 0.3258_{-0.0096}^{+0.0081}$).  For NG data we get
+$f_{\mathrm{NG, ss}} = $ ($f_{\mathrm{NG, ms}} = $).  It is a bit surprising that despite the single scatter cut roughly one third of
+events scatter more than once.  However, looking at the energy spectra in
+\figref{fig:er_nr_calibrations_parameter_determ_nr_ambe_spectrum} we see the vast majority of events occur at low energy, which is where
+we know the cut is least effective.  Because we consider multi-scatter neutrons in the fast-MC this should not affect our final
+result.  The single and multiple scatter spectra are shown in \figref{fig:er_nr_calibrations_results_nr_cs1} in red and green,
+respectively.
+
+The total acceptance along with each of the contributors (\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys}) are shown in
+\figref{fig:er_nr_calibrations_results_acceptances}.  The yellow band denotes the acceptance from the S2 threshold
+($\mathrm{S2} > 200\ \mathrm{PE}$) condition so is only relevant at lower energies.  Also only impactful at low $E$ is the efficiency of
+the professor in identifying an S1, represented in pink.  The S1 and S2 cut acceptances are shown in red and green, respectively.  They
+correspond to the fraction of good events that are removed by cuts, and show limited variation over energy.  The total acceptance is
+shown in blue.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ERNRAcceptances}
+\label{fig:er_nr_calibrations_results_acceptances}
+\end{figure}
 
 
 

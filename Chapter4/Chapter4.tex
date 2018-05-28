@@ -1,0 +1,34 @@
+%This is the fourth chapter of the dissertation
+
+%The following command starts your chapter. If you want different titles used in your ToC and at the top of the page throughout the chapter, you can specify those values here. Since Columbia doesn't want extra information in the headers and footers, the "Top of Page Title" value won't actually appear.
+
+\pagestyle{cu}
+\graphicspath{{./Chapter4/Figures/}}
+\chapter[Purity and the Electron Lifetime][Purity and the Electron Lifetime]{Purity and the Electron Lifetime}
+
+In a noble element dark matter detection experiment the purity of the target mass is an essential consideration and must be measured
+continuously.  To date the concentration of electronegative impurities has always been measured in these experiments, but no reliable
+model has existed to explain and predict its behavior.
+
+In this chapter I discuss the necessity of extremely pure xenon (\secref{}), explain the original model fit to XENON1T data
+(\secref{}), and examine how abrupt changes in detector conditions alter the contamination (\secref{}).
+
+
+
+\section{Importance and Procedure for Purifying Xenon}
+\secref{sec:importance_procedure}
+Purity usually refers to two distinct but correlated values, though the degree of the correlation can depend on the
+experiment.  The first is radioactive elements of other noble elements that cannot be completely removed during distillation.  For xenon
+our primary challenges are \ce{^{85}Kr} (\secref{subsubsec:backgrounds_electronic_krypton}) and \ce{^{222}Rn}
+(\secref{subsubsec:backgrounds_electronic_radon}) as they have low-energy decays that can contaminate our region of interest (while
+\ce{^{220}Rn} also leads to a low-energy \betadecay its half-life is too short to penetrate our detector and thus can be ignored).
+
+The second consideration with regards to detector purity is contamination of electronegative impurities such as \ce{O_2} or
+\ce{N_2}.  These attach to drifting electrons, lowering or even eliminating the S2.  This can have the largest impact at low energies
+since the number of \electron is much fewer.  To correct for the expected initial number of electrons we can use the electron lifetime
+$\tau_{\mathrm{e^-}}$, though this must be monitored consistently if not perpetually.  Of course, if the entire cloud of electrons is
+removed by these impurities we cannot apply a correction since we have no knowledge of where in the detector it occurred or the energy
+deposition.
+
+This chapter is focused on the latter of these two purities, though its examination necessitates consideration of the former as we will
+see.

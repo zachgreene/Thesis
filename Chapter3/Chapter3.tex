@@ -14,7 +14,12 @@ liquid xenon dark matter detector to reach the ton-scale era of DM detection.  I
 makes it the most sensitive detector to spin-independent WIMPs.
 
 In this chapter I describe the XENON1T experiment (\secref{sec:xenon1t_detector}) and discuss the procedure, strategy, and results of the
-two dark matter runs in a run-combination analysis (\secref{sec:xenon1t_sr1}).
+two dark matter runs in a run-combination analysis (\secref{sec:xenon1t_sr1}).  Original results from the first science run, or Science
+Run 0 (SR0) can
+be found in \citeref{Aprile2017f} and are referred to in this chapter as ``First Results'' or ``SR0-only'' but the analysis is not
+discussed.  This chapter focuses on the analysis of the first and second science runs - Science Run 0 and Science Run 1
+(SR0 + SR1) - referred to as ``run combination (RC)''.  Thus the data used in our First Results is re-analyzed together with new data
+from SR1.
 
 Lots of good info in Aprile2017b (instrument paper).
 
@@ -55,8 +60,8 @@ The two PMT arrays are supported by oxygen-free high thermal conductivity (OFHC)
 copper is then covered with polytetrafluoroethylene (PTFE) on the TPC-facing sides.  Screening meshes are situated between the bottom
 array and cathode as well as the anode and top array.  Each can be biased to minimize electrical interference between the
 phototubes and the drift and extraction fields.  While \citeref{Baudis2013} showed normal operation of R11410 PMTs at
-$\geq 11\ \mathrm{kV\ cm^{-1}}$ the expected voltage for the cathode was $10-100\ \mathrm{kV\ cm^{-1}}$ and decreasing the stress on the
-phototubes is likely to be beneficial longterm.  The finished arrays are shown in \figref{fig:xenon1t_pmt_array}.
+$\geq 11\ \mathrm{kV\ cm^{-1}}$ the expected voltage for the cathode was $10 \mdash 100\ \mathrm{kV\ cm^{-1}}$ and decreasing the stress
+on the phototubes is likely to be beneficial longterm.  The finished arrays are shown in \figref{fig:xenon1t_pmt_array}.
 
 \begin{figure}
     \centering
@@ -632,7 +637,7 @@ External $\gamma$ sources include \ce{^{137}Cs}, with an energy of 661.7 keV, an
 and 2.614 MeV.  These are installed in W-collimators that restrict the \gammarays to a cone of $40^{\circ}$.  Additionally, \ce{^{60}Co}
 in the cryostat flanges with 1.173 and 1.333 MeV lines can also be used.
 
-Nuclear recoil sources \ambe and a deuterium-deuterium (DD) neutron generator (NG) are also done outside the TPC.  It is also deployed in a
+Nuclear recoil sources \ambe and a deuterium-deuterium (DD) neutron generator (NG) are also placed outside the TPC.  It is also deployed in a
 W-collimator and emits MeV neutrons.  Details are discussed in \secref{subsubsec:er_nr_calibrations_parameter_determ_nr}.
 
 
@@ -741,12 +746,12 @@ measurements show that $\mathrm{^{85}Kr / ^{nat}Kr} = 2 \times 10^{-11}$ (\citer
 contamination threaten WIMP DM searches, especially if \ce{^{nat}Kr}/\ce{Xe} is left at the ppm to ppb level.  As discussed in
 \secref{subsec:xenon1t_kr_dist} a krypton distillation column was installed in the service building and connected to the cryostat through
 the purification system.  In the first science run a level of $0.36 \pm 0.06\ \mathrm{ppt}$ was reached, corresponding to a rate of
-around 50 low-energy electronic recoils per year in a FV of 1 ton.  In Science Run 1 a $\mathrm{^{nat}Kr / Xe}$ increase of
+around 50 low-energy electronic recoils per year in a FV of 1 ton.  In Science Run 1 $\mathrm{^{nat}Kr / Xe}$ increased at a rate
 $0.788_{-0.023}^{+0.024}\ \mathrm{ppt\ y^{-1}}$ was observed from February to July, 2017, as shown in
 \figref{fig:backgrounds_electronic_krypton_rate_increase}.  The rise suggests that a small leak may be present, which is further supported
-by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the drop in September does not follow
-the trend.  While it is of course possible that no leak was present, it is worth mentioning that the filament at RGMS was replaced between
-the July and September measurements.
+by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the data beginning in
+September do not continue this trend, though it is worth mentioning the filament at RGMS was replaced between the September and November
+measurements.  The average concentration over SR0 + SR1 was $^{\mathrm{nat}}\mathrm{Kr}/\mathrm{Xe} = 0.66 \pm 0.11\ \mathrm{ppt}$.
 
 \begin{figure}
 \centering
@@ -765,11 +770,13 @@ relative decrease was significantly smaller than with Kr.
 
 \ce{^{222}Rn} undergoes $\alpha$-emission and therefore is not a danger to a WIMP search.  However, there are two daughters that undergo
 $\beta^-$-decay: \ce{^{214}Pb} and \ce{^{214}Bi} (\ce{^{210}Tl} is also a $\beta^-$-emitter but has a branching ratio of just
-0.021\%).  The most dangerous is the decay of \ce{^{214}Pb} to the ground state of \ce{^{214}Bi}, with an end-point energy of 1019 keV and
-branching ratio of 10.9\%.  In the right panel of \figref{fig:backgrounds_er_spectrum} we can see that it is the leading contributor to
-the ER
-background rate.  The $\beta^-$-decay of \ce{^{214}Bi} is not concerning because its daughter, \ce{^{214}Po}, has a half-life of
+0.021\%).  The $\beta^-$-decay of \ce{^{214}Bi} is not concerning because its daughter, \ce{^{214}Po}, has a half-life of
 $164.3\ \mathrm{\mu s}$ so a simple coincidence cut can remove the events.
+
+The most dangerous is the decay of \ce{^{214}Pb} to the ground state of \ce{^{214}Bi}, with an end-point energy of 1019 keV and
+branching ratio of 10.9\%.  In the right panel of \figref{fig:backgrounds_er_spectrum} we can see that it is the leading contributor to
+the ER background rate.  For this analysis it was found to be $12.6 \pm 0.8$ and $5.1 \pm 0.5\ \mathrm{\mu Bq\ kg^{-1}}$ using $^{218}$Pb
+$\alpha$-decays and $^{214}$Bi $\mdash ^{214}$Po time-coincident decays, respectively.
 
 \ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
 is more likely to bond to the detector wall.  However, \ce{^{220}Rn} is used in calibrations to study the electronic recoil band, which is
@@ -1033,8 +1040,10 @@ affect the measured signal so the latter becomes important.
 \label{subsec:det_char_position_reconstruction}
 As mentioned in \secref{subsubsec:tpcs_signals_posrec} TPCs allow 3-dimensional position reconstruction.  Since the drift velocity $v_d$
 is constant in LXe the depth is easily found as $z = -v_d t_d$ where $t_d$ is the drift time ($z$ is defined to be negative with
-$z = 0$ at gate).  For Science Run 1 (SR1) the drift field $E_d = 81.3\ \mathrm{kV\ cm^{-1}}$ giving
-$v_d = 1.332\ \mathrm{mm\ \mu s^{-1}}$ and maximum drift time of $t_{d, \mathrm{max}} = 727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9
+$z = 0$ at gate).  The drift fields for SR0 and SR1 were $E_d = 118.6\ \mathrm{V\ cm^{-1}}$ and $81.3\ \mathrm{V\ cm^{-1}}$,
+respectively, with $2.2\ \mathrm{V\ cm^{-1}}$ RMS variations.  The fields correspond to drift velocities of
+$v_d = 1.440\ \mathrm{mm\ \mu s^{-1}}$ and $1.332\ \mathrm{mm\ \mu s^{-1}}$ and
+maximum drift times of $t_{d, \mathrm{max}} = 672.8\ \mathrm{\mu s}$ and $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9
 cm at$-100^{\circ}\ \mathrm{C}$).
 
 The $x \mdash y$ coordinates are found by applying an algorithm to the intensity each PMT in the top array observed from the S2 (also known as
@@ -1044,7 +1053,7 @@ an expected after weighting four other algorithms for its seed, and is known as 
 and optimized with $\mathrm{^{83m}Kr}$ data, and achieved a position resolution of $\lesssim 2\ \mathrm{cm}$.  For SR1 the NN was ultimately
 chosen, as the TPF algorithm was more sensitive to dead PMTs and showed some artificial discontinuity in the radial
 direction.  \figref{fig:calibrations_position_reconstruction} shows the position distribution of events in SR1 along with the 1 ton FV
-that was used in SR0 (\citeref{Aprile2017f}), the 1.3 ton used in SR1, and the active volume.
+that was used in originally used in the SR0-only results (\citeref{Aprile2017f}), the 1.3 ton used in SR1, and the active volume.
 
 To determine position reconstruction $\mathrm{^{83m}Kr}$, \ce{^{214}BiPo}, wall samples, and MC are used.
 
@@ -1052,7 +1061,8 @@ To determine position reconstruction $\mathrm{^{83m}Kr}$, \ce{^{214}BiPo}, wall 
 \centering
 \includegraphics[width=\textwidth]{FVBoth}
 \caption{Positions of background events plotted in $x$ vs. $y$ and $r$ ($r^2$) vs. $z$ for SR1.  The 1 ton FV originally used
-in SR0 is shown in green and defined by $-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$.  The 1.3 ton FV for SR1 is outlined in
+in the SR0-only is shown in green and defined by $-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$.  The 1.3 ton FV for SR1 is
+outlined in
 blue, with the maximum radius plotted in the left panel.  Its shape is more complicated but has $z_\mathrm{min} = -94\ \mathrm{cm}$,
 $z_{\mathrm{max}} = -8\ \mathrm{cm}$, and $r_{\mathrm{max}} = 42.84\ \mathrm{cm}$.  The active volume (surrounded by the cathode, wall,
 and gate) is marked in black.  The events that appear outside the wall are wall events that were not properly
@@ -1277,7 +1287,7 @@ used.  \figref{fig:calibrations_photon_charge_efficiencies_g1_g2} (left) present
 $g_1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
 ($g_2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g_1$ depends on the PMTs, $\eta$ on the anode-gate electric field, and $G_e$ on
 $E_g$, $P$, and distance between the gate and anode they are independent of the drift field.  $g_1$ and $g_2$ were monitored over the
-course of SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
+course of SR0 + SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
 were stable.
 
 \begin{figure}
@@ -1335,12 +1345,18 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 To differentiate our nuclear from electronic recoil bands we need to calibrate each independently.  While the detector characterizations
 discussed in \secref{sec:det_char} lead to improved accuracy and precision or are in some cases very important, these are critical as
 they allow discrimination between at potential WIMP and ER background.  As mentioned in
-\secref{subsec:det_char_elifetime} \ce{^{220}Rn} is used for our ER band.  For NR we use \ce{^{241}AmBe} and a neutron generator (NG),
-each of which are positioned in the water tank outside the cryostat.
+\secref{subsec:det_char_elifetime} \ce{^{220}Rn} is used for our ER band.  For NR we use \ce{^{241}AmBe} and a deuterium-deuterium
+neutron generator (NG), both of which are positioned in the water tank outside the cryostat.
 
-Science Run 1 marks the first time the electronic and nuclear recoil bands were fit simultaneously (for SR0 they were independent).  This
-is significant because shared detector parameters (e.g. $W$, $g_1$, $g_2$, LCE, etc.) are constrained to a single value
-across calibrations.  Using the physical processes from the interaction itself to the final values of cS1 and \cstwob in the fit is made
+Fitting the bands for this analysis was unique in that it fit all five calibrations from both science runs simultaneously.  This was
+significant because it forced values that are common to some or all of the calibrations (e.g. $W$, $p_{\mathrm{dpe}}$, etc. are shared
+between all five, while $g1$, $g2$, etc. are shared within each science run) to converge to a single value.\footnote{for First Results
+the \radoncal and \ambe were independently fit.}  \tabref{tab:er_nr_calibrations_parameters} lists the variables included in the fit and
+to which calibrations they apply.
+
+
+
+Using the physical processes from the interaction itself to the final values of cS1 and \cstwob in the fit is made
 possible by running on GPUs, which provide a $10^{2 \mdash 3}$ times speed increase.
 
 
@@ -1412,9 +1428,9 @@ then are derived from the posterior.  \secref{subsubsec:er_nr_calibrations_param
 \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} (NR) discusses the physical steps that occur beginning with a single energy
 deposition until final cS1 and $\mathrm{cS2_b}$ (and by extension the operations applied in the fast MC).
 
-The calibrations were fit in the SR0 FV ($-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$
-\figref{fig:calibrations_position_reconstruction}) despite it being different from SR1.  This was done to minimize wall events as well as
-contamination from materials at the top and bottom of the TPC (mainly PMTs).
+The calibrations were fit in the First Results FV ($-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$
+\figref{fig:calibrations_position_reconstruction}) despite it being different from the RC fiducial volume.  This was done to minimize wall
+events as well as contamination from materials at the top and bottom of the TPC (mainly PMTs).
 
 
 
@@ -1459,11 +1475,32 @@ intrinsic fluctuation $\Delta r$ that cannot be ignored (\citeref{LUX2016, April
 r \sim \mathrm{N} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Big)
 \end{equation}
 
-\noindent where $r = 0 \mdash 1$ and is parameterized as a fourth order polynomial with some energy threshold
-$E_{\mathrm{thresh}}$ such that if $E < E_{\mathrm{thresh}},\ r = 0$ (\citeref{NEST2013})..  Recombination fluctuations are defined as
-$\Delta r = A(1 - e^{-E/B})$.  All eight parameters (five from polynomial, one from $E_{\mathrm{thresh}}$, two from $\Delta r$) are allowed
-to vary freely (with no penalty term in likelihood) though $A,B > 0$.  Additional restrictions $0 \geq r,\ \Delta r \geq 1$ and
-are applied.  The number of electron-ion pairs that recombine is
+\noindent where $r = 0 \mdash 1$ and can be parameterized using the Thomas-Imel box model (\citeref{Thomas1987})
+
+\begin{equation}
+\langle r \rangle = \Big( 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \Big)
+,\ \varsigma = \gamma_{\mathrm{er}} e^{-E / \omega_{\mathrm{er}}} F_{\mathrm{E}}^{-\delta_{\mathrm{er}}}
+\labels{eq:er_nr_calibrations_parameter_determ_ti}
+\end{equation}
+
+\noindent where $\varsigma$ is a more flexible variant of \eqref{eq:ti_recomb} with free parameters $\gamma_{\mathrm{er}}$,
+$\omega_{\mathrm{er}}$, and $\delta_{\mathrm{er}}$.  However, in our fits we observed
+abnormal behavior in our light and charge yields caused by inconsistencies at low energy.  To rectify this we applied a Fermi-Dirac
+scaling to \eqref{eq:er_nr_calibrations_parameter_determ_ti}, ultimately giving
+
+\begin{equation}
+\langle r \rangle = \Big( 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \Big)
+\frac{1}{1 - e^{-(E - E_0) / E_1}}
+\label{eq:er_nr_calibrations_parameter_determ_ti_fd}
+\end{equation}
+
+\noindent with $E_0, E_1 \geq 0$.
+
+Recombination fluctuations are defined as $\Delta r = A(1 - e^{-E/B})$.  All seven parameters (five from
+\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd} and two from $\Delta r$) are allowed
+to vary freely (with no penalty term in likelihood) though $0 \leq \gamma_{\mathrm{er}} \leq 0.5$ and $E_0,E_1,A,B > 0$.  The additional
+restrictions $0 \geq r,\ \Delta r \geq 1$ are applied since $r$ cannot be less than 0 or greater than 1.  The number of electron-ion pairs
+the that recombine is
 
 \begin{equation}
 n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
@@ -1587,7 +1624,7 @@ n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 +
 n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
 \end{equation}
 
-\noindent but $r$ now is described by the Thomas-Imel model (\citeref{Thomas1987}).
+\noindent where $r$ is now described by the Thomas-Imel model without the Fermi-Dirac tuning.
 
 \begin{equation}
 r = 1 - \frac{\mathrm{ln} (1 + n_{\mathrm{ion}} \varsigma)}{n_{\mathrm{ion}} \varsigma}
@@ -1676,13 +1713,13 @@ $\eta$ & $3.3_{-0.7}^{+5.3}$ &  \eqnref{eq:er_nr_calibrations_parameter_determ_n
 $\lambda$ & $1.14_{-0.09}^{+0.45}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
 \hline
 \end{tabular}
-\caption{Best fit values along with 68\% confidence intetervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
+\caption{Best fit values along with 68\% credible intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
 charge yields.}
 \label{tab:er_nr_calibrations_parameter_determ_nr_nest}
 \end{table}
 \egroup
 
-The best fit results and 68\% confidence intervals are listed in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}.
+The best fit results and 68\% credible intervals are listed in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}.
 
 
 
@@ -1691,8 +1728,7 @@ The best fit results and 68\% confidence intervals are listed in \tabref{tab:er_
 Once the physical processes that determine light and charge yield have finished, the properties of our detector drive the following
 processes, converting $n_{\mathrm{ph}} \rightarrow \mathrm{S1}$ and $n_{\mathrm{e}} \rightarrow \mathrm{S2}$.  This is in part why the
 characterizations detailed in \secref{sec:det_char} are essential.  Although the \ce{^{220}Rn}, \ce{^{241}AmBe}, and the NG calibrations
-were performed at different times they were fit simultaneously.\footnote{In SR0 \ce{^{220}Rn} and \ambe were fit independently.}  This
-ensures our detector parameters - none of which showed any
+were performed at different times they were fit simultaneously.  This ensures our detector parameters - none of which showed any
 time-variation - have a single posterior.  The only exception is the electron lifetime $\tau_e$ because the purity of the LXe is generally
 changing.
 
@@ -1817,7 +1853,9 @@ systematic error in measured lifetimes \eqnref{eq:det_char_elifetime} with a nor
 \end{equation}
 
 \noindent where $\tau_{e}^{mathrm{rec}}$ and $\tau_{e}^{\mathrm{true}}$ refer to the reconstructed (measured) and true electron
-lifetimes, and $\sigma_e = 0.02$ is the uncertainty on $\tau_{e}^{\mathrm{rec}}$.  The true and reconstructed electron loss probabilities
+lifetimes, and $\sigma_e$ is the uncertainty on $\tau_{e}^{\mathrm{rec}}$.  We set the electron lifetime uncertainty to 
+$\sigma_{e, \mathrm{SR0}} = 0.04$ and $\sigma_{e, \mathrm{SR1}} = 0.5 \sigma_{e, \mathrm{SR0}}$, with the difference because we are more
+confident in $\tau_e$ for SR1 (\figref{fig:det_char_elifetime_evolution}).  The true and reconstructed electron loss probabilities
 are given in
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}.  We can find the number of \electron that survive to the surface
 $n_{\mathrm{surv}}$ using \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_drift_electrons} where $p_{\mathrm{wall}}$ refers to
@@ -1930,7 +1968,8 @@ electrodes.
 Generally lone-S1 and lone-S2 events do impact our data, but occasionally if they occur close to one another can mimic a real event, known
 as accidental coincidence (AC).  Because we cannot know which events are AC, those that pass our cuts 
 (\secref{subsubsec:er_nr_calibrations_parameter_determ_cuts}) will end up in our final data
-selection.  It is therefore important to calculate the number of expected events and the distribution.  The rate of AC events is given by
+selection.  A shape cut is applied to S1s to ensure it is not an S2 from a single electron.  It is therefore important to calculate the
+number of expected events and the distribution.  The rate of AC events is given by
 
 \begin{equation}
 R_{\mathrm{ac}} = R_{\mathrm{LS1}} R_{\mathrm{LS2}} t_{d, \mathrm{max}}
@@ -1948,7 +1987,17 @@ the probability of having two interactions in the same time window is negligible
 Accidental coincidence does not benefit from fiducialization like much of our other background.  In fact, we can see from
 \eqnref{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence} that $R_{\mathrm{ac}}$ actually increases
 with detector size.  Still, its total contribution is comparatively small.  AC is source or background-dependent, so for this analysis
-distributions for \ce{^{220}Rn}, $\mathrm{^{241}AmBe}$, and the NG each were included in the fit.
+distributions for \ce{^{220}Rn}, $\mathrm{^{241}AmBe}$, and the NG each were included in the
+fit.  \figref{fig:er_nr_calibrations_parameter_determ_ac} shows the AC distribution in cS1-cS2$_{\mathrm{b}}$ space with the region of
+interest shown in dotted red (median) and black ($-2 \sigma$) lines.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AC_SR1}
+\caption{Accidental coincidence distribution in cS1-cS2$_{\mathrm{b}}$ space for Science Run 1.  The top and left panels show the
+expected events in cS1 or cS2$_{\mathrm{b}}$ for 1 t and 1.3 t FV.  The NR median and $-2 \sigma$ are plotted to highlight our ROI.}
+\label{fig:er_nr_calibrations_parameter_determ_ac}
+\end{figure}
 
 A major constraint on the radius of our fiducial volume comes from radioactivity on the surface of the PTFE panels.  While a chemical
 treatment was applied during commissioning to each of the PTFE pieces to remove surface contaminants, the \ce{^{222}Rn} concentration in
@@ -1992,15 +2041,17 @@ for the fast Monte Carlo ($\hat{b}_i$) were detailed earlier in this section and
 \tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.  As discussed, each parameter is constrained by our understanding before
 the fit using a prior distribution.  For the cases where we expect the error to be either negligible or contained in a dependent parameter
 we fix the prior.  In instances where we have good knowledge of a component's uncertainty (e.g. $W$, $g_1$, $g_{2b}$ etc.) we use a normal
-distribution.  Parameters for which a range of possible values is known (e.g. $n_{\mathrm{ex}} / n_{\mathrm{ion}}$, $p_{\mathrm{dpe}}$,
+distribution.  The S1 and S2 cut acceptances as well as processor reconstruction acceptance are modeled via a normal distribution with
+mean $\mu = 0$ corresponding to the median value and $\sigma = 1$ to the lower and upper bounds in the credible interval.  Parameters for
+which a range of possible values is known (e.g. $n_{\mathrm{ex}} / n_{\mathrm{ion}}$, $p_{\mathrm{dpe}}$,
 bias and smearing, etc.) are restricted to within these bounds.  Finally, in cases where there is very little knowledge the priors
-are left free - though this is only applied to the eight electronic recoil recombination parameters: five in the fourth order polynomial
-plus the energy threshold $E_{\mathrm{thresh}}$, and the two describing recombination fluctuations (these final two must be
-$> 0$) - however, conditions are applied such that $0 \geq r \geq 1$ and $0 \geq \Delta r \geq 1$
+are left free - though this is only applied to the seven electronic recoil recombination parameters: five in the Thomas-Imel box model
+scaled by a Fermi-Dirac (\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd}), and the two describing recombination
+fluctuations - however, we require $0 \geq r \geq 1$ and $0 \geq \Delta r \geq 1$
 (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  Applying more stringent constraints on well-known parameters provides us
 with information on those that are less understood.
 
-The objective in Bayesian analysis is to have a posterior density of the parameters based on the data in Bayes' formula
+The objective in Bayesian inference is to have a posterior density of the parameters based on the data in Bayes' formula
 
 \begin{equation}
 p(\overrightarrow{theta}|\overrightarrow{x}) = \frac{p(\overrightarrow{x}|\overrightarrow{\theta})
@@ -2090,7 +2141,7 @@ implementation has a smaller autocorrelation time, an advantage over Metropolis-
 our analysis is the Gelman-Rubin statistic (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
 between chains, with the idea roughly being the two should be nearly equivalent when the fit has converged.
 
-For this analysis the MCMC was run with $k = 200$ walkers over $12,000$ iterations.
+For this analysis the MCMC was run with $k = 200$ walkers over $11,000$ iterations.
 
 
 
@@ -2102,7 +2153,7 @@ parameter posteriors are calculated by taking 400 random samples from the fit po
 only slightly above 1, indicating the walkers have likely converged to the best-fit PDF (convergence can never be proved).
 
 The microphysics for electronic recoils discussed in \secref{subsubsec:er_nr_calibrations_parameter_determ_er} depends on the mean energy
-per quanta $W$, Fano Factor $F$, and exciton-to-ion ratio $n_{\mathrm{ex}} / n_{\mathrm{ion}}$.  Recombination can be computed using
+per quanta $W$, Fano Factor $F$, and exciton-to-ion ratio $n_{\mathrm{ex}} / n_{\mathrm{ion}}$.  Recombination is computed using
 these and a fourth order polynomial given by
 
 \begin{equation}
@@ -2147,7 +2198,7 @@ Parameter & Value & Prior Distribution & Source & Posterior & Comment \\
 $W$ & $13.7 \pm 0.2\ \mathrm{eV}$ & Normal &  & \ce{^{220}Rn}, \ce{^{241}AmBe}, NG & \citeref{Dahl2009} \\
 $F$ & 0.059 & Fixed & $-$ & \ce{^{220}Rn} & \citeref{Doke1976}, \eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta} \\
 $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & 0.06-0.2 & Uniform & See \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} for NR \\
-$c_0$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
+$\gamma_{\mathrm{er}}$ & $0 \mdash 0.5$ & free &  & \ce{^{220}Rn} & Recombination \\
 $c_1$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
 $c_2$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
 $c_3$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
@@ -2170,7 +2221,7 @@ $\lambda$ & $\mu = 1.14,\ \sigma = 0.45$ & Normal &  & \ce{^{241}AmBe}, NG & \eq
 \hline
 \end{tabular}
 }
-\caption{Best fit values along with 68\% confidence intervals for electronic and nuclear recoil microphysics models.  The models are
+\caption{Best fit values along with 68\% credible intervals for electronic and nuclear recoil microphysics models.  The models are
 adopted from \citref{NEST2013} (ER) and \citeref{NEST2015} (NR).}
 \label{tab:er_nr_calibrations_results_er}
 \end{table}
@@ -2197,9 +2248,12 @@ in \tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.
 \hline
 Parameter & Value & Prior Distribution & Posterior & Comment \\
 \hline
-$\eta_{EE}$ & $0.933$ & Fixed & $-$ & extraction efficiency \\
-$\sigma_G$ & $0.250$ & Fixed & $-$ & gas gain resolution \\
-$v_d$ & $0.134\ \mathrm{mm\ \mu s^{-1}}$ & Fixed & $-$ & drift velocity \\
+$\eta_{EE, \mathrm{SR0}}$ & $0.936$ & Fixed & $-$ & SR0 extraction efficiency \\
+$\eta_{EE, \mathrm{SR1}}$ & $0.933$ & Fixed & $-$ & SR1 extraction efficiency \\
+$\sigma_{G, \mathrm{SR0}$ & $0.240$ & Fixed & $-$ & SR0 gas gain resolution \\
+$\sigma_G$ & $0.250$ & Fixed & $-$ & SR1 gas gain resolution \\
+$v_{d, \mathrm{SR0}}$ & $0.144\ \mathrm{mm\ \mu s^{-1}}$ & Fixed & $-$ & SR0 drift velocity \\
+$v_{d, \mathrm{SR1}}$ & $0.134\ \mathrm{mm\ \mu s^{-1}}$ & Fixed & $-$ & SR1 drift velocity \\
 $f_{\mathrm{aft}}$ & $0.627$ & Fixed & $-$ & \\
 $F_{\mathrm{E}}$ & $82\ \mathrm{kV\ cm^{-1}}$ & Fixed & $-$ & \\
 $g_1$ & $0.1424 \pm 0.0062\ \mathrm{PE / ph}$ & Normal &  & \\
@@ -2213,13 +2267,13 @@ S2 Bias $\mu_{b}^{\mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_c
 S2 Smearing $\sigma_{b}^{\mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
 $\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & Normal &  & \\
 S2 Threshold & $\mathrm{S2} \geq 200\ \mathrm{PE}$ & Fixed & $-$ & Requirement \\
-Processor Efficiency & $0 \mdash 1$ & Normal &  & \\
-S1 Cut Acceptance & $0 \mdash 1$ & Normal &  & \\
-S2 Cut Acceptance & $0 \mdash 1$ & Normal &  & \\
+Processor Efficiency & $0 \pm 1$ & Normal &  & \\
+S1 Cut Acceptance & $0 \pm 1$ & Normal &  & \\
+S2 Cut Acceptance & $0 \pm 1$ & Normal &  & \\
 \hline
 \end{tabular}
 }
-\caption{Best fit values along with 68\% confidence intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
+\caption{Best fit values along with 68\% credible intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
 charge yields.}
 \label{tab:er_nr_calibrations_parameter_determ_mc_match}
 \end{table}
@@ -2350,18 +2404,56 @@ the professor in identifying an S1, represented in pink.  The S1 and S2 cut acce
 correspond to the fraction of good events that are removed by cuts, and show limited variation over energy.  The total acceptance is
 shown in blue.
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{ERNRAcceptances}
-\label{fig:er_nr_calibrations_results_acceptances}
-\end{figure}
-
 
 
 \section{Dark Matter Results}
 \label{sec:dark_matter_results}
-With the band fitting calibrations complete we can finally look at our dark matter data.
+Science Run 0 spanned from November 22, 2016 to January 18, 2017, when an earthquake at LNGS caused the run to stop prematurely.  Science
+Run 1 began February 2, 2017 and ended February 8, 2018.  They
+yielded 32.1 (SR0) and 246.7 (SR1) for a total of 278.8 days of dark matter data.  \figref{fig:dark_matter_results_exposure} shows the
+exposure over this period with $^{220}$Rn, $^{83\mathrm{m}}$Kr, $^{241}$AmBe, NG, and LED calibrations highlighted.  The green line
+depicts the total DM run time before DAQ insensitivity to events (7.8\% SR0, 1.2\% SR1), times when the muon veto was either
+deactivated or triggered coincidentally with the TPC (1.2\%), and photo-ionization and delayed electron extraction due to high energy
+events in the TPC (4.4\%).  The final exposure after corrections is shown in blue.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{exposure1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{exposure2}
+\caption{Dark matter detection livetime for SR0 and SR1.  The green line displays the total run time for all dark matter data before
+livetime losses to DAQ insensitivity to events (7.8\% SR0, 1.2\% SR1), times when the muon veto was either
+deactivated or triggered coincidentally with the TPC (1.2\%), and photo-ionization and delayed electron extraction due to high energy
+events in the TPC (4.4\%).  The blue line is the final exposure used in this analysis totaling 278.8 days.  Shaded regions represent
+$^{220}$Rn (pink), $^{83\mathrm{m}}$Kr (red), \ambe (aqua), NG (blue), and LED (grey) calibrations.  The dashed black line marks the
+earthquake on January 18, 2017.}
+\label{fig:dark_matter_results_exposure}
+\end{figure}
+
+
+
+\subsection{Acceptances}
+\label{subsec:dark_matter_results_selection}
+Events during dark matter data-taking that are below the $-2 \sigma$ quantile of the ER $\mathrm{cS1} \mdash \mathrm{cS2_b}$ band are
+removed before analysis.  Known as ``blinding'' this prevents any bias that might occur by adjusting analyses to better fit or reject
+these events.  Data selection includes a valid S1 and S2 pair with $\leq 3$ PMTs observing the S1 in $< 100\ \mathrm{ns}$.  A position
+reconstruction cut requires the difference between the neural network and likelihood-fit algorithms to be less than 2 (larger S2s) to 5
+cm (smaller).
+
+To select our energy ROI we require $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$, corresponding to roughly $[1.4, 10.6]\ \mathrm{keV_{ee}}$
+and $[4.9, 40.9]\ \mathrm{keV_{nr}}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ERNRAcceptances}
+\label{fig:dark_matter_results_acceptances}
+\end{figure}
+
+,
+contributing a total of $7.7 \pm 1.3\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$.
 
 
 

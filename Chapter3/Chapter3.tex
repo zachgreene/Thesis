@@ -738,18 +738,20 @@ contamination threaten WIMP DM searches, especially if \ce{^{nat}Kr}/\ce{Xe} is 
 \secref{subsec:xenon1t_kr_dist} a krypton distillation column was installed in the service building and connected to the cryostat through
 the purification system.  In the first science run a level of $0.36 \pm 0.06\ \mathrm{ppt}$ was reached, corresponding to a rate of
 around 50 low-energy electronic recoils per year in a FV of 1 ton.  In Science Run 1 $\mathrm{^{nat}Kr / Xe}$ increased at a rate
-$0.788_{-0.023}^{+0.024}\ \mathrm{ppt\ y^{-1}}$ was observed from February to July, 2017, as shown in
+$0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$ was observed over SR1, as shown in
 \figref{fig:backgrounds_electronic_krypton_rate_increase}.  The rise suggests that a small leak may be present, which is further supported
-by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the data beginning in
-September do not continue this trend, though it is worth mentioning the filament at RGMS was replaced between the September and November
-measurements.  The average concentration over SR0 + SR1 was $^{\mathrm{nat}}\mathrm{Kr}/\mathrm{Xe} = 0.66 \pm 0.11\ \mathrm{ppt}$.
+by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the data while the February-July
+measurements follow this trend nicely, those beginning in September display a less coherent trend.  The filament at RGMS was replaced
+between the September and November measurements.  The average concentration over SR0 + SR1 was
+$^{\mathrm{nat}}\mathrm{Kr}/\mathrm{Xe} = 0.66 \pm 0.11\ \mathrm{ppt}$.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{KrRateIncrease}
+\includegraphics[width=0.8\textwidth]{kr_evolution}
 \label{fig:backgrounds_electronic_krypton_rate_increase}
-\caption{$\mathrm{^{nat}Kr}$ concentration during Science Run 1.  An increase of $0.788_{-0.023}^{+0.024}\ \mathrm{ppt\ y^{-1}}$ is
-observed at the beginning of the run, though later measurements show a stabilization.}
+\caption{$\mathrm{^{nat}Kr / Xe}$ concentration during Science Run 1.  An average value of $0.66 \pm 0.11$ is found over the combined
+run analysis.  SR0 is not shown as online krypton distillation (\secref{subsec:xenon1t_kr_dist}) decreased the concentration by more than
+a factor of 100.  An increase of $0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$ is observed for SR1.}
 \end{figure}
 
 \subsubsection{\ce{^{222}Rn}}
@@ -2057,26 +2059,26 @@ with information on those that are less understood.
 The objective in Bayesian inference is to have a posterior density of the parameters based on the data in Bayes' formula
 
 \begin{equation}
-p(\vec{\theta}|\vec{x}) = \frac{p(\vec{x}|\vec{\theta})
-p(\vec{\theta})}{p(\vec{x})} = \frac{\mathcal{L}(\vec{\theta})
-p(\vec{\theta})}{p(\vec{x})}
+p(\vect{\theta}|\vectlett{x}) = \frac{p(\vectlett{x}|\vect{\theta})
+p(\vect{\theta})}{p(\vectlett{x})} = \frac{\mathcal{L}(\vect{\theta})
+p(\vect{\theta})}{p(\vectlett{x})}
 \end{equation}
 
-\noindent where $p(\overrightarrow{\theta}|\vec{x})$ is the probability of the parameters $\vec{\theta}$ given the
-data $\vec{x}$ and is known as the posterior probability density, or target
-density.  $p(\vec{x}|\vec{\theta})$ is the probability of the data $\vec{x}$ given the parameters
-$\vec{\theta}$.  It is equivalent to the likelihood.  $p(\vec{\theta})$ estimates the probability of the
-model before data, and is also known as the \textit{prior probability}.  $p(\vec{x})$ is known as the \textit{marginal likelihood}
+\noindent where $p(\vect{\theta}|\vectlett{x})$ is the probability of the parameters $\vect{\theta}$ of dimension $n$ given the
+data $\vectlett{x}$ and is known as the posterior probability density, or target
+density.  $p(\vectlett{x}|\vect{\theta})$ is the probability of the data $\vectlett{x}$ given the parameters
+$\vect{\theta}$.  It is equivalent to the likelihood.  $p(\vect{\theta})$ estimates the probability of the
+model before data, and is also known as the \textit{prior probability}.  $p(\vectlett{x})$ is known as the \textit{marginal likelihood}
 and can be computed using \eqnref{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}.  Because it does not depend on
-$\vec{\theta}$ it is model-independent and does not contribute to the relative probability between different
-hypotheses.\xshlongvec[1]{ABC}
+$\vect{\theta}$ it is model-independent and does not contribute to the relative probability between different
+hypotheses.
 
 \begin{equation}
-p(\vec{x}) = \int_{\Theta} p(\vec{x}|\overrightarrow{\theta})\, d\vec{\theta}
+p(\vectlett{x}) = \int_{\Theta} p(\vectlett{x}|\vect{\theta})\, \vectlett{d}^n \vect{\theta}
 \label{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}
 \end{equation}
 
-Unfortunately $p(\vec{x})$ is not calculable for nearly all models, including those of interest to
+Unfortunately $p(\vectlett{x})$ is not calculable for nearly all models, including those of interest to
 us.  \secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc} discusses a solution that allows us to estimate the posterior without
 needing to consider the marginal likelihood.
 
@@ -2084,22 +2086,22 @@ needing to consider the marginal likelihood.
 
 \subsubsection{Markov Chain Monte Carlo}
 \label{subsubsec:er_nr_calibrations_parameter_determ_mcmc}
-To estimate the values of parameters $\vec{\theta}$ that are best fit by $\vec{x}$ we employ a Markov Chain
+To estimate the values of parameters $\vect{\theta}$ that are best fit by $\vectlett{x}$ we employ a Markov Chain
 Monte Carlo (MCMC).  MCMCs give complete knowledge of the full posterior probability distribution, making them a desired algorithm in
 general.  They have become increasingly popular in recent years as advances in MCMC methods and computer processing speed have made them a
 powerful tool that can be run in a reasonable timescale.  The steps of a Metroplis-Hastings - the most commonly used MCMC - are outlined
 below (\citeref{Chib1995}).
 
 \begin{enumerate}
-\item For each iteration the parameters are in some state $\vec{\theta}_i$.  For the first iteration the parameters are set
-in some state that are initialized in a manner determined by the user (we randomly sample from $p(\vec{\theta})$).  The
-likelihood function $g_t = \mathcal{L}(\vec{\theta}_t) p(\vec{\theta}_t)$ is calculated.
-\item Look at a new set of randomly proposed parameters $\vec{\theta}_{p}$ and calculate 
-$g_p = \mathcal{L}(\vec{\theta}_p) p(\vec{\theta}_p)$.
-\item Let $\mathcal{F} \def \frac{g_p}{g_t}$ and set $\vec{\theta}_{t+1} = \vec{\theta}_p$ when
+\item For each iteration the parameters are in some state $\vect{\theta}_i$.  For the first iteration the parameters are set
+in some state that are initialized in a manner determined by the user (we randomly sample from $p(\vect{\theta})$).  The
+likelihood function $g_t = \mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)$ is calculated.
+\item Look at a new set of randomly proposed parameters $\vect{\theta}_{p}$ and calculate 
+$g_p = \mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)$.
+\item Let $\mathcal{F} \def \frac{g_p}{g_t}$ and set $\vect{\theta}_{t+1} = \vect{\theta}_p$ when
 $\mathcal{F} \geq 1$ - otherwise move with probability $\mathcal{F}$.  If the proposed step is not taken simply set
-$\vec{\theta}_{t+1} = \vec{\theta}_t$.
-\item Record $\vec{\theta}_{t+1}$ and repeat.
+$\vect{\theta}_{t+1} = \vect{\theta}_t$.
+\item Record $\vect{\theta}_{t+1}$ and repeat.
 \end{enumerate}
 
 Here $\mathcal{F}$ is known as the acceptance fraction.  There is no consensus on an optimal acceptance fraction.  $\mathcal{F} {\sim} 0$
@@ -2112,11 +2114,11 @@ $\mathcal{F}$.  As the routine continues it will randomly sample the posterior d
 work.  We find that
 
 \begin{equation}
-\mathcal{F} = \frac{g_p}{g_t} = \frac{\mathcal{L}(\vec{\theta}_p) p(\vec{\theta}_p)}
-{\mathcal{L}(\vec{\theta}_t) p(\vec{\theta}_t)} = 
-\frac{\frac{\mathcal{L}(\vec{\theta}_p) p(\vec{\theta}_p)}{p(\vec{x})}}
-{\frac{\mathcal{L}(\vec{\theta}_t) p(\vec{\theta}_t)}{p(\vec{x})}} =
-\frac{p(\vec{theta_p}|\vec{x})}{p(\vec{theta_t}|\vec{x})}
+\mathcal{F} = \frac{g_p}{g_t} = \frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)}
+{\mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)} = 
+\frac{\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)}{p(\vect{x})}}
+{\frac{\mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)}{p(\vect{x})}} =
+\frac{p(\vect{\theta_p}|\vect{x})}{p(\vect{\theta_t}|\vect{x})}
 \label{eq:er_nr_calibrations_parameter_determ_mcmc_acc_ratio}
 \end{equation}
 
@@ -2126,25 +2128,25 @@ proposed parameters when $g_p < g_t$ means we do not only move towards better po
 For this analysis we use the affine-invariant ensemble sampler outlined in \citeref{Foreman2013}.  This algorithm has a couple
 distinctions from the procedure outlined above.  The first is there is an ensemble of $k$ \textit{walkers} that are simultaneously
 evolving.  On each iteration the proposal for
-each walker comes from the distribution of the complementary $k - 1$ walkers.  A walker with parameters $\vec{\theta}_{t}^i$
-is updated by randomly selecting an ensemble walker $\vec{\theta}_{t}^j$ such that $i \neq j$ and proposing
+each walker comes from the distribution of the complementary $k - 1$ walkers.  A walker with parameters $\vect{\theta}_{t}^i$
+is updated by randomly selecting an ensemble walker $\vect{\theta}_{t}^j$ such that $i \neq j$ and proposing
 
 \begin{equation}
-\vec{\theta}_{p}^{i} = \vec{\theta}_{t}^{i} + z(\vec{\theta}_{t}^{j} - \vec{\theta}_{t}^{i})
+\vect{\theta}_{p}^{i} = \vect{\theta}_{t}^{i} + z(\vect{\theta}_{t}^{j} - \vect{\theta}_{t}^{i})
 \end{equation}
 
 \noindent where $z$ is randomly drawn from some predetermined distribution $g(z)$.  Changing $g(z)$ can increase or decrease
 $\mathcal{F}$.  The integration increases the efficiency with which the walkers explore the parameter space since each proposal is more
-intelligently selected than simply choosing a random $\vec{\theta}_p$.
+intelligently selected than simply choosing a random $\vect{\theta}_p$.
 
-An MCMC is guaranteed to converge as $t \rightarrow \inf$.  However, with a finite number of samples we can test for convergence, though
+An MCMC is guaranteed to converge as $t \rightarrow \infty$.  However, with a finite number of samples we can test for convergence, though
 it should be made clear that convergence cannot actually be proved.  One such test is the autocorrelation time, which measures the numbe
 of evaluations to produce independent samples of the target density and is recommended by \citeref{Foreman2013}.  The affine-invariant
 implementation has a smaller autocorrelation time, an advantage over Metropolis-Hastings.  A second metric and the one that was used in
 our analysis is the Gelman-Rubin statistic (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
 between chains, with the idea roughly being the two should be nearly equivalent when the fit has converged.
 
-For this analysis the MCMC was run with $k = 200$ walkers over 11,000 iterations.
+For this analysis the we fit 44 parameters using an MCMC with $k = 200$ walkers over 11,000 iterations.
 
 
 
@@ -2404,21 +2406,50 @@ respectively.
 \label{subsubsec:er_nr_calibrations_results_ly_qy}
 In \secref{subsubsec:er_nr_calibrations_parameter_determ_er} and \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} the number
 of photons and electrons produced were calculated for electronic and nuclear recoils using existing models that describe
-the microphysics of xenon interactions.  Dark matter searches rely on reconstructing the energy of an interaction so having dependable
-models is crucial.
+the microphysics of xenon interactions.  Because dark matter searches rely on energy reconstruction, having dependable models is
+crucial.  Values are quoted as light (or photon) yield, $L_y$, and charge (or electron) yield $Q_y$ and are defined as
+$n_{\mathrm{phot}}/E$ and $n_{\mathrm{e}} / E$, respectively.  \figref{fig:er_nr_calibrations_results_ly_qy_er} shows the light and
+charge yields for this result along with values from previous experiments.  It should be noted that unlike the other
+values displayed in \figref{fig:er_nr_calibrations_results_ly_qy_er} this analysis was not a dedicated $L_y$ or $Q_y$ measurement.  We
+can see our $82\ \mathrm{V\ cm^{-1}}$ seems to overestimate (underestimate) $L_y$ ($Q_y$) at $E \gtrsim 2\ \mathrm{keV}$ when compared to the
+other points, while the $200\ \mathrm{V\ cm^{-1}}$ agree well with all but the PIXeY \ce{^{37}Ar}.  However, we should be careful when
+comparing measurements since different electric fields change the $L_y/Q_y$ ratio.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ER_LYQY_final_logx}
-\caption{Photon and charge yields for this result at $82\ \mathrm{V\ cm^{-1}}$ (SR1, blue) and extrapolated to $200\ \mathrm{V\ cm^{-1}}$
-(green).  Purple band and orange squares represent XENON100 (\citeref{Aprile2017e}) and LUX (\citeref{LUX2016}) tritium
-calibrations, red squares represent LUX \ce{^{127}Xe}.}
+\caption{Photon and charge yields electronic recoils.  This result is shown in blue at $82\ \mathrm{V\ cm^{-1}}$ (SR1) and its
+extrapolation to $200\ \mathrm{V\ cm^{-1}}$ is shown in green.  Purple band represents XENON100 tritium calibration
+(\citeref{Aprile2017e}).  Red triangles and orange squares represent
+LUX \ce{^{127}Xe} (\citeref{LUX2017}) and tritium (\citeref{LUX2016}), respectively.  Grey triangles represent PIXeY \ce{^{37}Ar}
+(\citeref{PIXeY2017}).  The black line shows the NEST v2.0 beta at $82\ \mathrm{V\ cm^{-1}}$ prediction.  The dashed blue line indicates
+the 10\% acceptance mark for this result, with greater acceptances at higher
+energies (\secref{subsec:dark_matter_results_selection}).  This result has $> 10\%$ acceptance for events with energies higher than
+indicated by the dashed blue line (\secref{subsec:dark_matter_results_selection}).}
 \label{fig:er_nr_calibrations_results_ly_qy_er}
 \end{figure}
-Dependable models are critical for dark matter searches so that observables can be
-into the energy of the interaction.  the light
-($n_{\mathrm{phot}}$) and charge ($n_{\mathrm{e}}$ yields were calculated for ER and NR using models that describe the microphysics of
-xenon interactions. 
+
+Historically nuclear recoil light yield measurements have been quoted as
+$\mathcal{L}_{\mathrm{eff}}$, the ratio of scintillation yields of nuclear recoils to that of the \ce{^{57}Co} 122 keV $\gamma$ at zero
+electric field.  This was done in part to account for detector effects so long as a second measurement with \ce{^{57}Co} was
+performed.  In the era of tonne-scale detectors 122 keV photons, with an attenuation length of just 3 mm, can probe only the very
+outermost region of the TPC.  Therefore the absolute light yield $L_y = \mathcal{L}_{\mathrm{eff}} \times 63\ \mathrm{ph\ keV^{-1}}$ has
+become the standard notation.  \figref{fig:er_nr_calibrations_results_ly_qy_nr} shows the light and charge yields for nuclear
+recoils.  This result was calculated using expected WIMP data rather than \ambe or NG to avoid effects that would incorrectly modify
+our results(e.g. summing S1s from multiple scatter events that pass our cut or a non-homogeneous energy distribution across the TPC).  We
+see our $L_y$ agrees well at $\gtrsim 3\ mathrm{keV}$ but has larger disagreement in $Q_y$.  Strangely, it diverges significantly at
+$E > 40\ \mathrm{keV}$ where our acceptance is high (${\sim} 80\%$).  As with \figref{fig:er_nr_calibrations_results_ly_qy_er} we should
+exercise caution when contrasting yields at different fields, though the effect for nuclear recoils is known to be less stark.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NR_LYQY_final_logx}
+\caption{Photon and charge yields for nuclear recoils.  The dashed blue line indicates
+the 10\% acceptance mark for this result, with greater acceptances at higher
+energies (\secref{subsec:dark_matter_results_selection}).  This result has $> 10\%$ acceptance for events with energies higher than
+indicated by the dashed blue line (\secref{subsec:dark_matter_results_selection}).}
+\label{fig:er_nr_calibrations_results_ly_qy_nr}
+\end{figure}
 
 
 
@@ -2426,7 +2457,8 @@ xenon interactions.
 \label{sec:dark_matter_results}
 Science Run 0 spanned from November 22, 2016 to January 18, 2017, when an earthquake at LNGS caused the run to stop prematurely.  Science
 Run 1 began February 2, 2017 and ended February 8, 2018.  They
-yielded 32.1 (SR0) and 246.7 (SR1) for a total of 278.8 days of dark matter data.  \figref{fig:dark_matter_results_exposure} shows the
+yielded 32.1 (SR0) and 246.7 (SR1) for a total of 278.8 days of dark matter data.  Using a $1.30 \pm 0.01$ t FV we have
+$278.8\ \mathrm{d} \times 1.30\ \mathrm{t} = 1\ \mathrm{t\ yr}$ exposure.  \figref{fig:dark_matter_results_exposure} shows the
 exposure over this period with $^{220}$Rn, $^{83\mathrm{m}}$Kr, $^{241}$AmBe, NG, and LED calibrations highlighted.  The green line
 depicts the total DM run time before DAQ insensitivity to events (7.8\% SR0, 1.2\% SR1), times when the muon veto was either
 deactivated or triggered coincidentally with the TPC (1.2\%), and photo-ionization and delayed electron extraction due to high energy
@@ -2464,13 +2496,17 @@ negligible, though if in future fast-MCs we can account for field variation insi
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ERNRAcceptances}
+\caption{Nuclear recoil acceptances for WIMPs from this analysis.  Processor efficiency is shown in green, processor efficiency with S1
+and S2 cuts is shown in blue, and total acceptance in black.  Dashed and solid acceptance lines correspond to SR0 and SR1 acceptances,
+respectively.  The shaded regions are the 68\% credible interval for SR1.  Spectra are shown for for 10 (dashed), 50 (dotted), and
+200 (dash-dotted) GeV WIMPs.}
 \label{fig:dark_matter_results_acceptances}
 \end{figure}
 
-The electronic recoil background rate during the science runs was measured as
+The electronic recoil background rate during the combined run analysis was measured to be
 $82_{-3}^{+5} (\mathrm{sys}) \pm 3 (\mathrm{stat}) \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ - the lowest ever achieve by a dark
 matter experiment.  From RGMS measurements (\secref{subsec:xenon1t_kr_dist} we expect
-$7.7 \pm 1.3\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ to come from  \ce{^{85}Kr}
+$7.7 \pm 1.3\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ from  \ce{^{85}Kr}
 (\secref{subsubsec:backgrounds_electronic_krypton}).  \betadecays originating from \ce{^{214}Pb} make up as much as $69 \pm 4$ to as
 little as $29 \pm 4  \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ following measurements using \ce{^{218}Po} $\alpha$-decays or
 \ce{^{214}Bi}$\mdash$\ce{^{214}Po} time-coincident decays, respectively (\secref{subsubsec:backgrounds_electronic_radon}).

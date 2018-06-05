@@ -593,7 +593,7 @@ to resume within several days.
 Tritiated methane ($\mathrm{C H_3 T}$) is a very attractive candidate because of it's low-energy $\beta$-emission.  With a 18.6 keV
 endpoint energy, it is an ideal candidate for calibrating the low-energy (cs1 < 100 pe, \textbf{check this}) ER band, and even measuring
 the light and charge yield in a relatively unexplored but important region.  This was originally done by LUX (\citeref{LUX2016}) and
-subsequently performed with XENON100 (\citeref{Aprile2017e}).  However, with a half-life of $t_{1/2} = 12.3\ \mathrm{y}$ it must be
+subsequently performed with XENON100 (\citeref{Aprile2018}).  However, with a half-life of $t_{1/2} = 12.3\ \mathrm{y}$ it must be
 removed completely by the getters to avoid introducing a new background.  This is further complicated by a suspicion that
 $\mathrm{C H_3 T}$ adheres to the cryostat, prohibiting total removal.  For this reason a $\mathrm{C H_3 T}$ calibration has not yet been
 conducted in XENON1T.
@@ -1463,7 +1463,7 @@ n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 +
 \noindent where $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ is between $0.06 \mdash 0.2$ and expected to be independent of energy
 (\citeref{NEST2011}).  Next we must consider the recombination fraction $r$ where some \electron will reattach to a \ce{Xe^+} to form
 excitons and upon decay to their ground state emit photons.  $r$ depends on the field in the LXe and the interaction energy, and has
-intrinsic fluctuation $\Delta r$ that cannot be ignored (\citeref{LUX2016, Aprile2017e}).  We assume a truncated Gaussian
+intrinsic fluctuation $\Delta r$ that cannot be ignored (\citeref{LUX2016, Aprile2018}).  We assume a truncated Gaussian
 
 \begin{equation}
 r \sim \mathrm{Norm} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Big)
@@ -2409,8 +2409,8 @@ of photons and electrons produced were calculated for electronic and nuclear rec
 the microphysics of xenon interactions.  Because dark matter searches rely on energy reconstruction, having dependable models is
 crucial.  Values are quoted as light (or photon) yield, $L_y$, and charge (or electron) yield $Q_y$ and are defined as
 $n_{\mathrm{phot}}/E$ and $n_{\mathrm{e}} / E$, respectively.  \figref{fig:er_nr_calibrations_results_ly_qy_er} shows the light and
-charge yields for this result along with values from previous experiments.  It should be noted that unlike the other
-values displayed in \figref{fig:er_nr_calibrations_results_ly_qy_er} this analysis was not a dedicated $L_y$ or $Q_y$ measurement.  We
+charge yields for electronic recoils for this result along with values from previous experiments.  Because the ER model parameters were
+not constrained (aside from physical restrictions) our result is an independent measurement of $L_y$ and $Q_y$.  We
 can see our $82\ \mathrm{V\ cm^{-1}}$ seems to overestimate (underestimate) $L_y$ ($Q_y$) at $E \gtrsim 2\ \mathrm{keV}$ when compared to the
 other points, while the $200\ \mathrm{V\ cm^{-1}}$ agree well with all but the PIXeY \ce{^{37}Ar}.  However, we should be careful when
 comparing measurements since different electric fields change the $L_y/Q_y$ ratio.
@@ -2420,7 +2420,7 @@ comparing measurements since different electric fields change the $L_y/Q_y$ rati
 \includegraphics[width=\textwidth]{ER_LYQY_final_logx}
 \caption{Photon and charge yields electronic recoils.  This result is shown in blue at $82\ \mathrm{V\ cm^{-1}}$ (SR1) and its
 extrapolation to $200\ \mathrm{V\ cm^{-1}}$ is shown in green.  Purple band represents XENON100 tritium calibration
-(\citeref{Aprile2017e}).  Red triangles and orange squares represent
+(\citeref{Aprile2018}).  Red triangles and orange squares represent
 LUX \ce{^{127}Xe} (\citeref{LUX2017}) and tritium (\citeref{LUX2016}), respectively.  Grey triangles represent PIXeY \ce{^{37}Ar}
 (\citeref{PIXeY2017}).  The black line shows the NEST v2.0 beta at $82\ \mathrm{V\ cm^{-1}}$ prediction.  The dashed blue line indicates
 the 10\% acceptance mark for this result, with greater acceptances at higher
@@ -2436,7 +2436,9 @@ performed.  In the era of tonne-scale detectors 122 keV photons, with an attenua
 outermost region of the TPC.  Therefore the absolute light yield $L_y = \mathcal{L}_{\mathrm{eff}} \times 63\ \mathrm{ph\ keV^{-1}}$ has
 become the standard notation.  \figref{fig:er_nr_calibrations_results_ly_qy_nr} shows the light and charge yields for nuclear
 recoils.  This result was calculated using expected WIMP data rather than \ambe or NG to avoid effects that would incorrectly modify
-our results(e.g. summing S1s from multiple scatter events that pass our cut or a non-homogeneous energy distribution across the TPC).  We
+our results(e.g. summing S1s from multiple scatter events that pass our cut or a non-homogeneous energy distribution across the
+TPC).  Unlike our electronic recoil result, this is not an independent measurement of $L_y$ and $Q_y$ since our emission model parameters
+are constrained by \citeref{NEST2015}.  We
 see our $L_y$ agrees well at $\gtrsim 3\ mathrm{keV}$ but has larger disagreement in $Q_y$.  Strangely, it diverges significantly at
 $E > 40\ \mathrm{keV}$ where our acceptance is high (${\sim} 80\%$).  As with \figref{fig:er_nr_calibrations_results_ly_qy_er} we should
 exercise caution when contrasting yields at different fields, though the effect for nuclear recoils is known to be less stark.
@@ -2486,12 +2488,17 @@ these events.  Data selection includes a valid S1 and S2 pair with $\leq 3$ PMTs
 reconstruction cut requires the difference between the neural network and likelihood-fit algorithms to be less than 2 (larger S2s) to 5
 cm (smaller).
 
-To select our energy ROI we require a cS1 threshold $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$, corresponding to roughly
+Our energy ROI is selected by requiring cS1 threshold $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$, corresponding to roughly
 $[1.4, 10.6]\ \mathrm{keV_{ee}}$ and $[4.9, 40.9]\ \mathrm{keV_{nr}}$.  However, we need to know the acceptance at all energy since it is
 an essential ingredient in our sensitivity.  The total acceptance is the product of the processor, S2 threshold, cS1 threshold, and
-S1 + S2 cut acceptances.  We could also account for events that are reconstructed inside
-(outside) the FV that as detailed above but its effect is
-negligible, though if in future fast-MCs we can account for field variation inside the TPC it may become necessary.  However,To generate the acceptances we use the posterior from the calibration band-fitting (\secref{sec:er_nr_calibrations})
+S1 + S2 cut acceptances.  We could also account for events that are gained or lost at the fiducial volume edge but such effects are
+expected to be small.
+
+Acceptances are calculating using the posterior from the calibration band fitting (\secref{sec:er_nr_calibrations}) using an expected
+WIMP spectrum.  While we use the same 1 t volume from First Results and the band fitting rather than the 1.3 t run combined
+result (\figref{fig:calibrations_position_reconstruction}) we expect deviations to be small enough to remove from
+consideration.  \figref{fig:dark_matter_results_acceptances} shows acceptances for 1) processor (``Detection''), 2) processor and S1 and
+S2 cuts (``Selection''), and 3) total for SR0 and SR1.
 
 \begin{figure}
 \centering

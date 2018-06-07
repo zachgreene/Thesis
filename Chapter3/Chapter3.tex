@@ -2547,13 +2547,6 @@ depicts the total DM run time before DAQ insensitivity to events (7.8\% SR0, 1.2
 deactivated or triggered coincidentally with the TPC (1.2\%), and photo-ionization and delayed electron extraction due to high energy
 events in the TPC (4.4\%).  The final exposure after corrections is shown in blue.
 
-The magenta line in \figref{fig:dark_matter_results_position} encloses the 1.3 t fiducial mass used to calculate the spin-independent
-limit.  Its highest point is 8 cm below the gate to avoid capturing poorly reconstructed GXe events and 2.9 cm above the cathode to
-avoid interactions in a higher and nonuniform electric field.
-
-Using a $1.30 \pm 0.01$ t fiducial mass we have
-$278.8\ \mathrm{d} \times 1.30\ \mathrm{t} = 1\ \mathrm{t\ yr}$ exposure.
-
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{exposure2}
@@ -2565,6 +2558,13 @@ $^{220}$Rn (pink), $^{83\mathrm{m}}$Kr (red), \ambe (aqua), NG (blue), and LED (
 earthquake on January 18, 2017.}
 \label{fig:dark_matter_results_exposure}
 \end{figure}
+
+The magenta line in \figref{fig:dark_matter_results_position} encloses the 1.3 t fiducial mass used to calculate the spin-independent
+limit.  Its highest point is 8 cm below the gate to avoid capturing poorly reconstructed GXe events and 2.9 cm above the cathode to
+exclude interactions in a higher and less uniform electric field.  A 42.8 maximum radius was selected to limit the number of surface
+events to $\lesssim 100$.  The corners are cut to maintain a background rate of $< 10\%$ across
+$z$ in slices of $r$, ensuring the detector materials contribution to the ER background is less than the uniformly distributed
+\ce{^{214}Pb}.  The total exposure for the combined run analysis is $278.8\ \mathrm{d} \times 1.30\ \mathrm{t} = 1\ \mathrm{t\ y}$.
 
 
 
@@ -2728,6 +2728,19 @@ yellow regions illustrate the $1 \sigma$ and $2 \sigma$ radiogenic neutron backg
 \label{fig:dark_matter_results_position}
 \end{figure}
 
+Of the 739 dark matter search events three stand out.  The most promising candidate is
+on the $25\ \mathrm{keV_{nr}}$ line (cS2$_{\mathrm{b}} \sim 1000\ \mathrm{PE}$) in \figref{fig:dark_matter_results_bands} (left) and is
+located in our signal reference region.  Its proximity to both the ER band and $1 \sigma$ however keep the WIMP relative probability at
+$< 50\%$.
+
+The second candidate is at ${\sim} 16\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 700\ \mathrm{PE}$).  Like the first event it
+rests nicely in our energy ROI, but we can see it lies near the fiducial edge, giving it a higher probability to come from surface or
+neutron background.
+
+The third contender around ${sim} 12\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 400 \mathrm{PE}$) is situated just below the NR
+$-2 \sigma$ line.  It is most likely to be a neutron however due to its proximity to the cathode.  Its small cS2$_{\mathrm{b}}$/cS1
+ratio could result from a neutron that scattered below the cathode before scattering in the TPC.
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{bands_and_models}
@@ -2740,8 +2753,9 @@ regions are outside the region of interest.  The grey lines (left) display iso-e
 \label{fig:dark_matter_results_bands}
 \end{figure}
 
-The correlation in the ($r_{\mathrm{rec}}^2$, cS2$_{\mathrm{b}}$) panel of \figref{fig:dark_matter_results_bands} shows the additional
-discrimination the wall model prediction provides.
+The correlation between $r_{\mathrm{rec}}^2$ and cS2$_{\mathrm{b}}$ (right panel of \figref{fig:dark_matter_results_bands}) provides
+additional discrimination in the likelihood analysis.  And unbinned extended likelihood is used to interprete the data in the 1.3 t
+fiducial mass.
 
 \begin{figure}
 \centering

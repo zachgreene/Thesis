@@ -1400,7 +1400,7 @@ $g_1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/p
 ($g_{2 \mathrm{b}} = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g_1$ depends on the PMTs,
 $\eta$ on the anode-gate electric field, and $G_e$ on $E_g$, $P$, and distance between the gate and anode they are independent of the
 drift field.  $g_1$ and $g_{2 \mathrm{b}}$ were monitored over the
-course of SR0 + SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
+course of SR0 + SR1.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
 were stable.
 
 \begin{figure}
@@ -1417,36 +1417,72 @@ were stable.
 	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
 \end{figure}
 
-Returning to \eqnref{eq:calibrations_s1_s2} we see after solving for $g_1/\eta/g_{2 \mathrm{b}}$ we can reconstruct $E$ for any ER
-event.  The (ER)
-background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Key peaks are
-labeled with their respective energy and responsible isotope.  We can see that during DM data taking some $\mathrm{^{83m}Kr}$ is present, most
-likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  $\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$ are clearly
-visible though the majority of their de-excitations occur in the weeks following the AmBe and the NG.  Other well-defined features
-include \ce{^{214}Bi} (609.3, 1764.5, and 2204.1 keV), \ce{^{60}Co} (1173.2 and 1332.5 keV), \ce{^{40}K} (1460.8 keV), and \ce{^{208}Tl}
-(2614.5 keV).  They sit on a continuous energy spectrum caused by $\gamma$-rays that deposit part of their energy before leaving the
-detector, $\beta$-decays, and the $2 \nu \beta \beta$ emission of \ce{^{136}Xe}.
+Returning to \eqnref{eq:calibrations_s1_s2} we see after solving for $g_1/\eta/g_{2 \mathrm{b}}$ we can reconstruct $E$ for ER
+events.  The ER
+background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Peaks are
+labeled with their respective energy and responsible isotope.  We can see that during DM data taking some $\mathrm{^{83m}Kr}$ is present,
+most
+likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  $\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$ are
+also visible though the majority of their de-excitations occur in the weeks following the \ambe and the NG calibrations.  Other
+visible lines are listed in \tabref{tab:calibrations_photon_charge_efficiences_ces_resolution}.
+
+High energy \gammarays can Compton scatter multiple times before photoelectric absorption (\figref{fig:phot_atten}) or leaving the
+detector.  This, along with the $2 \nu \beta \beta$-decay of \ce{^{136}Xe} and \betadecays of isotopes such as \ce{^{214}Pb} create the
+underlying irregular background.
+
+\bgroup
+\def\arraystretch{1.2}
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+\hline
+Energy [keV] & Isotope & Half-life & Comments\\
+\hline
+41.5 & $^{\mathrm{83m}}$Kr & 1.83 h & Compound decay: 32.1 + 9.4 keV \\
+163.9 & $^{\mathrm{131m}}$Xe & 11.8 d & \\
+236.2 & $^{\mathrm{129m}}$Xe & 8.9 d & Compound decay: 196.6 + 39.6 keV \\
+351.9 & \ce{^{214}Pb} & 26.8 m & \ce{^{238}U} chain \\
+510.8 & \ce{^{208}Tl} & 3.05 m & \ce{^{232}Th} chain \\
+609.3 & \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
+1120.3 & \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
+1173.2 & \ce{^{60}Co} & 5.271 y & \\
+1332.5 & \ce{^{60}Co} & 5.271 y & \\
+1460.8 & \ce{^{40}K} & $1.277 \times 10^9\ \mathrm{y}$ & \\
+1764.5 \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
+2204.1 \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
+2614.5 \ce{^{208}Tl} & 3.05 m & \ce{^{232}Th} chain \\
+\hline
+\end{tabular}
+\caption{Details of monoenergetic peaks in the XENON1T background spectrum.  Spectrum is shown in
+\figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.}
+\label{tab:calibrations_photon_charge_efficiences_ces_resolution}
+\end{table}
+\egroup
+
 
 The energy resolution is a measure of how well different energy depositions can be distinguished from one another.  Better resolution
 allows differentiation of nearby energy features, which allows improved discrimination between signal and background.  It is calculated
 by fitting a mono-energetic \gammaray line with a gaussian and dividing the width by the mean.  This is done for a number of background
 lines as shown in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  Our energy resolution improves at higher energies
-as $\sigma / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ including high energy $(> 1.5\ \mathrm{MeV})$ lines and
-$\sigma / E = (30.98 \pm 0.43) / \sqrt{E} + (0.37 \pm 0.03)$ without.  The second term refers to the fundamental limit of the
+as $\sigma_E / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ including high energy $(> 1.5\ \mathrm{MeV})$ lines and
+$\sigma_E / E = (30.98 \pm 0.43) / \sqrt{E} + (0.37 \pm 0.03)$ without.  The second term refers to the fundamental limit of the
 resolution.  We can see our energy resolution is better than XENON100, PandaX, and LUX.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{EnergySpectrum}
-\label{fig:calibrations_photon_charge_efficiences_ces}
+\includegraphics[width=0.5\textwidth]{energy_spectrum_rate_kev_kg_day_logscale_pax_v680_hax_v190}
+\caption{Combined energy spectrum for XENON1T.  Regions between $55 < E < 140$ and $2350 < E < 2550\ \mathrm{keV}$ are blinded for
+\ce{^{element}Xe} double-electron capture and they theorized \ce{^{element}Xe} neutrinoless double $\beta$-decay.}
+\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{EnergyResolution}
-\caption{Combined energy spectrum for XENON1T.  Regions between $num < E < num$ and $num < E < num\ \mathrm{keV}$ are blinded for
-\ce{^{element}Xe} double-electron capture and \ce{^{element}Xe} neutrinoless double-beta decay.}
-\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
+\includegraphics[width=0.8\textwidth]{exo_energy_resolution_he_pax_v680_hax_v240_feb17tofeb18_log}
+\caption{Energy resolution $\sigma_E / E$ using for the monoenergetic interactions highlighted in
+\figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  EXO Phase II (turquoise stars, \citeref{EXO2018}), PandaX (green
+squares, \citeref{PandaX2016b}), XENON100 (orange circles, \citeref{Aprile2012a}), and LUX (blue triangles, \citeref{LUX2017b}).}
+\label{fig:calibrations_photon_charge_efficiences_ces}
 \end{figure}
 
 

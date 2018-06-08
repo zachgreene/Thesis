@@ -271,8 +271,8 @@ in place by PTFE spacers (\textbf{check if spacers is right word}).
 \label{subsec:xenon1t_cryo}
 The TPC is stationed in the center of the water Cherenkov detector (\secref{subsec:xenon1t_water_shield}) and is encompassed by the inner
 cryostat.  The cryostat
-is stainless steel and electropolished to reduce radon emanation (\secref{}), since it is in direct contact with the xenon.  It is 1960 mm
-tall by 1100 mm diamater and is metal-sealed
+is stainless steel and electropolished to reduce radon emanation (\secref{subsubsec:backgrounds_electronic_radon}), since it is in direct
+contact with the xenon.  It is 1960 mm tall by 1100 mm diamater and is metal-sealed
 with Helicoflex.  Surrounding it is the 2490 mm tall by 1620 mm diamater outer cryostat.  It is also composed of stainless steel but
 because there is no contact with xenon electropolishing is unncessary.  Materials were screened prior to construction for low-radioactivity
 selection.  The two are thermally isolated by Torlon polyamide-imide spacers and
@@ -648,15 +648,37 @@ W-collimator and emits MeV neutrons.  Details are discussed in \secref{subsubsec
 The data acquisition (DAQ) is in a temperature-controlled room on the second floor of the service building.  It can record the TPC and
 muon veto PMTs either independently or simultaneously.  The signals from the TPC first pass through Phillips Scientific 776 amplifiers
 where they undergo 10-fold amplitude increase.  They, along with the muon veto signals, are then digitized via 100 MHz CAEN V1724 flash
-ADC boards (32 in total) that have 40 MHz bandwith, 14 bit resolution, and 2.25 V or 0.5 V, respectively.  A single independent clock
+ADC boards (32 in total) that have 40 MHz bandwith, 14 bit resolution, and 2.25 V or 0.5 V, respectively.  \figref{fig:xenon1t_waveform}
+shows a standard waveform recorded by the DAQ.  A single independent clock
 connects to each ADC to ensure they are properly aligned and a 0.1 Hz synchronization signal is passed from a custom-developed GPS-synched
 module.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Waveform}
+\caption{Example of a waveform from XENON1T.  The bottom panel shows hits (red circles) observed for each PMT channel over time with
+larger areas representing greater intensity.  An S1 (76.2 PE) is visible at ${\sim}380\ \mathrm{\mu s}$, marked by the blue circle in the
+middle panel.  The shape of the S1 (left) and the light seen by the bottom PMT array (center right) are shown in the top panel.  At
+${\sim} 1000\ \mathrm{\mu s}$ an S2 (2120.1 PE) occurs.  Its shape (center left) and light distribution in the top PMT array (right) are
+shown in the top panel.  The red cross marks the $x \mdash y$ coordinates from the position reconstruction algorithm
+(\secref{subsec:det_char_position_reconstruction}).  S2s are marked by
+green circles in the middle panel.  We see in this waveform after the primary S2 two smaller ($< 40\ \mathrm{PE}$) S2s follow that are
+$\lesssim 3\ e^-$.}
+\label{fig:xenon1t_waveform}
+\end{figure}
 
 The TPC DAQ reads every pulse $> 0.3\ \mathrm{PE}$ from each PMT independently and regardless of any signal from other
 channels.  The read-outs of the ADC boards are passed to six computers at up to $300\ \mathrm{MB\ s^{-1}}$ (${\sim}100\ \mathrm{Hz}$) and
 are stored - along with relevant information such as time and channel - in a MongoDB database.  The sum of the bottom PMTs along with veto
 and busy information is constantly read by a separate computer to determine the deadtime.  The DAQ continuously monitors data quality
 parameters such as baseline, trigger, and noise.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{DAQ}
+\caption{Schematic of the data acquisition.}
+\label{fig:xenon1t_daq_schematic}
+\end{figure}
 
 A software eventbuilder on three server-grade machines decides if an interaction has occurred in real-time by examining the
 time-clustering of PMT signals, and opts whether or not to trigger.  Metadata from the trigger decision is recorded and can be monitored
@@ -666,13 +688,6 @@ veto uses a simple coincidence trigger that is directed by a CAEN V1495 VME unit
 Two 10 Gbps fibers transfer the raw data to buffer-storage at LNGS for temporarily housing.  The raw data is then moved to the US Open
 Science Grid and European Grid Infrastructure for processing and backed up in Stockholm.  \figref{fig:xenon1t_daq_schematic} shows an
 overview of the DAQ system.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{DAQ}
-\caption{Schematic of the data acquisition.}
-\label{fig:xenon1t_daq_schematic}
-\end{figure}
 
 
 
@@ -742,16 +757,17 @@ During the \ce{^{220}Rn} calibration in SR0 the krypton column (\secref{subsec:x
 concentration.  The column essentially operated in reverse: the more buoyant xenon should have a lower (higher) radon concentration at the
 top (bottom) of the column.  The gas at the top was funneled back to the purification system while the bottom was siphoned to
 bottles.  The event rates of \ce{^{220}Rn}, \ce{^{218}Po}, and \ce{^{214}Bi}-\ce{^{214}Po} before and after the distillation are shown
-in \figref{fig:backgrounds_electronic_radon_distillation}.  The rates dropped from $13.4 pm 0.6 \rightarrow 11.1 \pm 0.3$,
+in \figref{fig:backgrounds_electronic_radon_distillation}.  The rates dropped from $13.4 \pm 0.6 \rightarrow 11.1 \pm 0.3$,
 $12.5 \pm 0.4 \rightarrow 10.5 \pm 0.5$, and $5.0 \pm 0.3 \rightarrow 4.0 \pm 0.3\ \mathrm{\mu Bq\ kg^{-1}}$, respectively.  Although the
 decrease of ${\sim}20\%$ is relatively small with respect to krypton removal, \ce{^{214}Pb} is expected to be the largest background
 contributor so such a reduction is still significant.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{radon_distillation}
+\includegraphics[width=\textwidth]{Rn222_Po218_BiPo214_Rn_Distillation_absolute_value}
 \label{fig:backgrounds_electronic_radon_distillation}
-\caption{Radon distillation plot on blessed plots page - find out where code to make is.}
+\caption{\ce{^{222}Rn} (red), {^{218}Po} (blue), and \ce{^{214}BiPo} (green) event rate concentrations before and after radon
+distillation.  A decrease of ${\sim} 20\%$ is observed.}
 \end{figure}
 
 \ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
@@ -763,13 +779,13 @@ of the detector, additional analyses, and monitoring properties such as the elec
 
 \begin{figure}
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{ERRateMCFull}
+        \includegraphics[height=5cm]{ERRateMCFull}
     \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{ERRateMCZoomed}
+        \includegraphics[height=5cm]{ERRateMCZoomed}
     \end{subfigure}
     \caption{Electronic recoil energy spectrum in a 1 t fiducial volume from MC simulations.  Image credit: \citeref{Aprile2016a}.}
 	\label{fig:backgrounds_er_spectrum}
@@ -823,13 +839,13 @@ $0.6 \pm 0.1\ \mathrm{y^{-1}}$.
 
 \begin{figure}
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{neutronyield-ptfe-v2}
+        \includegraphics[height=5cm]{neutronyield-ptfe-v2}
     \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4.5cm]{neutronyield-cu-v2}
+        \includegraphics[height=5cm]{neutronyield-cu-v2}
     \end{subfigure}
     \caption{Image credit:Image credit: \citeref{Aprile2016a}.}
 	\label{fig:backgrounds_nuclear_radiogenic_rates}
@@ -853,7 +869,7 @@ $< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{totalnrbackground}
-\caption{Image credit: \citeref{Fig7Aprile2016a}.}
+\caption{Image credit: \citeref{Aprile2016a}.}
 \label{fig:backgrounds_nuclear_muon_induced_nr_rate}
 \end{figure}
 
@@ -900,8 +916,7 @@ $\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \righta
         \centering
         \includegraphics[width=\textwidth]{Decay_Chain_of_Uranium-238}
     \end{subfigure}
-    \caption{Image credit: %https://commons.wikimedia.org/wiki/File:Decay_Chain_of_Uranium-238.svg
-    .}
+    \caption{Decay chains for \ce{^{232}Th} (left) and \ce{^{238}U} (right).  Image credit: \citeref{Wikimedia2018a, Wikimedia2018b}.}
 	\label{fig:backgrounds_decay_chains}
 \end{figure}
 
@@ -910,7 +925,7 @@ an increase in position reconstruction uncertainty, 2) electronic recoil events 
 to the electric field.
 
 A major constraint on the radius of our fiducial volume is the radioactivity from the PTFE panels - both the rate and reconstructed
-positions, the latter of which has significant uncertainty at \stwob $\lesssim 1000\ \mathrm{PE}$
+positions, the latter of which has significant uncertainty at $\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$
 (\figref{fig:calibrations_position_reconstruction_res}).  This makes \ce{^{210}Pb} on the PTFE panels concerning since its \betadecay has
 a Q-value of just $63.5\ \mathrm{keV}$ and electron loss could result in a seemingly normal NR event inside our FV.  Moreover, despite a
 chemical cleaning process during commissioning, a large amount of \ce{^{210}Pb} is known to be present from observations of its progeny
@@ -924,7 +939,7 @@ distributions were found to be symmetric inside and outside the TPC, which was e
 $r > 47.9\ \mathrm{rm}$ data was unblinded and the energy distribution was obtained via a fixed kernel density (KDE) estimator using
 superposition of gaussians for each point in S2, cS1, cS2$_{\mathrm{b}}$, and $z$ space.
 
-Three complementary S2-$r$ PDFs were
+Three complementary S2$_{\mathrm{b}} - r$ PDFs were
 constructed using a skew gaussian ($M1$), skew t ($M2$), and adaptive KDE ($M3$).  The minimum, average, and maximum PDF methods were determined
 by $\mathrm{min}(M1, M2, M3)$, $\mathrm{mean}(M1, M2, M3)$, and $\mathrm{max}(M1, M2, M3)$, respectively.  These were unified with the
 KDE for a 5D predictor of the event distribution inside the TPC.
@@ -959,7 +974,7 @@ calibration and included a time dependent correction for analyses.
 \label{fig:backgrounds_wall_charge}
 \end{figure}
 
-At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by the detector materials, except for
+At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by detector materials, except for
 ${\sim} 1400 \mdash 2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  For the energy region for spin-independent WIMP dark matter
 though it is outpaced by more than an order of magnitude inside a 1 t FV.  \figref{fig:backgrounds_er_spectrum} shows the predicted ER
 backgrounds using Monte Carlo.
@@ -981,7 +996,7 @@ selection.  A shape cut is applied to S1s to ensure it is not an S2 from a singl
 number of expected events and the distribution.  The rate of AC events is given by
 
 \begin{equation}
-R_{\mathrm{AC}} = R_{\mathrm{LS1}} R_{\mathrm{LS2}} t_{d, \mathrm{max}}
+R_{\mathrm{AC}} = R_{\mathrm{LS1}} \times R_{\mathrm{LS2}} \times t_{d, \mathrm{max}}
 \label{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence}
 \end{equation}
 
@@ -1116,27 +1131,6 @@ to be lessened from reflections with the PTFE and extended travel distances as d
 directed towards the surface from an event 10 cm above the cathode ($r = 0$)
 has $\theta < \theta_c$ everywhere.  Some scintillation that reflects off the PTFE on the way up will rebound off the surface, but its
 contribution is relatively small.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{Fig20Aprile2017b}
-        \label{fig:calibrations_lce_lce_hist}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{Fig21Aprile2017b} \\
-        \label{fig:calibrations_lce_cle_map}
-    \end{subfigure}
-    \begin{subfigure}[b]{\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{LCEMapPolar}
-        \label{fig:calibrations_lce_cle_map}
-    \end{subfigure}
-    \caption{Image credit: \citeref{Aprile2017b}.}
-	\label{fig:calibrations_lce_lce}
-\end{figure}
 
 \begin{figure}
 \centering
@@ -1392,9 +1386,9 @@ observables as
 gain as measured by the bottom PMT array) where $g_1$ is the average light collection
 efficiency and $\eta$
 is the \textit{extraction efficiency} - that is, the probability of extracting an \electron from the liquid into the gas.  The average
-gain for an \electron then that escapes recombination is $g_2 = \eta G_e$.  If $G_e$ is known
+gain for an \electron then that escapes recombination is $g_{2 \mathrm{b}} = \eta G_e$.  If $G_e$ is known
 (\secref{subsec:det_char_single_electron_gain}) there energy of an event is known \eqnref{eq:calibrations_s1_s2} has two unknowns:
-$g_1$ and $\eta$ (or $g_2$).  Rearranging gives
+$g_1$ and $\eta$ (or $g_{2 \mathrm{b}}$).  Rearranging gives
 
 \begin{equation}
 \frac{\mathrm{cS2_b}}{E_{er}} = \frac{\eta_{EE} G_e}{g_1} \frac{\mathrm{cS1}}{E_{er}} - \frac{\eta_{EE} G_e}{W}
@@ -1403,8 +1397,9 @@ $g_1$ and $\eta$ (or $g_2$).  Rearranging gives
 \noindent that shows these can be solved using a linear fit if more than one energies are
 used.  \figref{fig:calibrations_photon_charge_efficiencies_g1_g2} (left) presents this for several lines in our detector during SR1, giving
 $g_1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
-($g_2 = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g_1$ depends on the PMTs, $\eta$ on the anode-gate electric field, and $G_e$ on
-$E_g$, $P$, and distance between the gate and anode they are independent of the drift field.  $g_1$ and $g_2$ were monitored over the
+($g_{2 \mathrm{b}} = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g_1$ depends on the PMTs,
+$\eta$ on the anode-gate electric field, and $G_e$ on $E_g$, $P$, and distance between the gate and anode they are independent of the
+drift field.  $g_1$ and $g_{2 \mathrm{b}}$ were monitored over the
 course of SR0 + SR1 to ensure any variations are noted.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
 were stable.
 
@@ -1412,7 +1407,7 @@ were stable.
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{g1g2Anticorrelation}
+        \includegraphics[width=\textwidth]{g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other}
     \end{subfigure}%
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -1422,7 +1417,8 @@ were stable.
 	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
 \end{figure}
 
-Returning to \eqnref{eq:calibrations_s1_s2} we see after solving for $g_1/\eta/g_2$ we can reconstruct $E$ for any ER event.  The (ER)
+Returning to \eqnref{eq:calibrations_s1_s2} we see after solving for $g_1/\eta/g_{2 \mathrm{b}}$ we can reconstruct $E$ for any ER
+event.  The (ER)
 background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Key peaks are
 labeled with their respective energy and responsible isotope.  We can see that during DM data taking some $\mathrm{^{83m}Kr}$ is present, most
 likely from \ce{^{83}Rb} initially absorbed in the getters but some time later decay.  $\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$ are clearly
@@ -1435,7 +1431,7 @@ The energy resolution is a measure of how well different energy depositions can 
 allows differentiation of nearby energy features, which allows improved discrimination between signal and background.  It is calculated
 by fitting a mono-energetic \gammaray line with a gaussian and dividing the width by the mean.  This is done for a number of background
 lines as shown in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  Our energy resolution improves at higher energies
-as $\sigma / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ including high energy (> 1.5 MeV) lines and
+as $\sigma / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ including high energy $(> 1.5\ \mathrm{MeV})$ lines and
 $\sigma / E = (30.98 \pm 0.43) / \sqrt{E} + (0.37 \pm 0.03)$ without.  The second term refers to the fundamental limit of the
 resolution.  We can see our energy resolution is better than XENON100, PandaX, and LUX.
 
@@ -1598,7 +1594,8 @@ r \sim \mathrm{Norm} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Bi
 \noindent where $0 \leq r leq 1$ and is parameterized using a modified Thomas-Imel box model (\citeref{Thomas1987})
 
 \begin{equation}
-\langle r \rangle = \bigg( 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \bigg)
+\langle r \rangle = \frac{1}{1 + e^{-(E - E_0) / E_1}}
+\bigg( 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \bigg)
 ,\ \ \varsigma = \gamma_{\mathrm{er}} e^{-E / \omega_{\mathrm{er}}} F_{\mathrm{E}}^{-\delta_{\mathrm{er}}}
 \label{eq:er_nr_calibrations_parameter_determ_ti}
 \end{equation}
@@ -1616,7 +1613,7 @@ restrictions $0 \geq r,\ \Delta r \geq 1$ are applied since $r$ cannot be less t
 then that recombine is
 
 \begin{equation}
-n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
+n_{\mathrm{rec}} \sim \mathrm{Binom} \big(n = n_{\mathrm{ion}},\ p = r \big)
 \end{equation}
 
 \noindent yielding a final number of photons and electrons
@@ -1734,7 +1731,7 @@ n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 +
 \noindent and $n_{\mathrm{ex}} = n_{\mathrm{q}} - n_{\mathrm{ion}}$.  Recombination is given by
 
 \begin{equation}
-n_{\mathrm{rec}} \sim \mathrm{Binom} \Big(n = n_{\mathrm{ion}},\ p = r \Big)
+n_{\mathrm{rec}} \sim \mathrm{Binom} \big(n = n_{\mathrm{ion}},\ p = r \big)
 \end{equation}
 
 \noindent where $r$ is now described by the Thomas-Imel model without the Fermi-Dirac tuning.
@@ -1762,7 +1759,7 @@ $B$ is the coefficient to the stopping power, and $\eta$ is defined to be their 
 and the Penning process is then
 
 \begin{equation}
-n_{\mathrm{q}} = \mathrm{Binom} (n = n_{\mathrm{ex}},\ p = f_l)
+n_{\mathrm{q}} = \mathrm{Binom} \big( n = n_{\mathrm{ex}},\ p = f_l \big)
 \end{equation}
 
 \noindent reducing $n_{\mathrm{ex}} \rightarrow n_{\mathrm{ex}} - n_{\mathrm{q}} \rightarrow n_{\mathrm{ex}}$.
@@ -1826,8 +1823,8 @@ $\eta$ & $3.3_{-0.7}^{+5.3}$ &  \eqnref{eq:er_nr_calibrations_parameter_determ_n
 $\lambda$ & $1.14_{-0.09}^{+0.45}$ & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
 \hline
 \end{tabular}
-\caption{Best fit values along with 68\% credible intervals from the \citeref{NEST2015} analysis to available nuclear recoil light and
-charge yields.}
+\caption{Best-fit values along with 68\% credible intervals for nuclear recoil microphysics parameters from \citeref{NEST2015}.  These
+are used as gaussian priors for \ambe and NG band fitting.}
 \label{tab:er_nr_calibrations_parameter_determ_nr_nest}
 \end{table}
 \egroup
@@ -2754,8 +2751,18 @@ regions are outside the region of interest.  The grey lines (left) display iso-e
 \end{figure}
 
 The correlation between $r_{\mathrm{rec}}^2$ and cS2$_{\mathrm{b}}$ (right panel of \figref{fig:dark_matter_results_bands}) provides
-additional discrimination in the likelihood analysis.  And unbinned extended likelihood is used to interprete the data in the 1.3 t
-fiducial mass.
+additional discrimination in the likelihood analysis.  An unbinned extended likelihood is used to interprete the data in the 1.3 t
+fiducial mass.  Events are classified as inside or outside the core fiducial mass in addition to the unbinned analysis dimensions cS1,
+cS2$_{\mathrm{b}}$, and $r_{\mathrm{rec}}$.  Model uncertainties are included as nuisance parameters in the likelihood.  A mis-modeling
+``safeguard'' or WIMP-like component is added to the ER model and constrained by \ce{^{220}Rn} calibration data (\citeref{Priel2017}).
+
+Confidence intervals for the WIMP-nucleon spin-independent elastic scattering cros section $\sigma_{SI}$ with respect to WIMP mass were
+computed via ``profile construction'' using MC simulations
+(\citeref{Feldman1998}).  The coverage was tested using a variety of values of nuisance parameters.  The 90\% confidence interval upper
+limit for $\sigma_{SI}$ is shown in \figref{fig:dark_matter_results_limit}.  The inset shows the limits and sensitivity's for this result
+and \citeref{LUX2017a, PandaXII2017} normalize to the median sensitivity of this result.  At $> 50\ \mathrm{GeV}$ we can see our median
+sensitivity is a factor of ${\sim}7$ better than these previous experiments.  We set an upper limit for
+$\sigma_{SI} = 4.1 \times 10^{-47}\ mathrm{cm^2}$ at 30 GeV, the most stringent to date for $> 6\ mathrm{GeV}$ WIMPs.
 
 \begin{figure}
 \centering

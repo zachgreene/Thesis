@@ -11,17 +11,14 @@
 
 XENON1T is the third generation experiment of the XENON collaboration.  With a fiducial mass of $> 1000\ \mathrm{kg}$ it is the first
 liquid xenon dark matter detector to reach the ton-scale era of DM detection.  Its large target mass and low radioactive background
-makes it the most sensitive detector to spin-independent WIMPs.
+make it the most sensitive detector to spin-independent WIMPs at $> 6\ \mathrm{GeV / c^2}$.
 
-In this chapter I describe the XENON1T experiment (\secref{sec:xenon1t_detector}) and discuss the procedure, strategy, and results of the
-two dark matter runs in a run-combination analysis (\secref{sec:xenon1t_sr1}).  Original results from the first science run, or Science
-Run 0 (SR0) can
-be found in \citeref{Aprile2017f} and are referred to in this chapter as ``First Results'' or ``SR0-only'' but the analysis is not
-discussed.  This chapter focuses on the analysis of the first and second science runs - Science Run 0 and Science Run 1
-(SR0 + SR1) - referred to as ``run combination (RC)''.  Thus the data used in our First Results is re-analyzed together with new data
-from SR1.
+This chapter begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by a discussion on backgrounds
+(\secref{sec:backgrounds}) and detector characterization (\secref{sec:det_char}).  The electronic and nuclear recoil band fittings are
+then detailed (\secref{sec:er_nr_calibrations}) and finally dark matter search results (\secref{sec:dark_matter_results}).
 
-Lots of good info in Aprile2017b (instrument paper).
+This chapter presents the run-combined analysis of Science Run 0 (SR0) and Science Run 1 (SR1) - the first two XENON1T science
+runs.  The original SR0-only analysis (\citeref{Aprile2017f}) is referred to as ``First Results'' and is cited for comparison.
 
 \section{The XENON1T Detector}
 \label{sec:xenon1t_detector}
@@ -407,6 +404,8 @@ maximum value of $> 0.4$ at approximately 172 nm and ${\sim} 0.2$ at 178 nm.  Im
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{AbsorptionWithDistance}
+\caption{Fraction of initial intensity with distance for concentrations of water (left) and \ce{O_2} (right).  Image credit:
+\citeref{Ozone2005}.}
 \label{fig:xenon1t_pur_absorp_dist}
 \end{figure}
 
@@ -432,7 +431,7 @@ numerous connections makes the purification system a hub for transferring xenon 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{PurificationLayout}
-\caption{Image credit: \citeref{Aprile2017b}.}
+\caption{Layout of the purification system.  Image credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_pur_schematic}
 \end{figure}
 
@@ -623,7 +622,8 @@ at periodic intervals.  The result is an SPE spectrum as shown in \figref{fig:xe
 \label{subsubsec:xenon1t_calibrations_external}
 External calibrations are performed with a source outside the cryostat.  In XENON100 this was done by inserting a source inside the lead
 shielding; however, the water tank in XENON1T makes this a more complicated task.  The resolution was the installation of two ``I-belts"
-along the height of the detector and one ``U-belt" that also extends underneath, as shown in \figref{fig:xenon1t_calibration_belts}.  These
+along the height of the detector and one ``U-belt" that also extends underneath, as shown in
+\figref{fig:xenon1t_calibrations_belts}.  These
 allow the sources to be lowered from the roof of the tank, as well as calibrate from different locations, so long as they are on the
 belts.  They are removed during dark matter data taking.
 
@@ -766,7 +766,7 @@ contributor so such a reduction is still significant.
 \centering
 \includegraphics[width=\textwidth]{Rn222_Po218_BiPo214_Rn_Distillation_absolute_value}
 \label{fig:backgrounds_electronic_radon_distillation}
-\caption{\ce{^{222}Rn} (red), {^{218}Po} (blue), and \ce{^{214}BiPo} (green) event rate concentrations before and after radon
+\caption{\ce{^{222}Rn} (red), \ce{^{218}Po} (blue), and \ce{^{214}BiPo} (green) event rate concentrations before and after radon
 distillation.  A decrease of ${\sim} 20\%$ is observed.}
 \end{figure}
 
@@ -959,6 +959,17 @@ KDE for a 5D predictor of the event distribution inside the TPC.
     the S2 vs. $r$ distribution.  Data outside and inside the TPC appear symmetric in $r$.  The effects of poor position reconstruction
     at low S2 is observed.}
 	\label{fig:backgrounds_decay_chains}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{surface_s2s1_distribution_blessed_sr1}
+\caption{Expected surface background distribution in cS1-cS2$_{\mathrm{b}}$.  Electrons from wall events attach to the PTFE as they drift,
+decreasing the S2 and moving towards the NR band.  Projections are
+shown for cS1 (top) and cS2$_{\mathrm{b}}$ (right) for all events in blue, and between the NR median (red dashed line) and
+$-2 \sigma$ (black) in orange.  We can see the surface background has the largest impact in our ROI at
+$\mathrm{cS2_{\mathrm{b}}} \lesssim 400\ \mathrm{PE}$, $\mathrm{cS1} \lesssim 20\ \mathrm{PE}$.}
+\label{fig:backgrounds_detector_materials_bands}
 \end{figure}
 
 The accumulation of charge on the PTFE panels was discovered by the author by tracking the number of \ce{^{222}Rn} and \ce{^{218}Po}
@@ -1155,7 +1166,7 @@ affect the measured signal so the latter becomes important.
 
 \subsection{Position Reconstruction}
 \label{subsec:det_char_position_reconstruction}
-As mentioned in \secref{subsubsec:tpcs_signals_posrec} TPCs allow 3-dimensional position reconstruction.  Since the drift velocity $v_d$
+TPCs allow 3-dimensional position reconstruction.  Since the drift velocity $v_d$
 is constant in LXe the depth is easily found as $z = -v_d t_d$ where $t_d$ is the drift time ($z$ is defined to be negative with
 $z = 0$ at gate).  The drift fields for SR0 and SR1 were $E_d = 118.6\ \mathrm{V\ cm^{-1}}$ and $81.3\ \mathrm{V\ cm^{-1}}$,
 respectively, with $2.2\ \mathrm{V\ cm^{-1}}$ RMS variations.  The fields correspond to drift velocities of
@@ -1318,8 +1329,8 @@ insignificant but it is used in calibrations, where \ce{^{212}Bi} allows high-st
 The electron lifetimes from $\alpha$-decays was observed to be smaller than using $\beta$s or $\gamma$s.  While $\alpha$ energies are
 significantly higher the charge yield is extremely low (\figref{fig:tpcs_signals_drift_field}).  Because our sensitive region is at
 low-energy and is not affected by $\alpha$ interactions we decided to use the electron lifetime derived from $\mathrm{^{83m}Kr}$.  The
-electron lifetime used for Science Runs 0 and 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flatness in $\tau_{e^-}$ is not
-expected and may be indicative of a small leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the electron
+electron lifetime used for Science Runs 0 and 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flatness in $\tau_{e^-}$
+may be indicative of a small leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the electron
 lifetime model are discussed in \chapref{4}.
 
 \begin{figure}
@@ -1395,7 +1406,8 @@ $g_1$ and $\eta$ (or $g_{2 \mathrm{b}}$).  Rearranging gives
 \end{equation}
 
 \noindent that shows these can be solved using a linear fit if more than one energies are
-used.  \figref{fig:calibrations_photon_charge_efficiencies_g1_g2} (left) presents this for several lines in our detector during SR1, giving
+used.  \figref{fig:g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other} (left) presents this for several lines in our
+detector during SR1, giving
 $g_1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
 ($g_{2 \mathrm{b}} = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g_1$ depends on the PMTs,
 $\eta$ on the anode-gate electric field, and $G_e$ on $E_g$, $P$, and distance between the gate and anode they are independent of the
@@ -1431,7 +1443,6 @@ detector.  This, along with the $2 \nu \beta \beta$-decay of \ce{^{136}Xe} and \
 underlying irregular background.
 
 \bgroup
-\def\arraystretch{1.2}
 \begin{table}
 \centering
 \begin{tabular}{cccc}
@@ -1448,9 +1459,9 @@ Energy [keV] & Isotope & Half-life & Comments\\
 1173.2 & \ce{^{60}Co} & 5.271 y & \\
 1332.5 & \ce{^{60}Co} & 5.271 y & \\
 1460.8 & \ce{^{40}K} & $1.277 \times 10^9\ \mathrm{y}$ & \\
-1764.5 \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
-2204.1 \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
-2614.5 \ce{^{208}Tl} & 3.05 m & \ce{^{232}Th} chain \\
+1764.5 & \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
+2204.1 & \ce{^{214}Bi} & 19.9 m & \ce{^{238}U} chain \\
+2614.5 & \ce{^{208}Tl} & 3.05 m & \ce{^{232}Th} chain \\
 \hline
 \end{tabular}
 \caption{Details of monoenergetic peaks in the XENON1T background spectrum.  Spectrum is shown in
@@ -1459,6 +1470,13 @@ Energy [keV] & Isotope & Half-life & Comments\\
 \end{table}
 \egroup
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{energy_spectrum_rate_kev_kg_day_logscale_pax_v680_hax_v190}
+\caption{Combined energy spectrum for XENON1T.  Regions between $55 < E < 140$ and $2350 < E < 2550\ \mathrm{keV}$ are blinded for
+\ce{^{124}Xe} double-electron capture and they theorized \ce{^{136}Xe} neutrinoless double $\beta$-decay.}
+\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
+\end{figure}
 
 The energy resolution is a measure of how well different energy depositions can be distinguished from one another.  Better resolution
 allows differentiation of nearby energy features, which allows improved discrimination between signal and background.  It is calculated
@@ -1470,19 +1488,28 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{energy_spectrum_rate_kev_kg_day_logscale_pax_v680_hax_v190}
-\caption{Combined energy spectrum for XENON1T.  Regions between $55 < E < 140$ and $2350 < E < 2550\ \mathrm{keV}$ are blinded for
-\ce{^{element}Xe} double-electron capture and they theorized \ce{^{element}Xe} neutrinoless double $\beta$-decay.}
-\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
-\end{figure}
-
-\begin{figure}
-\centering
 \includegraphics[width=0.8\textwidth]{exo_energy_resolution_he_pax_v680_hax_v240_feb17tofeb18_log}
 \caption{Energy resolution $\sigma_E / E$ using for the monoenergetic interactions highlighted in
 \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  EXO Phase II (turquoise stars, \citeref{EXO2018}), PandaX (green
 squares, \citeref{PandaX2016b}), XENON100 (orange circles, \citeref{Aprile2012a}), and LUX (blue triangles, \citeref{LUX2017b}).}
 \label{fig:calibrations_photon_charge_efficiences_ces}
+\end{figure}
+
+
+
+\subsection{Light and Charge Yield}
+\label{subsec:det_char_ly_cy}
+An event with energy $E$ should produce the same cS1 and \cstwob as long as detector conditions are stable.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ly_cy_stability_sr1_absolute}
+\caption{Light and charge yield from mono-energetic signals.  Note that unlike the light and charge yield discussed in
+\secref{subsec:er_nr_calibrations_results_ly_qy} the units are $\mathrm{PE\ keV^{-1}}$ (instead of $\mathrm{ph\ keV^{-1}}$ and
+$e^-\ \mathrm{keV^{-1}}$, respectively) and are calculated by dividing the cS1 (cS2$_{\mathrm{b}}$) by the energy of the
+interaction.  Charge yield is not shown for \ce{^{222}Rn} because it is significantly lower than its
+electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}$ due to the fact it decays via $\alpha$-emission.}
+\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
 \end{figure}
 
 

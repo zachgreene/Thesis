@@ -37,4 +37,66 @@ see.
 
 \subsection{Effects of Electronegative Impurities}
 \label{subsec:importance_procedure_effects}
-Electronegative impurities attach to drifting electrons.
+Electronegative impurities decrease the photons and electrons measured.
+
+\subsubsection{Photon Attenuation}
+\label{subsubsec:importance_procedure_effects_photons}
+Contaminants been shown to absorb Xe scintillation (178 nm with ${\sim} 14\ \mathrm{nm}$ spectral FWHM)
+(\citeref{Watanabe1953a, Watanabe1953b}).  At concentrations of ppm or higher
+the fraction of UV photons that reach the PMTs can be considerably decreased - especially for large detectors.  The intensity due to
+photon attenuation is given by
+
+\begin{equation}
+I(x) = I_0 e^{-x / \lambda_{\mathrm{att}}}
+\end{equation}
+
+\nonindent where $I_0$ is initial intensity, $x$ is distance, and $\lambda_{\mathrm{att}}$ is the attenuation length.  It can be written
+as $1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{scatt}}$ where $\lambda_{\mathrm{abs}}$ and
+$\lambda_{\mathrm{scatt}}$ are the the absorption and scatterings lengths, respectively.  For entirely pure xenon
+$\lambda_{\mathrm{abs}} \sim \infty$ (\citeref{Baldini2005} found $lambda_{\mathrm{abs}} > 100\ \mathrm{cm}$ at 90\% confidence
+level).
+
+The inclusion of impurities, however, can shorten the absorption
+length.  \figerf{fig:importance_procedure_effects_photons_absorption_coefficents} shows the absorption coefficients
+($\lambda_{\mathrm{abs}}^{-1}$) for 1 ppm \htwoo and \otwo from $130 \mdash 200\ \mathrm{nm}$.  They overlap with shorter wavelengths
+of the xenon spectrum (included for comparison), meaning measured VUV photons by PMTs will not be symmetric above 178 nm.  With a nearly
+1-meter tall detector a 1 ppm concentration of \htwoo would have an effect at 184 nm.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
+\caption{Absorption coefficient for photons in 1 ppm \ce{H_2O} vapor (solid red) and \ce{O_2} (dashed green).  The Xe scintillation
+spectrum is overlaid for comparison (dashed blue).  \ce{H_2O} impacts Xe scintillation considerably
+more than \ce{O_2}.  Image credit: \citeref{Ozone2005}, \ce{H_2O} data from \citeref{Yoshino1996}.}
+\label{fig:importance_procedure_effects_photons_absorption_coefficents}
+\end{figure}
+
+The relative intensities for different \ce{H_2O}/Xe and \ce{O_2}/Xe concentrations from $0 \mdash 60\ \mathrm{cm}$ are shown in
+\figref{fig:importance_procedure_effects_photons_absorption_distance}.  We see that at the level of $\mathcal{O}(100)\ \mathrm{ppb}$ of
+oxygen $I / I_0 > 0.8$ at 60 cm.  The effect of water is substantially worse with $I / I_0 < 0.3$, highlighting the necessity of
+significant reduction in XENON1T.  Even with a LXe purity that is appreciably better than
+\figref{fig:importance_procedure_effects_photons_absorption_distance} $\lambda_{\mathrm{att}} \sim \lambda_{\mathrm{abs}}$ since
+the effects of scattering are subdominant with respect to absorption.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{AbsorptionWithDistance}
+\caption{Fraction of initial intensity of xenon scintillation with distance for various concentrations of \htwoo (left) and \otwo
+(right).  Image credit: \citeref{Ozone2005}.}
+\label{fig:importance_procedure_effects_photons_absorption_distance}
+\end{figure}
+
+Photon attenuation ultimately increases our energy threshold as we are less sensitive to lower energies as few photons are
+measured.
+
+
+
+\subsubsection{Charge Depletion}
+\label{subsubsec:importance_procedure_effects_charge}
+
+
+
+
+
+
+Page 257 in Aprile book

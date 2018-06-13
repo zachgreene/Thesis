@@ -391,24 +391,6 @@ there is large overlap at lower wavelengths - especially for H$_2$O - and that o
 incorrect measurement of the scintillation spectrum.  In addition to electronegative there are intrinsic
 impurities including Kr and Rn but these are discussed in \secref{subsec:xenon1t_kr_dist}.
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
-\caption{Xe scintillation spectrum along with absorption coefficients for oxygen and water vapor present at 1 ppm.  \otwo has a maximum
-value of overlap
-with Xe of ${\sim} 0.1$ around 166 nm.  \htwoo covers a larger range of xenon's spectrum and has a much more significant impact, with a
-maximum value of $> 0.4$ at approximately 172 nm and ${\sim} 0.2$ at 178 nm.  Image credit: \citeref{Ozone2005}.}
-\label{fig:xenon1t_pur_absorption_spectra}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{AbsorptionWithDistance}
-\caption{Fraction of initial intensity with distance for concentrations of water (left) and \ce{O_2} (right).  Image credit:
-\citeref{Ozone2005}.}
-\label{fig:xenon1t_pur_absorp_dist}
-\end{figure}
-
 Electronegative impurities come primarily from outgassing of detector materials.  They have different \electron attachment rates (see
 \figref{fig:attachment_rate} for examples) so are measured in O$_2$-equivalent - that is, the analogous concentration of oxygen if it
 were the only contaminant.  For LXe experiments the necessary concentration is $\mathcal{O}(10^{-9})$ parts per billion (ppb) or less.
@@ -1398,39 +1380,45 @@ gain as measured by the bottom PMT array) where $g_1$ is the average light colle
 efficiency and $\eta$
 is the \textit{extraction efficiency} - that is, the probability of extracting an \electron from the liquid into the gas.  The average
 gain for an \electron then that escapes recombination is $g_{2 \mathrm{b}} = \eta G_e$.  If $G_e$ is known
-(\secref{subsec:det_char_single_electron_gain}) there energy of an event is known \eqnref{eq:calibrations_s1_s2} has two unknowns:
+(\secref{subsec:det_char_single_electron_gain}) the energy of an event is known \eqnref{eq:calibrations_s1_s2} has two unknowns:
 $g_1$ and $\eta$ (or $g_{2 \mathrm{b}}$).  Rearranging gives
 
 \begin{equation}
-\frac{\mathrm{cS2_b}}{E_{er}} = \frac{\eta_{EE} G_e}{g_1} \frac{\mathrm{cS1}}{E_{er}} - \frac{\eta_{EE} G_e}{W}
+\frac{\mathrm{cS2_b}}{E_{er}} = \frac{g2_{\mathrm{b}}}{g_1} \frac{\mathrm{cS1}}{E_{er}} - \frac{g_{2 \mathrm{b}}}{W}
 \end{equation}
 
 \noindent that shows these can be solved using a linear fit if more than one energies are
-used.  \figref{fig:g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other} (left) presents this for several lines in our
+used.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (left) presents this for several lines in our
 detector during SR1, giving
 $g_1 = 0.1426 \pm 0.0001_{\mathrm{stat}} \pm 0.0017_{\mathrm{sys}}\ \mathrm{PE/ph}$ and $\eta = $
 ($g_{2 \mathrm{b}} = 11.55 \pm 0.01_{\mathrm{stat}} \pm 0.24_{\mathrm{sys}}\ \mathrm{PE/e^-}$).  Because $g_1$ depends on the PMTs,
 $\eta$ on the anode-gate electric field, and $G_e$ on $E_g$, $P$, and distance between the gate and anode they are independent of the
 drift field.  $g_1$ and $g_{2 \mathrm{b}}$ were monitored over the
 course of SR0 + SR1.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows that both
-were stable.
+were stable to $< 1.5 \%$.
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other}
+%    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+%        \centering
+        \includegraphics[height=4cm]{g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other}
     \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{TimeDependence}
+    \begin{subfigure}[t]{0.65\textwidth}
+%        \centering
+        \includegraphics[height=4cm]{g1_g2_time_evolution}
     \end{subfigure}
-    \caption{}
+    \caption{(left) Example of fitting cS1 and \cstwob from mono-energetic signals to find g1 and g2$_{\mathrm{b}}$.  (right) Evolution
+    of g1 and g2$_{\mathrm{b}}$ over the first eight months of SR1.  They are stable to within 0.4\% and 1.4\% ($\pm 1 \sigma$ credible
+    intervals) respectively.}
 	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
 \end{figure}
 
+
+
+\subsection{Combined Energy Spectrum}
+\label{subsec:det_char_ces}
 Returning to \eqnref{eq:calibrations_s1_s2} we see after solving for $g_1/\eta/g_{2 \mathrm{b}}$ we can reconstruct $E$ for ER
-events.  The ER
+events.  The XENON1T
 background is shown in \figref{fig:calibrations_photon_charge_efficiences_ces} for the 1 t fiducial volume during SR1.  Peaks are
 labeled with their respective energy and responsible isotope.  We can see that during DM data taking some $\mathrm{^{83m}Kr}$ is present,
 most
@@ -1488,7 +1476,7 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{exo_energy_resolution_he_pax_v680_hax_v240_feb17tofeb18_log}
+\includegraphics[width=0.7\textwidth]{exo_energy_resolution_he_pax_v680_hax_v240_feb17tofeb18_log}
 \caption{Energy resolution $\sigma_E / E$ using for the monoenergetic interactions highlighted in
 \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  EXO Phase II (turquoise stars, \citeref{EXO2018}), PandaX (green
 squares, \citeref{PandaX2016b}), XENON100 (orange circles, \citeref{Aprile2012a}), and LUX (blue triangles, \citeref{LUX2017b}).}
@@ -1507,8 +1495,10 @@ An event with energy $E$ should produce the same cS1 and \cstwob as long as dete
 \caption{Light and charge yield from mono-energetic signals.  Note that unlike the light and charge yield discussed in
 \secref{subsec:er_nr_calibrations_results_ly_qy} the units are $\mathrm{PE\ keV^{-1}}$ (instead of $\mathrm{ph\ keV^{-1}}$ and
 $e^-\ \mathrm{keV^{-1}}$, respectively) and are calculated by dividing the cS1 (cS2$_{\mathrm{b}}$) by the energy of the
-interaction.  Charge yield is not shown for \ce{^{222}Rn} because it is significantly lower than its
-electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}$ due to the fact it decays via $\alpha$-emission.}
+interaction.  Dashed lines correspond to the median yields.  We can see the charge yield increasing slightly, which is possibly due to
+the growing rate of single \electron from the gate climbing.  Charge yield is not shown for \ce{^{222}Rn} because it is significantly
+lower than its
+electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}}$ due to the fact it decays via $\alpha$-emission.}
 \label{fig:calibrations_photon_charge_efficiences_ces_resolution}
 \end{figure}
 

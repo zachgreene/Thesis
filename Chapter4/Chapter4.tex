@@ -35,12 +35,15 @@ see.
 
 
 
-\subsection{Effects of Electronegative Impurities}
-\label{subsec:importance_procedure_effects}
-Electronegative impurities decrease the photons and electrons measured.
+\section{Effects of Electronegative Impurities}
+\label{sec:importance_procedure_effects}
+Impurities mainly come from outgassing of detector materials and diffusion of elements in the air surrounding the detector through seals,
+though for the latter this is primarily limited to noble gases such as \ce{^{222}Rn} (\textbf{check this}).  While many of these
+contribute to our electronic recoil background (\secref{subsec:backgrounds_electronic}) they can also decrease the number of photons and
+electrons measured.
 
-\subsubsection{Photon Attenuation}
-\label{subsubsec:importance_procedure_effects_photons}
+\subection{Photon Attenuation}
+\label{subsec:importance_procedure_effects_photons}
 Contaminants been shown to absorb Xe scintillation (178 nm with ${\sim} 14\ \mathrm{nm}$ spectral FWHM)
 (\citeref{Watanabe1953a, Watanabe1953b}).  At concentrations of ppm or higher
 the fraction of UV photons that reach the PMTs can be considerably decreased - especially for large detectors.  The intensity due to
@@ -93,6 +96,73 @@ measured.
 
 \subsubsection{Charge Depletion}
 \label{subsubsec:importance_procedure_effects_charge}
+The body of \electron that move along $E_{d}$ are known as the electron cloud.  As the electron cloud drifts it diffuses both
+longitudinally (in the direction of $E_{d}$) and transversely (perpendicular to $E_{d}$).  The
+diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
+be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
+
+Impurities mainly come from outgassing of detector materials and diffusion of elements in the air surrounding the detector through seals,
+though for the latter this is primarily limited to noble gases such as \ce{^{222}Rn} (\textbf{check this}).  Electronegative impurities in particular present a problem
+since they attach to drifting $e^{-}$,
+lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
+is \eqref{eq:impurity_attach}.
+
+\begin{equation}
+e^{-} + S \rightarrow S^{-}
+\label{eq:impurity_attach}
+\end{equation}
+
+\noindent where $S$ is the impurity.  The number of \electron captured is dependent drift time $t_{d}$ and the
+attachment rate of
+the impurities $k_{S}$, both of which depend on $E_{d}$.  Clearly then an advantage of larger
+\efields is a larger
+\vd (up to a point, see \figref{fig:drift_velocity}) and thus less time in the liquid.  Doping LXe with organic materials such as butane
+can increase \vd at stronger
+\efields but are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  The rate at which electrons are
+absorbed by impurities is proportional to the number of electrons, impurities, and impurity attachment rate.  Assuming the the density
+of impurities in the liquid and $E_{d}$ are uniform we find
+
+Impurities that are electronegative will attach to drifting electrons
+
+In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
+to the field at drift velocity $v_{d}$.  At fields of $\lesssim 100\ \mathrm{V\ cm^{-1}}$ drift velocity is nearly proportional to
+$E$ and is given by $v_{d} = \mu E$
+where $\mu$ is the electron mobility.  For this energy region $\mu \sim 2200\ \mathrm{cm^{2}\ V^{-2}\ s^{-1}}$ (\citeref{Yoo2015}).  As
+$E$ increases $v_{d} \propto E^{1/2}$ and ultimately flattens at $\sim 3\ \mathrm{mm\ \mu s}$.  \figref{fig:drift_velocity} shows \vd
+as a function of $E$ and \tabref{tab:drift_velocity} gives the approximate relationship.
+
+The strength of $E$ affects the number of electrons freed, as a larger field decreases
+recombination electron-ion recombination.  In liquid noble gas detectors used for DM searches such a field can be used to drift the
+\electron to the surface of the liquid, where they are extracted across a small region of gas.  Doing so will produce secondary
+scintillation as the \electron will energize the atoms in the gas, freeing more \electron in turn.  Because the amount of scintillation
+produced per electron is independent of the number of electrons extracted this is also known as proportional scintillation.  Thus, by
+measuring this scintillation the number of \electron extracted can be determined.  Details of \electron drift and proportional
+scintillation is found in \secref{subsec:tpcs_working_principle}.
+
+For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3 \ mdash 4}$
+\vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
+
+\begin{table}
+ \centering
+ \begin{tabular}{cc}
+ \hline
+ $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
+ \hline
+ $\lesssim 100$ & \vd$\propto E$ \\
+ $\sim 100-10^{3 \mdash 4}$ & \vd$\propto E^{1/2}$ \\
+ $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
+ \hline
+ \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
+ \end{tabular}
+ \label{tab:drift_velocity}
+\end{table}
+
+\begin{figure}
+\includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
+\caption{Drift velocity for solid and liquid xenon}
+\label{fig:drift_velocity}
+\end{figure}
+In addition to absorbing VUV photons impurities can attach to drifting electrons.
 
 
 

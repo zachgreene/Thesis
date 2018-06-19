@@ -673,355 +673,6 @@ overview of the DAQ system.
 
 
 
-\section{Backgrounds}
-\label{sec:backgrounds}
-To reach the desired sensitivity it is crucial to lower our backgrounds as much as possible, and just as importantly, understand
-them.  Our backgrounds mainly come from the detector materials, radioactive isotopes distributed inside the xenon, and space.
-
-
-
-\subsection{Electronic Recoils}
-\label{subsec:backgrounds_electronic}
-While the majority of total background events come from detector materials (\secref{backgrounds_detector_materials}) and are stopped
-within the first few cm of LXe, there is a population distributed roughly uniformly throughout the LXe.  They are either noble gases (trace
-amounts left from commercial distillation) - and therefore cannot be removed by the purification system - or neutrinos passing through the
-Earth.  Because they exist everywhere in the LXe it is not possible to remove them with a FV cut.
-
-
-
-\subsubsection{\ce{^{85}Kr}}
-\label{subsubsec:backgrounds_electronic_krypton}
-With a half-life of 10.76 y and $\beta^-$-decay end-point energy of 687 keV, \ce{^{85}Kr} is a concern for LXe dark matter
-experiments.  It decays to \ce{^{85}Rb}, which itself is stable.  Mainly
-produced by \ce{^{235}U} and \ce{^{239}Pu} in nuclear fission and then released by nucelar weapons tests and fuel reprocessing plants,
-measurements show that $\mathrm{^{85}Kr / ^{nat}Kr} = 2 \times 10^{-11}$ (\citeref{Du2004}).  Its long half-life and low-energy
-contamination threaten WIMP DM searches, especially if \ce{^{nat}Kr}/\ce{Xe} is left at the ppm to ppb level.  As discussed in
-\secref{subsec:xenon1t_kr_dist} a krypton distillation column was installed in the service building and connected to the cryostat through
-the purification system.  In the first science run a level of $0.36 \pm 0.06\ \mathrm{ppt}$ was reached, corresponding to a rate of
-around 50 low-energy electronic recoils per year in a FV of 1 ton.  In Science Run 1 $\mathrm{^{nat}Kr / Xe}$ increased at a rate
-$0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$ was observed over SR1, as shown in
-\figref{fig:backgrounds_electronic_krypton_rate_increase}.  The rise suggests that a small leak may be present, which is further supported
-by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the data while the February-July
-measurements follow this trend nicely, those beginning in September display a less coherent trend.  The filament at RGMS was replaced
-between the September and November measurements.  The average concentration over SR0 + SR1 was
-$^{\mathrm{nat}}\mathrm{Kr}/\mathrm{Xe} = 0.66 \pm 0.11\ \mathrm{ppt}$.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{kr_evolution}
-\caption{$\mathrm{^{nat}Kr / Xe}$ concentration during Science Run 1.  An average value of $0.66 \pm 0.11$ is found over the combined
-run analysis.  SR0 is not shown as online krypton distillation (\secref{subsec:xenon1t_kr_dist}) decreased the concentration by more than
-a factor of 100.  An increase of $0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$ is observed for SR1.}
-\label{fig:backgrounds_electronic_krypton_rate_increase}
-\end{figure}
-
-\subsubsection{\ce{^{222}Rn}}
-\label{subsubsec:backgrounds_electronic_radon}
-The largest intrinsic background comes from \ce{^{222}Rn}, which is part of the \ce{^{238}U} chain
-(\figref{fig:backgrounds_decay_chains}).  The half-life of 3.8 d is long enough for diffusion through components of the detector exposed
-to air.  In addition some components of the detector itself (e.g. Q-drives) have a large \ce{^{222}Rn} emanation.
-
-\ce{^{222}Rn}
-decays via 5.59 MeV $\alpha$-emission and therefore is not a danger for WIMP searches.  However, there are two progenies that undergo
-$\beta^-$-decay: \ce{^{214}Pb} and \ce{^{214}Bi} (\ce{^{210}Tl} is also a $\beta^-$-emitter but has a branching ratio of just
-0.021\%).  The $\beta^-$-emission of \ce{^{214}Bi} is not concerning because its daughter, \ce{^{214}Po}, has a half-life of
-$164.3\ \mathrm{\mu s}$ so a simple coincidence cut can remove the events (these are known as \ce{^{214}Bi}-\ce{^{214}Po} events).
-
-The more dangerous is the decay of \ce{^{214}Pb}, with an end-point energy of 1019 keV and branching ratio of 100\%.  A small fraction of
-its decays ($E \lesssim 10\ \mathrm{keV}$) will be in our region of interest.  With a half-life of just $t_{1/2} = 26.8\ \mathrm{m}$ its
-prevalence is directly related to the amount of \ce{^{222}Rn} entering the detector.
-
-In the right panel of \figref{fig:backgrounds_er_spectrum} we can see that it is the leading contributor to
-the ER background rate.  For this analysis it was found to be $12.6 \pm 0.8$ and $5.1 \pm 0.5\ \mathrm{\mu Bq\ kg^{-1}}$ using $^{218}$Pb
-$\alpha$-decays and $^{214}$Bi $\mdash ^{214}$Po time-coincident decays, respectively.
-
-During the \ce{^{220}Rn} calibration in SR0 the krypton column (\secref{subsec:xenon1t_kr_dist}) was used to reduce the \ce{^{222}Rn}
-concentration.  The column essentially operated in reverse: the more buoyant xenon should have a lower (higher) radon concentration at the
-top (bottom) of the column.  The gas at the top was funneled back to the purification system while the bottom was siphoned to
-bottles.  The event rates of \ce{^{220}Rn}, \ce{^{218}Po}, and \ce{^{214}Bi}-\ce{^{214}Po} before and after the distillation are shown
-in \figref{fig:backgrounds_electronic_radon_distillation}.  The rates dropped from $13.4 \pm 0.6 \rightarrow 11.1 \pm 0.3$,
-$12.5 \pm 0.4 \rightarrow 10.5 \pm 0.5$, and $5.0 \pm 0.3 \rightarrow 4.0 \pm 0.3\ \mathrm{\mu Bq\ kg^{-1}}$, respectively.  Although the
-decrease of ${\sim}20\%$ is relatively small with respect to krypton removal, \ce{^{214}Pb} is expected to be the largest background
-contributor so such a reduction is still significant.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Rn222_Po218_BiPo214_Rn_Distillation_absolute_value}
-\label{fig:backgrounds_electronic_radon_distillation}
-\caption{\ce{^{222}Rn} (red), \ce{^{218}Po} (blue), and \ce{^{214}BiPo} (green) event rate concentrations before and after radon
-distillation.  A decrease of ${\sim} 20\%$ is observed.}
-\end{figure}
-
-\ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
-is more likely to bond to the detector wall.  However, \ce{^{220}Rn} is used in calibrations to study the electronic recoil band, which is
-discussed in detail in \secref{subsubsec:er_nr_calibrations_parameter_determ_er}.
-
-Both Rn chains have a number of $\alpha$-decays - primarily from radon and polonium isotopes.  These can be useful in studying properties
-of the detector, additional analyses, and monitoring properties such as the electron lifetime.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=5cm]{ERRateMCFull}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=5cm]{ERRateMCZoomed}
-    \end{subfigure}
-    \caption{Electronic recoil energy spectrum in a 1 t fiducial volume from MC simulations.  Image credit: \citeref{Aprile2016a}.}
-	\label{fig:backgrounds_er_spectrum}
-\end{figure}
-
-
-
-\subsubsection{\ce{^{136}Xe}}
-\label{subsubsec:backgrounds_electronic_xe}
-\ce{^{136}Xe} is the only unstable isotope of natural xenon.  It undergoes $2 \nu \beta^- \beta^-$ decay with
-$t_{1/2} = 2.17 \times 10^{21}\ \mathrm{years}$ (\citeref{Albert2014}) and a Q-value of 2458 keV.  Because of its abundance in natural
-xenon (\ce{^{136}Xe}/\ce{Xe} = 8.9\%) its presence is unavoidable.  At the scale of XENON1T it is subdominant - only responsible for
-${\sim}2 \%$ of the total ER background, as seen in \figref{fig:backgrounds_er_spectrum} (right).  However, as detectors continue to grow
-it will become much more consequential.
-
-
-
-\subsubsection{Solar Neutrinos}
-\label{subsubsec:backgrounds_electronic_solar_neutrinos}
-Solar neutrinos can elastically scatter off electrons, causing low-energy electronic recoils.  The recoil spectrum is the green line in
-\figref{fig:backgrounds_er_spectrum}.  As with the \ce{^{136}Xe} $2 \nu \beta^- \beta^-$
-decay its contribution is small, but as an irreducible background it will become more problematic as detectors grow.
-
-
-
-\subsection{Nuclear Recoils}
-\label{subsec:backgrounds_nuclear}
-Our nuclear recoil background comes from neutrons and neutrinos.  Whereas \gammarays are stopped within several cm, high-energy neutrons
-have mean free paths of $\mathcal{O}(10)$ cm, allowing them to move through the LXe volume more easily and giving a higher probability
-that it scatters once inside the FV.  Neutrinos move freely and cannot be shielded.  The nuclear recoil background is composed of
-radiogenic and muon-induced neutrons as well as from astrophysical neutrinos.
-
-
-
-\subsubsection{Radiogenic Neutrons}
-\label{subsubsec:backgrounds_nuclear_radiogenic}
-Radiogenic neutrons are produced by primordial decay chains \ce{^{238}U}, \ce{^{235}U} and \ce{^{232}Th} in detector materials
-(see \secref{subsec:backgrounds_detector_materials} for discussion on electronic and $\alpha$ recoils).  They are released in
-$(\alpha, \mathrm{n})$ reactions that result from the $\alpha$-emissions along the decay chains, as well as spontaneous fission (SF).  For
-heavier nuclei radiogenic neutrons are generated almost exclusively by SF as the $(\alpha, \mathrm{n})$ reaction is suppressed by the
-large Coulomb barrier (\citeref{Aprile2016a}).
-
-\figref{fig:backgrounds_nuclear_radiogenic_rates} shows the neutron yield as a function of energy for PTFE and copper from Monte Carlo
-predictions.  The chains are
-separated to $\mathrm{^{238}U} \rightarrow \mathrm{^{230}Th}$ and $\mathrm{^{226}Ra} \rightarrow \mathrm{^{206}Pb}$, and
-$\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \rightarrow \mathrm{^{208}Pb}$ to account for the disequilibrium
-that was observed.  The PTFE has on average a lighter $Z$ than the copper, giving it a larger $(\alpha, \mathrm{n})$ contribution (dashed
-lines represent SF-only).  We can see in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that for $E \gtrsim 3\ \mathrm{keV}$
-radiogenic neutrons are the dominating factor for the NR backgrounds.  The expected rate for 1 ton is
-$0.6 \pm 0.1\ \mathrm{y^{-1}}$.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=5cm]{neutronyield-ptfe-v2}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=5cm]{neutronyield-cu-v2}
-    \end{subfigure}
-    \caption{Image credit:Image credit: \citeref{Aprile2016a}.}
-	\label{fig:backgrounds_nuclear_radiogenic_rates}
-\end{figure}
-
-
-
-\subsubsection{Muon Induced Neutrons}
-\label{subsubsec:backgrounds_nuclear_muon_induced}
-Cosmic muons interacting with the rock above the detector can produce up to GeV neutrons.  The large mean free path from such high energy
-makes it not unlikely that they pass through the water shield (\secref{subsec:xenon1t_water_shield}).  However, simulations show that if
-the associated showers from the muon interaction also enter the tank the tagging efficiency is $> 70\%$.  Still the predicted rate is just
-$< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{MuonFluxOverDepth}
-\label{fig:backgrounds_nuclear_muon_induced_flux}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{totalnrbackground}
-\caption{Image credit: \citeref{Aprile2016a}.}
-\label{fig:backgrounds_nuclear_muon_induced_nr_rate}
-\end{figure}
-
-
-
-\subsubsection{Neutrinos}
-\label{subsubsec:backgrounds_nuclear_neutrinos}
-The final contribution to the NR background comes from neutrinos that participate in coherent neutrino-nucleus scattering.  The primary
-contributor to the integrated NR rate is solar \ce{^{8}B}, which is orders of magnitude larger than other sources and dominant at
-recoil energies $< 3\ \mathrm{keV}$.  Solar $hep$, atmosphere, and diffuse supernova neutrinos also contribute.  We can see in
-\figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that neutrinos are the principal source for recoils at $< 3\ \mathrm{keV}$.  The
-number of detected events at $> 1\ \mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
-threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
-to our threshold (${\sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
-\secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background due to the inability
-to shield them.
-
-
-
-\subsection{Detector Materials}
-\label{subsec:backgrounds_detector_materials}
-As mentioned in \secref{subsec:xenon1t_pmts} and \secref{subsec:xenon1t_cryo} detector materials were screened before purchasing to ensure
-those with the lowest radioactivity were chosen.  The high self-shielding power of LXe prevents the radiation from penetrating far into
-the detector, stopping the majority within several cm.  Still, it is important to understand our background for a number of reasons.  The
-first is we want to maximize our FV.  But because including these events can have a negative effect on our sensitivity, we need to know
-what a safe distance from the top, bottom, and wall are.  The second is once we choose our FV it is important to have a reliable estimate
-of the number of events that will ``leak" into our FV, known as ``leakage events".  Failing to have an accurate prediction can result in
-a cost in sensitivity.  A third reason is these events can play a significant role in characterizing the detector.
-
-The primary isotopes from materials that play a role in our background are \ce{^{40}K}, \ce{^{60}Co}, \ce{^{235}U}, and the decay chains
-of and \ce{^{238}U}, \ce{^{232}Th}, \ce{^{228}Th}, and \ce{^{226}Ra}.  In fact, although \ce{^{226}Ra} and \ce{^{228}Th} are part of the
-\ce{^{238}U} and \ce{^{232}Th} chains, respectively, the measured disequilibrium prompts us to separate them as
-$\mathrm{^{238}U} \rightarrow \mathrm{^{230}Th}$ and $\mathrm{^{226}Ra} \rightarrow \mathrm{^{206}Pb}$ for \ce{^{238}U}, and
-$\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \rightarrow \mathrm{^{208}Pb}$ for \ce{^{232}Th}.  The full
-\ce{^{238}U} and \ce{^{232}Th} chains can be seen in \figref{fig:backgrounds_decay_chains}.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Decay_Chain_of_Thorium-232}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Decay_Chain_of_Uranium-238}
-    \end{subfigure}
-    \caption{Decay chains for \ce{^{232}Th} (left) and \ce{^{238}U} (right).  Image credit: \citeref{Wikimedia2018a, Wikimedia2018b}.}
-	\label{fig:backgrounds_decay_chains}
-\end{figure}
-
-As \electron from wall events drift to the surface a fraction will attach to the PTFE.  This decrease in S2 causes three main effects: 1)
-an increase in position reconstruction uncertainty, 2) electronic recoil events to leak into the NR band, and 3) producing small changes
-to the electric field.
-
-A major constraint on the radius of our fiducial volume is the radioactivity from the PTFE panels - both the rate and reconstructed
-positions, the latter of which has significant uncertainty at $\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$
-(\figref{fig:calibrations_position_reconstruction_res}).  This makes \ce{^{210}Pb} on the PTFE panels concerning since its \betadecay has
-a Q-value of just $63.5\ \mathrm{keV}$ and electron loss could result in a seemingly normal NR event inside our FV.  Moreover, despite a
-chemical cleaning process during commissioning, a large amount of \ce{^{210}Pb} is known to be present from observations of its progeny
-\ce{^{210}Po} $\alpha$-decays.  With a half-life of $t_{1/2} = 22.1\ \mathrm{y}$ and the continual addition of \ce{^{222}Rn}
-(\secref{subsubsec:backgrounds_electronic_radon}), which quickly decays to \ce{^{210}Pb} within days, the background rate will be
-constant over the lifetime of the detector.
-
-To adress the first two points we model our expected contamination with events whose positions were reconstructed outside the
-TPC ($r > 47.9\ \mathrm{cm}$).  The S2, cS1, cS2$_{\mathrm{b}}$, and $z$
-distributions were found to be symmetric inside and outside the TPC, which was expected since the S2 was detected at the boundary.  The
-$r > 47.9\ \mathrm{rm}$ data was unblinded and the energy distribution was obtained via a fixed kernel density (KDE) estimator using
-superposition of gaussians for each point in S2, cS1, cS2$_{\mathrm{b}}$, and $z$ space.
-
-Three complementary S2$_{\mathrm{b}} - r$ PDFs were
-constructed using a skew gaussian ($M1$), skew t ($M2$), and adaptive KDE ($M3$).  The minimum, average, and maximum PDF methods were determined
-by $\mathrm{min}(M1, M2, M3)$, $\mathrm{mean}(M1, M2, M3)$, and $\mathrm{max}(M1, M2, M3)$, respectively.  These were unified with the
-KDE for a 5D predictor of the event distribution inside the TPC.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{WallS2S1}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{WallS2R}
-    \end{subfigure}
-    \caption{\cstwob vs. cS1 distribution for background wall leakage events outside the TPC ($r > 47.9\ \mathrm{cm}$) is shown on the
-    left.  The events overlap with the ER (color) and NR (color) bands, the latter of which might appear as a WIMP.  On the right is
-    the S2 vs. $r$ distribution.  Data outside and inside the TPC appear symmetric in $r$.  The effects of poor position reconstruction
-    at low S2 is observed.}
-	\label{fig:backgrounds_decay_chains}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{surface_s2s1_distribution_blessed_sr1}
-\caption{Expected surface background distribution in cS1-cS2$_{\mathrm{b}}$.  Electrons from wall events attach to the PTFE as they drift,
-decreasing the S2 and moving towards the NR band.  Projections are
-shown for cS1 (top) and cS2$_{\mathrm{b}}$ (right) for all events in blue, and between the NR median (red dashed line) and
-$-2 \sigma$ (black) in orange.  We can see the surface background has the largest impact in our ROI at
-$\mathrm{cS2_{\mathrm{b}}} \lesssim 400\ \mathrm{PE}$, $\mathrm{cS1} \lesssim 20\ \mathrm{PE}$.}
-\label{fig:backgrounds_detector_materials_bands}
-\end{figure}
-
-The accumulation of charge on the PTFE panels was discovered by the author by tracking the number of \ce{^{222}Rn} and \ce{^{218}Po}
-$\alpha$-decays.  By monitoring the total number of events in the TPC the rate was unchanging over time.  However, by imposing some radial
-cut it was discovered that the rate was increasing as \electron were pushed away from the walls, as seen in
-\figref{fig:backgrounds_wall_charge}.  This meant that our FV was growing over the course of the lifetime of the experiment and we would
-underestimate our background.  To account for this we recalculated the position reconstruction for each $\mathrm{^{83m}Kr}$
-calibration and included a time dependent correction for analyses.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{WallChargingPlot}
-\label{fig:backgrounds_wall_charge}
-\end{figure}
-
-At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by detector materials, except for
-${\sim} 1400 \mdash 2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  For the energy region for spin-independent WIMP dark matter
-though it is outpaced by more than an order of magnitude inside a 1 t FV.  \figref{fig:backgrounds_er_spectrum} shows the predicted ER
-backgrounds using Monte Carlo.
-
-
-
-\subsection{Accidental Coincidence}
-\label{subsec:backgrounds_ac}
-In some circumstances we may not be able to observe both the S1 and S2.  Interactions with only an S1, or lone-S1 events, result almost
-entirely from PMT dark rate pile-up at low energies, and below-cathode scatters at higher.  Those with just an S2, or lone-S2 events,
-come from interactions near the cathode and gate where the large electric field can significantly quench the S1.  The lone-S2s
-could at least in part be explained by \ce{^{210}Pb}, which given its presence on the PTFE panels, suggest it may also exist on the
-electrodes.
-
-Generally lone-S1 and lone-S2 events do impact our data, but occasionally if they occur close to one another can mimic a real event, known
-as accidental coincidence (AC).  Because we cannot know which events are AC, those that pass our cuts 
-(\secref{subsubsec:er_nr_calibrations_parameter_determ_cuts}) will end up in our final data
-selection.  A shape cut is applied to S1s to ensure it is not an S2 from a single electron.  It is therefore important to calculate the
-number of expected events and the distribution.  The rate of AC events is given by
-
-\begin{equation}
-R_{\mathrm{AC}} = R_{\mathrm{LS1}} \times R_{\mathrm{LS2}} \times t_{d, \mathrm{max}}
-\label{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence}
-\end{equation}
-
-\noindent where $R_{\mathrm{LS1}}$ and $R_{\mathrm{LS2}}$ are the lone-S1
-and -S2 rates and $t_{d, \mathrm{max}}$ is the maximum TPC drift time.  S1s, especially at low energy, are too small trigger the
-DAQ.  Therefore, to calculate $R_{\mathrm{LS1}}$ we select higher energy good events that contain and S1 and S2, and search the region
-before the primary S1.  This method makes two assumptions.  The first is that lone-S1s should be uncorrelated in time, and thus
-distributed uniformly over large timescales.  The second is that the S1s we find do not have a complementary S2.  For the former this
-seems reasonable since we do not expect PMT dark rates and below-cathode scatters to follow any pattern.  The latter is valid because
-the probability of having two interactions in the same time window is negligible.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{ac_s2s1_distribution_blessed_sr1}
-\caption{Expected accidental coincidence distribution in cS1-cS2$_{\mathrm{b}}$ space.  Isolated S1s and S2s are randomly coupled to
-imitate real events in the TPC.  S1 and S2 corrections are applied and events that pass the cuts are plotted.  Projections are
-shown for cS1 (top) and cS2$_{\mathrm{b}}$ (right) for all events in blue, and between the NR median (red dashed line) and
-$-2 \sigma$ (black) in orange.}
-\label{fig:er_nr_calibrations_parameter_determ_ac}
-\end{figure}
-
-Accidental coincidence does not benefit from fiducialization like much of our other background.  In fact, we can see from
-\eqnref{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence} that $R_{\mathrm{ac}}$ actually increases
-with detector size.  Still, its total contribution is comparatively small.  AC is source or background-dependent, so for this analysis
-distributions for \ce{^{220}Rn}, $\mathrm{^{241}AmBe}$, and the NG each were included in the
-fit.  Similar conditions and duration meant the SR0 and SR1 $^{241}$AmBe calibrations had nearly the same AC expectation so it was not
-necessary to include independent distributions; however, SR0 and SR1 AC \ce{^{220}Rn} were sufficiently different this could not be
-done for ER.  \figref{fig:er_nr_calibrations_parameter_determ_ac} shows the expected AC distribution in (cS1, cS2$_{\mathrm{b}}$) space
-with the region of interest shown in dotted red (median) and black ($-2 \sigma$) lines.
-
-
-
 \section{Detector Characterization}
 \label{sec:det_char}
 Calibrations allow detector characterization and monitoring as well as measurement of fundamental physics.  In XENON1T calibrations have
@@ -1506,6 +1157,356 @@ electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}}$ due to 
 
 \subsection{Bias and Smearing}
 \label{subsec:det_char_bias_smearing}
+
+
+
+\section{Backgrounds}
+\label{sec:backgrounds}
+To reach the desired sensitivity it is crucial to lower our backgrounds as much as possible, and just as importantly, understand
+them.  Our backgrounds mainly come from the detector materials, radioactive isotopes distributed inside the xenon, and space.
+
+
+
+\subsection{Electronic Recoils}
+\label{subsec:backgrounds_electronic}
+While the majority of total background events come from detector materials (\secref{backgrounds_detector_materials}) and are stopped
+within the first few cm of LXe, there is a population distributed roughly uniformly throughout the LXe.  They are either noble gases (trace
+amounts left from commercial distillation) - and therefore cannot be removed by the purification system - or neutrinos passing through the
+Earth.  Because they exist everywhere in the LXe it is not possible to remove them with a FV cut.
+
+
+
+\subsubsection{\ce{^{85}Kr}}
+\label{subsubsec:backgrounds_electronic_krypton}
+With a half-life of 10.76 y and $\beta^-$-decay end-point energy of 687 keV, \ce{^{85}Kr} is a concern for LXe dark matter
+experiments.  It decays to \ce{^{85}Rb}, which itself is stable.  Mainly
+produced by \ce{^{235}U} and \ce{^{239}Pu} in nuclear fission and then released by nucelar weapons tests and fuel reprocessing plants,
+measurements show that $\mathrm{^{85}Kr / ^{nat}Kr} = 2 \times 10^{-11}$ (\citeref{Du2004}).  Its long half-life and low-energy
+contamination threaten WIMP DM searches, especially if \ce{^{nat}Kr}/\ce{Xe} is left at the ppm to ppb level.  As discussed in
+\secref{subsec:xenon1t_kr_dist} a krypton distillation column was installed in the service building and connected to the cryostat through
+the purification system.  In the first science run a level of $0.36 \pm 0.06\ \mathrm{ppt}$ was reached, corresponding to a rate of
+around 50 low-energy electronic recoils per year in a FV of 1 ton.  In Science Run 1 $\mathrm{^{nat}Kr / Xe}$ increased at a rate
+$0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$ was observed over SR1, as shown in
+\figref{fig:backgrounds_electronic_krypton_rate_increase}.  The rise suggests that a small leak may be present, which is further supported
+by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, the data while the February-July
+measurements follow this trend nicely, those beginning in September display a less coherent trend.  The filament at RGMS was replaced
+between the September and November measurements.  The average concentration over SR0 + SR1 was
+$^{\mathrm{nat}}\mathrm{Kr}/\mathrm{Xe} = 0.66 \pm 0.11\ \mathrm{ppt}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{kr_evolution}
+\caption{$\mathrm{^{nat}Kr / Xe}$ concentration during Science Run 1.  An average value of $0.66 \pm 0.11$ is found over the combined
+run analysis.  SR0 is not shown as online krypton distillation (\secref{subsec:xenon1t_kr_dist}) decreased the concentration by more than
+a factor of 100.  An increase of $0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$ is observed for SR1.}
+\label{fig:backgrounds_electronic_krypton_rate_increase}
+\end{figure}
+
+\subsubsection{\ce{^{222}Rn}}
+\label{subsubsec:backgrounds_electronic_radon}
+The largest intrinsic background comes from \ce{^{222}Rn}, which is part of the \ce{^{238}U} chain
+(\figref{fig:backgrounds_decay_chains}).  The half-life of 3.8 d is long enough for diffusion through components of the detector exposed
+to air.  In addition some components of the detector itself (e.g. Q-drives) have a large \ce{^{222}Rn} emanation.
+
+\ce{^{222}Rn}
+decays via 5.59 MeV $\alpha$-emission and therefore is not a danger for WIMP searches.  However, there are two progenies that undergo
+$\beta^-$-decay: \ce{^{214}Pb} and \ce{^{214}Bi} (\ce{^{210}Tl} is also a $\beta^-$-emitter but has a branching ratio of just
+0.021\%).  The $\beta^-$-emission of \ce{^{214}Bi} is not concerning because its daughter, \ce{^{214}Po}, has a half-life of
+$164.3\ \mathrm{\mu s}$ so a simple coincidence cut can remove the events (these are known as \ce{^{214}Bi}-\ce{^{214}Po} events).
+
+The more dangerous is the decay of \ce{^{214}Pb}, with an end-point energy of 1019 keV and branching ratio of 100\%.  A small fraction of
+its decays ($E \lesssim 10\ \mathrm{keV}$) will be in our region of interest.  With a half-life of just $t_{1/2} = 26.8\ \mathrm{m}$ its
+prevalence is directly related to the amount of \ce{^{222}Rn} entering the detector.
+
+In the right panel of \figref{fig:backgrounds_er_spectrum} we can see that it is the leading contributor to
+the ER background rate.  For this analysis it was found to be $12.6 \pm 0.8$ and $5.1 \pm 0.5\ \mathrm{\mu Bq\ kg^{-1}}$ using $^{218}$Pb
+$\alpha$-decays and $^{214}$Bi $\mdash ^{214}$Po time-coincident decays, respectively.
+
+During the \ce{^{220}Rn} calibration in SR0 the krypton column (\secref{subsec:xenon1t_kr_dist}) was used to reduce the \ce{^{222}Rn}
+concentration.  The column essentially operated in reverse: the more buoyant xenon should have a lower (higher) radon concentration at the
+top (bottom) of the column.  The gas at the top was funneled back to the purification system while the bottom was siphoned to
+bottles.  The event rates of \ce{^{220}Rn}, \ce{^{218}Po}, and \ce{^{214}Bi}-\ce{^{214}Po} before and after the distillation are shown
+in \figref{fig:backgrounds_electronic_radon_distillation}.  The rates dropped from $13.4 \pm 0.6 \rightarrow 11.1 \pm 0.3$,
+$12.5 \pm 0.4 \rightarrow 10.5 \pm 0.5$, and $5.0 \pm 0.3 \rightarrow 4.0 \pm 0.3\ \mathrm{\mu Bq\ kg^{-1}}$, respectively.  Although the
+decrease of ${\sim}20\%$ is relatively small with respect to krypton removal, \ce{^{214}Pb} is expected to be the largest background
+contributor so such a reduction is still significant.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Rn222_Po218_BiPo214_Rn_Distillation_absolute_value}
+\label{fig:backgrounds_electronic_radon_distillation}
+\caption{\ce{^{222}Rn} (red), \ce{^{218}Po} (blue), and \ce{^{214}BiPo} (green) event rate concentrations before and after radon
+distillation.  A decrease of ${\sim} 20\%$ is observed.}
+\end{figure}
+
+\ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
+is more likely to bond to the detector wall.  However, \ce{^{220}Rn} is used in calibrations to study the electronic recoil band, which is
+discussed in detail in \secref{subsubsec:er_nr_calibrations_parameter_determ_er}.
+
+Both Rn chains have a number of $\alpha$-decays - primarily from radon and polonium isotopes.  These can be useful in studying properties
+of the detector, additional analyses, and monitoring properties such as the electron lifetime.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=5cm]{ERRateMCFull}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=5cm]{ERRateMCZoomed}
+    \end{subfigure}
+    \caption{Electronic recoil energy spectrum in a 1 t fiducial volume from MC simulations.  Image credit: \citeref{Aprile2016a}.}
+	\label{fig:backgrounds_er_spectrum}
+\end{figure}
+
+
+
+\subsubsection{\ce{^{136}Xe}}
+\label{subsubsec:backgrounds_electronic_xe}
+\ce{^{136}Xe} is the only unstable isotope of natural xenon.  It undergoes $2 \nu \beta^- \beta^-$ decay with
+$t_{1/2} = 2.17 \times 10^{21}\ \mathrm{years}$ (\citeref{Albert2014}) and a Q-value of 2458 keV.  Because of its abundance in natural
+xenon (\ce{^{136}Xe}/\ce{Xe} = 8.9\%) its presence is unavoidable.  At the scale of XENON1T it is subdominant - only responsible for
+${\sim}2 \%$ of the total ER background, as seen in \figref{fig:backgrounds_er_spectrum} (right).  However, as detectors continue to grow
+it will become much more consequential.
+
+
+
+\subsubsection{Solar Neutrinos}
+\label{subsubsec:backgrounds_electronic_solar_neutrinos}
+Solar neutrinos can elastically scatter off electrons, causing low-energy electronic recoils.  The recoil spectrum is the green line in
+\figref{fig:backgrounds_er_spectrum}.  As with the \ce{^{136}Xe} $2 \nu \beta^- \beta^-$
+decay its contribution is small, but as an irreducible background it will become more problematic as detectors grow.
+
+
+
+\subsection{Nuclear Recoils}
+\label{subsec:backgrounds_nuclear}
+Our nuclear recoil background comes from neutrons and neutrinos.  Whereas \gammarays are stopped within several cm, high-energy neutrons
+have mean free paths of $\mathcal{O}(10)$ cm, allowing them to move through the LXe volume more easily and giving a higher probability
+that it scatters once inside the FV.  Neutrinos move freely and cannot be shielded.  The nuclear recoil background is composed of
+radiogenic and muon-induced neutrons as well as from astrophysical neutrinos.
+
+
+
+\subsubsection{Radiogenic Neutrons}
+\label{subsubsec:backgrounds_nuclear_radiogenic}
+Radiogenic neutrons are produced by primordial decay chains \ce{^{238}U}, \ce{^{235}U} and \ce{^{232}Th} in detector materials
+(see \secref{subsec:backgrounds_detector_materials} for discussion on electronic and $\alpha$ recoils).  They are released in
+$(\alpha, \mathrm{n})$ reactions that result from the $\alpha$-emissions along the decay chains, as well as spontaneous fission (SF).  For
+heavier nuclei radiogenic neutrons are generated almost exclusively by SF as the $(\alpha, \mathrm{n})$ reaction is suppressed by the
+large Coulomb barrier (\citeref{Aprile2016a}).
+
+\figref{fig:backgrounds_nuclear_radiogenic_rates} shows the neutron yield as a function of energy for PTFE and copper from Monte Carlo
+predictions.  The chains are
+separated to $\mathrm{^{238}U} \rightarrow \mathrm{^{230}Th}$ and $\mathrm{^{226}Ra} \rightarrow \mathrm{^{206}Pb}$, and
+$\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \rightarrow \mathrm{^{208}Pb}$ to account for the disequilibrium
+that was observed.  The PTFE has on average a lighter $Z$ than the copper, giving it a larger $(\alpha, \mathrm{n})$ contribution (dashed
+lines represent SF-only).  We can see in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that for $E \gtrsim 3\ \mathrm{keV}$
+radiogenic neutrons are the dominating factor for the NR backgrounds.  The expected rate for 1 ton is
+$0.6 \pm 0.1\ \mathrm{y^{-1}}$.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=5cm]{neutronyield-ptfe-v2}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=5cm]{neutronyield-cu-v2}
+    \end{subfigure}
+    \caption{Image credit:Image credit: \citeref{Aprile2016a}.}
+	\label{fig:backgrounds_nuclear_radiogenic_rates}
+\end{figure}
+
+
+
+\subsubsection{Muon Induced Neutrons}
+\label{subsubsec:backgrounds_nuclear_muon_induced}
+Cosmic muons interacting with the rock above the detector can produce up to GeV neutrons.  The large mean free path from such high energy
+makes it not unlikely that they pass through the water shield (\secref{subsec:xenon1t_water_shield}).  However, simulations show that if
+the associated showers from the muon interaction also enter the tank the tagging efficiency is $> 70\%$.  Still the predicted rate is just
+$< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{MuonFluxOverDepth}
+\label{fig:backgrounds_nuclear_muon_induced_flux}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{totalnrbackground}
+\caption{Image credit: \citeref{Aprile2016a}.}
+\label{fig:backgrounds_nuclear_muon_induced_nr_rate}
+\end{figure}
+
+
+
+\subsubsection{Neutrinos}
+\label{subsubsec:backgrounds_nuclear_neutrinos}
+The final contribution to the NR background comes from neutrinos that participate in coherent neutrino-nucleus scattering.  The primary
+contributor to the integrated NR rate is solar \ce{^{8}B}, which is orders of magnitude larger than other sources and dominant at
+recoil energies $< 3\ \mathrm{keV}$.  Solar $hep$, atmosphere, and diffuse supernova neutrinos also contribute.  We can see in
+\figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that neutrinos are the principal source for recoils at $< 3\ \mathrm{keV}$.  The
+number of detected events at $> 1\ \mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
+threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
+to our threshold (${\sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
+\secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background due to the inability
+to shield them.
+
+
+
+\subsection{Detector Materials}
+\label{subsec:backgrounds_detector_materials}
+As mentioned in \secref{subsec:xenon1t_pmts} and \secref{subsec:xenon1t_cryo} detector materials were screened before purchasing to ensure
+those with the lowest radioactivity were chosen.  The high self-shielding power of LXe prevents the radiation from penetrating far into
+the detector, stopping the majority within several cm.  Still, it is important to understand our background for a number of reasons.  The
+first is we want to maximize our FV.  But because including these events can have a negative effect on our sensitivity, we need to know
+what a safe distance from the top, bottom, and wall are.  The second is once we choose our FV it is important to have a reliable estimate
+of the number of events that will ``leak" into our FV, known as ``leakage events".  Failing to have an accurate prediction can result in
+a cost in sensitivity.  A third reason is these events can play a significant role in characterizing the detector.
+
+The primary isotopes from materials that play a role in our background are \ce{^{40}K}, \ce{^{60}Co}, \ce{^{235}U}, and the decay chains
+of and \ce{^{238}U}, \ce{^{232}Th}, \ce{^{228}Th}, and \ce{^{226}Ra}.  In fact, although \ce{^{226}Ra} and \ce{^{228}Th} are part of the
+\ce{^{238}U} and \ce{^{232}Th} chains, respectively, the measured disequilibrium prompts us to separate them as
+$\mathrm{^{238}U} \rightarrow \mathrm{^{230}Th}$ and $\mathrm{^{226}Ra} \rightarrow \mathrm{^{206}Pb}$ for \ce{^{238}U}, and
+$\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \rightarrow \mathrm{^{208}Pb}$ for \ce{^{232}Th}.  The full
+\ce{^{238}U} and \ce{^{232}Th} chains can be seen in \figref{fig:backgrounds_decay_chains}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Decay_Chain_of_Thorium-232}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Decay_Chain_of_Uranium-238}
+    \end{subfigure}
+    \caption{Decay chains for \ce{^{232}Th} (left) and \ce{^{238}U} (right).  Image credit: \citeref{Wikimedia2018a, Wikimedia2018b}.}
+	\label{fig:backgrounds_decay_chains}
+\end{figure}
+
+As \electron from wall events drift to the surface a fraction will attach to the PTFE.  This decrease in S2 causes three main effects: 1)
+an increase in position reconstruction uncertainty, 2) electronic recoil events to leak into the NR band, and 3) producing small changes
+to the electric field.
+
+A major constraint on the radius of our fiducial volume is the radioactivity from the PTFE panels - both the rate and reconstructed
+positions, the latter of which has significant uncertainty at $\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$
+(\figref{fig:calibrations_position_reconstruction_res}).  This makes \ce{^{210}Pb} on the PTFE panels concerning since its \betadecay has
+a Q-value of just $63.5\ \mathrm{keV}$ and electron loss could result in a seemingly normal NR event inside our FV.  Moreover, despite a
+chemical cleaning process during commissioning, a large amount of \ce{^{210}Pb} is known to be present from observations of its progeny
+\ce{^{210}Po} $\alpha$-decays.  With a half-life of $t_{1/2} = 22.1\ \mathrm{y}$ and the continual addition of \ce{^{222}Rn}
+(\secref{subsubsec:backgrounds_electronic_radon}), which quickly decays to \ce{^{210}Pb} within days, the background rate will be
+constant over the lifetime of the detector.
+
+To adress the first two points we model our expected contamination with events whose positions were reconstructed outside the
+TPC ($r > 47.9\ \mathrm{cm}$).  The S2, cS1, cS2$_{\mathrm{b}}$, and $z$
+distributions were found to be symmetric inside and outside the TPC, which was expected since the S2 was detected at the boundary.  The
+$r > 47.9\ \mathrm{rm}$ data was unblinded and the energy distribution was obtained via a fixed kernel density (KDE) estimator using
+superposition of gaussians for each point in S2, cS1, cS2$_{\mathrm{b}}$, and $z$ space.
+
+Three complementary S2$_{\mathrm{b}} - r$ PDFs were
+constructed using a skew gaussian ($M1$), skew t ($M2$), and adaptive KDE ($M3$).  The minimum, average, and maximum PDF methods were determined
+by $\mathrm{min}(M1, M2, M3)$, $\mathrm{mean}(M1, M2, M3)$, and $\mathrm{max}(M1, M2, M3)$, respectively.  These were unified with the
+KDE for a 5D predictor of the event distribution inside the TPC.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{WallS2S1}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{WallS2R}
+    \end{subfigure}
+    \caption{\cstwob vs. cS1 distribution for background wall leakage events outside the TPC ($r > 47.9\ \mathrm{cm}$) is shown on the
+    left.  The events overlap with the ER (color) and NR (color) bands, the latter of which might appear as a WIMP.  On the right is
+    the S2 vs. $r$ distribution.  Data outside and inside the TPC appear symmetric in $r$.  The effects of poor position reconstruction
+    at low S2 is observed.}
+	\label{fig:backgrounds_decay_chains}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{surface_s2s1_distribution_blessed_sr1}
+\caption{Expected surface background distribution in cS1-cS2$_{\mathrm{b}}$.  Electrons from wall events attach to the PTFE as they drift,
+decreasing the S2 and moving towards the NR band.  Projections are
+shown for cS1 (top) and cS2$_{\mathrm{b}}$ (right) for all events in blue, and between the NR median (red dashed line) and
+$-2 \sigma$ (black) in orange.  We can see the surface background has the largest impact in our ROI at
+$\mathrm{cS2_{\mathrm{b}}} \lesssim 400\ \mathrm{PE}$, $\mathrm{cS1} \lesssim 20\ \mathrm{PE}$.}
+\label{fig:backgrounds_detector_materials_bands}
+\end{figure}
+
+The accumulation of charge on the PTFE panels was discovered by the author by tracking the number of \ce{^{222}Rn} and \ce{^{218}Po}
+$\alpha$-decays.  By monitoring the total number of events in the TPC the rate was unchanging over time.  However, by imposing some radial
+cut it was discovered that the rate was increasing as \electron were pushed away from the walls, as seen in
+\figref{fig:backgrounds_wall_charge}.  This meant that our FV was growing over the course of the lifetime of the experiment and we would
+underestimate our background.  To account for this we recalculated the position reconstruction for each $\mathrm{^{83m}Kr}$
+calibration and included a time dependent correction for analyses.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{WallChargingPlot}
+\label{fig:backgrounds_wall_charge}
+\end{figure}
+
+At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by detector materials, except for
+${\sim} 1400 \mdash 2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  For the energy region for spin-independent WIMP dark matter
+though it is outpaced by more than an order of magnitude inside a 1 t FV.  \figref{fig:backgrounds_er_spectrum} shows the predicted ER
+backgrounds using Monte Carlo.
+
+
+
+\subsection{Accidental Coincidence}
+\label{subsec:backgrounds_ac}
+In some circumstances we may not be able to observe both the S1 and S2.  Interactions with only an S1, or lone-S1 events, result almost
+entirely from PMT dark rate pile-up at low energies, and below-cathode scatters at higher.  Those with just an S2, or lone-S2 events,
+come from interactions near the cathode and gate where the large electric field can significantly quench the S1.  The lone-S2s
+could at least in part be explained by \ce{^{210}Pb}, which given its presence on the PTFE panels, suggest it may also exist on the
+electrodes.
+
+Generally lone-S1 and lone-S2 events do impact our data, but occasionally if they occur close to one another can mimic a real event, known
+as accidental coincidence (AC).  Because we cannot know which events are AC, those that pass our cuts 
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_cuts}) will end up in our final data
+selection.  A shape cut is applied to S1s to ensure it is not an S2 from a single electron.  It is therefore important to calculate the
+number of expected events and the distribution.  The rate of AC events is given by
+
+\begin{equation}
+R_{\mathrm{AC}} = R_{\mathrm{LS1}} \times R_{\mathrm{LS2}} \times t_{d, \mathrm{max}}
+\label{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence}
+\end{equation}
+
+\noindent where $R_{\mathrm{LS1}}$ and $R_{\mathrm{LS2}}$ are the lone-S1
+and -S2 rates and $t_{d, \mathrm{max}}$ is the maximum TPC drift time.  S1s, especially at low energy, are too small trigger the
+DAQ.  Therefore, to calculate $R_{\mathrm{LS1}}$ we select higher energy good events that contain and S1 and S2, and search the region
+before the primary S1.  This method makes two assumptions.  The first is that lone-S1s should be uncorrelated in time, and thus
+distributed uniformly over large timescales.  The second is that the S1s we find do not have a complementary S2.  For the former this
+seems reasonable since we do not expect PMT dark rates and below-cathode scatters to follow any pattern.  The latter is valid because
+the probability of having two interactions in the same time window is negligible.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{ac_s2s1_distribution_blessed_sr1}
+\caption{Expected accidental coincidence distribution in cS1-cS2$_{\mathrm{b}}$ space.  Isolated S1s and S2s are randomly coupled to
+imitate real events in the TPC.  S1 and S2 corrections are applied and events that pass the cuts are plotted.  Projections are
+shown for cS1 (top) and cS2$_{\mathrm{b}}$ (right) for all events in blue, and between the NR median (red dashed line) and
+$-2 \sigma$ (black) in orange.}
+\label{fig:er_nr_calibrations_parameter_determ_ac}
+\end{figure}
+
+Accidental coincidence does not benefit from fiducialization like much of our other background.  In fact, we can see from
+\eqnref{eq:er_nr_calibrations_parameter_determ_additional_components_accidental_coincidence} that $R_{\mathrm{ac}}$ actually increases
+with detector size.  Still, its total contribution is comparatively small.  AC is source or background-dependent, so for this analysis
+distributions for \ce{^{220}Rn}, $\mathrm{^{241}AmBe}$, and the NG each were included in the
+fit.  Similar conditions and duration meant the SR0 and SR1 $^{241}$AmBe calibrations had nearly the same AC expectation so it was not
+necessary to include independent distributions; however, SR0 and SR1 AC \ce{^{220}Rn} were sufficiently different this could not be
+done for ER.  \figref{fig:er_nr_calibrations_parameter_determ_ac} shows the expected AC distribution in (cS1, cS2$_{\mathrm{b}}$) space
+with the region of interest shown in dotted red (median) and black ($-2 \sigma$) lines.
+
 
 
 
@@ -2576,7 +2577,7 @@ exercise caution when contrasting yields at different fields, though the effect 
 \caption{Photon and charge yields for nuclear recoils.  This result at $82\ \mathrm{V\ cm^{-1}}$ is shown in blue, though it is not
 an independent measurement since the model is constrained by previous work.  $L_y$ measurements are represented by purple triangles
 (\citeref{Aprile2005}), grey triangles (\citeref{Aprile2009b}), light green triangles (\citeref{Plante2011}), and magenta triangles
-(\citeref{Manzur2010}).  $Q_y$ are represented by purple diamonds (\citeref{Aprile2006}), red band (\citeref{Aprile2013}), black squares
+(\citeref{Manzur2010}).  $Q_y$ are represented by purple diamonds (\citeref{Aprile2006b}), red band (\citeref{Aprile2013}), black squares
 (\citeref{Sorenson2009}) and light blue triangles (\citeref{Manzur2010}).  Both $L_y$ and $Q_y$ are shown by orange squares
 (\citeref{LUX2016b}).  The NEST v1.0 model was used to constrain our fit and is shown as the green band (\citeref{NEST2015}).  The dashed
 blue line indicates the 10\% acceptance mark for this result, with greater acceptances at higher

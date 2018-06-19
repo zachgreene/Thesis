@@ -68,7 +68,7 @@ of the xenon spectrum (included for comparison), meaning measured VUV photons by
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{AbsorptionSpectra}
-\caption{Absorption coefficient for photons in 1 ppm \ce{H_2O} vapor (solid red) and \ce{O_2} (dashed green).  The Xe scintillation
+\caption{Absorption coefficient for photons at 1 ppm \ce{H_2O} vapor (solid red) and \ce{O_2} (dashed green).  The Xe scintillation
 spectrum is overlaid for comparison (dashed blue).  \ce{H_2O} impacts Xe scintillation considerably
 more than \ce{O_2}.  Image credit: \citeref{Ozone2005}, \ce{H_2O} data from \citeref{Yoshino1996}.}
 \label{fig:importance_procedure_effects_photons_absorption_coefficents}
@@ -96,21 +96,125 @@ measured.
 
 \subsubsection{Charge Depletion}
 \label{subsubsec:importance_procedure_effects_charge}
-The body of \electron that move along $E_{d}$ are known as the electron cloud.  As the electron cloud drifts it diffuses both
+Electrons that do not recombine will drift antiparallel to $E_d$ in an electron cloud.  As the electron cloud drifts it diffuses both
 longitudinally (in the direction of $E_{d}$) and transversely (perpendicular to $E_{d}$).  The
 diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
 be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
 
-Impurities mainly come from outgassing of detector materials and diffusion of elements in the air surrounding the detector through seals,
-though for the latter this is primarily limited to noble gases such as \ce{^{222}Rn} (\textbf{check this}).  Electronegative impurities in particular present a problem
-since they attach to drifting $e^{-}$,
-lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
-is \eqref{eq:impurity_attach}.
+The behavior of electrons can be classified according to their mobility in the limit of $E \rightarrow 0$, $\mu_0$.  When LXe is
+polarized by electrons its high polarizability ($\4.0 \times 10^{-24}\ \mathrm{cm^3}$, highest for noble gas) will both make it
+attractive to \electron and interact with nearby Xe atoms through dipole-dipole interaction.  The equilibrium of these two effects
+determines the potential energy of the ground state of electrons $V_0$, which is anti-correlated with $\mu_0$.  For LXe these have
+been measured to be $V_0 = -0.61 \pm 0.05\ \mathrm{K}$ (\citeref{Tauchert1977}) and $\mu_0 = 2200 \pm 200\ \mathrm{cm^2\ V^{-1}\ s^{-1}}$
+(\citeref{Yoshino1976}) at $165\ \mathrm{K}$ (in addition $\mu_0$ was found to be $1900$ and $2200\ \mathrm{cm^2\ V^{-1}\ s^{-1}}$
+at $163\mathrm{K}$ by \citeref{Yoshino1976} and \citeref{Miller1968}, respectively).  The large electron mobilities indicate the
+electrons are \textit{quasifree}, and have drift velocities that can exceed even those of GXe, as shown in
+\figref{fig:importance_procedure_effects_charge_drift_velocity}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{drift_velocity_field}
+\caption{Drift velocity (defined as $W$ here) dependence on reduced electric field $E/N$ where $N$ is the number of molecules per
+volume.  Points are from experimental data (\citeref{Gushchin1982, Huang1978, Wagner1967, Pack1992}) and curves are from
+calculations.  $1\ \mathrm{Td} = 10^-17\ \mathrm{V\ cm^2}$.  LXe has a higher drift velocity than GXe at
+$E/N \lesssim 1\ \mathrm{Td}\ (1\ \mathrm{Td} = 10^{-17}\ \mathrm{V\ cm^2})$.  Image credit: \citeref{Atrazhev2005}.}
+\label{fig:importance_procedure_effects_charge_drift_velocity}
+\end{figure}
+
+Ions exhibit significantly lower mobility than electrons.  It is parameterized as $\mu \approx \eta^{-\alpha}$ where $\eta$ is the
+liquid viscosity and $\alpha = 1 \mdash 2$.  The diffusion coefficients can be calculated with the Nernst-Einstein equation
+
+\begin{equation}
+\frac{e D(E)}{\mu (E)} = \mathcal{F} <E>
+\end{equation}
+
+\noindent where $\mathcal{F} = 0.5 \mdash 1$ is depends on the electron distribution function (e.g. $\mathcal{F} = 2/3$ for a
+Maxwellian distribution).
+
+The mobilities for holes, \ce{TMSi^+}, \ce{O_2^-}, \ce{^{226}Th}, \ce{^{208}Tl}, and \ce{Xe_2^+} in in LXe are listed in
+\tabref{tab:importance_procedure_effects_charge_mobilities}.  They are ${\sim} 10^6$ times smaller than the electron mobility.
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+Ion & T [K] & $\mu\ [10^{-4}\ cm^2\ V^{-1}\ s^{-1}]$ & Ref, \\
+\hline
+holes & 161 & 35 & \citeref{Hilt1994b} \\
+holes & 230 & 46 & \citeref{Hilt1994b} \\
+\ce{TMSi^+} & 162 & 2 & \citeref{Hilt1994a} \\
+\ce{TMSi^+} & 192 & 3 & \citeref{Hilt1994a} \\
+\ce{O_2^-} & 162 & 6 & \citeref{Hilt1994a} \\
+\ce{O_2^-} & 192 & 10 & \citeref{Hilt1994a} \\
+\ce{^{226}Th^+} & 162 & 2.4 & \citeref{Wamba2005} \\
+\ce{^{208}Tl^+} & 163 & 1.33 & \citeref{Walters2003} \\
+\ce{Xe_2^+} & 184.2 & 2.85 & \citeref{Davis1962} \\
+\ce{Xe_2^+} & 192.1 & 3.17 & \citeref{Davis1962} \\
+\hline
+\end{tabular}
+\caption{Ion mobilities in LXe.  All ions listed are positive with the exception of \ce{O_2^-}.  Positive holes have mobilities that are
+${\sim} 10$ greater than ions.  Summarized data is given in \citeref{Aprile2006a}.}
+\label{tab:importance_procedure_effects_charge_mobilities}
+\end{table}
+
+Hole mobility can be described by the hopping model of charge carrier transport.  In this temperature-dependent model charge is
+propagated through jumps between traps yielding
+
+\begin{equation}
+\mu = \frac{e b^2}{k_{\mathrm{B}} T} \omega
+label{eq:importance_procedure_effects_charge_mobility_simple}
+\end{equation}
+
+\noindent where $b$ is the average jump distance and $\omega$ is the jumping frequency, parameterized as
+
+\begin{equation}
+\omega = P \Big( \frac{\omega_0}{2 \pi} \Big) e^{-E_{\mathrm{a}} / k_{\mathrm{B}} T}
+\end{equation}
+
+\noindent where $\omega_0$ is the phonon frequency, $P(\omega_0 / 2 \pi)$ is the tunneling probability between adjacent holes with
+activation energy $E_{\mathrm{a}}$.  \figref{importance_procedure_effects_charge_hole_mobility} shows hole mobility in
+LXe.  The solid curve represents a model that parameterizes \eqref{eq:importance_procedure_effects_charge_mobility_simple} as
+
+\begin{equation}
+b^3(T) = \sqrt{2} M / \rho (T)
+\end{equation}
+
+\noindent where $M$ is the atomic mass of xenon and $\rho (T)$ is the temperature-dependent density (\citeref{Hilt1994b}).  It
+additionally assumes the hole is self-trapped between two rare atoms in a potential well, forming a polaron.  It gives a hole mobility of
+
+\begin{equation}
+\mu (T) = \frac{e b^2 (T)}{k_{\mathrm{B}}} \frac{2 \pi}{h} \sqrt{\frac{\pi}{4 E_a k_{\mathrm{B}} T}} J_0^2
+e^{-2 \alpha b(T)} e^{-E_a / k_{\mathrm{B}} T}
+\label{eq:importance_procedure_effects_charge_mobility_polaron}
+\end{equation}
+
+\noindent where $h$ is Planck's constant and and $J(T) = J_0 e^{-\alpha b(t)}$ is the transfer integral.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{hole_mobility}
+\caption{Fig. 3.15 in Aprile book.  Temperature-dependent drift mobility for holes in LXe.  Data is shown as empty triangles.  A fit
+using \eqref{eq:importance_procedure_effects_charge_mobility_polaron} is shown as the solid line.  Image credit: \citeref{Aprile2006a}
+(redrawn from \citeref{Hilt1994b}.)}
+\label{fig:importance_procedure_effects_charge_hole_mobility}
+\end{figure}
+
+As the cloud drifts electronegative impurities can bond to \electron and prevent them from reaching the liquid-gas interface, thereby
+decreasing proportional scintillation
 
 \begin{equation}
 e^{-} + S \rightarrow S^{-}
 \label{eq:impurity_attach}
 \end{equation}
+
+\noindent where $S$ refers to the impurity (e.g. $e^- + \mathrm{O_2} \rightarrow \mathrm{O_2^-}$).
+
+Electronegative impurities
+in particular present a problem
+since they attach to drifting $e^{-}$,
+lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
+is \eqref{eq:impurity_attach}.
+
 
 \noindent where $S$ is the impurity.  The number of \electron captured is dependent drift time $t_{d}$ and the
 attachment rate of
@@ -121,8 +225,6 @@ can increase \vd at stronger
 \efields but are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  The rate at which electrons are
 absorbed by impurities is proportional to the number of electrons, impurities, and impurity attachment rate.  Assuming the the density
 of impurities in the liquid and $E_{d}$ are uniform we find
-
-Impurities that are electronegative will attach to drifting electrons
 
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
 to the field at drift velocity $v_{d}$.  At fields of $\lesssim 100\ \mathrm{V\ cm^{-1}}$ drift velocity is nearly proportional to
@@ -149,10 +251,10 @@ For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesss
  $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
  \hline
  $\lesssim 100$ & \vd$\propto E$ \\
- $\sim 100-10^{3 \mdash 4}$ & \vd$\propto E^{1/2}$ \\
+ $\sim 100 \mdash 10^{3 \mdash 4}$ & \vd$\propto E^{1/2}$ \\
  $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
  \hline
- \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
+ \caption{Drift velocity \vd dependence on electric field for LXe.}
  \end{tabular}
  \label{tab:drift_velocity}
 \end{table}

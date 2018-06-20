@@ -974,32 +974,70 @@ lifetime model are discussed in \chapref{4}.
 
 
 
-\subsection{Single Electron Gain}
+\subsection{Secondary Scintillation Gain}
 \label{subsec:det_char_single_electron_gain}
 In measuring the S2 we know the total number of photoelectrons freed from the photocathodes of the PMTs.  However, our parameter of
 interest is the number of \electron that were extracted across the GXe.  To convert between the two we need to measure the number of
-detected photons per $e^-$, also known as the \textit{single electron gain}, or \textit{gas gain}, $G_e$.  To do so we look at the
-smallest features in the waveforms of events that have the width of an S2, and therefore must be single $e^-$.  These generally result
+detected photons per $e^-$, also known as the \textit{secondary-scintillation gain}, or \textit{single electron gain} $G_e$.  To do so we
+look at the
+smallest features in the waveforms of events that have the width of an S2, and therefore must be a low integer of $e^-$.  These generally
+result
 from photoionization of detector metals such as the gate or cathode, photoionization of impurities in the LXe, and delayed extraction
 of \electron from the liquid.
 
 The number of photons emitted depends on - among other things - the electric field between the anode and gate $E_g$.  Details of the
-exact relation can be found in \secref{subsec:tpcs_working_principle} and \eqnref{eq:electronlum}.  The sagging - although small - of the
+relation can be found in \secref{subsec:tpcs_working_principle} and \eqnref{eq:electronlum}.  The sagging - although small - of the
 anode changes $E_g$ slightly along $r$ as mentioned in \secref{subsec:det_char_s2_position_correction} and shown in
 \figref{fig:calibrations_s2_maps} (top).  Additionally the dielectric constant of LXe and GXe are different, so a change in liquid level
 would cause a nonuniform shift in field, so is monitored over the course of data taking.
 
 Poisson processes give a good approximation to both $G_e$ and the number of photons detected by the PMTs.  Effects like variation in $E_g$
-and PMT detection efficiencies apply a smearing.  If this is taken to be Gaussian the number of photons detected is represented by a
-Poisson distribution convolved with a Gaussian.  \figref{fig:calibrations_single_electron_gain_num_photons} shows the distribution of
+and PMT detection efficiencies apply a smearing.  The single electron spectrum can be modeled as
+
+\begin{equation}
+\frac{1}{1 + e^{-(x - A}) / B} \sum_{k = 1} h_k \mathrm{exp} \Big -\frac{(x - k \mu_1)^2}{2 k sigma_1^2} \Big
+\label{eq:det_char_single_electron_gain_model}
+\end{equation}
+
+\noindent where $x \equiv \mathrm{S2}$.  Each term in the sum refers to the peak composed of $k$ electrons with amplitude $h_k$.  The
+peaks are assumed gaussian with constraints $\mu_k = k \mu_1$ and $sigma_k^2 = k \sigma_1^2$.  A Fermi-Dirac is used to model the
+efficiency of the S2 peak finder algorithm.
+
+Single electrons can be easily found by looking after the S2, where photoionization may liberate some small number of $e^-$.  An example
+is shown in \figref{fig:calibrations_single_electron_gain_num_photons} where S2s that occurred $> 60 \mathrm{\mu s}$ and
+$< 727.3 \mathrm{\mu s}$ (max TPC drift time) are investigated.  The best-fit values from \eqref{eq:det_char_single_electron_gain_model}
+are shown in
+
+If this
+is taken to be Gaussian the number of photons detected is represented by a
+Poisson distribution convolved with a Gaussian and scaled by the detection efficiency.
+
+\figref{fig:calibrations_single_electron_gain_num_photons} shows the distribution of
 the gas gain for a PMT in SR1.  The spectrum is given in hits, where a hit is defined as the PMT voltage surpassing its assigned threshold
 inside the time window that defines the event.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{GasGainImage}
+\includegraphics[width=\textwidth]{SEspectrum}
+\caption{Electron spectrum from photoionization of 
 \label{fig:calibrations_single_electron_gain_num_photons}
 \end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+Variable & Best-fit value & Units & $t_{1/2}$ & Chain \\
+$A$ & $11.02 \pm .27$ & PE \\
+$B$ & $5.52 \pm 0.20$ & PE \\
+$mu_1$ & $26.71 \pm 0.05$ & PE \\
+$\sigma_1$ & $7.64 \pm 0.02$ PE \\
+\hline
+\hline
+\end{tabular}
+\caption{}
+\label{tab:alpha_decays}
+\end{table}
 
 
 

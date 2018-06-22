@@ -13,8 +13,9 @@ XENON1T is the third generation experiment of the XENON collaboration.  With a f
 liquid xenon dark matter detector to reach the ton-scale era of DM detection.  Its large target mass and low radioactive background
 make it the most sensitive detector to spin-independent WIMPs at $> 6\ \mathrm{GeV / c^2}$.
 
-This chapter begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by a discussion on backgrounds
-(\secref{sec:backgrounds}) and detector characterization (\secref{sec:det_char}).  The electronic and nuclear recoil band fittings are
+This chapter begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by a discussion on detector
+characterization (\secref{sec:det_char}), and backgrounds
+(\secref{sec:backgrounds}).  The electronic and nuclear recoil band fittings are
 then detailed (\secref{sec:er_nr_calibrations}) and finally dark matter search results (\secref{sec:dark_matter_results}).
 
 This chapter presents the run-combined analysis of Science Run 0 (SR0) and Science Run 1 (SR1) - the first two XENON1T science
@@ -964,7 +965,7 @@ significantly higher the charge yield is extremely low (\figref{fig:tpcs_signals
 low-energy and is not affected by $\alpha$ interactions we decided to use the electron lifetime derived from $\mathrm{^{83m}Kr}$.  The
 electron lifetime used for Science Runs 0 and 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flatness in $\tau_{e^-}$
 may be indicative of a small leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the electron
-lifetime model are discussed in \chapref{4}.
+lifetime model are discussed in \chapref{chap:purification}.
 
 \begin{figure}
 \centering
@@ -995,48 +996,54 @@ Poisson processes give a good approximation to both $G_e$ and the number of phot
 and PMT detection efficiencies apply a smearing.  The single electron spectrum can be modeled as
 
 \begin{equation}
-\frac{1}{1 + e^{-(x - A}) / B} \sum_{k = 1} h_k \mathrm{exp} \Big -\frac{(x - k \mu_1)^2}{2 k sigma_1^2} \Big
+\frac{1}{1 + e^{-(x - A) / B}}\ \sum_{k = 1} h_k\ \mathrm{exp} \bigg( -\frac{(x - k \mu_1)^2}{2 k \sigma_1^2} \bigg)
 \label{eq:det_char_single_electron_gain_model}
 \end{equation}
 
 \noindent where $x \equiv \mathrm{S2}$.  Each term in the sum refers to the peak composed of $k$ electrons with amplitude $h_k$.  The
-peaks are assumed gaussian with constraints $\mu_k = k \mu_1$ and $sigma_k^2 = k \sigma_1^2$.  A Fermi-Dirac is used to model the
+peaks are assumed gaussian with constraints $\mu_k = k \mu_1$ and $\sigma_k^2 = k \sigma_1^2$.  A Fermi-Dirac is used to model the
 efficiency of the S2 peak finder algorithm.
 
-Single electrons can be easily found by looking after the S2, where photoionization may liberate some small number of $e^-$.  An example
-is shown in \figref{fig:calibrations_single_electron_gain_num_photons} where S2s that occurred $> 60 \mathrm{\mu s}$ and
-$< 727.3 \mathrm{\mu s}$ (max TPC drift time) are investigated.  The best-fit values from \eqref{eq:det_char_single_electron_gain_model}
-are shown in
-
-If this
-is taken to be Gaussian the number of photons detected is represented by a
-Poisson distribution convolved with a Gaussian and scaled by the detection efficiency.
-
-\figref{fig:calibrations_single_electron_gain_num_photons} shows the distribution of
-the gas gain for a PMT in SR1.  The spectrum is given in hits, where a hit is defined as the PMT voltage surpassing its assigned threshold
-inside the time window that defines the event.
+Single electrons can be easily found by looking after the primary S2, where photoionization may liberate some small number of $e^-$.  An
+example is shown in \figref{fig:calibrations_single_electron_gain_num_photons} where S2s that occurred from
+$> 60 \mdash 727.3\ \mathrm{\mu s}$ after the main S2.  The lower bound of $60\ \mathrm{\mu s}$ is chosen to
+ensure we are seeing single electrons from photoionization, while the upper bound is set to the maximum drift time since the longest
+between the primary and SE S2s should come from photoionization of the cathode.  The best-fit values from
+\eqnref{eq:det_char_single_electron_gain_model} are given in \tabref{tab:det_char_single_electron_gain_vals}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{SEspectrum}
-\caption{Electron spectrum from photoionization of 
+\caption{Low secondary-scintillation spectrum.  Peaks corresponding to integer numbers of \electron are visible and the spectrum is fit
+with \eqnref{eq:det_char_single_electron_gain_model} (blue).  Individual peaks for for $1 e^-$ (magenta), $2 e^-$ (green), $3 e^-$ (red),
+$4 e^-$ (light purple), $5 e^-$ (brown), and $6 e^-$ (dark blue) along with the efficiency (red) are drawn.  Best-fit values are listed in
+\tabref{tab:det_char_single_electron_gain_vals}.}
 \label{fig:calibrations_single_electron_gain_num_photons}
 \end{figure}
 
 \begin{table}
 \centering
-\begin{tabular}{cccccc}
+\begin{tabular}{ccccc}
 \hline
-Variable & Best-fit value & Units & $t_{1/2}$ & Chain \\
-$A$ & $11.02 \pm .27$ & PE \\
-$B$ & $5.52 \pm 0.20$ & PE \\
-$mu_1$ & $26.71 \pm 0.05$ & PE \\
-$\sigma_1$ & $7.64 \pm 0.02$ PE \\
+Variable & Best-fit value & Units & $f$ \\
+\hline
+$A$ & $11.02 \pm .27$ & PE & - \\
+$B$ & $5.52 \pm 0.20$ & PE & - \\
+$\mu_1$ & $26.71 \pm 0.05$ & PE & - \\
+$\sigma_1$ & $7.64 \pm 0.02$ & PE & - \\
+$h_1$ & $(4.62 \pm 0.04) \times 10^4$ & & 0.691 \\
+$h_2$ & $(1.024 \pm 0.005) \times 10^4$ & & 0.153 \\
+$h_3$ & $4726 \pm 29$ & - & 0.071 \\
+$h_4$ & $2242 \pm 27$ & - & 0.041 \\
+$h_5$ & $1583 \pm 36$ & - & 0.024 \\
+$h_6$ & $1330 \pm 55$ & - & 0.020 \\
 \hline
 \hline
 \end{tabular}
-\caption{}
-\label{tab:alpha_decays}
+\caption{Best-fit values for fitting \figref{fig:calibrations_single_electron_gain_num_photons} with
+\eqnref{eq:det_char_single_electron_gain_model} with $1 \mdash 6 e^-$.  The fraction of total events $f$ for the $k^{\mathrm{th}}$ peak is
+defined as $h_k / \sum_{k = 1}^{6} h_k$ using the best-fit parameters.}
+\label{tab:det_char_single_electron_gain_vals}
 \end{table}
 
 
@@ -1613,7 +1620,7 @@ a variety of sources including physical properties reported from literature and 
 (\secref{sec:det_char}).  The process takes the simulated energy from a Monte Carlo event and ultimately outputs observables cS1 and
 $\mathrm{cS2_b}$.  These in turn are binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$ space, and the likelihood for equivalent bins
 between data and MC is calculated (\secref{subsubsec:er_nr_calibrations_parameter_determ_mc_match}).  To describe our energy region of
-interest as well as possible only events with $0 \geq \mathrm{cS1} \geq 100$ and $0.5 \geq \mathrm{log_{10}(cS2_b / cS1)} \geq 3.5$ are
+interest as well as possible only events with $0 \leq \mathrm{cS1} \leq 100$ and $0.5 \leq \mathrm{log_{10}(cS2_b / cS1)} \leq 3.5$ are
 considered.  As the parameters vary the likelihood should increase or decrease, allowing a minimizer to find the best-fit values.
 
 \begin{figure}
@@ -1724,7 +1731,7 @@ between 0-30 keV so its truth energies and positions were each randomly sampled 
 
 \subsubsection{Nuclear Recoils}
 \label{subsubsec:er_nr_calibrations_parameter_determ_nr}
-Two nuclear recoil sources were used for calibrations: americium beryllium (\ambe) and a neutron generator (NG).  Unlike \ce{^{220}Rn},
+Two nuclear recoil sources were used for calibrations: americium beryllium (\ce{^{241}AmBe}) and a neutron generator (NG).  Unlike \ce{^{220}Rn},
 each was used just once.  \ambe decays to \ce{^{237}Np} through $\alpha$-emission where the large \ce{^{9}Be} $\alpha$ cross-section
 prompts a second decay via
 
@@ -2058,9 +2065,8 @@ The electron lifetime used is randomly selected from the collection of lifetimes
 systematic error in measured lifetimes \eqnref{eq:det_char_elifetime} with a normal distribution
 
 \begin{equation}
-\tau_{e^-, \mathrm{true}} = \tau_{e^-, \mathrm{rec}} \bigg( 1 + \mathrm{N} \big( \mu = \tau_{e^-, \mathrm{rec}},\ \sigma^2 = \sigma_{e}^2
-\big)
-\bigg)
+\tau_{e^-, \mathrm{true}} = \tau_{e^-, \mathrm{rec}} \Big( 1 + \mathrm{N} \big( \mu = \tau_{e^-, \mathrm{rec}},\ \sigma^2 = \sigma_{e}^2
+\big) \Big)
 \end{equation}
 
 \noindent where $\tau_{e^-, \mathrm{rec}}$ and $\tau_{e^-, \mathrm{true}}$ refer to the reconstructed (measured) and true electron
@@ -2197,7 +2203,6 @@ the initial parameter values is not sufficient since we are interested in the be
 
 To do so use we a binned likelihood approach using Bayesian analysis.  The fast MC events (typically run $\mathcal{O}(10^6)$) and data are
 each binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$ histograms.  The likelihood between equivalent bins \li is computed as
-
 \begin{equation}
 \begin{aligned}
 \mathcal{L}_i &=\frac{\hat{b}_{i}^{b_i} e^{-\hat{b}_{i}}}{b_{i}!} \\
@@ -2218,33 +2223,36 @@ which a range of possible values is known (e.g. $n_{\mathrm{ex}} / n_{\mathrm{io
 bias and smearing, etc.) are restricted to within these bounds.  Finally, in cases where there is very little knowledge the priors
 are left free - though this is only applied to the seven electronic recoil recombination parameters: five in the Thomas-Imel box model
 scaled by a Fermi-Dirac (\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd}), and the two describing recombination
-fluctuations - however, we require $0 \geq r \geq 1$ and $0 \geq \Delta r \geq 1$
+fluctuations - however, we require $0 \leq r \leq 1$ and $0 \leq \Delta r \leq 1$
 (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  Applying more stringent constraints on well-known parameters provides us
 with information on those that are less understood.
 
 The objective in Bayesian inference is to have a posterior density of the parameters based on the data in Bayes' formula
-
 \begin{equation}
-p(\vect{\theta}|\vectlett{x}) = \frac{p(\vectlett{x}|\vect{\theta})
-p(\vect{\theta})}{p(\vectlett{x})} = \frac{\mathcal{L}(\vect{\theta})
-p(\vect{\theta})}{p(\vectlett{x})}
+p(\vect{\theta}|\vectlett{x}, \vect{\alpha}) = \frac{p(\vectlett{x}|\vect{\theta})
+p(\vect{\theta}|\vect{\alpha})}{p(\vectlett{x}|\vect{\alpha})} = \frac{\mathcal{L}(\vect{\theta})
+p(\vect{\theta}|\vect{\alpha})}{p(\vectlett{x}|\vect{\alpha})}
 \end{equation}
 
-\noindent where $p(\vect{\theta}|\vectlett{x})$ is the probability of the parameters $\vect{\theta}$ of dimension $n$ given the
-data $\vectlett{x}$ and is known as the posterior probability density, or target
+\noindent where $p(\vect{\theta}|\vect{\alpha})$ captures prior understanding of the
+model and is also known as the
+\textit{prior probability}.  Constraints on $\vect{\theta}$ - generally from physical restrictions or previous measurements or
+knowledge - are stored in hyperparameters $\vect{\alpha}$.  $p(\vect{\theta}|\vectlett{x}, \vect{\alpha})$ is the probability of
+parameters $\vect{\theta}$ of dimension $k$ given the
+data $\vectlett{x}$ and is known as the \textit{posterior probability} density, or \textit{target}
 density.  $p(\vectlett{x}|\vect{\theta})$ is the probability of the data $\vectlett{x}$ given the parameters
-$\vect{\theta}$.  It is equivalent to the likelihood.  $p(\vect{\theta})$ estimates the probability of the
-model before data, and is also known as the \textit{prior probability}.  $p(\vectlett{x})$ is known as the \textit{marginal likelihood}
+$\vect{\theta}$ and is
+commonly referred to as the \textit{likelihood} $\mathcal{L}(\vect{\theta})$.  $p(\vect{\theta})$ captures any prior knowledge of the
+model, and is also known as the \textit{prior probability}.  $p(\vectlett{x})$ is known as the \textit{marginal likelihood}
 and can be computed using \eqnref{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}.  Because it does not depend on
 $\vect{\theta}$ it is model-independent and does not contribute to the relative probability between different
 hypotheses.
-
 \begin{equation}
 p(\vectlett{x}) = \int_{\Theta} p(\vectlett{x}|\vect{\theta})\, \vectlett{d}^n \vect{\theta}
 \label{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}
 \end{equation}
 
-Unfortunately $p(\vectlett{x})$ is not calculable for nearly all models, including those of interest to
+Unfortunately $p(\vectlett{x}|\vect{\alpha})$ is not calculable for nearly all models, including those of interest to
 us.  \secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc} discusses a solution that allows us to estimate the posterior without
 needing to consider the marginal likelihood.
 
@@ -2253,20 +2261,91 @@ needing to consider the marginal likelihood.
 \subsubsection{Markov Chain Monte Carlo}
 \label{subsubsec:er_nr_calibrations_parameter_determ_mcmc}
 To estimate the values of parameters $\vect{\theta}$ that are best fit by $\vectlett{x}$ we employ a Markov Chain
-Monte Carlo (MCMC).  MCMCs give complete knowledge of the full posterior probability distribution, making them a desired algorithm in
-general.  They have become increasingly popular in recent years as advances in MCMC methods and computer processing speed have made them a
-powerful tool that can be run in a reasonable timescale.  The steps of a Metroplis-Hastings - the most commonly used MCMC - are outlined
-below (\citeref{Chib1995}).
+Monte Carlo (MCMC).  MCMCs are a class of algorithms used for sampling a probability distribution, and are in part desirable because they
+give complete knowledge of the full posterior probability
+distribution.  An MCMC consists of $k$ ``walkers'' with each walker representing a unique $\vect{\theta}_i$.  A large
+subpopulation of MCMC algorithms - including the method used in this analysis - use random walk Monte Carlos algorithms, meaning the
+walkers move about randomly.
+
+An MCMC runs for $T$ iterations or ``steps'', giving the total number of samples to be $k \times T$.  Each sample contributes its
+integrand to the total integral.  A walker may make a number of trial steps around its perimeter, looking for a point with a high
+integrand for its next move.  A step is solely dependent on the current positions of all $\vect{\theta}$.  Sometimes referred to as
+``memorylessness'' this means that, compared to its present state, knowledge of the entire history would not improve predictions of a
+walker's future state.  The array of $k$ walkers of $\vect{\theta}$ over $T$ iterations forms a ``chain''.
+
+In general $\vect{\theta}$ may contain parameters that are necessary for the model but of little interest,
+known as \textit{nuisance parameters}, $\vect{\theta}^{(N)}$.  It can often b the case that we wish to \textit{marginalize}, or integrate
+over $\vect{\theta}^{(N)}$
+\begin{equation}
+p(\vect{\theta}^{(I)}|\vectlett{x}, \vect{\alpha}) = \int_{\Theta^{(N)}}
+p(\vect{\theta}^{(I)}, \vect{\theta}^{(N)}|\vectlett{x}, \vect{\alpha}) \vectlett{d}^{n^{(N)}}\vect{\theta}^{(N)}
+\end{equation}
+
+\noindent though this in general may be difficult to compute.  However, sampling from the MCMC posterior joint distribution
+$p(\vect{\theta}^{(I)}, \vect{\theta}^{(N)}|\vectlett{x}, \vect{\alpha})$ naturally provides values for $\vect{\theta}^{(I)}$ from the
+marginalized posterior $p(\vect{\theta}^{(I)}|\vectlett{x}, \vect{\alpha})$.  This is a significant advantage over many other techniques.
+
+MCMCs have become increasingly popular in recent years as advances in methods and computer processing speeds have made them
+a powerful tool that can be run in a reasonable timescale.  For this analysis we use an implementation by \citeref{Foreman2013} of
+the Affine-Invariant Ensemble Sampler proposed by \citeref{Goodman2010}, modified to allow stretch move update step parallelization as
+outlined below.
 
 \begin{enumerate}
-\item For each iteration the parameters are in some state $\vect{\theta}_i$.  For the first iteration the parameters are set
-in some state that are initialized in a manner determined by the user (we randomly sample from $p(\vect{\theta})$).  The
+\item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (we randomly sample
+$p(\vect{\theta}|\vect{\alpha})$).
+
+\item \label{itm:divide} Divide the ensemble into subsets $S^{(0)} = \{\vect{\theta}_i, \forall i = 1, . . ., k/2\}$, and
+$S^{(1)} = \{\vect{\theta}_i}, \forall i = k/2, . . ., k\}$.
+
+\item \label{itm:newstate} For each walker in $S^{(0)}$ randomly select from $S^{(1)}$ a walker $\vect{\theta}_j^{(1)}$ and propose a new
+state
+\begin{equation}
+\vect{\theta}_p = \vect{\theta}_j^{(1)} + z \big[ \vect{\theta}_i(t) - \vect{\theta}_j^{(1)}(t^{(1)}) \big]
+\label{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update}
+\end{equation}
+
+\noindent where $z$ is randomly drawn from a distribution $g(z)$.  Choosing
+$g(z^{-1}) = z g(z)$ keeps \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update} symmetric - that is, invariant
+under $\vect{\theta}_p \leftrightarrow \vect{\theta}_i(t)$.  Choosing the acceptance probability of the proposed stretch move update
+step as
+\begin{equation}
+q = \mathrm{min} \bigg( 1, z^{n - 1} \frac{p(\vect{\theta}_p)}{p(\vect{\theta}_i (t))} \bigg)
+\end{equation}
+
+\noindent ensures the chain will fulfill detailed balance.  \citeref{Foreman2013} uses
+\begin{equation}
+g(z) \propto
+\begin{cases}
+\dfrac{1}{\sqrt{z}} & \mathrm{if}\ z \in \Big[ \frac{1}{a}, a \Big], \\
+0 & \mathrm{otherwise}
+\end{cases}
+\end{equation}
+
+\noindent with $a$ as a scalable parameter as recommended by \citeref{Goodman2010}.
+
+\item \label{itm:rand} Generate a random number from a uniform distribution $r \in [0, 1]$.  If $r \leq q$ then
+$\vect{\theta}_i(t + 1) = \vect{\theta}_p$, otherwise $\vect{\theta}_i(t + 1) = \vect{\theta}_i(t)$.
+
+\item \label{itm:update}  Set $t = t + 1/2$.
+
+\item Repeat steps \cref{itm:newstate,itm:rand,itm:update} for $S^{(1)}$ using the updated $S^{(0)}$.
+
+The advantage of the above implementation is the computationally expensive stretch move update steps
+(\cref{itm:newstate,itm:rand,itm:update}) are run
+for each walker in parallel, saving enormous amounts of time.  However, running all $k$ walkers in parallel would break detailed balance;
+thus we needed to split them into two groups.
+
+The
 likelihood function $g_t = \mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)$ is calculated.
+For each iteration $t$ parameters are in some state $\vect{\theta}_i$.  
 \item Look at a new set of randomly proposed parameters $\vect{\theta}_{p}$ and calculate 
 $g_p = \mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)$.
 \item Let $\mathcal{F} \def \frac{g_p}{g_t}$ and set $\vect{\theta}_{t+1} = \vect{\theta}_p$ when
 $\mathcal{F} \geq 1$ - otherwise move with probability $\mathcal{F}$.  If the proposed step is not taken simply set
-$\vect{\theta}_{t+1} = \vect{\theta}_t$.
+$\vect{\theta}_{t+1}^{(i)} = \vect{\theta}_t^{(i)}$.
+\item Let $\mathcal{F} \def \frac{g_p}{g_t}$ and set $\vect{\theta}_{t+1} = \vect{\theta}_p$ when
+$\mathcal{F} \geq 1$ - otherwise move with probability $\mathcal{F}$.  If the proposed step is not taken simply set
+$\vect{\theta}_i(t + 1) = \vect{\theta}_i(t)$.
 \item Record $\vect{\theta}_{t+1}$ and repeat.
 \end{enumerate}
 
@@ -2278,13 +2357,12 @@ likelihood as discussed in
 \secref{subsubsec:er_nr_calibrations_parameter_determ_mc_match} is no longer a concern as it is not considered when assessing
 $\mathcal{F}$.  As the routine continues it will randomly sample the posterior distribution, though the proof is outside the scope of this
 work.  We find that
-
 \begin{equation}
 \mathcal{F} = \frac{g_p}{g_t} = \frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)}
 {\mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)} = 
-\frac{\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)}{p(\vect{x})}}
-{\frac{\mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)}{p(\vect{x})}} =
-\frac{p(\vect{\theta_p}|\vect{x})}{p(\vect{\theta_t}|\vect{x})}
+\frac{\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p)}{p(\vectlett{x})}}
+{\frac{\mathcal{L}(\vect{\theta}_t) p(\vect{\theta}_t)}{p(\vect{\vectlett{x}})}} =
+\frac{p(\vect{\theta}_p|\vectlett{x})}{p(\vect{\theta}_t|\vect{\vectlett{x}})}
 \label{eq:er_nr_calibrations_parameter_determ_mcmc_acc_ratio}
 \end{equation}
 
@@ -2587,7 +2665,7 @@ comparing measurements since different electric fields change the $L_y/Q_y$ rati
 \caption{Photon and charge yields electronic recoils.  This result is shown in blue at $82\ \mathrm{V\ cm^{-1}}$ (SR1) and its
 extrapolation to $200\ \mathrm{V\ cm^{-1}}$ is shown in green.  Purple band represents XENON100 tritium calibration
 (\citeref{Aprile2018a}).  Red triangles and orange squares represent
-LUX \ce{^{127}Xe} (\citeref{LUX2017b}) and tritium (\citeref{LUX2016}), respectively.  Grey triangles represent PIXeY \ce{^{37}Ar}
+LUX \ce{^{127}Xe} (\citeref{LUX2017c}) and tritium (\citeref{LUX2016}), respectively.  Grey triangles represent PIXeY \ce{^{37}Ar}
 (\citeref{PIXeY2017}).  The black line shows the NEST v2.0 beta at $82\ \mathrm{V\ cm^{-1}}$ prediction.  The dashed blue line indicates
 the 10\% acceptance mark for this result, with greater acceptances at higher
 energies (\secref{subsec:dark_matter_results_selection}).  This result has $> 10\%$ acceptance for events with energies higher than

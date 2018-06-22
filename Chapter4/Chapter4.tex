@@ -5,6 +5,7 @@
 \pagestyle{cu}
 \graphicspath{{./Chapter4/Figures/}}
 \chapter[Purity and the Electron Lifetime][Purity and the Electron Lifetime]{Purity and the Electron Lifetime}
+\label{chap:purification}
 
 In a noble element dark matter detection experiment the purity of the target mass is an essential consideration and must be measured
 continuously.  To date the concentration of electronegative impurities has always been measured in these experiments, but no reliable
@@ -42,7 +43,7 @@ though for the latter this is primarily limited to noble gases such as \ce{^{222
 contribute to our electronic recoil background (\secref{subsec:backgrounds_electronic}) they can also decrease the number of photons and
 electrons measured.
 
-\subection{Photon Attenuation}
+\subsection{Photon Attenuation}
 \label{subsec:importance_procedure_effects_photons}
 Contaminants been shown to absorb Xe scintillation (178 nm with ${\sim} 14\ \mathrm{nm}$ spectral FWHM)
 (\citeref{Watanabe1953a, Watanabe1953b}).  At concentrations of ppm or higher
@@ -53,14 +54,14 @@ photon attenuation is given by
 I(x) = I_0 e^{-x / \lambda_{\mathrm{att}}}
 \end{equation}
 
-\nonindent where $I_0$ is initial intensity, $x$ is distance, and $\lambda_{\mathrm{att}}$ is the attenuation length.  It can be written
+\noindent where $I_0$ is initial intensity, $x$ is distance, and $\lambda_{\mathrm{att}}$ is the attenuation length.  It can be written
 as $1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{scatt}}$ where $\lambda_{\mathrm{abs}}$ and
 $\lambda_{\mathrm{scatt}}$ are the the absorption and scatterings lengths, respectively.  For entirely pure xenon
 $\lambda_{\mathrm{abs}} \sim \infty$ (\citeref{Baldini2005} found $lambda_{\mathrm{abs}} > 100\ \mathrm{cm}$ at 90\% confidence
 level).
 
 The inclusion of impurities, however, can shorten the absorption
-length.  \figerf{fig:importance_procedure_effects_photons_absorption_coefficents} shows the absorption coefficients
+length.  \figref{fig:importance_procedure_effects_photons_absorption_coefficents} shows the absorption coefficients
 ($\lambda_{\mathrm{abs}}^{-1}$) for 1 ppm \htwoo and \otwo from $130 \mdash 200\ \mathrm{nm}$.  They overlap with shorter wavelengths
 of the xenon spectrum (included for comparison), meaning measured VUV photons by PMTs will not be symmetric above 178 nm.  With a nearly
 1-meter tall detector a 1 ppm concentration of \htwoo would have an effect at 184 nm.
@@ -102,7 +103,7 @@ diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field w
 be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
 
 The behavior of electrons can be classified according to their mobility in the limit of $E \rightarrow 0$, $\mu_0$.  When LXe is
-polarized by electrons its high polarizability ($\4.0 \times 10^{-24}\ \mathrm{cm^3}$, highest for noble gas) will both make it
+polarized by electrons its high polarizability ($4.0 \times 10^{-24}\ \mathrm{cm^3}$, highest for noble gas) will both make it
 attractive to \electron and interact with nearby Xe atoms through dipole-dipole interaction.  The equilibrium of these two effects
 determines the potential energy of the ground state of electrons $V_0$, which is anti-correlated with $\mu_0$.  For LXe these have
 been measured to be $V_0 = -0.61 \pm 0.05\ \mathrm{K}$ (\citeref{Tauchert1977}) and $\mu_0 = 2200 \pm 200\ \mathrm{cm^2\ V^{-1}\ s^{-1}}$
@@ -244,6 +245,12 @@ in particular present a problem
 since they attach to drifting $e^{-}$,
 lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
 is \eqref{eq:impurity_attach}.
+
+Discuss 100 SLPM plan and choking by pipes, why didn't reach it.  \ce{^{222}Rn} decrease with magnetic
+pump.  Connect to Demonstrator - attempt to drift electrons 1 meter.  Make clear why it's so important.  Discuss how much lose in
+sensitivity.  Tests to understand individual components.  Include flow model by Guillaume, what we hope to achieve using it.  Show
+waveforms for same energy event - one at top and one at bottom of detector and how bottom is worse.  Discuss qualitatively electron
+lifetime before discuss model.
 
 \noindent where $S$ is the impurity.  The number of \electron captured is dependent drift time $t_{d}$ and the
 attachment rate of

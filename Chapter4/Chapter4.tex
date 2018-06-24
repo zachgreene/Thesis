@@ -138,8 +138,7 @@ The mobilities for holes, \ce{TMSi^+}, \ce{O_2^-}, \ce{^{226}Th}, \ce{^{208}Tl},
 \begin{table}
 \centering
 \begin{tabular}{cccccc}
-\hline
-Ion & T [K] & $\mu\ [10^{-4}\ cm^2\ V^{-1}\ s^{-1}]$ & Ref, \\
+Ion & T [K] & $\mu\ [10^{-4}\ \mathrm{cm^2\ V^{-1}\ s^{-1}}]$ & Ref. \\
 \hline
 holes & 161 & 35 & \citeref{Hilt1994b} \\
 holes & 230 & 46 & \citeref{Hilt1994b} \\
@@ -163,7 +162,7 @@ propagated through jumps between traps yielding
 
 \begin{equation}
 \mu = \frac{e b^2}{k_{\mathrm{B}} T} \omega
-label{eq:importance_procedure_effects_charge_mobility_simple}
+\label{eq:importance_procedure_effects_charge_mobility_simple}
 \end{equation}
 
 \noindent where $b$ is the average jump distance and $\omega$ is the jumping frequency, parameterized as
@@ -239,6 +238,81 @@ e^- + XY \leftrightarrow (XY^-)* \\
 \noindent where $Z$ is an atom or molecule from the majority gas population.  It carries out the bonding energy between the
 \electron and electronegative $XY$.  Oxygen was studied (\citeref{Aleksandrov1993, Aleksandrov1981, Aleksandrov2009}).
 \end{enumerate}
+
+
+
+\section{Electron Lifetimes}
+\label{sec:electron_lifetimes}
+
+
+
+\section{Electron Lifetime Model}
+\label{sec:electron_lifetime_model}
+
+
+
+\subsection{Impurity Removal}
+\label{subsec:electron_lifetime_model_removal}
+
+
+
+\subsection{Vaporization and Condensation}
+\label{subsec:electron_lifetime_model_vap_and_cond}
+
+
+
+\subsubsection{GXe-Only Circulation}
+\label{subsubsec:electron_lifetime_model_removal_gxe}
+Because only the electrons drifting in the LXe lead to an S2 purifying the GXe was historically not considered necessary.  However,
+the relatively light mass of electronegative impurities with respect to xenon and higher temperatures that produce greater outgassing
+suggest that many more may be present in the gas.  Because
+impurities are exchanged between the liquid and gas (\secref{subsec:electron_lifetime_model_vap_and_cond}) the potential to compromise
+the electron lifetime is significant.
+
+In the work leading up to XENON1T the Columbia Demonstrator installed piping connecting the gaseous region of the TPC to the purification
+system to investigate this effect.
+
+Three lines were connected to the GXe region of the XENON1T - one at each cooling tower
+(\figref{fig:xenon1t_cryogenics_schematic,fig:xenon1t_cryo_overview}) - to siphon gas to the purification system
+(\secref{subsec:xenon1t_pur}).  As the highest and warmest regions in the detector the impurity concentrations were anticipated to be
+significant.  A fourth conduit is linked to the tube that carries the cables between the TPC and data acquisition, where contamination
+is expected to be higher from outgassing as a result of the inability to apply the same cleaning standard as other detector materials.
+
+During standard operations GXe is passed through the getters at ${\sim} 3.75\ \mathrm{SLPM}$, or roughly $7 \mdash 8\%$ of the total
+flow during SR0 and SR1.
+
+From August 22 to September 2, 2016 LXe purification was halted.  The motivation was to study the effect that GXe purification has by
+decoupling it from the liquid.
+
+
+
+\subsection{Outgassing and Leaks}
+\label{subsec:electron_lifetime_model_outgassing}
+
+
+
+\subsection{Field Dependence}
+\label{subsec:electron_lifetime_model_field}
+
+
+
+\subsection{Detector Effects}
+\label{subsec:electron_lifetime_model_detector_effects}
+
+
+
+\subsubsection{Getter Defficiencies}
+\label{subsubsec:electron_lifetime_model_detector_effects_getter}
+
+
+
+\subsubsection{Impurity Spikes}
+\label{subsubsec:electron_lifetime_model_detector_effects_spikes}
+
+
+
+\subsection{Operations}
+\label{subsec:electron_lifetime_model_ops}
 
 Electronegative impurities
 in particular present a problem

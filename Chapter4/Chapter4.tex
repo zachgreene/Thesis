@@ -221,8 +221,10 @@ e^- + XY \rightarrow XY^- + h \nu
 is given by
 
 \begin{equation}
+\begin{aligned}
 e^- + XY \rightarrow XY^* + e^- \rightarrow X^+ + Y^- + e^- \\
 e^- + XY \rightarrow XY^- \rightarrow X + Y^-
+\end{aligned}
 \end{equation}
 
 \noindent where molecule $XY$ is separated into components $X$ and $Y$.  \ce{O_2} has 5.116 eV dissociation energy and \ce{O^-} has
@@ -243,46 +245,208 @@ e^- + XY \leftrightarrow (XY^-)* \\
 
 \section{Electron Lifetimes}
 \label{sec:electron_lifetimes}
+Nearly any mono-energetic radioactive decay can be used to measure the electron lifetime.  For XENON1T electron lifetimes were calculated
+using the elements listed in \tabref{tab:electron_lifetimes_isotopes}.  An additional method of minimizing the width of \cstwob using the
+\ce{^{212}Pb} electronic recoil band to address an emerging discrepancy between
+$\mathrm{^{83m}Kr}$ and \alphadecays (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}) was tried but had too large of an uncertainty
+to render itself valuable.
+
+Following an \ambe or neutron generator calibration $\mathrm{^{129}Xe}$ and $\mathrm{^{131}Xe}$ will be in excited nuclear states.  Their
+$\gamma$-emissions and uniform distribution in the TPC make them excellent candidates to measure the electron lifetime for electronic
+recoils.  Unfortunately their half-lifes of 8.88 and 11.93 d, respectively, eliminate any statistically significant results after more
+than a few weeks.
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+Isotope & Decay & Energy & $t_{1/2}$ & Notes \\
+$\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & Calibration \\
+$\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & Background following \ambe or NG calibration \\
+$\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & Background following \ambe or NG calibration \\
+\ce{^{222}Rn} & $\alpha$ & $5.590\ \mathrm{MeV}$ & 3.82 d & Background \\
+\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.1 m & Background (\ce{^{222}Rn} daughter) \\
+\ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \ce{^{220}Rn} calibration \\
+\hline
+\hline
+\end{tabular}
+\caption{Isotopes used for electron lifetime analysis.  Background \ce{^{222}Rn} and \ce{^{218}Po} \alphadecays allowed continual
+monitoring of but had relatively low statistics.  $\mathrm{^{83m}Kr}$ and \ce{^{212}Bi} had high statistics but were only available during
+calibrations.  Excited nuclear states $\mathrm{^{131m}Xe}$ and $\mathrm{^{129m}Xe}$ were present in background after nuclear recoil
+calibrations but their half-lifes decreased viability after several weeks.}
+\label{tab:electron_lifetimes_isotopes}
+\end{table}
+
+
+
+\subsection{Measuring the Electron Lifetime}
+\label{subsec:electron_lifetimes_measurement}
+The electron lifetimes over the XENON1T lifetime is shown in \figref{fig:electron_lifetimes_evolution_no_model}.  Initially lifetimes were
+measured by selecting single-scatter data.
+
+
+
+\subsubsection{Single-Scatter}
+\label{subsubsec:electron_lifetimes_measurement_ss}
+In the very beginning of XENON1T relatively little was known about the detector, i.e. background, electron lifetimes were measured by selecting single-scatter data.
+
+
+
+\subsubsection{$\alpha$-Decays}
+\label{subsubsec:electron_lifetimes_measurement_alphas}
+The high energy and substantial stopping power (\figref{fig:mass_stopping_power}) of $\alpha$ interactions creates significant
+recombination, in turn creating an S1 that makes them easily distinguishable from electronic and nuclear
+interactions.  Because they are so recognizable and do not scatter many of the cuts developed for the science run analysis are not
+necessary (many are in addition not reliable since they were developed using low-energy electronic recoils).  There are just a small
+number of cuts that are used.
+
+Events must have $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$.  This is in part for consistency with the First Results FV
+(\citeref{Aprile2017f}).  But we can also expect inhomogeneity in the electric field to be greatest near the top, bottom, and sides of the
+TPC as seen in \figref{fig:xenon1t_tpc_efield}.  Changes in the field would produce different light and charge yields
+(\secref{subsec:det_char_ly_cy}), so the number $\gammas$ and escaped \electron would vary according to position.  Because $\alpha$
+LY and QY have little dependence on field this effect is likely to be small or negligible.  However, a more alarming effect is impurity
+attachment rate dependence on field, discussed in \secref{subsec:electron_lifetime_model_field}.  Finally, the radial cut removes any
+chance of \alphadecays near the wall that would lose drifting \electron to the PTFE.
+
+The fraction of light seen by the top PMTs from electroluminescence is tightly constrained due to the extraction occurring above the
+liquid and over the roughly the same distance.  The percentage of events that fail this cut is small but it is important to remove any
+``fake'' or gas-events (a cut on the S1 fraction seen by the top PMTs will also distinguish GXe events).
+
+A quality check to the data acquisition (\secref{subsec:xenon1t_daq}) is applied to remove occasional issues with the readout.
+
+\figref{fig:electron_lifetimes_measurement_alphas_s1} shows S1 dependence on drift time for \alphadecays after these cuts.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{s1_alpha}
+\caption{}
+\label{fig:electron_lifetimes_measurement_alphas_s1}
+\end{figure}
+
+
+
+\subsubsection{$\mathrm{^{83m}Kr}$}
+\label{subsubsec:electron_lifetimes_measurement_kr}
+
+
+
+\subsubsection{$\gamma$-rays}
+\label{subsec:electron_lifetimes_measurement_gammas}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{electron_lifetime_evolution_no_model}
+\caption{}
+\label{fig:electron_lifetimes_evolution_no_model}
+\end{figure}
+
+
+
+
+\subsection{\ce{^{222}Rn} vs. $\mathrm{^{83m}Kr}$}
+\label{subsec:electron_lifetimes_rn222_vs_kr83m}
 
 
 
 \section{Electron Lifetime Model}
 \label{sec:electron_lifetime_model}
+To construct the electron lifetime model a number of factors were considered.  The model was fit to the \ce{^{222}Rn} $\alpha$-emissions
+due to its constant presence in our background.  The best-fit trend was then scaled to match the $\mathrm{^{83m}Kr}$ data using a derived
+``correction function'' to correct electronic recoil science data (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}).
+
+
+
+\subsection{Columbia Demonstrator}
+\label{subsec:electron_lifetime_model_demonstrator}
+To address new challenges in upgrading to a ton-scale detector a prototype was constructed at Columbia.  While much smaller in total
+volume (${\sim}26\ \mathrm{kg}$ total, ${\sim}4\ \mathrm{kg}$ inside TPC) part of its goals were to assess the feasibility of 1-meter
+drift lengths, which in turn required a significant improvement in xenon purification compared to the ${\sim}5\ \mathrm{slpm}$ of its
+predecessor XENON100 (\citeref{Aprile2012a}).
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{fig_1_Aprile2012b}
+\caption{Schematic of the Columbia Demonstrator in its initial state.  The connection to bring GXe to the getter was not yet installed
+at the time of publication (\secref{subsec:electron_lifetime_model_gxe}).  Image credit: \citeref{Aprile2012b}.}
+\label{fig:electron_lifetime_model_demonstrator_schematic}
+\end{figure}
 
 
 
 \subsection{Impurity Removal}
 \label{subsec:electron_lifetime_model_removal}
+See if purification system diagram exists for after magnetic pump installed.
+
+Impurities are removed in the purification system (\citeref{subsec:xenon1t_pur}) by two SAES PS4-MT50-R getters.  It operates between
+$5 \mdash 100\ \mathrm{slpm}$ and uses heated zirconium ($400^{\circ}\mathrm{C}$ nominal operating temperature) to form irreversible
+chemical bonds with \ce{O_2}, \ce{CO}, \ce{CO_2}, \ce{H_2O}, \ce{H_2}, \ce{N_2}, and \ce{CH_4}, achieving levels of
+$< 1\ \mathrm{ppb}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{LT_cycle_all-eps-converted-to}
+\caption{Electron lifetime dependence on flow rate through getter.  Measurements are done for 5 (pink circles), 20 (blue squares), 30
+(blue
+triangles), 41 (green triangles), 50 (red squares), and 80 (black circles) slpm.  With the exception of the 5 slpm, the lifetimes increase
+at roughly the same rate ($\lesssim 7\ \mathrm{cycles}$).  From 0 to 50 slpm an increase in flow produces a higher ultimate electron
+lifetime.  At 80 slpm the $\tau_e$ drops below 50 slpm.  An explanation may be that at high speeds impurities cannot be removed as
+efficiently due to the short time spent in the getter.  Image credit: \citeref{Demonstrator2018}.}
+\label{fig:electron_lifetime_model_removal_demonstrator_circ}
+\end{figure}
+
+An SAES PS4-MT50-R1 getter was installed in the Columbia Demonstrator for testing.
 
 
 
 \subsection{Vaporization and Condensation}
 \label{subsec:electron_lifetime_model_vap_and_cond}
+Impurities will transfer between the gas and liquid xenon.
 
 
 
-\subsubsection{GXe-Only Circulation}
-\label{subsubsec:electron_lifetime_model_removal_gxe}
+\subsection{GXe Purification}
+\label{subsec:electron_lifetime_model_gxe}
 Because only the electrons drifting in the LXe lead to an S2 purifying the GXe was historically not considered necessary.  However,
 the relatively light mass of electronegative impurities with respect to xenon and higher temperatures that produce greater outgassing
 suggest that many more may be present in the gas.  Because
 impurities are exchanged between the liquid and gas (\secref{subsec:electron_lifetime_model_vap_and_cond}) the potential to compromise
 the electron lifetime is significant.
 
-In the work leading up to XENON1T the Columbia Demonstrator installed piping connecting the gaseous region of the TPC to the purification
-system to investigate this effect.
+As part of the work leading up to XENON1T the Columbia Demonstrator installed piping connecting the gaseous region of the TPC to the
+purification system to investigate this effect.  \figref{fig:electron_lifetime_model_gxe_demonstrator} shows the electron lifetimes over
+the course of the measurement using a \ce{^{137}Cs} 661.7 keV $\gamma$-ray.  Two periods with GXe and LXe circulation were observed and
+are highlighted in blue.  Each shows an increase in
+$\tau_e$, though the second was only for a few days.  The first measurement improves the lifetime from
+${\sim} 200 \mathrm{\mu s}$ to ${\sim} 450 \mathrm{\mu s}$ and does not show signs of leveling off when the LXe-only circulation is
+restored.  This confirmed the expectation that electronegative impurities in the GXe play an important role in limiting the electron
+lifetime, and our dark matter search would benefit greatly from equipping XENON1T for GXe purification.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{eLT_gas_rec}
+\caption{Electron lifetime with (white) and without (blue) GXe circulation for the Demonstrator.  The electron lifetime more than doubles
+in the first iteration over a roughly 10-day span.  A period follows with
+only LXe purification, but is too short to observe much decrease.  Upon re-initiating GXe flow the lifetime drops a bit - possibly due to
+trapped impurities in the GXe tubing - but then begins to climb again.  The final block reveals the electron lifetime does
+decrease with LXe-only circulation.  Image credit: \citeref{Demonstrator2018}.}
+\label{fig:electron_lifetime_model_gxe_demonstrator}
+\end{figure}
 
 Three lines were connected to the GXe region of the XENON1T - one at each cooling tower
 (\figref{fig:xenon1t_cryogenics_schematic,fig:xenon1t_cryo_overview}) - to siphon gas to the purification system
-(\secref{subsec:xenon1t_pur}).  As the highest and warmest regions in the detector the impurity concentrations were anticipated to be
+(\secref{subsec:xenon1t_pur}).  As the highest and warmest regions in the detector the impurity concentrations were predicted to be
 significant.  A fourth conduit is linked to the tube that carries the cables between the TPC and data acquisition, where contamination
-is expected to be higher from outgassing as a result of the inability to apply the same cleaning standard as other detector materials.
+is expected to be higher from outgassing as a result of the inability to apply the same cleaning standard as other detector materials
+(\textbf{check this}).
 
-During standard operations GXe is passed through the getters at ${\sim} 3.75\ \mathrm{SLPM}$, or roughly $7 \mdash 8\%$ of the total
+During standard operations GXe is passed through the getters at ${\sim} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of the total
 flow during SR0 and SR1.
 
 From August 22 to September 2, 2016 LXe purification was halted.  The motivation was to study the effect that GXe purification has by
-decoupling it from the liquid.
+decoupling it from the liquid.  We found the electron lifetime decreased more rapidly than anticipated, indicating that while the
+impurities in the GXe were influential, they were not to the extent predicted.  The GXe-only circulation provides unique insight into
+the physics of impurity behavior in a TPC.  Correctly modeling this portion of the evolution constrains the outgassing, vaporization,
+and condensation rates.
 
 
 
@@ -313,6 +477,13 @@ decoupling it from the liquid.
 
 \subsection{Operations}
 \label{subsec:electron_lifetime_model_ops}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{pur_system_mag_pump_upgrade}
+\caption{}
+\label{fig:mag_pump}
+\end{figure}
 
 Electronegative impurities
 in particular present a problem

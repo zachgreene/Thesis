@@ -414,7 +414,8 @@ numerous connections makes the purification system a hub for transferring xenon 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{PurificationLayout}
-\caption{Layout of the purification system.  Image credit: \citeref{Aprile2017b}.}
+\caption{Layout of the purification system.  The standard flow path during normal operations is highlighted in blue.  Image credit:
+\citeref{Aprile2017b}.}
 \label{fig:xenon1t_pur_schematic}
 \end{figure}
 
@@ -430,11 +431,21 @@ no issues have arisen.  It turns out the limiting factor on our circulation spee
 from tubes leading to the system caused by too small a radius.  With the upgrade to XENONnT these will be replaced with larger-radii.  One
 Q-Drive is installed in one loop and two in the other.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{calibration_source_box}
+\caption{Layout of the calibration source box in the purification system.  Locations of \ce{^{220}Rn}, $^{83\mathrm{m}}\mathrm{Kr}$, and
+\ce{CH_3T} are encompassed by dotted rectangles.  Filters are installed to catch debris.  Connections to and from the cryostat (turquoise)
+and pumps and getters (red) are shown.  The vacuum pump (yellow) is used to evacuate the chamber before use.}
+\label{fig:xenon1t_pur_schematic}
+\end{figure}
+
 The flow of the GXe is maintained by two MKA 1579A mass-flow controllers - one on either branch.  The assumption before the experiment went
 online was these would limit the speed when necessary, but because we did not achieve our goal these have minimal impact.  Still, they can
 be used for further restriction.  The xenon then passes through SAES PS4-MT50-R high-temperature rare-gas purifiers, or getters.  They
 use heated ($400^{\circ}\ \mathrm{C}$) zirconium to form unbreakable bonds with carbide, nitride, and oxide, lowering the impurity content
-to $< 1 \mathrm{ppb}$.  A bypass valve allows the xenon to pass un-purified in the event that the it does not need to be cleaned.
+to $< 1 \mathrm{ppb}$ (\citeref{Aprile2017b}).  A bypass valve allows the xenon to pass un-purified in the event that the it does not need
+to be cleaned.
 
 A Tiger Optics HALO+ H$_2$O monitor measures the water content in the purified GXe to track the purification efficiency.  It can measure
 concentrations down to 400 ppt.  As with the getters, it can be bypassed.  The Xe is then forwarded to the cryostat, bell, ReStoX, or
@@ -505,7 +516,7 @@ purification system or ReStoX (\textbf{check this}).
 \end{figure}
 
 After installed at LNGS the reduction of \ce{^{nat}Kr}/Xe was found to be $6.4_{-1.4}^{+1.9} \times 10^{5}$
-(\citeref{Aprile2016b}).  Inlet flows have been shown to be stable up to 18 SLPM, but running all ReStoX xenon through distillation before
+(\citeref{Aprile2016b}).  Inlet flows have been shown to be stable up to 18 slpm, but running all ReStoX xenon through distillation before
 cryostat filling would take ${\sim}3$ weeks.  For this reason an ``online" removal system was used, where the xenon was distilled during
 science run data taking.  Over 70 days 7\% of xenon passing through purification was diverted to the column and a total 0.07\% was
 removed.  An initial \ce{^{nat}Kr}/Xe concentration of 60 ppb was decreased to $360 \pm 60\ \mathrm{ppq}$, the lowest ever realized in a
@@ -729,7 +740,7 @@ The relatively poor resolution is apparent in \figref{fig:xenon1t_pmt_spe} as th
 important metric of the SPE spectrum is the peak-to-valley ratio, which divides the first PE peak by the valley that sits between it and
 the baseline noise.  As with $R$ it increases for low gains and eventually levels.  For gains of $2 \mdash 3 \times 10^{6}$ the mean
 peak-to-valley ratio is ${\sim} 3$.  The PMT gains are regularly measured to identify any changes in gain.  This is shown for five
-PMTs - all of which are stable - in
+PMTs - all of which are stable - in \figref{fig:xenon1t_pmt_time}.
 
 
 
@@ -895,8 +906,8 @@ emanation were chosen, electron lifetime measurements were typically done with 2
 have significantly higher (${\sim}50\ \mathrm{Hz}$) statistics, allowing measurements with much higher precision.
 
 The 41.5 keV $\mathrm{^{83m}Kr}$ de-excitation offers a relatively low-energy electronic recoil to measure $\tau_{e^-}$.  The number of events
-from a typical calibration of 2-3 days is in the millions, making any contamination from background negligible.  The left panel of
-\figref{fig:calibrations_elifetime_kr} shows a standard electron lifetime calculated using $\mathrm{^{83m}Kr}$.
+from a typical calibration of 2-3 days is in the millions, making any contamination from background
+negligible.  \figref{fig:det_char_elifetime_kr} shows an electron lifetime calculated using $\mathrm{^{83m}Kr}$.
 
 \begin{figure}
 \centering
@@ -905,17 +916,11 @@ from a typical calibration of 2-3 days is in the millions, making any contaminat
 \end{figure}
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{KrElectronLifetime}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Bi212ElectronLifetime}
-    \end{subfigure}
-    \caption{}
-	\label{fig:calibrations_elifetime}
+\centering
+\includegraphics[width=\textwidth]{kr_electron_lifetime_linear}
+\caption{The model is derived using \ce{^{222}Rn}, \ce{^{220}Rn}, and \ce{^{218}Po} \alphadecays and
+discussed in \chapref{chap:purification}.}
+\label{fig:det_char_elifetime_kr}
 \end{figure}
 
 Another high-statistic calibration used for measurement is \ce{^{220}Rn}.  Primarily used for the 569.9 keV $\beta$-emission of its

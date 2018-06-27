@@ -258,14 +258,16 @@ than a few weeks.
 
 \begin{table}
 \centering
-\begin{tabular}{cccccc}
+\begin{tabular}{rccrc}
+\hline
 \hline
 Isotope & Decay & Energy & $t_{1/2}$ & Notes \\
+\hline
 $\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & Calibration \\
 $\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & Background following \ambe or NG calibration \\
 $\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & Background following \ambe or NG calibration \\
 \ce{^{222}Rn} & $\alpha$ & $5.590\ \mathrm{MeV}$ & 3.82 d & Background \\
-\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.1 m & Background (\ce{^{222}Rn} daughter) \\
+\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.10 m & Background (\ce{^{222}Rn} daughter) \\
 \ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \ce{^{220}Rn} calibration \\
 \hline
 \hline
@@ -286,9 +288,26 @@ measured by selecting single-scatter data.
 
 
 
-\subsubsection{Single-Scatter}
+\subsubsection{S2/S1}
 \label{subsubsec:electron_lifetimes_measurement_ss}
-In the very beginning of XENON1T relatively little was known about the detector, i.e. background, electron lifetimes were measured by selecting single-scatter data.
+In the period immediately following XENON1T becoming operational the electron lifetime was ${\sim} 0$ since purification began at roughly
+the same time.  The first in-situ calibration would not be performed until almost three months later and using any mono-energetic
+background decays (which had not yet been investigated) would have given too few events in the top of the detector to be reliable.
+
+Without being able to isolate any mono-energetic events S2 alone would be unable to establish the electron lifetime.  However,
+S2/S1 - while not truly energy-independent - was enough so to give a reasonable estimate.  It was too early to have official cuts but
+the ones used were sufficient and based on a history of knowledge of TPC detectors.
+
+S1 (S2) single scatter cuts required that the second largest S1 (S2) be $< 0.2$ that of the first.  The purpose of these cuts was to
+prevent S1-S2 mismatching: the S1 cut would
+remove the possibility that we do not observe the S2 of a scatter deep in the TPC, while the S2 eliminated ambiguity in matching a single
+S1 with two potential S2s.
+
+To reject noise at least three PMTs must observe the S1.  This is the same cut that was used in the dark matter analysis.  Finally, the
+fraction of light seen on the top PMT array must fall between $0.2 \mdash 0.6$ for S1s and $0.5 \mdash 0.9$ for S2s.
+
+On a few occasions a \ce{^{137}Cs} was placed outside the detector.  While the LXe self-shielding limited the fraction of radiation that
+made it inside the TPC enough events were present to get a dependable value.  This method was used until early August 2016.
 
 
 
@@ -303,7 +322,7 @@ number of cuts that are used.
 Events must have $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$.  This is in part for consistency with the First Results FV
 (\citeref{Aprile2017f}).  But we can also expect inhomogeneity in the electric field to be greatest near the top, bottom, and sides of the
 TPC as seen in \figref{fig:xenon1t_tpc_efield}.  Changes in the field would produce different light and charge yields
-(\secref{subsec:det_char_ly_cy}), so the number $\gammas$ and escaped \electron would vary according to position.  Because $\alpha$
+(\secref{subsec:det_char_ly_cy}), so the number $\gamma$s and escaped \electron would vary according to position.  Because $\alpha$
 LY and QY have little dependence on field this effect is likely to be small or negligible.  However, a more alarming effect is impurity
 attachment rate dependence on field, discussed in \secref{subsec:electron_lifetime_model_field}.  Finally, the radial cut removes any
 chance of \alphadecays near the wall that would lose drifting \electron to the PTFE.
@@ -312,26 +331,71 @@ The fraction of light seen by the top PMTs from electroluminescence is tightly c
 liquid and over the roughly the same distance.  The percentage of events that fail this cut is small but it is important to remove any
 ``fake'' or gas-events (a cut on the S1 fraction seen by the top PMTs will also distinguish GXe events).
 
-A quality check to the data acquisition (\secref{subsec:xenon1t_daq}) is applied to remove occasional issues with the readout.
+In addition data acquisition quality cuts are used in data selection.  The first is the high energy veto, which is triggered by a very
+large S2.  The second is produced by one or more digitizers nearly filling its memory buffer, and is called a busy veto.  The third is
+a busy type check, which removes events that have a busy signal anywhere in the waveform.  The final is an end of run check, which
+disqualifies the last 21 per run (each run is 1 hour).  Details on each are given in \secref{subsec:xenon1t_daq}.
 
-\figref{fig:electron_lifetimes_measurement_alphas_s1} shows S1 dependence on drift time for \alphadecays after these cuts.
+\figref{fig:electron_lifetimes_measurement_alphas_s1} shows S1 dependence on drift time for \alphadecays of \ce{^{222}Rn}
+(${\sim} num\ \mathrm{PE}$) and \ce{^{218}Po} (${\sim} num\ \mathrm{PE}$) after these cuts.  The large
+S1s from events deep in the detector can saturate PMTs in the bottom array, which lead to under-corrected cS1s as seen in the left
+panel.  To correct for this the data are split into slices in $z$ and fit in cS1 with gaussians.  Fits in the region
+$\lesssim z \lesssim$ where saturation is not present are interpolated to build a cS1 distribution, which is extrapolated across the
+entire length of
+the TPC.  Differences in fit parameters are used to relocate events deeper in the detector into the proper cS1 band.  The newly corrected
+cS1 distribution is shown in the right panel of \figref{fig:electron_lifetimes_measurement_alphas_s1}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{s1_alpha}
-\caption{}
+\caption{cS1 (left) and $\alpha$-corrected cS1 (right) distributions with $z$.  The color and color boxes highlight \ce{^{222}Rn} and
+\ce{^{218}Po} events, respectively.  In the left panel we can see severe distortion near the bottom of the detector.  Once corrected for
+the effect is much less significant.}
 \label{fig:electron_lifetimes_measurement_alphas_s1}
 \end{figure}
 
+Even with the $\alpha$-corrected cS1s we can still see there is saturation near the very bottom of the TPC.  The saturation is so great
+here that events from \ce{^{222}Rn} and \ce{^{218}Po} cannot be distinguished from one another.  This is generally not a problem since it
+is outside our fiducial volume.  There is also some distortion at $z \gtrsim$ from events
+near the LXe surface, whose light is tightly concentrated in the top PMT array.
+
+The selected \ce{^{222}Rn} and \ce{^{218}Pb} events are indicated by color and color boxes, respectively.  Events with $< z < $ and
+$< \mathrm{cS1} < $ (\ce{^{222}Rn}) and $< \mathrm{cS1} <$ (\ce{^{218}Po}) are selected.  The electron lifetime is calculated for each
+independent of the other, which provides a nice cross-check.  Because \ce{^{218}Po} has a half-life of just 3.1 m the number of events
+should be roughly the same.  Each electron lifetime is calculated from 48 hours of data to get sufficient statistics.
+
+The data is binned in $\delta t_d$ and an initial fit is performed on the 50th percentiles of the \stwob distributions from each
+slice.  This preliminary electron lifetime $\tau_e^{(\mathrm{p})}$ is used to remove events that are far from the distribution.  The data
+is then additionally binned in cS1 and fit with a gaussian in each $\delta t_d$ slice.  The means and standard deviations are then fit
+with an exponential, yielding the final electron lifetime $tau_e$.  An example can be seen in
+\figref{fig:electron_lifetimes_measurement_alphas_elifetime}.  The color (color) dashed lines define the boundaries above (below) which
+events were cut with the preliminary fit.  Both fits are plotted in each panel for comparison.  We can see \ce{^{222}Rn} (left) and
+\ce{^{218}Po} (right) give good agreement.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{}
+\caption{}
+\label{fig:electron_lifetimes_measurement_alphas_elifetime}
+\end{figure}
+
+The overlap in \stwob highlights the necessity of using cS1 as a selection criterion.  Originally a cS1 $\alpha$-correction map did not
+exist so \ce{^{222}Rn} and \ce{^{218}Po} were fit together.  This turned out to yield slightly lower $\tau_e$ than separate fits.  Once
+the $\alpha$-correction was lifetimes was re-computed; however, this was not possible for some of the earlier data that had been
+deleted.
 
 
-\subsubsection{$\mathrm{^{83m}Kr}$}
+\subsubsection{$\mathbf{^{83m}Kr}$}
 \label{subsubsec:electron_lifetimes_measurement_kr}
+The coincidence decay of $\mathrm{^{83m}Kr}$ makes it easy to select.
 
 
 
-\subsubsection{$\gamma$-rays}
+\subsubsection{$\mathbf{\gamma}$-rays}
 \label{subsec:electron_lifetimes_measurement_gammas}
+The full absorption peak of \gammarays make them a great candidate for electron lifetime measurement.  Unfortunately nearly all
+\gammaray sources come from elements in detector materials or external sources placed in the water tank (e.g. \ce{^{137}Cs}).  However,
+excited metastable states $\mathrm{^{129m}Xe}$ and \meta[131][xe] following a nuclear recoil calibration provide an in-situ method.
 
 \begin{figure}
 \centering
@@ -343,7 +407,7 @@ A quality check to the data acquisition (\secref{subsec:xenon1t_daq}) is applied
 
 
 
-\subsection{\ce{^{222}Rn} vs. $\mathrm{^{83m}Kr}$}
+\subsection{\ce{^{222}Rn} vs. $\mathbf{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_rn222_vs_kr83m}
 
 

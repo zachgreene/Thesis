@@ -683,6 +683,36 @@ Two 10 Gbps fibers transfer the raw data to buffer-storage at LNGS for temporari
 Science Grid and European Grid Infrastructure for processing and backed up in Stockholm.  \figref{fig:xenon1t_daq_schematic} shows an
 overview of the DAQ system.
 
+To prevent acquisition of bad data four quality quality checks are performed - three of which occur in real time during data taking.  The
+first is a \textit{high energy veto} that goes to \texttt{TRUE} in the event of a very large S2.  When this occurs the DDC-10 (custom
+module) forwards a \texttt{NIM} pulse to the ADC boards, which blocks data from being copied to the readers.  Simultaneously a
+\texttt{BUSY ACTIVE} signal is sent from the DDC-10 to the
+acquisition monitor digitizer.  After 10 ms the high energy veto returns to \texttt{FALSE}, ending the \texttt{NIM} pulse and resetting
+\texttt{BUSY INACTIVE}.  This mode is only used during calibrations.
+
+Each of the 32 digitizers (aside from the DAQ monitor) feeds a low-voltage differential signaling (LVDS) pulse to the V1495 logic
+module.  Each
+are \texttt{TRUE} if the memory buffer is nearly full and is otherwise \texttt{FALSE}.  This is called a \textit{busy veto} and in a
+similar fashion to the high energy veto,
+the V1495 fans a \texttt{NIM} pulse to the digitizers to block copying of their data to the readers and sends a \texttt{BUSY TRUE} to the
+DAQ monitor digitizer.  Once all digitizers return to less than full memory the veto is lifted, though it must remain active for
+$\geq 10\ \mathrm{ms}$.
+
+The final check that occurs during data acquisition is the \textit{busy type check}.  It ensures that nowhere in the event was a veto
+signal, i.e. the busy signal must set to \texttt{BUSY FALSE}.  This is in part to reject events where a large S2 triggers a high energy
+veto that cuts off subsequent smaller S2s (or even part of the large S2) in the same waveform.  It also cuts PMT flashes, which would
+trigger a busy veto.
+
+The final quality cut is done in processing.  On a small number of occasions events at the end of a data DAQ run some of the channels
+would be missing.  To fix this the final 21 seconds of each 1 hour run are omitted from analysis.  This duration was determined by the
+internal clock of the digitizers, which count from zero to 0x3FFF in 10 ns steps, or ${\sim} 21\ \mathrm{seconds}$.
+
+
+
+In the
+event of a very large S2 a high energy veto is set
+as \texttt{TRUE}
+
 
 
 \section{Detector Characterization}

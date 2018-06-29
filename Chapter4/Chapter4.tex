@@ -246,29 +246,30 @@ e^- + XY \leftrightarrow (XY^-)* \\
 \section{Electron Lifetimes}
 \label{sec:electron_lifetimes}
 Nearly any mono-energetic radioactive decay can be used to measure the electron lifetime.  For XENON1T electron lifetimes were calculated
-using the elements listed in \tabref{tab:electron_lifetimes_isotopes}.  An additional method of minimizing the width of \cstwob using the
+using the elements listed in \tabref{tab:electron_lifetimes_isotopes}.  An additional method of minimizing the \stwob band width using the
 \ce{^{212}Pb} electronic recoil band to address an emerging discrepancy between
 $\mathrm{^{83m}Kr}$ and \alphadecays (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}) was tried but had too large of an uncertainty
 to render itself valuable.
 
-Following an \ambe or neutron generator calibration $\mathrm{^{129}Xe}$ and $\mathrm{^{131}Xe}$ will be in excited nuclear states.  Their
+Following an \ambe or neutron generator calibration $\mathrm{^{129}Xe}$ and $\mathrm{^{131}Xe}$ will be in excited nuclear states
+(\secref{subsubsec:electron_lifetimes_measurement_gammas}).  Their
 $\gamma$-emissions and uniform distribution in the TPC make them excellent candidates to measure the electron lifetime for electronic
 recoils.  Unfortunately their half-lifes of 8.88 and 11.93 d, respectively, eliminate any statistically significant results after more
 than a few weeks.
 
 \begin{table}
 \centering
-\begin{tabular}{rccrc}
+\begin{tabular}{rccrcc}
 \hline
 \hline
-Isotope & Decay & Energy & $t_{1/2}$ & Notes \\
+Isotope & Decay & Energy & $t_{1/2}$ & Section & Notes \\
 \hline
-$\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & Calibration \\
-$\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & Background following \ambe or NG calibration \\
-$\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & Background following \ambe or NG calibration \\
-\ce{^{222}Rn} & $\alpha$ & $5.590\ \mathrm{MeV}$ & 3.82 d & Background \\
-\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.10 m & Background (\ce{^{222}Rn} daughter) \\
-\ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \ce{^{220}Rn} calibration \\
+$\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & \secref{subsubsec:electron_lifetimes_measurement_kr} & Calibration \\
+$\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & \secref{subsubsec:electron_lifetimes_measurement_gammas} & Background following NG cal. \\
+$\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & \secref{subsubsec: electron_lifetimes_measurement_gammas} & Background following NG cal. \\
+\ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \secref{subsubsec:electron_lifetimes_measurement_alphas} & \ce{^{220}Rn} calibration \\
+\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.10 m & \secref{subsubsec:electron_lifetimes_measurement_alphas} & Background (\ce{^{222}Rn} daughter) \\
+\ce{^{222}Rn} & $\alpha$ & $5.590\ \mathrm{MeV}$ & 3.82 d & \secref{subsubsec:electron_lifetimes_measurement_alphas} & Background \\
 \hline
 \hline
 \end{tabular}
@@ -384,18 +385,56 @@ exist so \ce{^{222}Rn} and \ce{^{218}Po} were fit together.  This turned out to 
 the $\alpha$-correction was lifetimes was re-computed; however, this was not possible for some of the earlier data that had been
 deleted.
 
+This method can in principle be achieved for any $\alpha$-emitting element distributed throughout the FV of the detector and is done so
+for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.
+
 
 \subsubsection{$\mathbf{^{83m}Kr}$}
 \label{subsubsec:electron_lifetimes_measurement_kr}
-The coincidence decay of $\mathrm{^{83m}Kr}$ makes it easy to select.
+The delayed coincidence of $\mathrm{^{83m}Kr}$ decays makes it easy to select.
 
 
 
 \subsubsection{$\mathbf{\gamma}$-rays}
 \label{subsec:electron_lifetimes_measurement_gammas}
-The full absorption peak of \gammarays make them a great candidate for electron lifetime measurement.  Unfortunately nearly all
-\gammaray sources come from elements in detector materials or external sources placed in the water tank (e.g. \ce{^{137}Cs}).  However,
-excited metastable states $\mathrm{^{129m}Xe}$ and \meta[131][xe] following a nuclear recoil calibration provide an in-situ method.
+The full absorption peak of \gammarays make them great candidates for electron lifetime measurements.  Unfortunately nearly all
+\gammarays in the TPC come from elements in detector materials or external sources placed inside the water tank
+(e.g. \ce{^{137}Cs}).  However, nuclear recoils can excite \ce{^{129}Xe} and \ce{^{131}Xe} nuclei with half-lifes
+of 8.88 and 11.93 days, respectively.  These metastable states serve as an in-situ calibration that can be used to measure a number of
+detector parameters including light and charge yield (\secref{subsec:det_char_ly_cy}), $g_1/g_{2\mathrm{b}}$
+(\secref{subsec:det_char_photon_charge_efficiencies}), and electron lifetime.  While these evaluations can provide a cross-check of fellow
+electronic recoil measurements from \meta{83m}{Kr}, the short $t_{1/2}$ limit these evaluations to the few weeks following an \ambe or NG
+calibration due.
+
+\begin{figure}
+%    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+%        \centering
+        \includegraphics[height=4cm]{}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.65\textwidth}
+%        \centering
+        \includegraphics[height=4cm]{}
+    \end{subfigure}
+    \caption{}
+	\label{fig:electron_lifetimes_measurement_gammas_s1_s2_half_life}
+\end{figure}
+
+Selecting \meta{129}{Xe} and \meta{131}{Xe} events is a bit trickier than $\alpha$ or \meta{83}{Kr}.  This is in part because they sit
+on top of an ER background (see \figref{fig:calibrations_photon_charge_efficiences_ces_resolution} for background energy spectrum), have a
+relatively low event rate, and do not have any properties that allow a high-percentage collection
+efficiency (e.g. \meta{83}{Kr} delayed coincidence).  Instead a number of cuts need to be applied to remove unwanted data before a fit
+can be done.
+
+The left panel of \figref{fig:electron_lifetimes_measurement_gammas_s1_s2_half_life} shows the S1-\stwob spectrum for the $num$ days
+following the SR1 $ambe or ng$ calibration before any quality cuts.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{}
+\caption{}
+\label{fig:electron_lifetimes_measurement_gammas_elifetime}
+\end{figure}
 
 \begin{figure}
 \centering

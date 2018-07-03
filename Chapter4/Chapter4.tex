@@ -391,7 +391,17 @@ for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.
 
 \subsubsection{$\mathbf{^{83m}Kr}$}
 \label{subsubsec:electron_lifetimes_measurement_kr}
-The delayed coincidence of $\mathrm{^{83m}Kr}$ decays makes it easy to select.
+The delayed coincidence between the 32.2 and 9.4 keV decays help differentiate $\mathrm{^{83m}Kr}$ events from background.  With
+$t_{1/2} = 154\ \mathrm{ns}$ for the 9.4 keV a large fraction of the S1s will overlap so a cut
+$600 < \delta t_{\mathrm{S1}} < 2000\ \mathrm{ns}$
+where $\delta t_{\mathrm{S1}}$ is the time between S1s is applied.  In addition we require the number of PMTs that see the 9.4 keV peak
+to be $> 3$ to avoid coincident PMT noise and $< 30$ since it is low-energy.
+
+The procedure to calculate the electron lifetime is similar to that described in
+\secref{subsubsec:electron_lifetimes_measurement_alphas}.  An preliminary fit is performed using the median \stwob in each drift time
+slice.  However, the high statistics and near-total background removal by the $\delta t_{\mathrm{S1}}$ cut
+removes the need to exclude events far from the true \metakr.  Next each $\delta t_d$ slice is fit with a gaussian and an exponential
+is then fit to the the results.
 
 
 
@@ -402,9 +412,25 @@ The full absorption peak of \gammarays make them great candidates for electron l
 (e.g. \ce{^{137}Cs}).  However, nuclear recoils can excite \ce{^{129}Xe} and \ce{^{131}Xe} nuclei with half-lifes
 of 8.88 and 11.93 days, respectively.  These metastable states serve as an in-situ calibration that can be used to measure a number of
 detector parameters including light and charge yield (\secref{subsec:det_char_ly_cy}), $g_1/g_{2\mathrm{b}}$
-(\secref{subsec:det_char_photon_charge_efficiencies}), and electron lifetime.  While these evaluations can provide a cross-check of fellow
-electronic recoil measurements from \meta{83m}{Kr}, the short $t_{1/2}$ limit these evaluations to the few weeks following an \ambe or NG
+(\secref{subsec:det_char_photon_charge_efficiencies}), and electron lifetime.  While these evaluations can validate fellow
+electronic recoil measurements from \meta{83m}{Kr}, the short $t_{1/2}$ limit these to the few weeks following an \ambe or NG
 calibration due.
+
+Selecting \meta{129}{Xe} and \meta{131}{Xe} events is trickier than $\alpha$ or \meta{83}{Kr}.  This is in part because they sit
+on top of an ER background (see \figref{fig:calibrations_photon_charge_efficiences_ces_resolution} for background energy spectrum), have a
+relatively low event rate, and do not have properties that allow a high-percentage cut
+efficiency (e.g. \meta{83}{Kr} delayed coincidence).  Instead a number of cuts need to be applied to remove unwanted data before a fit
+can be done.
+
+To select the 163.9 and 236.2 keV peaks an S2 single scatter cut is used to remove the underlying background.  Additional data quality
+cuts include ensuring the fraction of the S2 seen by the top PMTs and the width of the S2 fall within known distributions.  For the FV
+we apply the usual $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$ but require $-85 < z < -10\ \mathrm{cm}$ to remove \gammarays on the same
+energy scale from surrounding materials that can penetrate deeper into the detector.
+
+Because cS1 is known fitting the $\gamma$ peaks is reasonably simple, especially if the electron lifetime can be roughly estimated.  In
+\figref{fig:electron_lifetimes_measurement_gammas_s1_s2} they are shown surrounded by contours from two-dimension gaussian fits.  The
+y-axis is labeled as \cstwob because for this data $tau_e$ is known within small uncertainty - however, generally speaking this is not
+the case.  The final cut we use then is to remove data outside some $\sigma$.
 
 \begin{figure}
 %    \centering
@@ -417,37 +443,100 @@ calibration due.
         \includegraphics[height=4cm]{}
     \end{subfigure}
     \caption{}
-	\label{fig:electron_lifetimes_measurement_gammas_s1_s2_half_life}
+	\label{fig:electron_lifetimes_measurement_gammas_s1_s2}
 \end{figure}
 
-Selecting \meta{129}{Xe} and \meta{131}{Xe} events is a bit trickier than $\alpha$ or \meta{83}{Kr}.  This is in part because they sit
-on top of an ER background (see \figref{fig:calibrations_photon_charge_efficiences_ces_resolution} for background energy spectrum), have a
-relatively low event rate, and do not have any properties that allow a high-percentage collection
-efficiency (e.g. \meta{83}{Kr} delayed coincidence).  Instead a number of cuts need to be applied to remove unwanted data before a fit
-can be done.
+To verify the data we've selected is primarily \meta{129}{Xe} and \meta{131}{Xe} the event rate can be fit as seen in
+\figref{fig:electron_lifetimes_measurement_gammas_decay_rate} shows the number of decays in the two months following the
+SR0 \ambe calibration.  The fits give half-lifes that agree with the true values.  A constant is included to account for underlying
+background.
 
-The left panel of \figref{fig:electron_lifetimes_measurement_gammas_s1_s2_half_life} shows the S1-\stwob spectrum for the $num$ days
-following the SR1 $ambe or ng$ calibration before any quality cuts.
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{xe_meta_decay_rate}
+\caption{$\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$ events following the SR0 \ambe calibration.  Data is omitted during \metakr
+and \ce{^{220}Rn} calibrations.  Fits using $R(t) = R_0 \mathrm{exp}(-t/t_{1/2}) + C$ give half-lifes of $8.66 \pm 0.26$ and
+$11.51 \pm 0.43$ days, respectively, which match the known rates of 8.88 and 11.93 days.}
+\label{fig:electron_lifetimes_measurement_gammas_decay_rate}
+\end{figure}
+
+The procedure to calculate $\tau_e$ is the same as in \secref{subsubsec:electron_lifetimes_measurement_alphas}.  The result for the
+$num$ days following the \ambe calibration in \figref{fig:electron_lifetimes_measurement_gammas_decay_rate} (dateone to datetwo)
+is shown in \figref{fig:electron_lifetimes_measurement_gammas_elifetime}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{}
-\caption{}
+\caption{Electron lifetimes using \meta{129}{Xe} and \meta{131}{Xe} 236.2 and 163.9 keV $\gamma$-rays.}
 \label{fig:electron_lifetimes_measurement_gammas_elifetime}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{electron_lifetime_evolution_no_model}
-\caption{}
+\caption{Electron lifetimes of \ce{^{222}Rn} (color), \ce{^{220}Rn} (color), \ce{^{218}Po} (color), and \metakr (green circles) over the
+XENON1T experiment.  We can see the lifetimes computed from \alphadecays differ from those of \metakr.}
 \label{fig:electron_lifetimes_evolution_no_model}
 \end{figure}
 
 
 
-
 \subsection{\ce{^{222}Rn} vs. $\mathbf{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_rn222_vs_kr83m}
+\figref{fig:electron_lifetimes_evolution_no_model} shows clear disagreement of electron lifetimes between $\alpha$-emitters and \metakr
+at $\tau_e \gtrsim 400\ \mathrm{\mu s}$.  This presents a challenge for correcting \stwob for signals in the TPC.
+
+The discrepancy is the result of field non-uniformity in the TPC (\figref{fig:xenon1t_tpc_efield}).  Because the change in recombination
+of \alphadecays differs from that of electronic recoils (\figref{fig:tpcs_signals_drift_field}) the ratio of the \electron yields vary
+inhomogeneously across the detector.  Thus two issues are apparent.  The first is bias will be present between any two events of equal
+energy and type that occur at different fields in the detector.  Therefore we expect \metakr, $\mathrm{^{129m}Xe}$, and
+$\mathrm{^{131m}Xe}$ to not accurately report the xenon purity.  The second is two events whose \electron yield changes in electric field
+$dE/de^-$ are dissimilar require independent lifetime corrections.
+
+In \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc} the electron yields for $\mathrm{^{129m}Xe}$ and \ce{^{222}Rn}
+are shown throughout the TPC according to NEST (\citeref{NEST2013}). (assuming azimuthal symmetry).  The yields are normalized to the
+region [$-90 \leq z \leq -85\ \mathrm{cm}$,
+$r < 36.94\ \mathrm{cm}$].  The 1-ton fiducial volume is marked by the black line.  Both have decreasing yields in the $-z$ direction,
+with the deviation for \ce{^{222}Rn} being more than twice as large as $\mathrm{^{129m}Xe}$.  This means $\tau_e$ is biased towards
+smaller values but the effect is more significant for \ce{^{222}Rn} and other $\alpha$-decays.
+
+Alphas are more sensitive to field changes.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{relative_electron_yield_field_tpc}
+\caption{Relative \electron yield with respect to [$-90 \leq z \leq -85\ \mathrm{cm}$, $r \geq 36.94\ \mathrm{cm}$] for
+$\mathrm{^{129m}Xe}$ (left) and \ce{^{222}Rn} (right) for ${\sim}120\ \mathrm{V\ cm^{-1}}$ inside the 1T FV (black line).  A decline in
+yield is
+observed moving in the $-z$ direction, which leads to a misleading observation that the electron lifetime is lower than its true
+value.  The imbalance between the top
+and bottom of the TPC is $\gtrsim 2\times$ larger for \ce{^{222}Rn}, causing it to appear lower than its $\gamma$ counterparts.}
+\label{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc}
+\end{figure}
+
+The $z$-dependence of \electron yields for $\mathrm{^{129m}Xe}$, $\mathrm{^{131m}Xe}$, \ce{^{60}Co}, \ce{^{208}Tl}, and \ce{^{222}Rn} is
+plotted in \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_z} (averaged over $r < 36.94\ \mathrm{cm}$).  The NEST results are
+normalized to the same region as \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc}.  \ce{^{60}Co} and \ce{^{208}Tl} (1173.2 and
+2614.5 keV, respectively) are shown for comparison with lower-energy metastable xenon.  The difference in relative yields is small but
+may explain the minor inconsistencies at higher energies in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  The
+effect of \ce{^{222}Rn} is more substantial and demonstrates that calculations of $\tau_e$ - which depend on slices in $z$ - suffer from
+bias as a result of inhomogeneous recombination derivative dependence on field.  The higher sensitivity of \alphadecays explains
+the lower lifetime measured, though a separate field-dependent effect also needs consideration and is discussed in
+\secref{subsec:electron_lifetime_model_field}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{relative_electron_yield_field}
+\caption{Relative electron yield dependence on $z$ with respect to the region $-90 \leq z \leq -85\ \mathrm{cm}$ and
+$r \geq 36.94\ \mathrm{cm}$ using NEST (\citeref{NEST2013}).  Internal $\gamma$ sources $\mathrm{^{131m}Xe}$ (green) and
+$\mathrm{^{129m}Xe}$
+(red) are shown, with higher energies \ce{^{60}Co} (black) and \ce{^{208}Tl} (pink) plotted for comparison.  We can see their relative
+light yield varies by ${\sim} 5\%$, with the higher-energy lines having only ${\sim} 1\%$ greater difference than $\mathrm{^{131m}Xe}$ and
+$\mathrm{^{129m}Xe}$.  \ce{^{222}Rn} (blue) changes by $> 10\%$.  The disproportionate growth demonstrates that the ratio between
+$\alpha$ and $\gamma$ electron yields is largest at the top of the detector, causing the fewer \electron from deep \alphadecays to
+mimic a smaller $\tau_e$.  \metakr cannot be compared as the NEST version is only for high-energy.}
+\label{fig:electron_lifetimes_rn222_vs_kr83m_field_z}
+\end{figure}
 
 
 

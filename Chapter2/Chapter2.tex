@@ -80,14 +80,14 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  Isotope & Natural Abundance [\%] & Spin & Half-life & Decay mode \\
  \hline
  $^{124}$Xe & 0.0952 & 0 &  $> 1.6 \times 10^{14}\ \mathrm{yrs}$ & $2\nu \beta^{+} \beta^{+}$ \\
- $^{126}$Xe & 0.0890 & 0 & $> 4.7-12 \times 10^{25}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
- $^{128}$Xe & 1.9102 & 0 & stable & - \\
- $^{129}$Xe & 26.4006 & 1/2 & stable & - \\
- $^{130}$Xe & 4.0710 & 0 & stable & - \\
- $^{131}$Xe & 21.232 & 3/2 & stable & - \\
- $^{132}$Xe & 26.9086 & 0 & stable & - \\
- $^{134}$Xe & 10.4357 & 0 &  $> 5.8 \times 10^{22}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
- $^{136}$Xe & 8.8573 & 0 &  $> 2.4 \times 10^{21}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{126}$Xe & 0.089 & 0 & $> 4.7 \mdash 12 \times 10^{25}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{128}$Xe & 1.910 & 0 & stable & - \\
+ $^{129}$Xe & 26.401 & 1/2 & stable & - \\
+ $^{130}$Xe & 4.071 & 0 & stable & - \\
+ $^{131}$Xe & 21.23 & 3/2 & stable & - \\
+ $^{132}$Xe & 26.909 & 0 & stable & - \\
+ $^{134}$Xe & 10.436 & 0 &  $> 5.8 \times 10^{22}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{136}$Xe & 8.857 & 0 &  $> 2.4 \times 10^{21}\ \mathrm{yrs}$ & $2\nu \beta^{-} \beta^{-}$ \\
  \hline
  \end{tabular}
  \caption{Properties of naturally occurring Xe isotopes.  Decays of \ce{^{124}Xe}, \ce{^{126}Xe}, and \ce{^{134}Xe} have not been observed
@@ -95,6 +95,26 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
 \label{tab:xe_isotopes}
 \end{table}
 
+\begin{table}
+\centering
+\begin{tabular}{ccccc}
+\hline
+Isotope & Spin & Half-life & Decay mode \\
+\hline
+$^{122}$Xe & 0 & 20.1 h & EC to \ce{^{122}I} \\
+$^{123}$Xe & 1/2 & 2.08 h & EC to \\ce{^{123}I} \\
+\ce{^{125}Xe} & 1/2 & 17.1 h & EC to \\ce{^{125}I} \\
+\ce{^{127}Xe} & 1/2 & 36.4 d & EC to \\ce{^{127}I} \\
+$\mathrm{^{129m}Xe}$ & 11/2 & 8.88 d & $39.6 + 196.6\ \mathrm{keV}\ \gamma$ to GS \\
+$\mathrm{^{131m}Xe}$ & 11/2 & 11.93 d & $163.9\ \mathrm{keV}\ \gamma$ to GS \\
+\ce{^{133}Xe} & 3/2 & 5.24 d & $\beta^-$ to \\ce{^{133}Cs} \\
+$\mathrm{^{133m}Xe}$ & 11/2 & 2.19 d & $233.2\ \mathrm{keV}\ \gamma$ to GS \\
+\ce{^{135}Xe} & 3/2 & 9.14 h & $\beta^-$ to \\ce{^{135}Cs} \\
+\hline
+\end{tabular}
+\caption{Unstable isotopes of xenon with half-lifes of $> 1\ \mathrm{hr}$.}
+\label{tab:xe_unstable_isotopes}
+\end{table}
 
 \begin{table}
  \centering
@@ -134,16 +154,17 @@ specified.
 %========
 \subsection{Primary Scintillation}
 \label{subsec:primary}
-When a particle scatters off a Xe atom it can excited or ionize its valence electrons.  Here we refer to excited atoms Xe$^{*}$ as
+When a particle scatters off a xenon atom it can excite or ionize its valence electrons.  Here we refer to excited atoms Xe$^{*}$ as
 excitons.  An ionized electron can then escape or recombine with the Xe$^{+}$.  Excitons can form with another Xe atom to create
 dimers, Xe$_{2}^{*}$, commonly referred to as excimers.  The processes recombination is shown in \eqnref{eq:recomb}, where $Q$
 represents heat.  It should be stated that the $e^{-}$ in the recombination process is from the same or another ionized atom.  If
 no electric field is , so the primary scintillation will not reflect the true
 
 If
-an electric field is applied some $e^{-}$ will be forced away from the interaction, thereby lowering recombination and the primary
-scintillation.  This effect depends on the strength of the electric field.  However, even if no field is applied there will not be
-100\% recombination as some of the freed $e^{-}$ will escape the electromagnetic pull.
+an electric field is applied some $e^{-}$ will be pulled away from the interaction, lowering recombination and primary
+scintillation but creating secondary scintillation (\secref{subsec:secondary}).  The extent depends on the strength of the electric
+field.  However, even if no field is applied there will not be
+100\% recombination as some of the freed $e^{-}$ will escape the electromagnetic pull of their parent ions.
 
 \begin{equation}
 \mathrm{Xe}^{+} + \mathrm{Xe} \rightarrow \mathrm{Xe}_{2}^{+} \\
@@ -162,10 +183,13 @@ excitation.  At this point they must de-excited via \eqref{eq:deexcite}.  Xe$_{2
 \label{eq:deexcite}
 \end{equation}
 
-\noindent $\gamma$ is the average de-excitation energy that carries a wavelength of 178 nm.  The lifetimes for the singlet and triplet
+\noindent $\gamma$ is the average de-excitation energy that carries a wavelength of 178 nm.  We can see that the number of photons is
+anti-correlated with the number of electrons, since for each \electron that
+recombines with xenon a single \gammaray is emitted.  The lifetimes for the singlet and triplet
 excimers are $3.1 \pm 0.7$ ns and $24 \pm 1$ ns, respectively (\citeref{Mock2014}).  The single-to-triplet ratios for
-various interaction types are shown in \tabref{tab:singlet_to_triplet}.  An important method for detecting WIMPS is ER-NR
-discrimination, and we see that NR recoils result in a substantially higher fraction of singlet states.  Unfortunately the lifetimes
+various interaction types are shown in \tabref{tab:singlet_to_triplet}.  An important method for detecting WIMPS is electronic
+recoil-nuclear recoil
+discrimination, and we see that nuclear recoils result in a substantially higher fraction of singlet states.  Unfortunately the lifetimes
 are too short to resolve in a TPC to be able to use for discrimination.  This makes single-phase LXe detectors
 less desirable than liquid argon (LAr), which has single and triplet states of $< 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
 (\citeref{Heindl2011}).
@@ -186,15 +210,19 @@ less desirable than liquid argon (LAr), which has single and triplet states of $
 \label{tab:singlet_to_triplet}
 \end{table}
 
-\eqnref{eq:recomb} and \eqnref{eq:deexcite}
-depict the entire microphysical processes for $\beta$ and $\gamma$ interactions (\citeref{Hitachi2005}).  However, in nuclear recoils
+\figref{fig:interaction_channels} shows the interaction
+channels of $\beta$- or $\gamma$-induced xenon recoils described in \eqnref{eq:recomb} and \eqnref{eq:deexcite}.
+However, in nuclear recoils
 it has been observed that two excitons may collide and free an electron as shown in \eqnref{eq:biexcitonic}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{InteractionChannels}
+\includegraphics[width=0.8\textwidth]{interaction_channels}
+\caption{Signal generation pathways for electronic and nuclear recoils.  Describe paths of electrons.  Image credit: \citeref{Faham2014}.}
 \label{fig:interaction_channels}
 \end{figure}
+
+
 
 
 %========
@@ -237,6 +265,16 @@ For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesss
 \includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
 \caption{Drift velocity for solid and liquid xenon}
 \label{fig:drift_velocity}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{recoil_diagram}
+\caption{Electronic (top, $\gamma$) and nuclear (bottom, n) recoil tracks for a 20 keV scatter.  Excitons (red circles), ions (blue), and
+heat (grey) are marked along the track.  The electronic recoil produces ${\sim} 20 \times$ as many ions as excitons while for nuclear
+the ratio is roughly equal.  Heat is only relevant in NRs and leads to a quenching of signal.  The electronic recoil has a path of
+${\sim} 1\ \mathrm{\mu m}$ while the much denser 10 nm of the NR compels higher recombination.  Image credit: \citeref{Faham2014}.}
+\label{fig:er_nr_recoil_diagram}
 \end{figure}
 
 

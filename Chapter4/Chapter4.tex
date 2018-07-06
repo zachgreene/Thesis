@@ -474,7 +474,8 @@ is shown in \figref{fig:electron_lifetimes_measurement_gammas_elifetime}.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{electron_lifetime_evolution_no_model}
-\caption{Electron lifetimes of \ce{^{222}Rn} (color), \ce{^{220}Rn} (color), \ce{^{218}Po} (color), and \metakr (green circles) over the
+\caption{Electron lifetimes of \ce{^{222}Rn} (yellow triangles), \ce{^{220}Rn} (red triangles), \ce{^{218}Po} (turquoise triangles), and
+\metakr (green circles) over the
 XENON1T experiment.  We can see the lifetimes computed from \alphadecays differ from those of \metakr.}
 \label{fig:electron_lifetimes_evolution_no_model}
 \end{figure}
@@ -491,7 +492,8 @@ of \alphadecays differs from that of electronic recoils (\figref{fig:tpcs_signal
 inhomogeneously across the detector.  Thus two issues are apparent.  The first is bias will be present between any two events of equal
 energy and type that occur at different fields in the detector.  Therefore we expect \metakr, $\mathrm{^{129m}Xe}$, and
 $\mathrm{^{131m}Xe}$ to not accurately report the xenon purity.  The second is two events whose \electron yield changes in electric field
-$dE/de^-$ are dissimilar require independent lifetime corrections.
+$dE/de^-$ are dissimilar require independent lifetime corrections.  LUX also observed a disparity between \metakr and \ce{^{222}Rn}
+lifetimes as well as field inhomogeneity (\citeref{LUX2017d, Knoche2016}).
 
 In \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc} the electron yields for $\mathrm{^{129m}Xe}$ and \ce{^{222}Rn}
 are shown throughout the TPC according to NEST (\citeref{NEST2013}). (assuming azimuthal symmetry).  The yields are normalized to the
@@ -500,7 +502,7 @@ $r < 36.94\ \mathrm{cm}$].  The 1-ton fiducial volume is marked by the black lin
 with the deviation for \ce{^{222}Rn} being more than twice as large as $\mathrm{^{129m}Xe}$.  This means $\tau_e$ is biased towards
 smaller values but the effect is more significant for \ce{^{222}Rn} and other $\alpha$-decays.
 
-Alphas are more sensitive to field changes.
+S1 below 10 keV has minimal field dependence because recombination is minimal.  Over 10 keV recombination increases.
 
 \begin{figure}
 \centering
@@ -517,11 +519,13 @@ and bottom of the TPC is $\gtrsim 2\times$ larger for \ce{^{222}Rn}, causing it 
 The $z$-dependence of \electron yields for $\mathrm{^{129m}Xe}$, $\mathrm{^{131m}Xe}$, \ce{^{60}Co}, \ce{^{208}Tl}, and \ce{^{222}Rn} is
 plotted in \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_z} (averaged over $r < 36.94\ \mathrm{cm}$).  The NEST results are
 normalized to the same region as \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc}.  \ce{^{60}Co} and \ce{^{208}Tl} (1173.2 and
-2614.5 keV, respectively) are shown for comparison with lower-energy metastable xenon.  The difference in relative yields is small but
-may explain the minor inconsistencies at higher energies in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  The
+2614.5 keV, respectively) are shown for comparison with lower-energy metastable xenon.  The difference in relative yields is
+small - though because in reality the distribution of these detector material-driven events is more condensed at larger $r$ where there
+is moderately more $z$-dependent variation may be slightly higher.  In both cases this
+would explain the inconsistencies at higher energies in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  The
 effect of \ce{^{222}Rn} is more substantial and demonstrates that calculations of $\tau_e$ - which depend on slices in $z$ - suffer from
-bias as a result of inhomogeneous recombination derivative dependence on field.  The higher sensitivity of \alphadecays explains
-the lower lifetime measured, though a separate field-dependent effect also needs consideration and is discussed in
+bias as a result of inhomogeneous recombination derivative dependence on field.  The higher sensitivity of \alphadecays in part explains
+the lower measured lifetime, though a separate field-dependent effect also requires consideration and is discussed in
 \secref{subsec:electron_lifetime_model_field}.
 
 \begin{figure}
@@ -537,6 +541,11 @@ $\alpha$ and $\gamma$ electron yields is largest at the top of the detector, cau
 mimic a smaller $\tau_e$.  \metakr cannot be compared as the NEST version is only for high-energy.}
 \label{fig:electron_lifetimes_rn222_vs_kr83m_field_z}
 \end{figure}
+
+Finally, we expect nuclear recoils to have a different bias than electronic or $\alpha$-decays.  In the science run analysis all
+science run and calibration data were corrected with the \metakr electron lifetime.  Nuclear recoil \cstwob were then incorrect and had
+some bias with respect to ER.  However, the disparity between NR and ER should be much smaller than $\alpha$ so we can expect this effect
+to be small.
 
 
 
@@ -588,11 +597,66 @@ efficiently due to the short time spent in the getter.  Image credit: \citeref{D
 
 An SAES PS4-MT50-R1 getter was installed in the Columbia Demonstrator for testing.
 
+\figref{fig:electron_lifetime_model_removal_demonstrator_circ} shows electron lifetimes using flow speeds of $5 \mdash 80\ \mathrm{slpm}$
+in the Columbia Demonstrator.  For flows larger than 5 slpm the rate of increase in the beginning is nearly the same per cycle - though
+the rate with respect to time depends on the circulation speed.  This indicates any addition of impurities over this time is small
+compared to those already present.  The final $tau_e$ for each increases with flow speed with the exception of 80 slpm.  This is thought
+to result from gas passing through the getter too quickly to remove the impurities completely.
+
+For XENON1T the two getters cleaned a combined flow of $\lesssim 50\ \mathrm{slpm}$ from commissioning until after SR1 - half of what was
+planned due the 1/2" pipes connecting the cryostat to the purification system producing higher than expected resistance.  A series of
+upgrades were performed in April-June 2018 that increased flows to ${\sim} 80\ \mathrm{slpm}$ (\secref{}).  Because in both cases the
+flow through each getter never exceeded 50 slpm the model assumes 100\% of contaminants are absorbed by the zirconium, though it is
+difficult to know if this is the case.  However, including a variable in the model to reflect a portion of impurities returned
+to the detector would not be appropriate because \figref{fig:electron_lifetime_model_removal_demonstrator_circ} suggests it is
+flow-dependent.  A more systematic study is needed to characterize the dependence before it can be reliably included.  Still, the low
+circulation makes 100\% getter efficiency a reasonable estimate.
+
+\begin{equation}
+\mathrm{rate\ of\ GXe\ impurity\ removal} = \rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
+\label{eq:electron_lifetime_model_removal_gxe}
+\end{equation}
+
+\begin{equation}
+\mathrm{rate\ of\ LXe\ impurity\ removal} = \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+\label{eq:electron_lifetime_model_removal_lxe}
+\end{equation}
+
 
 
 \subsection{Vaporization and Condensation}
 \label{subsec:electron_lifetime_model_vap_and_cond}
-Impurities will transfer between the gas and liquid xenon.
+Impurity migration between the liquid and gas mandates consideration of both volumes rather than strictly the liquid.  Electronegative
+particles (e.g. \ce{O_2}, \ce{CO}, etc.) are expected to be more densely distributed in the GXe due to their lighter atomic mass.
+
+To parameterize the migration rate the probability of an impurity in the liquid (gas) moves into the gas (liquid).  We should first
+consider the rate at which GXe condenses and LXe vaporizes.  In the case where no xenon is entering or leaving the cryostat the detector
+should achieve a state of equilibrium with cooling power \pc (from a PTR or L\ce{N_2} from cooling tower).  When this is the case the
+rate of LXe vaporization and GXe condensation will balance, fixing the masses and volumes of both.
+
+When additional heat is added to the system the situation changes as \pc is no longer sufficient to keep the chamber in
+equilibrium.  The cooling towers must supply power $P > P_{\mathrm{C}}$ to maintain balance.  During normal operation extra heat comes
+from xenon traveling through the purification system.  Reflecting on the stable operating conditions the LXe notices no difference as
+its temperature and volume are unchanged.  Therefore the rate that LXe that is vaporized has not changed.  The GXe, however, condenses
+at a faster rate since it resides in the cooling towards and $P$ has increased.
+
+The mass of liquid xenon will evaporate at a rate $P_{\mathrm{C}} / L$ where $L = 95.6 \times 10^3\ \mathrm{J\ kg^{-1}}}$ is the
+specific latent heat of the liquid-gas phase transition.  For GXe condensation this is simply $P / L$.  Impurity migration can then be
+characterized by
+
+\begin{equation}
+\mathrm{rate\ of\ impurity vaporization} = \frac{\epsilon_{\mathrm{vap}} P_{\mathrm{C}} I_{\mathrm{L}}}{L}
+\end{equation}
+
+\begin{equation}
+\mathrm{rate\ of\ impurity condensation} = \frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}
+\end{equation}
+
+\noindent where $\epsilon_{\mathrm{vap}}$ and $\epsilon_{\mathrm{cond}}$ are the probabilities of vaporization and condensation for
+impurities in the liquid and gas, respectively.
+
+The stable cooling power was found to be $P_{\mathrm{C}} = 140\ \mathrm{W}$.  The cooling power $P$ is monitored continuously so is input
+directly into the fit.
 
 
 
@@ -631,8 +695,8 @@ significant.  A fourth conduit is linked to the tube that carries the cables bet
 is expected to be higher from outgassing as a result of the inability to apply the same cleaning standard as other detector materials
 (\textbf{check this}).
 
-During standard operations GXe is passed through the getters at ${\sim} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of the total
-flow during SR0 and SR1.
+During standard operations GXe is passed through the getters at $F_{\mathrm{G}} {\sim} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of
+the total flow during SR0 and SR1.
 
 From August 22 to September 2, 2016 LXe purification was halted.  The motivation was to study the effect that GXe purification has by
 decoupling it from the liquid.  We found the electron lifetime decreased more rapidly than anticipated, indicating that while the
@@ -642,23 +706,142 @@ and condensation rates.
 
 
 
-\subsection{Outgassing and Leaks}
-\label{subsec:electron_lifetime_model_outgassing}
-
-
-
 \subsection{Field Dependence}
 \label{subsec:electron_lifetime_model_field}
+The attachment rate of electrons with electronegative impurities depends on the electric field.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{attachingratevsfield}
+\caption{Field-dependent attachment rates for \ce{O_2}, \ce{N_2O}, and \ce{SF_6}.  Because the model uses \ce{O_2} to represent
+impurities the attachment rate is expected to decrease with electric field.}
+\label{fig:electron_lifetime_model_field_attaching_rate}
+\end{figure}
+
+
+
+\subsection{Outgassing and Leaks}
+\label{subsec:electron_lifetime_model_outgassing}
+The xenon is contaminated primarily with impurities that outgas from detector materials.  Therefore any outgassing model plays a
+critical role in the outcome of the electron lifetime model.  Modeling the true outgassing is incredibly difficult in a detector with so
+many components, temperatures ranging from roughly $-100^{\circ} \mathrm{C}$ to $20^{\circ} \mathrm{C}$, and time-dependent effects (e.g.
+purification flow, temperature outside detector pipes that are not vacuum insulated).  The challenge then is integrating everything into
+a simpler model that can describe the data.
+
+Historically electron lifetimes have followed a Fermi-Dirac during periods of rapid increase that result from a higher rate of impurity
+removal than addition.  This can occur for a number of reasons including an impurity spike
+(\secref{subsubsec:electron_lifetime_model_detector_effects_spikes}) or improvement in flow through the getters.  Once this phase is
+finished the $\tau_e$ follows a linear-like upward trend, presumably tracking the continual decrease in outgassing.  In the event of a
+purity degradation a Fermi-Dirac will ensue and the electron lifetime will resume the same line as before.
+
+In the beginning of SR1 the electron lifetime rapidly rose to ${\sim} num\ \mathrm{\mu s}$ and began the linear-growth stage.  However,
+instead
+of continuing upward it plateaued around ${\sim} num\ \mathrm{\mu s}$.  A time-independent outgassing model is most likely unphysical and
+gave a poor fit to the entire evolution.  A more likely scenario is the presence of a leak.  While we cannot say definitively that the
+cause is in fact a leak as it was never searched for, it is referred to in this chapter as a leak and in the instance it is not the
+results do not change as this is a simple model for a continuous inflow of impurities.
+
+Once $tau_e$ has flattened the leak should be dominating contributor to electronegative impurity influx.  The rates at which impurities
+contaminate the xenon and are removed by the getters are then equivalent
+
+\begin{equation}
+R_I = F_{\mathrm{L}} \rho_{\mathrm{GXe}} I_{\mathrm{L}}$
+\end{equation}
+
+\noindent where $R_I$ is the flow of impurities from the leak.  The liquid impurity concentration is equivalent to
+
+\begin{equation}
+I_{\mathrm{L}} = ( \tau_e k)^{-1}
+\end{equation}
+
+\noindent where $k = k(e^- + \mathrm{O_2}$ is the field-dependent \electron attachment coefficient described in
+\secref{subsec:electron_lifetime_model_field}.  The purification flow during SR1 is ${\sim} 48\ \mathrm{slpm}$ with
+$rho_{\mathrm{GXe}} = 5.984\ \mathrm{g\ L^{-1}}$ giving
+
+\begin{equation}
+\begin{align}
+R_I &= F_{\mathrm{L}} \rho_{\mathrm{GXe}} (\tau_e k)^{-1}
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ L^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{s\ \mu s^{-1}\ ppb^{-1})^{-1}
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ L^{-1}}) (2.5 mathrm{ppb^{-1})^{-1}
+&= 165\ \mathrm{ppb\ kg\ day^{-1}}
+\end{\align}
+\label{eq:electron_lifetime_model_outgassing_leak}
+\end{equation}
+
+\noindent where $tau_e \sim 600\ \mathrm{\mu s}$ is roughly the value of the plateau.  We can see that the \ce{O_2}-equivalent
+concentration is in the low ppb realm, though still less than the designed value by $\geq 2$.  Being field-limited by the single electron
+hotspot on the cathode prevents decreasing the attachment rate and therefore increasing $tau_e$ as shown in
+\figref{fig:electron_lifetime_model_field_attaching_rate}.  Because outgassing should still make up a fraction
+of the impurity rate $165\ \mathrm{ppb\ kg\ day^{-1}}$  should serve as an upper limit.  However, since electron lifetime measurements
+carry some uncertainty and $F_{\mathrm{L}}$ fluctuates slightly an upper bound of $R_I \leq 200\ \mathrm{ppb\ kg\ day^{-1}$ is used to
+constrain the fit during SR1.
+
+Cooling power should be larger than stable cooling power, but in code stable is 140 and from historian seems normal is 100 or
+below.  Where new pipes were installed.  Old pipes were 1/2", new are 1".  Cause of resistance in original pipes.  Study to characterize
+getter efficiency as function of flow speed.
 
 
 
 \subsection{Detector Effects}
 \label{subsec:electron_lifetime_model_detector_effects}
+The most difficult part of the trend to model are detector-derived impacts.  This is mainly because although a decrease in $tau_e$ occurs,
+in many cases there is no clear understanding of how the purity levels change with time.
+
+April 14 18:27 LXe level too high, adjusted by Ops Manager.  April 16 17:05 normal power turned off.  April 19 9:03 and 9:09 normal power
+turned off.  PTR with LN2 test May 9-18.
 
 
 
 \subsubsection{Getter Defficiencies}
 \label{subsubsec:electron_lifetime_model_detector_effects_getter}
+One of the stranger effects observed in the beginning of SR0 was a slow decrease in lifetime when it seemed no other detector conditions
+were changing.  They
+appear as a decline in $tau_e$ over a number of ($\lesssim 10$) days.  They are referred to as ``getter defficiencies'' because the
+evolution during these times resembles $< 100\%$ removal of relevant
+contaminants by the getters and there is evidence to support this was in fact the case for at least two of the three periods.
+
+The first getter defficiency
+began on November 26, 2016 shortly after the \ambe and \metakr calibrations and ended on December 5.  A power glitch occurred several
+days before that released a small number of impurities into the chamber
+(\secref{subsubsec:electron_lifetime_model_detector_effects_spikes}) but the lifetime was recovering when this slow decrease
+occurred.  Unfortunately this is the one getter defficiency with uncertainty as to its cause.  There were a number of ongoing operations
+at the time including \ce{^{85}Kr} distillation and pipette filling for RGMS - both of which use the purification system - but they don't
+align perfectly with the dates.
+
+The second instance was during the Science Run 0 \rncal calibration.  Despite the calibration lasting for 13 days (December 19, 2016 to
+January 1, 2017) the first ${\sim} 10$ or
+so were not useable as the valve in the calibration box (\figref{fig:xenon1t_pur_schematic, fig:xenon1t_pur_cal_box_schematic}) was left
+open.  \rncal and \ce{^{216}Po} made it impossible to select \ce{^{212}Bi} $\alpha$-decays, and the mixing of the three gives a rough
+value of $\tau_e$ but cannot be expected to be entirely accurate as learned from \rnbkg-\ce{^{218}Po} simultaneous fitting
+(\secref{subsubsec:electron_lifetimes_measurement_alphas}).  Still, though the values from any calculation should not be used it in the
+fit they still provide insight into the evolution during this period.  They show a steep dip at the beginning before returning to the
+expected evolution model.
+
+The dip can be explained by considering the impurity buildup inside the calibration source box.  \rncal had been injected into the TPC
+roughly two months earlier but because it was for commissioning and not a true calibration the event rate was kept small
+($\lesssim 50,000\ \mathrm{events\ hr^{-1}}$).  Therefore
+impurities from the calibration source box would have also been low and more likely removed by the getters.  In the following months
+impurities from outgassing and handling would have likely built up, and for the SR0 calibration the rate reached
+$> 200,000\ \mathrm{events\ hr^{-1}}$ within 7 hours and $> 300,000\ \mathrm{events\ hr^{-1}}$ within 17 hours.  This would explain the
+initial dip and - once the high concentration of impurities from inside the source box were sufficiently low - the return to expected
+trend.
+
+The third period was the final \rncal calibration of Science Run 1 (October 25-30, 2017).  Instead of the 3-4 week spacing between
+calibrations - the normal for the previous three - more than 10 weeks passed.  As with the SR0, impurity buildup may have become
+sufficient to trigger at drop in getter efficiency.  Due to the repeated use of the pipes the magnitude of the drop is less severe.
+
+To model the getter defficiencies \eqref{eq:electron_lifetime_model_removal_gxe} and \eqref{eq:electron_lifetime_model_removal_lxe}
+become
+
+\begin{equation}
+\mathrm{rate\ of\ GXe\ impurity\ removal (getter defficiency)} = \alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
+\end{equation}
+
+\begin{equation}
+\mathrm{rate\ of\ LXe\ impurity\ removal (getter defficiency)} = \alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+\end{equation}
+
+\noindent where $\alpha_i \in [0, 1]$ where $\alpha_i$ is the $i^{\mathrm{th}}$ getter defficiency.
 
 
 

@@ -437,7 +437,7 @@ Q-Drive is installed in one loop and two in the other.
 \caption{Layout of the calibration source box in the purification system.  Locations of \ce{^{220}Rn}, $^{83\mathrm{m}}\mathrm{Kr}$, and
 \ce{CH_3T} are encompassed by dotted rectangles.  Filters are installed to catch debris.  Connections to and from the cryostat (turquoise)
 and pumps and getters (red) are shown.  The vacuum pump (yellow) is used to evacuate the chamber before use.}
-\label{fig:xenon1t_pur_schematic}
+\label{fig:xenon1t_pur_cal_box_schematic}
 \end{figure}
 
 The flow of the GXe is maintained by two MKA 1579A mass-flow controllers - one on either branch.  The assumption before the experiment went
@@ -3013,10 +3013,11 @@ O$_{2}$,
 N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
 decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values - that is, the concentration of \otwo if it was solely
 responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
-\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in \secref{}.
+\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in
+\secref{subsec:electron_lifetime_model_removal}.
 
 \begin{figure}
-\includegraphics[width=0.8\textwidth]{AttachmentRate}
+\includegraphics[width=0.8\textwidth]{attachingratevsfield}
 \caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
 larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
 \label{fig:attachment_rate}

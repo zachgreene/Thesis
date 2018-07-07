@@ -778,7 +778,7 @@ constrain the fit during SR1.
 
 Cooling power should be larger than stable cooling power, but in code stable is 140 and from historian seems normal is 100 or
 below.  Where new pipes were installed.  Old pipes were 1/2", new are 1".  Cause of resistance in original pipes.  Study to characterize
-getter efficiency as function of flow speed.
+getter efficiency as function of flow speed.  Cold finger or cold head.
 
 
 
@@ -847,6 +847,82 @@ become
 
 \subsubsection{Impurity Spikes}
 \label{subsubsec:electron_lifetime_model_detector_effects_spikes}
+On a number of occasions sudden drops in purity were observed.  Unlike the getter defficiencies these impurity spikes were immediate and
+had no measurable duration.  In all cases these were traceable to changes in the state of the detector.  In total five impurity spikes
+from the detector coming online to the end of SR1 are contained in the model, with several more in the months following SR1
+(\secref{}).  The
+sudden contaminant surges seem to come from power disruptions though in some instances are difficult to distinguish from other
+abnormalities.  Each instance is listed in \tabref{tab:electron_lifetime_model_detector_effects_spikes_dates} along with relevant
+information.
+
+\textbf{June 14, 2016}  The first impurity spike happened when a power glitch temporarily shut off the operating PTR.  The coldfinger (or
+coldhead, find out), which is kept at $num^{\circ} \mathrm{C}$ began to warm, releasing impurities that had condensed on and around its
+surface.  Power was immediately restored and the detector remained stable, but it caused a dip in electron lifetime of
+$\delta tau_e \sim num\ \mathrm{\mu s}$.
+
+\textbf{July 15, 2016}  The second purity drop occurred during a \lntwo test.  In the event both PTRs lose power and the uninterruptible
+power supply
+(UPS) does not work properly, \lntwo from a dewar outside the service building will be transfered to the third cooling tower to maintain
+detector conditions.  A trial was performed to ensure it worked properly.  As with the first spike the heating of the PTR in use freed
+contaminants that infiltrated the LXe and decreased $tau_e$.
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+\hline
+Date & Origin & Region & $V_c \rightarrow 0$ & PTR power$\rightarrow 0$ & Comments \\
+\hline
+June 14, 2016 & Power glitch & GXe & Unknown & Yes & No $V_c$ information \\
+July 15, 2016 & \lntwo test & GXe & Unknown & Yes &  Unreliable $V_c$ readings \\
+November 21, 2016 & Power Disruption & LXe & Yes & No & \\
+January 18-February 1, 2017 & Earthquake & GXe + LXe & Yes & Yes & Many possible dips \\
+June 5, 2017 & Gate washing & LXe & Yes & No & Remove hotspot \\
+February 21, 2018 & Power Glitch & GXe & No & No & PTR power drop of ${\sim} 50\%$ \\
+February 24, 2018 & Blackout & GXe + LXe & Yes & Yes & \\
+March 5-7, 2018 & Gate washings & LXe & Yes & No & Remove hotspot \\
+April 5-10, 2018 & Purification upgrade & LXe & Yes & Yes & 1" OD upgrade \\
+\hline
+\end{tabular}
+\caption{Purity drops over the lifetime of XENON1T.  Dates and expected causes are given, along with detector region (GXe or LXe) impurity
+release is thought to occur.  Cathode voltage and PTR power outages are given as they are believed to contribute to LXe and GXe
+contaminations, respectively.}
+\label{tab:electron_lifetime_model_detector_effects_spikes_dates}
+\end{table}
+
+\textbf{November 21, 2016}  The third happened between the SR0 \ambe and \metakr calibrations and dark matter data taking.  A power
+disruption
+turned off the cathode, likely allowing liberation of electronegative impurities bound to the cathode and dilution of the
+LXe.
+
+\textbf{January 18, 2017} Science Run 0 ended because of an earthquake in the Gran Sasso region.  Following the earthquake we observed
+electron emission, or \textit{hotspot}, from the cathode while running at the SR0 voltage $V_c = 12\ \mathrm{kV}$.  Over the next two
+weeks the electron emission did
+not disappear so it was decided to use $V_c = 8\ \mathrm{kV}$ for SR1.  During this time the cathode voltage changes released impurities,
+though it is possible the earthquake did as well.  The data taken during this period was not used in the run-combined analysis because
+operating conditions were not stable so $tau_e$ did not need to be measured.
+
+\textbf{June 5, 2017}  At the end of May 2017 a hotspot appeared on the gate.  Lowering the anode voltage from 4 to 3.6 kV eliminated the
+electron emission but with that the extraction efficiency also decreased.  To fix this we tried a gate ``washing'' - lifting the TPC
+slightly so the gate rises out of the LXe and submerging it again, with the hope that whatever was causing the hotspot would be ``washed''
+away.  Upon return the anode voltage to 4 kV the hotspot had disappeared and normal dark matter data taking resumed.
+
+\textbf{February 21, 2018}  Roughly two weeks after the end of SR1 another power glitch occurred.  The cathode voltage did not drop and
+the PTR power decreased by ${\sim} 50\%$.  However, the decrease in $tau_e$ was greater than that of June 5th, indicating either the PTR
+power plays a more significant role than the cathode or other detector parameters provided a portion of total contaminants.
+
+\textbf{February 24, 2018}  Just three days after the power glitch a blackout happened.  During this time both the PTR and cathode turned
+off.
+
+\textbf{March 5-7, 2018}  Upon ramping $V_c$ back to 8 kV after the blackout a hotspot on the gate emerged.  Three gate washings spaced
+roughly 24 hours apart were able to remedy the situation.
+
+\textbf{April 5-10, 2018}  The design of the XENON1T purification system was to achieve ${\sim} 100\ \mathrm{slpm}$.  However, the
+1/2" outer diameter (OD) tubing prevented flows of $\gtrsim 50\ \mathrm{slpm}$ and limiting $tau_e$ to ${\sim} 660\ mathrm{\mu s}$ for
+\metakr (${\sim} 600\ \mathrm{\mu s}$ for alphas).  The cathode was turned off while the tubing was upgraded to 1" OD, after which
+circulation flow reached ${\sim} 70\ \mathrm{slpm}$.
+
+The impurity spikes are modeled as an increase in impurities at a particular time.
 
 
 

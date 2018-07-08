@@ -688,12 +688,15 @@ decrease with LXe-only circulation.  Image credit: \citeref{Demonstrator2018}.}
 \label{fig:electron_lifetime_model_gxe_demonstrator}
 \end{figure}
 
-Three lines were connected to the GXe region of the XENON1T - one at each cooling tower
-(\figref{fig:xenon1t_cryogenics_schematic,fig:xenon1t_cryo_overview}) - to siphon gas to the purification system
-(\secref{subsec:xenon1t_pur}).  As the highest and warmest regions in the detector the impurity concentrations were predicted to be
-significant.  A fourth conduit is linked to the tube that carries the cables between the TPC and data acquisition, where contamination
-is expected to be higher from outgassing as a result of the inability to apply the same cleaning standard as other detector materials
-(\textbf{check this}).
+Five lines connect the GXe region of the XENON1T to the purification system (\secref{subsec:xenon1t_pur}).  Three lines are attached to
+the cooling towers (one to each) since as the highest - and by extension warmest - regions outgassing is expected to be the most
+substantial (\figref{fig:xenon1t_cryogenics_schematic,fig:xenon1t_cryo_overview}).  The three lines are united before a flow control valve
+that regulates the flux.  A fourth conduit is linked to the tube that carries the PMT signal and high voltage cables between the TPC and
+data acquisition.  This region was selected because the contamination is expected to be higher from outgassing as a result of the
+inability to apply the same cleaning standard as other detector materials (\textbf{check this}).  The final line is stationed
+approximately halfway between the TPC and cooling towers to purify GXe from the main section of the cryostat.  Both this line as well
+as the one connected to the cable tube have flow control valves that are independent from each other and the cooling tower pipes, allowing
+custom ratios of flow between the three.
 
 During standard operations GXe is passed through the getters at $F_{\mathrm{G}} {\sim} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of
 the total flow during SR0 and SR1.
@@ -703,20 +706,6 @@ decoupling it from the liquid.  We found the electron lifetime decreased more ra
 impurities in the GXe were influential, they were not to the extent predicted.  The GXe-only circulation provides unique insight into
 the physics of impurity behavior in a TPC.  Correctly modeling this portion of the evolution constrains the outgassing, vaporization,
 and condensation rates.
-
-
-
-\subsection{Field Dependence}
-\label{subsec:electron_lifetime_model_field}
-The attachment rate of electrons with electronegative impurities depends on the electric field.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{attachingratevsfield}
-\caption{Field-dependent attachment rates for \ce{O_2}, \ce{N_2O}, and \ce{SF_6}.  Because the model uses \ce{O_2} to represent
-impurities the attachment rate is expected to decrease with electric field.}
-\label{fig:electron_lifetime_model_field_attaching_rate}
-\end{figure}
 
 
 
@@ -778,7 +767,9 @@ constrain the fit during SR1.
 
 Cooling power should be larger than stable cooling power, but in code stable is 140 and from historian seems normal is 100 or
 below.  Where new pipes were installed.  Old pipes were 1/2", new are 1".  Cause of resistance in original pipes.  Study to characterize
-getter efficiency as function of flow speed.  Cold finger or cold head.
+getter efficiency as function of flow speed.  Cold finger or cold head.  Magnetic pump schematic depict what happened - date says
+from October 2016.  GXe flow from PMT signal and HV tube because could not clean as well as other materials.  Purpose of GXe line
+attached to region roughly halfway between TPC and cooling towers.
 
 
 
@@ -922,12 +913,69 @@ roughly 24 hours apart were able to remedy the situation.
 \metakr (${\sim} 600\ \mathrm{\mu s}$ for alphas).  The cathode was turned off while the tubing was upgraded to 1" OD, after which
 circulation flow reached ${\sim} 70\ \mathrm{slpm}$.
 
-The impurity spikes are modeled as an increase in impurities at a particular time.
+The purity drops are modeled as
+
+\begin{equation}
+\mathrm{GXe\ purity\ drop} = M_G \Delta I_G^{(i)} \delta (t - t_i^{(i)})
+\end{equation}
+
+\begin{equation}
+\mathrm{LXe\ purity\ drop} = M_L \Delta I_L^{(i)} \delta (t - t^{(i)})
+\end{equation}
+
+\noindent where $\Delta I_L^{(i)}$ and $\Delta I_G^{(i)}$ are free parameters representing the magnitude of the drops and
+$\delta (t - t^{(i)})$ is the delta function for the $i^{\mathrm{th}}$ instance.
 
 
 
 \subsection{Operations}
 \label{subsec:electron_lifetime_model_ops}
+
+
+
+\subsection{Field Dependence}
+\label{subsec:electron_lifetime_model_field}
+The attachment rate of electrons with electronegative impurities depends on the electric field.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{attachingratevsfield}
+\caption{Field-dependent attachment rates for \ce{O_2}, \ce{N_2O}, and \ce{SF_6}.  Because the model uses \ce{O_2} to represent
+impurities the attachment rate is expected to decrease with electric field.}
+\label{fig:electron_lifetime_model_field_attaching_rate}
+\end{figure}
+
+
+
+\subsection{Slow Control System}
+\label{subsec:electron_lifetime_model_slow_control}
+The electron lifetime model relies on a number of detector parameters from operations.  These are queried from the slow control system
+(\secref{subsec:xenon1t_detector_slow_control}) and included in the fit.  This allows automatic integration of time-varying nuisance
+parameters - without which the fit would be essentially impossible.
+
+The schematic of the purification slow control system is shown in \figref{fig:electron_lifetime_model_slow_control_pur}.  While a large
+number of parameters are monitored only a small fraction need to be included.  The three flow control valves (FCVs) that independently
+regulate GXe flow from the cryostat to the system are not shown but precede the ``From GXe'' marker.  LXe from the cryostat that passes
+through the heat exchanger (HE) and heater is labeled by ``From Cryostat HE'' while the passage of returning purified xenon is marked
+``To Cryostat HE''.  The flux through the system is
+measured with flow controllers FC201 and FC202 that precede the getters.  Finally, it is critical to monitor valves FV217 and FV224 as
+if they are open the getters will be bypassed.  Because the mass of xenon has been roughly stable since the detector came online valves
+leading to and from ReStoX and bottles do not need to be tracked.  The total mass of xenon removed by the krypton column is negligible and
+can be ignored.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{purificationpid_v6.1}
+\caption{Slow control of purification system.}
+\label{fig:electron_lifetime_model_slow_control_pur}
+\end{figure}
+
+To model impurity condensation the PTR power $P$ also needs to be recorded.
+
+The cathode voltage is included in the fit to convert \il to $tau_e$.  Over the lifetime of XENON1T $V_c$ has primarily been 15
+(commissioning until mid-September 2016), 12 (mid-September until the end of SR0), and 8 (since beginning of SR1) kV.  $V_c$ is not
+available from the Historian for the first ${\sim} 1\ \mathrm{month}$ of data-taking and is assumed to be 15 kV.  In addition the values
+through early August 2016 are known to be incorrect at a number of times so are also set to 15 kV.
 
 \begin{figure}
 \centering

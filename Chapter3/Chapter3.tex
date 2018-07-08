@@ -452,8 +452,10 @@ concentrations down to 400 ppt.  As with the getters, it can be bypassed.  The X
 bottles (Kr column occurs after the purification loops before the HALO).
 
 The components of the system are electropolished and able to be baked up to ${\sim} 120^{\circ}\ \mathrm{C}$ for decreased outgassing during
-operation.  The purification system has a number of valves that allow the versatility described in this section.  The majority are pneumatic and can
-be operated remotely with the slow control system.  The remainder are manual valves situated in select locations: to and from the cryostat,
+operation.  The purification system has a number of valves that allow the versatility described in this section.  The majority are
+pneumatic and can
+be operated remotely with the slow control system (\seccref{subsec:xenon1t_detector_slow_control}).  The remainder are manual valves
+situated in select locations: to and from the cryostat,
 inside the calibration box, and before the vacuum pump, which can be used to evacuate individual sections or all of the system.  These are
 in place as a precaution against accidental openings of the actuated valves that could produce problems.
 
@@ -706,6 +708,29 @@ trigger a busy veto.
 The final quality cut is done in processing.  On a small number of occasions events at the end of a data DAQ run some of the channels
 would be missing.  To fix this the final 21 seconds of each 1 hour run are omitted from analysis.  This duration was determined by the
 internal clock of the digitizers, which count from zero to 0x3FFF in 10 ns steps, or ${\sim} 21\ \mathrm{seconds}$.
+
+
+
+\subsection{Slow Control System}
+\label{subsec:xenon1t_detector_slow_control}
+The subsystems are controlled, monitored, and recorded by a slow system.  The system uses General Electric (GE) Programmable
+Action Controllers (PACs) and Complicity Supervisory Control And Data Acquisition (SCADA) for hardware and software, respectively.  Nearly
+2500 parameters are stored in a GE Proficy Historian database, which can be queried for analysis offline.  Breach of alarm conditions
+(e.g. out of range, connection loss, failure of equipment) triggers notifications via email, pre-recorded voice messages over landline,
+and SMS texts to cellular phones.
+
+Individual PACs from the GE RX3i family control sensors and actuators of the purification, cryogenics, krypton distillation,
+LXe storage, and water purification systems.  The PACs connect to a private front-end network.  PAC alarms are transmitted using the
+GE Alarm&Event Express tool to the alarm system.  In addition to the SCADA system operations are possible via touch screens.  Open
+Platform Communication (OPC) servers, web services, or the Modbus protocol integrate the DAQ, high-voltage supply, and calibration
+system motor controllers into the slow control system.  For extra security the system requires certain conditions to be met before
+performing potentially unsafe operations.
+
+PACs and OPC servers connect to two redundant SCADA servers on the front-end network.  Two redundant fibers link the experiment to the
+aboveground laboratory.  An aboveground building then houses supervisory and data storage components including the alarm system, Historian
+database, slow control viewer, and primary XENON1T control room.  The slow control system is connected to a backup server outside LNGS
+to prevent data loss during a laboratory network failure.  It is powered by an extended on-battery runtime
+uninterruptible power supply (UPS) with generator backup.
 
 
 

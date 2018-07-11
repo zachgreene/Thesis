@@ -233,8 +233,10 @@ electron affinity of 1.461 eV.
 \item Three-body attachment proceeds via the two-stage Bloch-Bradbury reaction (\citeref{Bloch1935, Herzenberg1969})
 
 \begin{equation}
-e^- + XY \leftrightarrow (XY^-)* \\
-(XY^-)^* + Z \rightarrow XY^- + Z
+\begin{aligned}
+e^- + XY &\leftrightarrow (XY^-)* \\
+(XY^-)^* + Z &\rightarrow XY^- + Z
+\end{aligned}
 \end{equation}
 
 \noindent where $Z$ is an atom or molecule from the majority gas population.  It carries out the bonding energy between the
@@ -337,21 +339,23 @@ large S2.  The second is produced by one or more digitizers nearly filling its m
 a busy type check, which removes events that have a busy signal anywhere in the waveform.  The final is an end of run check, which
 disqualifies the last 21 per run (each run is 1 hour).  Details on each are given in \secref{subsec:xenon1t_daq}.
 
-\figref{fig:electron_lifetimes_measurement_alphas_s1} shows S1 dependence on drift time for \alphadecays of \ce{^{222}Rn}
-(${\sim} num\ \mathrm{PE}$) and \ce{^{218}Po} (${\sim} num\ \mathrm{PE}$) after these cuts.  The large
+\figref{fig:electron_lifetimes_measurement_alphas_s1} shows cS1 dependence on $z$ for \alphadecays of \ce{^{222}Rn}
+(${\sim} 5.1 \times 10^4 \ \mathrm{PE}$) and \ce{^{218}Po} (${\sim} 5.6 \times 10^4\ \mathrm{PE}$) after these cuts.  The large
 S1s from events deep in the detector can saturate PMTs in the bottom array, which lead to under-corrected cS1s as seen in the left
 panel.  To correct for this the data are split into slices in $z$ and fit in cS1 with gaussians.  Fits in the region
 $\lesssim z \lesssim$ where saturation is not present are interpolated to build a cS1 distribution, which is extrapolated across the
 entire length of
-the TPC.  Differences in fit parameters are used to relocate events deeper in the detector into the proper cS1 band.  The newly corrected
-cS1 distribution is shown in the right panel of \figref{fig:electron_lifetimes_measurement_alphas_s1}.
+the TPC.  Differences in fit parameters are used to relocate events deeper in the detector into the proper cS1 band.  The
+$\alpha$-corrected cS1 distribution is shown in the right panel of \figref{fig:electron_lifetimes_measurement_alphas_s1}.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{s1_alpha}
-\caption{cS1 (left) and $\alpha$-corrected cS1 (right) distributions with $z$.  The color and color boxes highlight \ce{^{222}Rn} and
-\ce{^{218}Po} events, respectively.  In the left panel we can see severe distortion near the bottom of the detector.  Once corrected for
-the effect is much less significant.}
+\includegraphics[width=\textwidth]{rn_po_cs1_alpha}
+\caption{cS1 (left) and $\alpha$-corrected cS1 (right) dependence on $z$.  The large \alphadecay S1s deep in
+the TPC sature the bottom PMTs causing an under-corrected cS1, which
+results in the distortion seen in the left panel.  Near the top ($z \lesssim -10\ \matrm{cm}$) a similar effect is observed from top PMT
+saturation.  The distortion is corrected in the right panel where the effect is much less significant.  The red and blue boxes highlight
+the events selected to calculate $\tau_e$.  The colors of data markers correspond to \stwob values.}
 \label{fig:electron_lifetimes_measurement_alphas_s1}
 \end{figure}
 
@@ -360,8 +364,11 @@ here that events from \ce{^{222}Rn} and \ce{^{218}Po} cannot be distinguished fr
 is outside our fiducial volume.  There is also some distortion at $z \gtrsim$ from events
 near the LXe surface, whose light is tightly concentrated in the top PMT array.
 
-The selected \ce{^{222}Rn} and \ce{^{218}Pb} events are indicated by color and color boxes, respectively.  Events with $< z < $ and
-$< \mathrm{cS1} < $ (\ce{^{222}Rn}) and $< \mathrm{cS1} <$ (\ce{^{218}Po}) are selected.  The electron lifetime is calculated for each
+The selected \ce{^{222}Rn} and \ce{^{218}Pb} events are indicated by color and color boxes, respectively.  Events with
+$-89< z < -9\ \mathrm{cm}$ and
+$4.9 \times 10^4 < \alpha-\mathrm{corrected\ cS1} < 5.3 \times 10^4\ \mathrm{PE}$ (\ce{^{222}Rn}) and
+$5.35 \times 10^4 < \alpha-\mathrm{corrected\ cS1} < 5.8 \times 10^4\ \mathrm{PE}$ (\ce{^{218}Po}) are selected.  The electron lifetime is
+calculated for each
 independent of the other, which provides a nice cross-check.  Because \ce{^{218}Po} has a half-life of just 3.1 m the number of events
 should be roughly the same.  Each electron lifetime is calculated from 48 hours of data to get sufficient statistics.
 
@@ -375,8 +382,12 @@ events were cut with the preliminary fit.  Both fits are plotted in each panel f
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{}
-\caption{}
+\includegraphics[width=\textwidth]{rn_po_electron_lifetime_log}
+\caption{Electron lifetime measurements using \ce{^{222}Rn} (left) and \ce{^{218}Po} (right) from October 29-31, 2017.  The red and blue
+lines correspond to \ce{^{222}Rn} and \ce{^{218}Po}, respectively, and are drawn in the drift time region that was used for the fit (see
+text for event selection).  They are each shown in both panels to show the \stwob overlap, highlighting the need for the
+$\alpha$-corrected cS1 cut.  The pink dashed lines mark the boundaries derived from the preliminary fit outside of which events were not
+considered in the final fit.  The electron lifetime measurements agree within uncertainty.}
 \label{fig:electron_lifetimes_measurement_alphas_elifetime}
 \end{figure}
 
@@ -552,8 +563,12 @@ to be small.
 \section{Electron Lifetime Model}
 \label{sec:electron_lifetime_model}
 To construct the electron lifetime model a number of factors were considered.  The model was fit to the \ce{^{222}Rn} $\alpha$-emissions
-due to its constant presence in our background.  The best-fit trend was then scaled to match the $\mathrm{^{83m}Kr}$ data using a derived
-``correction function'' to correct electronic recoil science data (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}).
+due to their constant presence.  The best-fit trend was then scaled to match the $\mathrm{^{83m}Kr}$ data using a derived
+``scaling function'' to correct electronic recoil science data (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}).
+
+The model tracks the impurity concentration in LXe (\il) and GXe (\ig) - the latter of which is necessary because of the
+exchange of atoms and molecules through vaporization and condensation between the liquid and gas
+(\secref{subsec:electron_lifetime_model_vap_and_cond}).
 
 
 
@@ -600,28 +615,110 @@ An SAES PS4-MT50-R1 getter was installed in the Columbia Demonstrator for testin
 \figref{fig:electron_lifetime_model_removal_demonstrator_circ} shows electron lifetimes using flow speeds of $5 \mdash 80\ \mathrm{slpm}$
 in the Columbia Demonstrator.  For flows larger than 5 slpm the rate of increase in the beginning is nearly the same per cycle - though
 the rate with respect to time depends on the circulation speed.  This indicates any addition of impurities over this time is small
-compared to those already present.  The final $tau_e$ for each increases with flow speed with the exception of 80 slpm.  This is thought
+compared to those already present.  The final $\tau_e$ for each increases with flow speed with the exception of 80 slpm.  This is thought
 to result from gas passing through the getter too quickly to remove the impurities completely.
 
 For XENON1T the two getters cleaned a combined flow of $\lesssim 50\ \mathrm{slpm}$ from commissioning until after SR1 - half of what was
 planned due the 1/2" pipes connecting the cryogenics system to the purification system producing higher than expected resistance.  A
 series of
 upgrades were performed in April-June 2018 that increased flows to ${\sim} 80\ \mathrm{slpm}$ (\secref{}).  Because in both cases the
-flow through each getter never exceeded 50 slpm the model assumes 100\% of contaminants are absorbed by the zirconium, though it is
-difficult to know if this is the case.  However, including a variable in the model to reflect a portion of impurities returned
-to the detector would not be appropriate because \figref{fig:electron_lifetime_model_removal_demonstrator_circ} suggests it is
+flow through each getter never exceeded 50 slpm the model assumes 100\% of contaminants are absorbed by the zirconium, though we cannot
+be certain.  However, including a variable in the model to reflect a portion of impurities returned
+to the detector would be equally inadequate because \figref{fig:electron_lifetime_model_removal_demonstrator_circ} suggests it is
 flow-dependent.  A more systematic study is needed to characterize the dependence before it can be reliably included.  Still, the low
 circulation makes 100\% getter efficiency a reasonable estimate.
 
-\begin{equation}
-\mathrm{rate\ of\ GXe\ impurity\ removal} = \rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
-\label{eq:electron_lifetime_model_removal_gxe}
-\end{equation}
+The rates of impurity removal by the purification system are
 
 \begin{equation}
-\mathrm{rate\ of\ LXe\ impurity\ removal} = \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+\begin{aligned}
+\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
+\label{eq:electron_lifetime_model_removal_gxe}
+\\
+\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
 \label{eq:electron_lifetime_model_removal_lxe}
+\end{aligned}
 \end{equation}
+
+\noindent where $\rho_{\mathrm{GXe}} = 5.984\ \mathrm{g\ l^{-1}}$ is the density of GXe.  \fg and \fl are the flows of the
+gas and liquid, respectively, and can be calculated using parameters stored in the slow control system
+(\secref{subsec:xenon1t_detector_slow_control}).  Using the slow control system to automatically integrate these time-varying nuisance
+parameters is significantly advantageous over manually assigning the flow.
+
+The schematic of the purification slow control system is shown in \figref{fig:electron_lifetime_model_slow_control_pur}.  While a large
+number of parameters are monitored only a small fraction need to be included.  The three flow control valves (FCVs) that independently
+regulate GXe flow from the cryogenics system to purification (\secref{subsec:electron_lifetime_model_gxe}) are not shown but precede the
+``From Cryostat GXe'' marker.  LXe from the cryostat that passes
+through the heat exchanger (HE) and heater is labeled ``From Cryostat HE''.  Returning GXe is sent to the TPC Bell (``GXe to TPC Bell'')
+to maintain cryostat pressure or is liquified in the HE (``To Cryostat HE'') before entering the bottom of the TPC.  The flux through the
+system is
+measured with flow controllers \texttt{FC201} and \texttt{FC202} that precede the getters.  Finally, it is critical to monitor valves
+\texttt{FV217} and \texttt{FV224} as
+if they are open the getters will be bypassed.  The top and bottom paths in \figref{fig:electron_lifetime_model_slow_control_pur} have one
+and two QDrives, respectively, meaning the flow through the bottom is larger.  Installing a second QDrive on the top loop would not
+increase the flow because it was restricted by the pipes (as mentioned above this was eventually fixed).
+
+Because the mass of xenon has
+been roughly stable since the detector came online valves
+leading to and from ReStoX (\secref{subsec:xenon1t_restox}) and bottles do not need to be tracked.  The total mass of xenon removed by the
+krypton column is negligible and
+can be ignored.  The slow control parameters are summarized in \tabref{tab:electron_lifetime_model_removal_slow_control_pars}.
+
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{clcc}
+\hline
+Parameter & \multicolumn{1}{c}{Function} & Marked by & Comments \\
+\hline
+\hline
+\texttt{CRY\char`_FCV101} & GXe flow control (cables) & - & Precedes ``From Cryostat GXe'' \\
+\texttt{CRY\char`_FCV102} & GXe flow control (mid-cryostat) & - & Precedes ``From Cryostat GXe'' \\
+\texttt{CRY\char`_FCV103} & GXe flow control (cooling towers) & - & Precedes ``From Cryostat GXe'' \\
+\texttt{PUR\char`_FC201} & Flow measurement (bottom loop) & $color$ box & \\
+\texttt{PUR\char`_FC202} & Flow measurement (top loop) & $color$ box & \\
+\texttt{PUR\char`_FV217} & Valve (bottom loop) & $color$ box & Bypass Getter 201 \\
+\texttt{PUR\char`_FV224} & Valve (top loop) & $color$ box & Bypass Getter 202 \\
+\hline
+\end{tabular}
+}
+\caption{Parameters queried from slow control system to calculate \fg and \fl.}
+\label{tab:electron_lifetime_model_removal_slow_control_pars}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{purificationpid}
+\caption{Slow control of purification system.}
+\label{fig:electron_lifetime_model_slow_control_pur}
+\end{figure}
+
+The GXe flow into the purification system is calculated by
+
+\begin{equation}
+F_{\mathrm{G}}^{\inp} = \sum_i F_i
+\end{equation}
+
+\noindent where $F_i$ is the flow for $i = \mathtt{FCV101,\ FCV102,\ FCV103}$.  The inlet LXe flow is then calculated
+
+\begin{equation}
+F_{\mathrm{L}}^{\inp} = \sum_j F_j - F_{\mathrm{G}}^{\inp}
+\end{equation}
+
+\noindent for $j = \mathtt{FC201,\ FC202}$.  The flow that is purified is
+
+\begin{subequations}
+\begin{align}
+F_{\mathrm{G}} &= F_{\mathrm{G}}^{\inp} \bigg[ \big(1 - \mathtt{Status(FV217)}\big) \frac{F_{\mathtt{FC201}}}{F^{\inp}} +
+\big(1 - \mathtt{Status(FV224)}\big) \frac{F_{\mathtt{FC202}}}{F^{\inp}} \bigg]
+\\
+F_{\mathrm{L}} &= F_{\mathrm{L}}^{\inp} \bigg[ \big(1 - \mathtt{Status(FV217)}\big) \frac{F_{\mathtt{FC201}}}{F^{\inp}} +
+\big(1 - \mathtt{Status(FV224)}\big) \frac{F_{\mathtt{FC202}}}{F^{\inp}} \bigg]
+\end{align}
+\end{subequations}
+
+\noindent where $\mathtt{Status()}$ is \texttt{0} if closed and \texttt{1} if open.  $F^{\inp}$ is
+$F_{\mathrm{G}}^{\inp} + F_{\mathrm{L}}^{\inp} = F_{\mathtt{FC201}} + F_{\mathtt{FC202}}$.
 
 
 
@@ -646,13 +743,15 @@ The mass of liquid xenon will evaporate at a rate $P_{\mathrm{C}} / L$ where $L 
 specific latent heat of the liquid-gas phase transition.  For GXe condensation this is simply $P / L$.  Impurity migration can then be
 characterized by
 
-\begin{equation}
-\mathrm{rate\ of\ impurity\ vaporization} = \frac{\epsilon_{\mathrm{vap}} P_{\mathrm{C}} I_{\mathrm{L}}}{L}
-\end{equation}
-
-\begin{equation}
-\mathrm{rate\ of\ impurity\ condensation} = \frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}
-\end{equation}
+\begin{subequations}
+\begin{align}
+\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{vap})} = -\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{vap})} =
+\frac{\epsilon_{\mathrm{vap}} P_{\mathrm{C}} I_{\mathrm{L}}}{L}
+\\
+\frac{-dI_{\mathrm{G}}}{dt}^{(\mathrm{cond})} = \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{cond})} =
+\frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}
+\end{align}
+\end{subequations}
 
 \noindent where $\epsilon_{\mathrm{vap}}$ and $\epsilon_{\mathrm{cond}}$ are the probabilities of vaporization and condensation for
 impurities in the liquid and gas, respectively.
@@ -675,7 +774,7 @@ purification system to investigate this effect.  \figref{fig:electron_lifetime_m
 the course of the measurement using a \ce{^{137}Cs} 661.7 keV $\gamma$-ray.  Two periods with GXe and LXe circulation were observed and
 are highlighted in blue.  Each shows an increase in
 $\tau_e$, though the second was only for a few days.  The first measurement improves the lifetime from
-${\sim} 200 \mathrm{\mu s}$ to ${\sim} 450 \mathrm{\mu s}$ and does not show signs of leveling off when the LXe-only circulation is
+${\sim} 200\ \mathrm{\mu s}$ to ${\sim} 450\ \mathrm{\mu s}$ and does not show signs of leveling off when the LXe-only circulation is
 restored.  This confirmed the expectation that electronegative impurities in the GXe play an important role in limiting the electron
 lifetime, and our dark matter search would benefit greatly from equipping XENON1T for GXe purification.
 
@@ -819,7 +918,7 @@ Molecule & $E_D\ [\mathrm{cal\ g^{-1}\ mole^{-1}}]$ & $P_i\ [\mathrm{torr}]$ & $
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{}
-\caption{Fig. 4point3 from a_users_guide_to_vacuum technology.  Outgassing rate $q$ as a function of time for outdiffusion.  A sample
+\caption{Fig. 4point3 from ausersguidetovacuumtechnology.  Outgassing rate $q$ as a function of time for outdiffusion.  A sample
 at temperature $T_1$ is baked to $T_2$ at point $A$.  Because the gas concentration in the sample remains virtually unchanged during this
 process the outgassing at $C$ is equivalent to $B$ (diagonal dashed lines represent constant concentration).  From $C$ $q$ quickly
 joins the $T_2$ curve, which begins its exponential descent (\eqnref{eq:electron_lifetime_model_outgassing_sources_large_t}) earlier.  At
@@ -836,9 +935,9 @@ of gas in the solid, substantially reducing the outgassing present in the detect
 \begin{table}
 \centering
 \resizebox{\textwidth}{!}{
-\begin{tabular}{cccccc}
+\begin{tabular}{clcccc}
 \hline
-Sample & Treatment & \multicolumn{4}{c}{Outgassing rates [$10^{-13}\ \mathrm{Torr\ l\ s^{-1}\ cm^{-2}}$]} \\
+Sample & \multicolumn{1}{c}{Treatment} & \multicolumn{4}{c}{Outgassing rates [$10^{-13}\ \mathrm{Torr\ l\ s^{-1}\ cm^{-2}}$]} \\
 \cline{3-6}
 & & \ce{H_2O} & \ce{CO_2} & \ce{H_2} & \ce{CO} \\
 \hline
@@ -866,7 +965,7 @@ environment.
 
 In thermal desorption particles that are bound to the surface via weak van der Waals forces of
 $< 40\ \mathrm{MJ\ kg^{-1}\ mole^{-1}}$ are labeled
-as \mathit{physisorbed} and are desorbed quickly under vacuum, while those at larger energy are \mathit{chemisorbed} do so slowly unless
+as \textit{physisorbed} and are desorbed quickly under vacuum, while those at larger energy are \textit{chemisorbed} do so slowly unless
 external heat is applied.  When more than one layer of particles exist on the surface they will desorb at a constant rate.  However, once
 the coverage becomes less than one layer it will slow and become proportional to the surface concentration.  It is also necessary to
 consider molecules that dissociate upon adsorption and recombine before desorption.  This process depends on the square of the
@@ -900,20 +999,26 @@ reader is referred to \citeref{OHanlon2003}.
 \subsubsection{Outgassing Model}
 \label{subsubsec:electron_lifetime_model_outgassing_model}
 The gas ($\Lambda_G$) and liquid ($\Lambda_L$) xenon outgassing models characterize the number of impurities outgassed from detector
-materials that freely roam
-the GXe and LXe, respectively.  This is slightly different than modeling the total number of impurities because we only care about those
-that impact $tau_e$.  Specifically \outg and \outl are meant to describe time-varying contamination.  Modeling either of these is
-incredibly difficult in a detector with so
+materials that freely roam throughout
+the GXe and LXe, respectively.  This is different than modeling the total number of impurities because we only care about those
+that impact $\tau_e$.  Specifically \outg and \outl are meant to describe time-varying contamination.  While the outgassing in
+\secref{subsubsec:electron_lifetime_model_outgassing_sources} is based on research of vacuum systems the physical processes should be
+comparable to our detector.  However, modeling this is not feasible in a detector with so
 many components, temperatures ranging from roughly $-100^{\circ} \mathrm{C}$ to $20^{\circ} \mathrm{C}$, and time-dependent effects (e.g.
-purification flow, temperature outside detector pipes that are not vacuum insulated).  The challenge is integrating everything into
+purification flow, temperatures outside detector pipes that are not vacuum insulated).  The challenge is integrating everything into
 a simpler model that can describe the data.
 
-To begin setting up the model we know outgassing should decrease over and be temperature-dependent.  Ideally if temperatures inside the
-detector are relatively stable this can be ignored, or if there are only a handful of radical changes these durations can be fixed with an
-alternative characterization.  This is preferred because selecting specific temperature monitors will make the model
-partial to those regions, i.e. if the temperature rises in a single cooling tower the entire GXe outgassing model should not be scaled
-accordingly.  The narrow temperature range and thermal isolation (with exception at the GXe-LXe interface) makes this assumption valid for
-LXe as shown in \figref{fig:electron_lifetime_model_outgassing_lxe_temp}.  Deviations are $< \lesssim num\%$.
+To begin setting up the model we know outgassing decreases over time and is temperature-dependent.  If temperatures
+are adequately stable they can be ignored - or if only a handful of radical changes exist these periods can be modeled with an
+alternative parameterization.  This is preferred because selecting specific temperature sensors will make the model
+partial to those regions, e.g. if the temperature rises in a single cooling tower the entire GXe outgassing model should not be scaled
+accordingly.  Furthermore because the locations of the sensors were strategically selected to monitor the health of XENON1T, there are
+regions where our knowledge is limited .
+
+The narrow temperature range and thermal isolation (with exception at the GXe-LXe interface)
+suggests the LXe temperature should be stable and is shown in \figref{fig:electron_lifetime_model_outgassing_lxe_temp}.  Deviations are
+$< \lesssim num\%$ total, and $\lesssim num\%$ after $this\ date$.  The higher volatility of the temperature ranges in the gas require
+further exploration.
 
 \begin{figure}
 \centering
@@ -922,7 +1027,7 @@ LXe as shown in \figref{fig:electron_lifetime_model_outgassing_lxe_temp}.  Devia
 \label{fig:electron_lifetime_model_outgassing_lxe_temp}
 \end{figure}
 
-For GXe the temperature is less stable and is plotted it \figref{fig:electron_lifetime_model_outgassing_gxe_temp}.
+The more volatile GXe temperatures are plotted in \figref{fig:electron_lifetime_model_outgassing_gxe_temp}.
 
 \begin{figure}
 \centering
@@ -933,9 +1038,33 @@ For GXe the temperature is less stable and is plotted it \figref{fig:electron_li
 
 
 
-\subsubsection{Leak Sources}
+\subsubsection{Time-Invariant Impurity Sources}
 \label{subsubsec:electron_lifetime_model_outgassing_leak_sources}
-Once $tau_e$ has flattened the leak should be dominating contributor to electronegative impurity influx.
+Once $\tau_e$ flattens any time-invariant influx should be the dominating contributor to electronegative impurity concentration.  There
+are two that are relevant for our experiment: permeation and leaks.
+
+\textbf{Permeation} is the migration of particles from outside to inside the detector.  A particle will adsorb onto the outer surface of
+the solid, diffuse through the material, and be desorbed on the interior.  The rate of permeation will increase slowly until it ultimately
+reaches a steady-state a contributes a constant flux of impurities.
+
+In the case of diatomic molecules dissociation typically occurs
+upon adsorption so they pass through the bulk as individual atoms.  For steady-state permeation the molecule will dissociate upon the
+surface with equilibrium constant $k_1$.  Atoms on the surface then are admitted into the solid with equilibrium constant $k_2$.  Taking
+hydrogen as an example, the
+interior concentration is $n_{\mathrm{H}} = k_2 (k_2 n_{\mathrm{H_2}})$ where $n_{\mathrm{H}}$ is the concentration of hydrogen atoms
+inside the solid and $n_{\mathrm{H_2}}$ is the hydrogen molecules on the exterior surface.  The permeation flux can then be found as
+
+\begin{equation}
+Q_k = \frac{K_p (P_2^{1/2} - P_1^{1/2})A}{2d}
+\label{eq:electron_lifetime_model_outgassing_leak_sources_perm}
+\end{equation}
+
+\noindent where $K_p$ is the permeation constant, $P_1$ ($P_2$) is the exterior pressure of the element, $A$ is the surface area, and
+$d$ is half the thickness of the material (\citeref{OHanlon2003}).  While \eqnref{eq:electron_lifetime_model_outgassing_leak_sources_perm}
+describes steady-state permeation 
+
+The process of permeation for the materials used in XENON1T is extremely slow it would never be expected to be seen in the lifetime of the
+experiment.  Thus it does not warrant consideration in the model.
 
 
 
@@ -956,13 +1085,13 @@ I_{\mathrm{L}} = ( \tau_e k)^{-1}
 
 \noindent where $k = k(e^- + \mathrm{O_2})$ is the field-dependent \electron attachment coefficient described in
 \secref{subsec:electron_lifetime_model_field}.  The purification flow during SR1 is ${\sim} 48\ \mathrm{slpm}$ with
-$\rho_{\mathrm{GXe}} = 5.984\ \mathrm{g\ L^{-1}}$ giving
+$\rho_{\mathrm{GXe}} = 5.984\ \mathrm{g\ l^{-1}}$ giving
 
 \begin{equation}
 \begin{aligned}
 R_I &= F_{\mathrm{L}} \rho_{\mathrm{GXe}} (\tau_e k)^{-1} \\
-&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ L^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{s\ \mu s^{-1}\ ppb^{-1}})^{-1} \\
-&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ L^{-1}}) (2.5 \mathrm{ppb^{-1}})^{-1} \\
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{s\ \mu s^{-1}\ ppb^{-1}})^{-1} \\
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (2.5 \mathrm{ppb^{-1}})^{-1} \\
 &= 165\ \mathrm{ppb\ kg\ day^{-1}}
 \label{eq:electron_lifetime_model_outgassing_leak}
 \end{aligned}
@@ -970,7 +1099,7 @@ R_I &= F_{\mathrm{L}} \rho_{\mathrm{GXe}} (\tau_e k)^{-1} \\
 
 \noindent where $\tau_e \sim 600\ \mathrm{\mu s}$ is roughly the value of the plateau.  We can see that the \ce{O_2}-equivalent
 concentration is in the low ppb realm, though still less than the designed value by $\geq 2$.  Being field-limited by the single electron
-hotspot on the cathode prevents decreasing the attachment rate and therefore increasing $tau_e$ as shown in
+hotspot on the cathode prevents decreasing the attachment rate and therefore increasing $\tau_e$ as shown in
 \figref{fig:electron_lifetime_model_field_attaching_rate}.  Because outgassing should still make up a fraction
 of the impurity rate $165\ \mathrm{ppb\ kg\ day^{-1}}$  should serve as an upper limit.  However, since electron lifetime measurements
 carry some uncertainty and $F_{\mathrm{L}}$ fluctuates slightly an upper bound of $R_I \leq 200\ \mathrm{ppb\ kg\ day^{-1}}$ is used to
@@ -984,7 +1113,8 @@ attached to region roughly halfway between TPC and cooling towers.  \ce{O_2^-} a
 are bound to the cathode.  Fraction of electronegative impurities that pass electrons to cathode and become neutral, fraction that remain
 bound.  If free electronegative impurities from cathode have extra electron explain how contribute to decreasing electron
 lifetime.  Change in cathode voltage affect number of impurities bound to it, perhaps justifying separate parameters for SR0 and
-SR1.  Maybe include term like negative exponential for impurity buildup on cathode, then total would be amount released.
+SR1.  Maybe include term like negative exponential for impurity buildup on cathode, then total would be amount released.  Cryostat baked
+or not - if exposed to air for extended periods may have up to 100 monolayers of water, if baked may have very little.
 
 Discuss 100 SLPM plan and choking by pipes, why didn't reach it.  \ce{^{222}Rn} decrease with magnetic
 pump.  Connect to Demonstrator - attempt to drift electrons 1 meter.  Make clear why it's so important.  Discuss how much lose in
@@ -996,7 +1126,7 @@ lifetime before discuss model.
 
 \subsection{Detector Effects}
 \label{subsec:electron_lifetime_model_detector_effects}
-The most difficult part of the trend to model are detector-driven effects.  This is mainly because although a decrease in $tau_e$ occurs,
+The most difficult part of the trend to model are detector-driven effects.  This is mainly because although a decrease in $\tau_e$ occurs,
 in many cases there is no clear understanding of how the purity levels change with time.
 
 April 14 18:27 LXe level too high, adjusted by Ops Manager.  April 16 17:05 normal power turned off.  April 19 9:03 and 9:09 normal power
@@ -1046,11 +1176,15 @@ To model the getter defficiencies \eqnref{eq:electron_lifetime_model_removal_gxe
 become
 
 \begin{equation}
-\mathrm{rate\ of\ GXe\ impurity\ removal (getter\ defficiency)} = \alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
-\end{equation}
-
-\begin{equation}
-\mathrm{rate\ of\ LXe\ impurity\ removal (getter\ defficiency)} = \alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+\begin{aligned}
+\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{gd})} &= \alpha_i \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{pur})} &=
+-\alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
+\label{eq:electron_lifetime_model_detector_effects_getter_gxe}
+\\
+\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{gd})} &= \alpha_i \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})} &=
+-\alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+\label{eq:electron_lifetime_model_detector_effects_getter_lxe}
+\end{aligned}
 \end{equation}
 
 \noindent where $\alpha_i \in [0, 1]$ where $\alpha_i$ is the $i^{\mathrm{th}}$ getter defficiency.
@@ -1076,7 +1210,7 @@ $\delta tau_e \sim num\ \mathrm{\mu s}$.
 power supply
 (UPS) does not work properly, \lntwo from a dewar outside the service building will be transfered to the third cooling tower to maintain
 detector conditions.  A trial was performed to ensure it worked properly.  As with the first spike the heating of the PTR in use freed
-contaminants that infiltrated the LXe and decreased $tau_e$.
+contaminants that infiltrated the LXe and decreased $\tau_e$.
 
 \begin{table}
 \centering
@@ -1096,6 +1230,7 @@ February 24, 2018 & Blackout & GXe + LXe & Yes & Yes & \\
 March 5-7, 2018 & Gate washings & LXe & Yes & No & Remove hotspot \\
 April 5-10, 2018 & Purification upgrade & LXe & Yes & Yes & 1" OD upgrade \\
 \hline
+\hline
 \end{tabular}
 }
 \caption{Purity drops over the lifetime of XENON1T.  Dates and expected causes are given, along with detector region (GXe or LXe) impurity
@@ -1107,7 +1242,7 @@ contaminations, respectively.}
 \textbf{November 21, 2016}  Electronegative impurities that capture drifting \electron should be drawn to the cathode.  Most are
 expected to pass its electron to the cathode and return to neutral charge, free to roam throughout the TPC once again.  Some fraction,
 however, remain attached to the cathode.  Between SR0 \ambe and \metakr calibrations and dark matter data taking a power disruption
-turned off the cathode, likely allowing liberation of \ce{O_2^-} and other bound electronegative impurities, shrinking
+turned off the cathode, likely allowing liberation of $\mathrm{O_2^-}$ and other bound electronegative impurities, shrinking
 $\tau_e$.  In addition, new contaminants (e.g. from outgassing) will not be pulled towards the cathode but free to move throughout the TPC,
 further polluting the LXe.  This procession of events is modeled as a sudden purity drop - even in the event the cathode remains off for a
 period of time, since the electron lifetime cannot be measured.  The time of the spike is set at the beginning of the power outage since
@@ -1136,7 +1271,7 @@ off.
 roughly 24 hours apart were able to remedy the situation.
 
 \textbf{April 5-10, 2018}  The design of the XENON1T purification system was to achieve ${\sim} 100\ \mathrm{slpm}$.  However, the
-1/2" outer diameter (OD) tubing prevented flows of $\gtrsim 50\ \mathrm{slpm}$ and limiting $tau_e$ to ${\sim} 660\ mathrm{\mu s}$ for
+1/2" outer diameter (OD) tubing prevented flows of $\gtrsim 50\ \mathrm{slpm}$ and limiting $\tau_e$ to ${\sim} 660\ \mathrm{\mu s}$ for
 \metakr (${\sim} 600\ \mathrm{\mu s}$ for alphas).  The cathode was turned off while the tubing was upgraded to 1" OD, after which
 circulation flow reached ${\sim} 70\ \mathrm{slpm}$.
 
@@ -1189,24 +1324,6 @@ impurities the attachment rate is expected to decrease with electric field.}
 The electron lifetime model relies on a number of detector parameters from operations.  These are queried from the slow control system
 (\secref{subsec:xenon1t_detector_slow_control}) and included in the fit.  This allows automatic integration of time-varying nuisance
 parameters - without which the fit would be essentially impossible.
-
-The schematic of the purification slow control system is shown in \figref{fig:electron_lifetime_model_slow_control_pur}.  While a large
-number of parameters are monitored only a small fraction need to be included.  The three flow control valves (FCVs) that independently
-regulate GXe flow from the cryogenics system to the system are not shown but precede the ``From GXe'' marker.  LXe from the cryostat that
-passes
-through the heat exchanger (HE) and heater is labeled by ``From Cryostat HE'' while the passage of returning purified xenon is marked
-``To Cryostat HE''.  The flux through the system is
-measured with flow controllers FC201 and FC202 that precede the getters.  Finally, it is critical to monitor valves FV217 and FV224 as
-if they are open the getters will be bypassed.  Because the mass of xenon has been roughly stable since the detector came online valves
-leading to and from ReStoX and bottles do not need to be tracked.  The total mass of xenon removed by the krypton column is negligible and
-can be ignored.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{purificationpid}
-\caption{Slow control of purification system.}
-\label{fig:electron_lifetime_model_slow_control_pur}
-\end{figure}
 
 To model impurity condensation the PTR power $P$ also needs to be recorded.
 

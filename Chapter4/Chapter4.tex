@@ -114,7 +114,7 @@ electrons are \textit{quasifree}, and have drift velocities that can exceed even
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{drift_velocity_field}
+\includegraphics[width=0.8\textwidth]{drift_velocity_field}
 \caption{Drift velocity (defined as $W$ here) dependence on reduced electric field $E/N$ where $N$ is the number of molecules per
 volume.  Points are from experimental data (\citeref{Gushchin1982, Huang1978, Wagner1967, Pack1992}) and curves are from
 calculations.  $1\ \mathrm{Td} = 10^-17\ \mathrm{V\ cm^2}$.  LXe has a higher drift velocity than GXe at
@@ -266,12 +266,12 @@ than a few weeks.
 \hline
 Isotope & Decay & Energy & $t_{1/2}$ & Section & Notes \\
 \hline
-$\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & \secref{subsubsec:electron_lifetimes_measurement_kr} & Calibration \\
-$\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & \secref{subsubsec:electron_lifetimes_measurement_gammas} & Background following NG cal. \\
-$\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & \secref{subsubsec: electron_lifetimes_measurement_gammas} & Background following NG cal. \\
-\ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \secref{subsubsec:electron_lifetimes_measurement_alphas} & \ce{^{220}Rn} calibration \\
-\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.10 m & \secref{subsubsec:electron_lifetimes_measurement_alphas} & Background (\ce{^{222}Rn} daughter) \\
-\ce{^{222}Rn} & $\alpha$ & $5.590\ \mathrm{MeV}$ & 3.82 d & \secref{subsubsec:electron_lifetimes_measurement_alphas} & Background \\
+$\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & \secref{subsec:electron_lifetimes_measurement_kr} & Calibration \\
+$\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & \secref{subsec:electron_lifetimes_measurement_gammas} & Background following NR cal. \\
+$\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & \secref{subsec:electron_lifetimes_measurement_gammas} & Background following NR cal. \\
+\ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \secref{subsec:electron_lifetimes_measurement_alphas} & \ce{^{220}Rn} calibration \\
+\ce{^{218}Po} & $\alpha$ & $6.115\ \mathrm{MeV}$ & 3.10 m & \secref{subsec:electron_lifetimes_measurement_alphas} & Background \\
+\ce{^{222}Rn} & $\alpha$ & $5.590\ \mathrm{MeV}$ & 3.82 d & \secref{subsec:electron_lifetimes_measurement_alphas} & Background \\
 \hline
 \hline
 \end{tabular}
@@ -314,11 +314,11 @@ made it inside the TPC enough events were present to get a dependable value.  Th
 
 
 
-\subsubsection{$\alpha$-Decays}
-\label{subsubsec:electron_lifetimes_measurement_alphas}
+\subsection{$\alpha$-Decays}
+\label{subsec:electron_lifetimes_measurement_alphas}
 The high energy and substantial stopping power (\figref{fig:mass_stopping_power}) of $\alpha$ interactions creates significant
 recombination, in turn creating an S1 that makes them easily distinguishable from electronic and nuclear
-interactions.  Because they are so recognizable and do not scatter many of the cuts developed for the science run analysis are not
+interactions.  Because they are easily recognizable and do not scatter many of the cuts developed for the science run analysis are not
 necessary (many are in addition not reliable since they were developed using low-energy electronic recoils).  There are just a small
 number of cuts that are used.
 
@@ -343,8 +343,8 @@ disqualifies the last 21 per run (each run is 1 hour).  Details on each are give
 (${\sim} 5.1 \times 10^4 \ \mathrm{PE}$) and \ce{^{218}Po} (${\sim} 5.6 \times 10^4\ \mathrm{PE}$) after these cuts.  The large
 S1s from events deep in the detector can saturate PMTs in the bottom array, which lead to under-corrected cS1s as seen in the left
 panel.  To correct for this the data are split into slices in $z$ and fit in cS1 with gaussians.  Fits in the region
-$\lesssim z \lesssim$ where saturation is not present are interpolated to build a cS1 distribution, which is extrapolated across the
-entire length of
+$-40 \lesssim z \lesssim -10 \mathrm{cm}$ where saturation is not present are interpolated to build a cS1 distribution, which is
+extrapolated across the entire length of
 the TPC.  Differences in fit parameters are used to relocate events deeper in the detector into the proper cS1 band.  The
 $\alpha$-corrected cS1 distribution is shown in the right panel of \figref{fig:electron_lifetimes_measurement_alphas_s1}.
 
@@ -353,7 +353,7 @@ $\alpha$-corrected cS1 distribution is shown in the right panel of \figref{fig:e
 \includegraphics[width=\textwidth]{rn_po_cs1_alpha}
 \caption{cS1 (left) and $\alpha$-corrected cS1 (right) dependence on $z$.  The large \alphadecay S1s deep in
 the TPC sature the bottom PMTs causing an under-corrected cS1, which
-results in the distortion seen in the left panel.  Near the top ($z \lesssim -10\ \matrm{cm}$) a similar effect is observed from top PMT
+results in the distortion seen in the left panel.  Near the top ($z \lesssim -10\ \mathrm{cm}$) a similar effect is observed from top PMT
 saturation.  The distortion is corrected in the right panel where the effect is much less significant.  The red and blue boxes highlight
 the events selected to calculate $\tau_e$.  The colors of data markers correspond to \stwob values.}
 \label{fig:electron_lifetimes_measurement_alphas_s1}
@@ -366,16 +366,16 @@ near the LXe surface, whose light is tightly concentrated in the top PMT array.
 
 The selected \ce{^{222}Rn} and \ce{^{218}Pb} events are indicated by color and color boxes, respectively.  Events with
 $-89< z < -9\ \mathrm{cm}$ and
-$4.9 \times 10^4 < \alpha-\mathrm{corrected\ cS1} < 5.3 \times 10^4\ \mathrm{PE}$ (\ce{^{222}Rn}) and
-$5.35 \times 10^4 < \alpha-\mathrm{corrected\ cS1} < 5.8 \times 10^4\ \mathrm{PE}$ (\ce{^{218}Po}) are selected.  The electron lifetime is
-calculated for each
+$4.9 \times 10^4 < \alpha \mdash \mathrm{corrected\ cS1} < 5.3 \times 10^4\ \mathrm{PE}$ (\ce{^{222}Rn}) and
+$5.35 \times 10^4 < \alpha \mdash \mathrm{corrected\ cS1} < 5.8 \times 10^4\ \mathrm{PE}$ (\ce{^{218}Po}) are selected.  The electron
+lifetime is calculated for each
 independent of the other, which provides a nice cross-check.  Because \ce{^{218}Po} has a half-life of just 3.1 m the number of events
 should be roughly the same.  Each electron lifetime is calculated from 48 hours of data to get sufficient statistics.
 
 The data is binned in $\delta t_d$ and an initial fit is performed on the 50th percentiles of the \stwob distributions from each
 slice.  This preliminary electron lifetime $\tau_e^{(\mathrm{p})}$ is used to remove events that are far from the distribution.  The data
 is then additionally binned in cS1 and fit with a gaussian in each $\delta t_d$ slice.  The means and standard deviations are then fit
-with an exponential, yielding the final electron lifetime $tau_e$.  An example can be seen in
+with an exponential, yielding the final electron lifetime $\tau_e$.  An example can be seen in
 \figref{fig:electron_lifetimes_measurement_alphas_elifetime}.  The color (color) dashed lines define the boundaries above (below) which
 events were cut with the preliminary fit.  Both fits are plotted in each panel for comparison.  We can see \ce{^{222}Rn} (left) and
 \ce{^{218}Po} (right) give good agreement.
@@ -400,8 +400,8 @@ This method can in principle be achieved for any $\alpha$-emitting element distr
 for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.
 
 
-\subsubsection{$\mathbf{^{83m}Kr}$}
-\label{subsubsec:electron_lifetimes_measurement_kr}
+\subsection{$\mathbf{^{83m}Kr}$}
+\label{subsec:electron_lifetimes_measurement_kr}
 The delayed coincidence between the 32.2 and 9.4 keV decays help differentiate $\mathrm{^{83m}Kr}$ events from background.  With
 $t_{1/2} = 154\ \mathrm{ns}$ for the 9.4 keV a large fraction of the S1s will overlap so a cut
 $600 < \delta t_{\mathrm{S1}} < 2000\ \mathrm{ns}$
@@ -416,7 +416,7 @@ is then fit to the the results.
 
 
 
-\subsubsection{$\mathbf{\gamma}$-rays}
+\subsection{$\mathbf{\gamma}$-rays}
 \label{subsec:electron_lifetimes_measurement_gammas}
 The full absorption peak of \gammarays make them great candidates for electron lifetime measurements.  Unfortunately nearly all
 \gammarays in the TPC come from elements in detector materials or external sources placed inside the water tank
@@ -630,15 +630,15 @@ circulation makes 100\% getter efficiency a reasonable estimate.
 
 The rates of impurity removal by the purification system are
 
-\begin{equation}
-\begin{aligned}
+\begin{subequations}
+\begin{align}
 \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
 \label{eq:electron_lifetime_model_removal_gxe}
 \\
 \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
 \label{eq:electron_lifetime_model_removal_lxe}
-\end{aligned}
-\end{equation}
+\end{align}
+\end{subequations}
 
 \noindent where $\rho_{\mathrm{GXe}} = 5.984\ \mathrm{g\ l^{-1}}$ is the density of GXe.  \fg and \fl are the flows of the
 gas and liquid, respectively, and can be calculated using parameters stored in the slow control system
@@ -689,7 +689,7 @@ Parameter & \multicolumn{1}{c}{Function} & Marked by & Comments \\
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{purificationpid}
-\caption{Slow control of purification system.}
+\caption{Slow control for purification system.}
 \label{fig:electron_lifetime_model_slow_control_pur}
 \end{figure}
 
@@ -748,7 +748,7 @@ characterized by
 \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{vap})} = -\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{vap})} =
 \frac{\epsilon_{\mathrm{vap}} P_{\mathrm{C}} I_{\mathrm{L}}}{L}
 \\
-\frac{-dI_{\mathrm{G}}}{dt}^{(\mathrm{cond})} = \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{cond})} =
+-\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{cond})} = \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{cond})} =
 \frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}
 \end{align}
 \end{subequations}
@@ -821,9 +821,10 @@ removal than addition.  This can occur for a number of reasons including an impu
 finished the $\tau_e$ follows a linear-like upward trend, presumably tracking the continual decrease in outgassing.  In the event of a
 purity degradation a Fermi-Dirac will ensue and the electron lifetime will resume the same line as before.
 
-In the beginning of SR1 the electron lifetime rapidly rose to ${\sim} num\ \mathrm{\mu s}$ and began the linear-growth stage.  However,
-instead
-of continuing upward it plateaued around ${\sim} num\ \mathrm{\mu s}$.  A time-independent outgassing model is surely unphysical and
+In the beginning of SR1 the $\alpha$ electron lifetime rapidly rose to ${\sim} 580\ \mathrm{\mu s}$ ($630\ \mathrm{\mu s}$ for \metakr)
+and began the linear-growth stage.  However, instead of continuing this trend over SR1
+it plateaued around ${\sim} 600\ \mathrm{\mu s}$ ($650\ \mathrm{\mu s}$ \metakr).  A time-independent outgassing model is surely
+unphysical and
 gave a poor fit to the entire evolution.  A more likely scenario is the presence of a leak.  While we cannot say definitively that the
 cause is in fact a leak as it was never searched for, it is referred to in this chapter as a leak and in the instance it is not the
 results do not change as this is a simple model for a continuous inflow of impurities.  Therefore inbound impurities are modeled with
@@ -911,7 +912,7 @@ Molecule & $E_D\ [\mathrm{cal\ g^{-1}\ mole^{-1}}]$ & $P_i\ [\mathrm{torr}]$ & $
 \ce{H_2} & 216 & $3.8 \times 10^{-4}$ & $4 \times 10^{-7}$ & $4 \times 10^{-10}$ \\
 \hline
 \end{tabular}
-\caption{Activation energies $E_d$ for normal air at $300^{\circ}K$.  Data taken from \citeref{Holkeboer1966}.}
+\caption{Activation energies $E_D$ for normal air at $300^{\circ}K$.  Data taken from \citeref{Holkeboer1966}.}
 \label{tab:electron_lifetime_model_outgassing_sources_activation_energy}
 \end{table}
 
@@ -1064,20 +1065,41 @@ $d$ is half the thickness of the material (\citeref{OHanlon2003}).  While \eqnre
 describes steady-state permeation 
 
 The process of permeation for the materials used in XENON1T is extremely slow it would never be expected to be seen in the lifetime of the
-experiment.  Thus it does not warrant consideration in the model.
+experiment.  Thus it does not warrant consideration in this analysis.
+
+\textbf{Leaks} present a much more concerning problem.  There are two types of leaks: internal, where gas trapped inside the detector
+in or between materials streams out, and real, where gas originating outside the system drifts through an opening.
+
+The flattening of \te around $600\ \mathrm{\mu s}$ for \alphadecays and $650\ \mathrm{\mu s}$ for \metakr during Science Run 1 provides
+strong support of a leak.  The leak was never looked for but residual gas analyzer (RGA) measurements of the vacuum between the inner and
+outer cryogenics support structure did not reveal an increase in xenon, which should accompany the influx of impurities.  Therefore the
+leak would either need to be internal, or from a component directly exposed to air.  There are a number of possible candidates for the
+latter including the pipes leading to and from the purification system, ReStoX, and the signal and HV feedthrough.
 
 
 
 \subsubsection{Leak Model}
 \label{subsubsec:electron_lifetime_model_outgassing_leak_model}
-The rates at which impurities
-contaminate the xenon and are removed by the getters are then equivalent
+Fits assuming the leak to be in the liquid matched the data better than those presuming the gas.  This eliminates the cable feedthrough
+and lines to ReStoX since they are only in contact with GXe (during filling and refilling ReStoX can pump liquid).  Supposing the leak is
+not internal the most likely candidate is the purification system, of which $num\%$ of returning xenon goes to the liquid phase of the
+TPC.
+
+Because \te is unchanging the LXe impurity concentration must be constant.  Reducing the impurity influx in the LXe to that of the leak
+gives a rough estimate of the rate.  This will only be a rough estimate as while subdominant, nominal outgassing is still present and
+it presumes vaporization and condensation rates are in equilibrium.  It then must be equivalent to impurity removal by the getters
+(\secref{subsec:electron_lifetime_model_removal})
 
 \begin{equation}
-R_I = F_{\mathrm{L}} \rho_{\mathrm{GXe}} I_{\mathrm{L}}
+\begin{aligned}
+R_I \equiv \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{leak})} &= -\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})}
+\\
+&= \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+\end{aligned}
 \end{equation}
 
-\noindent where $R_I$ is the flow of impurities from the leak.  The liquid impurity concentration is equivalent to
+\noindent where $R_I$ is the leak rate and the right side is taken from \eqnref{eq:electron_lifetime_model_removal_lxe}.  The liquid
+impurity concentration is equivalent to
 
 \begin{equation}
 I_{\mathrm{L}} = ( \tau_e k)^{-1}
@@ -1089,9 +1111,9 @@ $\rho_{\mathrm{GXe}} = 5.984\ \mathrm{g\ l^{-1}}$ giving
 
 \begin{equation}
 \begin{aligned}
-R_I &= F_{\mathrm{L}} \rho_{\mathrm{GXe}} (\tau_e k)^{-1} \\
-&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{s\ \mu s^{-1}\ ppb^{-1}})^{-1} \\
-&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (2.5 \mathrm{ppb^{-1}})^{-1} \\
+R_I &= F_{\mathrm{L}} \rho_{\mathrm{GXe}} (\tau_e k)^{-1} \\[2pt]
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{s\ \mu s^{-1}\ ppb^{-1}})^{-1} \\[2pt]
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (2.5 \mathrm{ppb^{-1}})^{-1} \\[2pt]
 &= 165\ \mathrm{ppb\ kg\ day^{-1}}
 \label{eq:electron_lifetime_model_outgassing_leak}
 \end{aligned}
@@ -1114,7 +1136,11 @@ are bound to the cathode.  Fraction of electronegative impurities that pass elec
 bound.  If free electronegative impurities from cathode have extra electron explain how contribute to decreasing electron
 lifetime.  Change in cathode voltage affect number of impurities bound to it, perhaps justifying separate parameters for SR0 and
 SR1.  Maybe include term like negative exponential for impurity buildup on cathode, then total would be amount released.  Cryostat baked
-or not - if exposed to air for extended periods may have up to 100 monolayers of water, if baked may have very little.
+or not - if exposed to air for extended periods may have up to 100 monolayers of water, if baked may have very little.  RGA measurements
+in vacuum did or did not show xenon increase.  Leak testing cryogenics system, purification system.  Cooling towers in vacuum or
+not.  Other possible locations, where valves were, to or from ReStoX, cable pipe.  Name of flange where cables go from inside detector to
+outside - feedthrough I think.  ReStoX can pump liquid during filling and refilling.  Percent of purified xenon that goes to LXe as
+opposed to GXe.
 
 Discuss 100 SLPM plan and choking by pipes, why didn't reach it.  \ce{^{222}Rn} decrease with magnetic
 pump.  Connect to Demonstrator - attempt to drift electrons 1 meter.  Make clear why it's so important.  Discuss how much lose in
@@ -1175,8 +1201,8 @@ sufficient to trigger at drop in getter efficiency.  Due to the repeated use of 
 To model the getter defficiencies \eqnref{eq:electron_lifetime_model_removal_gxe, eq:electron_lifetime_model_removal_lxe}
 become
 
-\begin{equation}
-\begin{aligned}
+\begin{subequations}
+\begin{align}
 \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{gd})} &= \alpha_i \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{pur})} &=
 -\alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
 \label{eq:electron_lifetime_model_detector_effects_getter_gxe}
@@ -1184,8 +1210,8 @@ become
 \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{gd})} &= \alpha_i \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})} &=
 -\alpha_i \rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
 \label{eq:electron_lifetime_model_detector_effects_getter_lxe}
-\end{aligned}
-\end{equation}
+\end{align}
+\end{subequations}
 
 \noindent where $\alpha_i \in [0, 1]$ where $\alpha_i$ is the $i^{\mathrm{th}}$ getter defficiency.
 
@@ -1204,7 +1230,7 @@ information.
 \textbf{June 14, 2016}  The first impurity spike happened when a power glitch temporarily shut off the operating PTR.  The coldfinger (or
 coldhead, find out), which is kept at $num^{\circ} \mathrm{C}$ began to warm, releasing impurities that had condensed on and around its
 surface.  Power was immediately restored and the detector remained stable, but it caused a dip in electron lifetime of
-$\delta tau_e \sim num\ \mathrm{\mu s}$.
+$\delta \tau_e \sim num\ \mathrm{\mu s}$.
 
 \textbf{July 15, 2016}  The second purity drop occurred during a \lntwo test.  In the event both PTRs lose power and the uninterruptible
 power supply
@@ -1264,11 +1290,11 @@ away.  Upon return the anode voltage to 4 kV the hotspot had disappeared and nor
 the PTR power decreased by ${\sim} 50\%$.  However, the decrease in $\tau_e$ was greater than that of June 5th, indicating either the PTR
 power plays a more significant role than the cathode or other detector parameters provided a portion of total contaminants.
 
-\textbf{February 24, 2018}  Just three days after the power glitch a blackout happened.  During this time both the PTR and cathode turned
-off.
+\textbf{February 24, 2018}  Three days after the power glitch a blackout happened, turning off the PTR and cathode.  This dip is modeled
+using an impurity spike for both the GXe and LXe.
 
 \textbf{March 5-7, 2018}  Upon ramping $V_c$ back to 8 kV after the blackout a hotspot on the gate emerged.  Three gate washings spaced
-roughly 24 hours apart were able to remedy the situation.
+roughly 24 hours apart were able to remedy the situation, during which the cathode was turned off.
 
 \textbf{April 5-10, 2018}  The design of the XENON1T purification system was to achieve ${\sim} 100\ \mathrm{slpm}$.  However, the
 1/2" outer diameter (OD) tubing prevented flows of $\gtrsim 50\ \mathrm{slpm}$ and limiting $\tau_e$ to ${\sim} 660\ \mathrm{\mu s}$ for
@@ -1277,33 +1303,61 @@ circulation flow reached ${\sim} 70\ \mathrm{slpm}$.
 
 The purity drops are modeled as
 
-\begin{equation}
+\begin{subequations}
+\begin{align}
 \mathrm{GXe\ purity\ drop} = M_G \Delta I_G^{(i)} \delta (t - t_i^{(i)})
-\end{equation}
-
-\begin{equation}
+\\
 \mathrm{LXe\ purity\ drop} = M_L \Delta I_L^{(i)} \delta (t - t^{(i)})
-\end{equation}
+\end{align}
+\end{subequations}
 
 \noindent where $\Delta I_L^{(i)}$ and $\Delta I_G^{(i)}$ are free parameters representing the magnitude of the drops and
 $\delta (t - t^{(i)})$ is the delta function for the $i^{\mathrm{th}}$ instance.
 
 Once the detector returns to nominal operating conditions the impurities are removed by the getters and within a period of days to weeks
-(depending on $tau_e$ and $\Delta I_{G/L}^{(i)}$) the electron lifetime returns its original trend.  However, for a stretch of time during
-or following the spike the governing physics of the electron lifetime may deviate from previous behavior.  As mentioned above the
-cathode will not attract electronegative impurities when $V_c = 0\ \mathrm{kV}$.  However, because the LXe outgassing model
-(\secref{subsubsec:electron_lifetime_model_outgassing_model}) is defined as the number of free impurities
-inside the LXe, it is no longer correct when the cathode is off.
+(depending on $\tau_e$ and $\Delta I_{G/L}^{(i)}$) the electron lifetime returns its original trend.  However, for a stretch of time during
+or following the spike the governing physics of the electron lifetime evolution may deviate from previous behavior.  As mentioned above
+the
+cathode will not attract electronegative impurities when $V_c = 0\ \mathrm{kV}$.  This disrupts the LXe outgassing model
+(\secref{subsubsec:electron_lifetime_model_outgassing_model}), which
+characterizes the concentration of unconfined impurities, because it breaks from previous $\tau_e$ measurements where some fraction were
+bound to the cathode.
 
-The physics in the GXe region will also differ.
+During a power outage the impurities condensed on the warming
+coldfinger are released and cause the drop in $\tau_e$.  The concentration of contaminants passed to the liquid via condensation
+(\secref{subsec:electron_lifetime_model_vap_and_cond}) then decreases.  Additionally the magnitude of evaporation of contaminants from
+the coldfinger will change, though at $num^{\circ} \mathrm{C}$ this should have a small effect.
+
+Aside from the spike itself modeling these mutations is difficult because the physics of these processes is not well understood.  Studies
+of impurity buildup on the cathode need to be done, and even then it can be detector dependent because of field
+non-uniformities.  Likewise to what extent impurities coalesced on the coldfinger have on $\epsilon_{\mathrm{cond}}$ needs to be
+investigated.  These effects are not modeled in the electron lifetime evolution.
 
 
 
-\subsection{Operations}
+\subsection{Hardware Upgrades}
 \label{subsec:electron_lifetime_model_ops}
-The most difficult parts of the electron lifetime model to characterize are detector operations while the detector is online.
+The most difficult parts of the electron lifetime model to characterize are online detector operations.  The reason is they disrupt the
+system and in many cases the change is permanent and can be difficult to diagnose the effect on the model.
 
+The first major operation was an installation of a third QDrive to the purification system from September 29 - October 5, 2016.  The
+flow was only at ${\sim} num\ \mathrm{slpm}$ - just $fraction$ of the design.  The suspension of flow through one of the two purification
+branches led to a decrease in $\tau_e$ (\figref{}).  The insertion of the QDrive to the system would have added more outgassing
+(additionally increased \ce{^{222}Rn} though this is irrelevant to purity).  However, since xenon passes through the getter after this
+stage it is not expected to change the outgassing model or purity, when considering the assumptions that 100\% of all contaminants are
+absorbed by the zirconium.  There are plausible scenarios why this would not be the case, such as a large initial impurity residue on the
+materials from exposure to air during installation, a sufficiently large inflation in outgassing that overwhelms the pump, or the increase
+in flow speed (discussed in \secref{subsec:electron_lifetime_model_removal}).
 
+During Science Runs 0 and 1 no hardware was exchanged to maintain detector operations stability.  In April 2018 pipes in the purification
+system were upgraded from 1/2" outer diameter to 1" to increase conductance.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{pur_system_mag_pump_upgrade}
+\caption{Figure out what schematic this is for.}
+\label{fig:electron_lifetime_model_ops_pur_pipes_upgrade}
+\end{figure}
 
 \subsection{Field Dependence}
 \label{subsec:electron_lifetime_model_field}
@@ -1331,13 +1385,6 @@ The cathode voltage is included in the fit to convert \il to $tau_e$.  Over the 
 (commissioning until mid-September 2016), 12 (mid-September until the end of SR0), and 8 (since beginning of SR1) kV.  $V_c$ is not
 available from the Historian for the first ${\sim} 1\ \mathrm{month}$ of data-taking and is assumed to be 15 kV.  In addition the values
 through early August 2016 are known to be incorrect at a number of times so are also set to 15 kV.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{pur_system_mag_pump_upgrade}
-\caption{}
-\label{fig:mag_pump}
-\end{figure}
 
 Electronegative impurities
 in particular present a problem

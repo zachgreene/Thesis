@@ -408,7 +408,7 @@ $600 < \delta t_{\mathrm{S1}} < 2000\ \mathrm{ns}$
 where $\delta t_{\mathrm{S1}}$ is the time between S1s is applied.  In addition we require the number of PMTs that see the 9.4 keV peak
 to be $> 3$ to avoid coincident PMT noise and $< 30$ since it is low-energy.
 
-The procedure to calculate the electron lifetime is similar to that described in
+The electron lifetime is calculated using the 32.2 keV decay with a procedure similar to that described in
 \secref{subsubsec:electron_lifetimes_measurement_alphas}.  An preliminary fit is performed using the median \stwob in each drift time
 slice.  However, the high statistics and near-total background removal by the $\delta t_{\mathrm{S1}}$ cut
 removes the need to exclude events far from the true \metakr.  Next each $\delta t_d$ slice is fit with a gaussian and an exponential
@@ -621,7 +621,8 @@ to result from gas passing through the getter too quickly to remove the impuriti
 For XENON1T the two getters cleaned a combined flow of $\lesssim 50\ \mathrm{slpm}$ from commissioning until after SR1 - half of what was
 planned due the 1/2" pipes connecting the cryogenics system to the purification system producing higher than expected resistance.  A
 series of
-upgrades were performed in April-June 2018 that increased flows to ${\sim} 80\ \mathrm{slpm}$ (\secref{}).  Because in both cases the
+upgrades were performed in April-June 2018 that increased flows to ${\sim} 80\ \mathrm{slpm}$
+(\secref{subsec:electron_lifetime_model_ops}).  Because in both cases the
 flow through each getter never exceeded 50 slpm the model assumes 100\% of contaminants are absorbed by the zirconium, though we cannot
 be certain.  However, including a variable in the model to reflect a portion of impurities returned
 to the detector would be equally inadequate because \figref{fig:electron_lifetime_model_removal_demonstrator_circ} suggests it is
@@ -632,10 +633,10 @@ The rates of impurity removal by the purification system are
 
 \begin{subequations}
 \begin{align}
-\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
+M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{G}} I_{\mathrm{G}}
 \label{eq:electron_lifetime_model_removal_gxe}
 \\
-\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
+M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{pur})} &= -\rho_{\mathrm{GXe}} F_{\mathrm{L}} I_{\mathrm{L}}
 \label{eq:electron_lifetime_model_removal_lxe}
 \end{align}
 \end{subequations}
@@ -734,21 +735,21 @@ should achieve a state of equilibrium with cooling power \pc (from a PTR or L\ce
 rate of LXe vaporization and GXe condensation will balance, fixing the masses and volumes of both.
 
 When additional heat is added to the system the situation changes as \pc is no longer sufficient to keep the chamber in
-equilibrium.  The cooling towers must supply power $P > P_{\mathrm{C}}$ to maintain balance.  During normal operation extra heat comes
+equilibrium.  The cooling towers must supply power $P > P_{\mathrm{stab}}$ to maintain balance.  During normal operation extra heat comes
 from xenon traveling through the purification system.  Reflecting on the stable operating conditions the LXe notices no difference as
 its temperature and volume are unchanged.  Therefore the rate that LXe that is vaporized has not changed.  The GXe, however, condenses
 at a faster rate since it resides in the cooling towards and $P$ has increased.
 
-The mass of liquid xenon will evaporate at a rate $P_{\mathrm{C}} / L$ where $L = 95.6 \times 10^3\ \mathrm{J\ kg^{-1}}$ is the
+The mass of liquid xenon will evaporate at a rate $P_{\mathrm{stab}} / L$ where $L = 95.6 \times 10^3\ \mathrm{J\ kg^{-1}}$ is the
 specific latent heat of the liquid-gas phase transition.  For GXe condensation this is simply $P / L$.  Impurity migration can then be
 characterized by
 
 \begin{subequations}
 \begin{align}
-\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{vap})} = -\frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{vap})} =
-\frac{\epsilon_{\mathrm{vap}} P_{\mathrm{C}} I_{\mathrm{L}}}{L}
+M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{vap})} = -M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{vap})} =
+\frac{\epsilon_{\mathrm{vap}} P_{\mathrm{stab}} I_{\mathrm{L}}}{L}
 \\
--\frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{cond})} = \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{cond})} =
+-M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{cond})} = M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{cond})} =
 \frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}
 \end{align}
 \end{subequations}
@@ -817,7 +818,7 @@ The xenon is contaminated primarily with impurities that outgas from detector ma
 critical role in the outcome of the electron lifetime model.  Historically electron lifetimes have followed a Fermi-Dirac during periods
 of rapid increase that result from a higher rate of impurity
 removal than addition.  This can occur for a number of reasons including an impurity spike
-(\secref{subsubsec:electron_lifetime_model_detector_effects_spikes}) or improvement in flow through the getters.  Once this phase is
+(\secref{subsec:electron_lifetime_model_detector_effects_spikes}) or improvement in flow through the getters.  Once this phase is
 finished the $\tau_e$ follows a linear-like upward trend, presumably tracking the continual decrease in outgassing.  In the event of a
 purity degradation a Fermi-Dirac will ensue and the electron lifetime will resume the same line as before.
 
@@ -1140,7 +1141,7 @@ or not - if exposed to air for extended periods may have up to 100 monolayers of
 in vacuum did or did not show xenon increase.  Leak testing cryogenics system, purification system.  Cooling towers in vacuum or
 not.  Other possible locations, where valves were, to or from ReStoX, cable pipe.  Name of flange where cables go from inside detector to
 outside - feedthrough I think.  ReStoX can pump liquid during filling and refilling.  Percent of purified xenon that goes to LXe as
-opposed to GXe.
+opposed to GXe.  Paper or note on magnetic pump.  Why QDrives over KNF - exposure to air.  RGA of impurities.
 
 Discuss 100 SLPM plan and choking by pipes, why didn't reach it.  \ce{^{222}Rn} decrease with magnetic
 pump.  Connect to Demonstrator - attempt to drift electrons 1 meter.  Make clear why it's so important.  Discuss how much lose in
@@ -1148,20 +1149,13 @@ sensitivity.  Tests to understand individual components.  Include flow model by 
 waveforms for same energy event - one at top and one at bottom of detector and how bottom is worse.  Discuss qualitatively electron
 lifetime before discuss model.
 
-
-
-\subsection{Detector Effects}
-\label{subsec:electron_lifetime_model_detector_effects}
-The most difficult part of the trend to model are detector-driven effects.  This is mainly because although a decrease in $\tau_e$ occurs,
-in many cases there is no clear understanding of how the purity levels change with time.
-
 April 14 18:27 LXe level too high, adjusted by Ops Manager.  April 16 17:05 normal power turned off.  April 19 9:03 and 9:09 normal power
 turned off.  PTR with LN2 test May 9-18.
 
 
 
-\subsubsection{Getter Defficiencies}
-\label{subsubsec:electron_lifetime_model_detector_effects_getter}
+\subsection{Getter Defficiencies}
+\label{subsec:electron_lifetime_model_detector_effects_getter}
 One of the stranger effects observed in the beginning of SR0 was a slow decrease in lifetime when it seemed no other detector conditions
 were changing.  They
 appear as a decline in $tau_e$ over a number of ($\lesssim 10$) days.  They are referred to as ``getter defficiencies'' because the
@@ -1171,7 +1165,7 @@ contaminants by the getters and there is evidence to support this was in fact th
 The first getter defficiency
 began on November 26, 2016 shortly after the \ambe and \metakr calibrations and ended on December 5.  A power glitch occurred several
 days before that released a small number of impurities into the chamber
-(\secref{subsubsec:electron_lifetime_model_detector_effects_spikes}) but the lifetime was recovering when this slow decrease
+(\secref{subsec:electron_lifetime_model_detector_effects_spikes}) but the lifetime was recovering when this slow decrease
 occurred.  Unfortunately this is the one getter defficiency with uncertainty as to its cause.  There were a number of ongoing operations
 at the time including \ce{^{85}Kr} distillation and pipette filling for RGMS - both of which use the purification system - but they don't
 align perfectly with the dates.
@@ -1217,12 +1211,12 @@ become
 
 
 
-\subsubsection{Impurity Spikes}
-\label{subsubsec:electron_lifetime_model_detector_effects_spikes}
+\subsection{Impurity Spikes}
+\label{subsec:electron_lifetime_model_detector_effects_spikes}
 On a number of occasions sudden drops in purity were observed.  Unlike the getter defficiencies these impurity spikes were immediate and
 had no measurable duration.  In all cases these were traceable to changes in the state of the detector.  In total five impurity spikes
 from the detector coming online to the end of SR1 are contained in the model, with several more in the months following SR1
-(\secref{}).  The
+(\secref{subsec:electron_lifetime_model_ops}).  The
 sudden contaminant surges seem to come from power disruptions though in some instances are difficult to distinguish from other
 abnormalities.  Each instance is listed in \tabref{tab:electron_lifetime_model_detector_effects_spikes_dates} along with relevant
 information.
@@ -1305,13 +1299,13 @@ The purity drops are modeled as
 
 \begin{subequations}
 \begin{align}
-\mathrm{GXe\ purity\ drop} = M_G \Delta I_G^{(i)} \delta (t - t_i^{(i)})
+\mathrm{GXe\ purity\ drop} = M_{\mathrm{G}}\, \Delta I_{\mathrm{G}}^{(i)}\, \delta (t - t_i^{(i)})
 \\
-\mathrm{LXe\ purity\ drop} = M_L \Delta I_L^{(i)} \delta (t - t^{(i)})
+\mathrm{LXe\ purity\ drop} = M_{\mathrm{L}}\, \Delta I_{\mathrm{L}}^{(i)}\, \delta (t - t^{(i)})
 \end{align}
 \end{subequations}
 
-\noindent where $\Delta I_L^{(i)}$ and $\Delta I_G^{(i)}$ are free parameters representing the magnitude of the drops and
+\noindent where $\Delta I_{\mathrm{L}}^{(i)}$ and $\Delta I_{\mathrm{G}}^{(i)}$ are free parameters representing the magnitude of the drops and
 $\delta (t - t^{(i)})$ is the delta function for the $i^{\mathrm{th}}$ instance.
 
 Once the detector returns to nominal operating conditions the impurities are removed by the getters and within a period of days to weeks
@@ -1359,32 +1353,122 @@ system were upgraded from 1/2" outer diameter to 1" to increase conductance.
 \label{fig:electron_lifetime_model_ops_pur_pipes_upgrade}
 \end{figure}
 
-\subsection{Field Dependence}
-\label{subsec:electron_lifetime_model_field}
-The attachment rate of electrons with electronegative impurities depends on the electric field.
+The final hardware upgrade was in the middle of June when a magnetic pump was installed, allowing the bypassing of the QDrives at flows
+of ${\sim} 80\ \mathrm{slpm}$.  The research and development for the magnetic pump was ongoing since XENON1T came online so was not
+available for commissioning.  The slow control schematic of the modification to the purification system can be seen in
+\figref{fig:electron_lifetime_model_ops_pur_pipes_upgrade}.
+
+The QDrives were chosen in part because they did not risk exposure to air if something were to
+break, unlike KNF pumps used in the past (\citeref{get reference}).  However, they could be unreliable - especially at higher flows - and
+are one of the highest contributors to the \ce{^{222}Rn}
+background with an estimated contribution of 30\% from screening during commissioning.  While \ce{^{222}Rn} is not a threat to our
+background its progenies - particularly \ce{^{214}Pb} - are the dominant components.  Once the QDrives were removed from circulation the
+\ce{^{222}Rn} event rate dropped from $12.5 \pm 0.2$ to
+$6.8 \pm 0.2\ \mathrm{\mu Bq\ kg^{-1}}$, or ${\sim} 45\%$, as shown in \figref{fig:electron_lifetime_model_ops_rn_emanation}.  The larger
+than expected decrease could be due to only two of the three
+QDrives in service being screened (QD251 and QD253), from which the value of the third was inferred.  Higher radon emanation from the
+third would inflate
+the QDrive fraction of the radon budget.  A second consideration is the screening tests were performed at room temperature.  The higher
+temperature while running may escalate emanation.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{attachingratevsfield}
+\includegraphics[width=0.8\textwidth]{rn_emanation_mag_pump}
+\caption{Check back for updated plot, code.  \ce{^{222}Rn} concentration before and after the magnetic pump upgrade.}
+\label{fig:electron_lifetime_model_ops_rn_emanation}
+\end{figure}
+
+The success of the magnetic pump is encouraging for XENONnT where the electron lifetime needs significant improve and the background needs
+to be lowered.  As it has only been employed for $< 3\ \mathrm{months}$ other beneficial or adverse effects may appear, but so far the
+upgrade is promising.
+
+The hardware updates each improving the purification system recounts the failure to meet design specifications: $100\ \mathrm{slpm}$
+and $\tau_e > 1\ \mathrm{ms}$.  This was the first instance of ton-scale purification and what has been learned will guide the XENONnT
+upgrade.
+
+
+
+\subsection{Field Dependence}
+\label{subsec:electron_lifetime_model_field}
+In addition to inhomogeneous variations in charge yields (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}) the electric field affects
+the attachement rate constant $k$ for the reaction
+
+\begin{equation}
+e^- + \mathrm{S} \rightarrow \mathrm{S^-}
+\end{equation}
+
+\noindent where S is some impurity.  Because impurities in this fit are modeled in \ce{O_2}-equivalence
+$k(\mathrm{S} + e^-)$ is also based on \ce{O_2}.  Unfortunately very little research has been done on this subject and the model uses a
+measurement from
+1976 (\citeref{Bakale1976}), shown in \figref{fig:electron_lifetime_model_field_attaching_rate}.  It finds the oxygen attachement rate
+constant $k(\mathrm{O_2} + e^-)$ decreases at higher $E_{\mathrm{D}}$.  \ce{SF_6} follows this trend though is notably larger, while
+\ce{N_2O} is on the same scale but increases at larger field.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{attachingratevsfield}
 \caption{Field-dependent attachment rates for \ce{O_2}, \ce{N_2O}, and \ce{SF_6}.  Because the model uses \ce{O_2} to represent
-impurities the attachment rate is expected to decrease with electric field.}
+impurities the attachment rate is expected to decrease with electric field.  Image credit: \citeref{Bakale1976}.}
 \label{fig:electron_lifetime_model_field_attaching_rate}
 \end{figure}
 
+This points to the problem in using this.  Oxygen is expected to be by far the most prevalent and dangerous contaminant.  But small
+quantities of other molecules exist whose electron attachment rate constants are unknown are not considered.  The magnitude of the effect
+is likely small but should not be overlooked.  Because the the results in \figref{fig:electron_lifetime_model_field_attaching_rate} are
+the sole measurement (current research still uses them to date) a more thorough and diverse investigation is needed.
+
+The electron lifetime is calculated as
+
+\begin{equation}
+\tau_e = \frac{1}{I_{\mathrm{L}} k}
+\label{eq:electron_lifetime_model_field_lifetime}
+\end{equation}
+
+\noindent which is used to compute the log-likelihood in the fit (\secref{}).
 
 
-\subsection{Slow Control System}
-\label{subsec:electron_lifetime_model_slow_control}
-The electron lifetime model relies on a number of detector parameters from operations.  These are queried from the slow control system
-(\secref{subsec:xenon1t_detector_slow_control}) and included in the fit.  This allows automatic integration of time-varying nuisance
-parameters - without which the fit would be essentially impossible.
 
-To model impurity condensation the PTR power $P$ also needs to be recorded.
+\section{Electron Lifetime Fit}
+\label{sec:elifetime_fit}
+Putting the elements from \secref{sec:electron_lifetime_model} together gives the impurity evolution model
 
-The cathode voltage is included in the fit to convert \il to $tau_e$.  Over the lifetime of XENON1T $V_c$ has primarily been 15
-(commissioning until mid-September 2016), 12 (mid-September until the end of SR0), and 8 (since beginning of SR1) kV.  $V_c$ is not
-available from the Historian for the first ${\sim} 1\ \mathrm{month}$ of data-taking and is assumed to be 15 kV.  In addition the values
-through early August 2016 are known to be incorrect at a number of times so are also set to 15 kV.
+\begin{subequations}
+\begin{align}
+\begin{split}
+M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt} = - \alpha (t) F_{\mathrm{G}} \rho_{\mathrm{GXe}} I_{\mathrm{G}} +
+& \frac{\epsilon_{\mathrm{vap}} P_{\mathrm{stab}} I_{\mathrm{L}}}{L}\, - \, \frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}\, + \\
+& \Lambda_{\mathrm{G}}(t) + \sum_i  M_{\mathrm{G}}\, \Delta I_{\mathrm{G}}^{(i)}\, \delta (t - t_i^{(i)})
+\end{split}
+\\
+\begin{split}
+M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt} = -\alpha (t) F_{\mathrm{L}} \rho_{\mathrm{GXe}} I_{\mathrm{L}} -
+& \frac{\epsilon_{\mathrm{vap}} P_{\mathrm{stab}} I_{\mathrm{L}}}{L}\, + \, \frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}\, + \\
+& \Lambda_{\mathrm{L}}(t) + R_I + \sum_i  M_{\mathrm{L}}\, \Delta I_{\mathrm{L}}^{(i)}\, \delta (t - t_i^{(i)})
+\end{split}
+\end{align}
+\end{subequations}
+
+\noindent with $\alpha(t) = 1$ for all times except periods of getter defficiencies
+(\secref{subsec:electron_lifetime_model_detector_effects_getter}).
+
+
+
+\subsection{Markov Chain Monte Carlo}
+\label{subsec:elifetime_fit_mcmc}
+To fit the data a Markov Chain Monte Carlo (MCMC) is used, similar to the electronic and nuclear recoil banding fitting for the dark
+matter
+search analysis (\secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc}).  MCMCs use $k$ walkers to explore the target distribution
+over $T$ iterations.  Each walker $i$ has parameters $vect{\theta}_i$ with proposed steps based on current positions of the
+walkers, making MCMCs memoryless.
+
+However, instead of the modified Affine-Invariant
+Ensemble Sampler this analysis uses a Differential Evolution Sampler.  The two are similar in that they are both random walk Monte Carlos
+and proposal steps are generated from fellow chains.
+
+\begin{enumerate}
+\item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (we randomly sample
+$p(\vect{\theta}|\vect{\alpha})$).
+\end{enumerate}
 
 Electronegative impurities
 in particular present a problem

@@ -454,7 +454,7 @@ bottles (Kr column occurs after the purification loops before the HALO).
 The components of the system are electropolished and able to be baked up to ${\sim} 120^{\circ}\ \mathrm{C}$ for decreased outgassing during
 operation.  The purification system has a number of valves that allow the versatility described in this section.  The majority are
 pneumatic and can
-be operated remotely with the slow control system (\seccref{subsec:xenon1t_detector_slow_control}).  The remainder are manual valves
+be operated remotely with the slow control system (\secref{subsec:xenon1t_detector_slow_control}).  The remainder are manual valves
 situated in select locations: to and from the cryostat,
 inside the calibration box, and before the vacuum pump, which can be used to evacuate individual sections or all of the system.  These are
 in place as a precaution against accidental openings of the actuated valves that could produce problems.
@@ -583,7 +583,8 @@ the source will flow into the GXe stream and into the cryostat and mix with the 
 electronegative impurities.  The source will quickly spread itself throughout the entirety of the xenon, giving a uniform distribution,
 and allowing us to improve our understanding of how variation in observables relates to position.
 
-\kryptonmeta has two monoenergetic decays at 32.15 ($t_{1/2} = 1.83\ \mathrm{h}$) and 9.4 keV ($t_{1/2} = 154.4\ \mathrm{ns}$).  The short
+$\mathrm{^{83m}Kr}$ has two monoenergetic decays at 32.15 ($t_{1/2} = 1.83\ \mathrm{h}$) and 9.4 keV
+($t_{1/2} = 154.4\ \mathrm{ns}$).  The short
 half-lives coupled with its final decay product, \ce{^{83}Kr} being stable makes it a great choice to calibrate the light collection
 efficiency (LCE) and measure the electron lifetime.
 
@@ -721,7 +722,7 @@ and SMS texts to cellular phones.
 
 Individual PACs from the GE RX3i family control sensors and actuators of the purification, cryogenics, krypton distillation,
 LXe storage, and water purification systems.  The PACs connect to a private front-end network.  PAC alarms are transmitted using the
-GE Alarm&Event Express tool to the alarm system.  In addition to the SCADA system operations are possible via touch screens.  Open
+GE Alarm\&Event Express tool to the alarm system.  In addition to the SCADA system operations are possible via touch screens.  Open
 Platform Communication (OPC) servers, web services, or the Modbus protocol integrate the DAQ, high-voltage supply, and calibration
 system motor controllers into the slow control system.  For extra security the system requires certain conditions to be met before
 performing potentially unsafe operations.
@@ -2265,7 +2266,7 @@ With the fast Monte Carlo complete we can input any truth MC ($E$, $x_{\mathrm{t
 $z$, and number of scatters) and obtain the corresponding cS1 and \cstwob distributions.  However, simply doing this with
 the initial parameter values is not sufficient since we are interested in the best-fit data-Monte Carlo comparison.
 
-To do so use we a binned likelihood approach using Bayesian analysis.  The fast MC events (typically run $\mathcal{O}(10^6)$) and data are
+To do so use we a binned likelihood approach using Bayesian analysis.  Fast MC events (typically run $\mathcal{O}(10^6)$) and data are
 each binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$ histograms.  The likelihood between equivalent bins \li is computed as
 \begin{equation}
 \begin{aligned}
@@ -2974,93 +2975,3 @@ and the vertical lines (right) mark the 0.9 t (dashed blue) and 1.3 t (solid mag
 regions are outside the region of interest.  The grey lines (left) display iso-energy contours in $\mathrm{keV_{nr}}$.}
 \label{fig:dark_matter_results_bands}
 \end{figure}
-
-The correlation between $r_{\mathrm{rec}}^2$ and cS2$_{\mathrm{b}}$ (right panel of \figref{fig:dark_matter_results_bands}) provides
-additional discrimination in the likelihood analysis.  An unbinned extended likelihood is used to interprete the data in the 1.3 t
-fiducial mass.  Events are classified as inside or outside the core fiducial mass in addition to the unbinned analysis dimensions cS1,
-cS2$_{\mathrm{b}}$, and $r_{\mathrm{rec}}$.  Model uncertainties are included as nuisance parameters in the likelihood.  A mis-modeling
-``safeguard'' or WIMP-like component is added to the ER model and constrained by \ce{^{220}Rn} calibration data (\citeref{Priel2017}).
-
-Confidence intervals for the WIMP-nucleon spin-independent elastic scattering cros section $\sigma_{SI}$ with respect to WIMP mass were
-computed via ``profile construction'' using MC simulations
-(\citeref{Feldman1998}).  The coverage was tested using a variety of values of nuisance parameters.  The 90\% confidence interval upper
-limit for $\sigma_{SI}$ is shown in \figref{fig:dark_matter_results_limit}.  The inset shows the limits and sensitivity's for this result
-and \citeref{LUX2017a, PandaXII2017} normalize to the median sensitivity of this result.  At $> 50\ \mathrm{GeV}$ we can see our median
-sensitivity is a factor of ${\sim}7$ better than these previous experiments.  We set an upper limit for
-$\sigma_{SI} = 4.1 \times 10^{-47}\ \mathrm{cm^2}$ at 30 GeV, the most stringent to date for $> 6\ \mathrm{GeV}$ WIMPs.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{x1t_prelim_limits_zoom}
-\caption{Spin-independent results from this analysis.  The black solid black line is the 90\% confidence level upper limit on
-$\sigma_{SI}$ and represents the limit from this analysis.  $1 \sigma$ (green) and $2 \sigma$ (yellow) sensitivity quantiles are
-shown.  Previous results from LUX (red) (\citeref{LUX2017a}) and PandaX-II (blue) (\citeref{PandaXII2017}) are shown for reference.  The
-inset shows these limits (solid) and median sensitivities (dashed) along with $\pm 1 \sigma$ quantiles normalized to this work's median
-sensitivity.}
-\label{fig:dark_matter_results_limit}
-\end{figure}
-
-
-
-
-
-In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
-to the field at drift velocity $v_{d}$.  For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3-4}$
-\vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
-
-
-As the electron cloud drifts it will diffuse both longitudinally (in the direction of $E$) and transversely (perpendicular to $E$).  The
-diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
-be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
-
-Extensive xenon distillation and purification occurs before it is used in a detector.  Nonetheless impurities outgas from detector
-material and contaminate the LXe.  Electronegative impurities in particular present a problem since they will attach to a free \electron,
-lowering the number that reach the top of the detector and decreasing the secondary scintillation as shown in \eqnref{eq:impurity_attach}.
-
-\begin{equation}
-e^{-} + S \rightarrow S^{-}
-\label{eq:impurity_attach}
-\end{equation}
-
-\noindent The amount of \electron captured is dependent on the time in the LXe.  Thus an advantage of larger \efields is a larger
-\vd (up to a point) and thus less time in the liquid.  Doping LXe with organic materials such as butane can increase \vd at higher
-\efields but they are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  By setting the rate at which
-electrons are absorbed by impurities $dq/dt = -qk_{S}S$ where $S$ is the impurity concentration and $k_{S}$ is the attachment rate
-constant we find
-
-\begin{equation}
-q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
-\label{eq:lifetime_equation}
-\end{equation}
-
-\noindent where $\tau_{e} = (k_{S}S)^{-1}$ and is known as the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
-O$_{2}$,
-N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
-decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values - that is, the concentration of \otwo if it was solely
-responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
-\figref{fig:attachment_rate} gives a good approximation.  Removing such impurities will be discussed in detail in
-\secref{subsec:electron_lifetime_model_removal}.
-
-\begin{figure}
-\includegraphics[width=0.8\textwidth]{attachingratevsfield}
-\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for \otwo, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
-larger \efield $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
-\label{fig:attachment_rate}
-\end{figure}
-
-In a TPC a cathode at the bottom of the detector applies an electric field in the LXe.  The \electron drift towards the top where a
-grounded gate rests a few millimeters below the LXe surface.  Directly above the gate by a couple centimeters is the anode, which
-applies a strong electric field that extracts the electrons into the gas xenon (GXe).  An extracted electron will ionize and excite
-GXe atoms, whose freed electrons will do so as well in what is known as electroluminescence.  The number of ionized and excited atoms
-is proportional to the number of \electron extracted, hence it is also known as proportional scintillation.  The number of photons
-$N_{\mathrm{ph}}$ produced traveling a distance $z$ is
-
-\begin{equation}
-\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
-\label{eq:electronlum}
-\end{equation}
-
-\noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $E_{g}$ and $P$ are the
-GXe electric field and pressure, respectively (\citeref{Belogurov1995}).
-
-For PMT use Fig. 1 of Aprile2015

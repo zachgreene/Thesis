@@ -2304,11 +2304,11 @@ model and is also known as the
 \textit{prior probability}.  Constraints on $\vect{\theta}$ - generally from physical restrictions or previous measurements or
 knowledge - are stored in hyperparameters $\vect{\alpha}$.  $p(\vect{\theta}|\vectlett{x}, \vect{\alpha})$ is the probability of
 parameters $\vect{\theta}$ of dimension $k$ given the
-data $\vectlett{x}$ and is known as the \textit{posterior probability} density, or \textit{target}
-density.  $p(\vectlett{x}|\vect{\theta})$ is the probability of the data $\vectlett{x}$ given the parameters
+data $\vectlett{x}$ and is known as the \textit{posterior probability density}, or \textit{target
+density}.  $p(\vectlett{x}|\vect{\theta})$ is the probability of the data $\vectlett{x}$ given the parameters
 $\vect{\theta}$ and is
 commonly referred to as the \textit{likelihood} $\mathcal{L}(\vect{\theta})$.  $p(\vect{\theta})$ captures any prior knowledge of the
-model, and is also known as the \textit{prior probability}.  $p(\vectlett{x})$ is known as the \textit{marginal likelihood}
+model, and is also known as the \textit{prior probability}.  $p(\vectlett{x}|\vect{\alpha})$ is known as the \textit{marginal likelihood}
 and can be computed using \eqnref{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}.  Because it does not depend on
 $\vect{\theta}$ it is model-independent and does not contribute to the relative probability between different
 hypotheses.
@@ -2326,9 +2326,10 @@ needing to consider the marginal likelihood.
 \subsubsection{Markov Chain Monte Carlo}
 \label{subsubsec:er_nr_calibrations_parameter_determ_mcmc}
 To estimate the values of parameters $\vect{\theta}$ that are best fit by $\vectlett{x}$ we employ a Markov Chain
-Monte Carlo (MCMC).  MCMCs are a class of algorithms used for sampling a probability distribution, and are in part desirable because they
+Monte Carlo (MCMC).  MCMCs are a class of algorithms that sample a probability distribution, and are in part desirable because they
 give complete knowledge of the full posterior probability
-distribution.  An MCMC consists of $k$ ``walkers'' with each walker representing a unique $\vect{\theta}_i$.  A large
+distribution.  An MCMC consists of $k$ ``walkers'' with each walker representing an independent set of parameters $\vect{\theta}_i$.  A
+large
 subpopulation of MCMC algorithms - including the method used in this analysis - use random walk Monte Carlos algorithms, meaning the
 walkers move about randomly.
 
@@ -2338,6 +2339,14 @@ integrand for its next move.  A step is solely dependent on the current position
 ``memorylessness'' this means that, compared to its present state, knowledge of the entire history would not improve predictions of a
 walker's future state, i.e. a walker's past and future states are independent.  An array of $k$ walkers of $\vect{\theta}$ over $T$
 iterations forms a ``chain''.
+
+An MCMC is \textit{reversible} if it satisfies the detailed balance equation
+
+\begin{equation}
+\pi (\vectlett{x}^{\prime}) P(\vectlett{x}^{\prime}|\vectlett{x}) = \pi (\vectlett{x}) P(\vectlett{x}|\vectlett{x}^{\prime})
+\end{equation}
+
+\noindent where $\pi(.)$ is a \textit{stationary distribution}.
 
 In general $\vect{\theta}$ may contain parameters that are necessary for the model but of little interest,
 known as \textit{nuisance parameters}, $\vect{\theta}^{(N)}$ ($\vect{\theta} = [\vect{\theta}^{(I)}, \vect{\theta}^{(N)}]$ with
@@ -2355,7 +2364,8 @@ marginalized posterior $p(\vect{\theta}^{(I)}|\vectlett{x}, \vect{\alpha})$.  Th
 MCMCs have become increasingly popular in recent years as advances in methods and computer processing speeds have made them
 a powerful tool that can be run in reasonable timescales.  For this analysis we use an implementation by \citeref{Foreman2013} of
 the Affine-Invariant Ensemble Sampler proposed by \citeref{Goodman2010}, modified to allow stretch move update step parallelization as
-outlined below.
+outlined below.  An important property of some Markov Chains - including the Affine-Invariant Ensemble Sampler - is they are
+\textit{reversible}, or satisfy \textit{detailed balance} describe equations and what means.
 
 \begin{enumerate}
 \item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (we randomly sample
@@ -2382,7 +2392,7 @@ q = \mathrm{min} \bigg( 1, z^{n - 1} \frac{\mathcal{L}(\vect{\theta}_p)p(\vect{\
 \label{eq:er_nr_calibrations_parameter_determ_mcmc_prob}
 \end{equation}
 
-\noindent ensures the chain will fulfill detailed balance.  \citeref{Foreman2013} uses
+\noindent ensures the chain will satisfy detailed balance.  \citeref{Foreman2013} uses
 \begin{equation}
 g(z) \propto
 \begin{cases}
@@ -2413,18 +2423,7 @@ no consensus on an optimal value.  $\mathcal{F} \sim 0$ would mean nearly all st
 and the target density would be poorly explored.  Meanwhile $\mathcal{F} \sim 1$ means nearly every proposal is accepted in which case
 the chain is in a random walk with little regard for the posterior.  A reasonable range is considered to be $0.2 \mdash 0.5$.
 
-The likelihood dependence in \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_prob} can be rewritten as
-
-\begin{equation}
-\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|\vect{\alpha_p})}
-{\mathcal{L}(\vect{\theta}_i) p(\vect{\theta}_i|\vect{\alpha}_i)} =
-\dfrac{\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|\vect{\alpha}_p)}{p(\vectlett{x}|\vect{\alpha}_p)}}
-{\frac{\mathcal{L}(\vect{\theta}_i) p(\vect{\theta}_i|\vect{\alpha}_i)}{p(\vectlett{x}|\vect{\alpha}_i)}} =
-\frac{p(\vect{\theta}_p|\vectlett{x}, \vect{\alpha}_p)}{p(\vect{\theta}_i|\vectlett{x}, \vect{\alpha}_i)}
-\label{eq:er_nr_calibrations_parameter_determ_mcmc_acc_ratio}
-\end{equation}
-
-\noindent and see that the probability the proposal is accepted is just the ratio of the posterior distributions.  $\mathcal{F}$ is then
+$\mathcal{F}$ is then
 the fraction of proposals that are accepted over the course of the fit.  Note that even if the posterior of $\vect{\theta}_p$ is less than
 that of $\vect{\theta}_i$ the proposal may be accepted.  We do not need to know the marginal
 likelihood (\eqnref{eq:er_nr_calibrations_parameter_determ_mc_match_p_data}) to perform an Affine-Invariant Ensemble Sampler MCMC
@@ -2438,7 +2437,7 @@ Ensemble Sampler has been shown to have a smaller autocorrelation time than the 
 the convergence if samplers with varying levels of density anisotropy.
 
 A second metric and the leading one used in
-our analysis is the Gelman-Rubin statistic (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
+our analysis is the Gelman-Rubin statistic $\hat{R}$ (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
 between chains, with the idea roughly being the two should be nearly equivalent when the fit has converged.
 
 For this analysis the we fit the electronic and nuclear recoil bands with  $n = 44\ \mathrm{parameters}$ and an Affine-Invariant Ensemble
@@ -2960,7 +2959,7 @@ The second candidate is at ${\sim} 16\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \si
 rests nicely in our energy ROI, but we can see it lies near the fiducial edge, giving it a higher probability to come from surface or
 neutron background.
 
-The third contender around ${sim} 12\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 400 \mathrm{PE}$) is situated just below the NR
+The third contender around ${\sim} 12\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 400 \mathrm{PE}$) is situated just below the NR
 $-2 \sigma$ line.  It is most likely to be a neutron however due to its proximity to the cathode.  Its small cS2$_{\mathrm{b}}$/cS1
 ratio could result from a neutron that scattered below the cathode before scattering in the TPC.
 

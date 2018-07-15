@@ -1455,20 +1455,177 @@ M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt} = -\alpha (t) F_{\mathrm{L}} \rho_{\ma
 
 \subsection{Markov Chain Monte Carlo}
 \label{subsec:elifetime_fit_mcmc}
-To fit the data a Markov Chain Monte Carlo (MCMC) is used, similar to the electronic and nuclear recoil banding fitting for the dark
-matter
-search analysis (\secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc}).  MCMCs use $k$ walkers to explore the target distribution
-over $T$ iterations.  Each walker $i$ has parameters $vect{\theta}_i$ with proposed steps based on current positions of the
-walkers, making MCMCs memoryless.
-
-However, instead of the modified Affine-Invariant
-Ensemble Sampler this analysis uses a Differential Evolution Sampler.  The two are similar in that they are both random walk Monte Carlos
+Similar to the electronic and nuclear recoil banding fitting for the dark matter search analysis
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc}) this analysis uses a Markov Chain Monte Carlo (MCMC).  However, a
+Differential Evolution Markov Chain (DEMC) is used instead of the modified Affine-Invariant
+Ensemble Sampler.  The two are similar in that they are both random walk Monte Carlos
 and proposal steps are generated from fellow chains.
+
+MCMCs use $k$ walker
+to explore the target distribution
+over $T$ iterations.  Each walker $i \in k$ has parameters $vect{\theta}_i$ with proposed steps based on current positions of the
+walkers, making MCMCs memoryless - that is, any there is no advantage to having knowledge of previous steps.  As with the Affine-Invariant
+Ensemble Sampler DEMC is reversible and satisfies detailed balance.  The DEMC method used in this fit follows from
+(\citeref{terBraak2006}) with improvements suggested in \citeref{Nelson2014} and a snooker updater outlined in \citeref{terBraak2008}.
 
 \begin{enumerate}
 \item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (we randomly sample
 $p(\vect{\theta}|\vect{\alpha})$).
+
+\item Set $\gamma_0 = 2.38 / (2 n)^{1/2} = num\ from\ final\ fit$ and $\sigma_{\gamma} = 10^{-4}$.
+
+\item \label{itm:update_demc} Update each $\{\vect{\theta}_i, \forall i = 1, ..., k\}$.
+\begin{enumerate}
+\item \label{itm:update_demc_normal} With 80\% probability use the standard DE-MC from \citeref{terBraak2006, Nelson2014}.  Randomly
+select two of the $k - 1$ walkers, $\vect{\theta}_{\mathrm{R1}}$, $\vect{\theta}_{\mathrm{R2}}$ and propose step
+
+\begin{equation}
+\vect{\theta}_p = \vect{\theta}_i + \vect{\Theta}_{\mathrm{R1, R2}} \vect{\gamma}
+\label{eq:elifetime_fit_mcmc_update_demc}
+\end{equation}
+
+\noindent where $\vect{\Theta}_{\mathrm{R1, R2}}$ is a matrix with $\vect{\theta}_{\mathrm{R1}} - \vect{\theta}_{\mathrm{R2}}$ diagonal
+elements
+
+\begin{equation}
+\Theta_{ij} = (\theta_{i, \mathrm{R1}} - \theta_{i, \mathrm{R2}}) \delta_{ij}
+\end{equation}
+
+\noindent where $\delta_{ij}$ is the Kronecker delta  and $\vect{\gamma} = \gamma_0 (1 + \vectlett{z})$ where
+$\vectlett{z} \sim \mathrm{Norm}(0, \sigma_{\gamma})^n$.  $\vectlett{z}$ is necessarily symmetric to guarantee the jump from
+$\vect{\theta}_i$ to $\vect{\theta}_p$ is as likely as the reverse, and must be included to ensure any state can be reached with
+probability $> 0$.  The acceptance probability of the new step is chosen as
+
+\begin{equation}
+q = \mathrm{min} \bigg( 1, \frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|\vect{\alpha})}
+{\mathcal{L}(\vect{\theta}_i) p(\vect{\theta}_i|\vect{\alpha})} \bigg)
+\label{eq:elifetime_fit_mcmc_acc_demc}
+\end{equation}
+
+\noindent which is just the Metropolis ratio.  An illustration of this method is shown in the left panel of
+\figref{fig:elifetime_fit_mcmc_demc_diagram}.
+
+\item \label{itm:update_demc_snooker} The remaining 20\% of proposals will be drawn using a snooker updater
+(\citeref{terBraak2008}).  This method begins by randomly selecting three of the
+$k - 1$ chains such that $\vect{\theta}_i$, $\vect{\theta}_{\mathrm{R1}}$,
+$\vect{\theta}_{\mathrm{R2}}$, $\vect{\theta}_{\mathrm{R3}}$ are each distinct.  Projections of the first two are calculated
+
+\begin{subequations}
+\begin{align}
+\vect{\theta}_{\mathrm{P1}} = \Big[ (\vect{\theta}_{\mathrm{R1}} - \vect{\theta}_i) \cdot
+(\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i) \Big]
+\frac{\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i}{||\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i||^2}
+\label{eq:elifetime_fit_mcmc_de_snooker_proj1}
+\\[3pt]
+\vect{\theta}_{\mathrm{P2}} = \Big[ (\vect{\theta}_{\mathrm{R2}} - \vect{\theta}_i) \cdot
+(\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i) \Big]
+\frac{\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i}{||\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i||^2}
+\label{eq:elifetime_fit_mcmc_de_snooker_proj2}
+\end{align}
+\label{eq:elifetime_fit_mcmc_de_snooker_projs}
+\end{subequations}
+
+\noindent as shown in the right panel of \figref{fig:elifetime_fit_mcmc_demc_diagram}.  A step is proposed
+
+\begin{equation}
+\vect{\theta}_p = \vect{\theta}_i + \gamma_0 (\vect{\theta}_{\mathrm{P1}} - \vect{\theta}_{\mathrm{P2}})
+\label{eq:elifetime_fit_mcmc_update_snooker}
+\end{equation}
+
+\noindent using the projections from \eqnref{eq:elifetime_fit_mcmc_de_snooker_projs}.  Finally, choose an acceptance probability of
+
+\begin{equation}
+q = \mathrm{min} \bigg( 1, \frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|\vect{\alpha})}
+{\mathcal{L}(\vect{\theta}_i) p(\vect{\theta}_i|\vect{\alpha})}
+\, \frac{||\vect{\theta}_p - \vect{\theta}_{\mathrm{R3}}||^{n - 1}} {||\vect{\theta}_i - \vect{\theta}_{\mathrm{R3}}||^{n - 1}} \bigg)
+\label{eq:elifetime_fit_mcmc_demc_snook_acc_prob}
+\end{equation}
+
+\noindent and we can see that $q$ becomes small for $\vect{\theta}_p \approx \vect{\theta}_{\mathrm{R3}}$.
 \end{enumerate}
+
+\item \label{itm:rand_gen_demc} Generate a random number from a uniform distribution $r \in [0, 1]$.  If $r < q$ then accept
+$\vect{\theta}_p$, otherwise reject
+and remain in current state.
+
+\item \label{itm:acc_frac_demc} Define the acceptance of proposed states across all chains for $\textcal{f} = k_{\mathrm{acc}}/k$ where
+$k_{\mathrm{acc}}$ is the number of proposals in current iteration $t$ accepted.
+
+\item \label{itm:gamma_adjust_demc} Adjust $\gamma_0$ to maintain an acceptance fraction of ${\sim} 0.25$.  If it dips too low
+$\vect{\theta}_p$ may on average be
+over-extending to regions of low likelihood, wile if too high it may be a sign that there are more distant regions farther from current
+state that should be explored.  It is reset to $1$ every 100 iterations to account for multi-modal distributions.
+
+\begin{enumerate}[label=(\roman*)]
+\item If $100\, |\, t$ then $\gamma_0 = 1$.
+
+\item If $\textcal{f} < 0.2$ then $\gamma_0 = 0.9 \gamma_0$.
+
+\item If $\textcal{f} > 0.31$ then $\gamma_0 = 1.1 \gamma_0$.
+
+\item Otherwise $\gamma_0 = \gamma_0 (2\textcal{f}^{1/2})$.
+\end{enumerate}
+
+\item \label{itm:update_t_demc} Set $t = t + 1$.
+
+\item Repeat steps \cref{itm:update_demc,itm:rand_gen_demc,itm:acc_frac_demc,itm:gamma_adjust_demc,itm:update_t_demc} for $T$ iterations.
+
+https://www.cs.cmu.edu/~epxing/Class/10708-14/scribe_notes/scribe_note_lecture17.pdf.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{demc_proposal}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{}
+\end{subfigure}
+\caption{Examples of $\vect{\theta}_p$ using DEMC (left) and DEMC snooker update (right) in two dimensions.  Example of normal DEMC
+proposal (\cref{itm:update_demc_normal}).  The difference between two randomly selected walkers
+$\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ is used to propose an update to the $i$th walker using
+\eqnref{eq:elifetime_fit_mcmc_update_demc} in two dimensions.  $\vect{\theta}_p$ and
+$\vect{\theta}_{\mathrm{R1}} - \vect{\theta}_{\mathrm{R2}}$ are at a slight tilt to one another due to $\vectlett{z}$.  Example
+of DEMC snooker update proposal (\cref{itm:update_demc_snooker}).  An update is proposed using difference of projections of
+$\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ along $\vect{theta}_{\mathrm{R3}} - \vect{\theta}_i$ where
+$\vect{\theta}_{\mathrm{R3}}$ is a third randomly drawn walker using \eqnref{eq:elifetime_fit_mcmc_update_snooker}.}
+\label{fig:elifetime_fit_mcmc_demc_diagram}
+\end{figure}
+
+Rewriting the acceptance probability in \eqnref{eq:elifetime_fit_mcmc_acc_demc}
+
+\begin{equation}
+\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|\vect{\alpha_p})}
+{\mathcal{L}(\vect{\theta}_i) p(\vect{\theta}_i|\vect{\alpha}_i)} =
+\dfrac{\frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|\vect{\alpha}_p)}{p(\vectlett{x}|\vect{\alpha}_p)}}
+{\frac{\mathcal{L}(\vect{\theta}_i) p(\vect{\theta}_i|\vect{\alpha}_i)}{p(\vectlett{x}|\vect{\alpha}_i)}} =
+\frac{p(\vect{\theta}_p|\vectlett{x}, \vect{\alpha}_p)}{p(\vect{\theta}_i|\vectlett{x}, \vect{\alpha}_i)}
+\label{eq:elifetime_fit_mcmc_acc_ratio}
+\end{equation}
+
+\noindent so the probability at proposal is accepted is just the ratio of the posteriors of $\vect{\theta}_p$ and
+$\vect{\theta}_i$.  In fact, \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_prob} and
+\eqnref{eq:elifetime_fit_mcmc_demc_snook_acc_prob} are just the ratio of the posteriors scaled by $z^{n-1}$ and
+$(||\vect{\theta}_p - \vect{\theta}_{\mathrm{R3}}|| / ||\vect{\theta}_i - \vect{\theta}_{\mathrm{R3}}||)^{n - 1}$, respectively - both
+of which reduce to \eqnref{eq:elifetime_fit_mcmc_acc_ratio} when $n = 1$.
+
+For this analysis the likelihood is calculated as
+
+\begin{equation}
+\begin{aligned}
+\mathcal{L}_i &= \mathrm{exp} \bigg( -\frac{(\tau_{e, i}^{(\mathrm{meas})} -
+\tau_{e, i}^{(\mathrm{pred})})^2}{2\sigma_{e, i}^{(\mathrm{meas})}} \bigg) \\
+\mathcal{L} &= \prod_i \mathcal{L}_i \\
+\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{(\tau_{e, i}^{(\mathrm{meas})} -
+\tau_{e, i}^{(\mathrm{pred})})^2}{2\sigma_{e, i}^{(\mathrm{meas})}}
+\end{aligned}
+\end{equation}
+
+\noindent where $\tau_{e, i}^{(\mathrm{meas})}$ and $tau_{e, i}^{(\mathrm{pred})}$ are the measured and predicted electron
+lifetimes.  Because previous measurements do not exist the only constraints in $p(\vect{\theta}|\vect{alpha})$ come from physical
+limitations or restrictions to accelerate convergence.
 
 Electronegative impurities
 in particular present a problem

@@ -286,7 +286,7 @@ in a separate pipe.  A schematic of the cryostat is shown
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{CryostatDiagram}
+\includegraphics[width=0.8\textwidth]{CryostDiagram}
 \caption{Diagram of the cryostat.  Image credit: \citeref{Aprile2017c}.}
 \label{fig:xenon1t_cryo_cryostat_diagram}
 \end{figure}
@@ -915,7 +915,7 @@ $\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) the position resolution becomes extr
 
 
 
-\subsection{S2 $x \mdash y$ Correction}
+\subsection{S2 $\mathbf{x \mdash y}$ Correction}
 \label{subsec:det_char_s2_position_correction}
 We must also account for $x$ and $y$ variations in S2 (the $z$-correction is calculated using the electron lifetime in
 \secref{subsec:det_char_elifetime}).  For
@@ -2333,20 +2333,66 @@ large
 subpopulation of MCMC algorithms - including the method used in this analysis - use random walk Monte Carlos algorithms, meaning the
 walkers move about randomly.
 
-An MCMC runs for $T$ iterations or ``steps'', giving the total number of samples to be $k \times T$.  Each sample contributes its
+A MCMC runs for $T$ iterations or ``steps'', giving the total number of samples to be $k \times T$.    An array of $k$ walkers of
+$\vect{\theta}$ over $T$ iterations forms a ``chain''.  Each sample contributes its
 integrand to the total integral.  A walker may make a number of trial steps around its perimeter, looking for a point with a high
 integrand for its next move.  A step is solely dependent on the current positions of all $\vect{\theta}$.  Sometimes referred to as
 ``memorylessness'' this means that, compared to its present state, knowledge of the entire history would not improve predictions of a
-walker's future state, i.e. a walker's past and future states are independent.  An array of $k$ walkers of $\vect{\theta}$ over $T$
-iterations forms a ``chain''.
+walker's future state, i.e. a walker's past and future states are independent.
 
-An MCMC is \textit{reversible} if it satisfies the detailed balance equation
+To find the next state in a Markov Chain we can compute
 
 \begin{equation}
-\pi (\vectlett{x}^{\prime}) P(\vectlett{x}^{\prime}|\vectlett{x}) = \pi (\vectlett{x}) P(\vectlett{x}|\vectlett{x}^{\prime})
+f^{(t + 1)} (\theta) = \int f^{(t)} (\theta^{\prime}) p(\theta|\theta^{\prime}) d\theta^{\prime}
+\label{eq:er_nr_calibrations_parameter_determ_mcmc_marginal}
 \end{equation}
 
-\noindent where $\pi(.)$ is a \textit{stationary distribution}.
+\noindent where $f^{(t)}, f^{(t + 1)}$ are the marginal distributions at steps $t$ and $t + 1$.  To simplify notation $\theta$
+is used in place of $\vect{\theta}$, but the results are similar.  Therefore, beginning from step $t$ any state
+at $m$ steps into the future can be calculated.  In the case when initial distribution $f^{(0)}$ is given every state in the Markov Chain can
+be calculated.
+
+A Markov Chain is \textit{reversible} if there exists a probability density $\pi (\theta^{\prime})$ such that
+
+\begin{equation}
+\pi (\theta^{\prime}) p(\theta^{\prime}|\theta) = \pi (\theta) p(\theta|\theta^{\prime})
+\label{eq:er_nr_calibrations_parameter_determ_mcmc_detailed_balance}
+\end{equation}
+
+\noindent for some transition kernel probability density $p(\theta^{\prime}|\theta)$, which defines the probability of
+moving to state $\theta^{\prime}$ from $\theta$ in one step.  In other words, 
+\eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_detailed_balance} states that being in state $\theta$ and transitioning to
+$\theta^{\prime}$ must have the same probability as being in state $\theta^{\prime}$ and transitioning to 
+$\theta$.  When
+this is true for all pairs of $\theta, \theta^{\prime}$ (all states can communicate with one another) the Markov Chain
+is said to be \textit{irreducible}.  A chain that does not cycle to any state $\theta$ in a predictable way is
+\textit{aperiodic}.  \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_detailed_balance}
+is known as the \textit{detailed balance condition} and cannot be solved for all Markov Chains.  For those that can a simple integration
+gives
+
+\begin{equation}
+\begin{aligned}
+\int \pi (\theta^{\prime}) p(\theta|\theta^{\prime}) d\theta^{\prime} &=
+\int \pi (\theta) p(\theta^{\prime}|\theta) d\theta^{\prime} \\
+&= \pi (\theta) \int p(\theta|\theta^{\prime}) d\theta^{\prime} \\
+&= \pi (\theta)
+\end{aligned}
+\label{eq:er_nr_calibrations_parameter_determ_mcmc_stationary}
+\end{equation}
+
+\noindent which reveals $\pi (\cdot)$ is a
+\textit{stationary distribution}.  \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_stationary} is a special case of
+\eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_marginal} in that $\pi( \cdot )$ is invariant across all iterations (for this reason
+it is also referred to as an \textit{invariant distribution}).  When $p(\theta^{\prime}|\theta)$ is irreducible and
+aperiodic it will have a single stationary distribution and is \textit{ergodic}, or guaranteed to converge as
+$t \rightarrow \infty$ regardless of initial distribution.
+
+\begin{equation}
+\lim_{t \rightarrow \infty} f^{(t)}(\theta) \rightarrow \pi (\theta)\ \ \forall f^{(0)}
+\end{equation}
+
+The objective in developing MCMC algorithms is to create Markov Chains that are reversible, ergodic, homogeneous
+(no variation in $p(\vect{\theta}^{\prime}|\vect{\theta})$ in $t$), and has its target distribution as its stationary distribution.
 
 In general $\vect{\theta}$ may contain parameters that are necessary for the model but of little interest,
 known as \textit{nuisance parameters}, $\vect{\theta}^{(N)}$ ($\vect{\theta} = [\vect{\theta}^{(I)}, \vect{\theta}^{(N)}]$ with
@@ -2359,13 +2405,14 @@ p(\vect{\theta}^{(I)}, \vect{\theta}^{(N)}|\vectlett{x}, \vect{\alpha}) \vectlet
 
 \noindent though this in general may be difficult to compute.  However, sampling from the MCMC posterior joint distribution
 $p(\vect{\theta}^{(I)}, \vect{\theta}^{(N)}|\vectlett{x}, \vect{\alpha})$ naturally provides values for $\vect{\theta}^{(I)}$ from the
-marginalized posterior $p(\vect{\theta}^{(I)}|\vectlett{x}, \vect{\alpha})$.  This is a significant advantage over many other techniques.
+marginalized posterior $p(\vect{\theta}^{(I)}|\vectlett{x}, \vect{\alpha})$.  This technique can be done in general for any number of
+parameters in $\vect{\theta}$.  Often it is interesting to know the posterior of a single parameter, in which case all others would
+be marginalized over.  This is a significant advantage over many other techniques.
 
 MCMCs have become increasingly popular in recent years as advances in methods and computer processing speeds have made them
 a powerful tool that can be run in reasonable timescales.  For this analysis we use an implementation by \citeref{Foreman2013} of
 the Affine-Invariant Ensemble Sampler proposed by \citeref{Goodman2010}, modified to allow stretch move update step parallelization as
-outlined below.  An important property of some Markov Chains - including the Affine-Invariant Ensemble Sampler - is they are
-\textit{reversible}, or satisfy \textit{detailed balance} describe equations and what means.
+outlined below.
 
 \begin{enumerate}
 \item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (we randomly sample
@@ -2377,14 +2424,15 @@ $S^{(1)} = \{\vect{\theta}_i, \forall i = k/2 + 1, . . ., k\}$.
 \item \label{itm:newstate} For each walker in $S^{(0)}$ randomly select from $S^{(1)}$ a walker $\vect{\theta}_j^{(1)}$ and propose a new
 state
 \begin{equation}
-\vect{\theta}_p = \vect{\theta}_j^{(1)} + z \big[ \vect{\theta}_i(t) - \vect{\theta}_j^{(1)}(t^{(1)}) \big]
+\vect{\theta}_p = \vect{\theta}_j^{(1)} + z \big[ \vect{\theta}_i(t) - \vect{\theta}_j^{(1)} \big]
 \label{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update}
 \end{equation}
 
-\noindent where $z$ is randomly drawn from a distribution $g(z)$.  Note that this stretch move is affine-invariant, while other MCMC
+\noindent where $z$ is randomly drawn from a distribution $g(z)$. This stretch move is affine-invariant, while other MCMC
 methods are not.  Choosing
-$g(z^{-1}) = z g(z)$ keeps \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update} symmetric - that is, invariant under
-$\mathrm{Pr}(\vect{\theta}_i(t) \rightarrow \vect{\theta}_p) = \mathrm{Pr}(\vect{\theta}_p \rightarrow \vect{\theta}_i(t))$.  Choosing the
+$g(z^{-1}) = z g(z)$ keeps \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update} symmetric - that is, the proposal
+distributions for $\vect{\theta}_i \rightarrow \vect{\theta}_p$ and $\vect{\theta}_p \rightarrow \vect{\theta}_i$ are
+equivalent.  Choosing the
 acceptance probability of the proposed stretch move update step as
 \begin{equation}
 q = \mathrm{min} \bigg( 1, z^{n - 1} \frac{\mathcal{L}(\vect{\theta}_p)p(\vect{\theta}_p|\vect{\alpha}_p)}
@@ -2408,7 +2456,9 @@ $\vect{\theta}_i(t + 1/2) = \vect{\theta}_p$, otherwise keep present state $\vec
 
 \item \label{itm:update}  Set $t = t + 1/2$.
 
-\item Repeat steps \cref{itm:newstate,itm:rand,itm:update} for $S^{(1)}$ using the updated $S^{(0)}$.
+\item \label{itm:rerun_second_half} Repeat steps \cref{itm:newstate,itm:rand,itm:update} for $S^{(1)}$ using the updated $S^{(0)}$.
+
+\item Repeat \cref{itm:newstate,itm:rand,itm:update,itm:rerun_second_half} for $T$ iterations.
 \end{enumerate}
 
 The advantage of the above implementation is the computationally expensive stretch move update steps
@@ -2456,6 +2506,8 @@ only slightly above 1, indicating the walkers have likely converged to the best-
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{gelman_rubin}
+\caption{Gelman-Rubin test statistic for the electronic and nuclear recoil band fitting
+(\secref{sec:er_nr_calibrations}.}
 \label{fig:er_nr_calibrations_results_gr}
 \end{figure}
 
@@ -2822,7 +2874,7 @@ S2 cuts (``Selection''), and 3) total for SR0 and SR1.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{ERNRAcceptances}
+\includegraphics[width=\textwidth]{xenon_1ty_paper_acceptance_linear_linear}
 \caption{Nuclear recoil acceptances for WIMPs from this analysis.  Processor efficiency is shown in green, processor efficiency with S1
 and S2 cuts is shown in blue, and total acceptance in black.  Dashed and solid acceptance lines correspond to SR0 and SR1 acceptances,
 respectively.  The shaded regions are the 68\% credible interval for SR1.  Spectra are shown for for 10 (dashed), 50 (dotted), and

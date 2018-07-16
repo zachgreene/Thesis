@@ -581,7 +581,7 @@ predecessor XENON100 (\citeref{Aprile2012a}).
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{fig_1_Aprile2012b}
+\includegraphics[width=0.8\textwidth]{demonstrator_schematic}
 \caption{Schematic of the Columbia Demonstrator in its initial state.  The connection to bring GXe to the getter was not yet installed
 at the time of publication (\secref{subsec:electron_lifetime_model_gxe}).  Image credit: \citeref{Aprile2012b}.}
 \label{fig:electron_lifetime_model_demonstrator_schematic}
@@ -919,7 +919,7 @@ Molecule & $E_D\ [\mathrm{cal\ g^{-1}\ mole^{-1}}]$ & $P_i\ [\mathrm{torr}]$ & $
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{}
+\includegraphics[width=0.7\textwidth]{outdiffusion_outgassing_rate}
 \caption{Fig. 4point3 from ausersguidetovacuumtechnology.  Outgassing rate $q$ as a function of time for outdiffusion.  A sample
 at temperature $T_1$ is baked to $T_2$ at point $A$.  Because the gas concentration in the sample remains virtually unchanged during this
 process the outgassing at $C$ is equivalent to $B$ (diagonal dashed lines represent constant concentration).  From $C$ $q$ quickly
@@ -1141,7 +1141,8 @@ or not - if exposed to air for extended periods may have up to 100 monolayers of
 in vacuum did or did not show xenon increase.  Leak testing cryogenics system, purification system.  Cooling towers in vacuum or
 not.  Other possible locations, where valves were, to or from ReStoX, cable pipe.  Name of flange where cables go from inside detector to
 outside - feedthrough I think.  ReStoX can pump liquid during filling and refilling.  Percent of purified xenon that goes to LXe as
-opposed to GXe.  Paper or note on magnetic pump.  Why QDrives over KNF - exposure to air.  RGA of impurities.
+opposed to GXe.  Paper or note on magnetic pump.  Why QDrives over KNF - exposure to air.  RGA of impurities.  Clean GXe to bell has
+FCV or FC.
 
 Discuss 100 SLPM plan and choking by pipes, why didn't reach it.  \ce{^{222}Rn} decrease with magnetic
 pump.  Connect to Demonstrator - attempt to drift electrons 1 meter.  Make clear why it's so important.  Discuss how much lose in
@@ -1456,16 +1457,18 @@ M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt} = -\alpha (t) F_{\mathrm{L}} \rho_{\ma
 \subsection{Markov Chain Monte Carlo}
 \label{subsec:elifetime_fit_mcmc}
 Similar to the electronic and nuclear recoil banding fitting for the dark matter search analysis
-(\secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc}) this analysis uses a Markov Chain Monte Carlo (MCMC).  However, a
-Differential Evolution Markov Chain (DEMC) is used instead of the modified Affine-Invariant
-Ensemble Sampler.  The two are similar in that they are both random walk Monte Carlos
-and proposal steps are generated from fellow chains.
-
-MCMCs use $k$ walker
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc}) this analysis uses a Markov Chain Monte Carlo (MCMC).  MCMCs use $k$ walker
 to explore the target distribution
-over $T$ iterations.  Each walker $i \in k$ has parameters $vect{\theta}_i$ with proposed steps based on current positions of the
-walkers, making MCMCs memoryless - that is, any there is no advantage to having knowledge of previous steps.  As with the Affine-Invariant
-Ensemble Sampler DEMC is reversible and satisfies detailed balance.  The DEMC method used in this fit follows from
+over $T$ iterations.  Each walker $i \in {1, ..., k}$ has parameters $vect{\theta}_i$ with proposed steps based on current positions of
+the
+walkers, making MCMCs memoryless - that is, there is no advantage to having knowledge of previous steps.
+
+This analysis uses a Differential Evolution Markov Chain rather than the Affine-Invariant Ensemble Sampler in the dark matter
+search.  The two are similar in that they are both random walk Monte Carlos and companion chains are used to draw proposals.  Both are
+homogeneous, satisfy detailed balance, and have their posteriors as their stationary distributions (see
+\secref{subsubsec:er_nr_calibrations_parameter_determ_mcmc} for details concerning MCMCs).
+
+The DEMC method used in this fit follows from
 (\citeref{terBraak2006}) with improvements suggested in \citeref{Nelson2014} and a snooker updater outlined in \citeref{terBraak2008}.
 
 \begin{enumerate}
@@ -1548,7 +1551,7 @@ q = \mathrm{min} \bigg( 1, \frac{\mathcal{L}(\vect{\theta}_p) p(\vect{\theta}_p|
 $\vect{\theta}_p$, otherwise reject
 and remain in current state.
 
-\item \label{itm:acc_frac_demc} Define the acceptance of proposed states across all chains for $\textcal{f} = k_{\mathrm{acc}}/k$ where
+\item \label{itm:acc_frac_demc} Define the acceptance of proposed states across all chains for $\mathscr{f} = k_{\mathrm{acc}}/k$ where
 $k_{\mathrm{acc}}$ is the number of proposals in current iteration $t$ accepted.
 
 \item \label{itm:gamma_adjust_demc} Adjust $\gamma_0$ to maintain an acceptance fraction of ${\sim} 0.25$.  If it dips too low
@@ -1559,18 +1562,16 @@ state that should be explored.  It is reset to $1$ every 100 iterations to accou
 \begin{enumerate}[label=(\roman*)]
 \item If $100\, |\, t$ then $\gamma_0 = 1$.
 
-\item If $\textcal{f} < 0.2$ then $\gamma_0 = 0.9 \gamma_0$.
+\item If $\mathscr{f} < 0.2$ then $\gamma_0 = 0.9 \gamma_0$.
 
-\item If $\textcal{f} > 0.31$ then $\gamma_0 = 1.1 \gamma_0$.
+\item If $\mathscr{f} > 0.31$ then $\gamma_0 = 1.1 \gamma_0$.
 
-\item Otherwise $\gamma_0 = \gamma_0 (2\textcal{f}^{1/2})$.
+\item Otherwise $\gamma_0 = \gamma_0 (2\mathscr{f}^{1/2})$.
 \end{enumerate}
 
 \item \label{itm:update_t_demc} Set $t = t + 1$.
 
 \item Repeat steps \cref{itm:update_demc,itm:rand_gen_demc,itm:acc_frac_demc,itm:gamma_adjust_demc,itm:update_t_demc} for $T$ iterations.
-
-https://www.cs.cmu.edu/~epxing/Class/10708-14/scribe_notes/scribe_note_lecture17.pdf.
 \end{enumerate}
 
 \begin{figure}
@@ -1589,7 +1590,7 @@ $\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ is used to propose an
 \eqnref{eq:elifetime_fit_mcmc_update_demc} in two dimensions.  $\vect{\theta}_p$ and
 $\vect{\theta}_{\mathrm{R1}} - \vect{\theta}_{\mathrm{R2}}$ are at a slight tilt to one another due to $\vectlett{z}$.  Example
 of DEMC snooker update proposal (\cref{itm:update_demc_snooker}).  An update is proposed using difference of projections of
-$\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ along $\vect{theta}_{\mathrm{R3}} - \vect{\theta}_i$ where
+$\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ along $\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i$ where
 $\vect{\theta}_{\mathrm{R3}}$ is a third randomly drawn walker using \eqnref{eq:elifetime_fit_mcmc_update_snooker}.}
 \label{fig:elifetime_fit_mcmc_demc_diagram}
 \end{figure}
@@ -1615,16 +1616,16 @@ For this analysis the likelihood is calculated as
 
 \begin{equation}
 \begin{aligned}
-\mathcal{L}_i &= \mathrm{exp} \bigg( -\frac{(\tau_{e, i}^{(\mathrm{meas})} -
-\tau_{e, i}^{(\mathrm{pred})})^2}{2\sigma_{e, i}^{(\mathrm{meas})}} \bigg) \\
+\mathcal{L}_i &= \mathrm{exp} \bigg( -\frac{\big(\tau_{e, i}^{(\mathrm{meas})} -
+\tau_{e, i}^{(\mathrm{pred})} \big)^2}{2 \big(\sigma_{e, i}^{(\mathrm{meas})} \big)^2} \bigg) \\
 \mathcal{L} &= \prod_i \mathcal{L}_i \\
-\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{(\tau_{e, i}^{(\mathrm{meas})} -
-\tau_{e, i}^{(\mathrm{pred})})^2}{2\sigma_{e, i}^{(\mathrm{meas})}}
+\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{\big(\tau_{e, i}^{(\mathrm{meas})} -
+\tau_{e, i}^{(\mathrm{pred})} \big)^2}{2\big(\sigma_{e, i}^{(\mathrm{meas})}\big)^2}
 \end{aligned}
 \end{equation}
 
-\noindent where $\tau_{e, i}^{(\mathrm{meas})}$ and $tau_{e, i}^{(\mathrm{pred})}$ are the measured and predicted electron
-lifetimes.  Because previous measurements do not exist the only constraints in $p(\vect{\theta}|\vect{alpha})$ come from physical
+\noindent where $\tau_{e, i}^{(\mathrm{meas})}$ and $\tau_{e, i}^{(\mathrm{pred})}$ are the measured and predicted electron
+lifetimes.  Because previous measurements do not exist the only constraints in $p(\vect{\theta}|\vect{\alpha})$ come from physical
 limitations or restrictions to accelerate convergence.
 
 Electronegative impurities

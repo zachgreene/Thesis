@@ -139,7 +139,8 @@ afterpulse.  For R11410-21 this gives
 \delta t_{\mathrm{ap}} = \frac{\pi}{4} \sqrt{\frac{2 m}{q V_{0}}} L
 \end{equation}
 
-where $\delta t_{\mathrm{ap}}$ is the delay time, $m$ and $q$ are the ion's mass and charge, and $V_{0}$ and $L$ are the potential
+\noindent where $\delta t_{\mathrm{ap}}$ is the delay time, $m$ and $q$ are the ion's mass and charge, and $V_{0}$ and $L$ are the
+potential
 difference and length between the photocathode and first dynode (see \citeref{Barrow2017} for details).  Note that $\delta t_{\mathrm{ap}}$
 does not depend on where the ionization occurred.  Thus, if we know the time between the true and afterpulse the ion - or more specifically
 charge to mass ratio - can be calculated.  Pulse time differences range from several hundred nanoseconds to several microseconds.  These
@@ -148,8 +149,12 @@ unlikely to be grouped with an afterpulse, though for S2s this is more likely.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Afterpulse}
-\caption{Afterpulses for one of the PMTs from XENON1T.}
+\includegraphics[width=\textwidth]{afterpulse_spectrum_pmt_21}
+\caption{Afterpulse spectrum for PMT 21 (top array) from August 25, 2017 LED calibration.  A photoelectron may ionize atoms and molecules
+between the photocathode and first dynode.  Generally this effect is small since the interior of a PMT is kept at vacuum.  This PMT
+has a significant afterpulse contribution with signals from \ce{He^+}, \ce{CH_4^+}, \ce{N_2^+}, \ce{Ar^+}, and singly- and doubly-ionized
+xenon (\ce{Xe^+} and \ce{Xe^{++}}).  The large amount of xenon present suggests there is most likely a leak.  The PMT can be checked
+regularly to monitor changes in these peaks.}
 \label{fig:xenon1t_pmts_ap}
 \end{figure}
 
@@ -306,10 +311,12 @@ monitors and adjusts the temperature of a resistive heater on the coldfinger to 
 
 A third cooling tower uses liquid nitrogen ($\mathrm{LN_2}$) and is used in the case of an emergency if both PTRs are being serviced or the
 heat load becomes too great from e.g. loss of power or insulation vacuum.  The $\mathrm{LN_2}$ flows from the $10 \mathrm{m^3}$ tank that
-is used by ReStoX (\secref{subsec:xenon1t_restox}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation rate.  In the event the PTRs
+is used by ReStoX (\secref{subsec:xenon1t_restox}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation
+rate.  In nominal operations the nitrogen tower is kept at ${\sim}90^{\circ}\mathrm{C}$.  In the event the PTRs
 lose power the $\mathrm{LN_2}$ cooling tower must react immediately to prevent rising pressure that can be damaging to PMTs among other
-things.  Sensors and controllers monitoring such a power loss are powered with uninterruptible power supplies (UPSs) to ensure a successful
-transition and operation of $\mathrm{LN_2}$.
+things.  The cold \ce{LN_2} tower allows this to be done much more quickly than the ${\sim}15\ \mathrm{minutes}$ that would be needed if
+it was at room temperature.  Sensors and controllers monitoring such a power loss are powered with uninterruptible power supplies (UPSs)
+to ensure a successful transition and operation of $\mathrm{LN_2}$.  As with the PTRs a heater is connected to stabilize the temperature.
 
 \begin{figure}
 \centering
@@ -419,17 +426,24 @@ numerous connections makes the purification system a hub for transferring xenon 
 \label{fig:xenon1t_pur_schematic}
 \end{figure}
 
-The purification system consists of two redundant purification loops, each of which can operate independently of the other.  The flow
-is driven by CHART QDrives, with one on one loop and two on the other.  They were chosen for their high-capacity and hermetically sealed
-pump volume, the latter of which was not true with KNF pumps that were used in XENON100 (\textbf{check this}).  This is important because
-exposure to air could cause a significant drop in purity, and has occurred in the past with KNFs.  They are
+The purification system consists of two redundant purification loops, each of which can operate independently of the other.  To circulate
+the xenon KNF pumps, which were used in XENON100, were originally considered.  There were a number of drawbacks however that might limit
+the detector.  KNF pumps use elastic diaphragms to move the gas through the system.  The membrane is an elastomer (in XENON100 this was
+neoprene) and its high radon emanation increases the background.  In addition the diaphragms can vulcanize as compressions cause
+temperatures to reach ${\sim} 150^{\circ}\mathrm{C}$, and in a worst-case scenario can rupture - as did in XENON100 - allowing air to leak
+into the system.  While the purity of the xenon plummets the more worrisome aspect is the increase in \ce{^{85}Kr}.
+
+CHART QDrive pumps, became a viable option during commissioning.  They are hermetically sealed, have high flow capacity, and were expected
+to have lower radon emanation than the KNF pumps.  They are
 magnetically-resonant and operate via a compression space with oscillating externally-driven pistons.  Motors, valves, and pistons are
-not lubricated, making it an excellent choice for high-purity.  Unfortunately Q-Drives emanate \ce{^{222}Rn} can require frequent
-maintenance if operated at too great a voltage (for larger flow).  For the former \ce{Rn} emanation measurements were made prior to
+not lubricated, making it an excellent choice for high-purity.  For these reasons they were chosen.  Unfortunately QDrives were realized
+to have high \ce{^{222}Rn} emanation, and can require frequent
+maintenance if operated at too great a voltage.  For the former \ce{Rn} emanation measurements were made prior to
 installation with the lowest being chosen.  For the latter they are operated at safe conditions and since the beginning of Science Run 0
-no issues have arisen.  It turns out the limiting factor on our circulation speed is not a result of the pumps but the pressure difference
-from tubes leading to the system caused by too small a radius.  With the upgrade to XENONnT these will be replaced with larger-radii.  One
-Q-Drive is installed in one loop and two in the other.
+no issues have arisen.  \figref{fig:xenon1t_pur_schematic} shows the two branches of the purification system have one and two QDrives.  A
+fourth QDrive could be installed but the limiting factor on circulation speed is not a result of the pumps but the pressure difference
+from tubes leading to the system caused by too small a radius.  An upgrade was performed in April 2018 that enlarged the radii and
+increased the flow (\secref{subsec:electron_lifetime_model_detector_effects_spikes}).
 
 \begin{figure}
 \centering
@@ -449,7 +463,8 @@ to be cleaned.
 
 A Tiger Optics HALO+ H$_2$O monitor measures the water content in the purified GXe to track the purification efficiency.  It can measure
 concentrations down to 400 ppt.  As with the getters, it can be bypassed.  The Xe is then forwarded to the cryostat, bell, ReStoX, or
-bottles (Kr column occurs after the purification loops before the HALO).
+bottles (Kr column occurs after the purification loops before the HALO).  Unfortunately it cannot be operated at the pressure required
+for the TPC bell so has not been in use since shortly after the experiment came online.
 
 The components of the system are electropolished and able to be baked up to ${\sim} 120^{\circ}\ \mathrm{C}$ for decreased outgassing during
 operation.  The purification system has a number of valves that allow the versatility described in this section.  The majority are
@@ -595,7 +610,7 @@ including measuring the electron lifetime with the \ce{^{212}Bi} $\alpha$-decay 
 to resume within several days.
 
 Tritiated methane ($\mathrm{C H_3 T}$) is a very attractive candidate because of it's low-energy $\beta$-emission.  With a 18.6 keV
-endpoint energy, it is an ideal candidate for calibrating the low-energy ($\mathrm{cS1} < 100\ \mathrm{PE}$, \textbf{check this}) ER band,
+endpoint energy, it is an ideal candidate for calibrating the low-energy ($\mathrm{cS1} < 60\ \mathrm{PE}$) ER band,
 and even measuring
 the light and charge yield in a relatively unexplored but important region.  This was originally done by LUX (\citeref{LUX2016}) and
 subsequently performed with XENON100 (\citeref{Aprile2018}).  However, with a half-life of $t_{1/2} = 12.3\ \mathrm{y}$ it must be
@@ -2468,7 +2483,7 @@ thus we needed to split them into two groups.
 
 An MCMC is guaranteed to converge as $t \rightarrow \infty$.  However, with a finite number of samples we can still test for convergence,
 though it should be made clear that convergence can never be proved.  An especially important metric is the acceptance fraction
-$\mathcal{F}$.  This is the fraction of proposed stretch move update steps that are accepted by a walker (step \cref{itm:rand}).  There is
+$\mathcal{F}$.  This is the fraction of proposed stretch move update steps that are accepted by a walker (step \ref{itm:rand}).  There is
 no consensus on an optimal value.  $\mathcal{F} \sim 0$ would mean nearly all steps are rejected so there would be few independent samples
 and the target density would be poorly explored.  Meanwhile $\mathcal{F} \sim 1$ means nearly every proposal is accepted in which case
 the chain is in a random walk with little regard for the posterior.  A reasonable range is considered to be $0.2 \mdash 0.5$.
@@ -2487,7 +2502,8 @@ Ensemble Sampler has been shown to have a smaller autocorrelation time than the 
 the convergence if samplers with varying levels of density anisotropy.
 
 A second metric and the leading one used in
-our analysis is the Gelman-Rubin statistic $\hat{R}$ (\citeref{Gelman1992}).  It uses the average variance of the individual chains and variance
+our analysis is the Gelman-Rubin statistic $\hat{R}$ (\citeref{Gelman1992}).  It uses the average variance of the individual chains and
+variance
 between chains, with the idea roughly being the two should be nearly equivalent when the fit has converged.
 
 For this analysis the we fit the electronic and nuclear recoil bands with  $n = 44\ \mathrm{parameters}$ and an Affine-Invariant Ensemble

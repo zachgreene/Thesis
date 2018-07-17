@@ -656,7 +656,7 @@ system is
 measured with flow controllers \texttt{FC201} and \texttt{FC202} that precede the getters.  Finally, it is critical to monitor valves
 \texttt{FV217} and \texttt{FV224} as
 if they are open the getters will be bypassed.  The top and bottom paths in \figref{fig:electron_lifetime_model_slow_control_pur} have one
-and two QDrives, respectively, meaning the flow through the bottom is larger.  Installing a second QDrive on the top loop would not
+and two QDrives, respectively, so the flow through the bottom is larger.  Installing a second QDrive on the top loop would not
 increase the flow because it was restricted by the pipes (as mentioned above this was eventually fixed).
 
 Because the mass of xenon has
@@ -690,7 +690,8 @@ Parameter & \multicolumn{1}{c}{Function} & Marked by & Comments \\
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{purificationpid}
-\caption{Slow control for purification system.}
+\caption{Slow control for purification system.  The path of xenon during normal operations is drawn in red.  LXe from bottom of cryostat
+passes through the heat exchanger and heater combines with GXe from cryogenics system.}
 \label{fig:electron_lifetime_model_slow_control_pur}
 \end{figure}
 
@@ -728,9 +729,11 @@ $F_{\mathrm{G}}^{\inp} + F_{\mathrm{L}}^{\inp} = F_{\mathtt{FC201}} + F_{\mathtt
 Impurity migration between the liquid and gas mandates consideration of both volumes rather than strictly the liquid.  Electronegative
 particles (e.g. \ce{O_2}, \ce{CO}, etc.) are expected to be more densely distributed in the GXe due to their lighter atomic mass.
 
-To parameterize the migration rate the probability of an impurity in the liquid (gas) moves into the gas (liquid).  We should first
-consider the rate at which GXe condenses and LXe vaporizes.  In the case where no xenon is entering or leaving the cryogenics system
- the detector
+To parameterize the migration rate the probability of an impurity in the liquid (gas) moves into the gas (liquid) we should first
+consider the rate at which GXe condenses and LXe vaporizes.
+
+In the case where no xenon is entering or leaving the cryogenics system
+the detector
 should achieve a state of equilibrium with cooling power \pc (from a PTR or L\ce{N_2} from cooling tower).  When this is the case the
 rate of LXe vaporization and GXe condensation will balance, fixing the masses and volumes of both.
 
@@ -794,10 +797,15 @@ Five lines connect the GXe region of the XENON1T to the purification system (\se
 the cooling towers (one to each) since as the highest - and by extension warmest - regions outgassing is expected to be the most
 substantial (\figref{fig:xenon1t_cryogenics_schematic,fig:xenon1t_cryo_overview}).  The three lines are united before a flow control valve
 that regulates the flux.  A fourth conduit is linked to the tube that carries the PMT signal and high voltage cables between the TPC and
-data acquisition.  This region was selected because the contamination is expected to be higher from outgassing as a result of the
-inability to apply the same cleaning standard as other detector materials (\textbf{check this}).  The final line is stationed
-approximately halfway between the TPC and cooling towers to purify GXe from the main section of the cryogenics system.  Both this line as
-well
+data acquisition.  This region was selected because the cables were suspected of having high radon emanation, and the larger surface area
+means greater outgassing.  Connecting directly to the purification system allows cleaning of higher impurity concentration gas and
+distillation of the radon.  The flow is strong enough that the odds of an impurity or radon atom making it into the bell against the
+current is negligible.  The final line is stationed
+approximately halfway between the TPC and cooling towers to purify GXe from the main section of the cryogenics system.  This location was
+chosen to address two challenges: elevated radon emanation levels from cryogenics materials, and a predicted ${\sim}20\times$ higher
+oxygen level in the gas than liquid.  The line is connected to the cryogenics system in the service building at the point closest to the
+TPC to lessen the contaminants that reach the LXe through condensation either at the liquid-gas surface or from the PTR
+(\secref{subsec:electron_lifetime_model_vap_and_cond}).  Both this line as well
 as the one connected to the cable tube have flow control valves that are independent from each other and the cooling tower pipes, allowing
 custom ratios of flow between the three.
 
@@ -1585,16 +1593,20 @@ state that should be explored.  It is reset to $1$ every 100 iterations to accou
 \includegraphics[width=\textwidth]{}
 \end{subfigure}
 \caption{Examples of $\vect{\theta}_p$ using DEMC (left) and DEMC snooker update (right) in two dimensions.  Example of normal DEMC
-proposal (\cref{itm:update_demc_normal}).  The difference between two randomly selected walkers
+proposal (\ref{itm:update_demc_normal}).  The difference between two randomly selected walkers
 $\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ is used to propose an update to the $i$th walker using
 \eqnref{eq:elifetime_fit_mcmc_update_demc} in two dimensions.  $\vect{\theta}_p$ and
 $\vect{\theta}_{\mathrm{R1}} - \vect{\theta}_{\mathrm{R2}}$ are at a slight tilt to one another due to $\vectlett{z}$.  Example
-of DEMC snooker update proposal (\cref{itm:update_demc_snooker}).  An update is proposed using difference of projections of
+of DEMC snooker update proposal (step \ref{itm:update_demc_snooker}).  An update is proposed using difference of projections of
 $\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ along $\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i$ where
 $\vect{\theta}_{\mathrm{R3}}$ is a third randomly drawn walker using \eqnref{eq:elifetime_fit_mcmc_update_snooker}.}
 \label{fig:elifetime_fit_mcmc_demc_diagram}
 \end{figure}
 
+
+
+\subsection{Results}
+\label{subsec:elifetime_fit_results}
 Rewriting the acceptance probability in \eqnref{eq:elifetime_fit_mcmc_acc_demc}
 
 \begin{equation}
@@ -1616,17 +1628,29 @@ For this analysis the likelihood is calculated as
 
 \begin{equation}
 \begin{aligned}
-\mathcal{L}_i &= \mathrm{exp} \bigg( -\frac{\big(\tau_{e, i}^{(\mathrm{meas})} -
-\tau_{e, i}^{(\mathrm{pred})} \big)^2}{2 \big(\sigma_{e, i}^{(\mathrm{meas})} \big)^2} \bigg) \\
+\mathcal{L}_i &= \mathrm{exp} \Bigg[ -\frac{\big(\tau_{e, i} - \hat{\tau}_{e, i} \big)^2}{2 \sigma_{e, i}^2} \Bigg] \\
 \mathcal{L} &= \prod_i \mathcal{L}_i \\
-\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{\big(\tau_{e, i}^{(\mathrm{meas})} -
-\tau_{e, i}^{(\mathrm{pred})} \big)^2}{2\big(\sigma_{e, i}^{(\mathrm{meas})}\big)^2}
+\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{\big(\tau_{e, i} -
+\hat{\tau}_{e, i} \big)^2}{2 \sigma_{e, i}^2}
 \end{aligned}
 \end{equation}
 
-\noindent where $\tau_{e, i}^{(\mathrm{meas})}$ and $\tau_{e, i}^{(\mathrm{pred})}$ are the measured and predicted electron
-lifetimes.  Because previous measurements do not exist the only constraints in $p(\vect{\theta}|\vect{\alpha})$ come from physical
+\noindent where $\tau_{e, i}$ and $\hat{\tau}_{e, i}$ are the measured and predicted electron
+lifetimes for the $i$th measurement, respectively, and $\sigma_{e, i}$ is the measurement uncertainty.  Because previous measurements do
+not exist - and many are expected to be detector-dependent - the only constraints in $p(\vect{\theta}|\vect{\alpha})$ come from physical
 limitations or restrictions to accelerate convergence.
+
+The posterior here is defined as the final $1000\ \mathrm{iterations} \times 400\ \mathrm{walkers} = 400,000\ \mathrm{samples}$.  The
+Gelman Rubin Test Statistic $\hat{R}$, which compares in-chain with between-chain variance to assess convergence - with the idea they
+should approach unity - is shown in
+\figref{fig:elifetime_fit_results_gr} (\citeref{Gelman1992}).
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{elifetime_model_gr}
+\caption{Gelman-Rubin Test Statistic for this analysis.}
+\label{fig:elifetime_fit_results_gr}
+\end{figure}
 
 Electronegative impurities
 in particular present a problem

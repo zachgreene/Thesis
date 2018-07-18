@@ -727,41 +727,101 @@ $F_{\mathrm{G}}^{\inp} + F_{\mathrm{L}}^{\inp} = F_{\mathtt{FC201}} + F_{\mathtt
 \subsection{Vaporization and Condensation}
 \label{subsec:electron_lifetime_model_vap_and_cond}
 Impurity migration between the liquid and gas mandates consideration of both volumes rather than strictly the liquid.  Electronegative
-particles (e.g. \ce{O_2}, \ce{CO}, etc.) are expected to be more densely distributed in the GXe due to their lighter atomic mass.
-
-To parameterize the migration rate the probability of an impurity in the liquid (gas) moves into the gas (liquid) we should first
+particles (e.g. \ce{O_2}, \ce{CO}, etc.) are expected to be more densely distributed in the GXe due to their lighter atomic mass.  To
+parameterize the migration rate the probability of an impurity in the liquid (gas) moves into the gas (liquid) we should first
 consider the rate at which GXe condenses and LXe vaporizes.
 
-In the case where no xenon is entering or leaving the cryogenics system
-the detector
-should achieve a state of equilibrium with cooling power \pc (from a PTR or L\ce{N_2} from cooling tower).  When this is the case the
-rate of LXe vaporization and GXe condensation will balance, fixing the masses and volumes of both.
+The PTRs and \ce{LN_2} supply the cooling power to the system (\secref{subsec:xenon1t_cryo}).  This is balanced by heat from the GXe and
+resistive heaters (one on each coldfinger).  The resistive heaters are run by a PID controller and adjust according to the difference
+between the other two.  Because there is no flow of heat into or out of the coldfinger the three balance
 
-When additional heat is added to the system the situation changes as \pc is no longer sufficient to keep the chamber in
-equilibrium.  The cooling towers must supply power $P > P_{\mathrm{stab}}$ to maintain balance.  During normal operation extra heat comes
-from xenon traveling through the purification system.  Reflecting on the stable operating conditions the LXe notices no difference as
-its temperature and volume are unchanged.  Therefore the rate that LXe that is vaporized has not changed.  The GXe, however, condenses
-at a faster rate since it resides in the cooling towards and $P$ has increased.
+\begin{equation}
+\dot{Q}_{\mathrm{PTR}} + \dot{Q}_{\mathrm{GXe}} + \dot{Q}_{\mathrm{H}} = 0
+\label{eq:electron_lifetime_model_vap_and_cond_heat_cons}
+\end{equation}
 
-The mass of liquid xenon will evaporate at a rate $P_{\mathrm{stab}} / L$ where $L = 95.6 \times 10^3\ \mathrm{J\ kg^{-1}}$ is the
-specific latent heat of the liquid-gas phase transition.  For GXe condensation this is simply $P / L$.  Impurity migration can then be
-characterized by
+\noindent where $\dot{Q}$ is the heat transfer rate with $\dot{Q}_{\mathrm{PTR}} < 0$ and
+$\dot{Q}_{\mathrm{GXe}}, \dot{Q}_{\mathrm{H}} > 0$.  Because the Slow Control system only directly monitors the resistive heaters the
+other two are disentangled by having measured $\dot{Q}_{\mathrm{H}}$ when the inner vessel was under vacuum before filling
+($\dot{Q}_{\mathrm{GXe}} = 0$).  It was found
+to be $\dot{Q}_{\mathrm{PTR}} = -\dot{Q}_{\mathrm{H}} = -260\ \mathrm{W}$.  \eqnref{eq:electron_lifetime_model_vap_and_cond_heat_cons} can
+be rewritten as
 
-\begin{subequations}
-\begin{align}
+\begin{equation}
+\dot{Q}_{\mathrm{GXe}} + \dot{Q}_{\mathrm{H}} = 260\ \mathrm{W}
+\label{eq:electron_lifetime_model_vap_and_cond_heat_gxe}
+\end{equation}
+
+\noindent so as the heat load from the xenon increases the resistive heater will have lower current.
+
+Purification has the greatest variability among heat sources due to changes in circulation speed.  For roughly two days shortly after
+XENON1T came online it was halted entirely, as shown in \figref{fig:electron_lifetime_model_vap_and_cond_no_flow}.  Once the system
+stabilized $\dot{Q}_0 \equiv \dot{Q}_{\mathrm{GXe}}$ was calculated via
+\eqnref{eq:electron_lifetime_model_vap_and_cond_heat_gxe} to be 140 W.  Because the system was stable the vaporization and condensation
+rates must be equivalent.  The total xenon mass has not changed much since so it is reasonable to assume this value still holds.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{heater_no_purification_flow}
+\caption{Heater power $\dot{Q}_{\mathrm{H}}$ (red) and purification flow (blue) from May 2-8, 2016.  On May 4th circulation is stopped,
+decreasing the heat in the GXe.  $\dot{Q}_{\mathrm{H}}$ rises to ${\sim}120\ \mathrm{W}$, and to satisfy
+\eqnref{eq:electron_lifetime_model_vap_and_cond_heat_cons} $\dot{Q}_{\mathrm{GXe}} \sim 140\ \mathrm{W}$.  When purification is resumed on
+May 6th
+there is a dramatic drop in $\dot{Q}_{\mathrm{H}}$ while the heat exchanger and other materials equilibriate to colder temperatures.}
+\label{fig:electron_lifetime_model_vap_and_cond_no_flow}
+\end{figure}
+
+Xenon returning from purification will add heat to the system.  However, with a total mass of more than 3 t and
+narrow temperature range ($< 1^{\circ}\mathrm{C}$ between bottommost and topmost sensors) the thermal load of the liquid xenon does not
+appreciably change.  Thus the vaporization is constant regardless of flow and can be modeld using the zero-flow period
+
+\begin{equation}
 M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{vap})} = -M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{vap})} =
-\frac{\epsilon_{\mathrm{vap}} P_{\mathrm{stab}} I_{\mathrm{L}}}{L}
-\\
+\frac{\epsilon_{\mathrm{vap}} \dot{Q}_0 I_{\mathrm{L}}}{L}
+\end{equation}
+
+\noindent where $\epsilon_{\mathrm{vap}}$ is the vaporization probability for impurities in the liquid.
+
+The excess heat will increase the thermal load of the gas and cause its contribution to the coldfinger will grow.  The specific heat for
+xenon gas at constant pressure is $c_p = 158\ \mathrm{J\ kg^{-1}\ K^{-1}}$ and the latent heat of vaporization is
+$L = 9.6 \times 10^4\ \mathrm{J\ kg^{-1}}$.  The condensation rate for xenon is
+
+\begin{equation}
+\begin{aligned}
+\dot{Q}_{\mathrm{GXe}}^{\Delta T} + \dot{Q}_{\mathrm{GXe}}^{(\mathrm{cond})} &= \dot{Q}_{\mathrm{GXe}} \\
+\dot{m} c_p \Delta T + \dot{m} L &= \dot{Q}_{\mathrm{GXe}} \\
+\dot{m} &= \frac{\dot{Q}_{\mathrm{GXe}}}{c_p \Delta T + L}
+\end{aligned}
+\end{equation}
+
+\noindent where $\Delta T$ is the difference between the initial and vaporization temperatures.  The condensation term in the model is
+
+\begin{equation}
 -M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{cond})} = M_{\mathrm{L}} \frac{dI_{\mathrm{L}}}{dt}^{(\mathrm{cond})} =
-\frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{L}
-\end{align}
-\end{subequations}
+\frac{\epsilon_{\mathrm{cond}} P I_{\mathrm{G}}}{c_p \Delta T + L}
+\end{equation}
 
-\noindent where $\epsilon_{\mathrm{vap}}$ and $\epsilon_{\mathrm{cond}}$ are the probabilities of vaporization and condensation for
-impurities in the liquid and gas, respectively.
+\noindent where $\epsilon_{\mathrm{cond}}$ is the probability of condensation for impurities in the gas.  Because the GXe ranges more
+than $100^{\circ}\mathrm{C}$ $\Delta T$ is left as a free parameter but constrained to between the vaporization and maximum detector
+temperatures.
 
-The stable cooling power was found to be $P_{\mathrm{C}} = 140\ \mathrm{W}$.  The cooling power $P$ is monitored continuously so is input
-directly into the fit.
+A complication in this parameterization is $\dot{Q}_{\mathrm{PTR}}$ is known to decrease in time.  This can be indirectly observed by
+the long-term behavior in $\dot{Q}_{\mathrm{H}}$ as shown in \figref{fig:electron_lifetime_model_vap_and_cond_ptr_decrease}.  As a result
+\eqnref{eq:electron_lifetime_model_vap_and_cond_heat_gxe} leads to greater overestimation of condensation over time if not
+corrected, although this can be difficult since the behavior of \qdh corrects for temperature variations that can vary regularly.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{heater_no_purification_flow}
+\caption{}
+\label{fig:electron_lifetime_model_vap_and_cond_ptr_decrease}
+\end{figure}
+
+Harvard Business School Case Study – A case study about Bridgewater’s unique culture and way of being produced by and used at the
+Harvard Business School. We ask that you review the case prior to your time in house, as it provides material context about
+how we engage and operate on a day-to-day basis.  We ask that you please refrain from forwarding along to others as some of this
+material is not public information.   Please allow roughly 90 minutes for
+completion.  HBS Case Study Link: http://bit.ly/1cqFUnb     Login: bw_external      Password: bw_external
 
 
 
@@ -1028,7 +1088,8 @@ regions where our knowledge is limited .
 The narrow temperature range and thermal isolation (with exception at the GXe-LXe interface)
 suggests the LXe temperature should be stable and is shown in \figref{fig:electron_lifetime_model_outgassing_lxe_temp}.  Deviations are
 $< \lesssim num\%$ total, and $\lesssim num\%$ after $this\ date$.  The higher volatility of the temperature ranges in the gas require
-further exploration.
+further exploration.  One particularly noteworthy consideration is the \ce{LN_2} cooling tower, which is nominally kept at
+$-90^{\circ}\mathrm{C}$.
 
 \begin{figure}
 \centering
@@ -1081,7 +1142,7 @@ in or between materials streams out, and real, where gas originating outside the
 
 The flattening of \te around $600\ \mathrm{\mu s}$ for \alphadecays and $650\ \mathrm{\mu s}$ for \metakr during Science Run 1 provides
 strong support of a leak.  The leak was never looked for but residual gas analyzer (RGA) measurements of the vacuum between the inner and
-outer cryogenics support structure did not reveal an increase in xenon, which should accompany the influx of impurities.  Therefore the
+outer vessels support structure did not reveal an increase in xenon, which should accompany the influx of impurities.  Therefore the
 leak would either need to be internal, or from a component directly exposed to air.  There are a number of possible candidates for the
 latter including the pipes leading to and from the purification system, ReStoX, and the signal and HV feedthrough.
 
@@ -1135,28 +1196,6 @@ hotspot on the cathode prevents decreasing the attachment rate and therefore inc
 of the impurity rate $165\ \mathrm{ppb\ kg\ day^{-1}}$  should serve as an upper limit.  However, since electron lifetime measurements
 carry some uncertainty and $F_{\mathrm{L}}$ fluctuates slightly an upper bound of $R_I \leq 200\ \mathrm{ppb\ kg\ day^{-1}}$ is used to
 constrain the fit during SR1.
-
-Cooling power should be larger than stable cooling power, but in code stable is 140 and from historian seems normal is 100 or
-below.  Where new pipes were installed.  Old pipes were 1/2", new are 1".  Cause of resistance in original pipes.  Study to characterize
-getter efficiency as function of flow speed.  Cold finger or cold head.  Magnetic pump schematic depict what happened - date says
-from October 2016.  GXe flow from PMT signal and HV tube because could not clean as well as other materials.  Purpose of GXe line
-attached to region roughly halfway between TPC and cooling towers.  \ce{O_2^-} and other electronegative impurities that got electron
-are bound to the cathode.  Fraction of electronegative impurities that pass electrons to cathode and become neutral, fraction that remain
-bound.  If free electronegative impurities from cathode have extra electron explain how contribute to decreasing electron
-lifetime.  Change in cathode voltage affect number of impurities bound to it, perhaps justifying separate parameters for SR0 and
-SR1.  Maybe include term like negative exponential for impurity buildup on cathode, then total would be amount released.  Cryostat baked
-or not - if exposed to air for extended periods may have up to 100 monolayers of water, if baked may have very little.  RGA measurements
-in vacuum did or did not show xenon increase.  Leak testing cryogenics system, purification system.  Cooling towers in vacuum or
-not.  Other possible locations, where valves were, to or from ReStoX, cable pipe.  Name of flange where cables go from inside detector to
-outside - feedthrough I think.  ReStoX can pump liquid during filling and refilling.  Percent of purified xenon that goes to LXe as
-opposed to GXe.  Paper or note on magnetic pump.  Why QDrives over KNF - exposure to air.  RGA of impurities.  Clean GXe to bell has
-FCV or FC.
-
-Discuss 100 SLPM plan and choking by pipes, why didn't reach it.  \ce{^{222}Rn} decrease with magnetic
-pump.  Connect to Demonstrator - attempt to drift electrons 1 meter.  Make clear why it's so important.  Discuss how much lose in
-sensitivity.  Tests to understand individual components.  Include flow model by Guillaume, what we hope to achieve using it.  Show
-waveforms for same energy event - one at top and one at bottom of detector and how bottom is worse.  Discuss qualitatively electron
-lifetime before discuss model.
 
 April 14 18:27 LXe level too high, adjusted by Ops Manager.  April 16 17:05 normal power turned off.  April 19 9:03 and 9:09 normal power
 turned off.  PTR with LN2 test May 9-18.
@@ -1247,17 +1286,17 @@ contaminants that infiltrated the LXe and decreased $\tau_e$.
 \begin{tabular}{cccccc}
 \hline
 \hline
-Date & Origin & Region & $V_c \rightarrow 0$ & PTR power$\rightarrow 0$ & Comments \\
+Date & Origin & Region & Possible cause & Comments \\
 \hline
-June 14, 2016 & Power glitch & GXe & Unknown & Yes & No $V_c$ information \\
-July 15, 2016 & \lntwo test & GXe & Unknown & Yes &  Unreliable $V_c$ readings \\
-November 21, 2016 & Power Disruption & LXe & Yes & No & \\
-January 18-February 1, 2017 & Earthquake & GXe + LXe & Yes & Yes & Many possible dips \\
-June 5, 2017 & Gate washing & LXe & Yes & No & Remove hotspot \\
-February 21, 2018 & Power Glitch & GXe & No & No & PTR power drop of ${\sim} 50\%$ \\
-February 24, 2018 & Blackout & GXe + LXe & Yes & Yes & \\
-March 5-7, 2018 & Gate washings & LXe & Yes & No & Remove hotspot \\
-April 5-10, 2018 & Purification upgrade & LXe & Yes & Yes & 1" OD upgrade \\
+June 14, 2016 & Power glitch & GXe &  PTR power$\rightarrow 0$ & \\
+July 15, 2016 & \lntwo test & GXe & PTR power$\rightarrow 0$ & \\
+November 21, 2016 & Power Disruption & LXe & No & \\
+January 18-February 1, 2017 & Earthquake & GXe + LXe & Yes & Many possible dips \\
+June 5, 2017 & Gate washing & LXe & Liquid level change & Remove hotspot \\
+February 21, 2018 & Power Glitch & GXe & No & PTR power drop of ${\sim} 50\%$ \\
+February 24, 2018 & Blackout & GXe + LXe & PTR power$\rightarrow 0$ & \\
+March 5-7, 2018 & Gate washings & LXe & Liquid level change & Remove hotspot \\
+April 5-10, 2018 & Purification upgrade & LXe & Yes & 1" OD upgrade \\
 \hline
 \hline
 \end{tabular}

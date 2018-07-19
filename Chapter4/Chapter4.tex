@@ -517,10 +517,10 @@ S1 below 10 keV has minimal field dependence because recombination is minimal.  
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{relative_electron_yield_field_tpc}
+\includegraphics[width=\textwidth]{relative_electron_yield_field_tpc_80_v_cm}
 \caption{Relative \electron yield with respect to [$-90 \leq z \leq -85\ \mathrm{cm}$, $r \geq 36.94\ \mathrm{cm}$] for
-$\mathrm{^{129m}Xe}$ (left) and \ce{^{222}Rn} (right) for ${\sim}120\ \mathrm{V\ cm^{-1}}$ inside the 1T FV (black line).  A decline in
-yield is
+$\mathrm{^{129m}Xe}$ (left) and \ce{^{222}Rn} (right) for $V_c = 8\ \mathrm{kV}$ (${\sim}80\ \mathrm{V\ cm^{-1}}$) inside the 1T FV (black
+line).  A decline in yield is
 observed moving in the $-z$ direction, which leads to a misleading observation that the electron lifetime is lower than its true
 value.  The imbalance between the top
 and bottom of the TPC is $\gtrsim 2\times$ larger for \ce{^{222}Rn}, causing it to appear lower than its $\gamma$ counterparts.}
@@ -543,7 +543,8 @@ the lower measured lifetime, though a separate field-dependent effect also requi
 \centering
 \includegraphics[width=\textwidth]{relative_electron_yield_field}
 \caption{Relative electron yield dependence on $z$ with respect to the region $-90 \leq z \leq -85\ \mathrm{cm}$ and
-$r \geq 36.94\ \mathrm{cm}$ using NEST (\citeref{NEST2013}).  Internal $\gamma$ sources $\mathrm{^{131m}Xe}$ (green) and
+$r \geq 36.94\ \mathrm{cm}$ at $V_c = 8\ \mathrm{kV}$ (${\sim}80\ \mathrm{V\ cm^{-1}}$) using NEST (\citeref{NEST2013}).  Internal
+$\gamma$ sources $\mathrm{^{131m}Xe}$ (green) and
 $\mathrm{^{129m}Xe}$
 (red) are shown, with higher energies \ce{^{60}Co} (black) and \ce{^{208}Tl} (pink) plotted for comparison.  We can see their relative
 light yield varies by ${\sim} 5\%$, with the higher-energy lines having only ${\sim} 1\%$ greater difference than $\mathrm{^{131m}Xe}$ and
@@ -656,7 +657,7 @@ system is
 measured with flow controllers \texttt{FC201} and \texttt{FC202} that precede the getters.  Finally, it is critical to monitor valves
 \texttt{FV217} and \texttt{FV224} as
 if they are open the getters will be bypassed.  The top and bottom paths in \figref{fig:electron_lifetime_model_slow_control_pur} have one
-and two QDrives, respectively, so the flow through the bottom is larger.  Installing a second QDrive on the top loop would not
+and two QDrives, respectively, meaning the flow through the bottom is larger.  Installing a second QDrive on the top loop would not
 increase the flow because it was restricted by the pipes (as mentioned above this was eventually fixed).
 
 Because the mass of xenon has
@@ -690,8 +691,7 @@ Parameter & \multicolumn{1}{c}{Function} & Marked by & Comments \\
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{purificationpid}
-\caption{Slow control for purification system.  The path of xenon during normal operations is drawn in red.  LXe from bottom of cryostat
-passes through the heat exchanger and heater combines with GXe from cryogenics system.}
+\caption{Slow control for purification system.}
 \label{fig:electron_lifetime_model_slow_control_pur}
 \end{figure}
 
@@ -808,20 +808,22 @@ temperatures.
 A complication in this parameterization is $\dot{Q}_{\mathrm{PTR}}$ is known to decrease in time.  This can be indirectly observed by
 the long-term behavior in $\dot{Q}_{\mathrm{H}}$ as shown in \figref{fig:electron_lifetime_model_vap_and_cond_ptr_decrease}.  As a result
 \eqnref{eq:electron_lifetime_model_vap_and_cond_heat_gxe} leads to greater overestimation of condensation over time if not
-corrected, although this can be difficult since the behavior of \qdh corrects for temperature variations that can vary regularly.
+corrected, although this can be difficult since the behavior of \qdh corrects for temperature variations that can vary
+regularly.  \figref{fig:electron_lifetime_model_vap_and_cond_heater_all} shows \qdh for the entire course of the experiment.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{heater_no_purification_flow}
-\caption{}
-\label{fig:electron_lifetime_model_vap_and_cond_ptr_decrease}
+\includegraphics[width=\textwidth]{heater_all_online}
+\caption{\qdh for the lifetime of XENON1T.  Sudden spikes and sporadic behavior result from compensating for rapid increases or decreases
+in heat.  Long-term downward trend is caused by PTR cooling power decreasing over time.  The smoothed overlaid value is used in the fit.}
+\label{fig:electron_lifetime_model_vap_and_cond_heater_all}
 \end{figure}
 
 Harvard Business School Case Study – A case study about Bridgewater’s unique culture and way of being produced by and used at the
 Harvard Business School. We ask that you review the case prior to your time in house, as it provides material context about
 how we engage and operate on a day-to-day basis.  We ask that you please refrain from forwarding along to others as some of this
 material is not public information.   Please allow roughly 90 minutes for
-completion.  HBS Case Study Link: http://bit.ly/1cqFUnb     Login: bw_external      Password: bw_external
+completion.  HBS Case Study Link: http://bit.ly/1cqFUnb
 
 
 
@@ -857,15 +859,10 @@ Five lines connect the GXe region of the XENON1T to the purification system (\se
 the cooling towers (one to each) since as the highest - and by extension warmest - regions outgassing is expected to be the most
 substantial (\figref{fig:xenon1t_cryogenics_schematic,fig:xenon1t_cryo_overview}).  The three lines are united before a flow control valve
 that regulates the flux.  A fourth conduit is linked to the tube that carries the PMT signal and high voltage cables between the TPC and
-data acquisition.  This region was selected because the cables were suspected of having high radon emanation, and the larger surface area
-means greater outgassing.  Connecting directly to the purification system allows cleaning of higher impurity concentration gas and
-distillation of the radon.  The flow is strong enough that the odds of an impurity or radon atom making it into the bell against the
-current is negligible.  The final line is stationed
-approximately halfway between the TPC and cooling towers to purify GXe from the main section of the cryogenics system.  This location was
-chosen to address two challenges: elevated radon emanation levels from cryogenics materials, and a predicted ${\sim}20\times$ higher
-oxygen level in the gas than liquid.  The line is connected to the cryogenics system in the service building at the point closest to the
-TPC to lessen the contaminants that reach the LXe through condensation either at the liquid-gas surface or from the PTR
-(\secref{subsec:electron_lifetime_model_vap_and_cond}).  Both this line as well
+data acquisition.  This region was selected because the contamination is expected to be higher from outgassing as a result of the
+inability to apply the same cleaning standard as other detector materials (\textbf{check this}).  The final line is stationed
+approximately halfway between the TPC and cooling towers to purify GXe from the main section of the cryogenics system.  Both this line as
+well
 as the one connected to the cable tube have flow control valves that are independent from each other and the cooling tower pipes, allowing
 custom ratios of flow between the three.
 
@@ -1079,32 +1076,32 @@ purification flow, temperatures outside detector pipes that are not vacuum insul
 a simpler model that can describe the data.
 
 To begin setting up the model we know outgassing decreases over time and is temperature-dependent.  If temperatures
-are adequately stable they can be ignored - or if only a handful of radical changes exist these periods can be modeled with an
-alternative parameterization.  This is preferred because selecting specific temperature sensors will make the model
+are adequately stable they can be ignored - or if only a handful of radical changes exist these periods can be supplemented with
+additional parameters.  This is preferred because selecting specific temperature sensors will make the model
 partial to those regions, e.g. if the temperature rises in a single cooling tower the entire GXe outgassing model should not be scaled
-accordingly.  Furthermore because the locations of the sensors were strategically selected to monitor the health of XENON1T, there are
-regions where our knowledge is limited .
+accordingly - though generally speaking the gas or liquid should experience similar effects.  Furthermore because the locations of the
+sensors were strategically selected to monitor the health of XENON1T, there are regions where our knowledge is limited.
 
-The narrow temperature range and thermal isolation (with exception at the GXe-LXe interface)
-suggests the LXe temperature should be stable and is shown in \figref{fig:electron_lifetime_model_outgassing_lxe_temp}.  Deviations are
-$< \lesssim num\%$ total, and $\lesssim num\%$ after $this\ date$.  The higher volatility of the temperature ranges in the gas require
-further exploration.  One particularly noteworthy consideration is the \ce{LN_2} cooling tower, which is nominally kept at
-$-90^{\circ}\mathrm{C}$.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{lxe_temp_stability}
-\caption{LXe temperature stability TE101, TE102, TE103, TE104, TE105, and maybe TE106 and TE107 over lifetime of detector.}
-\label{fig:electron_lifetime_model_outgassing_lxe_temp}
-\end{figure}
-
-The more volatile GXe temperatures are plotted in \figref{fig:electron_lifetime_model_outgassing_gxe_temp}.
+Temperature variations for three strategic regions are shown in \figref{fig:electron_lifetime_model_outgassing_temp_stability}.  The
+narrow temperature range and good thermal isolation of the LXe keeps its temperature stable to well under 1\%, with the exception of May
+and June 2016 when a number of operations were performed to understand and optimize the detector.  The temperature sensor used for the
+LXe curve is situated not far below the liquid surface since warmer regions are of more interest.  For the same reason the GXe sensor used
+is in the unpowered cooling tower, one of the highest points.  It fluctuates by roughly 2\% through September 2016 but fluctuations have
+not exceeded 1\%.  The \ce{LN_2} coldfinger is considerably more turbulent then the xenon.  It has been kept at $90^{\circ}\mathrm{C}$
+since June 2016 by flushing \ce{GN_2} from the nitrogen storage tank.  This may be because the temperature is a balancing act of the
+different heat transfer rates (\eqnref{eq:electron_lifetime_model_vap_and_cond_heat_cons} with
+$\dot{Q}_{\mathrm{PTR}} \rightarrow \dot{Q}_{\mathrm{LN_2}}$) so it is more susceptible to sudden drops and
+rises than the thermal reservoirs of the GXe and LXe.  It appears to be increasing slightly but the total change is within 1\%.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{gxe_temp_stability}
-\caption{GXe temperature stability.}
-\label{fig:electron_lifetime_model_outgassing_gxe_temp}
+\includegraphics[width=\textwidth]{temp_stability}
+\caption{Relative temperature variations for temperature sensors stationed on the \ce{LN_2} coldfinger (blue), in the unpowered cooling
+tower (black), and just below the LXe surface (pink).  The variation is defined as the $T - T_{\mathrm{med}} / T_{\mathrm{med}}$ where
+$T_{\mathrm{med}}$ is the median temperature from all data.  The \ce{LN_2} coldfinger shows the most volatility.  The GXe changes by
+${\sim}2\%$ in the first several months of operation but is since stable within 1\%.  The LXe decrease by roughly 1\% in the first couple
+months as adjustments to the detector were made.  Since then its variation is $\ll 1\%$.}
+\label{fig:electron_lifetime_model_outgassing_temp_stability}
 \end{figure}
 
 
@@ -1632,20 +1629,16 @@ state that should be explored.  It is reset to $1$ every 100 iterations to accou
 \includegraphics[width=\textwidth]{}
 \end{subfigure}
 \caption{Examples of $\vect{\theta}_p$ using DEMC (left) and DEMC snooker update (right) in two dimensions.  Example of normal DEMC
-proposal (\ref{itm:update_demc_normal}).  The difference between two randomly selected walkers
+proposal (\cref{itm:update_demc_normal}).  The difference between two randomly selected walkers
 $\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ is used to propose an update to the $i$th walker using
 \eqnref{eq:elifetime_fit_mcmc_update_demc} in two dimensions.  $\vect{\theta}_p$ and
 $\vect{\theta}_{\mathrm{R1}} - \vect{\theta}_{\mathrm{R2}}$ are at a slight tilt to one another due to $\vectlett{z}$.  Example
-of DEMC snooker update proposal (step \ref{itm:update_demc_snooker}).  An update is proposed using difference of projections of
+of DEMC snooker update proposal (\cref{itm:update_demc_snooker}).  An update is proposed using difference of projections of
 $\vect{\theta}_{\mathrm{R1}}, \vect{\theta}_{\mathrm{R2}}$ along $\vect{\theta}_{\mathrm{R3}} - \vect{\theta}_i$ where
 $\vect{\theta}_{\mathrm{R3}}$ is a third randomly drawn walker using \eqnref{eq:elifetime_fit_mcmc_update_snooker}.}
 \label{fig:elifetime_fit_mcmc_demc_diagram}
 \end{figure}
 
-
-
-\subsection{Results}
-\label{subsec:elifetime_fit_results}
 Rewriting the acceptance probability in \eqnref{eq:elifetime_fit_mcmc_acc_demc}
 
 \begin{equation}
@@ -1667,29 +1660,17 @@ For this analysis the likelihood is calculated as
 
 \begin{equation}
 \begin{aligned}
-\mathcal{L}_i &= \mathrm{exp} \Bigg[ -\frac{\big(\tau_{e, i} - \hat{\tau}_{e, i} \big)^2}{2 \sigma_{e, i}^2} \Bigg] \\
+\mathcal{L}_i &= \mathrm{exp} \bigg( -\frac{\big(\tau_{e, i}^{(\mathrm{meas})} -
+\tau_{e, i}^{(\mathrm{pred})} \big)^2}{2 \big(\sigma_{e, i}^{(\mathrm{meas})} \big)^2} \bigg) \\
 \mathcal{L} &= \prod_i \mathcal{L}_i \\
-\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{\big(\tau_{e, i} -
-\hat{\tau}_{e, i} \big)^2}{2 \sigma_{e, i}^2}
+\mathrm{ln}\, \mathcal{L} &= -\sum_i \frac{\big(\tau_{e, i}^{(\mathrm{meas})} -
+\tau_{e, i}^{(\mathrm{pred})} \big)^2}{2\big(\sigma_{e, i}^{(\mathrm{meas})}\big)^2}
 \end{aligned}
 \end{equation}
 
-\noindent where $\tau_{e, i}$ and $\hat{\tau}_{e, i}$ are the measured and predicted electron
-lifetimes for the $i$th measurement, respectively, and $\sigma_{e, i}$ is the measurement uncertainty.  Because previous measurements do
-not exist - and many are expected to be detector-dependent - the only constraints in $p(\vect{\theta}|\vect{\alpha})$ come from physical
+\noindent where $\tau_{e, i}^{(\mathrm{meas})}$ and $\tau_{e, i}^{(\mathrm{pred})}$ are the measured and predicted electron
+lifetimes.  Because previous measurements do not exist the only constraints in $p(\vect{\theta}|\vect{\alpha})$ come from physical
 limitations or restrictions to accelerate convergence.
-
-The posterior here is defined as the final $1000\ \mathrm{iterations} \times 400\ \mathrm{walkers} = 400,000\ \mathrm{samples}$.  The
-Gelman Rubin Test Statistic $\hat{R}$, which compares in-chain with between-chain variance to assess convergence - with the idea they
-should approach unity - is shown in
-\figref{fig:elifetime_fit_results_gr} (\citeref{Gelman1992}).
-
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{elifetime_model_gr}
-\caption{Gelman-Rubin Test Statistic for this analysis.}
-\label{fig:elifetime_fit_results_gr}
-\end{figure}
 
 Electronegative impurities
 in particular present a problem

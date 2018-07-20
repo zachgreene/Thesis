@@ -747,6 +747,23 @@ Calibrations allow detector characterization and monitoring as well as measureme
 been done with $\mathrm{^{83m}Kr}$, \ce{^{222}Rn}, \ce{^{137}Cs}, \ce{^{228}Th}, americium beryllium, a neutron generator, and LEDs.
 % look at http://www.uni-muenster.de/Physik.KP/AGWeinheimer/Files/theses/Bachelor_Sergej_Schneider.pdf sections 2.2 and 2.3
 
+The most common calibration source is $\mathrm{^{83m}Kr}$.  Being a noble gas it can be injected directly into the xenon so to be used as an
+internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to the purification system
+(\secref{subsec:xenon1t_calibrations_internal}) and decays through electron capture
+
+\begin{equation}
+\mathrm{^{83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
+\end{equation}
+
+\noindent with a 74.8\% branching ratio to the metastable state $\mathrm{^{83m}Kr}$.  $\mathrm{^{83m}Kr}$ then de-excites in two steps:
+emission of a 32.2 keV
+conversion electron with half-life $t_{1/2} = 1.83\ \mathrm{h}$ followed by a second conversion electron at 9.4 keV with
+$t_{1/2} = 154.4\ \mathrm{ns}$.  The short
+interval between the two decays makes tagging events easy.  Furthermore the mono-energetic lines can be used for a number of
+detector characterizations including light collection efficiency (\secref{subsec:det_char_lce}), position reconstruction
+(\secref{subsec:det_char_position_reconstruction}), S2 correction maps (\secref{subsec:det_char_s2_position_correction}), and electron
+lifetime (\secref{subsec:det_char_elifetime}).
+
 
 \subsection{PMT Gain}
 \label{subsec:det_char_pmt_gain}
@@ -799,24 +816,6 @@ peak-to-valley ratio is ${\sim} 3$.  The PMT gains are regularly measured to ide
 PMTs - all of which are stable - in \figref{fig:xenon1t_pmt_time}.
 
 
-
-\subsection{$\mathbf{^{83m}Kr}$}
-\label{subsec:det_char_kr}
-The most common calibration source is $\mathrm{^{83m}Kr}$.  Being a noble gas it can be injected directly into the xenon so to be used as an
-internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to the purification system
-(\secref{subsec:xenon1t_calibrations_internal}) and decays through electron capture
-
-\begin{equation}
-\mathrm{^{83}Rb} + e^- \rightarrow \mathrm{^{83}Kr} + \nu_e
-\end{equation}
-
-\noindent with a 74.8\% branching ratio to the metastable state $\mathrm{^{83m}Kr}$.  $\mathrm{^{83m}Kr}$ then de-excites in two steps:
-emission of a 32.2 keV
-conversion electron with half-life $t_{1/2} = 1.83\ \mathrm{h}$ followed by a second conversion electron at 9.4 keV with
-$t_{1/2} = 154\ \mathrm{ns}$.  The short
-interval between the two decays makes tagging events easy.  Furthermore the mono-energetic $\gamma$ lines can be used for a number of
-detector characterizations including light collection efficiency (LCE), S2 position correction maps, position reconstruction, and electron
-lifetime.
 
 \subsection{Light Collection Efficiency}
 \label{subsec:det_char_lce}

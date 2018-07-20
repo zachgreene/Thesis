@@ -400,19 +400,58 @@ This method can in principle be achieved for any $\alpha$-emitting element distr
 for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.
 
 
+
 \subsection{$\mathbf{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_measurement_kr}
-The delayed coincidence between the 32.2 and 9.4 keV decays help differentiate $\mathrm{^{83m}Kr}$ events from background.  With
-$t_{1/2} = 154\ \mathrm{ns}$ for the 9.4 keV a large fraction of the S1s will overlap so a cut
-$600 < \delta t_{\mathrm{S1}} < 2000\ \mathrm{ns}$
-where $\delta t_{\mathrm{S1}}$ is the time between S1s is applied.  In addition we require the number of PMTs that see the 9.4 keV peak
-to be $> 3$ to avoid coincident PMT noise and $< 30$ since it is low-energy.
+The delayed coincidence between the 32.2 and 9.4 keV decays differentiate $\mathrm{^{83m}Kr}$ from background.  With
+$t_{1/2} = 154.4\ \mathrm{ns}$ for the 9.4 keV a large fraction of the S1s will overlap.  To select events that have distinguishable S1s
+the cut $500 < \Delta t_{\mathrm{S1}} < 2000\ \mathrm{ns}$
+where $\Delta t_{\mathrm{S1}}$ is the time between S1s is applied.  To avoid PMT noise coincidence that might mimic the 9.4 keV S1
+the number of PMTs that see the low-energy peak must be $> 3$.  However, to ensure the coincidence is from \metakr events it is also
+required to be $< 30$.
 
-The electron lifetime is calculated using the 32.2 keV decay with a procedure similar to that described in
+The S1 and S2 from each decay are matched by size of signal.  With such a short half-life $z$ cannot change much between decays so
+$\tau_e$ does not have an important role.  Once the position coordinates are calculated from the S2 the S1s can be
+corrected.  The left panel of \figref{fig:electron_lifetimes_measurement_kr_cs1_halflife} shows the cS1s for the two peaks for the
+1 t FV.  From the
+almost entirely empty background it is clear how effective the $\Delta t_{\mathrm{S1}}$ cut is.  The number of events vs.
+$\Delta t_{\mathrm{S1}}$ is shown in the right panel.  A fit to an exponential gives $t_{1/2} = 158 \pm 12.6\ \mathrm{ns}$, which
+agrees with the known half-life.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{kr_cs1_a_cs1_b_halflife}
+\caption{cS1s for \metakr during final Science Run 1 calibration (left).  The S1 delay time cut is remarkably efficient at capturing
+\metakr events with little to no background.  S1 delay time cut dependence of events from $500-2000\ \mathrm{ns}$ (right).  A fit with
+an exponential yields a half-life of $158 \pm 12.6\ \mathrm{ns}$, which is in agreement with the accepted value of 154.4 ns.}
+\label{fig:electron_lifetimes_measurement_kr_cs1_halflife}
+\end{figure}
+
+The electron lifetime is calculated using the 32.2 keV decay with a procedure similar to \alphadecays
 \secref{subsubsec:electron_lifetimes_measurement_alphas}.  An preliminary fit is performed using the median \stwob in each drift time
-slice.  However, the high statistics and near-total background removal by the $\delta t_{\mathrm{S1}}$ cut
-removes the need to exclude events far from the true \metakr.  Next each $\delta t_d$ slice is fit with a gaussian and an exponential
-is then fit to the the results.
+slice.  However, the high statistics and near-total background removal by the $\Delta t_{\mathrm{S1}}$ cut
+removes the need to exclude events far from the true \metakr (events farther than pink dashed lines in
+\figref{fig:electron_lifetimes_measurement_alphas_elifetime}).  Each slice in drift time is fit with a gaussian, and an exponential
+is subsequently fit to the results.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{kr_electron_lifetime_log}
+\caption{Electron lifetime measurement using \metakr from January 23-25, 2018.}
+\label{fig:electron_lifetimes_measurement_kr_elifetime}
+\end{figure}
+
+The large statistics provide precise $\tau_e$ measurements that are only rivaled by \ce{^{212}Bi}.  Unfortunately, unlike
+\alphadecays there are no other regular electronic recoil $\tau_e$ measurements to corroborate these values, aside from
+\meta{129}{Xe} and \meta{131}{Xe} following and \ambe or NG calibration.  However, by checking the combined energy spectrum
+(\secref{subsec:det_char_ces}) $z$-dependence it is clear the values are accurate.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{kr_ces_z}
+\caption{$z$-dependence of combined energy spectrum of background data.}
+\label{fig:electron_lifetimes_measurement_kr_ces_z}
+\end{figure}
 
 
 
@@ -444,17 +483,13 @@ y-axis is labeled as \cstwob because for this data $tau_e$ is known within small
 the case.  The final cut we use then is to remove data outside some $\sigma$.
 
 \begin{figure}
-%    \centering
-    \begin{subfigure}[t]{0.4\textwidth}
-%        \centering
-        \includegraphics[height=4cm]{}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.65\textwidth}
-%        \centering
-        \includegraphics[height=4cm]{}
-    \end{subfigure}
-    \caption{}
-	\label{fig:electron_lifetimes_measurement_gammas_s1_s2}
+\centering
+\includegraphics[width=0.8\textwidth]{xe_meta_cs1_cs2b_sr1}
+\caption{cS1 vs. \cstwob for $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$, $-6 < z < -95\ \mathrm{cm}$ for dark matter search data from April
+1-7, 2017 (following SR1 \ambe calibration).  $\mathrm{^{129m}Xe}$ and
+$\mathrm{^{131m}Xe}$ photopeaks are fit with a 2-dimensional gaussian to discriminate against other background.  The red contours mark
+the $4\sigma$ lines.}
+\label{fig:electron_lifetimes_measurement_gammas_cs1_cs2}
 \end{figure}
 
 To verify the data we've selected is primarily \meta{129}{Xe} and \meta{131}{Xe} the event rate can be fit as seen in
@@ -477,8 +512,12 @@ is shown in \figref{fig:electron_lifetimes_measurement_gammas_elifetime}.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{}
-\caption{Electron lifetimes using \meta{129}{Xe} and \meta{131}{Xe} 236.2 and 163.9 keV $\gamma$-rays.}
+\includegraphics[width=\textwidth]{xe_meta_elifetimes_sr1}
+\caption{Electron lifetimes \meta{131}{Xe} (left) and \meta{129}{Xe} (right) for April 1-7, 2017 (same as in
+\figref{fig:electron_lifetimes_measurement_gammas_cs1_cs2}).  The red lines mark the region of the fit - $70 < t_d < 710\ \mathrm{\mu s}$
+and $100 < t_d < 710\ \mathrm{\mu s}$ for \meta{131}{Xe} and \meta{129}{Xe}, respectively.  The change in fit boundary is to omit
+higher energy events from detector materials that penetrate further into the LXe, visible at $t_d \lesssim 50\ \mathrm{\mu s}$ in the
+right panel.  The electron lifetimes agree with one another.}
 \label{fig:electron_lifetimes_measurement_gammas_elifetime}
 \end{figure}
 
@@ -671,20 +710,21 @@ can be ignored.  The slow control parameters are summarized in \tabref{tab:elect
 \resizebox{\textwidth}{!}{
 \begin{tabular}{clcc}
 \hline
-Parameter & \multicolumn{1}{c}{Function} & Marked by & Comments \\
+Parameter & \multicolumn{1}{c}{Function} & Color & Comments \\
 \hline
 \hline
 \texttt{CRY\char`_FCV101} & GXe flow control (cables) & - & Precedes ``From Cryostat GXe'' \\
 \texttt{CRY\char`_FCV102} & GXe flow control (mid-cryostat) & - & Precedes ``From Cryostat GXe'' \\
 \texttt{CRY\char`_FCV103} & GXe flow control (cooling towers) & - & Precedes ``From Cryostat GXe'' \\
-\texttt{PUR\char`_FC201} & Flow measurement (bottom loop) & $color$ box & \\
-\texttt{PUR\char`_FC202} & Flow measurement (top loop) & $color$ box & \\
-\texttt{PUR\char`_FV217} & Valve (bottom loop) & $color$ box & Bypass Getter 201 \\
-\texttt{PUR\char`_FV224} & Valve (top loop) & $color$ box & Bypass Getter 202 \\
+\texttt{PUR\char`_FC201} & Flow measurement (bottom loop) & purple & \\
+\texttt{PUR\char`_FC202} & Flow measurement (top loop) & purple & \\
+\texttt{PUR\char`_FV217} & Valve (bottom loop) & $color$ & Bypass Getter 201 \\
+\texttt{PUR\char`_FV224} & Valve (top loop) & $color$ & Bypass Getter 202 \\
 \hline
 \end{tabular}
 }
-\caption{Parameters queried from slow control system to calculate \fg and \fl.}
+\caption{Parameters queried from slow control system to calculate \fg and \fl.  Those in
+\figref{fig:electron_lifetime_model_slow_control_pur} are highlighted in the color listed.}
 \label{tab:electron_lifetime_model_removal_slow_control_pars}
 \end{table}
 
@@ -889,8 +929,8 @@ purity degradation a Fermi-Dirac will ensue and the electron lifetime will resum
 
 In the beginning of SR1 the $\alpha$ electron lifetime rapidly rose to ${\sim} 580\ \mathrm{\mu s}$ ($630\ \mathrm{\mu s}$ for \metakr)
 and began the linear-growth stage.  However, instead of continuing this trend over SR1
-it plateaued around ${\sim} 600\ \mathrm{\mu s}$ ($650\ \mathrm{\mu s}$ \metakr).  A time-independent outgassing model is surely
-unphysical and
+it plateaued around ${\sim} 600\ \mathrm{\mu s}$ ($650\ \mathrm{\mu s}$ $\mathrm{^{83m}Kr}$).  A time-independent outgassing model is
+surely unphysical and
 gave a poor fit to the entire evolution.  A more likely scenario is the presence of a leak.  While we cannot say definitively that the
 cause is in fact a leak as it was never searched for, it is referred to in this chapter as a leak and in the instance it is not the
 results do not change as this is a simple model for a continuous inflow of impurities.  Therefore inbound impurities are modeled with
@@ -1065,7 +1105,7 @@ reader is referred to \citeref{OHanlon2003}.
 
 \subsubsection{Outgassing Model}
 \label{subsubsec:electron_lifetime_model_outgassing_model}
-The gas ($\Lambda_G$) and liquid ($\Lambda_L$) xenon outgassing models characterize the number of impurities outgassed from detector
+The gas ($\Lambda_{\mathrm{G}}$) and liquid ($\Lambda_{\mathrm{L}}$) xenon outgassing models characterize the number of impurities outgassed from detector
 materials that freely roam throughout
 the GXe and LXe, respectively.  This is different than modeling the total number of impurities because we only care about those
 that impact $\tau_e$.  Specifically \outg and \outl are meant to describe time-varying contamination.  While the outgassing in
@@ -1097,12 +1137,32 @@ rises than the thermal reservoirs of the GXe and LXe.  It appears to be increasi
 \centering
 \includegraphics[width=\textwidth]{temp_stability}
 \caption{Relative temperature variations for temperature sensors stationed on the \ce{LN_2} coldfinger (blue), in the unpowered cooling
-tower (black), and just below the LXe surface (pink).  The variation is defined as the $T - T_{\mathrm{med}} / T_{\mathrm{med}}$ where
+tower (black), and just below the LXe surface (pink).  The variation is defined as the $(T - T_{\mathrm{med}}) / T_{\mathrm{med}}$ where
 $T_{\mathrm{med}}$ is the median temperature from all data.  The \ce{LN_2} coldfinger shows the most volatility.  The GXe changes by
 ${\sim}2\%$ in the first several months of operation but is since stable within 1\%.  The LXe decrease by roughly 1\% in the first couple
 months as adjustments to the detector were made.  Since then its variation is $\ll 1\%$.}
 \label{fig:electron_lifetime_model_outgassing_temp_stability}
 \end{figure}
+
+From \figref{fig:electron_lifetime_model_slow_control_pur} it seems reasonable to neglect temperature dependence in the model.  Without
+being able to precisely model the outgassing throughout the detector a number of different plausible outgassing versions were
+attempted.  Components within the gas and liquid did not have their own outgassing model as this would have increased the number of
+parameters and led to overfitting.  However, the upgrades to the purification system in April-June 2018 most likely disrupted this model
+as parts were removed or added.  Thus while the same outgassing model is used throughout the entire XENON1T lifetime, there are boundaries
+for where values for certain parameters describe.
+
+The outgassing of the system should rapidly decrease in the beginning of the experiment and then do so slowly as time goes on.  A
+logical parameterization is an exponential.  However, this cannot be expected to describe the entire outgassing since it is a complex
+system.  The outgassing model that best describes the electron lifetime evolution is
+
+\begin{subequations}
+\begin{align}
+\Lamba_{\mrg} &= A_{\mrg} \bigg( e^{-t/t_1} + \frac{t}{t_2} \bigg) \\
+\Lamba_{\mrl} &= A_{\mrl} \bigg( e^{-t/t_3} + \frac{t}{t_4} \bigg)
+\end{align}
+\end{subequations}
+
+\noindent where $A$, and $t$ are free parameters.
 
 
 
@@ -1286,11 +1346,11 @@ contaminants that infiltrated the LXe and decreased $\tau_e$.
 Date & Origin & Region & Possible cause & Comments \\
 \hline
 June 14, 2016 & Power glitch & GXe &  PTR power$\rightarrow 0$ & \\
-July 15, 2016 & \lntwo test & GXe & PTR power$\rightarrow 0$ & \\
+July 15, 2016 & \ce{LN_2} test & GXe & PTR power$\rightarrow 0$ & \\
 November 21, 2016 & Power Disruption & LXe & No & \\
 January 18-February 1, 2017 & Earthquake & GXe + LXe & Yes & Many possible dips \\
 June 5, 2017 & Gate washing & LXe & Liquid level change & Remove hotspot \\
-February 21, 2018 & Power Glitch & GXe & No & PTR power drop of ${\sim} 50\%$ \\
+February 21, 2018 & Power glitch & GXe & No & PTR power drop of ${\sim} 50\%$ \\
 February 24, 2018 & Blackout & GXe + LXe & PTR power$\rightarrow 0$ & \\
 March 5-7, 2018 & Gate washings & LXe & Liquid level change & Remove hotspot \\
 April 5-10, 2018 & Purification upgrade & LXe & Yes & 1" OD upgrade \\
@@ -1323,7 +1383,9 @@ operating conditions were not stable so $\tau_e$ did not need to be measured.
 \textbf{June 5, 2017}  At the end of May 2017 a hotspot appeared on the gate.  Lowering the anode voltage from 4 to 3.6 kV eliminated the
 electron emission but with that the extraction efficiency also decreased.  To fix this we tried a gate ``washing'' - lifting the TPC
 slightly so the gate rises out of the LXe and submerging it again, with the hope that whatever was causing the hotspot would be ``washed''
-away.  Upon return the anode voltage to 4 kV the hotspot had disappeared and normal dark matter data taking resumed.
+away.  Upon return the anode voltage to 4 kV the hotspot had disappeared and normal dark matter data taking resumed.  The dip in $\tau_e$
+is suspected to come from impurities that were nested in the PTFE just above the liquid level, which dispersed throughout the LXe once
+submerged.
 
 \textbf{February 21, 2018}  Roughly two weeks after the end of SR1 another power glitch occurred.  The cathode voltage did not drop and
 the PTR power decreased by ${\sim} 50\%$.  However, the decrease in $\tau_e$ was greater than that of June 5th, indicating either the PTR
@@ -1335,8 +1397,8 @@ using an impurity spike for both the GXe and LXe.
 \textbf{March 5-7, 2018}  Upon ramping $V_c$ back to 8 kV after the blackout a hotspot on the gate emerged.  Three gate washings spaced
 roughly 24 hours apart were able to remedy the situation, during which the cathode was turned off.
 
-\textbf{April 5-10, 2018}  The design of the XENON1T purification system was to achieve ${\sim} 100\ \mathrm{slpm}$.  However, the
-1/2" outer diameter (OD) tubing prevented flows of $\gtrsim 50\ \mathrm{slpm}$ and limiting $\tau_e$ to ${\sim} 660\ \mathrm{\mu s}$ for
+\textbf{April 5-10, 2018}  The design of the XENON1T purification system was to achieve $100\ \mathrm{slpm}$.  However, the
+1/2" outer diameter (OD) tubing prevented flows of $\gtrsim 50\ \mathrm{slpm}$ and limited $\tau_e$ to ${\sim} 660\ \mathrm{\mu s}$ for
 \metakr (${\sim} 600\ \mathrm{\mu s}$ for alphas).  The cathode was turned off while the tubing was upgraded to 1" OD, after which
 circulation flow reached ${\sim} 70\ \mathrm{slpm}$.
 

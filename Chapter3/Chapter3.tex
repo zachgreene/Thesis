@@ -65,11 +65,11 @@ on the phototubes is likely to be beneficial longterm.  The finished arrays are 
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4cm, left]{PMTTopArray}
+        \includegraphics[height=4cm]{PMTTopArray}
     \end{subfigure}%
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4cm, right]{PMTBottomArray}
+        \includegraphics[height=4cm]{PMTBottomArray}
     \end{subfigure}
     \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
     to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
@@ -148,7 +148,7 @@ unlikely to be grouped with an afterpulse, though for S2s this is more likely.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Afterpulse}
+\includegraphics[width=\textwidth]{afterpulse_spectrum_pmt_21}
 \caption{Afterpulses for one of the PMTs from XENON1T.}
 \label{fig:xenon1t_pmts_ap}
 \end{figure}
@@ -549,7 +549,8 @@ and 3-7.5\% from $250 \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifted 
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{MuonVetoPhoto}
+\includegraphics[width=\textwidth]{MuonVetoEvent}
+\caption{Arrival time of light to muon veto PMTs helps reconstruct the muon trajectory (black line).}
 \label{fig:xenon1t_water_shield_photo}
 \end{figure}
 
@@ -758,8 +759,22 @@ internal calibration.  \ce{^{83}Rb} is installed in a source box connecting to t
 \noindent with a 74.8\% branching ratio to the metastable state $\mathrm{^{83m}Kr}$.  $\mathrm{^{83m}Kr}$ then de-excites in two steps:
 emission of a 32.2 keV
 conversion electron with half-life $t_{1/2} = 1.83\ \mathrm{h}$ followed by a second conversion electron at 9.4 keV with
-$t_{1/2} = 154.4\ \mathrm{ns}$.  The short
-interval between the two decays makes tagging events easy.  Furthermore the mono-energetic lines can be used for a number of
+$t_{1/2} = 154.4\ \mathrm{ns}$.  The short interval between the two decays makes tagging events easy and has strong discrimination power
+against nominal background.  The events that can be used for studies including detector characterization need to have both S1s resolved
+by the DAQ.  To select such events the time between S1s $Delta t_{\mathrm{S1}}$ to be between 500-2000 ns $500-2000\ \mathrm{ns}$.  This
+cuts more than 96\% of \metakr events but the high activity is enough to perform the studies with large
+statistics.  \figref{fig:calibrations_kr_s1_s2} shows corrected and uncorrected S1s and $\mathrm{S2_b s}$ for \metakr events.  While the
+$\Delta t_{\mathrm{S1}}$ cut rejects more than 96\% of \metakr events, it is extremely effective at removing background.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{kr_s1_s2_cs1_cs2}
+\caption{\metakr 32.2 and 9.4 keV events.  Uncorrected and corrected S1s for both decays are shown in the top left and top right
+panels.  The bottom left panel shows S1 and \stwob for the 32.2 keV, and bottom right shows cS1 and $\mathrm{cS2_b}$.}
+\label{fig:calibrations_kr_s1_s2}
+\end{figure}
+
+The mono-energetic lines can be used for a number of
 detector characterizations including light collection efficiency (\secref{subsec:det_char_lce}), position reconstruction
 (\secref{subsec:det_char_position_reconstruction}), S2 correction maps (\secref{subsec:det_char_s2_position_correction}), and electron
 lifetime (\secref{subsec:det_char_elifetime}).
@@ -946,29 +961,24 @@ more greatly miscorrected.
 
 \subsection{Electron Lifetime}
 \label{subsec:det_char_elifetime}
-The electron lifetime $\tau_{e^-}$ (see \secref{subsec:tpcs_working_principle} for impurity attachment details) quantifies the charge $q$
+The electron lifetime $\tau_{e}$ (see \secref{subsec:tpcs_working_principle} for impurity attachment details) quantifies the charge $q$
 that is lost as it drifts to the liquid-gas interface.  It is given by
 
 \begin{equation}
-q(t_d) = q_0 e^{-t_d / \tau_{e^-}}
+q(t_d) = q_0 e^{-t_d / \tau_{e}}
 \label{eq:det_char_elifetime}
 \end{equation}
 
-\noindent where $q_0$ is the charge that escapes recombination.  Generally when calculating $\tau_{e^-}$ a mono-energetic source is used so
-that $q_0$ is the same throughout the detector.  During dark matter data taking the electron lifetime is monitored through
-$\alpha$-decays of \ce{^{222}Rn} and \ce{^{218}Po} that are unavoidable in our background.  Because materials with low \ce{^{222}Rn}
-emanation were chosen, electron lifetime measurements were typically done with 24-48 hours of data.  Alternatively, calibrations can
-have significantly higher (${\sim}50\ \mathrm{Hz}$) statistics, allowing measurements with much higher precision.
+\noindent where $q_0$ is the charge that escapes recombination.  Generally when calculating $\tau_{e}$ a mono-energetic source is used so
+that $q_0$ is the same throughout the detector.  During dark matter data taking the electron lifetime is monitored through background
+\ce{^{222}Rn} and \ce{^{218}Po} $\alpha$-decays.  Because materials with low \ce{^{222}Rn}
+emanation were chosen, electron lifetime measurements usually required 24-48 hours of data.  Alternatively, calibrations can
+have significantly higher (${\sim}50\ \mathrm{Hz}$) statistics, allowing measurements with significantly greater precision.
 
-The 41.5 keV $\mathrm{^{83m}Kr}$ de-excitation offers a relatively low-energy electronic recoil to measure $\tau_{e^-}$.  The number of events
-from a typical calibration of 2-3 days is in the millions, making any contamination from background
+The 32.2 keV $\mathrm{^{83m}Kr}$ de-excitation provides an electronic recoil to measure $\tau_{e}$.  The total number of events
+from a typical calibration of 2-3 days is in the millions, and even with $< 4\%$ acceptance of \metakr events the number of usable events
+is ${\sim}10^5$, making any contamination from background
 negligible.  \figref{fig:det_char_elifetime_kr} shows an electron lifetime calculated using $\mathrm{^{83m}Kr}$.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{S1S2}
-\label{fig:calibrations_kr_s1_s2}
-\end{figure}
 
 \begin{figure}
 \centering
@@ -1266,6 +1276,30 @@ electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}}$ due to 
 
 \subsection{Bias and Smearing}
 \label{subsec:det_char_bias_smearing}
+Effects such as noise from the PMTs and data acquisition will cause the digitized signal to be distorted.  For large pulses the relative
+effect is not significant but for low-energy events.  The mean shift in signal is known as the bias and the standard deviation is referred
+to as smearing.  Unfortunately they cannot be measured using data since there is no way to know the true signal.  Instead, a waveform
+generator simulates events that are passed through the processing framework.  The waveform simulator takes as input either an S1
+or S2 and a truth number of photoelectrons and generates a waveform using parameters based on our understanding of the detector.  The
+waveform is then processed with the processing framework.  The fractional bias is calculated with
+
+\begin{subequations}
+\begin{align}
+f_{\Delta \mathrm{S1}} &= \frac{\mathrm{S1_{rec} - S1_{truth}}}{\mathrm{S1_{truth}}} \\[3pt]
+f_{\Delta \mathrm{S2}} &= \frac{\mathrm{S2_{rec} - S2_{truth}}}{\mathrm{S2_{truth}}}
+\end{align}
+\end{subequations}
+
+\noindent where $\mathrm{S1_{rec}}$/$\mathrm{S2_{rec}}$ are the reconstructed signals and $\mathrm{S1_{truth}}$/$\mathrm{S2_{truth}}$ are
+the waveform generator input.  Slices in S1 and S2 are fit with gaussians, with the bias and smearing taken as the means and standard
+deviations.  The SR1 reconstruction bias results are shown in \figref{fig:det_char_bias_smearing_s1_s1}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{}
+\caption{S1 and S2 bias and smearing.}
+\label{fig:det_char_bias_smearing_s1_s1}
+\end{figure}
 
 
 
@@ -1748,13 +1782,13 @@ n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 +
 \noindent where $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ is between $0.06 \mdash 0.2$ and expected to be independent of energy
 (\citeref{NEST2011}).  Next we must consider the recombination fraction $r$ where some \electron will reattach to a \ce{Xe^+} to form
 excitons and upon decay to their ground state emit photons.  $r$ depends on the field in the LXe and the interaction energy, and has
-intrinsic fluctuation $\Delta r$ that cannot be ignored (\citeref{LUX2016, Aprile2018a}).  We assume a truncated Gaussian
+intrinsic fluctuations $\Delta r$ (\citeref{LUX2016, Aprile2018a}).  A truncated Gaussian is assumed
 
 \begin{equation}
 r \sim \mathrm{Norm} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Big)
 \end{equation}
 
-\noindent where $0 \leq r leq 1$ and is parameterized using a modified Thomas-Imel box model (\citeref{Thomas1987})
+\noindent where $0 \leq r \leq 1$ and is parameterized using a modified Thomas-Imel box model (\citeref{Thomas1987})
 
 \begin{equation}
 \langle r \rangle = \frac{1}{1 + e^{-(E - E_0) / E_1}}
@@ -1763,7 +1797,7 @@ r \sim \mathrm{Norm} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Bi
 \label{eq:er_nr_calibrations_parameter_determ_ti}
 \end{equation}
 
-\noindent for the fit.  Here $\varsigma$ has been adapted from \eqref{eq:ti_recomb} to include a power law field-dependence to allow
+\noindent for the fit.  Here $\varsigma$ has been adapted from \eqnref{eq:ti_recomb} to include a power law field-dependence to allow
 simultaneous fitting of SR0 and SR1, and an exponential energy term to extend compatibility to high energy
 (${\sim} 20\ \mathrm{keV_{ee}}$).  An energy-dependent Fermi-Dirac is used to suppress recombination at
 $\lesssim 2\ \mathrm{keV_{ee}}$ for better alignment with data.  The parameters have no prior and are constrained to
@@ -1783,8 +1817,8 @@ n_{\mathrm{rec}} \sim \mathrm{Binom} \big(n = n_{\mathrm{ion}},\ p = r \big)
 
 \begin{equation}
 \begin{aligned}
-n_{\mathrm{ph}} = n_{\mathrm{ex}} + r\, n_{\mathrm{rec}} \\
-n_{\mathrm{e}} = (1 - r) n_{\mathrm{rec}}
+n_{\mathrm{ph}} &= n_{\mathrm{ex}} + r\, n_{\mathrm{rec}} \\
+n_{\mathrm{e}} &= (1 - r) n_{\mathrm{rec}}
 \end{aligned}
 \end{equation}
 
@@ -2066,13 +2100,15 @@ may not be as good as using real data, its accuracy is expected to be sufficient
 \label{fig:er_nr_calibrations_parameter_determ_det_phys_proc_eff}
 \end{figure}
 
-Bias and smearing refer to the change in area of the scintillation due to PMT and processor effects.  As with the efficiency, it is
+Bias and smearing (\secref{subsec:det_char_bias_smearing}) refer to the change in area of the scintillation due to PMT and processor
+effects.  As with the efficiency, it is
 difficult to measure directly from data since the true area is not known beforehand.  By using waveform simulations however, we can input
-the truth and compare with the post-processed value.  We fit slices in S1 of the resulting distribution with a gaussian, taking the mean
-as the bias $\mu_{b}^{\mathrm{S1}}$ and standard deviation as the smearing $\sigma_{b, \mathrm{S1}}$ for each bin.  Both are defined
-as $(\mathrm{processed} - \mathrm{truth}) / \mathrm{truth}$ and can be seen in the left panel of
-\figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}.  They are constrained to the shaded regions and applied in
-the fast MC via \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear}.
+the truth and compare with the processed value.  We fit slices in $(\mathrm{S1_{rec}} - \mathrm{S1_{truth}}) / \mathrm{S1_{truth}}$ where
+$\mathrm{S1_{rec}}$ and $\mathrm{S1_{truth}}$ are the reconstructed and truth S1s with a gaussian, taking the mean
+as the bias $\mu_{b}^{\mathrm{S1}}$ and standard deviation as the smearing $\sigma_{b, \mathrm{S1}}$ for each bin.  They are shown in
+the left panel of
+\figref{fig:er_nr_calibrations_parameter_determ_det_phys_bias_smear}.  For the fit they are constrained to the shaded regions and applied
+in the fast MC via \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear}.
 
 \begin{equation}
 \mathrm{S1} = n_{\mathrm{pe,S1}} \Big( 1 + \mathrm{N} \big( \mu = \mu_{b, \mathrm{S1}},\ \sigma^2 = \sigma_{b, \mathrm{S1}}^2 \big)
@@ -2285,8 +2321,8 @@ distribution.  The S1 and S2 cut acceptances as well as processor reconstruction
 mean $\mu = 0$ corresponding to the median value and $\sigma = 1$ to the lower and upper bounds in the credible interval.  Parameters for
 which a range of possible values is known (e.g. $n_{\mathrm{ex}} / n_{\mathrm{ion}}$, $p_{\mathrm{dpe}}$,
 bias and smearing, etc.) are restricted to within these bounds.  Finally, in cases where there is very little knowledge the priors
-are left free - though this is only applied to the seven electronic recoil recombination parameters: five in the Thomas-Imel box model
-scaled by a Fermi-Dirac (\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd}), and the two describing recombination
+are left free - though this is only applied to the seven electronic recoil recombination parameters: five in the modified Thomas-Imel box
+model (\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd}), and the two describing recombination
 fluctuations - however, we require $0 \leq r \leq 1$ and $0 \leq \Delta r \leq 1$
 (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}).  Applying more stringent constraints on well-known parameters provides us
 with information on those that are less understood.
@@ -2512,17 +2548,15 @@ only slightly above 1, indicating the walkers have likely converged to the best-
 
 The microphysics for electronic recoils discussed in \secref{subsubsec:er_nr_calibrations_parameter_determ_er} depends on the mean energy
 per quanta $W$, Fano Factor $F$, and exciton-to-ion ratio $n_{\mathrm{ex}} / n_{\mathrm{ion}}$.  Recombination is computed using
-a the Thomas-Imel box model (\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd}
+a the modified Thomas-Imel box model (\eqref{eq:er_nr_calibrations_parameter_determ_ti_fd})
 
 \begin{equation}
-\begin{cases}
-r =
-\end{cases}
+\langle r \rangle = \frac{1}{1 + e^{-(E - E_0) / E_1}}
+\bigg( 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \bigg)
+,\ \ \varsigma = \gamma_{\mathrm{er}} e^{-E / \omega_{\mathrm{er}}} F_{\mathrm{E}}^{-\delta_{\mathrm{er}}}
 \end{equation}
 
-\noindent where the $i = 0 \mdash 4$ summation represents to the photon yield with each power of energy $E^n$ scaled by some constant
-$c_n$.  The threshold for $r > 0$ is denoted by $E_{\mathrm{thresh}}$ and also fit.  Two final parameters dictate recombination
-fluctuations and are parameterized as $\Delta r = A (1 - e^{-E / B})$.
+\noindent and recombination fluctuations are parameterized as $\Delta r = A (1 - e^{-E / B})$.
 
 \tabref{tab:er_nr_calibrations_results_er} gives the values for the above variables.  In addition $W$, the Fano Factor, and exciton-to-ion
 ratio are listed.  For each variable the initialized values or allowed range, prior distribution, and posterior are given.
@@ -2893,11 +2927,21 @@ $7.7 \pm 1.3\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ from  \ce{^{85}Kr
 little as $29 \pm 4  \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ following measurements using \ce{^{218}Po} $\alpha$-decays or
 \ce{^{214}Bi}$\mdash$\ce{^{214}Po} time-coincident decays, respectively (\secref{subsubsec:backgrounds_electronic_radon}).
 
-Of the $627 \pm 18$ ER events just $1.62 \pm 0.30$ are estimated to be in our signal reference for 1.3 t (NR median to
-$-2 \sigma$) - a rejection of 99.7\%.  For our surface background it is higher, decreasing from $106 \pm 8$ to $4.84 \pm 0.480$ due to
-electron attachment to PTFE, lowering our S2 into the NR band (\secref{subsec:backgrounds_detector_materials}).  The best-fit event rates
-for each background as well as a 200 GeV WIMP are listed in \tabref{tab:dark_matter_results_background} and are plotted in
-\figref{fig:dark_matter_results_background}.
+An unbinned extended likelihood with profiling over nuisance parameters is used to interpret the data in the 1.3 t fiducial volume
+(\citeref{James1980, Bartlett1953}).  The expansion from the 1 t volume is allowed by including an $r$ dimension to model the surface
+background and a boosts the sensitivity by 10\%, and events are classified according to whether they occur inside the 0.65 t
+mass.  Model uncertainties are included as nuisance parameters and a mis-modeling ``safeguard'' is included in the ER model
+(\citeref{Priel2017}).  The
+safeguard is a WIMP-like component and added to account for potential shortcomings in the ER model.  It is constrained by data from
+\ce{^{220}Rn} calibrations.
+
+SR0 and SR1 are fit simultaneously with the only correlated parameters being neutron rate, ER recombination, WIMP mass, and
+$\sigma_{\mathrm{SI}}$.  ``Profile construction'' using MC simulations was used to calculate confidence intervals for
+$\sigma_{\mathrm{SI}}$ and coverage was tested for by varying values of nuisance parameters (\citeref{Feldman1988, Patrignani2016}).
+
+A pre-unblinding decision was made to ``salt'' the data - that is, to include an unknown number of events to prevent model and
+selection fine-tuning post-unblinding.  These were later revealed to be two \ambe events, and had not prompted any post-unblinding
+scrutiny or investigation.
 
 \begin{table}[ht]
 \centering
@@ -2973,6 +3017,12 @@ run-combined results paper \citeref{Aprile2018b}.}
 \label{tab:dark_matter_results_background}
 \end{table}
 
+Of the $627 \pm 18$ ER events just $1.62 \pm 0.30$ are estimated to be in our signal reference for 1.3 t (NR median to
+$-2 \sigma$) - a rejection of 99.7\%.  For our surface background it is higher, decreasing from $106 \pm 8$ to $4.84 \pm 0.480$ due to
+electron attachment to PTFE, lowering our S2 into the NR band (\secref{subsec:backgrounds_detector_materials}).  The best-fit event rates
+for each background as well as a 200 GeV WIMP are listed in \tabref{tab:dark_matter_results_background} and are plotted in
+\figref{fig:dark_matter_results_background}.
+
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{Background}
@@ -2986,8 +3036,8 @@ represent the 68\% Poisson probability region for the expectation of total backg
 \end{figure}
 
 \figref{fig:dark_matter_results_position} shows the position distribution for events in the dark matter search data.  1.3, 0.9, and 0.65 t
-masses are marked and events that fall inside the 1.3 t mass are displayed as pie charts with relative probabilities of backgrounds and
-signal.  \figref{fig:dark_matter_results_bands} shows the events in (cS1, cS2$_{\mathrm{b}}$) and
+masses are marked and events that fall inside the 1.3 t mass are displayed as pie charts with their probabilities of background and
+signal origin.  \figref{fig:dark_matter_results_bands} shows the events in (cS1, cS2$_{\mathrm{b}}$) and
 ($r_{\mathrm{rec}}^2$, cS2$_{\mathrm{b}}$) parameter spaces.
 
 \begin{figure}
@@ -3011,8 +3061,12 @@ rests nicely in our energy ROI, but we can see it lies near the fiducial edge, g
 neutron background.
 
 The third contender around ${\sim} 12\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 400 \mathrm{PE}$) is situated just below the NR
-$-2 \sigma$ line.  It is most likely to be a neutron however due to its proximity to the cathode.  Its small cS2$_{\mathrm{b}}$/cS1
-ratio could result from a neutron that scattered below the cathode before scattering in the TPC.
+$-2 \sigma$ line.  This candidate motivated a post-unblinding decision to reconsider the model for neutron-X contamination, or neutrons
+that scatter below the cathode and once in the TPC.  The near-simultaneity of the scatters leads the DAQ to resolve only a single
+S1, shifting its position in \figref{fig:dark_matter_results_bands} to make it more likely to be recognized as a WIMP.  It also prompted
+a fiducial mass segmentation to more accurately reflect our understanding of the neutron $z$ distribution, which was the inception of the
+0.65 t mass.  These revisions moved the probability of neutron origin from 35\% to 75\%, while a $50\ \mathrm{GeV/c^2}$ decreased from
+49\% to just 7\%.
 
 \begin{figure}
 \centering
@@ -3024,4 +3078,19 @@ correspond to $1 \sigma$ and $2 \sigma$ probabilities for a 200 GeV WIMP.  The r
 and the vertical lines (right) mark the 0.9 t (dashed blue) and 1.3 t (solid magenta) fiducial masses.  The vertical shaded
 regions are outside the region of interest.  The grey lines (left) display iso-energy contours in $\mathrm{keV_{nr}}$.}
 \label{fig:dark_matter_results_bands}
+\end{figure}
+
+No significant excesses in the 1.3 t mass were indicated by the profile likelihood analysis for any WIMP mass, with p-values for
+a background-only hypothesis for 6, 50, and $200\ \mathrm{GeV/c^2}$ of 0.28, 0.41, and
+0.22.  \figref{fig:dark_matter_results_background_limit} shows the results from this analysis for the 90\% confidence level upper limit
+for $\sigma_{\mathrm{SI}}$ along with $1\sigma$ and $2\sigma$ sensitivity bands.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{x1t_prelim_limits_zoom}
+\caption{90\% confidence level upper limit on spin-independent WIMP cross section from this analysis (black line) with $1\sigma$ (green)
+and $2\sigma$ (yellow) sensitivity bands.  Previous LUX (\citeref{LUX2017a}) and PandaX-II (\citeref{PandaXII2017}) results are plotted in
+red and blue for comparison.  The inset shows these limits and $\pm 1\sigma$ bands normalized to the median sensitivity of this
+analysis as well as the normalized median of the PandaX-II sensitivity band (dotted blue line).}
+\label{fig:dark_matter_results_background_limit}
 \end{figure}

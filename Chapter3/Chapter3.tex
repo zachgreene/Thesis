@@ -10,16 +10,15 @@
 
 
 XENON1T is the third generation experiment of the XENON collaboration.  With a fiducial mass of $> 1000\ \mathrm{kg}$ it is the first
-liquid xenon dark matter detector to reach the ton-scale era of DM detection.  Its large target mass and low radioactive background
-make it the most sensitive detector to spin-independent WIMPs at $> 6\ \mathrm{GeV / c^2}$.
-
-This chapter begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by a discussion on detector
-characterization (\secref{sec:det_char}), and backgrounds
-(\secref{sec:backgrounds}).  The electronic and nuclear recoil band fittings are
-then detailed (\secref{sec:er_nr_calibrations}) and finally dark matter search results (\secref{sec:dark_matter_results}).
+liquid xenon dark matter (DM) detector to reach the ton-scale era of DM detection.  Its large target mass and low radioactive background
+make it the most sensitive detector to spin-independent WIMPs with $m_{\chi} > 6\ \mathrm{GeV / c^2}$.
 
 This chapter presents the run-combined analysis of Science Run 0 (SR0) and Science Run 1 (SR1) - the first two XENON1T science
-runs.  The original SR0-only analysis (\citeref{Aprile2017f}) is referred to as ``First Results'' and is cited for comparison.
+runs.  It begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by discussions on detector
+characterization (\secref{sec:det_char}) and backgrounds
+(\secref{sec:backgrounds}).  The electronic and nuclear recoil band fittings are
+then detailed (\secref{sec:er_nr_calibrations}) and the finally dark matter search results (\secref{sec:dark_matter_results}) are
+presented.  The original SR0-only analysis (\citeref{Aprile2017f}) is referred to as ``First Results'' and is cited for comparison.
 
 \section{The XENON1T Detector}
 \label{sec:xenon1t_detector}
@@ -29,37 +28,45 @@ runs.  The original SR0-only analysis (\citeref{Aprile2017f}) is referred to as 
 
 \subsection{PMTs}
 \label{subsec:xenon1t_pmts}
-A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are placed in a radial distribution to
-maximize resolution of $r$ position reconstruction (\secref{subsec:det_char_position_reconstruction}).  The 121 in the bottom array
+A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are positioned radially to
+optimize the resolution of position reconstruction in $r$ (\secref{subsec:det_char_position_reconstruction}).  The 121 in the bottom array
 are packed as densely as possible to maximize light collection.  The most important characteristic of a PMT is its quantum efficiency
 (QE), or the ratio of photoelectrons (electrons produced in the photocathode) divided by number of incident photons.  The R11410 window is
-76.2 mm in diameter and the photocathode yields an average quantum efficiency to 178 nm of 34.5\% with 2.8\%
+76.2 mm in diameter and the photocathode yields an average quantum efficiency for 178 nm of 34.5\% with 2.8\%
 standard deviation (\citeref{Aprile2017b, Barrow2017}).
 
-PMTs with the highest QE are placed in the bottom array while those with the lowest are stationed along the outside of the
-top.  The difference in arrangement is strategic.  Due to liquid xenon's relatively large dielectric constant (1.95) an S1 will
-often reflect off the surface and be redirected towards the bottom of the TPC.  For low-energy events - the relevant range for WIMP DM
-searches - a nuclear recoils may only emit a small number ($\lesssim 100$) of photons, many of which never reach the PMTs.  Thus it is
-most advantageous to position those with the highest quantum efficiency in the region most likely to see scintillation from an
-S1.  Likewise, S2s easily produce enough scintillation to be observed by both arrays.  Therefore the QE of the top PMTs is comparatively
-unimportant, and may even be advantageous for larger S2s where saturation can occur.  The layout of the PMTs with respect to QE is shown
+PMTs with the highest QEs are placed in the bottom array while those with the lowest are stationed along the circumference of the
+top.  The difference in arrangement is strategic.  Due to liquid xenon's relatively large dielectric constant (1.95) an photons
+originating inside the liquid may
+reflect off the surface and be redirected towards the bottom of the TPC.  For low-energy events - the relevant range for WIMP DM
+searches - nuclear recoils may only emit a small number ($\lesssim 100$) of photons, many of which never reach the PMTs.  Positioning
+those with the highest quantum efficiency in the region most likely to see scintillation from an S1 captures more events and improves our
+sensitivity.  S2s produce enough scintillation to be observed by both arrays.  Therefore the QE of the top PMTs is comparatively
+unimportant, and could even be advantageous for large S2s that saturate the phototubes, though these events are outside the region of
+interest for spin-independent WIMP dark matter.  The layout of the PMTs with their respective QE is shown
 in \figref{fig:xenon1t_pmt_qe}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{PMTQuantumEfficiency}
-\caption{Quantum efficiency of top (left) and bottom (right) PMT arrays.  PMTs with highest QE are placed in the center of the bottom
-array to maximize light collection while those with the lowest are placed in the outer region of the top.  Image credit:
+\caption{Quantum efficiency of top (left) and bottom (right) PMT arrays.  PMTs with the highest QE are placed in the center of the bottom
+array to maximize light collection while those with the lowest are placed in the outermost region of the top.  Image credit:
 \citeref{Aprile2017b}.}
 \label{fig:xenon1t_pmt_qe}
 \end{figure}
 
+A photoelectron is guided by a focusing electrode disk to the first of $N$ dynodes.  A voltage is applied to the photocathode and dynodes,
+with each successive one (starting from the photocathode) lower than the previous.  Upon hitting the first dynode the photoelectron will
+free some \electron in the first stage of an electron avalanche.  The electron avalanche will pass from dynode to dynode, rapidly
+growing with each until it reaches the anode and is forwarded to the data acquisition.
+
 The two PMT arrays are supported by oxygen-free high thermal conductivity (OFHC) copper, with holes in which the PMTs are placed.  The
-copper is then covered with polytetrafluoroethylene (PTFE) on the TPC-facing sides.  Screening meshes are situated between the bottom
+copper is covered with polytetrafluoroethylene (PTFE) panels on the TPC-facing side.  Screening meshes are situated between the bottom
 array and cathode as well as the anode and top array.  Each can be biased to minimize electrical interference between the
-phototubes and the drift and extraction fields.  While \citeref{Baudis2013} showed normal operation of R11410 PMTs at
-$\geq 11\ \mathrm{kV\ cm^{-1}}$ the expected voltage for the cathode was $10 \mdash 100\ \mathrm{kV\ cm^{-1}}$ and decreasing the stress
-on the phototubes is likely to be beneficial longterm.  The finished arrays are shown in \figref{fig:xenon1t_pmt_array}.
+phototubes and the drift or extraction fields.  While \citeref{Baudis2013} showed normal operation of R11410 PMTs at
+$\geq 11\ \mathrm{kV\ cm^{-1}}$ the anticipated cathode voltage was $10 \mdash 100\ \mathrm{kV\ cm^{-1}}$.  Installing the screening
+meshes decreased stress on the phototubes and is expected to extend their life.  The finished arrays are shown in
+\figref{fig:xenon1t_pmt_array}.
 
 \begin{figure}
     \centering
@@ -71,137 +78,159 @@ on the phototubes is likely to be beneficial longterm.  The finished arrays are 
         \centering
         \includegraphics[height=4cm]{PMTBottomArray}
     \end{subfigure}
-    \caption{XENON1T top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell in a radial distribution
-    to minimize uncertainty in radial position reconstruction.  Bottom PMTs are installed below the cathode and screening mesh that
-    limits interference between the PMT and cathode electric fields, both of which can be seen.  They are packed tightly
-    together to maximize light collection.  Image credit: \citeref{Aprile2017b}.}
+    \caption{Top (left) and bottom (right) PMT arrays.  Top PMTs are installed inside the diving bell above the anode and screening
+    mesh in a radial distribution
+    to minimize uncertainty in radial position reconstruction.  Bottom PMTs are packed tightly below the anode and a second screening mesh
+    to optimize light collection.  The screening meshes reduce interference between the anode (cathode) and top (bottom) PMT electric
+    fields.  Image credit: \citeref{Aprile2017b}.}
 	\label{fig:xenon1t_pmt_array}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{PMTSchematic}
-\caption{Schematic of the R11410-21 PMT.}
+\caption{Schematic of the Hamamatsu R11410-21 PMT.  Image credit: \citeref{Aprile2015}.}
 \label{fig:xenon1t_hamamatsu_pmt}
 \end{figure}
 
-The R11410-21 has 12 dynodes following the focusing electrode disk.  The first dynode is the largest and extends to the electrode to
+The R11410-21 has 12 dynodes following a focusing electrode disk.  The first dynode is the largest and extends to the electrode disk to
 maximize the probability of capturing photoelectrons.  A schematic can be be seen in \figref{fig:xenon1t_hamamatsu_pmt}.  The electrode,
-dynode, and shield are stainless steel and are insulated with L-shaped quartz plates.  The window is
-also made of quartz, since it is transparent to vacuum ultraviolet (VUV) photons.  Deposited on it is a low-temperature bialkali
+dynodes, and shield are stainless steel and are insulated with L-shaped quartz plates.  Due to quartz's transparency to vacuum
+ultraviolet (VUV) photons the window is also made of quartz.  Deposited on it is a low-temperature bialkali
 photocathode.  The window is fixed with an aluminum seal to the faceplate flange, which along with the stem flange is constructed from
-Kovar.  Because of the PMT body's large mass (71\% of total Kovar, 35\% of total) a low-\ce{^{60}Co} Kovar is chosen.  Finally, to insulate
+Kovar.  The body of the PMT is approximately 115 mm long and 35\% of the total mass.  It is constructed from Kovar alloy, most of which
+has a very low \ce{^{60}Co} concentration.  Finally, to insulate
 the connections to each dynode the stem is ceramic.
 
+The original R11410 version used ceramic as a dynode insulator, standard Kovar alloy, and
+purity aluminum for the seal.  Upgrading to quartz for the insulator, low-cobalt Kovar alloy, and high purity aluminum helped alleviate
+this to an extent.
+
 Because radioactivity limits the fiducial volume and increases the event rate, making accidental coincidence and outlier events more
-likely, XENON and Hamamatsu worked together to develop a highly radio-pure PMT.  There were several iterations of the R11410 model before
-the R11410-21 was determined to be adequate.  Nearly all the \ce{^{137}Cs} and \ce{^{60}Co} comes from the Kovar, though the \ce{^{137}Cs}
-content is negligible and the \ce{^{60}Co} is 3-10 times lower than older models.  The remaining screened isotopes, \ce{^{238}U},
+likely, XENON and Hamamatsu worked together to develop a highly radio-pure PMT.  The original R11410 version used ceramic as a dynode
+insulator, standard Kovar alloy, and
+purity aluminum for the seal.  Upgrading to quartz for the insulator, low-cobalt Kovar alloy, and high purity aluminum helped alleviate
+this to an extent.  For the R11410-21 nearly all the \ce{^{137}Cs} and \ce{^{60}Co} comes from the Kovar alloy, though the \ce{^{137}Cs}
+content is negligible and the \ce{^{60}Co} is 3-10 times lower than older models.  The decay rates of the remaining screened isotopes,
+\ce{^{238}U},
 \ce{^{228}Th}, \ce{^{228}Ra}, \ce{^{226}Ra}, and \ce{^{40}K}, are dominated by the ceramic stem (\citeref{Aprile2015}).  Unfortunately a
 material that is more radio-pure and can insulate the dynode connections has not been found.  Sapphire was used in an iteration but
-ultimately showed any improvement was minimal.
+ultimately showed the reduction in background was minimal.
 
-The dark count rate, or the number of signals per second above a threshold without a light source, is an important property to
-characterize.  At ambient temperatures the primary cause is thermal electrons that scale with PMT voltage.  This becomes subdominant at
-cryogenic temperatures to electron field emission and radioactivity (internal and external) as well as cosmic rays.  In a detector such
-as XENON1T higher dark count rates make accidental coincidence more likely, which produces fake additional background and in the worst case
-can place fake events in the signal region.  Because the rate is dependent on the threshold it can effectively be tuned.  However, because
-for DM search we would like as low of a threshold as possible, choosing PMTs with low dark count rate is essential.
+The number of signals per second above a threshold without a light source is known as the dark count rate.  At ambient temperatures they
+are primarily caused by thermal electrons and scale with PMT voltage.  This becomes subdominant at
+cryogenic temperatures to electron field emission and radioactivity (internal and external) as well as cosmic rays.  Higher dark count
+rates make accidental coincidence - when a lone-S1 and lone-S2 imitate a real event (\secref{subsec:backgrounds_ac}) - more likely.  The
+fake additional background is dangerous because it can place false events in the signal region.  Because the rate is dependent on the
+threshold it can be tuned - however, because
+for a DM search we would like as low of a threshold as possible, choosing PMTs with low dark count rates is essential.
 
-Another problematic feature is light emission from the phototube itself, where light is created inside the PMT and escapes through the
+Another problematic feature is photon emission from the phototube itself, where light is created inside the PMT and escapes through the
 window.  It has been observed to mainly occur in one of two ways.  The first is through a discharge of intense light that can last for
-several seconds.  This so-called ``flash" is bright enough to be easily observable to itself and by PMTs that are facing its
+several seconds.  This ``flash" is easily bright enough to be observable to itself and by PMTs facing its
 window.  However, the intensity can be so strong that it can take anywhere from several minutes to several hours for them to
-recover.  Because they seem to occur spontaneously and are not well understood it is impossible to predict when a flash will occur.
+recover.  Because they seem to happen spontaneously and are not well understood it is impossible to predict when a flash will occur.
 
-The second variety is a subtle but often continuous stream of light.  Known as ``micro light emission" it is considerably harder to
-identify.  Doing so requires facing two phototubes towards one another and measuring the dark rate of each one with and without the other
-on.  The level of emission increases with temperature and bias voltage.  Keeping the PMTs at cryogenic temperatures during DM runs reduces
-such effects, and voltages can be lowered to help further.  Still, if micro light emission continues the PMT cannot be used as it risks
-contaminating the detected light from the true event population.
+The second process is a more subtle but often continuous stream of light.  Known as ``micro light emission" it is considerably harder to
+identify.  Doing so requires facing two phototubes towards one another and measuring the dark count rate of each with and without the
+other
+on.  The level of emission increases with temperature and bias voltage.  Keeping PMTs at cryogenic temperatures reduces
+the frequency, and voltages can be lowered to help further.  Still, if micro light emission continues the PMT cannot be used as it risks
+introducing fraudulent light into signals from events observed by other PMTs.
 
-Directly following the pulse of a PMT hit a secondary pulse may occur.  Known as afterpulses, they can occur within 10s of
-nanoseconds.  This can make them difficult to resolve from true pulses - especially S2s - that can have widths of several
-microseconds.  However, they are an inevitable side effect when using PMTs so characterizing them properly is important.  There are three
-mechanisms known to cause afterpulses.
+Directly following the pulse of a PMT hit a secondary pulse may occur.  Known as afterpulses, they can occur within 10s of nanoseconds to
+$\lesssim 5\ \mathrm{\mu s}$.  This can make them difficult or impossible to resolve from true pulses - especially S2s - that can have
+widths of several
+microseconds.  Because they are an inevitable side effect of PMTs it is important to carefully characterizing them.
 
-The first is elastic scattering of the photoelectron with the first dynode, freeing \electron that shortly return to the dynode.  This
-prompts afterpulses in the range of a few to tens of nanoseconds.  A second kind is thought to stem
+There are three mechanisms known to cause afterpulses.  The first is elastic scattering of the photoelectron with the first dynode,
+freeing electrons that quickly return to the dynode, producing a second, smaller electron avalanche.  This
+creates afterpulses in the range of a few to tens of nanoseconds.  A second kind is thought to come
 from dark noise and single electrons but is not well understood.  It has a relatively uniform distribution in delay time up to several
 microseconds.  Both of these afterpulses have relatively small areas of $\lesssim 2\ \mathrm{PE}$.
 
-A photoelectron may occasionally ionize residual gas inside the PMT along its trajectory to the first dynode.  The molecule then drifts
-towards the photocathode, expelling additional electrons.  The number of newly ejected electrons (area of afterpulse) depends
-on the ion and the position of ionization.  The responsible ion can be determined by calculating the time between the true pulse and
-afterpulse.  For R11410-21 this gives
+The third mechanism is a photoelectron may occasionally ionize residual gas inside the PMT along its trajectory to the first dynode.  The
+ion then drifts
+to the photocathode, where it expels additional electrons.  The number of newly ejected electrons (area of afterpulse) depends
+on the ion and position where it was ionized.  The responsible ion can be determined by calculating the time between the true pulse and
+afterpulse.  For the R11410-21 PMT this gives
 
 \begin{equation}
 \delta t_{\mathrm{ap}} = \frac{\pi}{4} \sqrt{\frac{2 m}{q V_{0}}} L
 \end{equation}
 
-where $\delta t_{\mathrm{ap}}$ is the delay time, $m$ and $q$ are the ion's mass and charge, and $V_{0}$ and $L$ are the potential
+\noindent where $\delta t_{\mathrm{ap}}$ is the afterpulse delay time, $m$ and $q$ are the ion's mass and charge, and $V_{0}$ and $L$ are
+the potential
 difference and length between the photocathode and first dynode (see \citeref{Barrow2017} for details).  Note that $\delta t_{\mathrm{ap}}$
-does not depend on where the ionization occurred.  Thus, if we know the time between the true and afterpulse the ion - or more specifically
-charge to mass ratio - can be calculated.  Pulse time differences range from several hundred nanoseconds to several microseconds.  These
-correspond to the ``lines" in \figref{fig:xenon1t_pmts_ap} that extend to larger afterpulses.  The short timescales of S1s make them
-unlikely to be grouped with an afterpulse, though for S2s this is more likely.
+does not depend on where the ionization occurred.  Therefore, if we know the time between the true and afterpulse the ion - or more
+specifically
+charge to mass ratio - can be calculated.  $\delta t_{\mathrm{ap}}$ ranges from several hundred nanoseconds to several
+microseconds and are shown in \figref{fig:xenon1t_pmts_ap}.  The prominent ions are highlighted.  The afterpulse delay time makes it
+unlikely to couple with S1s but will do so for S2s.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{afterpulse_spectrum_pmt_21}
-\caption{Afterpulses for one of the PMTs from XENON1T.}
+\caption{Afterpulses for a PMT from XENON1T.  \ce{He^+}, \ce{CH_4^+}, \ce{N_2^+}, \ce{Ar^+}, and single- and double-ionized
+xenon are present and marked by red lines.  The large fraction of Xe suggests a leak may be present, but to confirm should be monitored
+over time to look for an increase in \ce{Xe^+} and \ce{Xe^{++}}.  If this is the case afterpulsing may hit a critical value at which point
+the PMT can no longer dependably operate.  The second mechanism that can produce afterpulses in the text is visible as the roughly uniform
+distribution at ${\sim}0.5\ \mathrm{PE}$.}
 \label{fig:xenon1t_pmts_ap}
 \end{figure}
 
-Because it is not possible to remove all residual gas any PMT will suffer from some ionization-based afterpulsing.  A better vacuum
-corresponds to fewer afterpulses and a healthier PMT in general.  If the concentration of gas in the PMT vacuum were to increase it would
-escalate the afterpulse rate.  Therefore if when using in xenon the Xe peaks grow over time the PMT most likely has a leak and should
-be removed, as continued worsening of the vacuum will lead to deterioration and inability to operate the PMT.  All PMTs were tested before
-being installed in XENON1T.  73 were rejected and replaced: 12 due to high dark count rates, 53 for light emission, and 8 for
+Because it is not possible to eliminate all residual gas every PMT suffers from some ionization-based afterpulsing.  A better vacuum
+corresponds to fewer afterpulses and a healthier PMT.  If the concentration of gas in the PMT vacuum were to increase
+it would
+escalate the afterpulse rate.  Therefore if the Xe peaks grow over time the PMT likely has a leak and should
+be replaced if possible, as continued worsening of the vacuum will lead to deterioration and eventually inability to operate the
+PMT.  For XENON1T there are enough PMTs that replacement is not necessary.  All PMTs were tested before
+installation.  73 were rejected and replaced: 12 due to high dark count rates, 53 for light emission, and 8 for
 afterpulsing.
 
-The transit time (TT) is the time between the freed photoelectron and the arrival of the electron avalanche at the anode.  Variations in
-the photoelectron's initial position as well as emitted velocity and angle cause deviations in the TT, which is characterized by the
-transit time spread (TTS).  Because an event is observed by many PMTs the TTS quantifies how close together there signals should be.  Thus
-smaller TTSs lead to a smaller integration window, decreasing accidental coincidence.  The TTS for all R11410-21 PMTs was measured, giving
-a mean of $9.1 \pm 1.3\ \mathrm{ns}$ - a fraction of an S1.
+The transit time (TT) is the time between the photoelectron emission and the arrival of the electron avalanche at the anode.  Changes in
+the photoelectron's initial position as well as emitted velocity and angle produce variation in the TT, which is characterized by the
+transit time spread (TTS).  Because an many PMTs observe an event the TTS quantifies how close together there signals should be.  Thus
+smaller TTSs lead to a smaller integration window, decreasing accidental coincidence.  The TTS for R11410-21 PMTs was measured, giving
+a mean of $9.1 \pm 1.3\ \mathrm{ns}$ - or nearly the same as the digitizer rate.
 
-It was shown by \citeref{Faham2015} that the probability of double photoelectron emission (DPE) in a number of PMTs, including the
-R11410, is generally in the range of 0.18-0.24 - much higher than previously thought.  For The R11410 in particular they found the
-probability to be $p_{\mathrm{dpe}} = 0.225 \pm 0.01$.  Any $p_{\mathrm{dpe}} > 0$ has some effect on a number of elements in a DM
-search - however, with such a large value these cannot be ignored.  First it may be useful to define a second quantity closely
+The probability of double photoelectron emission (DPE) in a number of PMTs including the R11410 is between 0.18-0.24 - much higher
+than previously thought (\citeref{Faham2015}).  For The R11410 in particular the probability was measured to be
+$p_{\mathrm{dpe}} = 0.225 \pm 0.01$.  Any $p_{\mathrm{dpe}} > 0$ affects a number of elements in a DM
+search.  In the past the expected value was low enough that it was not a major concern - however, at high values it cannot be
+ignored.  First it may be useful to define a second quantity closely
 related to but not the same as the QE.  Following \citeref{Faham2015} the QE will be denoted as $\eta_{\mathrm{\mu}}$ and the fraction of
-incident photons that produce one or more photoelectrons denoted $\eta_{\mathrm{p}}$.  Then they are related to one another by
+incident photons that produce one or more photoelectrons denoted $\eta_{\mathrm{p}}$.  Then they are related by
 
 \begin{equation}
 \eta_{\mathrm{\mu}} = (1 + p_{\mathrm{dpe}}) \eta_{\mathrm{p}}
 \label{eq:xenon1t_pmts_dpe}
 \end{equation}
 
-\noindent and we see that the measured QE alone will be misleading.  For one, it is common to require a PMT coincidence for an event to
+\noindent so using the measured QE alone is incorrect.  For one, it is common to require a PMT coincidence for an event to
 be considered good - that is, $n$ PMTs must see a signal within a predetermined time window.  Using $\eta_{\mathrm{\mu}}$ will
 \textit{overestimate} the likelihood of this happening, and $\eta_{\mathrm{p}}$ should instead be used.  Additionally, when the PMT
-response is easily over threshold DPEs lead to incorrect resolution and yields unless accounted for.  In
-\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys} during the electronic and recoil band fitting details on how to
-appropriately account for all of these effects are shown.
+response is easily over threshold DPEs produce to incorrect resolution and yields unless accounted for.  Details on how to appropriately
+account for $p_{\mathrm{dpe}}$ are in the electronic and nuclear recoil band fitting
+(\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys}).
 
-An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  These PMTs have
-been used in a number of LXe TPCs including XENON100, the predecessor to XENON1T (\citeref{Goetzke2017}, see \citeref{Aprile2012a} for
-details on XENON100).
+An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  This model has
+been used in a number of LXe TPCs including XENON100, and an electronic recoil measurement at
+Columbia (\citeref{Goetzke2017}, \citeref{Aprile2012a}).
 
 
 
 
 \subsection{TPC}
 \label{subsec:xenon1t_tpc}
-The XENON1T time projection chamber is cylindrical with a 96.9 cm height and 47.9 cm diamater.  It encloses a target mass of 2.0 tons where
-light and charge can be measured.  A schematic is shown in \figref{fig:xenon1t_tpc_tpc}.  The interior of the vertical wall consists of 24
+The XENON1T time projection chamber is a cylinder 96.9 cm in height and 95.8 cm in diamater and encloses a target mass of 2.0 tons.  A
+(\figref{fig:xenon1t_tpc_tpc}).  The interior of the wall consists of 24
 PTFE panels that were treated with diamond tools to
-maximize VUV reflectivity.  Each interlocks with adjacent panels to achieve light-tightness, and the system is designed so that despite
-the high thermal expansion coefficient the radius does not contract when lowered to $-96^{\circ}\ \mathrm{C}$.  Outside the PTFE are 74
+maximize VUV reflectivity.  Each interlocks with adjacent panels to achieve light-tightness and the system is designed so that despite
+the high thermal expansion coefficient the radius does not contract when lowered to $-96^{\circ}\mathrm{C}$.  Outside the PTFE are 74
 field shaping rings made of low-radioactivity OFHC copper, each with a cross section of ${\sim} 10 \times 5\ \mathrm{mm^{2}}$.  They are
 supported by 18 PTFE pillars stationed around the circumference.  Two redundant
-chains connect adjoining rings via $5\ \mathrm{G \Omega}$ resistors, each with a $25\ \mathrm{G \Omega}$ resistor between the bottom and
+chains connect adjoining rings via $5\ \mathrm{G \Omega}$ resistors and a $25\ \mathrm{G \Omega}$ resistor between the bottom ring and
 cathode.
 
 \begin{figure}
@@ -212,15 +241,17 @@ cathode.
 
 There are five TPC electrodes that control the electric fields: the cathode, gate, anode, and top and bottom screening meshes.  They have
 wired diameters of $\mathcal{O}(100)\ \mathrm{\mu m}$ and were designed to maximize S1 light collection.  The cathode is connected to a
-PNC150000-1 NEG high voltage supply and pre-filling tests successfully reached voltages beyond -100 kV.  48
-cm below the cathode is the bottom screening mesh (mentioned in \secref{subsec:xenon1t_pmts}).  The mesh is 12 mm above the bottom PMT
-array and can be biased to reduce unwanted effects from the PMT and cathode E-fields.  The cathode and bottom screening mesh consist of
-parallel wires and are gold-plated stainless steel, the latter of which increases the workfunction.  The gate rests just below the
+PNC150000-1 NEG high voltage supply and pre-filling tests successfully reached voltages beyond $-100\ \mathrm{kV}$.  48
+mm below the cathode is the bottom screening mesh (mentioned in \secref{subsec:xenon1t_pmts}).  The mesh is 12 mm above the bottom PMT
+array and can be biased to reduce unwanted effects from the PMT and cathode electric fields.  The cathode and bottom screening mesh
+consist of
+parallel wires and are gold-plated stainless steel to increase the workfunction.  The gate rests just below the
 liquid-gas interface and defines $z = 0$.  The anode is
-situated 5 mm above the gate and is connected to a CAEN A1526P unit.  The fifth and final electrode is the top screening mesh 58 mm above
+situated 5 mm above the gate and is connected to a CAEN A1526P unit.  The last electrode is the top screening mesh 58 mm above
 the anode and 11 mm below the top PMT array, and serves the same function is the same as the bottom mesh.  The top three electrodes are
-made of stainless steel and are hex-etched.  Details for each electrode can be seen in \tabref{tab:xenon1t_tpc_electrodes} and
-\figref{fig:xenon1t_tpc_efield} shows the simulated electric field for the settings during the first science run, Science Run 0.
+made of stainless steel and are hex-etched.  Details for each electrode can be seen in
+\tabref{tab:xenon1t_tpc_electrodes}.  \figref{fig:xenon1t_tpc_efield} shows the simulated electric field for the settings during the first
+science run, Science Run 0.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -240,7 +271,7 @@ Bottom screening & parallel wires & $216\ \mathrm{\mu m}$ & gold-plated stainles
 \end{tabular}
 }
 \caption{Properties for TPC electrodes.  The cathode and bottom screening mesh have high transparency to optimize S1 light collection and
-are gold-plated to increase workfunction.}
+are gold-plated to decrease the risk of photoionization.}
 \label{tab:xenon1t_tpc_electrodes}
 \end{table}
 
@@ -249,40 +280,41 @@ are gold-plated to increase workfunction.}
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ElectricField}
-\caption{Finite element (COMSOL Multiphysics) simulation for E-field inside and around the TPC.  Field and equipotential lines are
-shown.  The voltages for the cathode, gate, and anode are -12, 0, and 4 keV, respectively, or the settings for Science Run 0.  The field
-is mostly uniform throughout the detector, minimizing possible biases that come from recombination, impurity attachment, etc.  Image
+\caption{Finite element (COMSOL Multiphysics) simulation for the E-field inside and around the TPC.  Field and equipotential lines are
+shown.  The voltages for the cathode, gate, and anode are $-12$, 0, and 4 kV, respectively - the settings for Science Run 0.  The field
+is mostly uniform throughout the detector, which helps minimize biases that come from recombination, impurity attachment, etc.  Image
 credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_tpc_efield}
 \end{figure}
 
 Four parallel-plate capacitors measure the liquid level.  They have a range of 10 mm with $30\ \mathrm{\mu s}$ precision and can be used
-for observing tilts or raising (lowering) the TPC.  The liquid level's height is adjustable a gas-exhaust tube, and maintained with a
-so-called ``diving bell" that uses controlled gas flow from purification to pressurize the GXe inside the TPC.  Two cylindrical levelmeters
-with a range of 1360 mm extend from the bottom PMT array to above the diving bell and are used for filling and recovery.  Placed around the
-field cage are cable trays that power and transfer signal from the PMTs.  They are made of PTFE and the cables are held
-in place by PTFE spacers (\textbf{check if spacers is right word}).
+for measuring tilts or raising (lowering) the TPC.  The liquid level's height is adjustable through a gas-exhaust tube and maintained
+with a ``diving bell" where controlled gas flow from purification pressurizes the GXe inside the TPC.  Two cylindrical levelmeters
+with a 1360 mm range extend from the bottom PMT array to above the diving bell and are used for filling and recovery.  Placed around the
+field cage are cable trays that power and transfer signals from the PMTs and temperature sensors.  They are made of PTFE and the cables
+are held in place by PTFE spacers (\textbf{check if spacers is right word}).
 
 
 
-\subsection{Cryogenics}
+\subsection{Cryogenic System}
 \label{subsec:xenon1t_cryo}
-The TPC is stationed in the center of the water Cherenkov detector (\secref{subsec:xenon1t_water_shield}) and is encompassed by the inner
-cryostat.  The cryostat
-is stainless steel and electropolished to reduce radon emanation (\secref{subsubsec:backgrounds_electronic_radon}), since it is in direct
-contact with the xenon.  It is 1960 mm tall by 1100 mm diamater and is metal-sealed
-with Helicoflex.  Surrounding it is the 2490 mm tall by 1620 mm diamater outer cryostat.  It is also composed of stainless steel but
-because there is no contact with xenon electropolishing is unncessary.  Materials were screened prior to construction for low-radioactivity
-selection.  The two are thermally isolated by Torlon polyamide-imide spacers and
-vacuum between them.  Heat loss is further mitigated to ${\sim} 75\ \mathrm{W}$ by aluminized mylar foil wrapped around the inner vessel.
+The TPC is situated in the center of the water Cherenkov detector (\secref{subsec:xenon1t_water_shield}) and encompassed by the inner
+cryostat.  Because the cryostat is in direct contract with xenon it is made of stainless steel and electropolished to reduce radon
+emanation (\secref{subsubsec:backgrounds_electronic_radon}).  It is 1960 mm tall by 1100 mm diamater and is metal-sealed
+using a Helicoflex seal.  Surrounding it is the 2490 mm tall by 1620 mm diamater outer cryostat separated by vacuum.  It is also
+constructed from stainless steel but
+because there is no contact with xenon electropolishing is unncessary.  The two are thermally isolated by Torlon polyamide-imide spacers
+and vacuum.  Heat loss is further mitigated to ${\sim} 75\ \mathrm{W}$ by aluminized mylar foil wrapped around the inner
+vessel.  Materials were screened prior to construction for
+radioactivity.
 
 A 10 m high stainless steel support structure was built inside the water tank.  Attached are three M20 rods that suspend the
-cryostat.  They can be adjusted independently to tilt the cryostat, thereby changing the inclination of the LXe level with respect to the
+cryostat.  They can be adjusted independently to customize the inclination of the LXe level with respect to the
 TPC.  A chain secures the bottom of the outer vessel to the water tank floor to counteract buoyancy forces when the cryostat is empty.  A
 double-walled pipe with inner and outer diameters 254 and 406 mm, respectively, connects with purification (\secref{subsec:xenon1t_pur}),
 cooling,
-pressurization for diving bell, and emergency recovery, and carries the PMT and auxiliary cables.  The voltage for the cathode is guided
-in a separate pipe.  A schematic of the cryostat is shown
+pressurization for the diving bell, and emergency recovery, and carries the PMT and auxiliary cables.  A separate pipe connects the
+cathode with the outside.  A schematic of the cryostat is shown in \figref{fig:xenon1t_cryo_cryostat_diagram}.
 
 \begin{figure}
 \centering
@@ -291,68 +323,72 @@ in a separate pipe.  A schematic of the cryostat is shown
 \label{fig:xenon1t_cryo_cryostat_diagram}
 \end{figure}
 
-A total of 3.5 tons of xenon is stored in the cryostat.  In addition to the 2.0 inside the TPC, the extra 1.5 is LXe between the
-TPC and inner vessel or GXe above the liquid level.  The nominal LXe temperature is $T_{0} = -96^{\circ}\ \mathrm{C}$.  Gas near the top of
-the cryostat is liquified by pulse-tube refrigerators (PTRs) into a funnel and flows back to the TPC through a designated pipe and
+A total of 3.5 tons of xenon is stored in the cryostat.  In addition to the 2.0 t inside the TPC, extra 1.5 t is LXe between the
+TPC and inner vessel.  20-30 kg make up the GXe.  The nominal LXe temperature is $T_{0} = -96^{\circ}\ \mathrm{C}$.  Gas near the top of
+the cryogenic system is liquified by pulse-tube refrigerators (PTRs) into a funnel and flows down to the TPC through a pipe to be
 deposited in the inner vessel beneath the TPC.  Because
 the PTRs are higher than the TPC the flow is guided by gravity.  \figref{fig:xenon1t_cryogenics_schematic} shows the layout of the
 cryogenic
-system.  The two PTRs occupy independent cooling towers and can each deliver ${\sim} 250\ \mathrm{W}$ of cooling power, and with
-a total heat xenon heat load of ${\sim} 150\ \mathrm{W}$ only one needs to be active at any time.  The cooling towers along with much of
-the
-GXe are located in the service building outside of the water tank  Each PTR connects to a copper cold finger
+system.  The cryogenic system extends from the TPC into a service building outside the water tank through a long tube known as the
+neck.  The two PTRs occupy independent
+cooling towers and can each deliver $250\ \mathrm{W}$ of cooling power.  With the xenon
+having a total thermal load of ${\sim} 150\ \mathrm{W}$ only one needs to be active at any time.  The cooling towers
+are located in the service building.  Each PTR connects to a copper coldfinger
 inside the inner cryostat so they can be removed without exposing the xenon to air.  A proportional-integral-derivative (PID) controller
-monitors and adjusts the temperature of a resistive heater on the coldfinger to maintain stable pressure and temperature.
+monitors and adjusts the temperature of a resistive heater on the coldfinger to maintain stable pressure.
 
-A third cooling tower uses liquid nitrogen ($\mathrm{LN_2}$) and is used in the case of an emergency if both PTRs are being serviced or the
-heat load becomes too great from e.g. loss of power or insulation vacuum.  The $\mathrm{LN_2}$ flows from the $10 \mathrm{m^3}$ tank that
-is used by ReStoX (\secref{subsec:xenon1t_restox}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation rate.  In the event the PTRs
-lose power the $\mathrm{LN_2}$ cooling tower must react immediately to prevent rising pressure that can be damaging to PMTs among other
-things.  Sensors and controllers monitoring such a power loss are powered with uninterruptible power supplies (UPSs) to ensure a successful
-transition and operation of $\mathrm{LN_2}$.
+A third cooling tower (also in the service building) uses liquid nitrogen ($\mathrm{LN_2}$) and is used in an emergency, if both PTRs are
+being serviced, or the
+heat load becomes too great from e.g. loss of power or insulation vacuum.  The $\mathrm{LN_2}$ flows from a $10 \mathrm{m^3}$ tank that
+is also used by ReStoX (\secref{subsec:xenon1t_restox}).  The cooling power can regulated by adjusting the $\mathrm{LN_2}$ evaporation
+rate.  In the event the PTRs
+lose power the $\mathrm{LN_2}$ cooling tower must react immediately to prevent rising pressure that can damage PMTs and other
+components.  Sensors and controllers monitoring such a power loss are connected to uninterruptible power supplies (UPSs) to ensure a
+successful transition and operation of $\mathrm{LN_2}$.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{CryostatSchematic}
-\caption{Layout of the cryogenic system.  Three cooling towers - two with PTRs and one backup $\mathrm{LN_2}$ - liquify GXe to return to
-the TPC.  LXe is carried from the bottom of the cryostat to the purification system (\secref{subsec:xenon1t_pur}) through a heat
-exchanger system, where
-returning xenon is inserted into the bottom of the TPC with excess gas diffusing into the GXe.  A fraction of purified GXe is extracted
-before the heat exchanger and used to maintain pressure inside the diving bell.  ReStoX (\secref{subsec:xenon1t_restox}) connections are
-also shown.  Image credit: \citeref{Aprile2017b}.}
+\caption{Layout of the cryogenic system.  Three cooling towers - two with PTRs and one backup $\mathrm{LN_2}$ - liquify GXe that returns
+to the TPC.  LXe is carried from the bottom of the cryostat to the purification system (\secref{subsec:xenon1t_pur}) through a heat
+exchanger system, while
+returning xenon flows into the bottom of the TPC with excess gas diffusing into the GXe.  A portion of purified GXe is extracted
+before the heat exchanger and used to maintain pressure inside the diving bell.  Connections with ReStoX (\secref{subsec:xenon1t_restox})
+are also shown.  Image credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_cryogenics_schematic}
 \end{figure}
 
-Connections to purification and ReStoX are shown in \figref{fig:xenon1t_cryogenics_schematic}.  The LXe carried to the purification system
-passes through a heat exchanger system discussed in \secref{subsec:xenon1t_pur}.  This is not the case for recuperation since the xenon
-does not need to be gaseous.
-
-LXe from the beneath the TPC (near liquid line from PTRs) is removed for purification.  Once the xenon removed from the LXe it passes
-through a two-phase heat exchanger system.  The function of the heat exchanger is for GXe (returning to the TPC) and LXe (leaving) to
-exchange thermal energy.  This way the returning xenon is cooled before it reaches the TPC, and likewise removed xenon is heated before
+Connections to purification and ReStoX are shown in \figref{fig:xenon1t_cryogenics_schematic}.  LXe from the beneath the TPC is removed
+for purification.  It passes
+through a two-phase heat exchanger system, whose purpose is to guide the exchange of thermal energy between GXe returning to the TPC
+and LXe leaving.  The returning xenon is cooled before it reaches the TPC, and likewise removed xenon is heated before
 the purification.  The first step of the system is the ``tube-in-tube" component where two concentric tubes carrying LXe (GXe) away from
 (towards)
 the TPC.  The second component is a plate heat exchanger and is closer to the purification system (i.e. returning xenon passes through
-before tube-in-tube).
+before tube-in-tube).  The system is extremely efficient and significantly reduces the required cooling power that would be necessary
+without it.
 
-We can define the heat exchange
-efficiency $\epsilon$ as the fraction of heat necessary for temperature change and vaporization that stays outside of the system.  A higher
-efficiency results in greater thermal energy transferred between the GXe and LXe and thus decreases the heat load on the system.  This is
+The heat exchange
+efficiency $\epsilon$ is the fraction of heat necessary for temperature change and vaporization that stays outside of the system.  A
+higher
+efficiency means better thermal energy transfer between the GXe and LXe and decreases the heat load on the system.  This is
 because instead of GXe entering the cryostat at roughly
-room temperature, it returns at approximately that of LXe, with much of it having condensed to LXe, putting less stress on the
+room temperature, it returns at approximately that of LXe with much of it having liquified, putting less stress on the
 PTRs.  An essential ingredient of the heat transfer is the latent heat, which comprises ${\sim} 80\%$ of the total exchange.  The
-difference in vaporization temperature of the outgoing xenon and condensation temperature of incoming xenon is given by
+difference in vaporization temperature of the outgoing xenon and condensation temperature of incoming xenon is
 
 \begin{equation}
-\Delta T_{\mathrm{ph}} = T_{\mathrm{gl}} (P_i) - T_{\mathrm{gl}} (P_o)
+\Delta T_{\mathrm{ph}} = T_{\mathrm{gl}} (P_{\mathrm{i}}) - T_{\mathrm{gl}} (P_{\mathrm{o}})
 \label{eq:xenon1t_cryo_latent}
 \end{equation}
 
-where $T_{\mathrm{gl}} (P)$ is the temperature of the gas-liquid phase transition that depends on pressure, and $P_i$ and $P_o$ are the
-pressures of the incoming and outgoing xenon, respectively.  Because the conditions of the dynamical gas flow
-(\secref{subsec:xenon1t_pur}) cause $P_i > P_o$, $\Delta T_{\mathrm{ph}} > 0$, making it effective at heat transfer
+\noindent where $T_{\mathrm{gl}} (P)$ is the pressure-dependent temperature of the gas-liquid phase transition, and $P_{\mathrm{i}}$ and
+$P_{\mathrm{o}}$
+are the pressures of the incoming and outgoing xenon, respectively.  Because the conditions of the dynamical gas flow
+(\secref{subsec:xenon1t_pur}) cause $P_{\mathrm{i}} > P_{\mathrm{o}}$, $\Delta T_{\mathrm{ph}} > 0$, making it effective at heat transfer
 (\citeref{Aprile2012b}).  A study with the Demonstrator - the
-experiment used to for research and development for XENON1T - showed a heat exchange efficiency of
+experiment used to for research and development for XENON1T (\secref{subsec:electron_lifetime_model_demonstrator}) - showed a heat
+exchange efficiency for
 two heat exchangers in series of $\geq 96\%$ (\citeref{Aprile2012b}).  Following the parallel-plate exchanger a heater provides additional
 thermal energy to the xenon moving towards the purification system.  The different systems that handle the xenon can be seen in
 \figref{fig:xenon1t_cryo_overview}.
@@ -370,7 +406,7 @@ Cherenkov detector.  Image credit: \citeref{Aprile2017b}.}
 
 \subsection{Purification}
 \label{subsec:xenon1t_pur}
-Contamination in LXe can present a number of problems.  As mentioned in \secref{subsec:tpcs_working_principle} electronegative
+LXe contamination presents number of problems.  As mentioned in \secref{subsec:tpcs_working_principle} electronegative
 impurities (e.g. O$_2$, H$_2$O, N$_2$O, etc.) will attach to drifting $e^-$, reducing the number that reach
 the liquid surface and thus the S2.
 
@@ -382,34 +418,30 @@ I(x) = I_0 e^{-x / \lambda_{\mathrm{att}}}
 \label{eq:xenon1t_pur_atten}
 \end{equation}
 
-where $I_0$ is initial number of photons, $I(x)$ is the number after traveling a distance $x$, and $\lambda_{\mathrm{att}}$ is the
+\noindent where $I_0$ is initial number of photons, $I(x)$ is the number after traveling a distance $x$, and $\lambda_{\mathrm{att}}$ is
+the
 attenuation length.  $\lambda_{\mathrm{att}}$ is dependent on the absorption and scatter lengths, $\lambda_{\mathrm{abs}}$ and
 $\lambda_{\mathrm{scat}}$.  The absorption length describes the true loss of photons while the scatter refers to photons that elastically
-scatter without energy loss.  The attenuation length can then be written
-$1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{scat}}$.  \figref{fig:xenon1t_pur_absorption_spectra} shows
-the Xe scintillation spectrum along with the absorption coefficients for \otwo and \htwoo vapor at concentrations of 1 ppm.  We can see
-there is large overlap at lower wavelengths - especially for H$_2$O - and that observations under these circumstances would lead to an
-incorrect measurement of the scintillation spectrum.  In addition to electronegative there are intrinsic
-impurities including Kr and Rn but these are discussed in \secref{subsec:xenon1t_kr_dist}.
+scatter without energy loss.  This is covered in greater detail in \secref{subsec:importance_procedure_effects_photons}.
 
-Electronegative impurities come primarily from outgassing of detector materials.  They have different \electron attachment rates (see
-\figref{fig:attachment_rate} for examples) so are measured in O$_2$-equivalent - that is, the analogous concentration of oxygen if it
-were the only contaminant.  For LXe experiments the necessary concentration is $\mathcal{O}(10^{-9})$ parts per billion (ppb) or less.
+Electronegative impurities come primarily from outgassing of detector materials.  They are measured in O$_2$-equivalent - that is, the
+analogous concentration of oxygen if it
+were the only contaminant.  For LXe experiments the necessary concentration is 1 part per billion (ppb) or less.
 
 In addition
 to the GXe from the TPC (after passing through heat exchanger and heater as described in \secref{subsec:xenon1t_cryo}), connections are
 made between
-each of the cooling towers and the purification system.  Because impurities are lighter than xenon we can anticipate them having a larger
-presence in the gas.  While the GXe impurity concentration has no direct effect on \electron loss, impurities should migrate between the
-LXe and GXe.  Purifying the GXe then should largely reduce the impurities that pass into the liquid.
+each of the cooling towers and the purification system.  Because impurities are lighter than xenon they are anticipated to have a larger
+presence in the gas.  While the GXe impurity concentration has no direct effect on \electron loss, impurities will migrate between the
+LXe and GXe.  Purifying the GXe should largely reduce the impurities that pass into the liquid.
 
 Xenon from ReStoX  (\secref{subsec:xenon1t_restox}) and bottles are also connected to the purification system.  A separate heat exchanger
-sits between ReStoX and purification but is less effective when xenon is not incoming and outgoing (not during detector filling).  In
-addition to cleaning the Xe as it is transfered to the from RestoX to the cryostat, the purification system connects ReStoX to the Kr
+sits between ReStoX and purification.  In
+addition to cleaning the Xe as it is transfered from RestoX to the cryostat, the purification system connects ReStoX to the Kr
 distillation column (\secref{subsec:xenon1t_kr_dist}).  The column returns the xenon after distillation to purification.  All systems that
 feed into the purification system do so before the getters and are available as outputs as well.  A small tube between the purification
-and cryostat before the heat exchanger siphons GXe to the TPC bell to maintain pressure, and is regulated by a flow controller.  The
-numerous connections makes the purification system a hub for transferring xenon between systems.
+and cryostat before the heat exchanger siphons GXe to pressurize the bell to maintain the liquid level, and is regulated by a flow
+controller.  The numerous connections makes the purification system a hub for transferring xenon between systems.
 
 \begin{figure}
 \centering
@@ -420,7 +452,7 @@ numerous connections makes the purification system a hub for transferring xenon 
 \end{figure}
 
 The purification system consists of two redundant purification loops, each of which can operate independently of the other.  The flow
-is driven by CHART QDrives, with one on one loop and two on the other.  They were chosen for their high-capacity and hermetically sealed
+is driven by CHART QDrives, with one in one loop and two in the other.  They were chosen for their high-capacity and hermetically sealed
 pump volume, the latter of which was not true with KNF pumps that were used in XENON100 (\textbf{check this}).  This is important because
 exposure to air could cause a significant drop in purity, and has occurred in the past with KNFs.  They are
 magnetically-resonant and operate via a compression space with oscillating externally-driven pistons.  Motors, valves, and pistons are
@@ -431,19 +463,10 @@ no issues have arisen.  It turns out the limiting factor on our circulation spee
 from tubes leading to the system caused by too small a radius.  With the upgrade to XENONnT these will be replaced with larger-radii.  One
 Q-Drive is installed in one loop and two in the other.
 
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{calibration_source_box}
-\caption{Layout of the calibration source box in the purification system.  Locations of \ce{^{220}Rn}, $^{83\mathrm{m}}\mathrm{Kr}$, and
-\ce{CH_3T} are encompassed by dotted rectangles.  Filters are installed to catch debris.  Connections to and from the cryostat (turquoise)
-and pumps and getters (red) are shown.  The vacuum pump (yellow) is used to evacuate the chamber before use.}
-\label{fig:xenon1t_pur_cal_box_schematic}
-\end{figure}
-
 The flow of the GXe is maintained by two MKA 1579A mass-flow controllers - one on either branch.  The assumption before the experiment went
 online was these would limit the speed when necessary, but because we did not achieve our goal these have minimal impact.  Still, they can
 be used for further restriction.  The xenon then passes through SAES PS4-MT50-R high-temperature rare-gas purifiers, or getters.  They
-use heated ($400^{\circ}\ \mathrm{C}$) zirconium to form unbreakable bonds with carbide, nitride, and oxide, lowering the impurity content
+use heated ($400^{\circ}\mathrm{C}$) zirconium to form unbreakable bonds with carbide, nitride, and oxide, lowering the impurity content
 to $< 1 \mathrm{ppb}$ (\citeref{Aprile2017b}).  A bypass valve allows the xenon to pass un-purified in the event that the it does not need
 to be cleaned.
 
@@ -451,34 +474,36 @@ A Tiger Optics HALO+ H$_2$O monitor measures the water content in the purified G
 concentrations down to 400 ppt.  As with the getters, it can be bypassed.  The Xe is then forwarded to the cryostat, bell, ReStoX, or
 bottles (Kr column occurs after the purification loops before the HALO).
 
-The components of the system are electropolished and able to be baked up to ${\sim} 120^{\circ}\ \mathrm{C}$ for decreased outgassing during
-operation.  The purification system has a number of valves that allow the versatility described in this section.  The majority are
+The components of the system are electropolished and able to be baked up to ${\sim} 120^{\circ}\mathrm{C}$ for decreased outgassing
+(\secref{subsubsec:electron_lifetime_model_outgassing_sources}).  The purification system has a number of valves that allow the versatility described in this section.  The majority are
 pneumatic and can
 be operated remotely with the slow control system (\secref{subsec:xenon1t_detector_slow_control}).  The remainder are manual valves
 situated in select locations: to and from the cryostat,
-inside the calibration box, and before the vacuum pump, which can be used to evacuate individual sections or all of the system.  These are
-in place as a precaution against accidental openings of the actuated valves that could produce problems.
+inside the calibration box, and before the vacuum pump, which can be used to evacuate individual sections or the entire system.  These are
+in place as a precaution against accidental openings of the actuated valves.
 
 
 \subsection{ReStoX}
 \label{subsec:xenon1t_restox}
-The Recovery and Storage system for XENON1T (ReStoX) hosts xenon not in use by other systems.  It is located roughly 7 on the ground floor of the
+The Recovery and Storage system for XENON1T (ReStoX) stores xenon not in use by other systems.  It is located on the ground floor of the
 service building.  With a volume of 4.95 m$^{3}$
-(diameter of 2.1 m), wall thickness of 28 mm, and ability to withstand pressures up to 73 bar, it can support as much as 7.6 tons of xenon
-as a gas, liquid, or super-critical fluid.  It is constructed from stainless steel and insulated with vacuum from an outer sphere, where
-thermal conductance is minimized with superinsulation and limited contact to an external heat load of ${\sim}50\ \mathrm{W}$.  To limit
+(diameter of 2.1 m), wall thickness of 28 mm, and ability to withstand pressures of up to 73 bar, it can support 7.6 tons of
+xenon
+as a gas, liquid, or super-critical fluid.  It is made from stainless steel and insulated via vacuum from an outer sphere, where
+thermal conductance is extremely low due to with superinsulation and limited contact to an external heat load of
+${\sim}50\ \mathrm{W}$.  To limit
 impurity contamination while the Xe is in ReStoX the vessel and valves are metal sealed and electropolished.
 
-The xenon is cooled by LN$_2$ that is housed in a 10 m$^3$ dewar adjacent to the service building.  This is done in part with 16 LN$_2$
-lines that are welded to the inner vessel's outer surface.  To prevent over-cooling 16 stainless steel fins inside increase heat
-exchanging.  A condenser and heater in the middle are used when the xenon is stored as a liquid, which is the nominal state of
-operations.  The heater ensures solid xenon does not block pipes so Xe can transfer freely with other systems.  The total cooling power is
-spread over 4.3 m$^2$ of copper with magnitude of over $>3\ \mathrm{kW}$.
+The xenon is cooled by 16 lines welded to the inner vessel's outer surface that carry LN$_2$ that from the 10 m$^3$ dewar adjacent to the
+service building.  To prevent over-cooling 16 stainless steel fins inside increase heat
+exchanging.  A condenser and heater in the middle are used when the xenon is stored as a liquid, which is normally the case.  The heater
+ensures solid xenon does not obstruct pipes so Xe can be transfered freely with other systems.  The total cooling power of
+$> 3\ \mathrm{kW}$ is spread over 4.3 m$^2$ of copper.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ReStoX}
-\caption{Image credit: \citeref{Aprile2017b}.}
+\caption{ReStoX with major components labeled.  Image credit: \citeref{Aprile2017b}.}
 \label{fig:xenon1t_restox_pic}
 \end{figure}
 
@@ -486,28 +511,29 @@ Previous LXe experiments would fill the detectors by condensing the GXe from sto
 in the cryostat to evaporate.  While this was achievable for detectors with $\mathcal{O}(100)\ \mathrm{kg}$ of xenon, doing so
 (\textbf{maybe it is just for filling, check}) for XENON1T would require approximately two months, and fast recovery in the event of an
 emergency would not be possible.  This is solved through the purification system, which as mentioned in \secref{subsec:xenon1t_pur} can
-pump xenon between systems (\textbf{check with someone about how xenon is recovered}).
+pump xenon between systems and significantly expedite the process (\textbf{check with someone about how xenon is recovered}).
 
 
 
 \subsection{Krypton Distillation}
 \label{subsec:xenon1t_kr_dist}
-Commercial high-purity xenon generally has \ce{Kr} concentrations from 1 ppm down to 10 ppb.  This is not clean enough for LXe dark matter
+Commercial high-purity xenon generally has \ce{Kr} concentrations between 1 ppm to 10 ppb.  This is not clean enough for LXe dark matter
 detectors so additional distillation is necessary.  The reason for restricting the
-krypton content is \ce{^{85}Kr}, which undergoes \betadecay with an end-point energy of 687 keV and a half-life of 10.76 years.  With
+krypton content is \ce{^{85}Kr}, which has a half-life of 10.76 years and undergoes \betadecay with an end-point energy of 687 keV.  With
 an expected fraction $\mathrm{^{85}Kr / ^{nat}Kr = 2 \times 10^{-11}}$ the required \ce{^{nat}Kr}/Xe concentration for its background to be
-less than radon is $< 200\ \mathrm{ppq}$.  Details of the \ce{^{85}Kr} background can be found in \secref{sec:backgrounds}.
+less than radon was expected to be $< 200\ \mathrm{ppq}$.  Details of the \ce{^{85}Kr} background can be found in
+\secref{sec:backgrounds}.
 
-To achieve the intended purity we use a Kr distillation column, seen in \figref{fig:xenon1t_kr_dist_column}.  The column is has a total
+To achieve this purity we use a Kr distillation column, seen in \figref{fig:xenon1t_kr_dist_column}.  The column is has a total
 height of 5.5 m and is kept in an insulation vessel at $10^{-5}\ \mathrm{mbar}$ to minimize thermal losses (\citeref{Aprile2016b}).  GXe
-that is passed to the column enters through a heat exchanger and is
-liquified by the input condenser.  The input condenser uses a cryo-cooler (Leybold CP-50) at $-98^{\circ}\ \mathrm{C}$ and maximal power
-of 100 W.  Next it passes to the package tube, built with 2.8 m of structured stainless steel package material (Sulzer EX) 45 cm in
+enters through a heat exchanger and is
+liquified by the input condenser, which uses a cryo-cooler (Leybold CP-50) at $-98^{\circ}\mathrm{C}$ and maximal power
+of 100 W.  Next it moves to the package tube, built with 2.8 m of structured stainless steel package material (Sulzer EX) 45 cm in
 diamater that has feeding ports for both liquid and gaseous xenon.  At the top of the tube is a second cryo-cooler (Leybold CP-140T)
-operating at $-98^{\circ}\ \mathrm{C}$ with 200 W.  Liquified xenon will fall towards the bottom, where it is stored and heated by a
-reboiler with a maximum of 300 W.  The Kr, with a lower atomic mass will drift towards the top of the column but will not liquify as its
-boiling point is lower than $-98^{\circ}\ \mathrm{C}$.  Siphoning the xenon at the top then removes Kr at a much higher concentration than
-present in the inlet GXe.  Purer Xe at the bottom is extracted where it passes through the heat exchanged before returning to the
+at $-98^{\circ}\mathrm{C}$ and capable of 200 W.  Liquified xenon will fall to the bottom, where it is stored and heated by a
+reboiler with up to 300 W.  The Kr, with a lower atomic mass will drift towards the top of the column but will not liquify as its
+boiling point is lower than $-98^{\circ}\mathrm{C}$.  Siphoning gas at the top removes Kr at a much higher concentration than
+present in the inlet GXe.  The more pure Xe at the bottom is extracted where it passes through the heat exchanged before returning to the
 purification system or ReStoX (\textbf{check this}).
 
 \begin{figure}
@@ -517,17 +543,21 @@ purification system or ReStoX (\textbf{check this}).
 \label{fig:xeno1t_kr_dist_column}
 \end{figure}
 
-After installed at LNGS the reduction of \ce{^{nat}Kr}/Xe was found to be $6.4_{-1.4}^{+1.9} \times 10^{5}$
-(\citeref{Aprile2016b}).  Inlet flows have been shown to be stable up to 18 slpm, but running all ReStoX xenon through distillation before
-cryostat filling would take ${\sim}3$ weeks.  For this reason an ``online" removal system was used, where the xenon was distilled during
-science run data taking.  Over 70 days 7\% of xenon passing through purification was diverted to the column and a total 0.07\% was
+Once installed at LNGS the reduction of \ce{^{nat}Kr}/Xe was found to be $6.4_{-1.4}^{+1.9} \times 10^{5}$
+(\citeref{Aprile2016b}).  Inlet flows have been shown to be stable up to 18 slpm, but running all ReStoX xenon through distillation on the
+way to the cryostat during filling would take ${\sim}3$ weeks.  For this reason an online removal system was used, where the xenon was
+distilled during
+science run data taking.  For over 70 days 7\% of xenon passing through the purification system was diverted to the column and a total
+of 0.07\% was
 removed.  An initial \ce{^{nat}Kr}/Xe concentration of 60 ppb was decreased to $360 \pm 60\ \mathrm{ppq}$, the lowest ever realized in a
-LXe dark matter experiment.  Such low concentrations are measured by a rare gas mass spectrometer (RGMS) that uses cryogenic gas
+LXe dark matter experiment.  Measurements are done using a rare gas mass spectrometer (RGMS) that uses cryogenic gas
 chromotography to separate the Kr from Xe, followed by a mass spectrometer for Kr measurement (\citeref{Lindemann2014}).
 
-A second low-energy background comes from the \ce{^{222}Rn} decay chain.  While the distillation column was built and intended for Kr,
+The second most worrisome low-energy background comes from the \ce{^{222}Rn} decay chain.  While the distillation column was oirginally
+built and intended for Kr,
 it was shown to work in a single stage distillation (\citeref{Bruenner2017}) and subsequently XENON100
-(\citeref{Aprile2017d}).  It operates using the reverse principle, i.e. Rn-enriched xenon is coalesces near the bottom of the column.
+(\citeref{Aprile2017d}).  It operates using the reverse principle, i.e. Rn-enriched xenon is coalesces near the bottom of the column and
+is extracted and stored in bottles, while the more pure xenon at the top is returned to the purification system.
 
 
 
@@ -535,17 +565,21 @@ it was shown to work in a single stage distillation (\citeref{Bruenner2017}) and
 \label{subsec:xenon1t_water_shield}
 Limiting radiation from outside the experiment is essential to a dark matter search.  An active water Cherenkov detector encompasses the
 cryostat, spanning 9.6 m in diamater and 10.2 m high.  It is filled with deionized water, which can fill the detector at up to
-$2.2\ \mathrm{m^{3}/hour}$.  The tank shields the cryostat from neutrons and \gammarays that originate underground (from e.g. rocks),
-decreasing the event rate by orders of magnitude.  It can identify muons as well as muon-induced neutrons by detecting showers initiating
-outside the water tank.  If an event in the TPC coincides with one in the water tank it will usually be excluded incase the two are
-related, acting as a muon veto.  The flux of muons at LNGS is $3.31 \pm 0.03 \times 10^{-8}\ \mathrm{cm^2\ s^{-1}}$ with average energy
-${\sim}270\ \mathrm{GeV}$ (\citeref{Aprile2017b}).
+$2.2\ \mathrm{m^{3}\ h^{-1}}$.  The tank shields the cryostat from neutrons and \gammarays that originate underground (from e.g. rocks),
+decreasing the number of events that reach the TPC by orders of magnitude.
 
-84 Hamamatsu R5912ASSY PMTs are placed in five rings along the inner wall of the tank, each 2.5 m apart in height.  The lowest
-($z = 0\ \mathrm{m}$) and highest ($z = 10\ \mathrm{m}$) each contain 24, while the three between them have 12.  The quantum efficiency
+84 Hamamatsu R5912ASSY PMTs are placed in five rings along the inner wall of the water tank, 2.5 m apart in height.  The lowest
+($z = 0\ \mathrm{m}$) and highest ($z = 10\ \mathrm{m}$) rings each contains 24, while the three between them have 12.  The quantum
+efficiency
 is ${\sim}30\%$ between 300-600 nm.  To increase the chance of photon detection the inner wall is coated with foil (3M DF2000MA) that has
-nearly 100\% reflectivity at $> 400\ \mathrm{nm}$, (\citeref{2017Geis}).  However, ${\sim}90\%$ of light is absorbed for $<370 \mathrm{nm}$
-and 3-7.5\% from $250 \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifted to more favorable values for the PMTs.
+nearly 100\% reflectivity at $> 400\ \mathrm{nm}$, (\citeref{2017Geis}).  However, ${\sim}90\%$ of light is absorbed for
+$<370\ \mathrm{nm}$ and 3-7.5\% from $250 \leq \lambda \leq 370\ \mathrm{nm}$ is wavelength shifted to more favorable values for the PMTs.
+
+The purpose of the PMTs is to identify muons and muon-induced neutrons by detecting showers initiating
+outside the water tank.  Using the difference in arrival times to each PMT the path of the particle can be reconstructed as shown in
+\figref{fig:xenon1t_water_shield_photo}.  If an event in the TPC coincides with one in the water tank it is excluded.  For this reason
+the system is referred to as the muon veto (MV).  The flux of muons at LNGS is $3.31 \pm 0.03 \times 10^{-8}\ \mathrm{cm^2\ s^{-1}}$ with
+average energy ${\sim}270\ \mathrm{GeV}$ (\citeref{Aprile2017b}).
 
 \begin{figure}
 \centering
@@ -557,6 +591,10 @@ and 3-7.5\% from $250 \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifted 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{InsideWaterTank}
+\caption{Photo from inside the water tank during commissioning.  The muon veto PMTs can be seen around the perimeter covered in black bags
+to shield them from the
+light.  The neck of the cryogenics system extends through the hole in the back from the service building to the cryostat, with the
+inner vessel wrapped in mylar visible beneath.}
 \label{fig:xenon1t_water_shield_interior}
 \end{figure}
 
@@ -565,48 +603,63 @@ and 3-7.5\% from $250 \geq \lambda \geq 370\ \mathrm{nm}$ is wavelength shifted 
 \subsection{Calibrations}
 \label{subsec:xenon1t_calibrations}
 Calibrations are used for a host of purposes including understanding energy resolution, light collection efficiency, electron lifetime,
-$g_1$, $g_2$, electronic and nuclear recoil bands, and many more.  Depending on the source they can be performed inside the TPC (internal) or
-outside (external).  Here I cover the different calibrations and the purposes they serve; additional details and results are in
+$g_1$, $g_2$, electronic and nuclear recoil bands, and many more.  Depending on the source they can be performed inside the TPC (internal)
+or outside (external).  The different calibrations and the purposes they serve are discussed here; additional details and results are in
 \secref{sec:det_char}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Panoramic}
+\caption{The XENON1T experiment with the water tank (left) and service building (right).  A depiction of inside the water tank
+hangs on the outside.  ReStoX (first floor), DAQ (second), and the cryogenic system (third) are visible in the service building.}
 \label{fig:xenon1t_panoramic}
 \end{figure}
 
 \subsubsection{Internal}
 \label{subsubsec:xenon1t_calibrations_internal}
 Internal calibrations allow us to describe how our detector observes events throughout the entire TPC.  This is preferabel to external
-calibrations, where only part is used.  The calibration source box is installed in the purification system (pink region in
-\figref{fig:xenon1t_pur_schematic}) and contains valves opening to the GXe both before and after the getters.  When the valves are opened,
-the source will flow into the GXe stream and into the cryostat and mix with the xenon.  We therefore only use sources that do not introduce
-electronegative impurities.  The source will quickly spread itself throughout the entirety of the xenon, giving a uniform distribution,
-and allowing us to improve our understanding of how variation in observables relates to position.
+calibrations, where events are focused in just one section of the TPC near the wall.  The calibration source box is installed in the
+purification system (pink region in
+\figref{fig:xenon1t_pur_schematic}) and contains valves opening to the GXe both before and after the
+getters.  \figref{fig:xenon1t_pur_cal_box_schematic} shows the schematic for the source box.  When the valves are opened,
+the source will flow into the GXe stream and cryostat.  Therefore only sources that do not introduce
+electronegative impurities are used.  The source will quickly diffuse in the xenon to become uniformly distributed,
+allowing a number of detector characteristics and properties throughout the entire TPC to be studied.
 
-$\mathrm{^{83m}Kr}$ has two monoenergetic decays at 32.15 ($t_{1/2} = 1.83\ \mathrm{h}$) and 9.4 keV
+$\mathrm{^{83m}Kr}$ has monoenergetic decays of 32.2 ($t_{1/2} = 1.83\ \mathrm{h}$) and 9.4 keV
 ($t_{1/2} = 154.4\ \mathrm{ns}$).  The short
-half-lives coupled with its final decay product, \ce{^{83}Kr} being stable makes it a great choice to calibrate the light collection
-efficiency (LCE) and measure the electron lifetime.
+half-lifes and its final decay product \ce{^{83}Kr} being stable and a noble gas make it a great choice to measure the light collection
+efficiency (LCE), the electron lifetime, and many other important features.
 
-\radoncal is used to calibrate the ER band as \ce{^{212}Pb} - one of its daughters, is a $\beta$-emitter with endpoint energy
-569.91 keV.  There are additional $\alpha$, $\beta$, and $\gamma$ emissions throughout the chain that can be used for additional studies,
-including measuring the electron lifetime with the \ce{^{212}Bi} $\alpha$-decay (6.207 MeV).  The longest half-life in the chain is
-\ce{^{212}Pb} with $t_{1/2} = 10.6\ \mathrm{h}$ (next longest is \ce{^{212}Bi} with $t_{1/2} = 1.00\ \mathrm{h}$), which allows DM data
-to resume within several days.
+\radoncal is used to calibrate the electronic recoil (ER) band as its progeny \ce{^{212}Pb} is a $\beta$-emitter with endpoint energy
+569.91 keV.  There are other $\alpha$- and $\beta$-emissions throughout the chain that can be used for additional studies,
+including measuring the electron lifetime with the \ce{^{212}Bi} $\alpha$-decay.  The longest half-life in the chain is
+\ce{^{212}Pb} with $t_{1/2} = 10.6\ \mathrm{h}$ (next longest is \ce{^{212}Bi} with $t_{1/2} = 1.00\ \mathrm{h}$) so dark matter data
+can resume within several days.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{calibration_source_box}
+\caption{Layout of the calibration source box in the purification system.  Locations of \ce{^{220}Rn}, $^{83\mathrm{m}}\mathrm{Kr}$, and
+\ce{CH_3T} are encompassed by dotted rectangles.  Filters are installed to catch debris.  Connections to and from the cryostat (turquoise)
+and pumps and getters (red) are shown.  The vacuum pump (yellow) is used to evacuate the chamber before use.}
+\label{fig:xenon1t_pur_cal_box_schematic}
+\end{figure}
 
 Tritiated methane ($\mathrm{C H_3 T}$) is a very attractive candidate because of it's low-energy $\beta$-emission.  With a 18.6 keV
-endpoint energy, it is an ideal candidate for calibrating the low-energy ($\mathrm{cS1} < 100\ \mathrm{PE}$, \textbf{check this}) ER band,
-and even measuring
-the light and charge yield in a relatively unexplored but important region.  This was originally done by LUX (\citeref{LUX2016}) and
+endpoint energy, it is an ideal candidate for calibrating the low-energy ($\mathrm{cS1} < 100\ \mathrm{PE}$, \textbf{check this}) ER band
+and measuring
+the light and charge yields in an important region.  This was originally done by LUX (\citeref{LUX2016}) and
 subsequently performed with XENON100 (\citeref{Aprile2018}).  However, with a half-life of $t_{1/2} = 12.3\ \mathrm{y}$ it must be
-removed completely by the getters to avoid introducing a new background.  This is further complicated by a suspicion that
-$\mathrm{C H_3 T}$ adheres to the cryostat, prohibiting total removal.  For this reason a $\mathrm{C H_3 T}$ calibration has not yet been
-conducted in XENON1T.
+removed completely by the getters because introducing a new background in the dark matter region of interest would be disastrous.  There
+is a worry that
+$\mathrm{C H_3 T}$ adheres to the cryostat, which would prohibit total removal.  For this reason a $\mathrm{C H_3 T}$ calibration has not
+yet been conducted in XENON1T.
 
 PMT gains are calibrated using blue LEDs at low light levels.  Unlike the previous sources this calibration is done using cables that are
-carried from the data acquisition (\secref{subsec:xenon1t_daq}) into the TPC.  They are fixed at various heights and angles and flash
-at periodic intervals.  The result is an SPE spectrum as shown in \figref{fig:xenon1t_pmt_spe}.
+carried from the data acquisition (\secref{subsec:xenon1t_daq}) into the TPC.  They are fixed at various heights and angles to optimize
+PMT calibrations and flash at periodic intervals.  They are used to measure the single photoelectron (SPE) spectrum
+(\figref{fig:xenon1t_pmt_spe}) and PMT afterpulsing (\figref{fig:xenon1t_pmts_ap}).
 
 \begin{figure}
 \centering
@@ -618,7 +671,7 @@ at periodic intervals.  The result is an SPE spectrum as shown in \figref{fig:xe
 
 \subsubsection{External}
 \label{subsubsec:xenon1t_calibrations_external}
-External calibrations are performed with a source outside the cryostat.  In XENON100 this was done by inserting a source inside the lead
+External calibrations are performed with the source outside the cryostat.  In XENON100 this was done by inserting a source inside the lead
 shielding; however, the water tank in XENON1T makes this a more complicated task.  The resolution was the installation of two ``I-belts"
 along the height of the detector and one ``U-belt" that also extends underneath, as shown in
 \figref{fig:xenon1t_calibrations_belts}.  These
@@ -761,7 +814,7 @@ emission of a 32.2 keV
 conversion electron with half-life $t_{1/2} = 1.83\ \mathrm{h}$ followed by a second conversion electron at 9.4 keV with
 $t_{1/2} = 154.4\ \mathrm{ns}$.  The short interval between the two decays makes tagging events easy and has strong discrimination power
 against nominal background.  The events that can be used for studies including detector characterization need to have both S1s resolved
-by the DAQ.  To select such events the time between S1s $Delta t_{\mathrm{S1}}$ to be between 500-2000 ns $500-2000\ \mathrm{ns}$.  This
+by the DAQ.  To select such events the time between S1s $\Delta t_{\mathrm{S1}}$ to be between 500-2000 ns $500-2000\ \mathrm{ns}$.  This
 cuts more than 96\% of \metakr events but the high activity is enough to perform the studies with large
 statistics.  \figref{fig:calibrations_kr_s1_s2} shows corrected and uncorrected S1s and $\mathrm{S2_b s}$ for \metakr events.  While the
 $\Delta t_{\mathrm{S1}}$ cut rejects more than 96\% of \metakr events, it is extremely effective at removing background.
@@ -887,7 +940,7 @@ $z = 0$ at gate).  The drift fields for SR0 and SR1 were $E_d = 118.6\ \mathrm{V
 respectively, with $2.2\ \mathrm{V\ cm^{-1}}$ RMS variations.  The fields correspond to drift velocities of
 $v_d = 1.440\ \mathrm{mm\ \mu s^{-1}}$ and $1.332\ \mathrm{mm\ \mu s^{-1}}$ and
 maximum drift times of $t_{d, \mathrm{max}} = 672.8\ \mathrm{\mu s}$ and $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9
-cm at$-100^{\circ}\ \mathrm{C}$).
+cm at$-100^{\circ}\mathrm{C}$).
 
 The $x \mdash y$ coordinates are found by applying an algorithm to the intensity each PMT in the top array observed from the S2 (also known as
 PMT hit pattern).  For XENON1T two reconstruction algorithms were mainly used.  The first was a neural net using the Fast Artificial
@@ -997,7 +1050,7 @@ data is only used after the source valve is closed, the 55.6 s and 145 ms half-l
 branching ratio of 36.9\%.  A typical electron lifetime using \ce{^{212}Bi} is shown in the right panel of
 \figref{fig:calibrations_elifetime}.
 
-Other sources can be used for measuring $\tau_{e^-}$ but with less success.  In past experiments the 661.7 \gammaray of \ce{^{137}Cs} was
+Other sources can be used for measuring $\tau_{e}$ but with less success.  In past experiments the 661.7 \gammaray of \ce{^{137}Cs} was
 used, but an early trial in XENON1T showed that very few actually reached the active volume, making the method inefficient.  Additionally
 the 163.9 and 236.1 keV de-excitations of $\mathrm{^{131m}Xe}$ and $\mathrm{^{129m}Xe}$, respectively, following a nuclear recoil calibration are
 usable initially but longer time windows are required as they de-excite, and they do not offer the large statistics of $\mathrm{^{83m}Kr}$
@@ -1022,7 +1075,7 @@ Isotope & Daughter & Energy & $t_{1/2}$ & Chain \\
 \hline
 \end{tabular}
 \caption{$\alpha$-decays with high likelihoods for \ce{^{222}Rn} and \ce{^{220}Rn} decay chains.  \ce{^{222}Rn} makes up part of our
-background so it an \ce{^{218}Po} are used to continually monitor the $\tau_{e^-}$.  The \ce{^{220}Rn} content in our background is
+background so it an \ce{^{218}Po} are used to continually monitor the $\tau_{e}$.  The \ce{^{220}Rn} content in our background is
 insignificant but it is used in calibrations, where \ce{^{212}Bi} allows high-statistic measurement.  Those with $< 0.1\%$ probability
 (\ce{^{218}At}, \ce{^{218}Rn}, \ce{^{214}Bi}, \ce{^{210}Pb}, \ce{^{210}Bi}, \ce{^{209}Bi} for \ce{^{222}Rn} chain, \ce{^{220}Ra} and
 \ce{^{216}Rn} for \ce{^{220}Rn} chain) are not listed.}
@@ -1043,7 +1096,7 @@ discussed in \chapref{chap:purification}.}
 The electron lifetimes from $\alpha$-decays was observed to be smaller than using $\beta$s or $\gamma$s.  While $\alpha$ energies are
 significantly higher the charge yield is extremely low (\figref{fig:tpcs_signals_drift_field}).  Because our sensitive region is at
 low-energy and is not affected by $\alpha$ interactions we decided to use the electron lifetime derived from $\mathrm{^{83m}Kr}$.  The
-electron lifetime used for Science Runs 0 and 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flatness in $\tau_{e^-}$
+electron lifetime used for Science Runs 0 and 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flatness in $\tau_{e}$
 may be indicative of a small leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the electron
 lifetime model are discussed in \chapref{chap:purification}.
 
@@ -1233,7 +1286,7 @@ Energy [keV] & Isotope & Half-life & Comments\\
 \includegraphics[width=\textwidth]{energy_spectrum_rate_kev_kg_day_logscale_pax_v680_hax_v190}
 \caption{Combined energy spectrum for XENON1T.  Regions between $55 < E < 140$ and $2350 < E < 2550\ \mathrm{keV}$ are blinded for
 \ce{^{124}Xe} double-electron capture and they theorized \ce{^{136}Xe} neutrinoless double $\beta$-decay.}
-\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
+\label{fig:calibrations_photon_charge_efficiences_ces}
 \end{figure}
 
 The energy resolution is a measure of how well different energy depositions can be distinguished from one another.  Better resolution
@@ -1250,7 +1303,7 @@ resolution.  We can see our energy resolution is better than XENON100, PandaX, a
 \caption{Energy resolution $\sigma_E / E$ using for the monoenergetic interactions highlighted in
 \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  EXO Phase II (turquoise stars, \citeref{EXO2018}), PandaX (green
 squares, \citeref{PandaX2016b}), XENON100 (orange circles, \citeref{Aprile2012a}), and LUX (blue triangles, \citeref{LUX2017b}).}
-\label{fig:calibrations_photon_charge_efficiences_ces}
+\label{fig:calibrations_photon_charge_efficiences_ces_resolution}
 \end{figure}
 
 
@@ -1379,7 +1432,8 @@ contributor so such a reduction is still significant.
 \includegraphics[width=\textwidth]{Rn222_Po218_BiPo214_Rn_Distillation_absolute_value}
 \label{fig:backgrounds_electronic_radon_distillation}
 \caption{\ce{^{222}Rn} (red), \ce{^{218}Po} (blue), and \ce{^{214}BiPo} (green) event rate concentrations before and after radon
-distillation.  A decrease of ${\sim} 20\%$ is observed.}
+distillation.  A decrease of ${\sim} 20\%$ is observed.  \ce{^{222}Rn} has a higher rate because its progenies may be left in a charged
+state and be pulled outside the FV.}
 \end{figure}
 
 \ce{^{220}Rn} has a half-life of just 55.6 s so it is much less likely to spread in the LXe active volume.  Its daughter, \ce{^{216}Po},
@@ -1399,7 +1453,10 @@ of the detector, additional analyses, and monitoring properties such as the elec
         \centering
         \includegraphics[height=5cm]{ERRateMCZoomed}
     \end{subfigure}
-    \caption{Electronic recoil energy spectrum in a 1 t fiducial volume from MC simulations.  Image credit: \citeref{Aprile2016a}.}
+    \caption{Predicted electronic recoil energy background spectrum in a 1 t fiducial volume from Monte Carlo.  The left panel gives the
+    ER expectation from 0 to $> 2614.5\ \mathrm{keV}$ (\ce{^{208}Tl}).  The right panel examines the 0-250 keV range.  Predictions can
+    be compared to combined energy spectrum in \figref{fig:calibrations_photon_charge_efficiences_ces}.  Image credit:
+    \citeref{Aprile2016a}.}
 	\label{fig:backgrounds_er_spectrum}
 \end{figure}
 
@@ -1459,7 +1516,11 @@ $0.6 \pm 0.1\ \mathrm{y^{-1}}$.
         \centering
         \includegraphics[height=5cm]{neutronyield-cu-v2}
     \end{subfigure}
-    \caption{Image credit:Image credit: \citeref{Aprile2016a}.}
+    \caption{PTFE (left) and copper (right) differential yields for radiogenic neutrons per decay of parent nucleus.  Dashed lines show
+    the contributions of spontaneous fission-only while solid show SF and $(\alpha, \mathrm{n})$ reactions.  Decays are shown
+    for $\mathrm{^{238}U} \rightarrow \mathrm{^{230}Th}$ (black), $\mathrm{^{235}U} \rightarrow \mathrm{^{207}Pb}$ (red),
+    $\mathrm{^{226}Ra} \rightarrow \mathrm{^{206}Pb}$ (green), $\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ (blue), and
+    $\mathrm{^{228}Th} \rightarrow \mathrm{^{208}Pb}$ (pink).  Image credit: \citeref{Aprile2016a}.}
 	\label{fig:backgrounds_nuclear_radiogenic_rates}
 \end{figure}
 
@@ -1475,13 +1536,14 @@ $< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{MuonFluxOverDepth}
+\caption{Neutron flux for WIPP, Soudan, Kamioka, Boulby, Gran Sasso, and Sudbury.}
 \label{fig:backgrounds_nuclear_muon_induced_flux}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{totalnrbackground}
-\caption{Image credit: \citeref{Aprile2016a}.}
+\caption{Energy spectrum of the total nuclear recoil background in the 1 t FV.  Image credit: \citeref{Aprile2016a}.}
 \label{fig:backgrounds_nuclear_muon_induced_nr_rate}
 \end{figure}
 
@@ -1584,17 +1646,45 @@ $\mathrm{cS2_{\mathrm{b}}} \lesssim 400\ \mathrm{PE}$, $\mathrm{cS1} \lesssim 20
 \label{fig:backgrounds_detector_materials_bands}
 \end{figure}
 
-The accumulation of charge on the PTFE panels was discovered by the author by tracking the number of \ce{^{222}Rn} and \ce{^{218}Po}
-$\alpha$-decays.  By monitoring the total number of events in the TPC the rate was unchanging over time.  However, by imposing some radial
-cut it was discovered that the rate was increasing as \electron were pushed away from the walls, as seen in
-\figref{fig:backgrounds_wall_charge}.  This meant that our FV was growing over the course of the lifetime of the experiment and we would
-underestimate our background.  To account for this we recalculated the position reconstruction for each $\mathrm{^{83m}Kr}$
-calibration and included a time dependent correction for analyses.
+The accumulation of charge on the PTFE panels was discovered by the author through tracking the \ce{^{222}Rn} and \ce{^{218}Po} decay
+rates.  While the rate of events throughout the entire volume of the TPC was consistent, a radius-dependent rate was discovered.  This is
+shown in \figref{fig:backgrounds_wall_charge}, where events reconstructed inside the designated radius (29, 32, 36.94, and 39 cm) are
+plotted from February to September in SR1.  For $r < 29\ \mathrm{cm}$ the limited statistics prevented precise measurements.
+
+The decay rates $R$ show an rise over time, with larger $r$ corresponding to greater increase.  One possibility might be a leak - for
+which there is other evidence (\secref{subsubsec:backgrounds_electronic_krypton, subsec:electron_lifetime_model_outgassing}) - but the
+short half-lifes of \ce{^{222}Rn} and \ce{^{218}Po} mandate one that is growing, which is in disagreement.  Besides, a leak should enlarge
+the total decay rate, which is not observed.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{WallChargingPlot}
+\includegraphics[width=\textwidth]{wall_charging_over_time}
+\caption{\ce{^{222}Rn} and \ce{^{218}Po} decay rates ($R_{\mathrm{^{222}Rn}}$, $R_{\mathrm{^{218}Po}}$) from February-September 2017 for
+radial cuts of 29, 32, 36.94, and 39 cm.  For all cuts $R_{\mathrm{^{222}Rn}} > R_{\mathrm{^{218}Po}}$ and
+$dR_{\mathrm{^{222}Rn}}/dt > dR_{\mathrm{^{218}Po}}/dt$, though the latter converge at larger radii.  The increase is caused by \electron
+buildup on the teflon that pushes events in the $-\hat{r}$ direction.  Residuals (in same units) show no bias from fits.}
 \label{fig:backgrounds_wall_charge}
+\end{figure}
+
+A second explanation is charge buildup on the PTFE.  Drifting \electron from events near the wall attaching to the PTFE will slowly alter
+the electric field, primarily in the $\hat{r}$ direction.  The cumulative decay rate would not be impacted, and events will move
+further inward as this component becomes stronger.  Furthermore, the rate of increase should grow with radius as the E-field distortion
+becomes more significant until it reaches the point where it is losing more events than gaining.  Because 39 cm is too far for latter,
+\figref{fig:backgrounds_wall_charge} supports that conclusion - at least of the former - as the slope for each fit grows with $r$.  The
+decay rates differ because \ce{^{218}Po} maybe left in a charged state following the decay of \ce{^{222}Rn} and be pulled out of the
+FV, and is evident when comparing the $z$-distributions.
+
+\figref{fig:backgrounds_detector_materials_wall_charge_radius} shows the expected rate increase dependence across $r^2$ using the best-fit
+values from \figref{fig:backgrounds_wall_charge}.  It reports the event rate increase for the fiducial volume radial cut.  Both figures
+raise the concern that the FV will grow over time as more events are pushed inwards.  To account for this a time-dependent position
+reconstruction (\secref{subsec:det_char_position_reconstruction}) model is developed.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{wall_charging_radius}
+\caption{Decay rate increase (\figref{fig:backgrounds_wall_charge}) dependence on $r^2$.  Larger radii produce a bigger rate increase due
+to proximity to the wall.  This helps estimate the scale of $dR/dt$ when selecting the FV.}
+\label{fig:backgrounds_detector_materials_wall_charge_radius}
 \end{figure}
 
 At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by detector materials, except for
@@ -1853,8 +1943,10 @@ population is produced by tritium via
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{Fig5Lang2018}
-\caption{Image credit: \citeref{Lang2018}.}
+\includegraphics[width=0.6\textwidth]{ng_energy_spectrum}
+\caption{Simulated neutron spectrum in fusion region of the NG (red dashed line) and spectrum at pulse shape discriminator during
+calibration (blue shaded region).  Deconvolution of data from calibration (black solid line) is also show.  Spectra are normalized by
+the 2.2-2.7 MeV range.  Image credit: \citeref{Lang2018}.}
 \label{fig:er_nr_calibrations_parameter_determ_nr_ng_energy}
 \end{figure}
 
@@ -2043,7 +2135,7 @@ After the microphysics emission process the properties of our detector  become r
 $n_{\mathrm{ph}} \rightarrow \mathrm{S1}$ and $n_{\mathrm{e}} \rightarrow \mathrm{S2}$.  This is in part why the
 characterizations detailed in \secref{sec:det_char} are essential.  Although the \ce{^{220}Rn}, \ce{^{241}AmBe}, and the NG calibrations
 were performed at different times they were fit simultaneously.  This ensures our detector parameters - none of which showed any
-time-variation - have a single posterior.  The only exception is the electron lifetime $\tau_{e^-}$ because the purity of the LXe is generally
+time-variation - have a single posterior.  The only exception is the electron lifetime $\tau_{e}$ because the purity of the LXe is generally
 changing.
 
 The first effect we must consider is position reconstruction (\secref{subsec:subsec:det_char_position_reconstruction}).  The reason is that
@@ -2173,7 +2265,7 @@ systematic error in measured lifetimes \eqnref{eq:det_char_elifetime} with a nor
 lifetimes, and $\sigma_e$ is the uncertainty on $\tau_{e^-, \mathrm{rec}}$.  We set the electron lifetime uncertainty to 
 $\sigma_{e^-, \mathrm{SR0}} = 0.04$ and $\sigma_{e^-, \mathrm{SR1}} = 0.5 \sigma_{e^-, \mathrm{SR0}}$, with the difference because we are
 more
-confident in $\tau_{e^-}$ for SR1 (\figref{fig:det_char_elifetime_evolution}).  The true and reconstructed electron loss probabilities
+confident in $\tau_{e}$ for SR1 (\figref{fig:det_char_elifetime_evolution}).  The true and reconstructed electron loss probabilities
 are given in
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}.  We can find the number of \electron that survive to the surface
 $n_{\mathrm{surv}}$ using \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_drift_electrons} where $p_{\mathrm{wall}}$ refers to
@@ -2183,8 +2275,8 @@ we can ignore its effects and set $p_{\mathrm{wall}} = 1$.
 
 \begin{equation}
 \begin{aligned}
-p_{\mathrm{rec}} (t_d) &= e^{-t_d / \tau_{e^-, \mathrm{rec}}} \\
-p_{\mathrm{true}} (t_d) &= e^{-t_d / \tau_{e^-, \mathrm{true}}}
+p_{\mathrm{rec}} (t_d) &= e^{-t_d / \tau_{e, \mathrm{rec}}} \\
+p_{\mathrm{true}} (t_d) &= e^{-t_d / \tau_{e, \mathrm{true}}}
 \end{aligned}
 \label{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}
 \end{equation}

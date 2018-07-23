@@ -60,6 +60,14 @@ $\lambda_{\mathrm{scatt}}$ are the the absorption and scatterings lengths, respe
 $\lambda_{\mathrm{abs}} \sim \infty$ (\citeref{Baldini2005} found $lambda_{\mathrm{abs}} > 100\ \mathrm{cm}$ at 90\% confidence
 level).
 
+$\lambda_{\mathrm{att}}$ is dependent on the absorption and scatter lengths, $\lambda_{\mathrm{abs}}$ and
+$\lambda_{\mathrm{scat}}$.  The absorption length describes the true loss of photons while the scatter refers to photons that elastically
+scatter without energy loss.  This is covered in greater detail in \secref{subsec:importance_procedure_effects_photons}.The attenuation length can then be written
+$1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{scat}}$.  \figref{fig:xenon1t_pur_absorption_spectra} shows
+the Xe scintillation spectrum along with the absorption coefficients for \otwo and \htwoo vapor at concentrations of 1 ppm.  We can see
+there is large overlap at lower wavelengths - especially for H$_2$O - and that observations under these circumstances would lead to an
+incorrect measurement of the scintillation spectrum.
+
 The inclusion of impurities, however, can shorten the absorption
 length.  \figref{fig:importance_procedure_effects_photons_absorption_coefficents} shows the absorption coefficients
 ($\lambda_{\mathrm{abs}}^{-1}$) for 1 ppm \htwoo and \otwo from $130 \mdash 200\ \mathrm{nm}$.  They overlap with shorter wavelengths
@@ -731,7 +739,7 @@ Parameter & \multicolumn{1}{c}{Function} & Color & Comments \\
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{purificationpid}
-\caption{Slow control for purification system.}
+\caption{Schematic for purification system from Slow Control.}
 \label{fig:electron_lifetime_model_slow_control_pur}
 \end{figure}
 
@@ -1151,12 +1159,12 @@ system.  The outgassing model that best describes the electron lifetime evolutio
 
 \begin{subequations}
 \begin{align}
-\Lamba_{\mathrm{G}} &= A_{mathrm{G}} \bigg( e^{-t/t_1} + \frac{t}{t_2} \bigg) \\
-\Lamba_{\mathrm{L}} &= A_{\mathrm{L}} \bigg( e^{-t/t_3} + \frac{t}{t_4} \bigg)
+\Lambda_{\mathrm{G}} &= A_{mathrm{G}} \bigg( e^{-t/t_1} + \frac{t}{t_2} \bigg) \\
+\Lambda_{\mathrm{L}} &= A_{\mathrm{L}} \bigg( e^{-t/t_3} + \frac{t}{t_4} \bigg)
 \end{align}
 \end{subequations}
 
-\noindent where $A$, and $t$ are free parameters.
+\noindent where $A$, and $t$ are free parameters in the fit.
 
 
 

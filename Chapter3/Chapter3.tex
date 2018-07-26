@@ -2582,11 +2582,12 @@ be marginalized over.  This is an advantage over many other techniques.
 MCMCs have become increasingly popular in recent years as advances in methods and computer processing speeds have made them
 a powerful tool that can be run in reasonable timescales.  For this analysis an implementation by \citeref{Foreman2013} of
 the Affine-Invariant Ensemble Sampler proposed by \citeref{Goodman2010}, modified to allow stretch move update step parallelization is
-used as outlined below.
+used as outlined below.  A Differential Evolution Markov Chain (DEMC) is used in \secref{subsec:elifetime_fit_mcmc} for the electron
+lifetime analysis.
 
 \begin{enumerate}
-\item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (we randomly sample
-$p(\vect{\theta}|\vect{\alpha})$).
+\item Initialize $k$ walkers of $n$-dimensional parameter space to some state $\vect{\theta}(t = 0)$ (for this analysis random samples
+are drawn from $p(\vect{\theta}|\vect{\alpha})$).
 
 \item \label{itm:divide} Divide the ensemble into subsets $S^{(0)} = \{\vect{\theta}_i, \forall i = 1, . . ., k/2\}$, and
 $S^{(1)} = \{\vect{\theta}_i, \forall i = k/2 + 1, . . ., k\}$.
@@ -2716,17 +2717,16 @@ found by NEST in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}, with 
 \begin{tabular}{cccccc}
 \hline
 \hline
-Parameter & Value & Prior Distribution & Source & Posterior & Comment \\
+Parameter & Prior & Prior Distribution & Source & Posterior & Comment \\
 \hline
 $W$ & $13.7 \pm 0.2\ \mathrm{eV}$ & Normal &  & \ce{^{220}Rn}, \ce{^{241}AmBe}, NG & \citeref{Dahl2009} \\
 $F$ & 0.059 & Fixed & $-$ & \ce{^{220}Rn} & \citeref{Doke1976}, \eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta} \\
 $n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & 0.06-0.2 & Uniform & See \secref{subsubsec:er_nr_calibrations_parameter_determ_nr} for NR \\
-$\gamma_{\mathrm{er}}$ & $0 \mdash 0.5$ & free &  & \ce{^{220}Rn} & Recombination \\
-$c_1$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
-$c_2$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
-$c_3$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
-$c_4$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
-$E_{\mathrm{thresh}}$ &  & Free &  & \ce{^{220}Rn} & Energy threshold \\
+$E_0$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
+$E_1$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
+$\gamma_{\mathrm{er}}$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
+$\omega_{\mathrm{er}}$ &  & Free &  & \ce{^{220}Rn} & Recombination \\
+$\delta_{\mathrm{er}}$ &  & Free &  & \ce{^{220}Rn} & Energy threshold \\
 $A$ & $\geq 0$ & Free &  & \ce{^{220}Rn} & RF \\
 $B$ & $\geq 0$ & Free &  & \ce{^{220}Rn} & RF \\
 $\alpha$ & $\mu = 1.240,\ \sigma = 0.079$ & Normal &  & \ce{^{241}AmBe}, NG &
@@ -2782,8 +2782,8 @@ Parameter & Value & Prior Distribution & Posterior & Comment \\
 \hline
 $\eta_{EE, \mathrm{SR0}}$ & $0.936$ & Fixed & $-$ & SR0 extraction efficiency \\
 $\eta_{EE, \mathrm{SR1}}$ & $0.933$ & Fixed & $-$ & SR1 extraction efficiency \\
-$\sigma_{G, \mathrm{SR0}}$ & $0.240$ & Fixed & $-$ & SR0 gas gain resolution \\
-$\sigma_G$ & $0.250$ & Fixed & $-$ & SR1 gas gain resolution \\
+$\sigma_{G, \mathrm{SR0}}$ & $0.240\ \mathrm{PE}$ & Fixed & $-$ & SR0 gas gain resolution \\
+$\sigma_{G, \mathrm{SR1}}$ & $0.250\ \mathrm{PE}$ & Fixed & $-$ & SR1 gas gain resolution \\
 $v_{d, \mathrm{SR0}}$ & $0.144\ \mathrm{mm\ \mu s^{-1}}$ & Fixed & $-$ & SR0 drift velocity \\
 $v_{d, \mathrm{SR1}}$ & $0.134\ \mathrm{mm\ \mu s^{-1}}$ & Fixed & $-$ & SR1 drift velocity \\
 $f_{\mathrm{aft}}$ & $0.627$ & Fixed & $-$ & \\
@@ -2793,12 +2793,12 @@ $g_{2\mathrm{b}}$ & $11.44 \pm 0.20\ \mathrm{PE} / e^-$ & Normal &  & \\
 $p_{\mathrm{dpe}}$ & $0.18 \mdash 0.24$ & Uniform &  & \citeref{Faham2015} \\
 $\sigma_e$ & $0 \pm 0.02$ & Normal &  & Electron lifetime uncertainty\\
 Multiscatter Cut & $0 \mdash 1$ &  &  &  & \\
-S1 Bias $\mu_{b}^{\mathrm{S1}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
-S1 Smearing $\sigma_{b}^{\mathrm{S1}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
-S2 Bias $\mu_{b}^{\mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
-S2 Smearing $\sigma_{b}^{\mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
-$\sigma_{e}^{\mathrm{rec}}$ & $\mu = 0,\ \sigma = 0.02$ & Normal &  & \\
-S2 Threshold & $\mathrm{S2} \geq 200\ \mathrm{PE}$ & Fixed & $-$ & Requirement \\
+S1 Bias $\mu_{b, \mathrm{S1}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
+S1 Smearing $\sigma_{b, \mathrm{S1}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
+S2 Bias $\mu_{b, \mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
+S2 Smearing $\sigma_{b, \mathrm{S2}}$ & $0 \mdash 1$ & Uniform &  & \eqnref{er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
+$\sigma_{e}$ & $0 \pm 0.02$ & Normal &  & $\sigma_{e, \mathrm{SR0}} = 2\sigma_{e, \mathrm{SR1}}$ \\
+S2 Threshold & 200 PE & Fixed & $-$ & Requirement \\
 Processor Efficiency & $0 \pm 1$ & Normal &  & \\
 S1 Cut Acceptance & $0 \pm 1$ & Normal &  & \\
 S2 Cut Acceptance & $0 \pm 1$ & Normal &  & \\
@@ -2884,27 +2884,27 @@ spectra.
 
 \begin{table}
 \centering
-\begin{tabular}{ccccc}
+\begin{tabular}{cccc}
 \hline
 \hline
-Parameter & Value & Prior Distribution & Posterior & Comment \\
+Parameter & Prior & Posterior & Comment \\
 \hline
-\multicolumn{5}{c}{\ce{^{220}Rn}} \\ \cline{2-5}
+\multicolumn{5}{c}{\ce{^{220}Rn}} \\ \cline{2-4}
 \hline
-\ce{^{220}Rn} & $\geq 0$ & Free &  & \\
-AC \ce{^{220}Rn} & $5.94 \pm 1.19$ & Normal &  & \\
+\ce{^{220}Rn} & $\geq 0$ & & \\
+AC \ce{^{220}Rn} & $\mathrm{Norm}(\mu = 5.94, \sigma = 1.19)$ &  & \\
 \hline
-\multicolumn{5}{c}{\ce{^{241}AmBe}} \\ \cline{2-5}
+\multicolumn{5}{c}{\ce{^{241}AmBe}} \\ \cline{2-4}
 \hline
-\ce{^{241}AmBe} & $\geq 0$ & Free &  & \\
-AC \ce{^{241}AmBe} & $1.6 \pm 0.16$ & Normal &  & \\
-ER in \ce{^{241}AmBe} & $\geq 0$ & Free &  & \\
+\ce{^{241}AmBe} & $\geq 0$ & & \\
+AC \ce{^{241}AmBe} & $\mathrm{Norm}(1.6, \sigma = 0.16)$ & & \\
+ER in \ce{^{241}AmBe} & $\geq 0$ & & \\
 \hline
-\multicolumn{5}{c}{NG} \\ \cline{2-5}
+\multicolumn{5}{c}{NG} \\ \cline{2-4}
 \hline
-NG & $\geq 0$ & Free &  & \\
-AC NG & $7.94 \pm 0.79$ & Normal &  & \\
-ER in NG & $\geq 0$ & Free &  & \\
+NG & $\geq 0$ & & \\
+AC NG & $\mathrm{Norm}(\mu = 7.94, \sigma = 0.79)$ & & \\
+ER in NG & $\geq 0$ & & \\
 \hline
 \hline
 \end{tabular}
@@ -2957,7 +2957,7 @@ acceptance for events with energies higher than the dashed blue line (\secref{su
 \end{figure}
 
 Historically nuclear recoil light yield measurements have been quoted as
-$\mathcal{L}_{\mathrm{eff}}$, the ratio of scintillation yields of nuclear recoils to that of the \ce{^{57}Co} 122 keV \gammray at zero
+$\mathcal{L}_{\mathrm{eff}}$, the ratio of scintillation yields of nuclear recoils to that of the \ce{^{57}Co} 122 keV \gammaray at zero
 electric field.  This was done in part to account for detector effects so long as a second measurement with \ce{^{57}Co} was
 performed.  In the era of ton-scale detectors, 122 keV photons, with an attenuation length of just 3 mm, can probe only the very
 outermost region of the TPC.  Therefore the absolute light yield $L_y = \mathcal{L}_{\mathrm{eff}} \times 63\ \mathrm{ph\ keV^{-1}}$ has

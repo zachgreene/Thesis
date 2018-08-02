@@ -17,8 +17,10 @@ the results (\secref{}).
 
 
 
-\section{Importance and Procedure for Purifying Xenon}
-\label{sec:importance_procedure}
+\section{Effects of Electronegative Impurities}
+\label{sec:importance_procedure_effects}
+Electronegative impurities mainly come from outgassing from detector materials.
+
 Purity usually refers to two distinct but correlated group, though the degree of the correlation can depend on the
 experiment.  The first is background contamination from radioactive elements of other noble elements inside the TPC.  For xenon
 the primary challenges are \ce{^{85}Kr} (\secref{subsubsec:backgrounds_electronic_krypton}) and \ce{^{222}Rn}
@@ -32,12 +34,6 @@ removed by these impurities we cannot apply a correction since we have no knowle
 deposition.  Even if some electrons make it to the surface a low electron lifetime creates more uncertainty when correcting the S2.  This
 chapter is focused electronegative impurities, though its examination necessitates consideration of the radioactive background
 concentration.
-
-
-
-\section{Effects of Electronegative Impurities}
-\label{sec:importance_procedure_effects}
-Electronegative impurities mainly come from outgassing from detector materials.
 
 \subsection{Photon Attenuation}
 \label{subsec:importance_procedure_effects_photons}
@@ -93,7 +89,7 @@ measured.
 
 
 
-\subsubsection{Charge Depletion}
+\subsection{Charge Depletion}
 \label{subsubsec:importance_procedure_effects_charge}
 As the electron cloud following a recoil drifts it diffuses
 longitudinally (in the direction of $E_{d}$) and transversely (perpendicular to $E_{d}$).  The
@@ -287,7 +283,7 @@ made it inside the TPC enough events were present to measure a value.  This meth
 \hline
 Isotope & Decay & Energy & $t_{1/2}$ & Section & Notes \\
 \hline
-$\mathrm{^{83m}Kr}$ & $\beta^-$ & $32.2\ \mathrm{keV}$ & 1.83 h & \secref{subsec:electron_lifetimes_measurement_kr} & Calibration \\
+$\mathrm{^{83m}Kr}$ & IC & $32.2\ \mathrm{keV}$ & 1.83 h & \secref{subsec:electron_lifetimes_measurement_kr} & Calibration \\
 $\mathrm{^{129m}Xe}$ & $\gamma$ & $236.2\ \mathrm{keV}$ & 8.88 d & \secref{subsec:electron_lifetimes_measurement_gammas} & Background following NR cal. \\
 $\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & \secref{subsec:electron_lifetimes_measurement_gammas} & Background following NR cal. \\
 \ce{^{212}Bi} & $\alpha$ & $6.207\ \mathrm{MeV}$ & 60.55 m & \secref{subsec:electron_lifetimes_measurement_alphas} & \ce{^{220}Rn} calibration \\
@@ -395,7 +391,8 @@ for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.
 
 \subsection{$\mathbf{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_measurement_kr}
-The delayed coincidence between the 32.2 and 9.4 keV decays differentiate $\mathrm{^{83m}Kr}$ from background.  With
+\ce{^{83}Rb} electron capture will produce \metakr with a 74.8\% branching ratio.  The delayed coincidence between the 32.2 and 9.4 keV
+conversion electrons differentiate $\mathrm{^{83m}Kr}$ from background.  With
 $t_{1/2} = 154.4\ \mathrm{ns}$ for the 9.4 keV a large fraction of the S1s will overlap.  To select events that have distinguishable S1s
 the time between S1s $\Delta t_{\mathrm{S1}}$ must be between 500 and 2000 ns.  This cut eliminates more than 96\% of \metakr events, but
 the statistics are high enough that $\tau_e$ measurement (and other studies) can be done.  To avoid PMT noise coincidence that might mimic
@@ -512,9 +509,10 @@ right panel.  The electron lifetimes agree with one another.}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{electron_lifetime_evolution_no_model}
-\caption{Electron lifetimes of \ce{^{222}Rn} (yellow triangles), \ce{^{220}Rn} (red triangles), \ce{^{218}Po} (turquoise triangles), and
-\metakr (green circles) over the
-XENON1T experiment.  We can see the lifetimes computed from \alphadecays differ from those of \metakr.}
+\caption{Electron lifetime measurements from S2/S1 (blue circles), combined \ce{^{222}Rn}-\ce{^{218}Po} (pink triangles), \ce{^{222}Rn}
+(yellow triangles), \ce{^{220}Rn} (red triangles), \ce{^{218}Po} (turquoise triangles), and
+\metakr (black circles) through Science Run 1.  \metakr (orange shaded), \ce{^{220}Rn} (red), \ambe (green), and NG (blue) calibrations
+are shown.}
 \label{fig:electron_lifetimes_evolution_no_model}
 \end{figure}
 
@@ -1752,7 +1750,7 @@ of which reduce to \eqnref{eq:elifetime_fit_mcmc_acc_ratio} when $n = 1$.
 \subsection{Results}
 \label{subsec:elifetime_fit_results}
 The fit is run with 400 walkers over blank iterations.   The Gelman-Rubin statistic is shown in
-\figref{fig:elifetime_fit_results_gr}.  The parameters are converging nicely.
+\figref{fig:elifetime_fit_results_gr}.  The parameters converge nicely.
 
 \begin{figure}
 \centering
@@ -1761,10 +1759,12 @@ The fit is run with 400 walkers over blank iterations.   The Gelman-Rubin statis
 \label{fig:elifetime_fit_results_gr}
 \end{figure}
 
+The electron lifetime model is shown in \figref{fig:elifetime_fit_results_elifetime}.  It matches the data well.
+
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{}
-\caption{Electron lifetime model.}
+\caption{Electron lifetime model and data over the lifetime of XENON1T.}
 \label{fig:elifetime_fit_results_elifetime}
 \end{figure}
 

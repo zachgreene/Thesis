@@ -247,7 +247,7 @@ mm below the cathode is the bottom screening mesh (mentioned in \secref{subsec:x
 array and can be biased to reduce unwanted effects from the PMT and cathode electric fields.  The cathode and bottom screening mesh
 consist of
 parallel wires and are gold-plated stainless steel to increase the workfunction.  The gate rests just below the
-liquid-gas interface and defines $z = 0\ mathrm{cm}$.  The anode is
+liquid-gas interface and defines $z = 0\ \mathrm{cm}$.  The anode is
 situated 5 mm above the gate and is connected to a CAEN A1526P unit.  The last electrode is the top screening mesh 58 mm above
 the anode and 11 mm below the top PMT array, and serves the same function is the same as the bottom mesh.  The top three electrodes are
 made of stainless steel and are hex-etched.  Details for each electrode can be seen in
@@ -321,7 +321,7 @@ cathode with the outside.  A schematic of the cryostat is shown in \figref{fig:x
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{CryostDiagram}
+\includegraphics[width=0.8\textwidth]{cryo_diagram}
 \caption{Diagram of the cryostat.  Image credit: \citeref{Aprile2017c}.}
 \label{fig:xenon1t_cryo_cryostat_diagram}
 \end{figure}
@@ -399,7 +399,7 @@ thermal energy to the xenon moving towards the purification system.  The differe
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{CryoOverview}
+\includegraphics[width=\textwidth]{cryo_overview}
 \caption{The various systems that handle xenon in the experiment: cryostat, cryogenics, purification, cryogenic distillation column,
 ReStoX, bottle racks, and gas analytics station.  The water shield flange defines the region between the service building and the water
 Cherenkov detector.  Image credit: \citeref{Aprile2017b}.}
@@ -615,7 +615,7 @@ or outside (external).  The different calibrations and the purposes they serve a
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Panoramic}
+\includegraphics[width=\textwidth]{panoramic_xenon1t}
 \caption{The XENON1T experiment with the water tank (left) and service building (right).  A depiction of inside the water tank
 hangs on the outside.  ReStoX (first floor), DAQ (second), and the cryogenic system (third) are visible in the service building.}
 \label{fig:xenon1t_panoramic}
@@ -725,7 +725,7 @@ module.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Waveform}
+\includegraphics[width=\textwidth]{waveform_xenon1t}
 \caption{Example of a waveform from XENON1T.  The bottom panel shows hits (red circles) for each PMT channel with
 larger areas representing greater intensity.  An S1 (76.2 PE) is visible at ${\sim}380\ \mathrm{\mu s}$, marked by the blue circle in the
 middle panel.  The shape of the S1 (left) and the light seen by the bottom PMT array (center right) are shown in the top panel.  At
@@ -934,7 +934,7 @@ contribution is small in comparison.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{LCEMapPolar}
+\includegraphics[width=\textwidth]{lce_map_polar}
 \caption{Light yield in slices of $z$ and $\phi$ from \metakr 32.2 keV decay.}
 \label{fig:calibrations_lce_polar}
 \end{figure}
@@ -962,6 +962,16 @@ $v_d = 1.440\ \mathrm{mm\ \mu s^{-1}}$ and $1.332\ \mathrm{mm\ \mu s^{-1}}$ and
 maximum drift times of $t_{d, \mathrm{max}} = 672.8\ \mathrm{\mu s}$ and $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9
 cm at$-100^{\circ}\mathrm{C}$).
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{PosRecRes}
+\caption{$x \mdash y$ position reconstruction resolution $\pm 1\sigma$ for SR1 as a function of number of electrons and
+$\mathrm{S2_b}$.  At lower $n_e$ the
+resolution becomes worse due to the limited S2 scintillation.  At low-energies ($n_e \lesssim 100\ e^-$,
+$\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) the position resolution becomes extremely poor.}
+\label{fig:calibrations_position_reconstruction_res}
+\end{figure}
+
 The $x \mdash y$ coordinates are found by using the intensity of light from the S2 observed by each PMT in the top array (also
 known as PMT hit pattern).  For XENON1T two reconstruction algorithms were mainly used to convert the PMT hit pattern to $x$ and $y$.  The
 first was a neural net (NN) using the Fast Artificial
@@ -974,16 +984,6 @@ in the $\hat{r}$-direction.  The position reconstruction resolution for the NN i
 of events in SR1 along with
 the 1 ton fiducial mass that was used in originally used in the SR0-only results (\citeref{Aprile2017f}), the 1.3 t used in the new
 analysis, and the active volume.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{PosRecRes}
-\caption{$x \mdash y$ position reconstruction resolution $\pm 1\sigma$ for SR1 as a function of number of electrons and
-$\mathrm{S2_b}$.  At lower $n_e$ the
-resolution becomes worse due to the limited S2 scintillation.  At low-energies ($n_e \lesssim 100\ e^-$,
-$\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) the position resolution becomes extremely poor.}
-\label{fig:calibrations_position_reconstruction_res}
-\end{figure}
 
 \begin{figure}
 \centering
@@ -1121,12 +1121,12 @@ so a high-statistic measurement with \ce{^{212}Bi} is possible.  Those with $< 0
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{electron_lifetime_evolution_2017_01_28_to_2018_02_20_kr_only}
-\caption{Change figure to include SR0.  Electron lifetime over SR1.  Markers represent measurements using
-$^{83\mathrm{m}}\mathrm{Kr}$.  The green line
-and shaded region represent the median and credible region of the best-fit model.  A hotspot in June triggered a gate washing, where the
-gate was briefly lifted out of the LXe.  It is suspected the LXe came in contact with parts of the TPC previously only in gas, releasing
-impurities into the liquid.  The model is derived using \ce{^{222}Rn}, \ce{^{220}Rn}, and \ce{^{218}Po} \alphadecays and is
+\includegraphics[width=\textwidth]{electron_lifetime_evolution_sr0_sr1}
+\caption{Electron lifetime over SR0 and SR1.  Markers represent measurements using the 32.2 keV decay of
+$^{83\mathrm{m}}\mathrm{Kr}$.  The green line and shaded region represent the median and credible region using the posterior of the
+fit.  A hotspot in June forced a gate washing, where the
+gate was briefly lifted out of the LXe.  It is suspected the LXe came in contact with parts of the TPC previously only in gas, injecting
+impurities into the liquid.  The model is derived using \alphadecays from \ce{^{222}Rn}, \ce{^{220}Rn}, and \ce{^{218}Po} and is
 discussed in \secref{sec:electron_lifetime_model}.}
 \label{fig:det_char_elifetime_evolution}
 \end{figure}
@@ -1223,6 +1223,22 @@ cS2s that only differ due to physical fluctuations.  For XENON1T the top PMT arr
 \stwob and \cstwob are used to represent the portion
 of the S2 and cS2 observed by the bottom array.  Everything that follows in this chapter uses \stwob and $\mathrm{cS2_b}$.
 
+\begin{figure}
+%    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+%        \centering
+        \includegraphics[height=4cm]{g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.65\textwidth}
+%        \centering
+        \includegraphics[height=4cm]{g1_g2_time_evolution}
+    \end{subfigure}
+    \caption{(left) Example of fitting cS1 and \cstwob from mono-energetic signals to find $g_1$ and g$_{2\mathrm{b}}$.  (right) Evolution
+    of $g_1$ and g$_{2\mathrm{b}}$ over the first eight months of SR1.  They are stable to within 0.4\% and 1.4\% ($\pm 1 \sigma$ credible
+    intervals) respectively.}
+	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
+\end{figure}
+
 The processes
 for light and charge production were described in \secref{sec:scintillation}.  For electronic recoils atomic motion is
 not a factor so all of the energy produces a number of quanta $n_q = E_{er} / W$ where $E_{er}$ is the ER energy and
@@ -1262,22 +1278,6 @@ independent of the
 drift field.  $g_1$ and $g_{2 \mathrm{b}}$ were monitored over the
 course of SR0 + SR1.  \figref{fig:calibrations_photon_charge_efficiences_g1_g2} (right) shows both
 were stable to $< 1.5 \%$.
-
-\begin{figure}
-%    \centering
-    \begin{subfigure}[t]{0.4\textwidth}
-%        \centering
-        \includegraphics[height=4cm]{g1_g2_chisquare_pax_v680_hax_v240_feb17tofeb18_from_christian_other}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.65\textwidth}
-%        \centering
-        \includegraphics[height=4cm]{g1_g2_time_evolution}
-    \end{subfigure}
-    \caption{(left) Example of fitting cS1 and \cstwob from mono-energetic signals to find $g_1$ and g$_{2\mathrm{b}}$.  (right) Evolution
-    of $g_1$ and g$_{2\mathrm{b}}$ over the first eight months of SR1.  They are stable to within 0.4\% and 1.4\% ($\pm 1 \sigma$ credible
-    intervals) respectively.}
-	\label{fig:calibrations_photon_charge_efficiences_g1_g2}
-\end{figure}
 
 
 
@@ -1334,15 +1334,6 @@ Energy [keV] & Isotope & Half-life & Comments\\
 \label{fig:calibrations_photon_charge_efficiences_ces}
 \end{figure}
 
-Better energy resolution
-allows differentiation of nearby energy features, allowing improved discrimination between signal and background.  It is calculated
-by fitting a mono-energetic \gammaray line with a gaussian and dividing the width by the mean.  This is done for a number of background
-lines as shown in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  Our energy resolution
-is $\sigma_E / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ using all energy lines and
-$\sigma_E / E = (30.98 \pm 0.43) / \sqrt{E} + (0.37 \pm 0.03)$ excluding those with $E > 1.5\ \mathrm{MeV}$.  The second term refers to
-the fundamental limit of the resolution.  We can see our energy resolution is better than XENON100 (\citeref{Aprile2012a}), PandaX
-(\citeref{PandaX2016b}), and in some places LUX (\citeref{LUX2017b}).
-
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{exo_energy_resolution_he_pax_v680_hax_v240_feb17tofeb18_log}
@@ -1353,6 +1344,15 @@ squares, \citeref{PandaX2016b}), XENON100 (orange circles, \citeref{Aprile2012a}
 \label{fig:calibrations_photon_charge_efficiences_ces_resolution}
 \end{figure}
 
+Better energy resolution
+allows differentiation of nearby energy features, allowing improved discrimination between signal and background.  It is calculated
+by fitting a mono-energetic \gammaray line with a gaussian and dividing the width by the mean.  This is done for a number of background
+lines as shown in \figref{fig:calibrations_photon_charge_efficiences_ces_resolution}.  Our energy resolution
+is $\sigma_E / E = (27.30 \pm 0.37) / \sqrt{E} + (0.65 \pm 0.03)$ using all energy lines and
+$\sigma_E / E = (30.98 \pm 0.43) / \sqrt{E} + (0.37 \pm 0.03)$ excluding those with $E > 1.5\ \mathrm{MeV}$.  The second term refers to
+the fundamental limit of the resolution.  We can see our energy resolution is better than XENON100 (\citeref{Aprile2012a}), PandaX
+(\citeref{PandaX2016b}), and in some places LUX (\citeref{LUX2017b}).
+
 
 
 \subsection{Light and Charge Yield}
@@ -1362,12 +1362,6 @@ detector conditions or features that vary with energy, field, and recoil type.  
 \secref{subsubsec:er_nr_calibrations_results_ly_qy}.  In this section light and charge yield referred to are measured in
 $\mathrm{PE\ keV^{-1}}$ by dividing the cS1 and \cstwob by the energy.  Because in stable conditions the photoelectrons
 observed per energy should remain constant measuring the light and charge yields is a good way to look for changes.
-
-\figref{fig:det_char_ly_cy_ly_cy} shows the light and charge yields for a number of mono-energetic \gammarays and \ce{^{222}Rn} over
-SR1.  Aside from the 9.4 keV \metakr line the \ce{^{222}Rn} \alphadecay has the largest light yield, though its charge yield is more than
-an order of magnitude below the $\gamma$ values.  The light yields for all energies appear stable over SR1, but the charge yields are
-increasing.  This is the result of a higher rate of single electron extraction that contaminates S2s and makes them seem larger than they
-truly are.
 
 \begin{figure}
 \centering
@@ -1381,6 +1375,12 @@ lower than its
 electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}}$ due to the fact it decays via $\alpha$-emission.}
 \label{fig:det_char_ly_cy_ly_cy}
 \end{figure}
+
+\figref{fig:det_char_ly_cy_ly_cy} shows the light and charge yields for a number of mono-energetic \gammarays and \ce{^{222}Rn} over
+SR1.  Aside from the 9.4 keV \metakr line the \ce{^{222}Rn} \alphadecay has the largest light yield, though its charge yield is more than
+an order of magnitude below the $\gamma$ values.  The light yields for all energies appear stable over SR1, but the charge yields are
+increasing.  This is the result of a higher rate of single electron extraction that contaminates S2s and makes them seem larger than they
+truly are.
 
 
 
@@ -1484,15 +1484,6 @@ which decrease according to where in the decay chain they fall.  As an example, 
 decay rate should lay somewhere between them.  For this analysis it is then between $12.6 \pm 0.8$ and
 $5.1 \pm 0.5\ \mathrm{\mu Bq\ kg^{-1}}$.
 
-During the \ce{^{220}Rn} calibration in SR0 the krypton column (\secref{subsec:xenon1t_kr_dist}) was used to reduce the \ce{^{222}Rn}
-concentration.  The column essentially operated in reverse: the more buoyant xenon should have a lower (higher) radon concentration at the
-top (bottom) of the column.  The gas at the top was funneled back to the purification system while the bottom was siphoned to
-bottles.  The event rates of \ce{^{220}Rn}, \ce{^{218}Po}, and \ce{^{214}BiPo} before and after the distillation are shown
-in \figref{fig:backgrounds_electronic_radon_distillation}.  The rates dropped from $13.3 \pm 0.8 \rightarrow 11.4 \pm 0.7$,
-$12.6 \pm 0.8 \rightarrow 10.4 \pm 0.7$, and $5.1 \pm 0.5 \rightarrow 4.1 \pm 0.3\ \mathrm{\mu Bq\ kg^{-1}}$, respectively.  Although the
-decrease of ${\sim}20\%$ is relatively small with respect to krypton removal, \ce{^{214}Pb} is expected to be the largest background
-contributor so such a reduction is still significant.
-
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Rn222_Po218_BiPo214_Rn_Distillation_absolute_value}
@@ -1501,6 +1492,15 @@ distillation.  A decrease of ${\sim} 20\%$ is observed.  \ce{^{222}Rn} has a hig
 state and pulled outside the FV.}
 \label{fig:backgrounds_electronic_radon_distillation}
 \end{figure}
+
+During the \ce{^{220}Rn} calibration in SR0 the krypton column (\secref{subsec:xenon1t_kr_dist}) was used to reduce the \ce{^{222}Rn}
+concentration.  The column essentially operated in reverse: the more buoyant xenon should have a lower (higher) radon concentration at the
+top (bottom) of the column.  The gas at the top was funneled back to the purification system while the bottom was siphoned to
+bottles.  The event rates of \ce{^{220}Rn}, \ce{^{218}Po}, and \ce{^{214}BiPo} before and after the distillation are shown
+in \figref{fig:backgrounds_electronic_radon_distillation}.  The rates dropped from $13.3 \pm 0.8 \rightarrow 11.4 \pm 0.7$,
+$12.6 \pm 0.8 \rightarrow 10.4 \pm 0.7$, and $5.1 \pm 0.5 \rightarrow 4.1 \pm 0.3\ \mathrm{\mu Bq\ kg^{-1}}$, respectively.  Although the
+decrease of ${\sim}20\%$ is relatively small with respect to krypton removal, \ce{^{214}Pb} is expected to be the largest background
+contributor so such a reduction is still significant.
 
 \begin{figure}
     \centering
@@ -1705,12 +1705,6 @@ rates.  While the rate of events throughout the entire volume of the TPC was con
 is shown in \figref{fig:backgrounds_wall_charge}, where events reconstructed inside the designated radius (29, 32, 36.94, and 39 cm) are
 plotted from February to September in SR1.  For $r < 29\ \mathrm{cm}$ limited statistics prevent precise measurements.
 
-The decay rates $R$ grow over time, with larger $r$ corresponding to greater increase.  One possibility might be a leak - for
-which there may be other evidence (\secref{subsubsec:backgrounds_electronic_krypton, subsec:electron_lifetime_model_outgassing}) - but the
-short half-lifes of \ce{^{222}Rn} and \ce{^{218}Po} demand the leak to be growing, which is in disagreement.  Additionally, a growing
-leak should increase the decay rate across the entire detector, which is not observed.  This does not disqualify a constant leak since
-the decay rates would be elevated but unchanging but does not explain \figref{fig:backgrounds_wall_charge}.
-
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{wall_charging_over_time}
@@ -1721,6 +1715,12 @@ buildup on the teflon that pushes events in the $-\hat{r}$ direction.  Residuals
 \label{fig:backgrounds_wall_charge}
 \end{figure}
 
+The decay rates $R$ grow over time, with larger $r$ corresponding to greater increase.  One possibility might be a leak - for
+which there may be other evidence (\secref{subsubsec:backgrounds_electronic_krypton, subsec:electron_lifetime_model_outgassing}) - but the
+short half-lifes of \ce{^{222}Rn} and \ce{^{218}Po} demand the leak to be growing, which is in disagreement.  Additionally, a growing
+leak should increase the decay rate across the entire detector, which is not observed.  This does not disqualify a constant leak since
+the decay rates would be elevated but unchanging but does not explain \figref{fig:backgrounds_wall_charge}.
+
 A second explanation is charge buildup on the PTFE.  Drifting \electron from events near the wall that attach to the PTFE will slowly
 alter the electric field, primarily in the $\hat{r}$ direction.  The cumulative decay rate would not be impacted but events will move
 further inward as this effect becomes stronger.  Furthermore, the rate of increase should grow with radius as the field distortion
@@ -1730,11 +1730,6 @@ to see a decrease in events, so
 decay rates differ because \ce{^{218}Po} may be left in a charged state following the decay of \ce{^{222}Rn} and pulled out of the
 FV, which is evident when comparing the $z$-distributions.
 
-\figref{fig:backgrounds_detector_materials_wall_charge_radius} shows the expected rate increase dependence on $r^2$ using the best-fit
-values from \figref{fig:backgrounds_wall_charge}.  Both figures
-raise the concern that the FV will grow over time as more events are pushed inwards.  To account for this a time-dependent position
-reconstruction (\secref{subsec:det_char_position_reconstruction}) model is developed.
-
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{wall_charging_radius}
@@ -1742,6 +1737,11 @@ reconstruction (\secref{subsec:det_char_position_reconstruction}) model is devel
 to proximity to the wall.  This helps estimate the scale of $dR/dt$ when selecting the FV.}
 \label{fig:backgrounds_detector_materials_wall_charge_radius}
 \end{figure}
+
+\figref{fig:backgrounds_detector_materials_wall_charge_radius} shows the expected rate increase dependence on $r^2$ using the best-fit
+values from \figref{fig:backgrounds_wall_charge}.  Both figures
+raise the concern that the FV will grow over time as more events are pushed inwards.  To account for this a time-dependent position
+reconstruction (\secref{subsec:det_char_position_reconstruction}) model is developed.
 
 At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by detector materials, with the exception of
 ${\sim} 1400 \mdash 2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  For the energy region for spin-independent WIMP dark
@@ -2799,6 +2799,44 @@ Once the microphysics of the interaction has concluded, the photons and \electro
 and S2 cut acceptances are applied (\secref{subsubsec:er_nr_calibrations_parameter_determ_cuts}).  Parameters are shared within science
 runs and listed in \tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{er_sr0_cs1}
+\caption{cS1 for SR0 \ce{^{220}Rn} calibration.  The median and 68\% credible regions from the fit are shown as the solid lines and shaded
+regions, respectively, and matches the data well.  Aside from the \ce{^{220}Rn}, the only contributor to
+data is accidental coincidence, which has a small contribution and is visible in pink at the bottom.  The sum of AC and \ce{^{220}Rn} is
+shown in blue.}
+\label{fig:er_nr_calibrations_results_er_sr0_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{er_sr1_cs1}
+\caption{cS1 for SR1 \ce{^{220}Rn} data.  The band fitting best-fit median and 68\% credible region match the data well.  The AC
+contribution is shown in pink at the bottom of the plot.  The blue shows the \ce{^{220}Rn} and AC.}
+\label{fig:er_nr_calibrations_results_er_sr1_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{er_sr0_cs2}
+\caption{\cstwob for SR0 \ce{^{220}Rn} data with median and 68\% credible interval in slices of cS1.  The model matches the data well,
+though in the $50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice it may be slightly shifted to lower $\mathrm{cS2_b}$, though the limited
+statistics make it difficult to tell.}
+\label{fig:er_nr_calibrations_results_er_sr0_cs2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{er_sr1_cs2}
+\caption{\cstwob for SR1 \ce{^{220}Rn} calibration data in slices of cS1.  The results from the band fitting match the data well, with the
+possible exception of the $0 < \mathrm{cS1} < 10\ \mathrm{PE}$ slice where the data suggest a slightly narrower distribution, and the
+$50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice,
+which similar to the SR0 results (\figref{fig:er_nr_calibrations_results_er_sr0_cs2}) suggests the model is at lower
+$\mathrm{cS2_b}$.}
+\label{fig:er_nr_calibrations_results_er_sr1_cs2}
+\end{figure}
+
 \bgroup
 \def\arraystretch{1.2}
 \begin{table}
@@ -2854,6 +2892,42 @@ acceptances, and processor efficiencies are taken to be systematic effects so th
 \end{table}
 \egroup
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{er_sr0_cs1_log_cs2_cs1}
+\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ce{^{220}Rn} calibration band fitting.  Electronic (red)
+and nuclear (blue) recoil (determined from SR0 \ce{^{241}AmBe}) medians and $\pm 2\sigma$ are marked in solid and dashed
+lines.  Accidental coincidence is shown in the bottom panel.}
+\label{fig:er_nr_calibrations_results_er_sr0_cs1_log_cs2_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{er_sr1_cs1_log_cs2_cs1}
+\caption{S1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ce{^{220}Rn} calibration band fitting.  Electronic recoil
+median and $\pm 2\sigma$ are shown as red solid and dashed lines.  Nuclear recoil is taken from SR1 \ambe calibration and shown in blue.}
+\label{fig:er_nr_calibrations_results_er_sr1_cs1_log_cs2_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ambe_sr0_cs1}
+\caption{cS1 for SR0 \ambe calibration.  The total number of events (blue) agrees reasonably well with the data.  The different
+contributors are also shown.  Single- (red) and multiple-scatter (green) neutrons are shown.  Multiple-scatters make up a larger fraction
+at low cS1.  Electronic recoils (gold) make up a decent fraction of the total events, especially at $\mathrm{cS1} \gtrsim 50\ \mathrm{PE}$
+where it is $> 30\%$.  Accidental coincidence is barely visible along the bottom and is expected to be responsible for ${\sim}2$ events.}
+\label{fig:er_nr_calibrations_results_ambe_sr0_cs1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{ambe_sr1_cs1}
+\caption{cS1 for SR1 \ambe calibration.  The total number of events from the band fitting (blue) is compared with data.  Single- (red)
+and multiple-scatter (green) nuclear recoils are shown.  The fraction of multiple-scatter events increases at low cS1.  The low-ER
+background (gold) and AC (pink) contribute ${\sim}60$ and $\lesssim 2$ events, respectively.}
+\label{fig:er_nr_calibrations_results_ambe_sr1_cs1}
+\end{figure}
+
 Finally accidental coincidence and electronic recoil backgrounds during calibrations (due to our
 $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$
 requirement wall leak is completely negligible, \secref{subsubsec:er_nr_calibrations_parameter_determ_additional_components}) must
@@ -2899,80 +2973,6 @@ calibrations using the final 1000 steps.  AC is tightly constrained via the meth
 \label{tab:er_nr_calibrations_results_backgrounds}
 \end{table}
 \egroup
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{er_sr0_cs1}
-\caption{cS1 for SR0 \ce{^{220}Rn} calibration.  The median and 68\% credible regions from the fit are shown as the solid lines and shaded
-regions, respectively, and matches the data well.  Aside from the \ce{^{220}Rn}, the only contributor to
-data is accidental coincidence, which has a small contribution and is visible in pink at the bottom.  The sum of AC and \ce{^{220}Rn} is
-shown in blue.}
-\label{fig:er_nr_calibrations_results_er_sr0_cs1}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{er_sr1_cs1}
-\caption{cS1 for SR1 \ce{^{220}Rn} data.  The band fitting best-fit median and 68\% credible region match the data well.  The AC
-contribution is shown in pink at the bottom of the plot.  The blue shows the \ce{^{220}Rn} and AC.}
-\label{fig:er_nr_calibrations_results_er_sr1_cs1}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{er_sr0_cs2}
-\caption{\cstwob for SR0 \ce{^{220}Rn} data with median and 68\% credible interval in slices of cS1.  The model matches the data well,
-though in the $50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice it may be slightly shifted to lower $\mathrm{cS2_b}$, though the limited
-statistics make it difficult to tell.}
-\label{fig:er_nr_calibrations_results_er_sr0_cs2}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{er_sr1_cs2}
-\caption{\cstwob for SR1 \ce{^{220}Rn} calibration data in slices of cS1.  The results from the band fitting match the data well, with the
-possible exception of the $0 < \mathrm{cS1} < 10\ \mathrm{PE}$ slice where the data suggest a slightly narrower distribution, and the
-$50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice,
-which similar to the SR0 results (\figref{fig:er_nr_calibrations_results_er_sr0_cs2}) suggests the model is at lower
-$\mathrm{cS2_b}$.}
-\label{fig:er_nr_calibrations_results_er_sr1_cs2}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{er_sr0_cs1_log_cs2_cs1}
-\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ce{^{220}Rn} calibration band fitting.  Electronic (red)
-and nuclear (blue) recoil (determined from SR0 \ce{^{241}AmBe}) medians and $\pm 2\sigma$ are marked in solid and dashed
-lines.  Accidental coincidence is shown in the bottom panel.}
-\label{fig:er_nr_calibrations_results_er_sr0_cs1_log_cs2_cs1}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{er_sr1_cs1_log_cs2_cs1}
-\caption{S1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ce{^{220}Rn} calibration band fitting.  Electronic recoil
-median and $\pm 2\sigma$ are shown as red solid and dashed lines.  Nuclear recoil is taken from SR1 \ambe calibration and shown in blue.}
-\label{fig:er_nr_calibrations_results_er_sr1_cs1_log_cs2_cs1}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{ambe_sr0_cs1}
-\caption{cS1 for SR0 \ambe calibration.  The total number of events (blue) agrees reasonably well with the data.  The different
-contributors are also shown.  Single- (red) and multiple-scatter (green) neutrons are shown.  Multiple-scatters make up a larger fraction
-at low cS1.  Electronic recoils (gold) make up a decent fraction of the total events, especially at $\mathrm{cS1} \gtrsim 50\ \mathrm{PE}$
-where it is $> 30\%$.  Accidental coincidence is barely visible along the bottom and is expected to be responsible for ${\sim}2$ events.}
-\label{fig:er_nr_calibrations_results_ambe_sr0_cs1}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{ambe_sr1_cs1}
-\caption{cS1 for SR1 \ambe calibration.  The total number of events from the band fitting (blue) is compared with data.  Single- (red)
-and multiple-scatter (green) nuclear recoils are shown.  The fraction of multiple-scatter events increases at low cS1.  The low-ER
-background (gold) and AC (pink) contribute ${\sim}60$ and $\lesssim 2$ events, respectively.}
-\label{fig:er_nr_calibrations_results_ambe_sr1_cs1}
-\end{figure}
 
 \begin{figure}
 \centering

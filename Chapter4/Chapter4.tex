@@ -400,13 +400,13 @@ measurement is likely to lead to a biased $\tau_e$.  Due to the enormous number 
 
 
 
-\subsection{$\mathbf{^{83m}Kr}$}
+\subsection{$\mathrm{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_measurement_kr}
 \ce{^{83}Rb} electron capture produces \metakr with a 74.8\% branching ratio.  The delayed coincidence between the 32.2 and 9.4 keV
 conversion electrons differentiate $\mathrm{^{83m}Kr}$ from background.  With
 $t_{1/2} = 154.4\ \mathrm{ns}$ for the 9.4 keV a large fraction of the S1s will overlap.  To select events that should always have
 distinguishable S1s a cut requires
-the time between S1s $\Delta t_{\mathrm{S1}}$ to be between 500 and 2000 ns ($\< 3 \times 10^{-4}\%$ of events have
+the time between S1s $\Delta t_{\mathrm{S1}}$ to be between 500 and 2000 ns ($< 3 \times 10^{-4}\%$ of events have
 $\Delta t_{\mathrm{S1}} > 2000\ \mathrm{ns}$).  This cut eliminates more than 96\% of \metakr events, but the remaining events are high
 enough that $\tau_e$ measurements (and other studies, \secref{sec:det_char}) can be done.  To avoid PMT noise coincidence that might mimic
 the 9.4 keV S1
@@ -532,7 +532,7 @@ are shown.}
 
 
 
-\subsection{\ce{^{222}Rn} vs. $\mathbf{^{83m}Kr}$}
+\subsection{\ce{^{222}Rn} vs. $\mathrm{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_rn222_vs_kr83m}
 \figref{fig:electron_lifetimes_evolution_no_model} shows a clear disagreement in electron lifetimes between $\alpha$-emitters and \metakr
 at $\tau_e \gtrsim 400\ \mathrm{\mu s}$.  This presents a challenge in knowing how to properly correct \stwob for signals in the TPC.
@@ -639,7 +639,7 @@ replaced by a QDrive (\secref{subsec:xenon1t_pur}).  Pipes for GXe circulation w
 
 \subsection{Impurity Removal}
 \label{subsec:electron_lifetime_model_removal}
-Impurities are removed in the purification system (\citeref{subsec:xenon1t_pur}) by two SAES PS4-MT50-R getters.  They operate between
+Impurities are removed in the purification system (\secref{subsec:xenon1t_pur}) by two SAES PS4-MT50-R getters.  They operate between
 $5 \mdash 100\ \mathrm{slpm}$ and uses heated zirconium ($400^{\circ}\mathrm{C}$ nominal operating temperature) to form irreversible
 chemical bonds with \ce{O_2}, \ce{CO}, \ce{CO_2}, \ce{H_2O}, \ce{H_2}, \ce{N_2}, and \ce{CH_4}, and is capable of achieving levels of
 $< 1\ \mathrm{ppb}$.
@@ -927,6 +927,15 @@ the water tank to lessen the contaminants that reach the LXe through condensatio
 (\secref{subsec:electron_lifetime_model_vap_and_cond}).  Both this line as well
 as the one connected to the cable tube have flow control valves that are independent from each other and the cooling tower pipes, allowing
 custom ratios of flow between the three.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{gxe_pur_only}
+\caption{Purification of only xenon gas from August 22 - September 2, 2016, marked by green dashed lines.  Electron lifetime measurements
+are from \ce{^{222}Rn}-\ce{^{218}Po} combined data.  The purpose of the operation was to study the exchange of impurities between the
+gas and liquid, which depends on vaporization/condensation and outgassing.}
+\label{fig:electron_lifetime_model_gxe_xenon1t}
+\end{figure}
 
 During standard operations GXe is passed through the getters at $F_{\mathrm{G}} {\sim} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of
 the total flow during SR0 and SR1.
@@ -1307,7 +1316,8 @@ days before that released a small number of impurities into the chamber
 (\secref{subsec:electron_lifetime_model_detector_effects_spikes}) but the lifetime was recovering when this decline
 began.  This is the one getter defficiency that lacks an explanation.  There were a number of ongoing operations
 at the time including \ce{^{85}Kr} distillation and pipette filling for RGMS - both of which use the purification system - but they don't
-align perfectly with the dates.
+align perfectly with the dates.  The electron lifetime over this period decreases by ${\sim}10\ \mathrm{\mu s}$ and is shown in the left
+panel of \figref{fig:electron_lifetime_model_detector_effects_getter_getter_defficiencies}.
 
 The second instance was during the Science Run 0 \ce{^{220}Rn} calibration.  Despite the calibration lasting for 13 days
 (December 19, 2016 to January 1, 2017) the first ${\sim} 10$ days or
@@ -1318,6 +1328,18 @@ value of $\tau_e$ but cannot be expected to be entirely accurate as learned from
 (\secref{subsec:electron_lifetimes_measurement_alphas}).  Although the values from these measurements should not be included in the
 fit, they still track the behavior of the evolution during this period.  They show a steep decrease at the beginning of the calibration
 before returning to the expected evolution model.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{getter_defficiencies}
+\caption{Periods of getter defficiencies for November 26 - December 5, 2016 (left) and October 25-30, 2017 (right).  \ce{^{222}Rn},
+(yellow triangles), \ce{^{218}Po} (turquoise), and \ce{^{212}Bi} (red) electron lifetimes are shown.  \metakr (shaded orange),
+\ce{^{220}Rn} (purple), and \ambe (green) calibrations are highlighted.  The cause of the first defficiency in 2016 is not understood, as
+detector parameters are stable during this period.  The getter defficiency in October 2017 is likely caused by an excess of impurities
+that were released from the \ce{^{220}Rn} calibration.  Each resulted in a total drop of $\lesssim 10\ \mathrm{\mu s}$.  The power glitch
+on November 21, 2016 causes a sudden purity decrease (\secref{subsec:electron_lifetime_model_detector_effects_spikes}).}
+\label{fig:electron_lifetime_model_detector_effects_getter_getter_defficiencies}
+\end{figure}
 
 The dip can be explained by considering impurity buildup inside the calibration source box.  \ce{^{220}Rn} had been injected into the TPC
 roughly two months earlier but because it was for commissioning and not a true calibration the event rate was kept small
@@ -1331,7 +1353,8 @@ trend.
 
 The third period was the final \ce{^{220}Rn} calibration of Science Run 1 (October 25-30, 2017).  Instead of the 3-4 week spacing between
 calibrations - as with the previous three - more than 10 weeks passed.  As with SR0, impurity buildup may have become
-large enough to lower the getter efficiency.  Because of the repeated use of the pipes the magnitude of the drop is less severe.
+large enough to lower the getter efficiency.  The total drop in purity is $\lesssim 10\ \mathrm{\mu s}$, and is shown in the right panel
+of \figref{fig:electron_lifetime_model_detector_effects_getter_getter_defficiencies}.
 
 To model the getter defficiencies \eqnref{eq:electron_lifetime_model_removal_gxe, eq:electron_lifetime_model_removal_lxe}
 become
@@ -1470,8 +1493,10 @@ The most difficult parts of the electron lifetime model to characterize are onli
 system and in many cases the change is permanent and its effect on the model can be difficult to diagnose.
 
 The first major operation was the installation of the third QDrive to the purification system from September 29 - October 5, 2016.  The
-flow was at ${\sim} num\ \mathrm{slpm}$ - just $fraction$ of the design.  The suspension of flow through one of the two purification
-branches led to a decrease in $\tau_e$ (\figref{}).  In addition to the QDrive, buffer volumes were installed to relieve pressure between
+circulation was at ${\sim} 45\ \mathrm{slpm}$ - just 45\% of the designed flow - and required running the QDrives at high voltages.  The
+suspension of flow through one of the two purification
+branches led to a decrease in $\tau_e$ (\figref{}).  Once the upgrade was completed the flow increased to ${\sim}55\ \mathrm{slpm}$ with
+the QDrives running at safe voltages.  In addition to the QDrive, buffer volumes were installed to relieve pressure between
 the pumps.  These additions likely added more outgassing
 (additionally the QDrive increased \ce{^{222}Rn}, though this is irrelevant to the electronegative purity).  However, since xenon passes
 through the
@@ -1481,15 +1506,23 @@ absorbed by the zirconium.  However, there are plausible scenarios when this wou
 on the materials from exposure to air during installation, an sizable initial outgassing that overwhelms the getters, or the rise
 in flow speed (\secref{subsec:electron_lifetime_model_removal}).
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{original_qdrive_upgrade}
+\caption{Installation of the third QDrive in the purification system from September 29 - October 5, 2016.  Lifetime measurements are done
+with \ce{^{222}Rn}-\ce{^{218}Po} combined data.  \ce{^{220}Rn} and \ambe calibrations are shaded purple and green, respectively.}
+\label{fig:electron_lifetime_model_ops_original_qdrive_upgrade}
+\end{figure}
+
 During Science Runs 0 and 1 no hardware was exchanged so detector conditions were stable.  In April 2018 pipes in the purification
 system were upgraded from 1/2" outer diameter to 1" to increase conductance.  When purification resumed the circulation speed reached
 70 slpm.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{pur_system_mag_pump_upgrade}
-\caption{Figure out what schematic this is for.}
-\label{fig:electron_lifetime_model_ops_pur_pipes_upgrade}
+\includegraphics[width=\textwidth]{post_sr1_upgrades}
+\caption{Effects of the April-June 2018 purification system upgrades on the electron lifetime.}
+\label{fig:electron_lifetime_model_ops_post_sr1}
 \end{figure}
 
 The final hardware upgrade was in the middle of June when a magnetic pump was installed in parallel to the QDrives.  With the QDrives off
@@ -1506,6 +1539,13 @@ than expected decrease may be due to only two of the three QDrives in service ha
 contribution.  Higher radon emanation from the third would inflate
 the QDrive fraction of the radon budget.  A second possibility is the screening tests were performed at room temperature, but higher
 temperature while running might escalate emanation.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{pur_system_mag_pump_upgrade}
+\caption{Figure out what schematic this is for.}
+\label{fig:electron_lifetime_model_ops_pur_pipes_upgrade}
+\end{figure}
 
 \begin{figure}
 \centering
@@ -1807,7 +1847,7 @@ The electron lifetime model is shown in \figref{fig:elifetime_fit_results_elifet
 
 
 
-\subsection{$\mathbf{^{83m}Kr}$ Evolution}
+\subsection{$\mathrm{^{83m}Kr}$ Evolution}
 \label{subsec:elifetime_fit_kr}
 An separate electron lifetime trend is needed to describe the \metakr measurements.  Because the evolution of the trend is independent
 of the isotope used for the measurement the alpha model will describe the \metakr model if it can be adjusted upwards.  The ratio
@@ -1846,60 +1886,6 @@ high-energy lines the distortion would need to be fixed.  Aside from using the e
 their width if the underlying background is well understood and there are enough statistics.  This would also result in a measurement of
 the electron lifetime.
 
-Electronegative impurities
-in particular present a problem
-since they attach to drifting $e^{-}$,
-lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
-is \eqref{eq:impurity_attach}.
-
-\noindent where $S$ is the impurity.  The number of \electron captured is dependent drift time $t_{d}$ and the
-attachment rate of
-the impurities $k_{S}$, both of which depend on $E_{d}$.  Clearly then an advantage of larger
-\efields is a larger
-\vd (up to a point, see \figref{fig:drift_velocity}) and thus less time in the liquid.  Doping LXe with organic materials such as butane
-can increase \vd at stronger
-\efields but are not used in DM detectors due to difficulty in purifying (\citeref{Yoshino1976}).  The rate at which electrons are
-absorbed by impurities is proportional to the number of electrons, impurities, and impurity attachment rate.  Assuming the the density
-of impurities in the liquid and $E_{d}$ are uniform we find
-
-In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ionized atoms will move anti-parallel
-to the field at drift velocity $v_{d}$.  At fields of $\lesssim 100\ \mathrm{V\ cm^{-1}}$ drift velocity is nearly proportional to
-$E$ and is given by $v_{d} = \mu E$
-where $\mu$ is the electron mobility.  For this energy region $\mu \sim 2200\ \mathrm{cm^{2}\ V^{-2}\ s^{-1}}$ (\citeref{Yoo2015}).  As
-$E$ increases $v_{d} \propto E^{1/2}$ and ultimately flattens at $\sim 3\ \mathrm{mm\ \mu s}$.  \figref{fig:drift_velocity} shows \vd
-as a function of $E$ and \tabref{tab:drift_velocity} gives the approximate relationship.
-
-The strength of $E$ affects the number of electrons freed, as a larger field decreases
-recombination electron-ion recombination.  In liquid noble gas detectors used for DM searches such a field can be used to drift the
-\electron to the surface of the liquid, where they are extracted across a small region of gas.  Doing so will produce secondary
-scintillation as the \electron will energize the atoms in the gas, freeing more \electron in turn.  Because the amount of scintillation
-produced per electron is independent of the number of electrons extracted this is also known as proportional scintillation.  Thus, by
-measuring this scintillation the number of \electron extracted can be determined.  Details of \electron drift and proportional
-scintillation is found in \secref{subsec:tpcs_working_principle}.
-
-For $E \lesssim 100\ \mathrm{V\ cm^{-1}}$ \vd$\propto E$, $100 \lesssim E \lesssim 10^{3 \ mdash 4}$
-\vd$\propto E^{1/2}$, and $E \gtrsim 10^{4}$ \vd plateaus at $\sim 3\ \mathrm{mm\ \mu s^{-1}}$ (\citeref{Miller1968}).
-
-\begin{table}
- \centering
- \begin{tabular}{cc}
- \hline
- $E$ [V cm$^{-1}$] & \vd [mm $\mu$s$^{-1}$] \\
- \hline
- $\lesssim 100$ & \vd$\propto E$ \\
- $\sim 100 \mdash 10^{3 \mdash 4}$ & \vd$\propto E^{1/2}$ \\
- $\gtrsim 10^{4}$ & \vd$\sim 3$ \\
- \hline
- \caption{Drift velocity \vd dependence on electric field for LXe.}
- \end{tabular}
- \label{tab:drift_velocity}
-\end{table}
-
-\begin{figure}
-\includegraphics[angle=0.5, width=0.8\textwidth]{DriftVelocity}
-\caption{Drift velocity for solid and liquid xenon}
-\label{fig:drift_velocity}
-\end{figure}
 In addition to absorbing VUV photons impurities can attach to drifting electrons.
 
 

@@ -14,74 +14,93 @@
 \chapter[Dark Matter][Dark Matter]{Dark Matter}
 \label{chap:dark_matter}
 
-For much of the last century evidence of two non-luminous components of our universe has been developing
+For much of the last century evidence has been building for two non-luminous components of our universe that cannot be explained with
+our current model of physics.  The first is the acceleration in the expansion of the universe, which is hypothesized to result from an
+unknown kind of energy known as dark energy.  Measurements estimate dark energy composes ${\sim}70$\% of
+matter in the current observable universe.  The second is the presence of a gravitational field that many times too large to be caused
+by ordinary - or baryonic - matter, but whose source cannot be seen.  Dark matter is hypothetical form of matter that does not interact
+electromagnetically and provides the additional massive component that would solve this discrepancy.  Observations predict dark matter
+constitutes ${\sim}26$\% of the universe.  For both the term ``dark'' is a relic from their early histories and today both are understood
+to be invisible.
 
-For much of the last century evidence has been building for two non-luminous components of our universe that are not yet understood.
-Dark Energy has been derived to explain the accelerating expansion of the universe and is predicted to compose $\sim70$\% of
-matter throughout the universe.  Dark Matter is used to satisfy the need for an additional massive component and is expected to
-constitute $\sim26$ \% of the universe.  The term "dark" is a relic from their early history and today both are understood to be
-invisible.
+This chapter presents an overview on dark matter and the different methods of detection.  It begins with a summary of the
+$\Lambda \mathrm{CDM}$ model (\secref{sec:dark_matter_lambda_cdm}) followed by a discussion on evidence of dark matter's existence
+(\secref{sec:dark_matter_evidence}) and potential candidates (\secref{sec:dmcandidates}).  Next detection methods for Weakly
+Interacting Massive Particle (WIMP) dark matter are detailed (\secref{sec:detection}), and the final section covers the various
+categories of direct detection experiments (\secref{sec:direct_detect}).
 
 
 
 %====================================
-\section[$\Lambda$ CDM Model][$\Lambda$ CDM Model]{$\boldsymbol{\Lambda}$CDM Model}
-The cosmological model describes the evolution of the universe since its inception of the Big Bang.  It validity is dependent
-on the premise that our universe is homogeneous and isotropic over large ($\sim 100\ \mathrm{Mpc}$) - consistent with observations,
-Einstein's General Relativity, and a path connected universe.  This can be solved for the Robertson-Walker metric, which in
-polar coordinates gives
+\section[$\Lambda$CDM Model][$\Lambda$ CDM Model]{$\boldsymbol{\Lambda}$CDM Model}
+\label{sec:dark_matter_lambda_cdm}
+The $\Lambda \mathrm{CDM}$ model describes the evolution of the universe from its inception at the Big Bang to present day.  It is named
+from its inclusion of a cosmological constant (dark energy) $\Lambda$ and cold dark matter (CDM), and is the most successful model to
+date.  Its validity is dependent on our universe being homogeneous and isotropic over large (${\sim} 100\ \mathrm{Mpc}$) distances,
+Einstein's General Relativity, and a path connected universe - all of which are believed to be true.  The model can be solved for the
+Robertson-Walker metric, which in polar coordinates gives
 
 \begin{equation}
 ds^{2} = -c^{2}dt^{2} + a(t)^{2} \bigg( \frac{dr^{2}}{1 - kr^{2}} + r^{2}d\Omega^{2} \bigg)
+\label{eq:dark_matter_lambda_cdm_rw_metric}
 \end{equation}
 
-\noindent where ds is the distance traversed in space-time, $a(t)$ is the scale factor ($a=1$ today), and $k$ is the curvature of the
-universe and can be -1, 0, or 1 for open, flat, or closed, respectively.  These values are also known as hyper-spherical,
-Euclidean, or spherical.
+\noindent where $ds$ is the distance traversed in space-time, $a(t)$ is the scale factor with $a=1$ today, and $k \in \{-1, 0, 1\}$ is the
+curvature of the
+universe.  A universe with $k = -1$ is an open universe and has negative curvature.  Its geometry is hyperbolic, meaning the
+sum of the angles in a triangle is $< 180^{\circ}$ and two lines that do not cross are never equidistant.  An open universe will expand
+forever as long as $\Lambda \geq 0$ (observations disqualify a universe with negative $\Lambda$).  A universe with $k = 0$ is flat and
+thus has Euclidean geometry (angles in a triangle equal $180^{\circ}$ and parallel lines remain equidistant).  If $\Lambda = 0$ it will
+expand forever at a decelerating rate, asymptotically approaching 0.  For $\Lambda > 0$ the universe slows due to gravity but will
+ultimately increase.  A universe with $k = 1$ is closed and has positive curvature.  Its geometry is similar to a sphere - the angles in
+a triangle sum to $> 180^{\circ}$ and all lines eventually meet.  The expansion in a closed universe will come to a stop and begin to
+contract, returning to a singularity referred to as the ``Big Crunch''.
 
-Solving Einstein's equations with this metric gives the Friedman Equations
+Using Einstein's field equations with \eqnref{eq:dark_matter_lambda_cdm_rw_metric} gives the Friedman Equations
 
 \begin{equation}
-\Big(\frac{\dot{a}}{a}^{2}\Big) = \frac{8\pi G \rho}{3} - \frac{k}{a^{2}}
+\Big(\frac{\dot{a}}{a}\Big)^{2} = \frac{8\pi G \rho}{3} - \frac{k}{a^{2}}
 \label{eq:friedman1}
 \end{equation}
 
 \begin{equation}
-\Big(\frac{\ddot{a}}{a}\Big) = -\frac{4\pi G \rho}{3}(\rho + 3p)
+\frac{\ddot{a}}{a} = -\frac{4\pi G}{3}(\rho + 3p)
 \label{eq:friedman2}
 \end{equation}
 
-\noindent where $\rho$ is the average energy density of the universe, $\frac{\dot{a}}{a}$ is defined as the Hubble
-constant H ($H_{0}$ today), and $p$ is the pressure from components.  From \eqref{eq:friedman1} the critical
-density, defined as the density for a flat universe, is $\rho_{crit} = \frac{3H^{2}}{8\pi G}$.  A useful
-notation then is the ratio of the density to the critical density, $\Omega = \frac{\rho}{\rho_{crit}}$
-$\Omega = 1$ is a flat universe.  Substituting
-$\Omega$ into \eqref{eq:friedman1} gives the density parameter
+\noindent where $\rho$ is the average energy density of the universe, $\dot{a}/a$ is referred to as the Hubble
+constant $H$ ($H_{0}$ today), and $p$ is the pressure.  The density for a flat universe, known as the critical density, can be derived
+from \eqnref{eq:friedman1} to be $\rho_{\mathrm{crit}} = 3H^2 / 8\pi G$.  A useful
+notation is the ratio of the density to the critical density, known as the density parameter, $\Omega = \rho\rho_{\mathrm{crit}}$
+($\Omega = 1$ is a flat universe).  Substituting
+$\Omega$ into \eqnref{eq:friedman1} gives the density parameter
 
 \begin{equation}
 \Omega - 1 = \frac{k}{H^{2}{a^{2}}}
 \end{equation}
 
-\noindent  $\Omega = \sum \Omega_{i}$ where $\Omega_{i}$ is a component of the universe.  Current measurements give density
-parameters of $\Omega_{b} ~ 0.05$ for baryonic matter, $\Omega_{dm} = 0.26$ for non-baryonic matter, $\Omega_{r} \sim 0$
-for radiation, and $\Omega_{\Lambda} \sim 0.68$ for dark energy (see \ref{subsec:cmb}).  Because cold dark matter
-and dark energy dominate $\Omega$ this is referred to as the $\Lambda$CDM model.
+The density parameter can be broken down as $\Omega = \sum \Omega_{i}$ where $\Omega_{i}$ is a component of the universe.  Measurements
+estimate density parameters of $\Omega_{\mathrm{b}} ~ 0.05$ for baryonic matter, $\Omega_{\mathrm{dm}} = 0.26$ for non-baryonic (dark)
+matter, $\Omega_{\mathrm{r}} \sim 0$
+for radiation, and $\Omega_{\Lambda} \sim 0.69$ for dark energy (\secref{subsec:cmb}).  These numbers reveal cold dark matter and dark
+energy are the dominant components, making up $> 94\%$ of the total matter density.
 
 
 
 %====================================
 \section[Evidence for Dark Matter][Evidence for Dark Matter]{Evidence for Dark Matter}
+\label{sec:dark_matter_evidence}
 %========
 \subsection{Dynamical Contraints} \label{subsec:dynamics}
 The first evidence for Dark Matter came in 1933 when Swiss astronomer Fritz Zwicky was observing the Coma Cluster
 and noticed the velocity of the galaxies was larger than the total luminous matter.  He argued that if there were
 some additional mass that only acted gravitationally this could explain his observations, and estimated this
-to be $\sim 400$ times greater than the luminous matter (\citeref{Zwicky1933}).  Today this factor is much
+to be ${\sim} 400$ times greater than the luminous matter (\citeref{Zwicky1933}).  Today this factor is much
 smaller as the observed luminous matter is larger, but the discrepancy persists.  Zwicky coined this
 \textit{dunkel Materie} or ``dark matter".  Since then other galaxy clusters have been observed and supported
 this claim.
 
-In 1970 Vera Rubin and Kent Ford used $H\alpha$ from H II regions to measure the rotation of stars around the
+In 1970 Vera Rubin and Kent Ford used H$\alpha$ from H II regions to measure the rotation of stars around the
 center of the Andromeda galaxy \citeref{Rubin1970}.  The virial theorem predicts $v(r) = \sqrt{GM(r)/r}$ so
 that at large radii the velocity of the galaxies should decrease as $r^{-1/2}$.  Rubin and Ford's observations
 contradicted the value $M(r)$ derived from luminous mass.  As with Zwicky's measurement, the results could be
@@ -93,11 +112,11 @@ One example is NGC 6501.  The dark halo mass density in \figref{fig:ngc_6501} is
 $\rho (r) = \rho_{0} \Big[ 1 + \Big( \frac{r}{r_{c}} \Big)^{2} \Big]^{-1}$ where $\rho_{0}$ and $r_{c}$
 are the central halo mass density and radius, respectively, by fitting a least square to the velocity
 distribution \citeref{Begeman1991}.  The left panel shows the mass of luminous matter decreases after
-peaking at $\sim2$ kpc, but the DM increases steadily and at $>10$ kpc is proportional to $r$ causing
+peaking at ${\sim}2$ kpc, but the DM increases steadily and at $>10$ kpc is proportional to $r$ causing
 the rotational velocity to flatten.  Unfortunately, there is no independent model for determining the
 masses of a galaxy's disk, bulge, and halo, which makes disassociating the mass of baryonic matter from
 DM very difficult.  Most models assume the luminous matter to compose the galaxy's disk and bulge with
-the DM constituting its halo \citeref{Sofu2001}.
+the DM constituting its halo (\citeref{Sofu2001}).
 
 
 
@@ -207,7 +226,8 @@ If the mass of the lens is well known, the luminous portion can be subtracted, y
 be done for strong lenses as shown in \figref{fig:lensing} but is more difficult for weak.
 
 A galaxy collision provides a unique setting to study dark matter.  1E0657-56 (Bullet Cluster) is two galaxies that passed
-through one another $\sim150$ million years ago at $4500_{-800}^{+1100}\ \mathrm{km\ s^{-1}}$ \citeref{Markevitch2004}.  \figref{fig:bullet_cluster} shows the x-ray map in pink and the mass
+through one another ${\sim}150$ million years ago at $4500_{-800}^{+1100}\ \mathrm{km\ s^{-1}}$
+\citeref{Markevitch2004}.  \figref{fig:bullet_cluster} shows the x-ray map in pink and the mass
 distribution from gravitational lensing in blue in the left panel, along with mass contours in the right.  The separation of
 mass from baryonic matter can be explained by incorporating dark matter.  As the galaxies collide intergalactic dust interacts
 and heats up, creating x-rays and slowing the speed at which they pass.  The dark matter does not interact and passes
@@ -246,13 +266,13 @@ The Cosmic Microwave Background (CMB) was accidentally discovered by Penzias and
 the Nobel Prize (\citeref{Penzias1965}).  It
 is a remnant from shortly after the Big Bang ($\sim380,000\ \mathrm{yrs}$, $z\sim1100$, $T\sim3000\ \mr{K}$) and a near-perfect
 blackbody at $2.725\ \mr{K}$ today (most precise measurement at $2.72548 \pm 0.00057\ \mr{K}$ \citeref{Fixsen2009}).  A CMB
-photon is considered to have originated at the time of last scattering $t_{ls}$ and proceeded unperturbed since.
+photon is considered to have originated at the time of last scattering $t_{\mathrm{ls}}$ and proceeded unperturbed since.
 
 Deviations in the blackbody are small (root-mean square of $\delta T/T \sim 10^{-5}$) and the results of several
 mechanisms at $t_{ls}$ that varied throughout space.  The dipole anisotropy results from
 our motion with respect to the comoving rest frame of the CMB (\citeref{Smoot1991}).  Furthermore
 energy density perturbations would cause fluctuations in gravitational potential $\delta \Phi$.  A
-photon at larger $\delta \Phi$ at $t_{ls}$ would become blueshifted as its
+photon at larger $\delta \Phi$ at $t_{\mathrm{ls}}$ would become blueshifted as its
 potential decreases, while one at lower $\delta \Phi$ would be redshifted.  This effect is known as the
 Sachs-Wolfe effect (\citeref{Sachs1967}).  Additional effects, including intrinsic fluctuations and acoustic
 oscillations, are not discussed.
@@ -265,8 +285,8 @@ oscillations, are not discussed.
 \end{figure}
 
 
-The CMB provides the most precise measurements on $\Omega_{b}$, $\Omega_{dm}$, $\Omega_{\Lambda}$, $\Omega_{r}$,
-$H_{0}$, and many other cosmological parameters.  It has been precisely charted by several satellites since its
+The CMB provides the most precise measurements on $\Omega_{\mathrm{b}}$, $\Omega_{\mathrm{dm}}$, $\Omega_{\Lambda}$,
+$\Omega_{\mathrm{r}}$, $H_{0}$, and many other cosmological parameters.  It has been precisely charted by several satellites since its
 discovery, with the most recent being Planck (\citeref{Plack2011}).  The CMB is shown in \figref{fig:planck_map},
 where fluctuations are on the order of $\sim 10^{\pm 3} \mathrm{\mu K}$.  These fluctuations were caused by the number and
 amount of each component - thus, by finding the correlation function
@@ -306,8 +326,8 @@ $D_{l}^{TT} \equiv l(l+1)C_{l}/2\pi$ such as in \figref{fig:cmb_power_spectrum}.
 The first peak in the spectrum is related to the curvature of the universe, while the ratio of the heights of the
 first and the second peaks provides details about the amount of baryonic matter.  The best fit gives
 $H_{0} = 67.81 \pm 0.92\ \mathrm{km\ s^{-1}\ Mpc^{-1}}$, $\Omega_{\Lambda} = 0.692 \pm 0.012$,
-$\Omega_{b} = 0.0484 \pm 0.0005$, $\Omega_{dm} = 0.258 \pm 0.004$, and
-$\Omega_{k} \equiv 1 - \Omega_{\Lambda} - \Omega_{b} - \Omega_{dm} =  -0.005_{-0.017}^{+0.016}$.
+$\Omega_{\mathrm{b}} = 0.0484 \pm 0.0005$, $\Omega_{\mathrm{dm}} = 0.258 \pm 0.004$, and
+$\Omega_{k} \equiv 1 - \Omega_{\Lambda} - \Omega_{\mathrm{b}} - \Omega_{\mathrm{dm}} =  -0.005_{-0.017}^{+0.016}$.
 
 
 %[5] Adams, F.C., Freese, K. & Guth, A.H. [1991], Phys. Rev. D43, 965.
@@ -350,7 +370,8 @@ lensing measurements (\figref{fig:bullet_cluster}).  They found in their measure
 distribution to be offset from the visible matter, consistent with collisionless dark matter halos passing through one another.  This
 presented a problem to modified gravity, which was unable to explain this.
 
-In 2018 the ultra-diffuse galaxy NGC1052-DF2 was observed to have $M_{\mathrm{halo}} / M_{\mathrm{stars}} \sim 1$, a factor of $\sim 400$
+In 2018 the ultra-diffuse galaxy NGC1052-DF2 was observed to have $M_{\mathrm{halo}} / M_{\mathrm{stars}} \sim 1$, a factor of
+${\sim} 400$
 lower than expected. (\citeref{VanDokkum2018a, VanDokkum2018b}).  This poses a challenge to modified gravity - including modified Newtonian dynamics
 (MOND), a popular theory that has successfully predicted various galatic phenomena (\citeref{Milgrom1983}) - since a larger gravitational
 field does not appear to exist around the ordinary baryonic matter.  However, several theories claimed this may be compatible with
@@ -360,7 +381,7 @@ as how it might form (\citeref{Abraham2018, Ogiya2018}).  Two recent papers foun
 galaxies (\citeref{Lelli2016}).  The first found agreement with MOND using gaussian priors centered around values given by SPARC with
 uncertainty set to observational errors (\citeref{Li2018}).  The second included an additional 18 galaxies from THINGS
 (\citeref{deBlok2008}) and using flat priors excluded MOND
-at $10 \sigma$ (\citeref{Rodrigues2018}) \textbf{get citation from ADS again since currently has journal of arXiv}.  Ultimately additional
+at $10 \sigma$ (\citeref{Rodrigues2018}).  Ultimately additional
 measurements and improved statistical treatments are needed to better quantify NGC1052-DF2,
 but confirmation of missing dark matter would strongly constrain theories of modified gravity.
 
@@ -376,9 +397,9 @@ CP (charge and parity) violation in strong interactions has never been observed,
 by quantum chromodynamics (QCD).  This forces a theoretically unjustified fine tuning of the model, which
 is known as the strong CP problem.  Originally hypothesized by R.D. Peccei and Helen R. Quinn in 1977, the
 axion - a new standard model particle - offered a solution (\citeref{Peccei1977}).  Shortly after it was
-demonstrated that for axion decay constant $f_{a} > 10^{12}$ axions would be overproduced in the
-early universe and cause the axion density $\Omega_{a} > 1 > \Omega_{dm}$ \citeref{Preskill1983}.  However,
-a decay constant of $\sim 10^{12}$ could satisfy $\Omega_{dm}$.  Because the axion mass $m_{a}$ and $f_{a}$
+demonstrated that for axion decay constant $f_{\mathrm{a}} > 10^{12}$ axions would be overproduced in the
+early universe and cause the axion density $\Omega_{a} > 1 > \Omega_{\mathrm{dm}}$ \citeref{Preskill1983}.  However,
+a decay constant of $\sim 10^{12}$ could satisfy $\Omega_{\mathrm{dm}}$.  Because the axion mass $m_{\mathrm{a}}$ and $f_{\mathrm{a}}$
 are inversely proportional, one can then set a limit on $m_{a}$.
 %The axion
 %mass $m_{a} = 57(10^{11}GeV/f_{a})\ \mu$eV, which gives a lower bound of $m_{a} \sim 5\ \mu$eV.
@@ -389,7 +410,8 @@ to convert axions in microwaves.  Others, like CASPEr apply NMR.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{AxionLimits}
+\includegraphics[width=\textwidth]{axion_limits}
+\caption{Image credit: \citeref{Patrignani2016}.}
 \label{fig:axions}
 \end{figure}
 
@@ -409,7 +431,7 @@ particle had a ``freeze-out", when they could no longer transfer freely to other
 $\Lambda$CDM model the density of DM in the universe today is given by
 
 \begin{equation}
-\Omega_{dm}h^{2} = \frac{3 \times 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
+\Omega_{\mathrm{dm}}h^{2} = \frac{3 \times 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
 \end{equation}
 
 \noindent where $h$ is the Hubble Constant divided by 100 and $\langle \sigma_{\mathrm{ann}} v \rangle$ is
@@ -441,7 +463,7 @@ features.  Observations show that this is not the case; galaxies have been aroun
 was 1 billion years old ($z \sim 6$) and superclusters are just forming today (\citeref{Ryden2003}).
 
 CDM allows the early density perturbations to persist, causing smaller structures to materialize first,
-consistent with galaxy surveys between $\sim 1$ Mpc to the horizon.  At scales $< 1$ Mpc and
+consistent with galaxy surveys between ${\sim} 1$ Mpc to the horizon.  At scales $< 1$ Mpc and
 $M \sim 10^{11} \ M_{\odot}$ there are discrepancies, including under-dense cores for many galaxies that are DM-dominated
 and significantly fewer satellite dwarf and small galaxies than predicted (\citeref{Moore1999}, \citeref{Klypin1999}).  Possible
 solutions to the latter may be that dwarf galaxies have not accumulated enough baryonic matter to be visible
@@ -467,7 +489,8 @@ observable.  These methods are outlined in \figref{fig:detection_methods}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{ColliderIndirectDirectDiagramMaybeFig5Cushman2013}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
 \label{fig:detection_methods}
 \end{figure}
 
@@ -488,7 +511,8 @@ it would still be useful in narrowing the search region.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{ColliderDiagram}
+\includegraphics[width=0.8\textwidth]{collider_diagram}
+\caption{Diagram of a collision at the LHC.  Image credit: \citeref{CERN2018}.}
 \label{fig:collider}
 \end{figure}
 
@@ -526,13 +550,13 @@ non-relativistic (\secref{subsec:hot_vs_cold}), we can calculate the differentia
 
 \begin{equation} \label{eq:dr_de}
 \frac{dR}{dE}(E, t) = \frac{\rho_{0}}{m_{\chi}m_{\mathrm{A}}} \int_{v_{\mathrm{min}}}^{v_{\mathrm{esc}}}
-v f(\boldsymbol{v}, t) \frac{d\sigma_{\chi}}{dE}(E, t)\ d^{3}v
+v f(\vectlett{v}, t) \frac{d\sigma_{\chi}}{dE}(E, t)\ d^{3}\vectlett{v}
 \end{equation}
 
 \noindent where $\rho_{0}$ is the local dark matter density of 0.2-0.56 GeV/cm$^{3}$ (\secref{subsec:indirect}), $m_{\chi}$ is
 the mass of a
 dark matter particle, $m_{\mathrm{A}}$ is the mass of the target element, $v_{\mathrm{esc}}$ is the escape velocity for WIMPs from the galaxy,
-$f(\boldsymbol{v}, t)$ is the local velocity dispersion, and $\frac{d\sigma_{\chi}}{dE}(E, t)$ is the nucleon-DM differential
+$f(\vectlett{v}, t)$ is the local velocity dispersion, and $\frac{d\sigma_{\chi}}{dE}(E, t)$ is the nucleon-DM differential
 cross-section.  $v$ is the velocity of the DM in the rest frame of the detector.  The minimum velocity produce
 a recoil of energy E is given by
 
@@ -706,7 +730,8 @@ PICO (\citeref{PICO2017}), SIMPLE (\citeref{SIMPLE2012}), and MOSCAB (\citeref{M
  \includegraphics[width=0.8\textwidth]{spin_dependent_limits}
  \caption{Spin-dependent WIMP-proton cross-section 90\% C.L. limits for PICO-60 C$_{3}$F${8}$ (thick blue), PICO-60 CF$_{3}$I (thick red,
  \citeref{PICO2016a}), PICO-2L (thick purple, \citeref{PICO2016b}), PICASSO (green, \citeref{PICASSO2017}), SIMPLE (orange,
- \citeref{SIMPLE2014}), PandaX-II (cyan, \citeref{PandaXII2016}), IceCube (dashed and dotted pink, \citeref{IceCube2017}), and SuperK (dashed and
+ \citeref{SIMPLE2014}), PandaX-II (cyan, \citeref{PandaXII2016a}), IceCube (dashed and dotted pink, \citeref{IceCube2017}), and SuperK
+ (dashed and
  dotted black, \citeref{SuperK2011, SuperK2015}).  The filled in purple region is constrained parameter space for minimal
  supersymmetric model from \citeref{Roszkowski2007}.
  Image credit: \citeref{PICO2017}.}
@@ -763,8 +788,8 @@ have surpassed
 \subsection{Germanium Detectors}
 \label{subsec:germanium}
 High purity germanium (HPGe) detectors measure ionization and offer great energy resolution.  As with scintillation crystals,
-they can reach very low energies ($\sim 0.5\ \mathrm{keV}$), making them a promising candidate for low-mass WIMPs ($\sim 10$ GeV).  It is not
-possible to identify nuclear recoils from electronic, but p-type doped detectors have a dead layer on the surface and can use the
+they can reach very low energies (${\sim} 0.5\ \mathrm{keV}$), making them a promising candidate for low-mass WIMPs (${\sim} 10$ GeV).  It
+is not possible to identify nuclear recoils from electronic, but p-type doped detectors have a dead layer on the surface and can use the
 pulse rise time to reject background surface events.  In 2010 CoGeNT
 announced it observed an annual modulation, similar to DAMA/LIBRA.  After continued observation showed a preference for the modulation
 at 2.2$\sigma$ with a best-fit WIMP mass of $m_{\chi}\sim 8$ GeV (\citeref{CoGeNT2014}).  However, subsequent analyses with different
@@ -784,8 +809,8 @@ WIMP mass of 8.6 GeV (\citeref{Agnese2013}).  However, later measurements did no
 which has an analogous setup (\citeref{EDELWEISS2016}).
 
 The CREST-II experiment measured phonons as well as scintillation in CaWO$_{4}$ crystals.  They also observed an excess of
-events at WIMP masses of 11.6 at 4.2$\sigma$ and 25.3 GeV at 4.7$\sigma$ (\citeref{CRESST2012}), but in a later publication
-ruled them out (\citeref{CRESST2015}).
+events at WIMP masses of 11.6 $\mathrm{GeV/c^2}$ at 4.2$\sigma$ and 25.3 $\mathrm{GeV/c^2}$ at 4.7$\sigma$ (\citeref{CRESST2012}), but in
+a later publication ruled them out (\citeref{CRESST2015}).
 
 
  %========
@@ -815,7 +840,19 @@ current status of spin-independent limits.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{SpinIndependentLimits}
+\includegraphics[width=\textwidth]{si_limits}
+\caption{Status of spin-independent WIMP cross section from $0.5 \mdash 1000\ \mathrm{GeV/c^2}$ before XENON1T run-combined analysis
+(\chapref{chap:xenon1t}).  Possible regions of signal events from DAMA/LIBRA (shaded green, \citeref{DAMA2009}) and the silicon detectors
+of CDMS II (shaded blue, \citeref{CDMS2013}) are shown.  Exclusion limits from PICO-60 (solid yellow, \citeref{PICO2017}), DEAP-3600
+(dashed purple $> 20\ \mathrm{GeV/c^2}$,
+\citeref{DEAP2017}), SuperCDMS (dashed blue, \citeref{SuperCDMS2017}), NEWS-G (dashed purple $< 20\ \mathrm{GeV/c^2}$,
+\citeref{NEWSG2018}), CRESST (solid red, \citeref{CRESST2016}), CDMSLite2 (solid blue, \citeref{CDMSLite2016}), LUX
+(solid orange, \citeref{LUX2017a}), 2016 (solid dark blue,
+\citeref{PandaXII2016a}) and 2017 (dashed dark blue, \citeref{PandaXII2017}) PandaX-II, XENON100 (solid green, \citeref{Aprile2012c}), and
+XENON1T First Results (dashed green, \citeref{Aprile2017f}) are plotted.  Four typical super-symmetric (SUSY) models (CMSSM, NUHM1, NUHM2,
+and pMSSM10) with constraints from ATLAS Run
+1 are shown for reference (\citeref{Bagnaschi2015}).  The cross section of neutrino coherent scattering is marked by the orange dashed
+line and shaded region.  Image credit: \citeref{Patrignani2016}.}
 \label{fig:si_limits}
 \end{figure}
 

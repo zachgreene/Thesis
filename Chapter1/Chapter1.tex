@@ -516,7 +516,7 @@ observed (\secref{subsec:direct}).  These methods are outlined in \figref{fig:de
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{}
-\caption{}
+\caption{Detection Methods.}
 \label{fig:detection_methods}
 \end{figure}
 
@@ -568,7 +568,11 @@ light as they pass through the atmosphere \citeref{Bertone2005}.
  %========
 \subsection{Direct Detection} \label{subsec:direct}
 Direct detection looks for low energy (${\sim} 1 \mdash 100$ keV) nuclear recoil (somes theories predict DM-lepton
-but here they are not discussed) \citeref{Kopp2009}.  Given that the majority of dark matter must be
+but here they are not discussed) \citeref{Kopp2009}.  It is common to assume the dark matter halo of a galaxy is an isothermal
+single-component sphere with an isotropic Maxwell-Boltzmann velocity distribution function
+($f(\vectlett{v}) \propto \mathrm{exp}(-|\vectlett{v}|^2 / v_0^2)$) \citeref{Bhattacharjee2013}, though there is not a consensus on
+whether this is the correct velocity parameterization
+\citeref{Diemand2004, Kuhlen2009}.  This is known as the Standard Halo Model (SHM).  Given that the majority of dark matter must be
 non-relativistic (\secref{subsec:hot_vs_cold}), we can calculate the differential recoil spectrum as \citeref{Undagoitia2016}
 
 \begin{equation} \label{eq:dr_de}
@@ -590,9 +594,7 @@ v_{\mathrm{min}} = \sqrt{\frac{m_{\mathrm{A}} E}{2 \mu^{2}}}
 
 \noindent where $\mu_{\mathrm{A}} = m_{\mathrm{A}} m_{\chi} /( m_{\mathrm{A}} + m_{\chi})$ is the reduced WIMP-nucleus mass.
 
-Here the standard halo model (SHM) is assumed,
-though there is not a consensus on whether the DM velocity distribution can be described as Maxwell-Boltzmann
-\citeref{Diemand2004, Kuhlen2009}.  For WIMP searches most experiments
+For WIMP searches most experiments
 are looking at spin-independent (SI) or spin-dependent (SD) interactions.  For spin-independent all nucleons
 contribute equally.  For spin-dependent, atoms must have an odd number
 of protons or neutrons since only unpaired nucleons contribute to the search.  The differential cross-section can then be written as
@@ -617,24 +619,24 @@ $r_{\mathrm{n}} = \sqrt{1.2A^{2/3} - 5s^{2}}$, and $s \sim 1$ fm is a measure of
 cross section is given by
 
 \begin{equation} \label{eq:sigma_si}
-\sigma^{\mathrm{SI}}^{(0)} = \sigma_{\mathrm{p}} \frac{\mu_{\mathrm{A}}^{2}}{\mu_{\mathrm{p}}^{2}} \frac{\big[ Z f^{\mathrm{p}} +
-(A - Z) f^{\mathrm{n}} \big]^{2}}{(f^{\mathrm{p}})^{2}}
+\sigma_{\mathrm{SI}}^{(0)} = \sigma_{\mathrm{p}} \frac{\mu_{\mathrm{A}}^{2}}{\mu_{\mathrm{p}}^{2}} \frac{\big[ Z f_{\mathrm{p}} +
+(A - Z) f_{\mathrm{n}} \big]^{2}}{(f_{\mathrm{p}})^{2}}
 \end{equation}
 
 \noindent where $\sigma_{\mathrm{p}}$ is the cross section of a proton Z is the number of protons and $\mu_{\mathrm{p}}$ is
-the WIMP-nucleon reduced mass. $f^{\mathrm{p/n}}$ is the coupling strength for protons and neutrons, which are assumed to be
-equivalent (see \citeref{Yaguna2017} for $f^{\mathrm{p}} \neq f^{\mathrm{n}}$).  Substituting \eqnref{eq:sigma_si} into
+the WIMP-nucleon reduced mass. $f_{\mathrm{p/n}}$ is the coupling strength for protons and neutrons, which are assumed to be
+equivalent (see \citeref{Yaguna2017} for $f_{\mathrm{p}} \neq f_{\mathrm{n}}$).  Substituting \eqnref{eq:sigma_si} into
 \eqnref{eq:diff_sigma_si} gives a spin-independent differential cross-section of
 
 \begin{equation}
-\frac{d \sigma_{\mathrm{SI}}}{dE} = \frac{m_{\mathrm{A}} \sigma_{\mathrm{p}}}{2 \mu_{\mathrm{p}}^{2} v^{2}}
+\frac{d \sigma}{dE} = \frac{m_{\mathrm{A}} \sigma_{\mathrm{p}}}{2 \mu_{\mathrm{p}}^{2} v^{2}}
  A^{2} \big| F(E) \big |^{2}
 \end{equation}
 
 \noindent This gives the differential rate as 
 
 \begin{equation}
-\frac{dR}{dE} = \frac{\rho_{0} A^{2} \sigma_{\mathrm{p}}^{\mathrm{SI}}}{2 m_{\mathrm{\chi}} \mu_{\mathrm{p}}^{2}}
+\frac{dR}{dE} = \frac{\rho_{0} A^{2} \sigma_{\mathrm{p}}}{2 m_{\mathrm{\chi}} \mu_{\mathrm{p}}^{2}}
   \big| F(E) \big |^{2} \int_{v_{\mathrm{min}}}^{v_{\mathrm{esc}}}
 \frac{f(v)}{v}\ dv
 \label{eq:dr_de_final}
@@ -644,10 +646,10 @@ equivalent (see \citeref{Yaguna2017} for $f^{\mathrm{p}} \neq f^{\mathrm{n}}$). 
 the number of signals over a time $T$ for their target mass $M$ as
 
 \begin{equation} \label{eq:counts}
-N ( m_{\chi}, \sigma_{p}) = T \times M \times \int_{E_{\mathrm{min}}}^{E_{\mathrm{max}}} \frac{dR}{dE} dE
+N ( m_{\chi}, \sigma) = T \times M \times \int_{E_{\mathrm{min}}}^{E_{\mathrm{max}}} \frac{dR}{dE} dE
 \end{equation}
 
-\noindent \eqnref{eq:dr_de_final} and \eqref{eq:counts} state that the sensitivity of an experiment improves linearly with time and
+\noindent \eqnref{eq:dr_de_final} and \eqnref{eq:counts} state that the sensitivity of an experiment improves linearly with time and
 target mass, but quadratically with $A$.  This makes the atoms of molecules of the target mass important consideration when
 designing a direct detection experiment.
 
@@ -687,64 +689,70 @@ designing a direct detection experiment.
 
 
 %====================================
- \section[Direct Detection Experiments][Direct Detection Experiments]{Direct Detection Experiments}
- \label{sec:direct_detect}
- A moving particle that interacts with a detector will deposit some of its energy, causing different effects.  Some of the energy
- will be expelled as heat or propagated through the medium as phonons.  Additionally the atoms in the detector may become
- excited or ionized, producing scintillation and free electrons.  The different energy channels can be seen in
- \figref{fig:energy_channels}.  Experiments are probing all three of these observables, with many able to measure two
- simultaneously.
- 
- Direct detection experiments look for some anomalous signal outside of their expected background.  This requires a comprehensive
- understanding of detector materials and physical location as both can produce radiation that will contaminate any signal.  For the
- former, major efforts are going into screening outsourced material and limiting the number of radioactive contaminates in
- production.  For on-site background radiation, shielding has been essential for many experiments who without would have orders
- of magnitude higher event rates.
- 
+\section[Direct Detection Experiments][Direct Detection Experiments]{Direct Detection Experiments}
+\label{sec:direct_detect}
+When a moving particle scatters off an atom or molecule that is by comparison somewhat stationary it transfers some of its
+energy.  The energy gained by the atom will cause three effects.  The first is the atom's translational energy might rise (heat) and
+produce phonons that are propagated across the medium.  The second is the electrons may be excited, which generates photons
+as they quickly de-excite.  The third is the atom may be ionized, after which the freed electrons may recombine with their parent ion
+to emit photons or escape.  Direct detection experiments can probe each of these observables, with many able to measure two of the three
+simultaneously.  The different energy channels can be seen in \figref{fig:energy_channels}.
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{EnergyChannels}
+\caption{Energy channels.}
 \label{fig:energy_channels}
 \end{figure}
  
- Even with a priori screening and effective shielding background events are inevitable.  Identifying a signal may be too
- difficult if the signal-to-background ratio is small.  In 1986 it was proposed
- that due to the Earth's relative motion around the Sun there should be a modulation in signal \citeref{Drukier1986}.  Thus
- detectors could look for a an annual variation in event rate with a maximum in May, when the Earth's velocity around the
- Sun aligned with to the Sun's velocity around the galaxy.
+Direct detection experiments look for events outside of their expected background.  This requires a comprehensive
+understanding of the detector background to ensure any ``anomalous'' events do not come from mis-modeling and a false discovery is
+claimed.  Different approaches may be
+used for different methods of detection.  For liquid noble gas experiments major efforts are going into screening the radioactivity of
+potential materials.  Radioactivity from outside of the detector is shielded (using e.g. water, lead).  Finally, there may be backgrounds
+that are intrinsic to the target material.
+
+ 
+Even with a priori screening, effective shielding, and reducing intrinsic contaminants background events are inevitable.  Identifying a
+signal will be difficult if the signal-to-background ratio is small.  This is because
+an experiment with a large background will report an excess with less significance than one with a low background, i.e. a detector with a
+10 event
+background can make a stronger claim on an excess of 5 events than one with 100.  In 1986 it was proposed
+that due to the Earth's motion around the Sun there should be a modulation in signal \citeref{Drukier1986}.  Thus
+detectors could look for an annual variation in event rate its peak in May, when the Earth's velocity around the
+Sun aligns with to the Sun's velocity around the galaxy.
 
 \begin{figure}
 \includegraphics[width=0.6\textwidth]{wimp_wind}
-\caption{Orientation of the Earth's rotation around the Sun with respect to a hypothetical WIMP wind.  As the Earth orbits the Sun
-the component of its velocity parallel to the WIMP wind changes, varying the amount of dark matter passing through the Earth and
-causing an annual modulation.  Note that while dark matter could be revolving around the galaxy, the term ``WIMP wind'' corresponds at
-least to the relative motion of the Sun around the Milky Way in the case of an non-rotating DM halo.}
+\caption{Orientation of the Earth's rotation around the Sun.  The change in alignment of the Earth's and Sun's velocities causes the
+amount of dark matter passing through the Earth to change, appearing as a ``WIMP wind'' with a 1-year period.  The annual modulation
+should be present for any DM velocity distribution as long as it does not align with that of the Sun.}
 \label{fig:direct_detect_modulation}
 \end{figure}
-
-Direct detection experiments with low background offer the greatest sensitivity to detecting dark matter.  This is simply because
-an experiment with a larger background will report an excess with less significance than one with a lower, i.e. a detector with a 10 event
-background can make a stronger claim on an excess of 5 events than one with 100.  However, it is essential that the background is
-well-understood, since if the background of the former was not complete they may falsely claim a discovery.
  
   
  
  %========
 \subsection{Superheated Liquid Detectors}
 \label{subsec:bubbles}
-Superheated liquid detectors have peak sensitivity to WIMP masses in the tens of GeV range.  Their limits for spin-independent
-WIMPs are not as stringent as dual-phase noble gas detectors (\secref{subsec:dual_phase}), but they have consistently provided the
+Superheated liquid detectors are the most sensitive to WIMP masses in the tens of $\mathrm{GeV/c^2}$ range.  Their limits for
+spin-independent
+WIMPs are not as stringent as dual-phase noble gas detectors (\secref{subsec:noble_gas}), but for a number of years they have
+consistently provided the
 strongest constraints in the spin-dependent sector \citeref{PICO2017}.  Their strong sensitivity comes from using fluorinated
-halocarbons, as $^{19}$F is preferred over other detector materials due to its isotopic abundance of 100\% unpaired proton
-almost always carrying 1/2 spin \citeref{Ellis1991, PICASSO2012}.
+halocarbons, as $^{19}$F is the only stable isotope and its unpaired proton
+almost always carries 1/2 spin \citeref{Ellis1991, PICASSO2012}.
 
-At ambient temperatures and pressures fluorinated halocarbons in a metastable state.  A particle will transfer some of its heat,
-which can result in nucleation and is observed acoustically or optically.  By varying the temperature and pressure settings
-the superheated detectors can reduce $\gamma$ and $\beta$ interactions by a factor of 10$^{9}$, making them a great candidate for
-SD dark matter discovery.
+At ambient temperatures and pressures fluorinated halocarbons are in a metastable state.  A colliding particle will transfer some of its
+heat, which can result in nucleation that is observed acoustically or optically.  By varying the temperature and pressure settings
+superheated detectors can reduce $\gamma$ and $\beta$ interactions by a factor of 10$^{9}$, making them a great candidate for a
+spin-dependent dark matter discovery.
 
-Additional superheated detector collaborations include PICASSO \citeref{PICASSO2017}, COUPP \citeref{COUPP2012},
-PICO \citeref{PICO2017}, SIMPLE \citeref{SIMPLE2012}, and MOSCAB \citeref{MOSCAB2017}.
+Superheated detector collaborations include Project In CAnada to Search for Supersymmetric Objects (PICASSO) \citeref{PICASSO2017},
+Chicagoland Observatory for Underground Particle Physics (COUPP) \citeref{COUPP2012},
+PICO (merged from PICASSO and COUPP) \citeref{PICO2017}, Superheated Instrument for Massive ParticLe Experiments (SIMPLE)
+\citeref{SIMPLE2012}, and Materia OSCura A Bolle (MOSCAB) \citeref{MOSCAB2017}.  \figref{fig:sd_limits} shows the exclusion plot of
+spin-dependent WIMP-proton cross sections.
 
 
 \begin{figure}
@@ -754,7 +762,7 @@ PICO \citeref{PICO2017}, SIMPLE \citeref{SIMPLE2012}, and MOSCAB \citeref{MOSCAB
  \citeref{PICO2016a}), PICO-2L (thick purple, \citeref{PICO2016b}), PICASSO (green, \citeref{PICASSO2017}), SIMPLE (orange,
  \citeref{SIMPLE2014}), PandaX-II (cyan, \citeref{PandaXII2016a}), IceCube (dashed and dotted pink, \citeref{IceCube2017}), and SuperK
  (dashed and
- dotted black, \citeref{SuperK2011, SuperK2015}).  The filled in purple region is constrained parameter space for minimal
+ dotted black, \citeref{SuperK2011, SuperK2015}).  The shaded purple region is constrained parameter space for the minimal
  supersymmetric model from \citeref{Roszkowski2007}.
  Image credit: \citeref{PICO2017}.}
  \label{fig:sd_limits}
@@ -769,108 +777,124 @@ PICO \citeref{PICO2017}, SIMPLE \citeref{SIMPLE2012}, and MOSCAB \citeref{MOSCAB
  %========
 \subsection{Scintillation Crystals}
 \label{subsec:crystals}
-Another target for DM searches is highly radiopure scintillating crystals.  Typically sodium iodide (NaI) or cesium iodide (CsI) is chosen,
-with NaI being the most common.  Their sensitivity to SI and SD, low energy threshold, can be run at room temperature,
-and ability to run over long periods of time
-make them an attractive option.  Doping with thallium causes an increase in wavelength providing high detection efficiency and large
-crystal transparency \citeref{Undagoitia2016}.  However, traces of $^{40}$K, and to a lesser extend $^{238}$U, $^{232}$Th,
-and $^{87}$Rb in the NaI(Tl) crystals contribute a 3 \kevee peak (X-ray/Auger electron from $^{40}\mathrm{K} \rightarrow ^{40}\mathrm{Ar}$)
-and flat background, which has made improved radiopurity an immediate goal \citeref{Shields2015}.  Additionally, the scintillation
-does not have unique features for different interactions, so particle discrimination is not possible, with the excepting of
-multiple hits rejection.  Thus separating background from signal on and event by even basis is not possible.
-
-The DAMA/NaI and its successor DAMA/LIBRA experiments are located underground at the Laboratori Nazionali del Gran Sassa (LNGS) in
-Italy.  They use NaI(Tl) crystals that are sensitive.  For over 14 annual cycles they have observed an annual modulation in the 2-6 \kevee
-range with 9.3$\sigma$ \citeref{DAMA2013}.  This would give WIMP masses of 10-15 GeV for scattering off Na
-and 60-100 GeV for I.  Their results are shown in \figref{fig:dama}.  Because NaI(Tl) cannot distinguish scatterings by different particles there is doubt on if their signal
-is caused by WIMPs, or even dark matter.  Outside of spin-independent, spin-dependent or mixed coupling \citeref{Bernabei2001}
-and inelastic scattering \citeref{Bernabei2002} WIMPs 
-have been considered.  Because DAMA/LIBRA cannot know if the interactions are with nuclei or electrons, alternative dark matter
-electron-coupling models \citeref{Bernabei2006} have also been examined.  The results are controversial because other experiments
-have surpassed the DAMA/LIBRA sensitivity and see no signal \citeref{Aprile2017a}.  This has provided motivation to explain the annual modulation via
-standard particles.  Hypotheses include known variation in muon flux due to changing stratosphere temperatures, which exhibits
-annual modulation in similar phase with DAMA/LIBRA's findings \citeref{Blum2011}, an incomplete understanding of neutron backgrounds
-\citeref{Ralston2010}, or using a combination of muon-induced neutrons and soloar neutrinos \citeref{2014Davis} (though this
-has been received pushback in \citeref{Barbea2014, Klinger2015}).
+Another target for DM searches is highly radiopure scintillating crystals.  Typically sodium iodide (NaI) or cesium iodide (CsI) is
+chosen, with NaI being the most common.  Their sensitivity to SI
+and SD DM, low energy threshold, room temperature operability, and ability to run over long periods of time
+make them an attractive option.  Doping with thallium increases their light emission and shifts their wavelengths, making the crystals
+more transparent and improving phototube detection efficiency \citeref{Undagoitia2016}.  However, trace amounts of radioactive elements
+are present in NaI(Tl) crystals \citeref{DAMALIBRA2008}.  The 3 keV x-ray/Auger electron from the decay of
+$^{40}$K to \ce{^{40}Ar} through electron capture is particularly concerning because it lays in the region of interest.  In addition a
+flat background is produced by $^{238}$U, $^{232}$Th,
+and $^{87}$R.  Additionally, the features of the scintillation
+does not change for different types of interactions (e.g. $\gamma$-ray, neutron), so particle discrimination is not possible, with the
+excepting of rejecting events with multiple scatters.  Thus differentiating between background from signal on an event by event basis is
+not possible.  This has made improved radiopurity an increasingly important goal \citeref{Shields2015}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{DAMAModulation}
-\caption{Oscillating event rate between 2-6 \kevee captured by DAMA and DAMA/LIBRA.  A fit of $A \cos \omega (t - t_{0})$ where
+\caption{Residual event rate between 2-6 \kevee as measured by DAMA/NaI and DAMA/LIBRA.  A fit of $A \cos [\omega (t - t_{0})]$ where
 $t_{0} = \mathrm{June\ 2nd}$ and $A$ is the best-fit amplitude is overlaid, with verticale dashed lines corresponding to expected
 maxima.  For 14 years they have observed an annual
-modulation with $9.3\sigma$.  Claiming this modulation to be produced by dark matter is controversial however, as they are unable to
-discriminate between electronic and nuclear recoils and a number of experiments have surpassed their sensitivity with no significant
+modulation with $9.3\sigma$.  Claiming this modulation is due to dark matter is controversial, as they are unable to
+discriminate between different interaction types and a number of experiments have surpassed their sensitivity with no significant
 findings.  Image credit: \citeref{Bernabei2013}.}
-have surpassed 
 \label{fig:dama}
 \end{figure}
+
+The DAMA/NaI and its successor DAMA/LIBRA experiments are located underground at the Laboratori Nazionali del Gran Sasso (LNGS) in
+L'Aquila, Italy.  They use NaI(Tl) crystals, which allows them to be sensitive to both low- (Na) and high-mass WIMPs from Na and I,
+respectively \citeref{DAMALIBRA2008}.  For over 14 annual cycles they have observed an annual modulation in the
+2-6 \kevee (\secref{subsubsec:tpcs_signals_energy})
+range with 9.3$\sigma$ \citeref{DAMA2013}.  This corresponds to WIMP masses of $10 \mdash 15\ \mathrm{GeV/c^2}$ for sodium-scatters
+and 60-100 GeV for iodine.  Their results are shown in \figref{fig:dama}.  Because NaI(Tl) cannot distinguish scatterings of different
+particles there is doubt on whether their signal
+is caused by WIMPs, or even dark matter.  Spin-independent, spin-dependent or mixed coupling \citeref{Bernabei2001}
+and inelastic scattering \citeref{Bernabei2002} WIMPs 
+have been considered.  Furthermore, since they cannot specify if the interactions are with nuclei or electrons, alternative dark matter
+electron-coupling models \citeref{Bernabei2006} have been examined.  Their results are controversial because other experiments
+have surpassed the DAMA/LIBRA sensitivity and see no signal \citeref{Aprile2017a}.  This has prompted theories to explain the annual
+modulation via
+Standard Model particles.  Hypotheses include known variation in muon flux due to changing stratosphere temperatures, which exhibits
+annual modulation in a phase similar to DAMA/LIBRA's findings \citeref{Blum2011}, an incomplete understanding of neutron backgrounds
+\citeref{Ralston2010}, or using a combination of muon-induced neutrons and soloar neutrinos \citeref{2014Davis} (this
+has been received pushback in \citeref{Barbea2014, Klinger2015}).  The Sodium Iodide with Active Background REjection (SABRE) experiment
+is being constructed at LNGS and plans on beginning to take data by the end of 2018 \citeref{Shields2015, SABRE2018}.  By using the same
+technology and location they will be the first experiment to directly challenge DAMA/LIBRA.
 
  %========
 \subsection{Germanium Detectors}
 \label{subsec:germanium}
-High purity germanium (HPGe) detectors measure ionization and offer great energy resolution.  As with scintillation crystals,
-they can reach very low energies (${\sim} 0.5\ \mathrm{keV}$), making them a promising candidate for low-mass WIMPs (${\sim} 10$ GeV).  It
-is not possible to identify nuclear recoils from electronic, but p-type doped detectors have a dead layer on the surface and can use the
-pulse rise time to reject background surface events.  In 2010 CoGeNT
-announced it observed an annual modulation, similar to DAMA/LIBRA.  After continued observation showed a preference for the modulation
-at 2.2$\sigma$ with a best-fit WIMP mass of $m_{\chi}\sim 8$ GeV \citeref{CoGeNT2014}.  However, subsequent analyses with different
-background assumptions showed that this preference is well below 1.7$\sigma$ \citeref{Aalseth2014, Davis2014}.  Another
-experiment, CDEX, uses the same setup as CoGeNT and found contradictory results \citeref{CDEX2014}, as did CDMS II for NR only
-\citeref{CDMS2012}.
+High purity germanium (HPGe) detectors measure ionization and offer exceptional energy resolution.  Like scintillation crystals,
+(\secref{subsec:crystals}) they can reach very low energies (${\sim} 0.5\ \mathrm{keV}$), making them a promising candidate for low-mass
+WIMP (${\sim} 10\ \mathrm{GeV/c^2}$) detection.  It is not possible to differentiate between nuclear recoils from electronic, but
+p-type doped detectors have a dead layer on the surface and can use the
+pulse rise time to reject background surface events.  In 2010 the Coherent Germanium Neutrino Technology (CoGeNT) experiment
+announced it observed an annual modulation similar to DAMA/LIBRA \citeref{CoGeNT2010}.  After continued observation they found the
+modulation had a best-fit
+WIMP mass of $m_{\chi}\sim 8\ \mathrm{GeV/c^2}$ at a $2.2\sigma$ \citeref{CoGeNT2014}.  However, subsequent analyses with
+different
+background assumptions showed this significance fell well below 1.7$\sigma$ \citeref{Aalseth2014, Davis2014}.  The China Dark Matter
+EXperiment (CdEX) uses the same setup as CoGeNT and found contradictory results \citeref{CDEX2014}, as did CDMS II for nuclear recoils
+only \citeref{CDMS2012}.
 
 
 %========
 \subsection{Cryogenic Bolometers}
 \label{subsec:bolometers}
-Cryogenic bolometers are typically cooled to $10-100$ mK so they can detect phonons, allowing a low energy threshold and
-outstanding energy resolution.  The CDMS collaboration uses silicon and germanium detectors where they measure both phonons
-and ionization.  The ionization-to-phonon ratio is used for discrimination where less than 1 in $10^{6}$ of all ER events
-are rejected in the $10-100$ keV range \citeref{CDMS2015}.  In 2013 an excess of events was reported with a best-fit
-WIMP mass of 8.6 GeV \citeref{Agnese2013}.  However, later measurements did not observe such an excess, nor did EDELWEISS,
-which has an analogous setup \citeref{EDELWEISS2016}.
+Cryogenic bolometers are typically cooled to $10 \mdash 100$ mK so they can detect phonons, allowing a low energy threshold and
+outstanding energy resolution.  The Cryogenic Dark Matter Search (CDMS) collaboration uses silicon and germanium detectors where they
+measure both phonons
+and ionization.  The ionization-to-phonon ratio is used for discrimination where less than 1 in $10^{6}$ of all electronic recoil events
+are rejected in the $10 \mdash 100$ keV range \citeref{CDMS2015}.  In 2013 an excess of events was reported with a best-fit
+WIMP mass of $8.6\ \mathrm{GeV/c^2}$ \citeref{Agnese2013}.  However, subsequent measurements did not observe such an excess, nor did
+EDELWEISS (Exp\'erience pour DEtecter Les WIMPS En Site Souterrain), which has an analogous setup \citeref{EDELWEISS2016}.
 
-The CREST-II experiment measured phonons as well as scintillation in CaWO$_{4}$ crystals.  They also observed an excess of
-events at WIMP masses of 11.6 $\mathrm{GeV/c^2}$ at 4.2$\sigma$ and 25.3 $\mathrm{GeV/c^2}$ at 4.7$\sigma$ \citeref{CRESST2012}, but in
-a later publication ruled them out \citeref{CRESST2015}.
+The CRESST-II (Cryogenic Rare Event Search with Superconducting Thermometers) experiment measured phonons as well as scintillation using
+CaWO$_{4}$ crystals.  They also observed excesses of
+events at WIMP masses of 11.6 $\mathrm{GeV/c^2}$ at 4.2$\sigma$ and 25.3 $\mathrm{GeV/c^2}$ at 4.7$\sigma$ \citeref{CRESST2012}, but after
+an upgrade reduced their background they were ruled out \citeref{CRESST2015}.
 
 
  %========
 \subsection{Liquid Noble Gas Detectors} \label{subsec:noble_gas}
-Liquid noble gas detectors have led the field for spin-independent WIMP masses $\gtrsim 20$ GeV, as seen in
-\figref{fig:si_sensitivity}.  Commissioned detectors have
-used either liquid argon (LAr) or liquid xenon (LXe) and the DEAP/CLEAN collaboration is constructing a detector than can house
+Liquid noble gas detectors have led the field for spin-independent WIMP masses at $\gtrsim 20\ \mathrm{GeV/c^2}$, as seen in
+\figref{fig:si_limits}.  Commissioned detectors have
+used either liquid argon (LAr) or liquid xenon (LXe) and the DEAP/CLEAN
+(Dark Matter Experiment using Argon Pulse-Shape/Cryogenic Low-Energy Astrophysics with Noble Liquids ) collaboration is constructing a
+detector than can house
 LAr and liquid neon (LNe) independently \citeref{Kearns2012, CLEAN2015}.  Advantages of liquid noble gas detectors
 include scaleability, particle discrimination, and self-shielding, among others.  As the target mass of these detectors passes
-the 1-ton mark they are becoming sensitive to neutrinos, offering another branch of physics to study.  Predicted integral rates for xenon,
-argon, and neon, as well as germanium are shown in \figref{fig:material_wimp_rate}.
+the 1-ton mark they are becoming sensitive to neutrinos, which introduces a new background but can also offer another branch of physics to
+study.  Predicted integral rates for xenon, argon, and neon, as well as germanium are shown in \figref{fig:material_wimp_rate}.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{IntegralRateTargets}
-\caption{Expected integral spectra for Xe, Ge, Ar, and Ne for spin-independent elastic scattering of a 100 GeV WIMP with cross section
-$\sigma_{\chi}^{\mathrm{SI}} = 10^{-45}\ \mathrm{cm^{2}}$ per nucleon.  The rates assume perfect energy resolution and are calculated with
-standard halo parameters.  The dots correspond to average thresholds for each element.  Image credit: \citeref{Cushman2013}.}
+\caption{Expected integral spectra for Xe, Ge, Ar, and Ne for spin-independent elastic scattering of a $100\ \mathrm{GeV/c^2}$ WIMP with
+cross section $\sigma = 10^{-45}\ \mathrm{cm^{2}}$ per nucleon.  The rates assume perfect energy resolution and are calculated using the
+Standard Halo Model.  The dots correspond to average thresholds for each element.  Image credit: \citeref{Cushman2013}.}
 \label{fig:material_wimp_rate}
 \end{figure}
 
 Liquid noble gas detectors can be single- or dual-phase.  Dual phase use an electric field to drift electrons to the liquid surface, where
-they are extracted across a gas gap generating a second scintillation.  Single-phase detectors measure only the scintillation and typically
+they are extracted across a gas gap and generate a second scintillation.  Single-phase detectors measure only the scintillation and are
+typically
 spherical.  Because they do not drift electrons they benefit from 4$\pi$ photo-detection (in dual phase this would interfere with the
-drift field.  Dual phase experiments are discussed discussed in detail in \chapref{chap:liquid_xe}.  \figref{fig:si_limits} shows the
+electric field).  Dual phase experiments are discussed in detail in \chapref{chap:liquid_xe}.  \figref{fig:si_limits} shows the
 current status of spin-independent limits.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{si_limits}
 \caption{Status of spin-independent WIMP cross section from $0.5 \mdash 1000\ \mathrm{GeV/c^2}$ before XENON1T run-combined analysis
-(\chapref{chap:xenon1t}).  Possible regions of signal events from DAMA/LIBRA (shaded green, \citeref{DAMA2009}) and the silicon detectors
-of CDMS II (shaded blue, \citeref{CDMS2013}) are shown.  Exclusion limits from PICO-60 (solid yellow, \citeref{PICO2017}), DEAP-3600
-(dashed purple $> 20\ \mathrm{GeV/c^2}$,
+(\chapref{chap:xenon1t}).  Regions of possible signals from DAMA/LIBRA (shaded green, \citeref{DAMA2009}) and the silicon
+detector of CDMS II (shaded blue, \citeref{CDMS2013}) are shown.  Exclusion limits from PICO-60 (solid yellow, \citeref{PICO2017}),
+DEAP-3600 (dashed purple $> 20\ \mathrm{GeV/c^2}$,
 \citeref{DEAP2017}), SuperCDMS (dashed blue, \citeref{SuperCDMS2017}), NEWS-G (dashed purple $< 20\ \mathrm{GeV/c^2}$,
 \citeref{NEWSG2018}), CRESST (solid red, \citeref{CRESST2016}), CDMSLite2 (solid blue, \citeref{CDMSLite2016}), LUX
-(solid orange, \citeref{LUX2017a}), 2016 (solid dark blue,
-\citeref{PandaXII2016a}) and 2017 (dashed dark blue, \citeref{PandaXII2017}) PandaX-II, XENON100 (solid green, \citeref{Aprile2012c}), and
+(solid orange, \citeref{LUX2017a}), PandaX-II (solid dark blue 2016
+\citeref{PandaXII2016a}, dashed dark blue, 2017 \citeref{PandaXII2017}), XENON100 (solid green, \citeref{Aprile2012c}), and
 XENON1T First Results (dashed green, \citeref{Aprile2017f}) are plotted.  Four typical super-symmetric (SUSY) models (CMSSM, NUHM1, NUHM2,
 and pMSSM10) with constraints from ATLAS Run
 1 are shown for reference \citeref{Bagnaschi2015}.  The cross section of neutrino coherent scattering is marked by the orange dashed

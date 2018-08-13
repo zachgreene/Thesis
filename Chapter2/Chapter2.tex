@@ -7,41 +7,27 @@
 \chapter[Liquid Xenon and Time Projection Chambers][Liquid Xenon and Time Projection Chambers]{Liquid Xenon and Time Projection Chambers}
 \label{chap:liquid_xe}
 
-Liquid xenon (LXe) direct detection experiments have dominated the sensitivity for WIMP masses $\gtrsim 20$ for approximately a
-decade.  Even over liquid argon (LAr) the LXe results have been paved the way to new limits, surpassing on the way only those of other
+Liquid xenon (LXe) direct detection experiments have led the field for spin-independent WIMPs with masses $\gtrsim 20$ for roughly
+a decade.  Even over liquid argon (LAr) the LXe results have been paved the way to new limits, surpassing on the way only those of other
 LXe experiments.
 
 Commercial business, such as steelmaking and coal gasification, rely relatively pure oxygen or nitrogen.  During the separation,
 the small amount of xenon and krypton in the air is extracted into a mixture as a by-product.  A distillation process can uncouple
 the two, leaving highly pure xenon.
 
+This chapter begins by discussing general properties of xenon and why it is such an effective element for a dark matter search
+(\secref{sec:properties}) followed by a summary of signal production (\secref{sec:scintillation}) and then determining the type of
+interaction based on its signal properties (\secref{sec:interactions}).
+
 %====================================
 \section{General Properties}
 \label{sec:properties}
-Xenon has an atomic number of 54 with a mean mass of 131.293 g mol$^{-1}$.  Because it is a noble gas it does not easily undergo chemical
-reactions with other elements.  It makes up 87 parts per billion (ppb) of the Earth's atmosphere at a density of
-5.894 g l$^{-1}$.  \tabref{tab:xe_properties} gives some general chemical properties for xenon.
-
-Xenon is the heaviest noble gas that is non-radioactive, with an atomic molar mass of $A = 131.293\ \mathrm{g\ mol^{-1}}$.  The naturally
-occurring Xe isotopes are listed in
-\tabref{tab:xe_isotopes}.  \ce{^{136}Xe}, with a fractional percentage of 8.8573\%,
-has been measured to undergo double beta decay with a half-life of $> 2.4 \times 10^{21}\ \mathrm{y}$ via
-$2\nu \beta^{-} \beta^{-}$.  So while technically naturally occurring xenon is radioactive, the process is extremely rare.
-
-Primary and secondary scintillation, which are the measured parameters in a time-projection chamber, occur when a particle interacts
-with a Xe atom.  In the case of a neutron or neutrino scattering from the Xe nucleus a number of nuclear excitations are possible,
-and are listed in \tabref{tab:xe_radioactive}.  The 39.6 and 80.2 keV lines from $^{129}$Xe and $^{131}$Xe are short-lived and typically
-cannot be resolved from the scintillation of the scatter.  However, the 163.9 and 236.14 keV lines from $^{131\mathrm{m}}$Xe and
-$^{129\mathrm{m}}$Xe are long-lived
-enough to become uniformly distributed throughout the detector and can be used as a calibration source and measuring the electron
-lifetime (\chapref{chap:purity}).
-
-Xenon has several advantages that make it a good source for DM detection.  At \$2000 it is scaleable for larger detectors.  Its
-large molar mass provides strong self-shielding, which reduces contamination in the region of interest due to external radiation
-(\secref{subsec:backgrounds_detector_materials}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe,
-which gives it sensitivity to spin-dependent interactions.  Its light and charge yields
-(\secref{subsubsec:er_nr_calibrations_results_ly_qy}) are the highest among noble gases.  Finally, the amount of
-intrinsic radioactivity comes only from trace amounts of radioactive noble gases that are present.
+Xenon is a noble gas with an atomic number of 54 with and a mean mass of 131.293 g mol$^{-1}$.  It is the heaviest non-radioactive noble
+gas and due to its full valence electron
+shell rarely undergoes chemical reactions.  It has a concentration of 87 parts per billion (ppb)
+in the Earth's atmosphere at a density of
+5.894 g l$^{-1}$.  The phase diagram for xenon is shown in \figref{fig:phase_diagram} and \tabref{tab:xe_properties} lists general
+chemical properties.
 
 \begin{figure}
 \includegraphics[width=0.6\textwidth]{PhaseDiagram}
@@ -53,6 +39,7 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  \centering
  \begin{tabular}{cc}
  \hline
+ \hline
  Chemical Property & Value \\
  \hline
  Atomic Number & 54 \\
@@ -60,18 +47,38 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  Melting point (1 atm) & 161.4 K \\
  Boiling point (1 atm) & 165.0 K \\
  Density as gas (298 K, 1 atm)  &  5.40 g l$^{-1}$ \\
- Density as gas (165.0 K, 1 atm)  &  9.99 g l$^{-1}$ \\
- Density as liquid (165.0 K, 1 atm) & 2.94 g cm$^{-3}$ \\
- Critical point & 16.59 $^{\circ}$C, 57.65 atm, 1.155 g cm$^{-3}$ \\
+ Density as gas (165 K, 1 atm)  &  9.99 g l$^{-1}$ \\
+ Density as liquid (165 K, 1 atm) & 2.94 g cm$^{-3}$ \\
+ Critical point & $16.59^{\circ}$C, 57.65 atm, 1.155 g cm$^{-3}$ \\
  Dielectric constant (liquid) & 1.95 \\
- Triple point & -111.74 $^{\circ}$C, 0.805 atm, 3.08 g cm$^{-3}$ \\
+ Triple point & $-111.74^{\circ}$C, 0.805 atm, 3.08 g cm$^{-3}$ \\
  Thermal conductivity & $5.65 \times 10^{-3}\ \mathrm{W\ m^{-1}\ K^{-1}}$ \\
  Covalent radius & $140 \pm 9$ pm \\
+ \hline
  \hline
  \end{tabular}
  \caption{Chemical properties for xenon.}
 \label{tab:xe_properties}
 \end{table}
+
+The naturally occurring Xe isotopes are listed in \tabref{tab:xe_isotopes}.  \ce{^{136}Xe}, with a fractional percentage of 8.8573\%,
+has been measured to undergo double beta decay with a half-life of $> 2.4 \times 10^{21}\ \mathrm{y}$.  So while naturally
+occurring xenon can be radioactive, the process is extremely rare.
+
+Primary and secondary scintillation, which are the measured parameters in a time-projection chamber, occur when a particle interacts
+with a Xe atom.  In the case of a neutron or neutrino scattering from the Xe nucleus a number of nuclear excitations are possible,
+and are listed in \tabref{tab:xe_radioactive}.  The 39.6 and 80.2 keV lines from $^{129}$Xe and $^{131}$Xe are short-lived and typically
+cannot be resolved from the scintillation of the scatter.  However, the 163.9 and 236.14 keV lines from $^{131\mathrm{m}}$Xe and
+$^{129\mathrm{m}}$Xe are long-lived
+enough to become uniformly distributed throughout the detector and can be used as a calibration source and measuring the electron
+lifetime (\secref{subsec:electron_lifetimes_measurement_gammas}).
+
+Xenon has several advantages that make it a good source for DM detection.  At \$2000 it is scaleable for larger detectors.  Its
+large molar mass provides strong self-shielding, which reduces contamination in the region of interest due to external radiation
+(\secref{subsec:backgrounds_detector_materials}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe,
+which gives it sensitivity to spin-dependent interactions.  Its light and charge yields
+(\secref{subsubsec:er_nr_calibrations_results_ly_qy}) are the highest among noble gases.  Finally, the amount of
+intrinsic radioactivity comes only from trace amounts of radioactive noble gases that are present.
 
 
 \begin{table}
@@ -82,17 +89,17 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
  \hline
  $^{124}$Xe & 0.0952 & 0 &  $> 1.6 \times 10^{14}\ \mathrm{y}$ & $2\nu \beta^{+} \beta^{+}$ \\
  $^{126}$Xe & 0.089 & 0 & $> 4.7 \mdash 12 \times 10^{25}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
- $^{128}$Xe & 1.910 & 0 & stable & - \\
- $^{129}$Xe & 26.401 & 1/2 & stable & - \\
- $^{130}$Xe & 4.071 & 0 & stable & - \\
- $^{131}$Xe & 21.23 & 3/2 & stable & - \\
- $^{132}$Xe & 26.909 & 0 & stable & - \\
+ $^{128}$Xe & 1.910 & 0 & stable & $-$ \\
+ $^{129}$Xe & 26.401 & 1/2 & stable & $-$ \\
+ $^{130}$Xe & 4.071 & 0 & stable & $-$ \\
+ $^{131}$Xe & 21.23 & 3/2 & stable & $-$ \\
+ $^{132}$Xe & 26.909 & 0 & stable & $-$ \\
  $^{134}$Xe & 10.436 & 0 &  $> 5.8 \times 10^{22}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
  $^{136}$Xe & 8.857 & 0 &  $> 2.4 \times 10^{21}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
  \hline
  \end{tabular}
- \caption{Properties of naturally occurring Xe isotopes.  Decays of \ce{^{124}Xe}, \ce{^{126}Xe}, and \ce{^{134}Xe} have not been observed
- but are predicted.  Half-life and decay information is taken from \citeref{Singh2007, Barros2014}.}
+ \caption{Properties of naturally occurring xenon isotopes.  Decays of \ce{^{124}Xe}, \ce{^{126}Xe}, and \ce{^{134}Xe} have not been
+ observed but are predicted.  Half-life and decay information is taken from \citeref{Singh2007, Barros2014}.}
 \label{tab:xe_isotopes}
 \end{table}
 
@@ -100,20 +107,21 @@ intrinsic radioactivity comes only from trace amounts of radioactive noble gases
 \centering
 \begin{tabular}{ccccc}
 \hline
-Isotope & Spin & Half-life & Decay mode \\
+Isotope & Spin & Half-life & Decay mode & Decay product \\
 \hline
-$^{122}$Xe & 0 & 20.1 h & EC to \ce{^{122}I} \\
-$^{123}$Xe & 1/2 & 2.08 h & EC to \ce{^{123}I} \\
-\ce{^{125}Xe} & 1/2 & 17.1 h & EC to \ce{^{125}I} \\
-\ce{^{127}Xe} & 1/2 & 36.4 d & EC to \ce{^{127}I} \\
-$\mathrm{^{129m}Xe}$ & 11/2 & 8.88 d & $39.6 + 196.6\ \mathrm{keV}\ \gamma$ to GS \\
-$\mathrm{^{131m}Xe}$ & 11/2 & 11.93 d & $163.9\ \mathrm{keV}\ \gamma$ to GS \\
-\ce{^{133}Xe} & 3/2 & 5.24 d & $\beta^-$ to \ce{^{133}Cs} \\
-$\mathrm{^{133m}Xe}$ & 11/2 & 2.19 d & $233.2\ \mathrm{keV}\ \gamma$ to GS \\
-\ce{^{135}Xe} & 3/2 & 9.14 h & $\beta^-$ to \ce{^{135}Cs} \\
+$^{122}$Xe & 0 & 20.1 h & EC & \ce{^{122}I} \\
+$^{123}$Xe & 1/2 & 2.08 h & EC & \ce{^{123}I} \\
+\ce{^{125}Xe} & 1/2 & 17.1 h & EC & \ce{^{125}I} \\
+\ce{^{127}Xe} & 1/2 & 36.4 d & EC & \ce{^{127}I} \\
+$\mathrm{^{129m}Xe}$ & 11/2 & 8.88 d & $39.6 + 196.6\ \mathrm{keV}\ \gamma$ & ground state \\
+$\mathrm{^{131m}Xe}$ & 11/2 & 11.93 d & $163.9\ \mathrm{keV}\ \gamma$ & ground state \\
+\ce{^{133}Xe} & 3/2 & 5.24 d & $\beta^-$ & \ce{^{133}Cs} \\
+$\mathrm{^{133m}Xe}$ & 11/2 & 2.19 d & $233.2\ \mathrm{keV}\ \gamma$ & ground state \\
+\ce{^{135}Xe} & 3/2 & 9.14 h & $\beta^-$ & \ce{^{135}Cs} \\
 \hline
 \end{tabular}
-\caption{Unstable isotopes of xenon with half-lifes of $> 1\ \mathrm{hr}$.}
+\caption{Unstable isotopes of xenon with half-lifes of $> 1\ \mathrm{hr}$.  Spins, half-lifes, decay modes, and decay products are
+listed.}
 \label{tab:xe_unstable_isotopes}
 \end{table}
 
@@ -535,7 +543,7 @@ energy region of interest, as shown in \figref{fig:phot_atten}.
 \end{figure}
 
 
-\subsection{$\beta$-Decays}
+\subsection[$\beta$-Decays][$\beta$-Decays]{$\mathbf{\beta}$-Decays}
 \label{subsec:beta}
 \betadecays are the emission of an electron-antineutrino (positron-neutrino) from a neutron (proton).  As with photons, they interact
 with the \electron shell and thereby produce electronic recoils.  Because the neutrino carries

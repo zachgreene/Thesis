@@ -51,14 +51,14 @@ chemical properties.
  Density as gas (165 K, 1 atm)  &  9.99 g l$^{-1}$ \\
  Density as liquid (165 K, 1 atm) & 2.94 g cm$^{-3}$ \\
  Critical point & $16.59^{\circ}$C, 57.65 atm, 1.155 g cm$^{-3}$ \\
- Dielectric constant (liquid) & 1.95 \\
+ Dielectric constant & 1.95 \\
  Triple point & $-111.74^{\circ}$C, 0.805 atm, 3.08 g cm$^{-3}$ \\
  Thermal conductivity & $5.65 \times 10^{-3}\ \mathrm{W\ m^{-1}\ K^{-1}}$ \\
  Covalent radius & $140 \pm 9$ pm \\
  \hline
  \hline
  \end{tabular}
- \caption{Chemical properties for xenon.}
+ \caption{Chemical properties for xenon.  Data taken from \citeref{Baudis2014}.}
 \label{tab:xe_properties}
 \end{table}
 
@@ -184,7 +184,7 @@ field.  However, even without a field there will not be
 \end{subequations}
 
 The Xe$^{*}$ that has results from recombination is equivalent to if it had only ever been excited.  At this point
-it de-excites via \eqref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
+it de-excites via \eqnref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
 ($^{1}\Sigma$) or triplet ($^{3}\Sigma$) state and quickly de-excites to the ground state.
 
 \begin{subequations}
@@ -292,7 +292,7 @@ scintillation is found in \secref{subsec:tpcs_working_principle}.
 \label{subsec:stopping_power}
 A particle that loses energy through inelastic collisions with electrons (prompting excitation and ionization) produces an electronic
 recoil.  The energy lost per unit
-length is the electronic stopping power $F_{\mathrm{elec}}(E) = -(dE/dx)_{\mathrm{elec}}$ ($F_{\mathrm{elec}}$ is positive).  It is
+length is the electronic stopping power $S_{\mathrm{elec}}(E) = -(dE/dx)_{\mathrm{elec}}$ ($S_{\mathrm{elec}}$ is positive).  It is
 correlated with the linear energy transfer (LET) and depends on the type and energy of the particle and properties of the
 medium (e.g. density and composition).  A larger electronic stopping power indicates the particle will slow more quickly and
 transfer its energy more densely along its track.  This affects recombination between \electron and ions and is discussed in
@@ -307,13 +307,13 @@ $\gtrsim 15\ \mathrm{MeV}$.  Data from \citeref{Berger2018a}.}
 \end{figure}
 
 The energy loss per unit length of a particle through elastic collisions with atoms is the nuclear stopping power
-$F_{\mathrm{nucl}}(E) = -(dE/dx)_{\mathrm{nucl}}$.  In contrast to electronic stopping power,
-$F_{\mathrm{nucl}}(E)$ quantifies the slowing of the particle due to interactions with nuclei of the target and can be calculated using
+$S_{\mathrm{nucl}}(E) = -(dE/dx)_{\mathrm{nucl}}$.  In contrast to electronic stopping power,
+$S_{\mathrm{nucl}}(E)$ quantifies the slowing of the particle due to interactions with nuclei of the target and can be calculated using
 the repulsive potential energy between atoms.
 
-Dividing the stopping power by the medium's density ($F(E) / \rho$) gives a function of the incident particle known as
+Dividing the stopping power by the medium's density ($S(E) / \rho$) gives a function of the incident particle known as
 the mass stopping power.  Electronic (long dashed) and nuclear (short) mass stopping powers are shown for alphas, electrons, and protons
-in \figref{fig:mass_stopping_power}.  $F_{\mathrm{elec}} > F_{\mathrm{nucl}}$ over all energy except for electrons above roughly 15
+in \figref{fig:mass_stopping_power}.  $S_{\mathrm{elec}} > S_{\mathrm{nucl}}$ over all energy except for electrons above roughly 15
 MeV.  The total stopping power is
 
 \begin{equation}
@@ -324,14 +324,14 @@ MeV.  The total stopping power is
 $E_0$ can be approximated by
 
 \begin{equation}
-\Delta x = \int_0^{E_0} \frac{1}{F(E)}\, dE
+\Delta x = \int_0^{E_0} \frac{1}{S(E)}\, dE
 \label{eq:stopping_power_dist_trav}
 \end{equation}
 
 \noindent where $\Delta x$ is the continuous slowing down approximation (CSDA) and
-$F(E) \equiv -(dE/dx)_{\mathrm{tot}}$.  \eqnref{eq:stopping_power_dist_trav} does not account for energy-loss
+$S(E) \equiv -(dE/dx)_{\mathrm{tot}}$.  \eqnref{eq:stopping_power_dist_trav} does not account for energy-loss
 fluctuations.  For spin-independent
-WIMP dark matter searches the relevant energy range for electrons is $1 \mdash 20$ keV.  In this region $F(E)/\rho$ decreases so
+WIMP dark matter searches the relevant energy range for electrons is $1 \mdash 20$ keV.  In this region $S(E)/\rho$ decreases so
 electrons with more energy will travel farther by a ratio greater than their energy.  Alphas do not affect
 our dark matter search since they are in the MeV range and are easily identified by their large primary scintillation.  The
 \alphadecays that are relevant in our detector sit mostly around 5-7 MeV so have a stopping power between
@@ -349,7 +349,7 @@ density of the medium, LXe is more effective at self-shielding than liquid argon
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{recoil_diagram}
-\caption{Electronic (top, $\gamma$) and nuclear (bottom, neutron) recoil tracks for a 20 keV scatter.  Excitons (red circles), ions
+\caption{Electronic (top, $\gamma$) and nuclear (bottom, neutron) recoil tracks for 20 keV scatters.  Excitons (red circles), ions
 (blue), and
 heat (grey) are marked along the track.  The electronic recoil produces ${\sim} 20 \times$ as many ions as excitons while for nuclear
 recoil they are roughly equal.  Heat is only relevant in NRs and leads to signal quenching.  The electronic recoil has a path of
@@ -405,10 +405,11 @@ the density of \electron and ions independently \citeref{Jaffe1913}.  Its deriva
 \begin{subequations}
 \begin{align}
 \frac{\partial N_{+}}{\partial t} &= -u_{+} \mathbf{E}_d \cdot \nabla N_{+} + d_{+} \nabla^{2} N_{+} - \alpha N_{+} N_{-}
-\label{eq:diff_plus} \\z
+\label{eq:diff_plus} \\
 \frac{\partial N_{-}}{\partial t} &= u_{-} \mathbf{E}_d \cdot \nabla N_{-} + d_{-} \nabla^{2} N_{-} - \alpha N_{+} N_{-}
 \label{eq:diff_minus}
 \end{align}
+\label{eq:diff_plus_mins}
 \end{subequations}
 
 \noindent where $N_{\pm}$ are the ion ($+$) and electron ($-$) charge distributions ($N_+ = N_-$), $\mu_{\pm}$ are their mobilities,
@@ -417,7 +418,7 @@ are the coefficients for diffusion and recombination, and $\mathbf{E}_d$ is the 
 \eqnref{eq:diff_plus} and \eqnref{eq:diff_minus} correspond to the drift, diffusion, and recombination, from left to right.  The
 diffusion in xenon is small (millimeters per drift meter \citeref{Deiters1981}) and can be ignored.  Likewise the ion mobility $\mu_{+}$
 is several orders of magnitude smaller than that
-of the electron and is disregarded.  Thus \eqnref{eq:diff_plus} and \eqnref{eq:diff_minus} can be simplified to
+of the electron and is disregarded.  Thus \eqnref{eq:diff_plus_mins} can be simplified to
 
 \begin{subequations}
 \begin{align}
@@ -479,7 +480,7 @@ non-geminate and geminate recombination, respectively.  Geminate recombination (
 (volume) recombination is when an \electron is captured by an ion different than its parent.  This has been shown to be valid at
 $E \gtrsim 80\ \mathrm{keV}$ for \gammarays and light ions, and ${\sim} 1\ \mathrm{MeV}$ electrons.
 
-The considerable LET for $\alpha$-particles creates high-density tracks that lead to very strong and quick recombination.  The
+The considerable LET for $\alpha$-particles creates high-density tracks that lead to strong and quick recombination.  The
 density is so high only a small percent of \electron avoid recombination, even at electric fields of
 ${\sim} 10\ \mathrm{kV\ cm^{-1}}$
 (for electrons this is nearly 100\%) \citeref{Chepel2013}.  The consistency in charge collection across different fields causes
@@ -500,11 +501,11 @@ excimers via the Penning process that results in an excited and ground molecular
 quenching factors can be parameterized by
 
 \begin{equation}
-f_{l} = \frac{1}{1 + k_B B \frac{dE}{dx}}
+f_{b} = \frac{1}{1 + k_B B \frac{dE}{dx}}
 \label{eq:nr_scint_quench}
 \end{equation}
 
-\noindent where $k_B$ is Birks' constant.
+\noindent where $k_B$ is Birks' constant \citeref{Birks1951, Birks1964}.
 
 The decrease in scintillation yield for $\beta$ and $\gamma$ is only observed at low LET where the ionization density is relatively
 low.  The
@@ -657,12 +658,12 @@ by the getters from the LXe before they decay, as will with stable daughters \ce
  \centering
  Isotope & Decay & Energy [keV] & Half-Life \\
  \hline
- \ce{^{125}Xe} & $\ce{^{125}Xe} \rightarrow \ce{^{125}I} + \beta^{+} + \nu_{e}$ & 622.17 & 16.89 h \\
+ \ce{^{125}Xe} & $\ce{^{125}Xe} \rightarrow \ce{^{125}I} + e^{+} + \nu_{e}$ & 622.17 & 16.89 h \\
   & $\ce{^{125}I} + e^{-} \rightarrow \ce{^{125}Te} + \nu_{e}$ & 185.77 & 59.38 d \\
  \ce{^{127}Xe} & $\ce{^{127}Xe} + e^{-} \rightarrow \ce{^{127}I} + \nu_{e}$ & 662.33 & 36.34 d \\
- \ce{^{133}Xe} & $\ce{^{133}Xe} \rightarrow \ce{^{133}Cs} + \beta^{-} + \overline{\nu_{e}}$ & 427.36 & 5.24 d \\
- \ce{^{135}Xe} & $\ce{^{135}Xe} \rightarrow \ce{^{135}Cs} + \beta^{-} + \overline{\nu_{e}}$ & 1164.8 & 9.14 h \\
-  & $\ce{^{135}Cs} \rightarrow \ce{^{135}Ba} + \beta^{-} + \overline{\nu_{e}}$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
+ \ce{^{133}Xe} & $\ce{^{133}Xe} \rightarrow \ce{^{133}Cs} + e^{-} + \overline{\nu_{e}}$ & 427.36 & 5.24 d \\
+ \ce{^{135}Xe} & $\ce{^{135}Xe} \rightarrow \ce{^{135}Cs} + e^{-} + \overline{\nu_{e}}$ & 1164.8 & 9.14 h \\
+  & $\ce{^{135}Cs} \rightarrow \ce{^{135}Ba} + e^{-} + \overline{\nu_{e}}$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
  \hline
  \end{tabular}
  \caption{Radioactive isotopes of Xe produced from neutron capture.  Decays are shown to stable elements along with decay energies and
@@ -743,7 +744,7 @@ estimate a value of $F = 0.059$ for \electron and $\gamma$-rays.  This places a 
 \noindent where it is common to measure $\Delta E$ is in keV, $W$ is in eV, and the energy $E$ is in MeV \citeref{Aprile2009}.  Current
 LXe experiments have not yet achieved a Poisson resolution, so there is a lot of progress that can be made in the future.
 
-Rearranging \eqref{eq:quanta} the probability that a quanta is an ion is
+Rearranging \eqnref{eq:quanta} the probability that a quanta is an ion is
 
 \begin{equation}
 p_{\mathrm{ion}} = \frac{1}{1 + \frac{ n_{\mathrm{ex}} }{ n_{\mathrm{ion}} }}
@@ -756,8 +757,8 @@ between 0.06-0.2.  Following recombination the number of photons and electrons i
 
 \begin{subequations}
 \begin{align}
-n_{\mathrm{ph}} = n_{\mathrm{ex}} + rn_{\mathrm{ion}} \\
-n_{\mathrm{e}} = (1 - r)n_{\mathrm{ion}}
+n_{\mathrm{ph}} &= n_{\mathrm{ex}} + rn_{\mathrm{ion}} \\
+n_{\mathrm{e}} &= (1 - r)n_{\mathrm{ion}}
 \end{align}
 \end{subequations}
 
@@ -780,7 +781,7 @@ A fraction of the energy in a nuclear recoil will increase the kinetic energy of
 changes in translational motion of atoms so this portion is lost.  While energetic electrons are capable of transferring very small
 amounts of energy to the motion of the nucleus, the reverse is not true.  Atomic motion has only been observed in nuclear recoils,
 which implies for the same energy deposition $n_{\mathrm{q}}$ will differ between electronic and nuclear recoils.  The fraction of energy
-lost to atomic motion $f_{n}$ is commonly described by the Lindhard model
+not lost to atomic motion $f_{n}$ is commonly described by the Lindhard model
 \citeref{Lindhard1965}
 
 \begin{equation}
@@ -789,7 +790,8 @@ f_{n} = \frac{k g(\epsilon)}{1 + k g(\epsilon)}
 \end{equation}
 
 \noindent where $k = 0.133Z^{2/3}A^{1/2}$, $g(\epsilon) = 3\epsilon^{0.15} + 0.7\epsilon^{0.6} + \epsilon$, and
-$\epsilon = 11.5 (E / Z^{7/3})$ where $Z$ is the atomic number and $A$ is the number of nucleons.  $k$ is proportional to the ratio of
+$\epsilon = 11.5 (E / Z^{7/3})$ where $Z$ is the atomic number, $A$ is the number of nucleons, and $E$ has units of keV.  $k$ is
+proportional to the ratio of
 electronic stopping power to particle velocity of the recoiling Xe atom \citeref{Sorensen2011} and $g(\epsilon)$ is proportional
 to the ratio of electronic to nuclear stopping power (\secref{subsec:stopping_power}) \citeref{NEST2015}.  Here $k$ is taken
 from \citeref{Lewin1996} but there has been some debate over its value.  When parameterized by the Lindhard model the quenching factor
@@ -797,42 +799,56 @@ $f_{n}$ is sometimes written as $L(E)$.  It is shown in \figref{fig:lindhard} fo
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{Lindhard}
-\caption{Fraction of nuclear energy that becomes atomic motion in xenon using Lindhard's theory \citeref{Lindhard1965}.}
+\caption{Fraction of nuclear recoil energy that causes excitons and ions in xenon using Lindhard's theory \citeref{Lindhard1965}.}
 \label{fig:lindhard}
 \end{figure}
 
-In addition primary scintillation is reduced by biexcitonic quenching and the Penning process \eqnref{eq:nr_scint_quench}.  The total
+Primary scintillation is reduced by biexcitonic quenching and the Penning process (\eqnref{eq:nr_scint_quench}).  The total
 number of quanta is
 
 \begin{equation}
-n_{\mathrm{q}} = \frac{L(E) E}{W}
+n_{\mathrm{q}} = L(E) \frac{E}{W}
 \label{eq:nquant_nr}
 \end{equation}
 
-\noindent The difference between \eqref{eq:nquant_er} and \eqref{eq:nquant_nr} is $L(E)$.  Unlike electronic recoils,
-$n_{\mathrm{ex}} / n_{\mathrm{ion}} \sim 1$ \citeref{Sorensen2011, Angle2011} due to higher density tracks.
+\noindent The difference between \eqnref{eq:nquant_er} and \eqnref{eq:nquant_nr} is $L(E)$.  As with electronic recoils the probability
+of a quantum being an ion is
+
+\begin{equation}
+p_{\mathrm{ion}} = \frac{1}{1 + \frac{ n_{\mathrm{ex}} }{ n_{\mathrm{ion}} }}
+\end{equation}
+
+\noindent through the higher track density of nuclear recoils (\figref{fig:er_nr_recoil_diagram})  causes
+$n_{\mathrm{ex}} / n_{\mathrm{ion}} \sim 1$ \citeref{Sorensen2011, Angle2011}.  As electrons and ions
+recombine biexcitonic quenching and the Penning process reduce the number of photons by $f_b$ (\eqnref{eq:nr_scint_quench}).
+
+\begin{subequations}
+\begin{align}
+n_{\mathrm{ph}} &= f_b ( n_{\mathrm{ex}} + rn_{\mathrm{ion}} ) \\
+n_{\mathrm{e}} &= (1 - r)n_{\mathrm{ion}}
+\end{align}
+\end{subequations}
 
 
 
 %====================================
 \section{Time Projection Chambers}
 \label{sec:tpcs}
-Time projection chambers (TPCs) measures the light and charge of an interaction in the noble liquid.  They have been leading the
-spin-independent search for WIMP masses $> 10\ \mathrm{GeV}$ and as the ton-scale era progresses are poised to continue, as shown in
-\figref{fig:sensitivity_evo}.  In this section
-only liquid noble gases TPCs relevant for dark matter searches are discussed.  Furthermore, I will refer primarily to LXe but in
-most instances an identical treatment can be applied to LAr and LNe as well.
+Time projection chambers (TPCs) measure the light and charge of an interaction.  They have been leading the
+spin-independent search for WIMP masses $> 10\ \mathrm{GeV/c^2}$ for ${\sim}10\ \mathrm{years}$, and as we reach the ton-scale era are
+projected to continue.  \figref{fig:sensitivity_evo} shows the evolution of detectors and their spin-independent limits for roughly
+$30 \mdash 70\ \mathrm{GeV/c^2}$ WIMPs.  This section discusses liquid noble gas TPCs used for dark matter detection.  It primarily covers
+xenon but for most details an identical treatment can be applied to argon and neon.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{SensitivityEvolutionBetter}
-\caption{Spin-independent cross-section evolution for WIMP with $m_{\chi} = 50 \mdash 100\ \mathrm{GeV}$.  Solid markers represent
-already realized
+\caption{Spin-independent cross-section evolution for WIMPs with $m_{\chi} \sim 30 \mdash 70\ \mathrm{GeV/c^2}$.  Solid markers represent
+realized
 values while empty squares denote projected.  Purple markers refer to germanium (\secref{subsec:germanium}) as well as CsI and NaI
 detectors (\secref{subsec:crystals}), orange represent cryogenic bolometers (\secref{subsec:bolometers}), turquoise denotes single-phase
-noble liquid chambers, and green symbolizes dual-phase.  It is
-clear that for approximately the last decade LXe detectors have led the search and are
-expected to continue to do so.  Image credit: \citeref{Baudis2014}.}
+noble liquid chambers, and green symbolizes dual-phase.  For approximately the last decade LXe detectors have led the search and are
+projected to continue to do so.  Image credit: \citeref{Baudis2014}.}
 % for SensitivityEvolution
 %Black circles refer to germanium and silicon detectors (\secref{subsec:germanium}), blue diamonds
 %depict cryogenic bolometers (\secref{subsec:bolometers}), red and green triangles symbolize LXe and LAr detectors, and
@@ -842,45 +858,37 @@ expected to continue to do so.  Image credit: \citeref{Baudis2014}.}
 
 \subsection{Working Principle}
 \label{subsec:tpcs_working_principle}
-TPCs consist of a liquid noble element with a small gas gap at the top.  At least three meshes are required for a functioning TPC: the
-cathode, gate, and anode, all of which are parallel.  A diagram of a TPC with an event is shown in \figref{fig:tpcs_tpc}.  The cathode is
-at the bottom of the detector and applies an electric field - known as the drift field $E_{d}$ - between
-it and the gate, which is grounded.  The liquid level is set to just above the gate.  As briefly covered in \secref{subsec:secondary}
-$E_{d}$ will push any \electron that do not recombine towards the surface of the liquid at drift velocity $v_{d}$.  Typically an electric
-field cage consisting
-of metal rings is stacked vertically, parallel to the cathode and gate.  Resistors connect consecutive rings to ensure uniform voltage
-drops to maintain drift field uniformity.
+TPCs consist of a liquid noble element with a small gas gap at the top.  A minimum of three parallel metal meshes are needed: the
+cathode, gate, and anode.  The cathode is
+at the bottom of the detector and applies an electric field - known as the drift field $E_d$ - inside the active volume.  The gate rests
+just beneath the liquid level and is grounded, so the drift field pushes electrons that do not recombine towards the surface of the liquid
+at drift velocity $v_{d}$.  Typically an electric field cage consists
+of metal rings that mark the perimeter and are stacked vertically, parallel to the cathode and gate.  Identical resistors connect adjacent
+rings so voltage drops are equivalent and maintain drift field uniformity.
 
-\begin{figure}
-\includegraphics[width=\textwidth]{}
-\label{fig:tpcs_tpc}
-\end{figure}
-
-The body of \electron that move along $E_{d}$ are known as the electron cloud.  As the electron cloud drifts it diffuses both
-longitudinally (in the direction of $E_{d}$) and transversely (perpendicular to $E_{d}$).  The
+The observable that corresponds to the measurement of photons emitted from the site of the interaction is referred to as the S1, named
+because it is the first scintillation.  The electrons, which do not contribute to the S1, drift to the surface of the liquid.  Over this
+period the electron cloud diffuses longitudinally (in the direction of $E_{d}$) and transversely (perpendicular).  The
 diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread can
-be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
+be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the electron drift time and $d$ is the drift distance.
 
-While xenon distillation inevitably leaves residual noble gases, it is much more effective at removing other elements.  Nonetheless
-impurities that outgas from detector materials contaminate the noble gas.  Electronegative impurities in particular present a problem
-since they attach to drifting $e^{-}$,
-lowering the number that reach the liquid-gas interface and thus decreasing the secondary scintillation.  The attachment process
-is \eqref{eq:impurity_attach}.
+Impurities that outgas from detector materials mix into the gas and liquid.  Electronegative impurities in particular are a problem
+because they attach to drifting $e^{-}$ and
+lower the number that reach the liquid-gas interface.  The attachment process
+is \eqnref{eq:impurity_attach}.
 
 \begin{equation}
 e^{-} + S \rightarrow S^{-}
 \label{eq:impurity_attach}
 \end{equation}
 
-\noindent where $S$ is the impurity.  The number of \electron captured is dependent drift time $t_{d}$ and the
-attachment rate of
-the impurities $k_{S}$, both of which depend on $E_{d}$.  Clearly then an advantage of larger
-\efields is a larger
-\vd (up to a point, see \figref{fig:drift_velocity}) and thus less time in the liquid.  Doping LXe with organic materials such as butane
-can increase \vd at stronger
-\efields but are not used in DM detectors due to difficulty in purifying \citeref{Yoshino1976}.  The rate at which electrons are
-absorbed by impurities is proportional to the number of electrons, impurities, and impurity attachment rate.  Assuming the the density
-of impurities in the liquid and $E_{d}$ are uniform we find
+\noindent where $S$ is an impurity.  The number of \electron captured depends on drift time and the impurity attachment rate
+$k_{S}$, both of which vary with $E_{d}$.  An advantage of larger electric fields is a greater
+\vd (up to a point, \figref{fig:drift_velocity}) to limit time in the liquid.  Doping LXe with organic materials such as butane
+can increase \vd at large
+fields but are not used in DM detectors because of purification difficulties \citeref{Yoshino1976}.  The rate at which electrons are
+absorbed by impurities is proportional to the number of electrons, impurities, and impurity attachment rate.  Assuming the density
+of impurities in the liquid and $E_{d}$ are uniform the charge $q$ is described by
 
 \begin{equation}
 \frac{dq}{dt} = -qk_{S}S
@@ -888,122 +896,116 @@ of impurities in the liquid and $E_{d}$ are uniform we find
 \end{equation}
 
 \begin{equation}
-q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e^-}}
+q(t) = q_{0}e^{-tk_{S}S} = q_{0}e^{-t/\tau_{e}}
 \label{eq:lifetime_equation}
 \end{equation}
 
-\noindent where $\tau_{e^-} = (k_{S}S)^{-1}$ is the electron lifetime.  $k_{S}$ is shown in \figref{fig:attachment_rate} for
-O$_{2}$,
-N$_{2}$O, and SF$_{6}$.  We see that for N$_{2}$O the attaching rate constant increases with \efield whereas \otwo and SF$_{6}$
-decerase.  Typically impurity concentration is given in O$_{2}$-equivalent values, or the concentration of \otwo if it was solely
-responsible for \electron attachment.  For modeling electron lifetime it turns out that using the \otwo curve in
-\figref{fig:attachment_rate} gives a good approximation as it is expected to the most dominant.  Removing these
-impurities will be discussed in \secref{subsec:xenon1t_pur} and measuring the electron lifetime is detailed in
-\secref{subsec:calibrations_elifetime}.
+\noindent where $\tau_{e} = (k_{S}S)^{-1}$ is the electron lifetime and $q_0$ is the initial charge.  $k_{S}$ is the attaching rate
+constant and is shown in \figref{fig:attachment_rate} for O$_{2}$,
+N$_{2}$O, and SF$_{6}$.  It increases for N$_{2}$O with $E_d$ whereas \otwo and SF$_{6}$
+decerase.  For LXe TPCs it is common to give the impurity concentration in \ce{O_2}-equivalence - the concentration of \otwo if it were
+solely responsible for \electron attachment.  \ce{O_2} is expected to be the dominant electronegative contaminant, and its curve
+in \figref{fig:attachment_rate} works well for modeling the electron lifetime (\chapref{chap:purification}).  Removing these
+impurities is discussed in \secref{subsec:xenon1t_pur} and measuring the electron lifetime is covered in
+\secref{subsec:det_char_elifetime, sec:electron_lifetime_measurements}.
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{attachingratevsfield}
-\caption{Attaching rate constant $k_{S}$ from \citeref{Bakale1976} for O$_{2}$, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
-larger \efields $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.}
+\caption{Attaching rate constant $k_{S}$ for O$_{2}$, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
+larger $E_d$ $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.  Image credit: \citeref{Bakale1976}.}
 \label{fig:attachment_rate}
 \end{figure}
 
-Several millimeters above the gate sits the anode.  The electric field between the gate and anode $E_{g}$ must be strong
-enough to extract the \electron that reach the liquid surface into the gas - typically $> 10\ \mathrm{kV\ cm^{-1}}$.  An extracted
+The anode rests several millimeters above the gate.  The electric field between the gate and anode $E_{g}$ must be strong
+enough to extract the \electron that reach the liquid surface into the gas (typically $\gtrsim 10\ \mathrm{kV\ cm^{-1}}$).  An extracted
 \electron will quickly gain enough kinetic energy to ionize atoms in the gas,
-whose \electron in turn ionize others, creating a cascade effect.  Because the scintillation per electron is independent of
+whose \electron in turn follow, creating a cascade effect.  Because the scintillation per electron is independent of
 the total number of electrons extracted this is known as proportional scintillation.  It is also known as secondary scintillation or
-electroluminescence.  The number of photons $N_{\mathrm{ph}}$ produced over a distance $z$ per \electron is
+electroluminescence.  The number of photons $N_{\mathrm{ph}}$ produced over a distance $z$ per electron is
 
 \begin{equation}
-\frac{dN_{\mathrm{ph}}}{dz} = \alpha \Big( \frac{E_{g}}{P} - \beta \Big) P
+\frac{dN_{\mathrm{ph}}}{dz} = \alpha \bigg( \frac{E_{g}}{P} - \beta \bigg) P
 \label{eq:electronlum}
 \end{equation}
 
 \noindent where $\alpha = 70\ \mathrm{photons\ kV^{-1}}$, $\beta = 1.0\ \mathrm{kV\ cm^{-1}\ atm^{-1}}$, and $P$ is the pressure in the
-gas \citeref{Belogurov1995}.
-
-TPCs have photodetectors at the top (above the gate) and bottom (below the cathode).  While proportional scintillation occurs at the top
-and in most detector settings produces enough light to guarantee detection, prompt scintillation - especially for low energy events - does
-not have this benefit.  Depending on the geometry of the detector the fraction of light that is directed towards the photodetectors can
-be small, and the photodetectors themselves can have less than unity photon detection efficiency (\secref{subsec:tpcs_pmts}).  PMTs cannot
-be fixed around the cylindrical portion of the TPC because it would interfere with the drift field created by the field cage.  To increase
-the intensity of light that reaches the photodetectors, and thereby improve the likelihood that an event is
-detected, the wall of the TPC is covered in a reflective material just inside the field cage.  Polytetrafluoroethylene (PTFE) is
-reflective for liquid noble gas scintillation (in the UV range) and is a common choice.  It has been shown to have $> 97 \%$
-reflectance when immersed in LXe to 178 nm, the xenon scintillation wavelength \citeref{Neves2017}.
+gas \citeref{Belogurov1995}.  The observable that corresponds to the measurement of electroluminescence is referred to as the S2, for
+second scintillation.
 
 
 \subsection{Photomultiplier Tubes}
 \label{subsec:tpcs_pmts}
-Photomultiplier tubes (PMTs) are used for light detection in TPCs.  A digram of a PMT is shown in \figref{fig:tpcs_pmts_pmt_diagram}.  An
-incoming photon that
-passes through the window of the PMT will most often hit the photocathode, freeing a photoelectron via the photoelectric effect.  Single
-photoelectron emission (SPE) refers to a photon freeing a single \electron from the photocathode.  Once ejected, the photoelectron passes
-through the focusing
-electrode, which directs it towards the first dynode.  The dynodes are coupled to one another through resistors, lowering the electric
-potential with each successive one.  As the photoelectron hits the first dynode it will induce secondary emission.  The newly freed
-\electron will then pass to the
-second dynode, repeating this procedure.  The result is a cascade effect, amplifying the current by as much as 100 millions and ending
+Photomultiplier tubes (PMTs) are used for light detection in TPCs.  A digram of a PMT is shown in \figref{fig:tpcs_pmts_pmt_diagram}.  A
+photon that
+passes through the PMT window will most often strike the photocathode and free a photoelectron via the photoelectric effect.  This process
+is known as single photoelectron emission (SPE).  Once ejected, the photoelectron will be directed by the focusing electrode towards the
+first dynode.  The dynodes are coupled to one another through resistors that systematically decrease their electric potential.  As the
+photoelectron hits the first dynode it will free a second electron.  The freed electrons will be drawn to the
+second dynode and repeat this procedure.  The result is a cascade effect, amplifying the current by as much as 100 million and ending
 at the anode, where the charge is output to a voltage reading device such as an oscilloscope or digitizer.
 
-The
-quantum efficiency (QE), which is the ratio of electrons ejected from the photocathode divided by incident photons, is approximately
-one third.  Because of this relatively low value choosing a highly reflective material for the TPC wall is critical.  The QE spectrum for
-the PMTs used in XENON1T, Hamamatsu R11410, is shown in \figref{fig:tpcs_pmts_qe}.  Note the maximum is near 178 nm, making it a good
-choice for LXe.  
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{PMT1Better}
+\caption{Diagram of a PMT.  An incident photon hits the photocathode and ejects an photoelectron.  With each dynode the more \electron are
+freed, creating an amplified signal.  Image credit: \citeref{CHROMacademy}.}
+\label{fig:tpcs_pmts_pmt_diagram}
+\end{figure}
+
+If the photon's energy is at least double the workfunction of the photocathode the number of photoelectrons ejected should follow
+follow a Poisson distribution.  However, a study of several Hamamatsu vacuum ultraviolet-sensitive (VUV) PMTs showed double
+photoelectron emission
+(DPE) fractions between 18-24\% depending on the PMT, higher than the expected ${\sim} 15\%$ \citeref{Faham2015}.  The study included PMTs
+used in XENON100 and XENON1T.  In other cases a photon may pass through the photocathode and hit
+the first dynode.  If it ejects an electron the PMT response
+will be similar to a photocathode hit with one less dynode, i.e. an under-amplified current.  
+
+The quantum efficiency (QE) is the ratio of electrons ejected from the photocathode divided by incident photons.  The QE spectrum for
+the PMTs used in XENON1T, Hamamatsu R11410, is shown in \figref{fig:tpcs_pmts_qe}.  Its low efficiency means the majority of photons that
+reach our PMTs will not produce a photoelectron.  Other photodetectors have been considered but lead to problems that outweigh those
+of PMTs.  Xenon's scintillation wavelength (178 nm) is near the spectrum's maximum of approximately 35\%.  Liquid argon and neon have
+scintillation wavelengths of 128 and 78 nm, respectively.  Because PMTs are not sensitive to these energies LAr experiments use
+wavelength shifters.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{pmt_efficiency}
 \caption{Quantum efficiency with respect to wavelength for the Hamamatsu R11410 PMT, used in XENON1T.  The peak efficiency occurs near
-the xenon scintillation wavelength 178 nm at $\sim 35 \%$.  The sharp cutoff to the left is due to the quartz window.  Image credit:
-\citeref{Lung2012}.}
+the xenon scintillation wavelength 178 nm at ${\sim} 35 \%$.  Image credit: \citeref{Lung2012}.}
 \label{fig:tpcs_pmts_qe}
 \end{figure}
 
-In some cases an incident photon may pass through the photocathode and directly hit the first dynode, freeing an electron.  This will
-cause the same response as a photocathode ionization except with one fewer dynode, leading to an under-amplified current.  Additionally,
-if the incident photon has at least double the workfunction of the photocathode we would expect the number of photoelectrons emitted to
-follow a Poisson distribution.  However, a recent study of several Hamamatsu vacuum ultraviolet-sensitive (VUV) PMTs showed the double
-photoelectron emission
-(DPE) fraction was between 18-24\% depending on the PMT, higher than the expected $\sim 15\%$ \citeref{Faham2015}.  This includes the
-PMTs that are used in XENON100 and XENON1T.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{PMT1Better}
-\caption{Diagram of a PMT.  An incident photon hits the photocathode, freeing a photoelectron.  With each dynode the more \electron are
-freed, creating an amplified signal that is eventually output.  Image credit: \citeref{CHROMacademy}.}
-\label{fig:tpcs_pmts_pmt_diagram}
-\end{figure}
-
-Liquid noble gases used in dark matter searches emit ultraviolet light.  Scintillation is at 178 nm for xenon, 128 nm for argon, and
-78 nm for neon.  LAr experiments have to use wavelength shifters because current PMTs are not sensitive to such low wavelengths.  For
-LXe this is not a problem as PMTs have good sensitivity to 178 nm.  Details of the PMTs used in XENON1T as well as a discussion of
-afterpulses can be found in \secref{subsec:xenon1t_pmts}.
+TPCs have photomultiplier tubes below the cathode and above the gate.  While proportional scintillation occurs at the top of the detector
+and in most detector settings produces enough light to guarantee detection, prompt scintillation - especially for low energy events - can
+be more difficult to observe.  Depending on the geometry of the detector and the location of the event the fraction of light
+directed towards the photodetectors can
+be small.  PMTs cannot be fixed around the side of the TPC because their electric fields will interfere with the field
+cage.  To increase
+the fraction of light that reaches the photodetectors the wall of the TPC is covered by polytetrafluoroethylene (PTFE) just inside the
+field cage.  PTFE is reflective for liquid noble gas scintillation and is a common choice.  It has been shown to have $> 97 \%$
+reflectance to 178 nm light when immersed in LXe \citeref{Neves2017}.
 
 
 
 \subsection{Signals}
 \label{subsec:tpcs_signals}
-Primary and secondary scintillation are measured in units of photoelectrons and denoted S1 and S2, respectively.  An example of an
-interaction is shown in \figref{fig:tpcs_signal_tpc}.  In the left side a particle scatters with the LXe, prompting photons almost
-immediately that are observed by the PMTs.  The right side shows the freed \electron that have drifted to the LXe-GXe interface and
-are extracted by the anode across the GXe.  The PMTs are colored with relative intensity they would observe.  For a typical S1 the
-bottom PMTs observed more light due to reflection off the LXe surface (though the amount depends on where in the TPC the interaction
-occurs).  For S2s the top PMTs see more light since the amplification occurs close and directly underneath them.  For S2s
-the top PMTs have an intensity profile centered around where the \electron are extracted.  The bottom PMTs have a roughly uniform
-distribution as the light has more area to separate, as well as reflect off the walls.
+S1s (primary scintillation) and S2s (secondary) are measured in photoelectrons (PEs).  An example of an
+event is shown in \figref{fig:tpcs_signal_tpc}.  On the left a particle scatters with the LXe, prompting photons that are almost
+immediately observed by the PMTs.  The right side shows the \electron drifting to the LXe surface and
+extracted by the anode across the GXe.  The colors correspond to the relative intensity of light seen by each PMT.  For a typical S1 the
+bottom PMTs observe more light due to reflection off the LXe surface (though the amount depends on where in the TPC the interaction
+occurs).  For S2s the top PMTs see more light since electroluminescence occurs just several centimeters underneath them.  For S2s
+the top PMTs have an intensity profile centered around where the \electron are extracted.  The profile for the bottom PMTs is more
+uniform since the solid angle per PMT is less.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{xenon1t_tpc}
-\caption{A diagram of an interaction in a LXe TPC.  The primary scintillation (S1) is immediately
-observed by the PMT arrays.  The \electron drift under $E_{d}$ towards the top of the detector, where they are extracted across GXe,
-creating secondary scintillation (S2).  The plot at the bottom depicts what a typical waveform looks like.  Note the S2 is significantly
-higher than the S1 due to the amplification during electroluminescence.  The relative intensity of light in the PMTs, or PMT hit
-pattern, can be used to determine the x- and y-coordinates of the interaction.}
+\caption{Diagram of an interaction in a LXe TPC.  The S1 is immediately
+observed by the PMTs.  The \electron drift towards the top of the detector, where they are extracted across GXe,
+creating the S2.  A typical waveform is shown at the bottom.  The S2 is significantly
+larger than the S1 due to the amplification of electroluminescence.  The relative intensity of light in the PMTs, or PMT hit
+pattern, can be used to determine the $x$- and $y$-coordinates of the interaction.  Image credit: Lutz Alth\"{u}ser.}
 \label{fig:tpcs_signal_tpc}
 \end{figure}
 
@@ -1011,14 +1013,15 @@ pattern, can be used to determine the x- and y-coordinates of the interaction.}
 
 \subsubsection{Position Reconstruction}
 \label{subsubsec:tpcs_signals_posrec}
-In addition to knowing the z-coordinate of the interaction ($\mathrm{z} = v_{d} t_{d}$) TPCs can recove the x and y positions.  The S2
-hit pattern in the top PMT panel in \figref{fig:tpcs_signal_tpc} very clearly shows an intensity distribution that peaks at one
-PMT and dissipates outwards.  It seems likely then that the S2 was extracted beneath or nearly beneath this PMT then.  A variety of
-algorithms can be applied to PMT hit patterns to estimate the x-y position of the event.  Typically the resolution of event
+In addition to knowing the $z$-coordinate of the interaction ($z = v_{d} t_{d}$) TPCs can recover the $x$ and $y$ positions.  The S2
+hit pattern in the top PMT array in \figref{fig:tpcs_signal_tpc} shows an intensity distribution that peaks at one
+PMT and dissipates away from it.  It is reasonable to assume the S2 was extracted beneath or nearly beneath this PMT.  A number of
+algorithms can be applied to PMT hit patterns to estimate the $x \mdash y$ position of the event.  Typically the resolution of event
 reconstruction depends on the number and area of PMTs as well as the S2 size.  \figref{fig:tpcs_signals_posrec} shows the event
-distribution for XENON1T Science Run 1.  The majority of events are near the wall, a consequence from the
-traces of radioactivity present in detector materials.  The large self-shielding of LXe constrains nearly all of these to within
-${\sim} 5\ \mathrm{cm}$ of the wall, enabling a reasonably large fiducial volume.
+distribution for second XENON1T science run.  The majority of events are near the wall - a consequence of
+radioactivity present in detector materials.  The large self-shielding of LXe constrains these events to ${\sim}5\ \mathrm{cm}$ of the
+wall.  Three-dimensional position reconstruction allows us to reject events in regions where we
+expect a large background.  The region of interest for dark matter search data is known as the fiducial volume.
 
 \begin{figure}
     \centering
@@ -1030,8 +1033,8 @@ ${\sim} 5\ \mathrm{cm}$ of the wall, enabling a reasonably large fiducial volume
         \centering
         \includegraphics[height=4.5cm]{PosRecRZ}
     \end{subfigure}
-    \caption{Position reconstruction for events in XENON1T Science Run 1.  Top PMT hit patterns are used to determine $x-y$ while
-    $\mathrm{z} = v_{d} t_{d}$.  The number of events drops dramatically at lower radii due to the self-shielding of LXe.}
+    \caption{Position reconstruction for events in XENON1T Science Run 1.  Top PMT hit patterns are used to determine $x \mdash y$ while
+    $z = v_{d} t_{d}$.  The number of events drops dramatically at lower radii due to the self-shielding of LXe.}
 	\label{fig:tpcs_signals_posrec}
 \end{figure}
 
@@ -1039,60 +1042,79 @@ ${\sim} 5\ \mathrm{cm}$ of the wall, enabling a reasonably large fiducial volume
 
 \subsubsection{Discrimination}
 \label{subsubsec:tpcs_signals_discr}
-As discussed in \secref{subsec:stopping_power} the track structure affects recombination (\secref{subsec:recombination}), thereby
-influencing the S1 and S2.  \figref{fig:mass_stopping_power} shows that the stopping power, and therefore track structure, changes
-with energy for a given particle, so we expect S2/S1 to vary.  Because the track structure of a neutron is denser than $\beta$ and
-$\gamma$ recombination should yield different prompt and proportional scintillations.  While we know nuclear recoils lose a
-non-negligible fraction of energy to atomic motion
-(\secref{sec:nr}), it is still possible to apply ER-NR discrimination by looking at S1-space instead.
+The exciton-to-ion ratio and recombination (\secref{subsec:recombination}) are responsible for the fraction of quanta that produce S1s
+and S2s.  Under identical
+detector conditions recombination is largely governed by the ionization density, which is determined by the stopping power
+(\secref{subsec:stopping_power}).  \figref{fig:mass_stopping_power} shows the mass stopping power dependence on energy and recoil type,
+and \figref{fig:er_nr_recoil_diagram} shows the track structure for 20 keV electronic and nuclear recoils.  Because the nuclear recoil has
+a greater ionization density its electron-ion pairs are more likely to recombine \citeref{Faham2014}.  The disproportionate exciton-to-ion
+ratios and recombination fraction allow discrimination between electronic and nuclear recoils.
 
-\figref{fig:tpcs_signals_ernr} shows S2 vs. S1 for electronic and nuclear recoils.  The electronic are from a \ce{^{220}Rn} calibration
-where the \ce{^{212}Pb} daughter undergoes $\beta$-decay.  The short lifetime of the \ce{^{220}Rn} decay chain, low energy
-recoil (569.9 end-point energy), and uniform distribution throughout the detector make \ce{^{220}Rn} an excellent choice for
-ER calibration.
+\figref{fig:tpcs_signals_ernr} shows S2 vs. S1 for electronic and nuclear recoils.  The ER are from \ce{^{220}Rn} calibrations
+where its progeny \ce{^{212}Pb} undergoes $\beta$-decay.  The short lifetime of the \ce{^{220}Rn} decay chain, continuous energy spectrum
+of $\beta$-decays, and uniform distribution throughout the detector make \ce{^{220}Rn} an excellent choice for measuring S1 and S2 for
+electronic recoils.
 
-Unfortunately there are no noble gas neutron sources
-for calibrating inside the TPC and other elements would lower the purity of the detector, significantly decreasing the electron
-lifetime.  Therefore nuclear calibrations must be done with external sources, limiting the number of events in the FV.  For XENON1T
-these were done with americium beryllium (AmBe) and a neutron generator.  The nuclear recoils in \figref{fig:tpcs_signals_ernr} are from
-an AmBe calibration during Science Run 1 with $E_g = \gtrsim 10 \ \mathrm{kV\ cm^{-1}}$.
+To map the S1-S2 parameter spaces separate ER and NR calibrations are performed.  Electron recoil calibrations use \ce{^{220}Rn} since
+its progeny \ce{^{212}Pb} undergoes $\beta$-decay.  The short lifetime of the \ce{^{220}Rn} decay chain
+($\sum_i t_{1/2} < 12\ \mathrm{h}$), continuous energy spectrum
+of $\beta$-decays, and uniform distribution throughout the detector make it an excellent choice for measuring S1 and S2 for
+electronic recoils.  Events from XENON1T calibrations are shown in red in \figref{fig:tpcs_signals_ernr}.
 
-As expected from the less concentrated track structure we see that the \ce{^{220}Rn}
-has on average larger S2s for a given S1, meaning that even though we are not comparing energies, the change in stopping
-power between the ER and NR energies still results in a denser track for NR.  This holds true in general, giving
+There are no neutron sources that can be mixed with xenon to perform internal nuclear recoil calibrations.  Therefore, calibrations
+must be done with sources placed outside of the detector.  Xenon's self-shielding (${\sim}10\ \mathrm{rm}$ mean free path for MeV
+neutrons \citeref{Israelashvili2015}) causes the distribution of events to be largest near
+the source, and - depending on the size of the detector - can significantly reduce the fraction of events that reach the center of the
+detector, and force longer calibration windows.  For XENON1T nuclear recoil sources include
+americium beryllium \ce{^{241}AmBe} and a deuterium-deuterium (D-D) neutron generator (NG) \citeref{Lang2018}.  The nuclear recoils are
+marked in blue in \figref{fig:tpcs_signals_ernr} are from the \ambe calibration during the second XENON1T science run.
+
+As predicted above \figref{fig:tpcs_signals_ernr} shows nuclear recoils have a larger photon-to-electron ratio than electronic recoils due
+to their higher $n_{\mathrm{ex}}/n_{\mathrm{ion}}$ and recombination.  It shows
 
 \begin{equation}
-\Big( \frac{\mathrm{S}2}{\mathrm{S}1} \Big)_{\mathrm{ER}} > \Big( \frac{\mathrm{S}2}{\mathrm{S}1} \Big)_{\mathrm{NR}}
+\bigg( \frac{\mathrm{S}2}{\mathrm{S}1} \bigg)_{\mathrm{ER}} > \bigg( \frac{\mathrm{S}2}{\mathrm{S}1} \bigg)_{\mathrm{NR}}
 \end{equation}
 
-\noindent for all S1s.
+\noindent across all S1-S2 values.  This data is used to characterize the ER and NR observables (S1, S2) space so that the origin of each
+dark
+matter search event can be estimated.  Because a substantial fraction of energy is lost to atomic motion in a nuclear recoil the energies
+of the events in \figref{fig:tpcs_signals_ernr} differ between ER and NR.  As an example, a nuclear recoil event at
+$\mathrm{S1} = 60\ \mathrm{PE}$ has an energy of ${\sim}35\ \mathrm{keV}$ while for electronic recoils it is closer to 8 keV.  For this
+reason several energy scales are used (\secref{subsubsec:tpcs_signals_energy}).
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_nr_discrimination}
-\caption{S2 (proportional) vs. S1 (prompt) for recoils in LXe.  Electronic recoils are from the \ce{^{220}Rn} decay chain where
-\ce{^{212}Pb} undergoes $\beta$-decay with an end-point energy of 569.9 keV (\textbf{check this}) and are shown in red.  Nuclear
-recoils are from americium beryllium (AmBe) and are shown in blue.  We see the ratio of S2/S1 is larger for electronic recoils,
-allowing discrimination between possible WIMPs and ER background.}
+\caption{S2 (proportional) vs. S1 (prompt) for XENON1T calibration data.  Electronic recoils are from the \ce{^{220}Rn} decay chain as
+progeny \ce{^{212}Pb} undergoes $\beta$-decay with an end-point energy of 569.9 keV (red).  Nuclear
+recoils are from americium beryllium (\ce{^{241}AmBe}) (blue).  S2/S1 is larger for electronic recoils, which enables discrimination
+between possible WIMPs and the ER background.}
 \label{fig:tpcs_signals_ernr}
 \end{figure}
 
-It is possible to reconstruct the number of photons and electrons from an S1 and S2.  Doing so requires knowledge of a number of detector
-variables, including PMT quantum efficiencies, light per extracted $e^{-}$, light collection efficiency (LCE), and more.  These are
-discussed in detail in \secref{sec:er_nr_calibrations}.  If these are well-understood the number of photons and electrons,
-can be calculated.  Typically these are given in photoelectrons per photon and photoelectrons per \electron and are designated by
-light and charge yield, respectively (details in \secref{}).  \figref{fig:tpcs_signals_drift_field} shows the ratios of light and
-charge yield as a function of drift field for 122 keV electron recoils (\ce{^{57}Co} $\gamma$-rays), 56.5 keV elastic nuclear recoils, and
-5.5 MeV $\alpha$-decays.  Expectedly at larger drift fields the light yield declines while the charge increases.  The sparser
-ionization density directs electronic recoils to be significantly more influenced than nuclear or alphas.  This dissimilarity reveals
-the drift field can be optimized for ER-NR discrimination.
+The number of photons and electrons can be reconstructed from the S1 and S2.  Doing so requires knowledge of a number of detector
+variables including PMT quantum efficiencies (\secref{subsec:tpcs_pmts}) and electroluminescence
+(\secref{subsec:tpcs_working_principle}).  These are discussed in detail in \secref{sec:det_char} and
+\secref{sec:er_nr_calibrations_parameter_determ}.  If the energy of an event is known the light yield and charge yield can be calculated
+in units of photons per energy and electrons per energy, i.e. $n_{\mathrm{phot}}/E$ and $n_{\mathrm{e}}/E$.  Because the light and charge
+yields describe detector-independent microphysics there has been an effort to measure them
+(\secref{sec:er_nr_calibrations_results_ly_qy}).  Measurements of photoelectrons per energy may also be referred to as light and charge
+yields (\secref{subsec:det_char_ly_cy}) and are useful for monitoring detector conditions (because they are detector-dependent they do not
+provide insight into fundamental physics).  \figref{fig:tpcs_signals_drift_field} shows the ratios of light and
+charge yields as a function of drift field for 122 keV electronic recoils (\ce{^{57}Co} $\gamma$-rays), 56.5 keV elastic nuclear recoils
+(\ce{^{241}AmBe} and \ce{^{252Cf}}), and
+5.3 MeV $\alpha$-decays (\ce{^{210}Po}).  At larger $E_d$ the light yield declines while the charge yield increases.  The more
+significant change in ER is due to its sparser ionization density and suggests the drift field can be optimized for ER-NR discrimination.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{LYQY}
-\caption{Field dependence of light (S(E)/S$_{0}$, red) and charge (Q(E)/Q$_{0}$, blue) yields.  S$_{0}$ and Q$_{0}$ are taken at
-infinite field.  Electronic recoils are shown as solid diamonds and are from 122 keV \gammarays of \ce{^{57}Co}.  Nuclear recoils
-are shown as empty squares and are from elastic 56.5 keV scatters of \ambe and \ce{^{252}Cf}.  Solid circles represent \ce{^{210}Po}
+\caption{Field dependence of light (S(E)/S$_{0}$, red) and charge (Q(E)/Q$_{0}$, blue) yields.  S$_{0}$ is the light yield at zero field
+and Q$_{0}$ is the charge yield at
+infinite field.  Electronic recoils are shown as solid diamonds and are measured from \ce{^{57}Co} 122 keV $\gamma$-rays.  56.5
+keV elastic neutron scatters from \ambe and \ce{^{252}Cf} are marked by hollow squares.Nuclear recoils
+are marked by hollow squares and are from elastic 56.5 keV neutron scatters from \ambe and \ce{^{252}Cf}.  Solid circles represent \ce{^{210}Po}
 5.3 MeV $\alpha$-decays.  Sparser ionization densities precipitate stronger field-dependence for electronic scatters than for nuclear and
 alpha, signifying $E_{d}$ can be tuned for improved ER-NR discrimination.  Image credit: \citeref{Aprile2006b}.}
 \label{fig:tpcs_signals_drift_field}
@@ -1102,8 +1124,8 @@ alpha, signifying $E_{d}$ can be tuned for improved ER-NR discrimination.  Image
 
 \subsubsection{Energy Reconstruction}
 \label{subsubsec:tpcs_signals_energy}
-An important feature in a detector is the ability reconstruct the energy of the event using the scintillation and
-ionization yields.  There are several energy scales that can be used depending on the interest.  For electronic recoils energy
+An important feature in a detector is the ability reconstruct the energy of the event.  There are several energy scales used
+depending on the interest.  For electronic recoils energy
 reconstruction is relatively straightforward since the energy is converted to photons and electrons.  Nuclear recoils are more
 complicated since they pick up translational energy and are more likely to undergo biexcitonic quenching.  There are three commonly-used
 energy scales.
@@ -1126,16 +1148,16 @@ calibration.
 122 keV \gammaray from \ce{^{57}Co}.  It is given by
 
 \begin{equation}
-E_{\mathrm{NR}} = \frac{S1 S_{\mathrm{ER}}(E)}{L_{y,\mathrm{ER}} \mathcal{L}_{\mathcal{eff}} S_{\mathrm{NR}}(E)}
+E_{\mathrm{NR}} = \frac{S1 S_{\mathrm{ER}}(E)}{L_{y,\mathrm{ER}} \mathcal{L}_{eff} S_{\mathrm{NR}}(E)}
 \end{equation}
 
-\noindent where $L_{y,\mathrm{ER}}$ is the electronic recoil light yield at 122 keV, $\mathcal{L}_{\mathcal{eff}}$ is the relative nuclear
+\noindent where $L_{y,\mathrm{ER}}$ is the electronic recoil light yield at 122 keV, $\mathcal{L}_{eff}$ is the relative nuclear
 recoil
 scintillation efficiency, and $S_{\mathrm{ER,NR}}(E)$ are the scintillation quenching factors for ER and NR, respectively.  Units are
 given in \kevnr for ``nuclear-equivalent".
 
 The ``combined energy scale" uses both S1 and S2.  This is beneficial because natural fluctuations between photons and electrons at a
-given energy are now accounted for (\eqref{eq:nphot_ne}).  In addition it typically leads to better energy resolution because both signals
+given energy are now accounted for (\eqnref{eq:nphot_ne}).  In addition it typically leads to better energy resolution because both signals
 are used, and recombination variation over energy does not lead to non-linearity.  Typically several $\gamma$ sources are used to
 construct it, so it takes units of $\mathrm{keV_{ee}}$.
 

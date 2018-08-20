@@ -70,7 +70,7 @@ around $\mathrm{cS2_b} = 150\ \mathrm{PE}$.  The expected signal region changes 
 This approach compares the distributions of Monte Carlo events and data.  Because of the nearly flat distribution of events in the energy
 region of interest and homogenous position distribution, Monte Carlo features $E_{\mathrm{true}}$, $x_{\mathrm{true}}$,
 $y_{\mathrm{true}}$, and $z_{\mathrm{true}}$ for \ce{^{220}Rn} are each randomly drawn from uniform distributions.  \ce{^{241}AmBe} and
-neutron generator Monte Carlo are simulated using GEANT4, and additionally include the number of
+neutron generator Monte Carlo are simulated using GEANT4 \citeref{Agostinelli2003}, and additionally include the number of
 scatters for each neutron.  The $\beta^-$ from \ce{^{220}Rn} should not scatter so it is fixed to 1.  These values represent the
 ``truth'' information - that is, these are the true interaction values and are inputs for the fits.  Reconstructed $x \mdash y$ values
 will be referred to as $x_{\mathrm{rec}}$
@@ -116,7 +116,7 @@ minimize wall events and other contamination from materials at the top and botto
 \subsection{Electronic Recoils}
 \label{subsec:er_nr_calibrations_parameter_determ_er}
 The electronic recoil calibration is performed using \ce{^{220}Rn} (decay chain shown in the left panel of
-\figref{fig:backgrounds_decay_chains}).  It is used because of the \ce{^{212}Pb} \betadecay (Q-value 569.9 keV) and can
+\figref{fig:backgrounds_decay_chains}).  It is used because of the \ce{^{212}Pb} \betadecay (Q-value of 569.9 keV) and can
 be performed as an internal calibration.  In the future we hope to use tritiated methane $\mathrm{C H_3 T}$, which undergoes \betadecay
 with a maximum energy of 18.6 keV.  This would provide significantly more statistics in our region of interest in a shorter amount
 of time.  However, as mentioned in \secref{subsubsec:xenon1t_calibrations_internal} $\mathrm{C H_3 T}$ has a half-life of 12.3 y and there
@@ -282,7 +282,7 @@ L( \epsilon ) &= \frac{k g( \epsilon ) }{1 + k g( \epsilon )}
 \end{subequations}
 
 $k$ is the proportionality constant between the electronic stopping power and recoiling nucleus velocity.  The Lindhard factor
-$L$ is the fraction of energy not converted to excitons or electron-ion pairs
+$L(\epsilon )$ is the fraction of energy converted to excitons or electron-ion pairs
 
 \begin{equation}
 n_{\mathrm{q}} \sim \mathrm{P} \bigg( \mu = \frac{E L}{W} \bigg)
@@ -318,7 +318,7 @@ is proportional to the ionization density and therefore stopping power $dE / dx$
 described by Birks' saturation law, \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \citeref{Birks1951, Birks1964}.
 
 \begin{equation}
-f_l = \frac{1}{1 + k_{B}B \frac{dE}{dx}} = \frac{1}{1 + \eta \epsilon^{\lambda}}
+f_b = \frac{1}{1 + k_{B}B \frac{dE}{dx}} = \frac{1}{1 + \eta \epsilon^{\lambda}}
 \label{eq:er_nr_calibrations_parameter_determ_nr_birks}
 \end{equation}
 
@@ -327,7 +327,7 @@ $B$ is the coefficient for the stopping power, and $\eta$ is defined to be their
 quenching and the Penning process is
 
 \begin{equation}
-n_{\mathrm{quench}} = \mathrm{Binom} \big( n = n_{\mathrm{ex}},\ p = f_l \big)
+n_{\mathrm{quench}} = \mathrm{Binom} \big( n = n_{\mathrm{ex}},\ p = f_b \big)
 \end{equation}
 
 \noindent reducing $n_{\mathrm{ex}} \rightarrow n_{\mathrm{ex}} - n_{\mathrm{quench}} \rightarrow n_{\mathrm{ex}}$.
@@ -403,7 +403,7 @@ Using this model the expected number of photons and electrons is
 
 \begin{subequations}
 \begin{align}
-n_{\mathrm{ph}} &= L(E) f_l \frac{E}{W} \Bigg[1 - \frac{1}{1 + n_{\mathrm{ex}}/n_{\mathrm{ion}}} (1 - r) \Bigg] \\
+n_{\mathrm{ph}} &= L(E) f_b \frac{E}{W} \Bigg[1 - \frac{1}{1 + n_{\mathrm{ex}}/n_{\mathrm{ion}}} (1 - r) \Bigg] \\
 n_{\mathrm{e}} &= L(E) \frac{E}{W} \frac{1}{1 + n_{\mathrm{ex}}/n_{\mathrm{ion}}} (1 - r)
 \end{align}
 \end{subequations}

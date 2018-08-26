@@ -7,8 +7,8 @@
 \chapter[Liquid Xenon and Time Projection Chambers][Liquid Xenon and Time Projection Chambers]{Liquid Xenon and Time Projection Chambers}
 \label{chap:liquid_xe}
 
-Liquid xenon (LXe) direct detection experiments have led the field for spin-independent WIMP searches with masses $\gtrsim 20$ for roughly
-a decade.  More so than liquid argon (LAr), LXe results have been paved the way to new limits, surpassing on the way only those of
+Liquid xenon (LXe) direct detection experiments have led the field for spin-independent WIMP searches with masses ${\gtrsim}\, 20$ for
+roughly a decade.  More so than liquid argon (LAr), LXe results have been paved the way to new limits, surpassing on the way only those of
 other
 LXe experiments.
 
@@ -17,8 +17,10 @@ the small amount of xenon and krypton in the air is extracted into a mixture as 
 the two, leaving highly pure xenon.
 
 This chapter begins by discussing general properties of xenon and why it is such an effective element for a dark matter search
-(\secref{sec:properties}) followed by a summary of signal production (\secref{sec:scintillation}) and then determining the type of
-interaction based on its signal properties (\secref{sec:interactions}).
+(\secref{sec:properties}), followed by a summary of signal production in liquid xenon (\secref{sec:scintillation}).  Next the signal
+properties for different types of interactions are covered (\secref{sec:interactions}) with brief introductions on the microphysics of
+electronic (\secref{sec:er}) and nuclear (\secref{sec:nr}) recoils.  Finally, details of time projection chambers are discussed
+(\secref{sec:tpcs}).
 
 %====================================
 \section{General Properties}
@@ -50,15 +52,16 @@ chemical properties.
  Density as gas (298 K, 1 atm)  &  5.40 g l$^{-1}$ \\
  Density as gas (165 K, 1 atm)  &  9.99 g l$^{-1}$ \\
  Density as liquid (165 K, 1 atm) & 2.94 g cm$^{-3}$ \\
- Critical point & $16.59^{\circ}$C, 57.65 atm, 1.155 g cm$^{-3}$ \\
+ Critical point & $16.57^{\circ}$C, 58.4 bar, 1.11 g cm$^{-3}$ \\
  Dielectric constant & 1.95 \\
- Triple point & $-111.74^{\circ}$C, 0.805 atm, 3.08 g cm$^{-3}$ \\
+ Triple point & $-111.85^{\circ}$C, 0.805 bar, 2.96 g cm$^{-3}$ \\
+ Volume ratio ($\rho_{\mathrm{gas}}/\rho_{\mathrm{liquid}}$) & 519 \\
  Thermal conductivity & $5.65 \times 10^{-3}\ \mathrm{W\ m^{-1}\ K^{-1}}$ \\
  Covalent radius & $140 \pm 9$ pm \\
  \hline
  \hline
  \end{tabular}
- \caption{Chemical properties for xenon.  Data taken from \citeref{Baudis2014}.}
+ \caption{Chemical properties for xenon.  Data taken from \citeref{Baudis2014, Aprile2009}.}
 \label{tab:xe_properties}
 \end{table}
 
@@ -71,7 +74,7 @@ liquid xenon detector or analyzing data \citeref{Barros2014}.
 Unstable isotopes with $t_{1/2} > 1\ \mathrm{h}$ are given in \tabref{tab:xe_unstable_isotopes}.  The longest-lived isotope is
 \ce{^{127}Xe} with $t_{1/2} = 36.4\ \mathrm{d}$.  Also listed are metastable states $\mathrm{^{129m}Xe}$, $\mathrm{^{131m}Xe}$, and
 $\mathrm{^{133m}Xe}$ with energies 163.9, 236.2, and 233.2 keV $\gamma$-rays, respectively.  $\mathrm{^{129m}Xe}$ and $\mathrm{^{131m}Xe}$
-are more commonly produced since \ce{^{129}Xe} and \ce{^{131}Xe} are stable and make up $> 47\%$ of natural xenon
+are more commonly produced since \ce{^{129}Xe} and \ce{^{131}Xe} are stable and make up ${>}\, 47\%$ of natural xenon
 (\tabref{tab:xe_isotopes}).  Following a nuclear recoil calibration they are used to measure a number of properties about our detector
 including the electron lifetime (\secref{subsec:electron_lifetimes_measurement_gammas}).  Their shorter-lived 39.6
 (\ce{^{129}Xe}) and 80.2 (\ce{^{131}Xe}) keV nuclear
@@ -83,7 +86,7 @@ detectors.  Its high molar mass provides excellent self-shielding, which reduces
 external radiation
 (\secref{subsec:backgrounds_detector_materials}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe,
 which gives it sensitivity to spin-dependent interactions.  Its production of light and charge - referred to as light and charge yields
-(\secref{subsubsec:er_nr_calibrations_results_ly_qy}) - are among the highest noble gases.  Finally, the expected background contribution
+(\secref{subsec:er_nr_calibrations_results_ly_qy}) - are among the highest noble gases.  Finally, the expected background contribution
 from xenon itself comes just from \ce{^{136}Xe} so is extremely small (\tabref{tab:xe_isotopes}).  Therefore
 intrinsic radioactivity comes almost entirely from trace amounts of other radioactive noble gases, which can be reduced
 (\secref{subsec:xenon1t_kr_dist}).
@@ -96,15 +99,15 @@ intrinsic radioactivity comes almost entirely from trace amounts of other radioa
  \hline
  Isotope & Natural Abundance [\%] & Spin & Half-life & Decay mode \\
  \hline
- $^{124}$Xe & 0.0952 & 0 &  $> 1.6 \times 10^{14}\ \mathrm{y}$ & $2\nu \beta^{+} \beta^{+}$ \\
- $^{126}$Xe & 0.089 & 0 & $> 4.7 \mdash 12 \times 10^{25}\ \mathrm{y}$ & $2\nu \beta^{+} \beta^{+}$ \\
+ $^{124}$Xe & 0.0952 & 0 &  ${>}\, 1.6 \times 10^{14}\ \mathrm{y}$ & $2\nu \beta^{+} \beta^{+}$ \\
+ $^{126}$Xe & 0.089 & 0 & ${>}\, 4.7 \mdash 12 \times 10^{25}\ \mathrm{y}$ & $2\nu \beta^{+} \beta^{+}$ \\
  $^{128}$Xe & 1.910 & 0 & stable & $-$ \\
  $^{129}$Xe & 26.401 & 1/2 & stable & $-$ \\
  $^{130}$Xe & 4.071 & 0 & stable & $-$ \\
  $^{131}$Xe & 21.23 & 3/2 & stable & $-$ \\
  $^{132}$Xe & 26.909 & 0 & stable & $-$ \\
- $^{134}$Xe & 10.436 & 0 &  $> 5.8 \times 10^{22}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
- $^{136}$Xe & 8.857 & 0 &  $> 2.4 \times 10^{21}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{134}$Xe & 10.436 & 0 &  ${>}\, 5.8 \times 10^{22}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
+ $^{136}$Xe & 8.857 & 0 &  ${>}\, 2.4 \times 10^{21}\ \mathrm{y}$ & $2\nu \beta^{-} \beta^{-}$ \\
  \hline
  \hline
  \end{tabular}
@@ -133,7 +136,7 @@ $\mathrm{^{133m}Xe}$ & 11/2 & 2.19 d & $\gamma$-ray & ground state \\
 \hline
 \hline
 \end{tabular}
-\caption{Unstable isotopes of xenon with half-lifes of $> 1\ \mathrm{hr}$.  Spins, half-lifes, decay modes, and decay products are
+\caption{Unstable isotopes of xenon with half-lifes of ${>}\, 1\ \mathrm{hr}$.  Spins, half-lifes, decay modes, and decay products are
 listed.}
 \label{tab:xe_unstable_isotopes}
 \end{table}
@@ -190,8 +193,7 @@ it de-excites via \eqnref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
 \begin{subequations}
 \begin{align}
 \mathrm{Xe}^{*} + \mathrm{Xe} &\rightarrow \mathrm{Xe}_{2}^{*} \\
-\mathrm{Xe}_{2}^{*} &\rightarrow 2\mathrm{Xe} + \gamma
-\label{eq:deexcite_gamma}
+\mathrm{Xe}_{2}^{*} &\rightarrow 2\mathrm{Xe} + \gamma \label{eq:deexcite_gamma}
 \end{align}
 \label{eq:deexcite}
 \end{subequations}
@@ -204,7 +206,7 @@ a number of different interactions are shown in \tabref{tab:singlet_to_triplet}.
 scatters with the xenon electron shells (electronic recoils) and nucleus (nuclear recoils).  \tabref{tab:singlet_to_triplet} shows that
 nuclear recoils result in a higher fraction of singlet states.  Unfortunately the $^1\Sigma$ and $^3\Sigma$ lifetimes
 are too short to resolve so they cannot be used for discrimination.  This makes single-phase LXe detectors
-less desirable than liquid argon (LAr), which has single and triplet states of $< 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
+less desirable than liquid argon (LAr), which has single and triplet states of ${<}\, 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
 \citeref{Heindl2011}.
 
 \begin{table}[t]
@@ -245,7 +247,7 @@ biexcitonic quenching (\secref{subsec:recombination}).
 \subsection{Secondary Scintillation}
 \label{subsec:secondary}
 In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ions will move anti-parallel
-to the field at drift velocity $v_{d}$.  At fields of $\lesssim 100\ \mathrm{V\ cm^{-1}}$ the drift velocity is nearly proportional to
+to the field at drift velocity $v_{d}$.  At fields of ${\lesssim}\, 100\ \mathrm{V\ cm^{-1}}$ the drift velocity is nearly proportional to
 $E$ and is given by $v_{d} = \mu E$
 where $\mu$ is the electron mobility, estimated to be ${\sim}2200\ \mathrm{cm^{2}\ V^{-2}\ s^{-1}}$ at these fields
 \citeref{Miller1968}.  As
@@ -267,9 +269,9 @@ scintillation is found in \secref{subsec:tpcs_working_principle}.
  \hline
  $E$ [V cm$^{-1}$] & $E$ dependence \\
  \hline
- $\lesssim 100$ & $E$ \\
+ ${\lesssim}\, 100$ & $E$ \\
  ${\sim} 100 \mdash 10^{3 \mdash 4}$ & $E^{1/2}$ \\
- $\gtrsim 10^{4}$ & $-$ \\
+ ${\gtrsim}\, 10^{4}$ & $-$ \\
  \hline
  \hline
  \caption{Drift velocity \vd as a function of electric field $E$ for LXe}
@@ -302,7 +304,7 @@ transfer its energy more densely along its track.  This affects recombination be
 \includegraphics[width=0.8\textwidth]{stopping_power_components}
 \caption{Mass stopping power for alphas (blue), $e^{-}$ (green), and protons (pink).  Electronic (long dashed), nuclear (short dashed),
 and total (solid) stopping powers for each are shown.  The electronic stopping power is more significant except for $e^-$ at
-$\gtrsim 15\ \mathrm{MeV}$.  Data from \citeref{Berger2018a}.}
+${\gtrsim}\, 15\ \mathrm{MeV}$.  Data from \citeref{Berger2018a}.}
 \label{fig:mass_stopping_power}
 \end{figure}
 
@@ -389,7 +391,7 @@ Onsager radius will be unable to escape so will recombine with the ion.  At the 
 with $E_{\mathrm{thermal}} > E_{\mathrm{Coulomb}}$ should not be influenced by the ion, regardless of the presence of an electric
 field.  The thermalization range for LXe is $4000 \mdash 5000$ nm \citeref{Mozumder1995}, far higher than the Onsager radius for liquid
 xenon of $49$ nm.  Without an electric field a large fraction of these electrons will recombine on
-timescales of $> 1\ \mathrm{ms}$, which because of the short observation window will appear as a decrease in photons, and the electrons
+timescales of ${>}\, 1\ \mathrm{ms}$, which because of the short observation window will appear as a decrease in photons, and the electrons
 will be classified as having escaped (with an electric field the electrons outside the Onsager radius will drift from the interaction site
 and not recombine) \citeref{Doke2002}.
 
@@ -533,7 +535,7 @@ against nuclear recoils.  Detector materials have radioactive elements that deca
 backgrounds such as \krypton and \radon.  The latter is much more concerning since events from
 detectors materials cannot breach the inner volume, but intrinsic sources are uniformly distributed throughout the xenon.
 
-To understand our detector calibrations are regularly performed (\secref{subsec:det_char}).  In the ton-scale era of liquid xenon
+To understand our detector calibrations are regularly performed (\secref{sec:det_char}).  In the tonne-scale era of liquid xenon
 detectors external sources, which were effective in past experiments, are less efficient because xenon's self-shielding makes it extremely
 difficult for radiation to penetrate the interior.  Therefore radioactive
 sources that have short half-lifes and can be mixed with the xenon such as $\mathrm{^{83m}Kr}$ and \radoncal are used.  Because these
@@ -767,7 +769,7 @@ n_{\mathrm{e}} &= (1 - r)n_{\mathrm{ion}}
 Although noble gas detectors allow ER-NR discrimination, the two regions are near one another some events could
 be considered with reasonable probability to belong to either.  In dark matter searches only the region of NR-space where the NR
 likelihood is significantly more probable is used (\secref{sec:dark_matter_results}).  A number of reduction methods are used to minimize
-the electronic recoil and other backgrounds.  With the ton-scale era of DM detectors
+the electronic recoil and other backgrounds.  With the tonne-scale era of DM detectors
 underway this becomes especially critical, and significant effort has been put into material screening and distillation.
 
 
@@ -798,8 +800,9 @@ from \citeref{Lewin1996} but there has been some debate over its value.  When pa
 $f_{n}$ is sometimes written as $L(E)$.  It is shown in \figref{fig:lindhard} for the relevant energy search region.
 
 \begin{figure}
-\includegraphics[width=0.8\textwidth]{Lindhard}
-\caption{Fraction of nuclear recoil energy that causes excitons and ions in xenon using Lindhard's theory \citeref{Lindhard1965}.}
+\includegraphics[width=0.8\textwidth]{lindhard_biexcitonic_penning}
+\caption{Fraction of nuclear recoil energy that produces excitons and ions $L(E)$ in xenon using Lindhard's theory (green)
+\citeref{Lindhard1965}.}
 \label{fig:lindhard}
 \end{figure}
 
@@ -835,8 +838,8 @@ n_{\mathrm{e}} &= (1 - r)n_{\mathrm{ion}}
 \section{Time Projection Chambers}
 \label{sec:tpcs}
 Time projection chambers (TPCs) measure the light and charge of an interaction.  They have been leading the
-spin-independent search for WIMP masses $> 10\ \mathrm{GeV/c^2}$ for ${\sim}10\ \mathrm{years}$, and as we reach the ton-scale era are
-projected to continue.  \figref{fig:sensitivity_evo} shows the evolution of detectors and their spin-independent limits for roughly
+spin-independent search for WIMP masses ${>}\, 10\ \mathrm{GeV/c^2}$ for ${\sim}10\ \mathrm{years}$, and as we reach the tonne-scale era
+are projected to continue.  \figref{fig:sensitivity_evo} shows the evolution of detectors and their spin-independent limits for roughly
 $30 \mdash 70\ \mathrm{GeV/c^2}$ WIMPs.  This section discusses liquid noble gas TPCs used for dark matter detection.  It primarily covers
 xenon but for most details an identical treatment can be applied to argon and neon.
 
@@ -907,18 +910,18 @@ decerase.  For LXe TPCs it is common to give the impurity concentration in \ce{O
 solely responsible for \electron attachment.  \ce{O_2} is expected to be the dominant electronegative contaminant, and its curve
 in \figref{fig:attachment_rate} works well for modeling the electron lifetime (\chapref{chap:purification}).  Removing these
 impurities is discussed in \secref{subsec:xenon1t_pur} and measuring the electron lifetime is covered in
-\secref{subsec:det_char_elifetime, sec:electron_lifetime_measurements}.
+\secref{subsec:det_char_elifetime,sec:electron_lifetime_measurements}.
 
 \begin{figure}
-\includegraphics[width=0.8\textwidth]{attachingratevsfield}
+\includegraphics[width=0.6\textwidth]{attachingratevsfield}
 \caption{Attaching rate constant $k_{S}$ for O$_{2}$, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
 larger $E_d$ $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.  Image credit: \citeref{Bakale1976}.}
 \label{fig:attachment_rate}
 \end{figure}
 
 The anode rests several millimeters above the gate.  The electric field between the gate and anode $E_{g}$ must be strong
-enough to extract the \electron that reach the liquid surface into the gas (typically $\gtrsim 10\ \mathrm{kV\ cm^{-1}}$).  An extracted
-\electron will quickly gain enough kinetic energy to ionize atoms in the gas,
+enough to extract the \electron that reach the liquid surface into the gas (typically ${\gtrsim}\, 10\ \mathrm{kV\ cm^{-1}}$).  An
+extracted \electron will quickly gain enough kinetic energy to ionize atoms in the gas,
 whose \electron in turn follow, creating a cascade effect.  Because the scintillation per electron is independent of
 the total number of electrons extracted this is known as proportional scintillation.  It is also known as secondary scintillation or
 electroluminescence.  The number of photons $N_{\mathrm{ph}}$ produced over a distance $z$ per electron is
@@ -982,7 +985,7 @@ directed towards the photodetectors can
 be small.  PMTs cannot be fixed around the side of the TPC because their electric fields will interfere with the field
 cage.  To increase
 the fraction of light that reaches the photodetectors the wall of the TPC is covered by polytetrafluoroethylene (PTFE) just inside the
-field cage.  PTFE is reflective for liquid noble gas scintillation and is a common choice.  It has been shown to have $> 97 \%$
+field cage.  PTFE is reflective for liquid noble gas scintillation and is a common choice.  It has been shown to have ${>}\, 97 \%$
 reflectance to 178 nm light when immersed in LXe \citeref{Neves2017}.
 
 
@@ -1017,25 +1020,19 @@ In addition to knowing the $z$-coordinate of the interaction ($z = v_{d} t_{d}$)
 hit pattern in the top PMT array in \figref{fig:tpcs_signal_tpc} shows an intensity distribution that peaks at one
 PMT and dissipates away from it.  It is reasonable to assume the S2 was extracted beneath or nearly beneath this PMT.  A number of
 algorithms can be applied to PMT hit patterns to estimate the $x \mdash y$ position of the event.  Typically the resolution of event
-reconstruction depends on the number and area of PMTs as well as the S2 size.  \figref{fig:tpcs_signals_posrec} shows the event
+reconstruction depends on the number and area of PMTs as well as the S2 size.  \figref{fig:tpcs_signal_tpc} shows the event
 distribution for second XENON1T science run.  The majority of events are near the wall - a consequence of
 radioactivity present in detector materials.  The large self-shielding of LXe constrains these events to ${\sim}5\ \mathrm{cm}$ of the
 wall.  Three-dimensional position reconstruction allows us to reject events in regions where we
-expect a large background.  The region of interest for dark matter search data is known as the fiducial volume.
+expect a large background.  Position reconstruction is discussed in greater detail in
+\secref{subsec:det_char_position_reconstruction}.
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{PosRecXY}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[height=4.5cm]{PosRecRZ}
-    \end{subfigure}
-    \caption{Position reconstruction for events in XENON1T Science Run 1.  Top PMT hit patterns are used to determine $x \mdash y$ while
-    $z = v_{d} t_{d}$.  The number of events drops dramatically at lower radii due to the self-shielding of LXe.}
-	\label{fig:tpcs_signals_posrec}
+\centering
+\includegraphics[width=\textwidth]{pos_rec_no_fv}
+\caption{Position reconstruction for events in the second science run of XENON1T.  Top PMT hit patterns are used to determine $x$ and $y$
+while $z = v_{d} t_{d}$.  The number of events drops dramatically at lower radii due to the self-shielding of LXe.}
+\label{fig:tpcs_signal_tpc}
 \end{figure}
 
 
@@ -1062,7 +1059,7 @@ of $\beta$-decays, and uniform distribution throughout the detector make it an e
 electronic recoils.  Events from XENON1T calibrations are shown in red in \figref{fig:tpcs_signals_ernr}.
 
 There are no neutron sources that can be mixed with xenon to perform internal nuclear recoil calibrations.  Therefore, calibrations
-must be done with sources placed outside of the detector.  Xenon's self-shielding (${\sim}10\ \mathrm{rm}$ mean free path for MeV
+must be done with sources placed outside of the detector.  Xenon's self-shielding (${\sim}10\ \mathrm{cm}$ mean free path for MeV
 neutrons \citeref{Israelashvili2015}) causes the distribution of events to be largest near
 the source, and - depending on the size of the detector - can significantly reduce the fraction of events that reach the center of the
 detector, and force longer calibration windows.  For XENON1T nuclear recoil sources include
@@ -1099,11 +1096,11 @@ variables including PMT quantum efficiencies (\secref{subsec:tpcs_pmts}) and ele
 \secref{sec:er_nr_calibrations_parameter_determ}.  If the energy of an event is known the light yield and charge yield can be calculated
 in units of photons per energy and electrons per energy, i.e. $n_{\mathrm{phot}}/E$ and $n_{\mathrm{e}}/E$.  Because the light and charge
 yields describe detector-independent microphysics there has been an effort to measure them
-(\secref{sec:er_nr_calibrations_results_ly_qy}).  Measurements of photoelectrons per energy may also be referred to as light and charge
+(\secref{subsec:er_nr_calibrations_results_ly_qy}).  Measurements of photoelectrons per energy may also be referred to as light and charge
 yields (\secref{subsec:det_char_ly_cy}) and are useful for monitoring detector conditions (because they are detector-dependent they do not
 provide insight into fundamental physics).  \figref{fig:tpcs_signals_drift_field} shows the ratios of light and
 charge yields as a function of drift field for 122 keV electronic recoils (\ce{^{57}Co} $\gamma$-rays), 56.5 keV elastic nuclear recoils
-(\ce{^{241}AmBe} and \ce{^{252Cf}}), and
+(\ce{^{241}AmBe} and \ce{^{252}Cf}), and
 5.3 MeV $\alpha$-decays (\ce{^{210}Po}).  At larger $E_d$ the light yield declines while the charge yield increases.  The more
 significant change in ER is due to its sparser ionization density and suggests the drift field can be optimized for ER-NR discrimination.
 
@@ -1124,42 +1121,47 @@ alpha, signifying $E_{d}$ can be tuned for improved ER-NR discrimination.  Image
 
 \subsubsection{Energy Reconstruction}
 \label{subsubsec:tpcs_signals_energy}
-An important feature in a detector is the ability reconstruct the energy of the event.  There are several energy scales used
-depending on the interest.  For electronic recoils energy
-reconstruction is relatively straightforward since the energy is converted to photons and electrons.  Nuclear recoils are more
-complicated since they pick up translational energy and are more likely to undergo biexcitonic quenching.  There are three commonly-used
-energy scales.
+An important component for our analysis is being able to reconstruct the energies of events.  Because the light and charge yields vary
+according to a number of features including particle type and recoil energy, several energy scales are used.  The energy scales enable
+comparisons between events that differ in origin and behavior on equivalent platforms.  Because the microphysics changes across different
+energies, the energy scales may be nonlinear.
 
-The \textbf{electronic recoil equivalent energy} is the name for conversion between \gammaray and detector response of scintillation or
-ionization, generally measured in PE.  It can be used to identify mono-energetic $\gamma$ lines, which are useful im defining the energy
-scale.  If only the S1 or S2 is measured the energy is typically specified since the recombination fraction varies with energy.  The units
-are given as ``$\mathrm{keV_{ee}}$'' for electron-equivalent.
+The ``electronic recoil equivalent energy'' is defined by the detector's response to \gammarays of a known energy.  Conversion to this
+energy
+scale is done using an S1 or S2 (does not require both), which is in
+part why light and charge yields for electronic recoils (\secref{subsec:er_nr_calibrations_results_ly_qy}) are generally listed using this
+metric.  The units are \kevee (``keV electron-equivalent'').
 
-The \textbf{electron equivalent combined energy scale (CES)} uses the primary and proportional scintillations to reconstruct $E$.  This is
-only used for electronic recoils since, unlike nuclear recoils, energy is not lost to xenon nuclei (either as kinetic energy or nuclear
-excitation).  Using this scale we can reconstruct our background energy spectrum (ERs are $> 99\%$ of total background).
-
-The ``electron-recoil equivalent energy" scale is used for the conversion of signal to energy using $\gamma$-rays.  It uses either the S1 or
-S2 and has units of photoelectrons or electrons, respectively.  It has units of $\mathrm{keV_{ee}}$ for ``electron-equivalent".  Because
-recombination varies with respect to energy this scale will be non-linear, so it is common to include the energy used in the
-calibration.
-
-``Nuclear-recoil equivalent energy" is based on nuclear recoil primary scintillation.  For historical reasons it is defined using the
-122 keV \gammaray from \ce{^{57}Co}.  It is given by
+The detector's response to nuclear recoils defines the ``nuclear recoil equivalent energy''.  By convention it is determined by the NR S1
+signal given by
 
 \begin{equation}
-E_{\mathrm{NR}} = \frac{S1 S_{\mathrm{ER}}(E)}{L_{y,\mathrm{ER}} \mathcal{L}_{eff} S_{\mathrm{NR}}(E)}
+E_{\mathrm{nr}} = \frac{\mathrm{S1}}{L_{y} \mathcal{L}_{eff}} \frac{S_{\mathrm{er}}(E)}{S_{\mathrm{nr}}(E)}
+\label{eq:tpcs_signals_energy_energy_nr}
 \end{equation}
 
-\noindent where $L_{y,\mathrm{ER}}$ is the electronic recoil light yield at 122 keV, $\mathcal{L}_{eff}$ is the relative nuclear
-recoil
-scintillation efficiency, and $S_{\mathrm{ER,NR}}(E)$ are the scintillation quenching factors for ER and NR, respectively.  Units are
-given in \kevnr for ``nuclear-equivalent".
+\noindent where $L_{y}$ is the electronic recoil light yield of a 122 keV \gammaray at zero electric
+field.  $L_{y}$ was chosen when detectors were small enough that the low-energy \ce{^{57}Co} $\gamma$ could reach the
+entire volume.  $\mathcal{L}_{eff}$ is the nuclear recoil
+scintillation yield relative to $L_{y}$, and $S_{\mathrm{er}}(E)$ and $S_{\mathrm{nr}}(E)$ are the scintillation quenching factors for ER
+and NR, respectively.  Units are given in \kevnr for ``keV nuclear-equivalent".
 
-The ``combined energy scale" uses both S1 and S2.  This is beneficial because natural fluctuations between photons and electrons at a
-given energy are now accounted for (\eqnref{eq:nphot_ne}).  In addition it typically leads to better energy resolution because both signals
-are used, and recombination variation over energy does not lead to non-linearity.  Typically several $\gamma$ sources are used to
-construct it, so it takes units of $\mathrm{keV_{ee}}$.
+The ``combined energy scale'' is defined using
+
+\begin{equation}
+\frac{E}{W} = \frac{\mathrm{S1}}{g_1} + \frac{\mathrm{S2}}{g_2}
+\label{eq:tpcs_signals_energy_ces}
+\end{equation}
+
+\noindent where $W$ is the average energy to produce a single quanta, $g_1$ is the average photon detection efficiency, and $g_2$ is the
+charge amplification factor (\secref{subsec:det_char_photon_charge_efficiencies}).  $g_1$ and $g_2$ have units of
+PE/photon and PE/electron, respectively, so \eqnref{eq:tpcs_signals_energy_ces} reduces to
+$n_{\mathrm{q}} = n_{\mathrm{ph}} + n_{\mathrm{e}}$.  For the XENON1T analysis $g_1$ and $g_2$ are measured using a
+number of mono-energetic interactions.  \eqnref{eq:tpcs_signals_energy_ces} accounts for
+anti-correlation between S1 and S2 signals that arrise from natural fluctuations in $n_{\mathrm{ex}}/n_{\mathrm{ion}}$ and recombination,
+so it typically leads to better energy resolution.  Because it describes electronic recoils (i.e. no quenching) the units are
+sometimes given in $\mathrm{keV_{ee}}$ though it is generally understood that a combined energy spectrum uses
+ERs.  \secref{subsec:det_char_ces} discusses the combined energy spectrum in XENON1T.
 
 
 

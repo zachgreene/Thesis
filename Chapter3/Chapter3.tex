@@ -4,18 +4,18 @@
 
 \pagestyle{cu}
 \graphicspath{{./Chapter3/Figures/}}
-\chapter[The XENON1T Dark Matter Search][The XENON1T Dark Matter Search]{The XENON1T Dark Matter Search}
+\chapter[The XENON1T Experiment and Dark Matter Search][The XENON1T Experiment and Dark Matter Search]{The XENON1T Experiment and Dark Matter Search}
 \label{chap:xenon1t}
 
 % https://arxiv.org/pdf/1801.07231.pdf for electron emission from wires
 
 
-XENON1T is the third generation experiment of the XENON collaboration.  With a fiducial mass of more than 1000 kg it is the first
-liquid xenon dark matter (DM) detector to reach the ton-scale era of DM detection.  Its large target mass and low radioactive background
+XENON1T is the third generation experiment of the XENON collaboration.  With a fiducial mass of more than 1000 kg, it is the first
+liquid xenon dark matter (DM) detector to reach the tonne-scale era of DM detection.  Its large target mass and low radioactive background
 make it the most sensitive detector to spin-independent WIMPs with $m_{\chi} > 6\ \mathrm{GeV / c^2}$.
 
-This chapter presents the run-combined analysis of Science Run 0 (SR0) and Science Run 1 (SR1) - the first two XENON1T dark matter
-runs - for spin-independent WIMPs.  It begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by
+This chapter presents the combined analysis of the Science Run 0 (SR0) and Science Run 1 (SR1) - the first two XENON1T dark matter
+runs - spin-independent WIMP search.  It begins with a description of the XENON1T experiment (\secref{sec:xenon1t_detector}), followed by
 a discussion on detector characterization (\secref{sec:det_char}) and backgrounds
 (\secref{sec:backgrounds}).  Finally, dark matter search results (\secref{sec:dark_matter_results}) are
 presented.  The original SR0-only analysis \citeref{Aprile2017f} is referred to as ``First Results'' and is cited for comparison.
@@ -28,11 +28,11 @@ presented.  The original SR0-only analysis \citeref{Aprile2017f} is referred to 
 
 \subsection{PMTs}
 \label{subsec:xenon1t_pmts}
-A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs in the top array are positioned radially to
+A total of 248 Hamamatsu R11410-21 PMTs are installed in XENON1T.  The 127 PMTs on the top array are positioned symmetrically in radius to
 optimize the resolution of position reconstruction in $r$ (\secref{subsec:det_char_position_reconstruction}).  The 121 PMTs in the bottom
-array are packed as densely as possible to maximize light collection.  The most important characteristic of a PMT is its quantum
+array are packed as densely as possible to maximize light collection.  One of the most important characteristics of a PMT is its quantum
 efficiency
-(QE), or the ratio of photoelectrons (electrons ejected from the photocathode) divided by number of incident photons.  The R11410 window
+(QE), i.e. the ratio of photoelectrons (electrons ejected from the photocathode) divided by number of incident photons.  The R11410 window
 is 76.2 mm in diameter and the photocathode yields an average quantum efficiency for 178 nm of 34.5\% with 2.8\%
 standard deviation \citeref{Aprile2017b, Barrow2017}.
 
@@ -40,7 +40,7 @@ PMTs with the highest QEs are placed in the bottom array while those with the lo
 top.  The difference in arrangement is strategic.  Due to liquid xenon's relatively large dielectric constant (1.95) photons
 originating inside the liquid are likely to
 reflect off the surface and be redirected towards the bottom of the TPC.  For low-energy events - the relevant range for WIMP DM
-searches - nuclear recoils may only emit a small number ($\lesssim 100$) of photons, many of which never reach the PMTs.  Positioning
+searches - nuclear recoils may only emit a small number (${\lesssim}\, 100$) of photons, many of which never reach the PMTs.  Positioning
 those with the highest quantum efficiency in the region most likely to see scintillation from an S1 captures more events and improves our
 sensitivity.  S2s produce enough scintillation to be observed by both arrays.  Therefore the QE of the top PMTs is comparatively
 unimportant, and could even be advantageous for large S2s that might saturate the phototubes, though these events are outside the region
@@ -89,14 +89,16 @@ growing with each until it reaches the anode and is directed to the data acquisi
 \label{fig:xenon1t_hamamatsu_pmt}
 \end{figure}
 
-The electrode, dynodes, and shield are stainless steel and are insulated with L-shaped quartz plates.  Due to quartz's transparency to
-vacuum ultraviolet (VUV) photons the window is also made of quartz.  Deposited on it is a low-temperature bialkali
+The electrode, dynodes, and shield are stainless steel and are insulated with L-shaped quartz plates \citeref{Aprile2015b}.  Due to
+quartz's transparency to vacuum ultraviolet (VUV) photons the window is also made of quartz.  Deposited on it is a low-temperature
+bialkali
 photocathode.  The window is fixed with an aluminum seal to the faceplate flange, which along with the stem flange is constructed from
 Kovar.  The body of the PMT is approximately 115 mm long and 35\% of the total mass.  It is constructed from Kovar alloy, most of which
 has a very low \ce{^{60}Co} concentration.  Finally, to insulate the connections to each dynode the stem is ceramic.  A schematic can be
 seen in \figref{fig:xenon1t_hamamatsu_pmt}.  
 
-Because radioactivity limits the fiducial volume and increases the background, making accidental coincidence and outlier events more
+Because radioactivity limits the fiducial volume and increases the background, making accidental coincidence
+(\secref{subsec:backgrounds_ac}) and outlier events more
 likely, XENON and Hamamatsu worked together to develop a highly radio-pure PMT.  The original R11410 version used ceramic as a dynode
 insulator, standard Kovar alloy, and purity aluminum for the seal.  Upgrading to quartz for the insulator, low-cobalt Kovar alloy, and
 high purity aluminum helped alleviate
@@ -108,7 +110,7 @@ material that is more radio-pure and can insulate the dynode connections has not
 ultimately showed the reduction in background was minimal.
 
 The number of signals per second without a light source is known as the dark count rate.  At ambient temperatures the dark count rate
-is primarily caused by thermal electrons and scale with PMT voltage.  This becomes subdominant at
+is primarily caused by thermal electrons and scale with PMT voltage \citeref{Barrow2017}.  This becomes subdominant at
 cryogenic temperatures to electron field emission and radioactivity (internal and external) as well as cosmic rays.  Higher dark count
 rates make accidental coincidence - when a lone-S1 and lone-S2 imitate a real event (\secref{subsec:backgrounds_ac}) - more likely.  This
 fake background is dangerous because it can create false events in the signal region.  The value above which events are recorded, or
@@ -129,7 +131,7 @@ the frequency, and voltages can be lowered to help further.  If micro light emis
 introducing fraudulent light into otherwise good signals from events inside the TPC.
 
 Directly following the pulse of a PMT a secondary pulse may occur.  Known as afterpulses, they can occur within tens of nanoseconds to
-$\lesssim 5\ \mathrm{\mu s}$.  This can make them difficult or impossible to resolve from true pulses - especially S2s - that can have
+${\lesssim}\, 5\ \mathrm{\mu s}$.  This can make them difficult or impossible to resolve from true pulses - especially S2s - that can have
 widths of several
 microseconds.  Because they are an inevitable side effect of PMTs it is important to carefully characterize and understand them.
 
@@ -137,7 +139,7 @@ There are three mechanisms known to cause afterpulses.  The first is elastic sca
 freeing electrons that quickly return to the dynode to produce a second, smaller electron avalanche.  This
 creates afterpulses in the range of a few to tens of nanoseconds.  A second kind is thought to come
 from dark noise and single electrons but is not well understood.  It has a relatively uniform distribution in delay time up to several
-microseconds.  Both of these afterpulses have areas of $\lesssim 2\ \mathrm{PE}$.
+microseconds.  Both of these afterpulses have areas of ${\lesssim}\, 2\ \mathrm{PE}$.
 
 The third mechanism is a photoelectron may occasionally ionize residual gas inside the PMT along its trajectory to the first dynode.  The
 ion then drifts to the photocathode and expels additional electrons.  The number of newly ejected electrons depends
@@ -183,7 +185,7 @@ the photoelectron's initial position, velocity, and emission angle cause variati
 transit time spread (TTS).  Because generally many PMTs observe an event the TTS quantifies how close together the signals should
 be.  Thus
 smaller TTSs lead to a smaller integration window and can decrease accidental coincidence.  The TTS for R11410-21 PMTs was measured to be
-$9.1 \pm 1.3\ \mathrm{ns}$ - or nearly the same as the digitizer rate \citeref{Barrow2017}.
+$9.1 \pm 1.3\ \mathrm{ns}$ - or nearly the same as the digitizer sampling rate \citeref{Barrow2017}.
 
 The probability of double photoelectron emission (DPE) in a number of PMTs including the R11410 is between 0.18-0.24 - much higher
 than previously thought \citeref{Faham2015}.  For The R11410 the probability was measured to be
@@ -200,12 +202,12 @@ they are related by
 \end{equation}
 
 \noindent so using the measured QE alone is incorrect.  For one, it is common to require a PMT coincidence for an event to
-be considered good - that is, $n$ PMTs must see a signal of a certain size within a predetermined time window.  Using
+be considered good - that is, $n$ PMTs must see a signal of a certain size within a time window (typically chosen using the TTS).  Using
 $\eta_{\mathrm{\mu}}$ will
 \textit{overestimate} the likelihood of this happening, and $\eta_{\mathrm{p}}$ should instead be used.  Additionally, when the PMT
 response is large DPE will lead to incorrect resolution and yields unless accounted for.  Details on how to appropriately
 account for $p_{\mathrm{dpe}}$ are discussed in the electronic and nuclear recoil band fitting
-(\secref{subsubsec:er_nr_calibrations_parameter_determ_det_phys}).
+(\secref{subsec:er_nr_calibrations_parameter_determ_det_phys}).
 
 The two PMT arrays are supported by oxygen-free high thermal conductivity (OFHC) copper, with holes in which the PMTs are placed
 (\figref{fig:xenon1t_pmt_array}).  The
@@ -214,16 +216,16 @@ array and cathode as well as the anode and top array.  Bias voltages can be appl
 phototubes and the drift and extraction fields and extend the PMT lifetimes.  While \citeref{Baudis2013} showed normal operation of R11410
 PMTs at $\geq 11\ \mathrm{kV\ cm^{-1}}$ the XENON1T design cathode voltage was $10 \mdash 100\ \mathrm{kV\ cm^{-1}}$.
 
-An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode for studying calibrations.  This model has
-been used in a number of LXe TPCs including the PMT arrays in XENON100 and an electronic recoil measurement at
-Columbia \citeref{Goetzke2017}, \citeref{Aprile2012a}.
+An additional six Hamamatsu R8520 PMTs reside in LXe outside the TPC near the top electrode to study calibrations.  R8520 PMTs
+have been used in a number of LXe TPCs including the PMT arrays in XENON100 and an electronic recoil measurement at
+Columbia \citeref{Goetzke2017,Aprile2012a}.
 
 
 
 
 \subsection{TPC}
 \label{subsec:xenon1t_tpc}
-The XENON1T time projection chamber is a cylinder 96.9 cm in height and 95.8 cm in diamater and encloses a target mass of 2.0 tons
+The XENON1T time projection chamber is a cylinder 96.9 cm in height and 95.8 cm in diamater and encloses a target mass of 2.0 tonnes
 (\figref{fig:xenon1t_tpc_tpc}).  The interior of the wall consists of 24 PTFE panels that were treated with diamond tools to
 maximize VUV reflectivity, which increases the light collection efficiency \citeref{Aprile2017b}.  Each interlocks with adjacent panels
 to achieve light-tightness and the system is designed so that despite the high thermal expansion coefficient of PTFE, the radius does not
@@ -295,8 +297,8 @@ Four parallel-plate capacitors measure the liquid level.  They have a range of 1
 for measuring tilts or adjusting the height of the TPC.  The liquid level's height is tunable through a gas-exhaust tube and maintained
 with a ``diving bell" where controlled gas flow from purification pressurizes the GXe inside the TPC.  Two cylindrical levelmeters
 with a 1360 mm range extend from the bottom PMT array to above the diving bell and are used during filling and recovery.  Placed around
-the field cage are cable trays that power and transfer signals from the PMTs and temperature sensors.  They are made of PTFE and the
-cables are held in place by PTFE spacers (\textbf{check if spacers is right word}).
+the field cage are PTFE cable trays that power and transfer signals from the PMTs and temperature sensors.  The
+cables are held in place by pieces of PTFE that fasten to the cable trays.
 
 
 
@@ -327,7 +329,7 @@ cathode with the outside.  A schematic of the cryostat is shown in \figref{fig:x
 \label{fig:xenon1t_cryo_cryostat_diagram}
 \end{figure}
 
-A total of 3.5 tons of xenon is stored in the cryostat.  In addition to the 2.0 t of LXe inside the TPC, 1.5 t rests between the
+A total of 3.5 tonnes of xenon is stored in the cryostat.  In addition to the 2.0 t of LXe inside the TPC, 1.5 t rests between the
 TPC and inner vessel.  The mass of the GXe is ${\sim} 20 \mdash 30\ \mathrm{kg}$.  The nominal LXe temperature is
 $T_{0} = -96^{\circ} \mathrm{C}$.  Gas near the top of
 the cryogenic system is liquified by pulse-tube refrigerators (PTRs) into a funnel and flows down to the TPC through a pipe to be
@@ -387,9 +389,9 @@ difference in vaporization temperature of the outgoing xenon and condensation te
 \end{equation}
 
 \noindent where $T_{\mathrm{gl}} (P)$ is the pressure-dependent temperature of the gas-liquid phase transition, and $P_{\mathrm{i}}$ and
-$P_{\mathrm{o}}$
-are the pressures of the incoming and outgoing xenon, respectively.  Because the conditions of the dynamical gas flow
-(\secref{subsec:xenon1t_pur}) cause $P_{\mathrm{i}} > P_{\mathrm{o}}$, $\Delta T_{\mathrm{ph}} > 0$, making it effective at heat transfer
+$P_{\mathrm{o}}$ are the pressures of the incoming and outgoing xenon, respectively \citeref{Aprile2012b}.  Because the conditions of
+dynamical gas flow
+(\secref{subsec:xenon1t_pur}) cause $P_{\mathrm{i}} > P_{\mathrm{o}}$, $\Delta T_{\mathrm{ph}} > 0$, the system can be very efficient
 \citeref{Aprile2012b}.  A study with the Demonstrator - the
 experiment used to for research and development for XENON1T (\secref{subsec:electron_lifetime_model_demonstrator}) - showed a heat
 exchange efficiency for
@@ -480,7 +482,7 @@ went
 online was these would limit the speed when necessary, but because we did not achieve our goal these have minimal impact.  Still, they can
 be used for further restriction.  The xenon then passes through SAES PS4-MT50-R high-temperature rare-gas purifiers, or getters.  They
 use heated ($400^{\circ}\mathrm{C}$) zirconium to form unbreakable bonds with carbide, nitride, and oxide, lowering the impurity content
-to $< 1\ \mathrm{ppb}$ \citeref{Aprile2017b}.  A bypass valve allows the xenon to pass un-purified in the event that the it does not
+to ${<}\, 1\ \mathrm{ppb}$ \citeref{Aprile2017b}.  A bypass valve allows the xenon to pass un-purified in the event that the it does not
 need to be cleaned.
 
 A Tiger Optics HALO+ H$_2$O monitor measures the water content in the purified GXe to track the purification efficiency.  It can measure
@@ -501,7 +503,7 @@ in place as a precaution against accidental openings of the actuated valves.
 \label{subsec:xenon1t_restox}
 The Recovery and Storage system for XENON1T (ReStoX) stores xenon not in use by other systems.  It is located on the ground floor of the
 service building.  With a volume of 4.95 m$^{3}$
-(diameter of 2.1 m), wall thickness of 28 mm, and ability to withstand pressures of up to 73 bar, it can support 7.6 tons of
+(diameter of 2.1 m), wall thickness of 28 mm, and ability to withstand pressures of up to 73 bar, it can support 7.6 tonnes of
 xenon
 as a gas, liquid, or super-critical fluid.  It is made from stainless steel and insulated via vacuum from an outer sphere, where
 thermal conductance is extremely low due to with superinsulation and limited contact to an external heat load of
@@ -512,7 +514,7 @@ The xenon is cooled by 16 lines welded to the inner vessel's outer surface that 
 service building.  To prevent over-cooling 16 stainless steel fins inside increase heat
 exchanging.  A condenser and heater in the middle are used when the xenon is stored as a liquid, which is normally the case.  The heater
 ensures solid xenon does not obstruct pipes so Xe can be transfered freely with other systems.  The total cooling power of
-$> 3\ \mathrm{kW}$ is spread over 4.3 m$^2$ of copper \citeref{Aprile2017b}.
+${>}\, 3\ \mathrm{kW}$ is spread over 4.3 m$^2$ of copper \citeref{Aprile2017b}.
 
 \begin{figure}
 \centering
@@ -523,9 +525,9 @@ $> 3\ \mathrm{kW}$ is spread over 4.3 m$^2$ of copper \citeref{Aprile2017b}.
 
 Previous LXe experiments would fill detectors by condensing the GXe from storage.  Similarly, recovery was done by allowing the LXe
 in the cryostat to evaporate.  While this was feasible for detectors with $\mathcal{O}(100)\ \mathrm{kg}$ of xenon, doing so
-(\textbf{maybe it is just for filling, check}) for XENON1T would require approximately two months, and fast recovery in the event of an
+for XENON1T would require approximately two months, and fast recovery in the event of an
 emergency would not be possible.  This is solved through the purification system, which as mentioned in \secref{subsec:xenon1t_pur} can
-pump xenon between systems and significantly expedite the process (\textbf{check with someone about how xenon is recovered}).
+pump xenon between systems and significantly expedite the process.
 
 
 
@@ -533,10 +535,10 @@ pump xenon between systems and significantly expedite the process (\textbf{check
 \label{subsec:xenon1t_kr_dist}
 Commercial high-purity xenon generally has krypton concentrations between 1 ppm to 10 ppb.  This is not clean enough for LXe dark matter
 detectors so additional distillation is necessary.  The reason for restricting the
-krypton content is \ce{^{85}Kr}, which has a half-life of 10.76 years and undergoes \betadecay with an end-point energy of 687 keV.  With
-an expected fraction $\mathrm{^{85}Kr / ^{nat}Kr = 2 \times 10^{-11}}$ the required \ce{^{nat}Kr}/Xe concentration for its background to be
-less than radon was expected to be $< 200\ \mathrm{ppq}$.  Details of the \ce{^{85}Kr} background can be found in
-\secref{sec:backgrounds}.
+krypton content is \ce{^{85}Kr}, which has a half-life of 10.76 years and undergoes \betadecay with an end-point energy of 687
+keV.  With an expected fraction of $\mathrm{^{85}Kr / ^{nat}Kr = 2 \times 10^{-11}}$, the necessary \ce{^{nat}Kr}/Xe concentration for the
+krypton background to be subdominant to that of the radon is $< 200\ \mathrm{ppq}$ \citeref{Aprile2016b}.  Details of the \ce{^{85}Kr}
+background can be found in \secref{sec:backgrounds}.
 
 To achieve this purity we use a krypton distillation column, seen in \figref{fig:xeno1t_kr_dist_column}.  The column has a total
 height of 5.5 m and is kept in an insulation vessel at $10^{-5}\ \mathrm{mbar}$ to minimize thermal losses \citeref{Aprile2016b}.  GXe
@@ -575,7 +577,7 @@ The second most worrisome low-energy background comes from the \ce{^{222}Rn} dec
 built and intended for Kr,
 it was shown to work in a single stage distillation \citeref{Bruenner2017} and subsequently XENON100
 \citeref{Aprile2017d} for radon removal.  It operates using the reverse principle, i.e. radon-enriched xenon coalesces near the bottom
-of the column and is extracted and stored in bottles, while the more pure xenon at the top is returned to the purification system.
+of the column so it decays, while the more pure xenon at the top is returned to the purification system.
 
 
 
@@ -590,8 +592,8 @@ and muon-induced neutrons, decreasing the number of events that reach the TPC by
 ($z = 0\ \mathrm{m}$) and highest ($z = 10\ \mathrm{m}$) rings each contains 24 PMTs, while the three between them have 12 each.  The
 quantum efficiency for each PMT is ${\sim}30\%$ between 300-600 nm.  To increase the chance of photon detection the inner wall is coated
 with foil (3M DF2000MA) that has
-nearly 100\% reflectivity at $> 400\ \mathrm{nm}$, \citeref{2017Geis}.  However, ${\sim}90\%$ of light is absorbed for
-$<370\ \mathrm{nm}$ and 3-7.5\% from $250 \leq \lambda \leq 370\ \mathrm{nm}$ is wavelength shifted to more favorable values for the PMTs.
+nearly 100\% reflectivity at ${>}\, 400\ \mathrm{nm}$, \citeref{2017Geis}.  However, ${\sim}90\%$ of light is absorbed for
+${<}\,370\ \mathrm{nm}$ and 3-7.5\% from $250 \leq \lambda \leq 370\ \mathrm{nm}$ is wavelength shifted to more favorable values for the PMTs.
 
 The purpose of the PMTs is to identify muons and muon-induced neutrons by detecting showers initiating
 outside the water tank.  Using the difference in arrival times to each PMT the path of the particle can be reconstructed as shown in
@@ -637,8 +639,8 @@ hangs on the outside.  ReStoX (first floor), DAQ (second), and the cryogenic sys
 \subsubsection{Internal}
 \label{subsubsec:xenon1t_calibrations_internal}
 Internal calibrations allow us to describe how our detector observes events throughout the entire TPC.  This is preferable to external
-calibrations (\secref{subsubsec:xenon1t_calibrations_external}), where events are more focused in the section of the TPC near the
-wall.  The calibration source box is installed in the
+calibrations (\secref{subsubsec:xenon1t_calibrations_external}), where events are more focused in the outer volume.  The calibration
+source box is installed in the
 purification system (pink region in
 \figref{fig:xenon1t_pur_schematic}) and contains valves opening to the GXe both before and after the
 getters.  This is clearer in \figref{fig:xenon1t_pur_cal_box_schematic}, which shows a detailed schematic of the source box including
@@ -702,7 +704,7 @@ credit: \citeref{Aprile2017b}.}
 \label{subsubsec:xenon1t_calibrations_external}
 External calibrations are performed with the source outside the cryostat.  In XENON100 this was done by inserting a source inside the
 protective lead
-shielding; however, the size of the water tank in XENON1T requires the installation of two ``I-belts"
+shielding \citeref{Aprile2010}; however, the size of the water tank in XENON1T requires the installation of two ``I-belts"
 along the height of the detector and one ``U-belt" that also extends underneath, as shown in
 \figref{fig:xenon1t_calibrations_belts}.  They
 allow the sources to be lowered from the roof of the tank and positioned at different locations along the axis of the
@@ -717,12 +719,12 @@ cylinder is the neutron generator.  Image credit: \citeref{Aprile2017b}.}
 \end{figure}
 
 External $\gamma$ sources include \ce{^{137}Cs} with an energy of 661.7 keV, and \ce{^{228}Th} with a number of energies between 511 keV
-and 2.614 MeV.  These are stored in W-collimators that restrict the \gammarays to a cone of $40^{\circ}$.  Additionally, the \ce{^{60}Co}
-in the materials has 1.173 and 1.333 MeV lines that can also be used.
+and 2.614 MeV.  These are stored in W-collimators that restrict the \gammarays to a cone of $40^{\circ}$.  Additionally, radioactive
+isotopes in the materials (e.g. \ce{^{60}Co}, \ce{^{214}Bi}) have mono-energetic \gammarays that can be used.
 
 Nuclear recoil sources \ambe and a deuterium-deuterium (D-D) neutron generator (NG) are also placed in the water tank.  They emit MeV
 neutrons (though have different spectrums) and the \ambe is housed in the W-collimator.  Details are discussed in
-\secref{subsubsec:er_nr_calibrations_parameter_determ_nr}.
+\secref{subsec:er_nr_calibrations_parameter_determ_nr}.
 
 
 
@@ -746,11 +748,12 @@ middle panel.  The shape of the S1 (left) and the light seen by the bottom PMT a
 ${\sim} 1000\ \mathrm{\mu s}$ an S2 (2120.1 PE) occurs.  Its shape (center left) and light distribution in the top PMT array (right) are
 shown in the top panel.  The red cross marks the $x \mdash y$ coordinates from the position reconstruction algorithm
 (\secref{subsec:det_char_position_reconstruction}).  PMTs near the cross that are white are turned off.  S2s are marked by
-green circles in the middle panel.  Two smaller ($< 40\ \mathrm{PE}$) S2s follow the primary S2 by ${\sim}150\ \mathrm{\mu s}$.}
+green circles in the middle panel.  Two smaller (${<}\, 40\ \mathrm{PE}$) S2s follow the primary S2 by ${\sim}150\ \mathrm{\mu s}$.  Image
+credit: XENON1T processor.}
 \label{fig:xenon1t_waveform}
 \end{figure}
 
-The TPC DAQ reads every pulse $> 0.3\ \mathrm{PE}$ from each PMT independently and regardless of any signal from other
+The TPC DAQ reads every pulse ${>}\, 0.3\ \mathrm{PE}$ from each PMT independently and regardless of any signal from other
 channels.  The read-outs of the ADC boards are passed to six computers at up to $300\ \mathrm{MB\ s^{-1}}$ (${\sim}100\ \mathrm{Hz}$) and
 are stored along with relevant information such as time and channel in a MongoDB database.  The sum of the bottom PMTs along with veto
 and busy information is constantly read by a separate computer to determine the deadtime.  The DAQ continuously monitors data quality
@@ -765,12 +768,12 @@ parameters such as baseline, trigger, and noise.
 
 A software eventbuilder on three server-grade machines decides in real-time if an interaction has occurred by examining the
 time-clustering of PMT signals, and opts whether to trigger.  Metadata from the trigger decision is recorded and can be monitored
-online to check performance or offline for analysis.  At larger than 200 PE (${\sim}7\ e^-$) the trigger efficiency is $> 99\%$.  The muon
-veto uses a simple coincidence trigger that is directed by a CAEN V1495 VME unit.
+online to check performance or offline for analysis.  At larger than 200 PE (${\sim}7\ e^-$) the trigger efficiency is ${>}\, 99\%$.  The
+muon veto uses a simple coincidence trigger that is directed by a CAEN V1495 VME unit.
 
 Two 10 Gbps fibers transfer the raw data to buffer-storage at LNGS for temporary housing.  The raw data is then moved to the US Open
-Science Grid and European Grid Infrastructure for processing and backed up in Stockholm.  \figref{fig:xenon1t_daq_schematic} shows an
-overview of the DAQ system.
+Science Grid and European Grid Infrastructure for processing and backed up in Stockholm
+\citeref{Aprile2017b}.  \figref{fig:xenon1t_daq_schematic} shows an overview of the DAQ system.
 
 To prevent acquisition of bad data four quality checks are performed - three of which are done in real time during data taking.  The
 first is a \textit{high energy veto} that goes to \texttt{TRUE} in the event of a very large S2.  When this occurs the DDC-10 (custom
@@ -886,7 +889,7 @@ under-amplified electron avalanche.  This is generally the most challenging aspe
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{SPESpectrum}
-\caption{Single photoelectron spectrum of a Hamamatsu R11410 PMT.}
+\caption{Single photoelectron spectrum of a Hamamatsu R11410 PMT.  Image credit: \citeref{Barrow2017}.}
 \label{fig:xenon1t_pmt_spe}
 \end{figure}
 
@@ -933,7 +936,7 @@ the
 center of the bottom array (\secref{subsec:xenon1t_pmts}) events that happen around that region have a higher likelihood of detection,
 while those in the top corners have the lowest.
 
-Because PTFE has a small but $> 0$ absorption the intensity of the scintillation decreases with each reflection.  Therefore light
+Because PTFE has a small but ${>}\, 0$ absorption the intensity of the scintillation decreases with each reflection.  Therefore light
 that is emitted in the $\hat{r}$-direction can be severely dampened.  Photon loss is amplified by the absorption of light by
 impurities in the LXe as well, so longer traversed distances lead to fewer photons (\secref{subsec:importance_procedure_effects_photons}).
 
@@ -974,15 +977,15 @@ $z = 0$ at gate).  The drift fields for SR0 and SR1 were $E_d = 118.6\ \mathrm{V
 respectively, with $2.2\ \mathrm{V\ cm^{-1}}$ RMS variations.  The fields correspond to drift velocities of
 $v_d = 1.440\ \mathrm{mm\ \mu s^{-1}}$ and $1.332\ \mathrm{mm\ \mu s^{-1}}$ and
 maximum drift times of $t_{d, \mathrm{max}} = 672.8\ \mathrm{\mu s}$ and $727.3\ \mathrm{\mu s}$ (TPC drift length is 96.9
-cm at$-100^{\circ}\mathrm{C}$).
+cm at $-100^{\circ}\mathrm{C}$).
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{PosRecRes}
 \caption{$x \mdash y$ position reconstruction resolution $\pm 1\sigma$ for SR1 as a function of number of electrons and
 $\mathrm{S2_b}$.  At lower $n_e$ the
-resolution becomes worse due to the limited S2 scintillation.  At low-energies ($n_e \lesssim 100\ e^-$,
-$\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) the position resolution becomes extremely poor.}
+resolution becomes worse due to the limited S2 scintillation.  At $n_e \lesssim 100\ e^-$
+($\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) the position resolution becomes extremely poor.}
 \label{fig:calibrations_position_reconstruction_res}
 \end{figure}
 
@@ -991,19 +994,19 @@ known as PMT hit pattern).  For XENON1T two reconstruction algorithms were mainl
 first was a neural net (NN) using the Fast Artificial
 Neural Network (FANN) library with 24 and 29 nodes in the two hidden layers (sequentially).  The second matches the real with expected hit
 patterns after weighting four separate algorithms for its seed, and is known as top pattern fit (TPF).  Both algorithms were trained using
-Monte Carlo and optimized with $\mathrm{^{83m}Kr}$ data, and achieved a position resolution of $\lesssim 2\ \mathrm{cm}$.  For the
+Monte Carlo and optimized with $\mathrm{^{83m}Kr}$ data, and achieved a position resolution of ${\lesssim}\, 2\ \mathrm{cm}$.  For the
 combined-run analysis the NN was used because the TPF algorithm was more sensitive to dead PMTs and showed some artificial discontinuity
 in the $\hat{r}$-direction.  The position reconstruction resolution for the NN is shown in
 \figref{fig:calibrations_position_reconstruction_res}.  \figref{fig:calibrations_position_reconstruction} shows the position distribution
 of events in SR1 along with
-the 1 ton fiducial mass that was used in originally used in the SR0-only results \citeref{Aprile2017f}, the 1.3 t used in the new
+the 1 tonne fiducial mass that was used in originally used in the SR0-only results \citeref{Aprile2017f}, the 1.3 t used in the new
 analysis, and the active volume.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{FVBoth}
-\caption{Positions of background events for SR1.  The 1 ton fiducial mass used in the SR0-only analysis is defined by
-$-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$ and shown in green.  The 1.3 ton fiducial mass for this analysis has a more
+\caption{Positions of background events for SR1.  The 1 tonne fiducial mass used in the SR0-only analysis is defined by
+$-92.9 < z < -9\ \mathrm{cm}$, $r < 36.94\ \mathrm{cm}$ and shown in green.  The 1.3 tonne fiducial mass for this analysis has a more
 complicated shape, having $z_\mathrm{min} = -94\ \mathrm{cm}$,
 $z_{\mathrm{max}} = -8\ \mathrm{cm}$, and $r_{\mathrm{max}} = 42.84\ \mathrm{cm}$.  It is outlined in blue ($r_{\mathrm{max}}$ is shown
 in left panel).  The active volume is marked in black.  Events that appear outside the active volume are wall events that were not
@@ -1062,11 +1065,11 @@ taking the electron lifetime is monitored via background
 emanation were chosen, electron lifetime measurements usually require 24-48 hours of data.  Alternatively, calibrations
 have significantly higher (${\sim}50\ \mathrm{Hz}$) statistics, allowing measurements with much better precision.
 
-The 32.2 keV $\mathrm{^{83m}Kr}$ de-excitation is an effective method to measure $\tau_{e}$.  The number of events
+The 41.5 keV $\mathrm{^{83m}Kr}$ de-excitation is an effective method to measure $\tau_{e}$.  The number of events
 from a typical calibration of 2-3 days is in the millions, so even with $< 4\%$ acceptance after the $\Delta t_{\mathrm{S1}}$ cut the
 number of usable events
 is ${\sim}10^5$ with effectively no background.  \figref{fig:det_char_elifetime_kr} shows an example of an electron lifetime calculation
-using $\mathrm{^{83m}Kr}$.
+using the 32.2 keV de-excitation of $\mathrm{^{83m}Kr}$.
 
 \begin{figure}
 \centering
@@ -1078,7 +1081,7 @@ $671.18 \pm 4.14\ \mathrm{\mu s}$ and extends over the region the fit was comput
 \end{figure}
 
 Another high-statistic measurement is possible during \ce{^{220}Rn} calibrations.  Primarily used for the 569.9 keV $\beta$-emission of
-its decay chain progeny \ce{^{212}Pb} (\secref{subsubsec:er_nr_calibrations_parameter_determ_er}), a number of elements along the chain
+its decay chain progeny \ce{^{212}Pb} (\secref{subsec:er_nr_calibrations_parameter_determ_er}), a number of elements along the chain
 undergo $\alpha$-decays and can be used to measure $\tau_e$.  \tabref{tab:alpha_decays} lists the main $\alpha$-emitters in both the
 \ce{^{222}Rn} and \ce{^{220}Rn} chains.  Because \ce{^{220}Rn} calibration
 data is only used after the source valve is closed, \ce{^{220}Rn} and \ce{^{216}Po} won't be present due to their short half-lifes of
@@ -1095,13 +1098,13 @@ been \ce{^{137}Cs}, whose decay
 \end{equation}
 
 \noindent leaves barium in metastable state.  As $\mathrm{^{137m}Ba}$ de-excites it emits a 661.7 keV $\gamma$-ray, whose mean
-free path of ${\sim}5\ \mathrm{cm}$ allowed it to reach the fiducial volumes.  For
-XENON1T and other ton-scale detectors to come it is less effective, as an attempt shortly after the detector came online showed.  Using
+free path of ${\sim}5\ \mathrm{cm}$ was generally large enough to reach the fiducial volumes.  For
+XENON1T and other tonne-scale detectors to come it is less effective, as an attempt shortly after the detector came online showed.  Using
 \ce{^{137}Cs} a Compton spectrum and total absorption peak were visible but only in the region closest to the source and after many hours
 of data.  The 163.9 and 236.2 keV de-excitations of $\mathrm{^{131m}Xe}$ and $\mathrm{^{129m}Xe}$ following a nuclear
-recoil calibration are effective because they uniformly distribute throughout the xenon.  However, following the \ambe and neutron
-generator calibrations their activity was on the order of \ce{^{222}Rn}, and as they de-excited larger time windows were required for
-a fit.
+recoil calibration are useful because they uniformly distribute throughout the xenon.  However, in SR0 and SR1 their activities at their
+highest were only roughly the same as \ce{^{222}Rn}, and their half-lifes (11.8 and 8.9 days, respectively) limited their use to just
+several weeks.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -1150,7 +1153,7 @@ significantly higher the charge yield is extremely low (\figref{fig:tpcs_signals
 interest is low-energy and unaffected by $\alpha$ interactions the electron lifetime derived from $\mathrm{^{83m}Kr}$ was used for this
 analysis.  The
 electron lifetime used for Science Runs 0 and 1 is shown in \figref{fig:det_char_elifetime_evolution}.  The flattening in $\tau_{e}$
-around November 2017 may be indicative of a small leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the
+around November 2017 may be indicative of a leak as mentioned in \secref{subsubsec:backgrounds_electronic_krypton}.  Details on the
 electron lifetime model are discussed in \secref{sec:electron_lifetime_model}.
 
 
@@ -1256,8 +1259,8 @@ of the S2 and cS2 observed by the bottom array.  Everything that follows in this
 The processes
 for light and charge production were described in \secref{sec:scintillation}.  For electronic recoils atomic motion is
 not a factor so all of the energy produces a number of quanta $n_q = E_{er} / W$ where $E_{er}$ is the ER energy and
-$W = 13.7 \pm 0.2\ \mathrm{eV}$ is the average energy to create an exciton or electron-ion pair.  The number of quanta can be broken
-down as
+$W = 13.7 \pm 0.2\ \mathrm{eV}$ is the average energy to create an exciton or electron-ion pair \citeref{Dahl2009}.  The number of quanta
+can be broken down as
 
 \begin{equation}
 n_q = n_{\gamma} + n_e
@@ -1393,8 +1396,8 @@ electronic recoil counterparts at $6.47 \pm 0.10\ \mathrm{PE\ keV^{-1}}$ due to 
 \figref{fig:det_char_ly_cy_ly_cy} shows the light and charge yields for a number of mono-energetic \gammarays and \ce{^{222}Rn} over
 SR1.  Aside from the 9.4 keV \metakr line the \ce{^{222}Rn} \alphadecay has the largest light yield, though its charge yield is more than
 an order of magnitude below the $\gamma$ values.  The light yields for all energies appear stable over SR1, but the charge yields are
-increasing.  This is the result of a higher rate of single electron extraction that contaminates S2s and makes them seem larger than they
-truly are.
+increasing.  This is suspected to result from a higher rate of single electron extraction, what contaminates S2s and makes them seem
+larger than they truly are.
 
 
 
@@ -1459,11 +1462,10 @@ measurements show that $\mathrm{^{85}Kr / ^{nat}Kr} = 2 \times 10^{-11}$ \citere
 contamination threaten WIMP DM searches, especially if \ce{^{nat}Kr}/\ce{Xe} at the ppm to ppb level.  As discussed in
 \secref{subsec:xenon1t_kr_dist} a krypton distillation column was installed in the service building and connected to the cryostat through
 the purification system.  In the first science run a level of $0.36 \pm 0.06\ \mathrm{ppt}$ was reached, corresponding to a rate of
-around 50 low-energy electronic recoils per year in a t ton fiducial mass.  In Science Run 1 $\mathrm{^{nat}Kr / Xe}$ increased at a rate
-$0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$, as shown in
-\figref{fig:backgrounds_electronic_krypton_rate_increase}.  The rise suggests that a small leak may be present, which is further supported
-by a plateau in the electron lifetime (\secref{subsec:det_char_elifetime}, \chapref{4}).  However, while the February-July
-measurements follow this trend nicely, those beginning in September display a less coherent trend.  The filament at RGMS was replaced
+around 50 low-energy electronic recoils per year in a 1 tonne fiducial mass.  In Science Run 1 $\mathrm{^{nat}Kr / Xe}$ increased at a
+rate $0.693_{-0.132}^{+0.114}\ \mathrm{ppt\ y^{-1}}$, as shown in \figref{fig:backgrounds_electronic_krypton_rate_increase}.  The
+February-July
+measurements show a stead increase, though those beginning in September display a less coherent trend.  The filament at RGMS was replaced
 between the September and November measurements.  The average concentration over SR0 + SR1 was
 $^{\mathrm{nat}}\mathrm{Kr}/\mathrm{Xe} = 0.66 \pm 0.11\ \mathrm{ppt}$.
 
@@ -1528,7 +1530,7 @@ contributor so such a reduction is still significant.
         \includegraphics[height=5cm]{ERRateMCZoomed}
     \end{subfigure}
     \caption{Predicted electronic recoil energy background spectrum in a 1 t fiducial volume from Monte Carlo.  The left panel gives the
-    ER expectation from 0 to $> 2614.5\ \mathrm{keV}$ (\ce{^{208}Tl}).  The right panel examines the 0-250 keV range.  Predictions can
+    ER expectation from 0 to ${>}\, 2614.5\ \mathrm{keV}$ (\ce{^{208}Tl}).  The right panel examines the 0-250 keV range.  Predictions can
     be compared to combined energy spectrum in \figref{fig:calibrations_photon_charge_efficiences_ces}.  Image credit:
     \citeref{Aprile2016a}.}
 	\label{fig:backgrounds_er_spectrum}
@@ -1556,8 +1558,9 @@ decay its contribution is small, but as an irreducible background it will become
 
 \subsection{Nuclear Recoils}
 \label{subsec:backgrounds_nuclear}
-The nuclear recoil background comes from neutrons and neutrinos.  Whereas \gammarays are stopped within several cm of LXe, high-energy
-neutrons have mean free paths of ${\sim}10\ \mathrm{cm}$, allowing them to move through the LXe volume more easily and given them a higher
+The nuclear recoil background comes from neutrons and neutrinos.  Whereas \gammarays are stopped within several cm of LXe, MeV
+neutrons have mean free paths of ${\sim}10\ \mathrm{cm}$, allowing them to move through the LXe volume more easily and giving them a
+higher
 probability of scattering inside the FV.  Neutrinos move freely and cannot be shielded.  The nuclear recoil background is composed of
 radiogenic and muon-induced neutrons as well as astrophysical neutrinos.
 
@@ -1576,7 +1579,7 @@ predictions.  The \ce{^{238}U} and \ce{^{232}Th} chains are
 separated at \ce{^{226}Ra} and \ce{^{228}Th} to account for the disequilibrium in decay rate
 that is observed.  The PTFE has on average a lighter $Z$ than the copper, giving it a larger $(\alpha, \mathrm{n})$
 contribution.  \figref{fig:backgrounds_nuclear_muon_induced_nr_rate} shows that for $E \gtrsim 3\ \mathrm{keV}$
-radiogenic neutrons are the dominating contribution for the NR backgrounds.  The expected rate for a 1 ton fiducial mass is
+radiogenic neutrons are the dominating contribution for the NR backgrounds.  The expected rate for a 1 tonne fiducial mass is
 $0.6 \pm 0.1\ \mathrm{y^{-1}}$ \citeref{Aprile2016a}.
 
 \begin{figure}
@@ -1603,8 +1606,8 @@ $0.6 \pm 0.1\ \mathrm{y^{-1}}$ \citeref{Aprile2016a}.
 \label{subsubsec:backgrounds_nuclear_muon_induced}
 Cosmic muons that interact with the rock above the detector can produce up to GeV neutrons.  Such high-energy neutrons have a large mean
 free path and it is possible they pass through the water shield (\secref{subsec:xenon1t_water_shield}).  However, simulations show that
-if the associated showers from the muon interaction also enter the tank the tagging efficiency is $> 70\%$.  The predicted rate is
-$< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate}.
+if the associated showers from the muon interaction also enter the tank the tagging efficiency is ${>}\, 70\%$.  The predicted rate is
+${<}\, 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref{fig:backgrounds_nuclear_muon_induced_nr_rate}.
 
 \begin{figure}
 \centering
@@ -1627,8 +1630,9 @@ $< 0.01\ \mathrm{y^{-1}}$ for 1 t and is represented by the blue line in \figref
 The final contribution to the NR background comes from neutrinos that participate in coherent neutrino-nucleus scattering.  The primary
 contributor to the integrated NR rate is solar \ce{^{8}B} neutrinos, which is orders of magnitude larger than other sources.  Solar $hep$,
 atmosphere, and diffuse supernova neutrinos also contribute.  We can see in
-\figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that neutrinos are the principal concern for recoils at $< 3\ \mathrm{keV}$.  The
-number of detected events at $> 1\ \mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
+\figref{fig:backgrounds_nuclear_muon_induced_nr_rate} that neutrinos are the principal concern for recoils at
+${<}\, 3\ \mathrm{keV}$.  The
+number of detected events at ${>}\, 1\ \mathrm{keV}$ was predicted to be ${\sim} 90\ \mathrm{t^{-1}\ y^{-1}}$.  While this is below our
 threshold, Poissonian variations may put a small fraction into our detection region.  By looking at the expected number of events closer
 to our threshold (${\sim} 4\ \mathrm{keV}$) this drops to $1.8 \times 10^{-2}\ \mathrm{t^{-1}\ y^{-1}}$.  As mentioned in
 \secref{subsubsec:backgrounds_electronic_solar_neutrinos} neutrinos will compose a greater fraction of our background in larger detectors
@@ -1636,17 +1640,17 @@ due to the inability to shield them.
 
 
 
-\subsection{Detector Materials}
+\subsection{Surface Background}
 \label{subsec:backgrounds_detector_materials}
-Detector materials were screened before purchasing (\secref{subsec:xenon1t_pmts, xenon1t_cryo}) to ensure
-those with the lowest radioactivity were chosen.  The high self-shielding of LXe prevents the radiation from penetrating deep into
-the detector, stopping the majority of events within several cm.  Still, it is important to understand our detector materials background
-for a number of
-reasons.  The first is we want to maximize our FV.  Because including these events can affect our sensitivity we need to know
-what ``safe distances'' from the top, bottom, and wall are.  The second is once we choose the FV it is important to have a reliable
-estimate
-of the number of events that will ``leak" into our FV, known as ``leakage events".  Failing to have an accurate prediction can result in
-a loss in sensitivity.  The third reason is these events can be used to characterize the detector.
+Detector materials were screened for radioactivity before purchasing (\secref{subsec:xenon1t_pmts,subsec:xenon1t_cryo}) to minimize
+our background from surface events, i.e. events near the boundaries of the active volume.  The high self-shielding of LXe prevents the
+radiation from penetrating deep into
+the detector, restricting the majority of surface events to the outermost several cm of the TPC.  It is important to understand our
+surface background, in large part to optimize our sensitivity.  Knowledge of the position-dependent event rate enables
+us to calculate where the sensitivity gain from increasing the fiducial volume is outweighed by the rise in background.  This is crucial
+because an inaccurate estimate of the number of surface events that will ``leak'' into the FV, known as ``leakage events'', can
+compromise our sensitivity (upward or downward).  In addition to sensitivity optimization, surface events can be used to characterize
+the detector in ways unique from the methods discussed in \secref{sec:det_char}.
 
 The primary isotopes from materials that play a role in our background are \ce{^{40}K}, \ce{^{60}Co}, and the decay chains of
 \ce{^{238}U}, \ce{^{235}U}, \ce{^{232}Th}, \ce{^{228}Th}, and \ce{^{226}Ra}.  In fact, although \ce{^{226}Ra} and \ce{^{228}Th} are part
@@ -1669,17 +1673,20 @@ $\mathrm{^{232}Th} \rightarrow \mathrm{^{228}Ac}$ and $\mathrm{^{228}Th} \righta
 	\label{fig:backgrounds_decay_chains}
 \end{figure}
 
-As \electron from wall events drift to the surface, a fraction will attach to the PTFE.  The decrease in S2 causes three main effects: 1)
-an increase in position reconstruction uncertainty, 2) leakage into the NR band, and 3) small changes to the electric field.
+Evidence suggests that as \electron from surface events near the wall drift to the surface, a fraction will attach to the PTFE.  The
+decrease in S2 causes three main effects: 1)
+an increase in position reconstruction uncertainty, 2) leakage into the NR band, and 3) small changes to the electric field (from
+continued charge accumulation on the PTFE).
 
 A major constraint on the radius of our fiducial volume is the radioactivity from the PTFE panels - both the rate and reconstructed
 positions, the latter of which has significant uncertainty at $\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$ as seen in
 \figref{fig:calibrations_position_reconstruction_res}.  This makes \ce{^{210}Pb} on the PTFE panels concerning since its \betadecay has
 a Q-value of just $63.5\ \mathrm{keV}$ and electron loss could result in a seemingly normal NR event inside the FV.  Moreover, despite a
-chemical cleaning process during commissioning, a large amount of \ce{^{210}Pb} is known to be present from \alphadecays of its progeny
+chemical cleaning process during commissioning \citeref{Aprile2017b}, a large amount of \ce{^{210}Pb} is known to be present from
+\alphadecays of its progeny
 \ce{^{210}Po}.  With a half-life of $t_{1/2} = 22.1\ \mathrm{y}$ and the continual addition of \ce{^{222}Rn}
-(\secref{subsubsec:backgrounds_electronic_radon}), which decays to \ce{^{210}Pb} within days, its background rate will be
-constant over the lifetime of the detector.
+(\secref{subsubsec:backgrounds_electronic_radon}), which decays to \ce{^{210}Pb} within days, its background rate will likely increase
+(albeit slowly) over the lifetime of the detector.
 
 To address the first two points we model our expected contamination with events whose positions are reconstructed outside the
 TPC ($r > 47.9\ \mathrm{cm}$).  The S2, cS1, cS2$_{\mathrm{b}}$, and $z$
@@ -1730,20 +1737,20 @@ buildup on the teflon that pushes events in the $-\hat{r}$ direction.  Residuals
 \label{fig:backgrounds_wall_charge}
 \end{figure}
 
-The decay rates $R$ grow over time, with larger $r$ corresponding to greater increases.  One explanation might be a leak - for
-which there may be other evidence (\secref{subsubsec:backgrounds_electronic_krypton, subsec:electron_lifetime_model_outgassing}) - but the
-short half-lifes of \ce{^{222}Rn} and \ce{^{218}Po} demand the leak to be growing, which is in disagreement.  Additionally, a growing
+The decay rates $R$ grow over time, with larger $r$ corresponding to greater increases.  One explanation might be a leak, but the
+short half-lifes of \ce{^{222}Rn} and \ce{^{218}Po} demand the leak be growing, which is in disagreement.  Additionally, a growing
 leak should increase the decay rate across the entire detector, which is not observed.  This does not disqualify a constant leak since
 the decay rates would be elevated and unchanging but does not explain \figref{fig:backgrounds_wall_charge}.
 
-A second explanation is charge buildup on the PTFE.  Drifting \electron from events near the wall that attach to the PTFE will slowly
-alter the electric field, primarily in the $\hat{r}$ direction.  The cumulative decay rate would not be impacted but events will move
+A second explanation is charge buildup on the PTFE.  Drifting \electron from events near the wall that attach to the PTFE may slowly
+alter the electric field, primarily along $\hat{r}$.  The cumulative decay rate would not be impacted but events will move
 inward as this effect becomes stronger.  Furthermore, the rate of increase should grow with radius as the field distortion
-becomes more significant until it reaches a point where more events are lost than gained.  39 cm seems likely to be too far from the wall
+becomes more significant until it reaches a point where more events are lost than gained.  39 cm is likely too far from the wall
 to see a decrease in events, so
 \figref{fig:backgrounds_wall_charge} supports the charge buildup hypothesis as the slope for each fit grows with $r$.  The
 decay rates differ because \ce{^{218}Po} may be left in a charged state following the decay of \ce{^{222}Rn} and pulled out of the
-FV, which is evident when comparing the $z$-distributions.
+FV, which is evident when comparing the $z$-distributions.  Further research into the mechanism by which electrons attach to the PTFE is
+required before we can conclusively state this theory is correct.
 
 \begin{figure}
 \centering
@@ -1755,11 +1762,11 @@ to their proximity to the wall.  This helps estimate the scale of $dR/dt$ when s
 
 \figref{fig:backgrounds_detector_materials_wall_charge_radius} shows the expected rate increase dependence on $r^2$ using the best-fit
 values from \figref{fig:backgrounds_wall_charge}.  Both figures
-raise the concern that the FV will grow over time as more events are pushed inwards.  To account for this a time-dependent position
-reconstruction (\secref{subsec:det_char_position_reconstruction}) model is developed.
+raise the concern that the FV will grow over time as more events are pushed inwards.  To account for this a time-dependent field
+distortion correction (\secref{subsec:det_char_position_reconstruction}) model is developed.
 
-At $E \gtrsim 500\ \mathrm{keV}$ the background contribution becomes dominated by detector materials, with the exception of
-${\sim} 1400 \mdash 2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  For the energy region for spin-independent WIMP dark
+Surface events dominate the detector background at $E \gtrsim 500\ \mathrm{keV}$, with the exception of
+${\sim} 1400 \mdash 2100\ \mathrm{keV}$ where \ce{^{136}Xe} is slightly larger.  In the energy region for spin-independent WIMP dark
 matter \ce{^{136}Xe} is outpaced by approximately two orders of magnitude by \ce{^{214}Pb} inside the 1 t
 fiducial mass.  \figref{fig:backgrounds_er_spectrum} shows the predicted ER backgrounds using Monte Carlo.
 
@@ -1767,8 +1774,9 @@ fiducial mass.  \figref{fig:backgrounds_er_spectrum} shows the predicted ER back
 
 \subsection{Accidental Coincidence}
 \label{subsec:backgrounds_ac}
-In certain cases we may not be able to observe both the S1 and S2.  Interactions with only an S1, or lone-S1 events, result almost
-entirely from PMT dark rate pile-up at low energies and below-cathode scatters at higher energies.  Those with just an S2, or lone-S2
+In certain cases we may not be able to observe both the S1 and S2.  Interactions with only an S1, or lone-S1 events, are suspected to
+result almost entirely from PMT dark rate pile-up at low energies, below-cathode scatters at higher energies, and mis-identified single
+electrons.  Those with just an S2, or lone-S2
 events, come from interactions near the cathode and gate where the large electric field can significantly quench the S1.  The lone-S2s
 could at least in part be explained by \ce{^{210}Pb}, which given its presence on the PTFE panels, suggest it may also exist on the
 electrodes.
@@ -1795,7 +1803,8 @@ the probability of having two interactions in the same time window is negligible
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ac_s2s1_distribution_blessed_sr1}
-\caption{Expected accidental coincidence distribution in cS1-cS2$_{\mathrm{b}}$ space.  Isolated S1s and S2s are randomly coupled to
+\caption{Expected accidental coincidence distribution in cS1-cS2$_{\mathrm{b}}$ space for the 1.3 t FV.  Isolated S1s and S2s are randomly
+coupled to
 imitate real events in the TPC.  S1 and S2 corrections are applied and events that pass the cuts are plotted.  Projections are
 shown for cS1 (top) and cS2$_{\mathrm{b}}$ (right) for all events in blue, and between the NR median (red dashed line) and
 $-2 \sigma$ (solid black) in orange.  The majority of events in the reference region are in $\mathrm{cS1} \lesssim 10\ \mathrm{PE}$,
@@ -1808,11 +1817,9 @@ Accidental coincidences do not benefit from fiducialization like much of our oth
 with detector size.  Still, its total contribution is comparatively small to the whole background.  AC is source or background-dependent,
 so for this analysis
 distributions for \ce{^{220}Rn}, $\mathrm{^{241}AmBe}$, and NG data were each included in the electronic and nuclear recoil band fitting
-(\secref{sec:er_nr_calibrations}).  Similar conditions and durations meant the SR0 and SR1 $^{241}$AmBe calibrations had nearly the same
-AC expectation so it was not
-necessary to include independent distributions; however, SR0 and SR1 AC for \ce{^{220}Rn} were sufficiently different to require
-independent inputs.  \figref{fig:er_nr_calibrations_parameter_determ_ac} shows the expected AC distribution in cS1-cS2$_{\mathrm{b}}$
-space with the region of interest marked by the dotted red (median) and solid black ($-2 \sigma$) lines.
+(\chapref{chap:er_nr_calibrations}).  \figref{fig:er_nr_calibrations_parameter_determ_ac} shows the expected AC distribution for the 1.3 t
+FV in cS1-cS2$_{\mathrm{b}}$ for dark matter data,
+space with the region of interest marked by the dotted red (median) and solid black ($-2 \sigma$).
 
 
 
@@ -1842,19 +1849,20 @@ earthquake on January 18, 2017.}
 
 \subsection{Electronic and Nuclear Recoil Calibrations}
 \label{subsec:dark_matter_results_er_nr_cal}
-To differentiate electronic from nuclear recoils calibrations were performed.  \ce{^{220}Rn} calibrations
-were performed for electronic recoils seven times (one in SR0 and seven in SR1), while \ce{^{241}AmBe} and a deuterium-deuterium (D-D)
-neutron generator (NG) were used for nuclear recoils and positioned in the water tank outside the cryostat.  \ambe calibrations were done
-in both science runs and a NG calibration was performed in SR1.
+To differentiate our signal region from ER and AC background, electronic and nuclear recoil calibrations were performed.  Electronic
+recoils were calibrated using \ce{^{220}Rn} seven times (one in SR0 and six in SR1).  \ce{^{241}AmBe} and a deuterium-deuterium (D-D)
+neutron generator (NG) were used for nuclear recoils, positioned in the water tank outside the cryostat.  \ambe calibrations were done
+once in each science run and a NG calibration was performed in SR1 only.
 
-Having reliable probabilities of different origins for an event is essential for a rare event search.  Fitting the electronic and nuclear
-recoil bands (\chapref{chap:er_nr_calibrations}) creates probability density functions (PDFs) for our largest background and signal
-regions.  A WIMP mass-dependent PDF is also generated from the signal model.\footnote{For this analysis the signal is a spin-independent
-WIMP but other analyses investigate alternative models
+Having dependable probabilities for each of the different possible origins of an event is essential for a rare event search.  Fitting the
+electronic and nuclear
+recoil bands (\chapref{chap:er_nr_calibrations}) creates probability density functions (PDFs) for our ER background and signal
+regions.  Mass-dependent WIMP PDFs are generated using the signal model.\footnote{For this analysis the signal is a spin-independent
+WIMP but other analyses investigate alternative signal models
 \citeref{Aprile2013b, Aprile2014, Aprile2015a, Aprile2017a, Aprile2017g, Aprile2017h}.}  In
-addition, PDFs from detector materials events (\secref{subsec:backgrounds_detector_materials}) and accidental coincidence
+addition, PDFs from surface events (\secref{subsec:backgrounds_detector_materials}) and accidental coincidence
 (\secref{subsec:backgrounds_ac}) are included.  The data is compared
-to the total PDF for each WIMP mass and cross section to see how well it agrees with the signal model
+to the total PDF for each WIMP mass and cross section to calculate its agreement with the signal model
 (\secref{subsec:dark_matter_results_background}).  A limit is set where
 cross sections below some value match the data, and a discovery is claimed if the data prefers a signal with background model above
 some threshold $\sigma$.
@@ -1864,34 +1872,35 @@ some threshold $\sigma$.
 \subsection{Acceptances}
 \label{subsec:dark_matter_results_selection}
 Events during dark matter data-taking that are below the $-2 \sigma$ quantile of the ER $\mathrm{cS1} \mdash \mathrm{cS2_b}$ band are
-removed before analysis.  Known as ``blinding'' this prevents bias that might occur by adjusting analyses to better fit or reject
-these events.  Data selection includes a valid S1 and S2 pair with $\geq 3$ PMTs observing the S1 in $< 100\ \mathrm{ns}$.  A position
+removed before analysis.  Known as ``blinding'', this prevents bias that might occur from adjusting analyses to better fit or reject
+these events.  Data selection includes a valid (e.g. $0 < t_d < t_{d,\mathrm{max}}$) S1 and S2 with $\geq 3$ PMTs observing the S1 in
+$< 100\ \mathrm{ns}$.  A position
 reconstruction cut requires the difference between the neural network and likelihood-fit algorithms to be less than 2 (larger S2s) to 5
-(smaller) cm.
+(smaller) cm.  A cS1 threshold $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$, corresponding to roughly
+$[1.4, 10.6]\ \mathrm{keV_{ee}}$ and $[4.9, 40.9]\ \mathrm{keV_{nr}}$, marks the energy region of interest.
 
-The acceptances are calculated using 400 randomly-drawn samples from the posterior from the electronic and nuclear recoil band
-fitting (\chapref{chap:er_nr_calibrations}).  While the 1.3 t fiducial mass is used for this analysis, the
-acceptances are calculated using the 1 t mass from the band fitting though differences are expected to be small.
+\figref{fig:dark_matter_results_acceptances} shows the SR0 and SR1 acceptances calculated using 400 randomly-drawn samples from the
+electronic and nuclear recoil band fit posterior (\chapref{chap:er_nr_calibrations}).  Efficiencies are shown for the 1) S1 peak finding
+efficiency (``Detection''), 2) S1 peak finding efficiency with
+S1 and S2 cuts (``Selection''), 3) total, ignoring the reference region (``Energy region''), and 4) total, including the reference
+region (``Reference'').  The energy region efficiency is the product of the efficiencies shown
+in \figref{fig:dark_matter_results_selection_acc_components}: S1 peak finding efficiency, S2 threshold, cS1 threshold, and
+cut efficiencies.  Events inside the fiducial volume that are reconstructed outside - or vice versa - are expected to have a negligible
+effect so are not included.  The
+efficiencies in \figref{fig:dark_matter_results_acceptances} are calculated using the 1 t mass from the band fitting, but are not
+predicted to have any appreciable deviation from the 1.3 t FV.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{xenon_1ty_paper_acceptance_linear_linear}
+\includegraphics[width=0.8\textwidth]{xenon_1ty_paper_acceptance_linear_linear}
 \caption{Nuclear recoil acceptances for WIMPs from this analysis.  Processor efficiency is shown in green, processor efficiency with S1
-and S2 cuts in blue, total acceptance across all \cstwob in black, and total acceptance of the reference region in pink.  Dashed and solid
-acceptance lines correspond to SR0 and SR1 acceptances,
+and S2 cuts in blue, total acceptance across all \cstwob in black, and total acceptance inside the reference region in pink.  Dashed and
+solid acceptance lines correspond to SR0 and SR1 acceptances,
 respectively.  The shaded regions are the 68\% credible interval for SR1.  Spectra are shown for for 10 (dashed), 50 (dotted), and
 200 (dash-dotted) $\mathrm{GeV/c^2}$ WIMPs.  The $10\ \mathrm{GeV/c^2}$ WIMP has significantly less of its distribution overlap with the
 acceptance (true also with proper rates) than the 50 and $200\ \mathrm{GeV/c^2}$ WIMPs, which will lead to a worse limit.}
 \label{fig:dark_matter_results_acceptances}
 \end{figure}
-
-The energy ROI is selected by requiring cS1 threshold cut $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$ (blue in, corresponding to roughly
-$[1.4, 10.6]\ \mathrm{keV_{ee}}$ and $[4.9, 40.9]\ \mathrm{keV_{nr}}$.  The total acceptance is the product of the acceptances shown
-in \figref{fig:dark_matter_results_selection_acc_components} - processor, S2 threshold, cS1 threshold, and
-cut acceptances.  Events inside the fiducial volume that are reconstructed outside - or vice versa - are expected to have a negligible
-effect so are not included.  \figref{fig:dark_matter_results_acceptances} shows acceptances for 1) processor (``Detection''), 2) processor
-and S1 and S2 cuts (``Selection''), 3) total for SR0 and SR1 across all $\mathrm{cS2_b}$, and 4) inside the $-2\sigma$ to median of the
-nuclear recoil band.
 
 
 
@@ -1899,34 +1908,10 @@ nuclear recoil band.
 \label{subsec:dark_matter_results_background}
 The magenta line in \figref{fig:dark_matter_results_position} encloses the 1.3 t fiducial mass used to for this anlaysis.  Its highest
 point is 8 cm below the gate to avoid capturing poorly reconstructed GXe events and 2.9 cm above the cathode to
-exclude interactions in a higher and less uniform electric field.  A 42.8 cm maximum radius was selected to limit the number of surface
-events to $\lesssim 100$.  The corners are cut to maintain a background rate of $< 10\%$ across
-$z$ in slices of $r$, ensuring the detector materials contribution to the ER background is less than the uniformly distributed
+exclude interactions in a larger and less uniform electric field.  A 42.8 cm maximum radius was selected to limit the number of surface
+events to ${\lesssim}\, 100$.  The corners are cut to maintain a background rate of ${<}\, 10\%$ across
+$z$ in slices of $r$, ensuring the contribution from detector materials to the ER background is less than the uniformly distributed
 \ce{^{214}Pb}.  The total exposure for the combined run analysis is $278.8\ \mathrm{d} \times 1.30\ \mathrm{t} = 1\ \mathrm{t\ y}$.
-
-The electronic recoil background rate during the combined run analysis was measured to be
-$82_{-3}^{+5} (\mathrm{sys}) \pm 3 (\mathrm{stat})\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ - the lowest ever achieved by a dark
-matter experiment.  From RGMS measurements (\secref{subsec:xenon1t_kr_dist}) we expect
-$7.7 \pm 1.3\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ from  \ce{^{85}Kr}
-(\secref{subsubsec:backgrounds_electronic_krypton}).  \betadecays originating from \ce{^{214}Pb} make up as much as $69 \pm 4$ to as
-little as $29 \pm 4\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ following measurements using \ce{^{218}Po} $\alpha$-decays and
-\ce{^{214}BiPo} time-coincidence, respectively (\secref{subsubsec:backgrounds_electronic_radon}).
-
-An unbinned extended likelihood with profiling over nuisance parameters is used to interpret the data in the 1.3 t fiducial mass
-\citeref{James1980, Bartlett1953}.  The expansion from the 1 t volume is allowed by including an $r$ dimension to model the surface
-background and boosts the sensitivity by 10\%, and events are classified according to whether they occur inside the 0.65 t
-mass.  Model uncertainties are included as nuisance parameters and a mis-modeling ``safeguard'' is included in the ER model
-\citeref{Priel2017}.  The
-safeguard is a WIMP-like component and added to account for potential shortcomings in the ER model.  It is constrained by data from
-\ce{^{220}Rn} calibrations.
-
-SR0 and SR1 are fit simultaneously with the only correlated parameters being neutron rate, ER recombination, WIMP mass, and
-$\sigma_{\mathrm{SI}}$.  ``Profile construction'' using MC simulations was used to calculate confidence intervals for
-$\sigma_{\mathrm{SI}}$ and coverage was tested for by varying values of nuisance parameters \citeref{Feldman1988, Patrignani2016}.
-
-A decision was made before unblinding to ``salt'' the data - that is, to include an unknown number of events to prevent post-unblinding
-model and selection fine-tuning.  These were eventually revealed to be two \ambe events, and had not prompted any post-unblinding
-investigation.
 
 \begin{table}[ht]
 \centering
@@ -2003,11 +1988,13 @@ run-combined results paper \citeref{Aprile2018b}.}
 \label{tab:dark_matter_results_background}
 \end{table}
 
-Of the $627 \pm 18$ ER events $1.62 \pm 0.30$ are estimated to be in our signal reference region for 1.3 t - a rejection
-of 99.7\%.  The contribution from the surface background is higher, decreasing from $106 \pm 8$ to
-$4.84 \pm 0.40$ (\secref{subsec:backgrounds_detector_materials}).  The best-fit event rates
-for each background as well as a $200\ \mathrm{GeV/c^2}$ WIMP are listed in \tabref{tab:dark_matter_results_background} and are plotted in
-\figref{fig:dark_matter_results_background}.
+The electronic recoil background rate during the combined run analysis was measured to be
+$82_{-3}^{+5} (\mathrm{sys}) \pm 3 (\mathrm{stat})\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ - the lowest ever achieved by a dark
+matter experiment.  From RGMS measurements (\secref{subsec:xenon1t_kr_dist}) we expect
+$7.7 \pm 1.3\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ from  \ce{^{85}Kr}
+(\secref{subsubsec:backgrounds_electronic_krypton}).  \betadecays originating from \ce{^{214}Pb} make up as much as $69 \pm 4$ to as
+little as $29 \pm 4\ \mathrm{events\ t^{-1}\ yr^{-1}\ keV_{ee}^{-1}}$ following measurements using \ce{^{218}Po} $\alpha$-decays and
+\ce{^{214}BiPo} time-coincidence, respectively (\secref{subsubsec:backgrounds_electronic_radon}).
 
 \begin{figure}
 \centering
@@ -2017,14 +2004,21 @@ $\sigma_{\mathrm{SI}} = 4.7 \times 10^{-47}\ \mathrm{cm^2}$.  Dashed (solid) lin
 markers represent 1.3 t and 0.9 t volumes, respectively.  The horizontal axis is the projection along \cstwob normalized by subtracting
 the electronic recoil mean $\mu_{\mathrm{ER}}$ and dividing by the $1 \sigma_{\mathrm{ER}}$ quantile.  Most backgrounds do not change
 significantly between the two volumes, with the exception of the surface.  The best-fit WIMP signal is shown in purple.  Shaded regions
-represent the 68\% Poisson probability region for the expectation of total background.}
+represent the 68\% Poisson probability region for the expectation of total background.  Image credit: \citeref{Aprile2018b}.}
 \label{fig:dark_matter_results_background}
 \end{figure}
 
-\figref{fig:dark_matter_results_position} shows the position distribution for events in the dark matter search data.  0.65, 0.9, and 1.3 t
-masses are marked and events that fall inside the 1.3 t mass are displayed as pie charts with probabilities of background and
-signal origin.  \figref{fig:dark_matter_results_bands} shows the events in (cS1, cS2$_{\mathrm{b}}$) and
-($r_{\mathrm{rec}}^2$, cS2$_{\mathrm{b}}$) parameter spaces.
+An unbinned extended likelihood with profiling over nuisance parameters is used to interpret the data in the 1.3 t fiducial mass
+\citeref{James1980, Bartlett1953}.  The expansion from the 1 t volume is allowed by including an $r$ dimension to model the surface
+background and boosts the sensitivity by 10\%, and events are classified according to whether they occur inside the 0.65 t
+mass.  Model uncertainties are included as nuisance parameters and a mis-modeling ``safeguard'' is included in the ER model
+\citeref{Priel2017}.  The
+safeguard is a WIMP-like component and added to account for potential shortcomings in the ER model.  It is constrained by data from
+\ce{^{220}Rn} calibrations.
+
+SR0 and SR1 are fit simultaneously with the only correlated parameters being neutron rate, ER recombination, WIMP mass, and
+$\sigma_{\mathrm{SI}}$.  ``Profile construction'' using MC simulations was used to calculate confidence intervals for
+$\sigma_{\mathrm{SI}}$ and coverage was tested for by varying values of nuisance parameters \citeref{Feldman1988, Patrignani2016}.
 
 \begin{figure}
 \centering
@@ -2033,26 +2027,24 @@ signal origin.  \figref{fig:dark_matter_results_bands} shows the events in (cS1,
 long-dashed green, respectively, with the solid black line tracing the TPC boundary.  Events inside the 1.3 fiducial mass are drawn as pie
 charts representing the relative probabilities of background and signal components using the best-fit
 $\sigma_{SI} = 4.7 \times 10^{-47}\ \mathrm{cm^2}$ for a $200\ \mathrm{GeV/c^2}$ WIMP.  Grey dots represent events outside of the FV.  Dark and light
-yellow regions illustrate the $1 \sigma$ and $2 \sigma$ radiogenic neutron background for SR1.}
+yellow regions illustrate the $1 \sigma$ and $2 \sigma$ radiogenic neutron background for SR1.  Image credit: \citeref{Aprile2018b}.}
 \label{fig:dark_matter_results_position}
 \end{figure}
 
-Of the 739 dark matter search events three stand out.  The most promising candidate is
-on the $25\ \mathrm{keV_{nr}}$ line (cS2$_{\mathrm{b}} \sim 1000\ \mathrm{PE}$) in \figref{fig:dark_matter_results_bands} (left) and is
-located in our signal reference region.  Its proximity to both the ER band and $1 \sigma$ however keep the WIMP relative probability at
-$< 50\%$.
+A decision was made before unblinding to ``salt'' the data - that is, to include an unknown number of events to prevent post-unblinding
+model and selection fine-tuning.  These were eventually revealed to be two \ambe events, and had not prompted any post-unblinding
+investigation.
 
-The second candidate is at ${\sim} 16\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 700\ \mathrm{PE}$).  Like the first event it
-rests nicely in our energy ROI, but we can see it lies near the fiducial edge, making it likely to be surface or
-neutron background.
+Of the $627 \pm 18$ ER events $1.62 \pm 0.30$ are estimated to be in our signal reference region for 1.3 t - a rejection
+of 99.7\%.  The contribution from the surface background is higher, decreasing from $106 \pm 8$ to
+$4.84 \pm 0.40$ (\secref{subsec:backgrounds_detector_materials}).  The best-fit event rates
+for each background as well as a $200\ \mathrm{GeV/c^2}$ WIMP are listed in \tabref{tab:dark_matter_results_background} and are plotted in
+\figref{fig:dark_matter_results_background}.
 
-The third at ${\sim} 12\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 400 \mathrm{PE}$) is situated just below the NR
-$-2 \sigma$ line.  This candidate motivated a post-unblinding decision to reconsider the model for neutron-X contamination, or neutrons
-that scatter below the cathode and once in the TPC.  The near-simultaneity of the scatters leads the DAQ to resolve only a single
-S1, shifting its position in \figref{fig:dark_matter_results_bands}.  It also prompted
-a fiducial mass segmentation to more accurately reflect our understanding of the neutron $z$ distribution, which was the inception of the
-0.65 t mass.  These revisions moved the probability of neutron origin from 35\% to 75\%, while a $50\ \mathrm{GeV/c^2}$ WIMP
-decreased from 49\% to just 7\%.
+\figref{fig:dark_matter_results_position} shows the position distribution for events in the dark matter search data.  0.65, 0.9, and 1.3 t
+masses are marked and events that fall inside the 1.3 t mass are displayed as pie charts with probabilities of background and
+signal origin.  \figref{fig:dark_matter_results_bands} shows the events in cS1-cS2$_{\mathrm{b}}$ and
+$r_{\mathrm{rec}}^2$-cS2$_{\mathrm{b}}$ parameter spaces.
 
 \begin{figure}
 \centering
@@ -2062,9 +2054,27 @@ mass.  Events are drawn as pie charts following \figref{fig:dark_matter_results_
 $1 \sigma$ ($2 \sigma$) percentiles of ER (grey) and surface (blue) backgrounds.  Purple dashed and solid lines
 correspond to $1 \sigma$ and $2 \sigma$ regions for a $200\ \mathrm{GeV/c^2}$ WIMP.  The red dotted lines (left) represent the signal region
 and the vertical lines (right) mark the 0.9 t (dashed blue) and 1.3 t (solid magenta) fiducial masses.  The vertical shaded
-regions are outside the region of interest.  The grey lines (left) display iso-energy contours in $\mathrm{keV_{nr}}$.}
+regions are outside the region of interest.  The grey lines (left) display iso-energy contours in $\mathrm{keV_{nr}}$.  Image credit:
+\citeref{Aprile2018b}.}
 \label{fig:dark_matter_results_bands}
 \end{figure}
+
+Of the 739 dark matter search events three stand out.  The most promising candidate is
+on the $25\ \mathrm{keV_{nr}}$ line (cS2$_{\mathrm{b}} \sim 1000\ \mathrm{PE}$) in \figref{fig:dark_matter_results_bands} (left) and is
+located in our signal reference region.  Its proximity to both the ER band and $1 \sigma$ however keep the WIMP relative probability at
+${<}\, 50\%$.
+
+The second candidate is at ${\sim} 16\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 700\ \mathrm{PE}$).  Like the first event it
+rests nicely in our energy ROI, but we can see it lies near the fiducial edge, making it likely to be surface or
+neutron background.
+
+The third at ${\sim} 12\ \mathrm{keV_{nr}}$ (cS2$_{\mathrm{b}} \sim 400 \mathrm{PE}$) is situated just below the NR
+$-2 \sigma$ line.  This candidate motivated a post-unblinding decision to reconsider the model for neutron-X contamination, i.e. neutrons
+that scatter below the cathode and once in the TPC.  The near-simultaneity of the scatters leads the DAQ to resolve only a single
+S1, shifting its position in \figref{fig:dark_matter_results_bands}.  It also prompted
+a fiducial mass segmentation to more accurately reflect our understanding of the neutron $z$ distribution, which was the inception of the
+0.65 t mass.  These revisions moved the probability of neutron origin from 35\% to 75\%, while a $50\ \mathrm{GeV/c^2}$ WIMP
+decreased from 49\% to just 7\%.
 
 No significant excesses in the 1.3 t mass were indicated by the profile likelihood analysis for any WIMP mass, with p-values for
 a background-only hypothesis for 6, 50, and $200\ \mathrm{GeV/c^2}$ of 0.28, 0.41, and
@@ -2079,6 +2089,6 @@ $m_{\chi} > 30\ \mathrm{GeV/c^2}$ is mainly the result of fewer WIMPs $n_{\chi} 
 \caption{90\% confidence level upper limit on spin-independent WIMP cross section from this analysis (black line) with $1\sigma$ (green)
 and $2\sigma$ (yellow) sensitivity bands.  Previous LUX \citeref{LUX2017a} and PandaX-II \citeref{PandaXII2017} results are plotted in
 red and blue for comparison.  The inset shows these limits and $\pm 1\sigma$ bands normalized to the median sensitivity of this
-analysis as well as the normalized median of the PandaX-II sensitivity band (dotted blue line).}
+analysis as well as the normalized median of the PandaX-II sensitivity band (dotted blue line).  Image credit: \citeref{Aprile2018b}.}
 \label{fig:dark_matter_results_background_limit}
 \end{figure}

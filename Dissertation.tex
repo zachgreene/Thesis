@@ -59,7 +59,11 @@
 
 \usepackage{cleveref}
 \crefrangeformat{enumi}{#3#1#4--#5#2#6}
+\crefname{section}{}{}
+\crefname{figure}{}{}
+\crefname{equation}{}{}
 \crefformat{footnote}{#2\footnotemark[#1]#3}
+\creflabelformat{equation}{#2#1#3}
 
 \usepackage{float}
 \usepackage{amsbsy}
@@ -71,11 +75,11 @@
 \DeclareUnicodeCharacter{00A0}{ }
 \setsecnumdepth{subsubsection}
 
-\newcommand\figref[1]{Fig.\,\ref{#1}}
-\newcommand\eqnref[1]{Eq.\,\ref{#1}}
-\newcommand\tabref[1]{Tab.\,\ref{#1}}
-\newcommand\secref[1]{Sec.\,\ref{#1}}
-\newcommand\appref[1]{App.\,\ref{#1}}
+\newcommand\figref[1]{Fig.\,\cref{#1}}
+\newcommand\eqnref[1]{Eq.\,\cref{#1}}
+\newcommand\tabref[1]{Tab.\,\cref{#1}}
+\newcommand\secref[1]{Sec.\,\cref{#1}}
+\newcommand\appref[1]{App.\,\cref{#1}}
 \newcommand\citeref[1]{\cite{#1}}
 \newcommand\chapref[1]{Chap.\,\ref{#1}}
 \newcommand{\radon}{\ce{^{222}Rn} }
@@ -155,74 +159,75 @@
 
 \mathchardef\mdash="2D
 
-\newcommand{\aap}{A\&A}
-\newcommand{\aj}{Astro. J.}
+\newcommand{\aap}{Astronomy \& Astrophysics}
+\newcommand{\aj}{The Astronomical Journal}
 \newcommand{\amstat}{The American Statistician}
-\newcommand{\ap}{Astropart. Phys.}
-\newcommand{\apj}{ApJ}
-\newcommand{\apjl}{ApJ}
-\newcommand{\apjs}{ApJS}
-\newcommand{\app}{Astropart. Phys.}
-\newcommand{\araa}{ARA\&A}
+\newcommand{\ap}{Astroparticle Physics}
+\newcommand{\apj}{The Astrophysical Journal}
+\newcommand{\apjl}{The Astrophysical Journal Letters}
+\newcommand{\apjs}{The Astrophysical Journal Supplemental Series}
+\newcommand{\app}{Astroparticle Physics}
+\newcommand{\araa}{Annual Review of Astronomy and Astrophysics}
 \newcommand{\arxiv}{arXiv e-prints}
-\newcommand{\asr}{Adv. in Space Research}
+\newcommand{\asr}{Advances in Space Research}
 \newcommand{\bmtka}{Biometrika}
-\newcommand{\camcs}{Comm. App. Math. Comp. Sci.}
-\newcommand{\chinpc}{Chin. Phys. C}
-\newcommand{\cjc}{Canadian J. Chem.}
-\newcommand{\cp}{Chem. Phys.}
-\newcommand{\cpc}{Comp. Phys. Comm.}
-\newcommand{\cpl}{Chem. Phys. Lett.}
-\newcommand{\epja}{Eur. Phys. J. A}
-\newcommand{\epjc}{Eur. Phys. J. C}
+\newcommand{\camcs}{Communications in Applied Mathematics and Computational Science}
+\newcommand{\chinpc}{Chinese Physics C}
+\newcommand{\cjc}{Canadian Journal of Chemistry}
+\newcommand{\cp}{Chemical Physics}
+\newcommand{\cpc}{Computer Physics Communications}
+\newcommand{\cpl}{Chemical Physics Letters}
+\newcommand{\epja}{The European Physical Journal A}
+\newcommand{\epjc}{The European Physical Journal C}
+\newcommand{\epjp}{The European Physical Journal Plus}
 \newcommand{\esasp}{ESA Special Publication}
-\newcommand{\hts}{High Temp. Sci.}
+\newcommand{\hts}{High Temperature Science}
 \newcommand{\ieeetdei}{IEEE Transactions Dielectrics Electrical Insulation}
-\newcommand{\ieeetns}{IEEE Trans. Nucl. Sci.}
-\newcommand{\ieeenssmicr}{IEEE Nuc. Sci. Symp. and Med. Imag. Conf. Record}
-\newcommand{\ijmpa}{Int. J. of Mod. Phys. A}
-\newcommand{\jap}{J. of Applied Physics}
+\newcommand{\ieeetns}{IEEE Transactions on Nuclear Science}
+\newcommand{\ieeenssmicr}{IEEE Nuclear Science Symposium and Medical Imaging Conference Record}
+\newcommand{\ijmpa}{International Journal of Modern Physics A}
+\newcommand{\jap}{Journal of Applied Physics}
 \newcommand{\jcap}{JCAP}
-\newcommand{\jcp}{J. of Chem. Phys.}
+\newcommand{\jcp}{Journal of Chemical Physics}
 \newcommand{\jetp}{JETP}
-\newcommand{\jhep}{J. of High Energy Phys.}
-\newcommand{\jinst}{JINST}
-\newcommand{\jjap}{Jpn. J. Appl. Phys.}
-\newcommand{\josa}{J. Opt. Soc. Am.}
-\newcommand{\jpc}{J. of Phys. Chem.}
-\newcommand{\jpcm}{J. of Phys. Condensed Matter}
-\newcommand{\jpdap}{J. Phys. D}
-\newcommand{\jpgnp}{J. Phys. G Nucl. Phys.}
-\newcommand{\jvst}{J. Vac. Sci. Technol.}
+\newcommand{\jhep}{Journal of High Energy Physics}
+\newcommand{\jinst}{Journal of Instrumentation}
+\newcommand{\jjap}{Japanese Journal of Applied Physics}
+\newcommand{\josa}{Journal of the Optical Society of America}
+\newcommand{\jpc}{Journal of Physical Chemistry}
+\newcommand{\jpcm}{Journal of Physics: Condensed Matter}
+\newcommand{\jpdap}{Journal of Physics D}
+\newcommand{\jpgnp}{Journal of Physics G}
+\newcommand{\jvst}{Journal of Vacuum Science and Technology}
 \newcommand{\mfmdvs}{Mat. Fys. Medd. Dan. Vid. Selsk}
 \newcommand{\mnras}{MNRAS}
 \newcommand{\na}{Nature Astronomy}
 \newcommand{\nap}{Nature Physics}
 \newcommand{\nat}{Nature}
-\newcommand{\nim}{Nuc. Instr. and Method}
-\newcommand{\nimpra}{Nuc. Instr. and Meth. in Phys. Research A}
+\newcommand{\nim}{Nuclear Instruments and Methods}
+\newcommand{\nimpra}{Nuclear Instruments and Methods in Physics Research A}
 \newcommand{\npb}{Nuclear Physics B}
-\newcommand{\pasp}{Pub. of the Astro. Soc. of the Pacific}
-\newcommand{\pdu}{Phys. of Dark Universe}
+\newcommand{\pasp}{Publication of the Astronomical Society of the Pacific}
+\newcommand{\pdu}{Physics of the Dark Universe}
 \newcommand{\physpro}{Physics Procedia}
-\newcommand{\physrep}{Phys. Rept.}
-\newcommand{\plb}{Phys. Lett. B}
+\newcommand{\physrep}{Physical Reports}
+\newcommand{\plb}{Physical Letters B}
 \newcommand{\pqdt}{ProQuest Dissertations and Theses}
-\newcommand{\pr}{Phys. Rev.}
-\newcommand{\pra}{Phys. Rev. A}
-\newcommand{\prb}{Phys. Rev. B}
-\newcommand{\prc}{Phys. Rev. C}
-\newcommand{\prd}{Phys. Rev. D}
-\newcommand{\prl}{Phys. Rev. Lett.}
-\newcommand{\ppsa}{Proc. Phys. Soc. A}
+\newcommand{\pr}{Physical Review}
+\newcommand{\pra}{Physical Review A}
+\newcommand{\prb}{Physical Review B}
+\newcommand{\prc}{Physical Review C}
+\newcommand{\prd}{Physical Review D}
+\newcommand{\prl}{Physical Review Letters}
+\newcommand{\ppsa}{Proceedings of the Physical Society A}
 \newcommand{\qst}{Quantum Science and Technology}
-\newcommand{\rmp}{Rev. of Mod. Phys.}
+\newcommand{\rmp}{Review of Modern Physics}
 \newcommand{\rnaas}{Research Notes of the American Astronomical Society}
-\newcommand{\rpc}{Rad. Phys. and Chem.}
-\newcommand{\rsi}{Rev. of Sci. Instr.}
+\newcommand{\rpc}{Radiation Physics and Chemistry}
+\newcommand{\rsi}{Review of Scientific Instruments}
 \newcommand{\sci}{Science}
-\newcommand{\scomp}{Stat. and Comput.}
-\newcommand{\sjnp}{Sov. J. Nucl. Phys.}
+\newcommand{\scomp}{Statistics and Computing}
+\newcommand{\sjnp}{Soviet Journal of Nuclear Physics}
 \newcommand{\statsci}{Statistical Science}
 \newcommand{\universe}{Universe}
 
@@ -314,11 +319,11 @@
 
 %I use subdirectories for each part of my dissertation just to keep the files tidy. LaTeX generates a lot of different files for output, and using subdirectories allows you to find your .tex files more easily.
 
-\include{./Chapter1/Chapter1}
-\include{./Chapter2/Chapter2}
+%\include{./Chapter1/Chapter1}
+%\include{./Chapter2/Chapter2}
 \include{./Chapter3/Chapter3}
 \include{./Chapter4/Chapter4}
-\include{./Chapter5/Chapter5}
+%\include{./Chapter5/Chapter5}
 %\include{./Conclusion/Conclusion}
 
 %This final section includes your bibliography.

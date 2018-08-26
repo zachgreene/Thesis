@@ -24,7 +24,7 @@ dark matter
 constitutes ${\sim}26$\% of the universe.  In dark energy and dark matter the term ``dark'' is a relic from their early histories and
 today both are understood to be invisible.
 
-This chapter presents an overview on dark matter and the different methods of detection.  It begins with a summary of the
+This chapter presents an overview of dark matter and the different methods of detection.  It begins with a summary of the
 $\Lambda \mathrm{CDM}$ model (\secref{sec:dark_matter_lambda_cdm}) followed by a discussion on evidence of dark matter's existence
 (\secref{sec:dark_matter_evidence}) and potential DM candidates (\secref{sec:dmcandidates}).  Next detection methods for Weakly
 Interacting Massive Particle (WIMP) dark matter are detailed (\secref{sec:detection}), and the final section covers the various
@@ -38,8 +38,11 @@ categories of direct detection experiments (\secref{sec:direct_detect}).
 The $\Lambda \mathrm{CDM}$ model describes the evolution of the universe from its inception at the Big Bang to present day.  It is named
 from its inclusion of a cosmological constant (dark energy) $\Lambda$ and cold dark matter (CDM) (\secref{subsec:hot_vs_cold}), and is the
 most successful model to
-date.  Its validity is dependent on our universe being homogeneous and isotropic over large (${\sim} 100\ \mathrm{Megaparsecs}$ - Mpc)
-distances,
+date.  $\Lambda$ is understood to be an energy density that is uniform throughout the observable universe and interacts repulsively with
+itself to drive the universe's expansion.  Cold dark matter is predicted to be a non-relativistic, non-luminous form of matter that
+interacts primarily through gravitation.  The validity of the $\Lambda \mathrm{CDM}$ model is dependent on our universe being homogeneous
+and isotropic over large
+(${\sim} 100\ \mathrm{Megaparsecs}$ - Mpc) distances,
 Einstein's General Relativity, and a path connected universe - all of which are believed to be true.  Under these assumptions Einstein's
 field equations can be solved for the Friedmann-Lema\^{i}tre-Robertson-Walker (FLRW) metric, which in polar coordinates is
 
@@ -58,10 +61,13 @@ has Euclidean geometry (angles in a triangle equal $180^{\circ}$ and parallel li
 expand forever at a decelerating rate, asymptotically approaching 0.  For $\Lambda > 0$ the expansion first slows due to gravity but will
 ultimately increase as the average density of the universe $\rho$ decreases.  A universe with $k = 1$ is closed and has positive
 curvature.  Its geometry is similar to a sphere: the angles in
-a triangle sum to $> 180^{\circ}$ and all lines eventually meet.  The expansion in a closed universe will come to a stop and begin to
-contract, returning to a singularity known as the ``Big Crunch''.
+a triangle sum to ${>}\, 180^{\circ}$ and all lines eventually meet.  The fate of a closed universe depends on the fraction of its
+components.  If $\Lambda = 0$ the expansion will come to a stop and begin to
+contract, returning to a singularity known as the ``Big Crunch''.  However, if enough dark energy is present the universe will follow
+an open or flat universe and expand forever.  As the density of gravitationally-interacting components increases a larger $\Lambda$ is
+necessary to prevent a Big Crunch.
 
-Einstein's field equations for the solution in \eqnref{eq:dark_matter_lambda_cdm_rw_metric} gives the Friedmann Equations
+Einstein's field equations for the solution in \eqnref{eq:dark_matter_lambda_cdm_rw_metric} give the Friedmann Equations
 
 \begin{equation}
 \bigg(\frac{\dot{a}}{a}\bigg)^{2} = \frac{8\pi G \rho}{3} - \frac{k}{a^{2}}
@@ -116,13 +122,13 @@ explained by introducing a non-luminous feature - in this case one with $M(r) \s
 one hundred thousand galaxies have since shown similar results, with DM halos containing several times the
 luminous mass.
 
-One such example is galaxy NGC 6501.  The dark halo mass density in \figref{fig:ngc_6501} is estimated as
+One example is galaxy NGC 6501.  The dark halo mass density in \figref{fig:ngc_6501} is estimated as
 $\rho (r) = \rho_{0} \Big[ 1 + \Big( \frac{r}{r_{c}} \Big)^{2} \Big]^{-1}$ where $\rho_{0}$ and $r_{c}$
 are the central halo mass density and radius, respectively, by fitting a least square to the velocity
 distribution \citeref{Begeman1991}.  The left panel shows the mass of luminous matter decreases after
 peaking at roughly $2\ \mathrm{kiloparsecs\ (kpc)}$, but the DM increases and at $>10$ kpc is proportional to $r$, causing
-the rotational velocity to flatten.  Unfortunately, there is no independent model for calculating the
-masses of a galaxy's disk, bulge, and halo, which makes dissociating the mass of baryonic matter from
+the rotational velocity to flatten.  Unfortunately, substantiated models that predict the
+masses of a galaxy's disk, bulge, and halo independently do not exist, which makes dissociating the mass of baryonic matter from
 DM difficult.  Most models expect the luminous matter to compose the galaxy's disk and bulge while the dark matter forms
 the halo \citeref{Sofu2001}.
 
@@ -179,14 +185,14 @@ lens.  The deflection is caused by the matter's gravitational distortion of spac
 the effects are typically most noticeable for high-density objects
 such as galaxies, galaxy clusters, or stars.  The position of a source that is gravitationally lensed as viewed by an observer will be
 incorrect, as shown in the right panel of \figref{fig:lensing}.  A lens can be characterized in part by its convergence
-$\kappa$, which describes the focusing of the the light rays, and shear $\gamma$, which characterizes the image's ellipticity.  They can
+$\kappa$, which describes the focusing of the the light rays, and shear $\gamma$, which characterizes the image's ellipticity.  They
 are related to the magnification by
 
 \begin{equation}
 \mu = \frac{1}{(1-\kappa)^{2} + \gamma^{2}}
 \end{equation}
 
-\noindent and produces an increase in brightness when the source and lens are close to one another.  This amplification has helped
+\noindent This produces an increase in brightness when the source and lens are close to one another.  This amplification has helped
 astronomers see objects that previously were thought to be too faint to observe.
 
 In the case of strong lensing an observer will see a misshapen source as arcs.  Because the magnitude of the
@@ -219,14 +225,14 @@ magnification.  When the arcs have a suitable size and flux the source's luminos
 
 
 In many astrophysical instances the light's deflection is much more subtle.  This is known as weak
-lensing, and because its effects are fainter is more difficult to observe.  Whereas strong lensing results from radiation passing around
+lensing, and because the effects are fainter is more difficult to observe.  Whereas strong lensing results from radiation passing around
 the lens, weak lensing is the passage of light through a gravitational field where tidal effects distort the shape of the image.  In the
 latter the luminosity is often too low for a thorough analysis so
 astronomers may only consider the source's shear.  However, because the size of the shear for weak lensing is small, systematic
 effects from observation (e.g. atmosphere, instrument point spread function, noise, etc.) must be small and well
 understood \citeref{Paolis2016}.  Furthermore,
 because galaxies are generally elliptical, decoupling the true shape from the shear can be difficult to impossible.  Thus the
-gravitational field is calculated statistically by randomly sampling galaxies from the known ellipticity distribution.  Since the
+gravitational field is calculated statistically by randomly drawing galaxies from the known galaxy ellipticity distribution.  Since the
 number of samples must equal the number of galaxies along the line of sight, this method is most effective when the number of galaxies is
 large.
 
@@ -258,11 +264,11 @@ passed through one another ${\sim}150$ million years ago at $4500_{-800}^{+1100}
 \citeref{Markevitch2004}.  \figref{fig:bullet_cluster} shows the x-ray map in pink and the mass
 distribution from gravitational lensing measurements in blue in the left panel, and the mass contours in the right.  The separation of
 mass from baryonic matter can be explained by dark matter.  As the galaxies collide intergalactic dust interacts
-and heats up, creating x-rays and slowing their speed.  Because dark matter does not interact it passes
-through affected only by gravity.  In addition to providing evidence of dark matter, 1E0657-56 sets a limit on the
-cross-section of dark matter self-interaction of $<1\ \mathrm{cm^{2}\ g^{-1}}$ \citeref{Markevitch2004}.  It also provides evidence
+and heats up, creating x-rays and slowing their speed.  Because dark matter does not interact electromagnetically it moves
+unimpeded by comparison, affected only by gravity.  In addition to providing evidence of dark matter, 1E0657-56 sets a limit on the
+cross-section of dark matter self-interaction of ${<}\, 1\ \mathrm{cm^{2}\ g^{-1}}$ \citeref{Markevitch2004}.  It also provides evidence
 against modified gravity (\secref{subsec:modified_gravity}) - an alternative theory to dark matter - since the observed mass distribution
-are shown to lay outside of the luminous content.
+lays outside of the luminous content.
 
 
 
@@ -272,9 +278,9 @@ are shown to lay outside of the luminous content.
 The Cosmic Microwave Background (CMB) was accidentally discovered in 1965 by Arno Penzias and Robert Wilson, for which they received
 the Nobel Prize \citeref{Penzias1965}.  It
 is a remnant from shortly after (${\sim}380,000\ \mathrm{y}$, $z\sim1100$, $T\sim3000\ \mr{K}$) the Big Bang  and a near-perfect
-blackbody at $2.725\ \mr{K}$ today (most precise measurement at $2.72548 \pm 0.00057\ \mr{K}$ \citeref{Fixsen2009}).  CMB photons
+blackbody at $2.725\ \mr{K}$ today (most precise measurement is $2.72548 \pm 0.00057\ \mr{K}$ \citeref{Fixsen2009}).  CMB photons
 have been traveling freely since the time of last scattering $t_{\mathrm{ls}}$ - when electron-atom recombination in the early universe
-was effectively complete, so photons ceased to scatter.
+was effectively complete, ending the period of (primarily) electron-photon scattering.
 
 Deviations in the blackbody spectrum are small (root mean square of $\delta T/T \sim 10^{-5}$) and result from a number of
 processes at $t_{\mathrm{ls}}$ that fluctuated throughout space.  A dipole anisotropy is due to
@@ -287,8 +293,8 @@ oscillations, can be found in \citeref{Dodelson2003}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{PlanckFig_map_columbi1_IDL_HighDR_colbar_1000px_CMB_moll}
-\caption{CMB as observed by Planck.  Temperature deviations $\delta T/T \sim 10^{-5}$.  Image credit: \citeref{}}
+\includegraphics[width=0.8\textwidth]{2015_SMICA_CMB_lower_memory}
+\caption{CMB as observed by Planck.  Temperature deviations $\delta T/T \sim 10^{-5}$.  Image credit: \citeref{Planck2018}.}
 \label{fig:planck_map}
 \end{figure}
 
@@ -296,8 +302,8 @@ oscillations, can be found in \citeref{Dodelson2003}.
 The CMB provides the most precise measurements on numerous cosmological parameters including $\Omega_{\mathrm{b}}$,
 $\Omega_{\mathrm{dm}}$, $\Omega_{\Lambda}$, $\Omega_{\mathrm{r}}$, and $H_{0}$.  It has been charted by several satellites since
 its
-discovery, most recently with Planck \citeref{Plack2011}.  The CMB is shown in \figref{fig:planck_map},
-where fluctuations are on the order of $10^{\pm 3} \mathrm{\mu K}$.  These fluctuations were caused by the
+discovery, most recently by Planck \citeref{Plack2011}.  The CMB is shown in \figref{fig:planck_map},
+where fluctuations are on the order of $10^{2} \mathrm{\mu K}$.  These fluctuations were caused by the
 amount of each component - thus, by calculating the correlation function
 
 \begin{equation}
@@ -330,9 +336,9 @@ $D_{l}^{TT} \equiv l(l+1)C_{l}/2\pi$ as shown in \figref{fig:cmb_power_spectrum}
 %	\centering
 	\includegraphics[width=0.8\textwidth]{cmb_power_spectrum}
 	\centering
-	\caption{Angular power spectrum for CMB from Planck fit using the $\Lambda$CDM model.  Residuals
-	are shown in bottom panel.  The model matches the data well at $l < 15$ and $l > 30$.  The horizontal axis changes from linear to
-	logarithmic at $l = 29$ and is marked by vertical dashed grey
+	\caption{Angular power spectrum for CMB from Planck using the $\Lambda$CDM model.  Residuals
+	are shown in the bottom panel.  The model matches the data well at $l < 15$ and $l > 30$.  The horizontal axis changes from linear to
+	logarithmic at $l = 29$ and is marked by the vertical dashed grey
 	line. Image credit: \citeref{Planck2016}.}
 	\label{fig:cmb_power_spectrum}
 \end{figure}
@@ -371,12 +377,112 @@ sum satisfies our observations of the universe.
 
 
 
+%========
+\subsection{Axions} \label{subsec:axions}
+Charge conjugation and parity (CP) violation in strong interactions has never been observed, despite its allowance
+by quantum chromodynamics (QCD).  This compels a theoretically unjustified fine tuning of the model, which
+is known as the strong CP problem.  Originally hypothesized by Roberto Peccei and Helen Quinn in 1977, the
+axion - a new standard model particle - offered a solution \citeref{Peccei1977}.  Shortly after it was
+demonstrated that for an axion decay constant of $f_{\mathrm{a}} > 10^{12}$ axions would be overproduced in the
+early universe and cause the axion density $\Omega_{\mathrm{a}} > 1 > \Omega_{\mathrm{dm}}$ \citeref{Preskill1983}.  However, if the
+decay constant were ${\sim} 10^{12}$ the axion density parameter could be equivalent to $\Omega_{\mathrm{dm}}$.  Current mechanisms for
+solving
+the strong CP problem rely on invisible axion models Kim-Shifman-Vainshtein-Zakharov (KSVZ) \citeref{Kim1979, Shifman1980} and
+Dine-Fischler-Srednicki-Zhitnitsky
+(DFSZ) \citeref{Zhitnitsky1980, Dine1981}, marked along the yellow band in \figref{fig:axions}.  $f_{\mathrm{a}}$ is inversely
+proportional to the axion mass $m_{\mathrm{a}}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{axion_limits}
+\caption{Axion-double photon coupling with respect to axion mass.  The shaded regions have been excluded by different
+experiments.  Invisible axion models KSVZ and DFSZ are drawn along the yellow band.  Image credit: \citeref{Patrignani2016}.}
+\label{fig:axions}
+\end{figure}
+
+%The axion
+%mass $m_{a} = 57(10^{11}GeV/f_{a})\ \mu$eV, which gives a lower bound of $m_{a} \sim 5\ \mu$eV.
+
+Because axions naturally offer an explanation for dark matter there are a number of DM experiments dedicated to
+finding them.  Several operate under the Primakoff effect \citeref{Primakoff1951}, which states that electromagnetic fields should
+transform
+axions to photons and vice versa.  Cavity searches such as the Axion Dark Matter Experiment (ADMX) \citeref{ADMX2018} search the galactic
+dark matter halo using a resonant microwave cavity inside a superconducting magnet
+to convert axions at Earth into microwaves.  Others, like the CERN Axion Solar Telescope (CAST) search for axions produced in the Sun's
+core from x-ray scattering off of protons and electrons \citeref{CAST2017}.  The experiment hopes to convert solar axions back into
+x-rays.  The Cosmic Axion
+Spin Precession Experiment (CASPEr) uses nuclear magnetic resonance (NMR) to detect nuclear spin precession frequencies that depend on
+$m_{\mathrm{a}}$ \citeref{CASPEr2018}.  In addition axion-induced electronic recoils have been searched for in cryogenic detectors
+including CDMS \citeref{CDMS2009}, EDELWEISS \citeref{EDELWEISS2013}, and XMASS \citeref{XMASS2013}.  The best electronic recoil coupling
+limits to date were set by XENON100 in 2014 \citeref{Aprile2014}.
+
+
+%========
+\subsection{WIMPs} \label{subsec:wimps}
+Weakly Interacting Massive Particles (WIMPs) are another favored candidate for dark matter.  As their name
+suggests, they interact through the weak force so would be difficult to observe.  They
+would behave similarly to neutrinos, which have a small cross-section and communicate only via the weak interaction.  They must also have
+been produced early in the universe to account for observations of the CMB and galactic structures.
+
+At the beginning of the universe the temperature was hot enough that particles could annihilate with their
+antiparticle counterpart and produce new particles, maintaining equilibrium.  As the universe cooled each
+particle underwent its own ``freeze-out'', after which they could no longer transform freely to other particles.  Using the
+$\Lambda$CDM model the density of DM in the universe today is given by
+
+\begin{equation}
+\Omega_{\mathrm{dm}}h^{2} = \frac{3 \times 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
+\end{equation}
+
+\noindent where $h \equiv H_0 / 100$ and $\langle \sigma_{\mathrm{ann}} v \rangle$ is
+the thermally averaged self-annihilation cross section
+for dark matter.  Assuming DM has a cross section and mass on the order of the weak scale,
+it would give roughly the correct relic density of DM.  This is known as the ``WIMP miracle".
+
+Another appealing argument for WIMPs is supersymmetry (SUSY), which is theorized to solve a number of problems
+in the standard model.  Many SUSY models predict a heavy stable particle that would be weakly interacting (a favorite is the neutralino,
+the supersymmetric partner of the neutrino).  This has historically been one of the favored arguments for WIMP dark matter.
+
+%========
+\subsection{Cold, Warm, or Hot} \label{subsec:hot_vs_cold}
+An important property of dark is whether it was relativistic in the early universe, typically defined using the times of decoupling
+from radiation and matter $t_{\mathrm{dec}}$ and matter-radiation equality (moment when density of matter and radiation are equivalent)
+$t_{\mathrm{rm}}$.  Hot dark matter (HDM) would have been relativistic at $t_{\mathrm{dec}}$ and $t_{\mathrm{rm}}$.  Warm dark matter
+(WDM) would have been relativistic at $t_{\mathrm{dec}}$
+but not at $t_{\mathrm{rm}}$.  Cold dark matter (CDM) would have been non-relativistic at both.  Candidates for CDM include
+WIMPs, axions, and primordial black holes while for WDM might be the gravitino.  Neutrinos are candidates for both
+warm and hot dark matter, but measurements show their density is too small to account for $\Omega_{\mathrm{dm}}$.
+
+Structure formation in the universe unravels the hot/warm/cold dark matter mystery.  Because the cosmological layout we observe
+today came from fluctuations in the earliest moments after the Big Bang (\secref{subsec:cmb}) it contains the imprint of dark matter.
+
+Relativistic energies of hot dark matter would smooth out density perturbations in what is known as free
+streaming.  In this case the first structures to form would be superclusters, followed by smaller-scale
+features.  Observations show that this is not the case; galaxies have been around since before the universe
+was 1 billion years old ($z \sim 6$) and superclusters are just forming today \citeref{Ryden2003}.
+
+CDM allows early density perturbations to persist, causing smaller structures to materialize first, which is
+consistent with galaxy surveys between ${\sim} 1$ Mpc and the cosmological horizon.  At scales ${<}\, 1$ Mpc and
+$M \sim 10^{11} \ M_{\odot}$ there are discrepancies, including under-dense cores for many galaxies that are DM-dominated
+and significantly fewer satellite dwarf and small galaxies than predicted \citeref{Moore1999, Klypin1999}.  Possible
+solutions to the latter may be that dwarf galaxies have merged, been stripped by tidal forces of larger galaxies, or
+not accumulated enough baryonic matter to be visible \citeref{Simon2007}.
+
+WDM has received a lot of interest since the problems with CDM were discovered.  Simulations have shown that
+WDM would result in fewer subhalos, though explaining the other CDM model-observation disagreements has been less
+successful \citeref{Bullock2017, Ogiya2017}.  However, because neutrinos have mass we know there
+was at least some non-CDM in the early universe.
+
+Despite problems with CDM it remains the most favorable model for dark matter.  One possible outcome is
+there is a mix of CDM and WDM, but if that's the case CDM would make up the considerable bulk of dark matter.
+
+
+
 \subsection{Modified Gravity}
 \label{subsec:modified_gravity}
-One possible explanation for the disparity between the mass of ordinary matter and its behavior is an incomplete understanding of
+A different explanation for the disparity between the mass of ordinary matter and its behavior is an incomplete understanding of
 gravity.  This
 would suggest that Einstein's General Relativity works well at small distances but does not correctly explain large-scale
-gravitation.  Since the incompatibility of current theory with observation would be a resolved by proving the mysterious behavior is
+gravitation.  Since the incompatibility of current theory with observation would be resolved by proving the mysterious behavior is
 a consequence of ordinary matter, dark matter would not be necessary.
 
 Major evidence against modified gravity emerged in 2004 when the collision of two galaxies 1E0657-56 (Bullet Cluster) was observed
@@ -400,107 +506,8 @@ galaxies \citeref{Lelli2016}.  The first was in agreement with MOND using gaussi
 setting
 their uncertainty to observational errors \citeref{Li2018}.  The second included an additional 18 galaxies from THINGS
 \citeref{deBlok2008} and with flat priors excluded MOND
-at $10 \sigma$ \citeref{Rodrigues2018}.  Ultimately additional measurements and improved statistics are needed to better
+at $10 \sigma$ \citeref{Rodrigues2018}.  Ultimately, additional measurements and improved statistics are needed to better
 quantify NGC1052-DF2, but confirmation of missing dark matter would strongly constrain theories of modified gravity.
-
-
-
-%========
-\subsection{Axions} \label{subsec:axions}
-Charge conjugation and parity (CP) violation in strong interactions has never been observed, despite its prediction
-by quantum chromodynamics (QCD).  This compels a theoretically unjustified fine tuning of the model, which
-is known as the strong CP problem.  Originally hypothesized by Roberto Peccei and Helen Quinn in 1977, the
-axion - a new standard model particle - offered a solution \citeref{Peccei1977}.  Shortly after it was
-demonstrated that for an axion decay constant of $f_{\mathrm{a}} > 10^{12}$ axions would be overproduced in the
-early universe and cause the axion density $\Omega_{\mathrm{a}} > 1 > \Omega_{\mathrm{dm}}$ \citeref{Preskill1983}.  However, if the
-decay constant were ${\sim} 10^{12}$ the axion density could be equivalent to $\Omega_{\mathrm{dm}}$.  Current mechanisms for solving
-the strong CP problem rely on invisible axion models Kim-Shifman-Vainshtein-Zakharov (KSVZ) \citeref{Kim1979, Shifman1980} and
-Dine-Fischler-Srednicki-Zhitnitsky
-(DFSZ) \citeref{Zhitnitsky1980, Dine1981}, marked along the yellow band in \figref{fig:axions}.  $f_{\mathrm{a}}$ is inversely
-proportional to the axion mass $m_{\mathrm{a}}$.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{axion_limits}
-\caption{Axion-double photon coupling with respect to mass.  The shaded regions have been excluded by different experiments.  Invisible
-axion models KSVZ and DFSZ are drawn along the yellow band.  Image credit: \citeref{Patrignani2016}.}
-\label{fig:axions}
-\end{figure}
-
-%The axion
-%mass $m_{a} = 57(10^{11}GeV/f_{a})\ \mu$eV, which gives a lower bound of $m_{a} \sim 5\ \mu$eV.
-
-Because axions naturally offer an explanation for dark matter there are a number of DM experiments dedicated to
-finding them.  Several operate under the Primakoff effect \citeref{Primakoff1951}, which states that electromagnetic fields should
-transform
-axions to photons and vice versa.  Cavity searches such as the Axion Dark Matter Experiment (ADMX) \citeref{ADMX2018} search the galactic
-dark matter halo using a resonant microwave cavity inside a superconducting magnet
-to convert axions into microwaves.  Others, like the CERN Axion Solar Telescope (CAST) search for axions produced in the Sun's
-core via x-ray scattering off of protons and electrons.  The experiment would convert solar axions back into x-rays.  The Cosmic Axion
-Spin Precession Experiment (CASPEr) uses nuclear magnetic resonance (NMR) to detect nuclear spin precession frequencies that depend on
-$m_{\mathrm{a}}$ \citeref{CASPEr2018}.  In addition axion-induced electronic recoils have been searched for in cryogenic detectors
-including CDMS \citeref{CDMS2009}, EDELWEISS \citeref{EDELWEISS2013}, and XMASS \citeref{XMASS2013}.  The best coupling limits to
-date were set by XENON100 in 2014 \citeref{Aprile2014}.
-
-
-%========
-\subsection{WIMPs} \label{subsec:wimps}
-Weakly Interacting Massive Particles (WIMPs) are another favored candidate for dark matter.  As their name
-suggests, they interact through the weak force so would be difficult to observe.  They
-would behave similarly to neutrinos, which have a small cross-section and interact only via the weak force.  They must also have been
-produced early in the universe to account for observations of the CMB and galactic structures.
-
-At the beginning of the universe the temperature was hot enough where particles could annihilate with their
-antiparticle counterpart and produce new particles, maintaining equilibrium.  As the universe cooled each
-particle had a ``freeze-out", when they could no longer transform freely to other particles.  Using the
-$\Lambda$CDM model the density of DM in the universe today is given by
-
-\begin{equation}
-\Omega_{\mathrm{dm}}h^{2} = \frac{3 \times 10^{-27}\ \mathrm{cm^{3}\ s^{-1}}}{\langle \sigma_{\mathrm{ann}} v \rangle}
-\end{equation}
-
-\noindent where $h \equiv H_0 / 100$ and $\langle \sigma_{\mathrm{ann}} v \rangle$ is
-the thermally averaged self-annihilation cross section
-for dark matter.  Assuming DM has a cross-section and mass on the order of the weak scale,
-it would give roughly the correct relic density of DM.  This is known as the ``WIMP miracle".
-
-Another appealing argument for WIMPs is supersymmetry (SUSY), which is theorized to solve a number of problems
-in the standard model.  Many SUSY models predict a heavy stable particle that would be weakly interacting (a favorite is the neutralino,
-the supersymmetric partner of the neutrino).  This has historically been one of the favored arguments for WIMP dark matter.
-
-%========
-\subsection{Cold, Warm, or Hot} \label{subsec:hot_vs_cold}
-An important property of dark is whether it was relativistic in the early universe, typically defined using the times of decoupling from
-other components $t_{\mathrm{dec}}$ and matter-radiation equality (moment when density of matter and radiation are equivalent)
-$t_{\mathrm{rm}}$.  Hot dark matter (HDM) would have been relativistic at $t_{\mathrm{dec}}$ and $t_{\mathrm{rm}}$.  Warm dark matter
-(WDM) would have been relativistic at $t_{\mathrm{dec}}$
-but not at $t_{\mathrm{rm}}$.  Cold dark matter (CDM) would have been non-relativistic at both.  Candidates for CDM include
-WIMPs, axions, and primordial black holes while for WDM might be the gravitino.  Neutrinos are candidates for both
-warm and hot dark matter, but measurements show their density is orders of magnitude to small to account for $\Omega_{\mathrm{df}}$.
-
-Structure formation in the universe unravels the hot/warm/cold dark matter mystery.  Because the cosmological layout we observe
-today came from fluctuations in the earliest moments of the Big Bang (\secref{subsec:cmb}) the structure
-contains the imprint of dark matter.
-
-In hot dark matter relativistic DM would smooth out density perturbations, in what is known as free
-streaming.  In this case the first structures to form would be superclusters, followed by smaller-scale
-features.  Observations show that this is not the case; galaxies have been around since before the universe
-was 1 billion years old ($z \sim 6$) and superclusters are just forming today \citeref{Ryden2003}.
-
-CDM allows early density perturbations to persist, causing smaller structures to materialize first,
-consistent with galaxy surveys between ${\sim} 1$ Mpc to the cosmological horizon.  At scales $< 1$ Mpc and
-$M \sim 10^{11} \ M_{\odot}$ there are discrepancies, including under-dense cores for many galaxies that are DM-dominated
-and significantly fewer satellite dwarf and small galaxies than predicted \citeref{Moore1999, Klypin1999}.  Possible
-solutions to the latter may be that dwarf galaxies have merged, been stripped by tidal forces of larger galaxies, or
-not accumulated enough baryonic matter to be visible \citeref{Simon2007}.
-
-WDM has received a lot of interest since the problems with CDM were discovered.  Simulations have shown that
-WDM would result in fewer subhalos, though explaining the other CDM model-observation disagreements has been less
-successful \citeref{Bullock2017, Ogiya2017}.  However, because neutrinos have mass there
-was at least some non-CDM in the early universe.
-
-Despite problems with CDM it remains the most favorable model for dark matter.  One possible outcome is
-there is a mix of CDM and WDM, but if that's the case CDM would make up the considerable bulk of dark matter.
 
 
 %====================================
@@ -510,9 +517,8 @@ there is a mix of CDM and WDM, but if that's the case CDM would make up the cons
 There are three methods for detecting WIMPs.  The first is using particle colliders where standard model (SM) particles would interact and
 create DM (\secref{subsec:colliders}).  The second is via indirect detection, where DM would annihilate into SM particles, with the hope
 that they would be detectable
-on Earth (\secref{subsec:indirect}).  The third method is by means of direct detection in which DM would scatter off SM matter, producing
-a signal that could be
-observed (\secref{subsec:direct}).  These methods are outlined in \figref{fig:detection_methods}.
+on Earth (\secref{subsec:indirect}).  The third method is by direct detection in which DM would scatter off SM matter and produce
+a signal that could be observed (\secref{subsec:direct}).  These methods are outlined in \figref{fig:detection_methods}.
 
 \begin{figure}
 \centering
@@ -523,15 +529,15 @@ observed (\secref{subsec:direct}).  These methods are outlined in \figref{fig:de
 
  %========
 \subsection{Colliders} \label{subsec:colliders}
-One mechanism through which we might observe WIMP dark matter is through particle-antiparticle
+One mechanism that might lead to the discovery of WIMP dark matter is particle-antiparticle
 annihilation.  This could be observed at particle colliders where energies can exceed
-several TeV, producing dark matter particle-antiparticle pairs that
-would escape undetected.  This could be measured from momentum conservation where there would be missing transverse energy (MET).  The
+several TeV, producing dark matter particle-antiparticle pairs.  Though they would escape undetected, they could be measured through
+missing transverse energy (MET) using momentum conservation.  The
 Large Hadron Collider (LHC) is investigating the quark sector with energies
 exceeding 10 TeV, while the Large Electron-Positron (LEP) Collider is doing so for leptons at
-${\sim} 200$ GeV.  Both experiments are competitive at lower energies than noble gas experiments (\secref{subsec:noble_gas}), particularly
-for spin-dependent searches \citeref{Fox2011, Alpigiani2017}.  Annihilation alone would not prove the discovery of dark matter but would
-need
+${\sim} 200$ GeV.  Both experiments are more competitive at lower energies than noble gas experiments (\secref{subsec:noble_gas}),
+particularly for spin-dependent searches \citeref{Fox2011, Alpigiani2017}.  MET observations alone would not prove the existence of dark
+matter but would need
 indirect or direct experiments to validate their results.  However, it would still be extremely useful in narrowing the search region.
 
 \begin{figure}
@@ -544,23 +550,23 @@ indirect or direct experiments to validate their results.  However, it would sti
 
  %========
 \subsection{Indirect Detection} \label{subsec:indirect}
-Indirect detection looks for signatures of dark matter by observing standard model particles.  Such observables
+Indirect detection looks for signatures of dark matter by observing standard model particles.  Observables
 may come from dark matter annihilation, wherein two DM particles annihilate and produce standard model
-gamma rays or other particle-antiparticle pairs.  Alternatively, if DM is unstable (albeit with very long half-life) it may decay into
+gamma-rays or other particle-antiparticle pairs.  Alternatively, if DM is unstable (albeit with a very long half-life) it may decay into
 standard model particles that can be detected.
 
 Indirect experiments look at regions where they expect a large number of interactions.  The local
 dark matter density is estimated to be 0.2-0.56 GeV cm$^{-3}$ \citeref{Read2014} and experiments are observing
 the Sun hoping to measure a WIMP-induced high energy neutrino flux \citeref{Ellis1988}.  Other theories suspect
 DM annihilation in the galactic halo would produce
-antiprotons, positrons, and gamma rays that would be detectable from Earth.  Because the galaxy's center
-has a large flux of cosmic rays it is difficult to distinguish dark matter from other astrophysical
+antiprotons, positrons, and gamma-rays that would be detectable from Earth.  Because the galaxy's center
+has a large flux of cosmic rays it is difficult to distinguish possible dark matter from other astrophysical
 sources.  Nearby (${\sim} 50$ kpc) dwarf spherical
 galaxies have become an attractive target where star formation regions have low $\gamma$-ray backgrounds \citeref{Zitzer2016}.
 
-$\gamma$-rays need to be measured space because for the necessary energy range (GeV to TeV) photons interact
-with matter via $e^{+}e^{-}$ pair production (\figref{fig:phot_atten}), so would be unable to pass through Earth's atmosphere.  However,
-they can look for signatures such as showers of secondary particles and their Cerenkov
+$\gamma$-rays need to be measured in space because in the relevant energy range (GeV to TeV) photons interact
+with matter via $e^{+}e^{-}$ pair production (\figref{fig:phot_atten}), and are unable to pass through Earth's atmosphere.  However,
+ground-based detectors can look for signatures such as showers of secondary particles and their Cerenkov
 light as they pass through the atmosphere \citeref{Bertone2005}.
 
 % for Ellis1988 reference listed above get their references 6 and 7 and maybe 8 for citations, need access to PRL
@@ -568,13 +574,14 @@ light as they pass through the atmosphere \citeref{Bertone2005}.
 
  %========
 \subsection{Direct Detection} \label{subsec:direct}
-Direct detection looks for low energy (${\sim} 1 \mdash 100$ keV) nuclear recoil (somes theories predict DM-lepton
-but here they are not discussed) \citeref{Kopp2009}.  It is common to assume the dark matter halo of a galaxy is an isothermal
+Direct detection mainly looks for low energy (${\sim} 1 \mdash 100$ keV) nuclear recoils (somes theories predict DM-lepton
+interactions,
+but they are not discussed here) \citeref{Kopp2009}.  The dark matter halo of a galaxy is normally assumed to be an isothermal
 single-component sphere with an isotropic Maxwell-Boltzmann velocity distribution function
 ($f(\vectlett{v}) \propto \mathrm{exp}(-|\vectlett{v}|^2 / v_0^2)$) \citeref{Bhattacharjee2013}, though there is not a consensus on
 whether this is the correct velocity parameterization
 \citeref{Diemand2004, Kuhlen2009}.  This is known as the Standard Halo Model (SHM).  Given that the majority of dark matter must be
-non-relativistic (\secref{subsec:hot_vs_cold}), we can calculate the differential recoil spectrum as \citeref{Undagoitia2016}
+non-relativistic (\secref{subsec:hot_vs_cold}), the differential recoil spectrum is calculated as \citeref{Undagoitia2016}
 
 \begin{equation} \label{eq:dr_de}
 \frac{dR}{dE}(E, t) = \frac{\rho_{\chi}}{m_{\chi}m_{\mathrm{A}}} \int_{v_{\mathrm{min}}}^{v_{\mathrm{esc}}}
@@ -587,7 +594,7 @@ dark matter particle, $m_{\mathrm{A}}$ is the mass of the target element, $v_{\m
 \citeref{Piffl2014} is the escape velocity for WIMPs from the
 galaxy, $f(\vectlett{v}, t)$ is the local velocity dispersion, and $\frac{d\sigma}{dE}(E, t)$ is the nucleon-DM differential
 cross-section.  $v$ is the velocity of the dark matter in the rest frame of the detector.  The minimum velocity that will produce
-a recoil of energy E is given by
+a recoil of energy E is
 
 \begin{equation}
 v_{\mathrm{min}} = \sqrt{\frac{m_{\mathrm{A}} E}{2 \mu^{2}}}
@@ -595,8 +602,7 @@ v_{\mathrm{min}} = \sqrt{\frac{m_{\mathrm{A}} E}{2 \mu^{2}}}
 
 \noindent where $\mu_{\mathrm{A}} = m_{\mathrm{A}} m_{\chi} /( m_{\mathrm{A}} + m_{\chi})$ is the reduced WIMP-nucleus mass.
 
-For WIMP searches most experiments
-are looking at spin-independent (SI) or spin-dependent (SD) interactions.  For spin-independent all nucleons
+For WIMP searches most experiments look for spin-independent (SI) or spin-dependent (SD) interactions.  For spin-independent all nucleons
 contribute equally.  For spin-dependent, atoms must have an odd number
 of protons or neutrons since only unpaired nucleons contribute to the search.  The differential cross-section can then be written as
 
@@ -609,7 +615,7 @@ of protons or neutrons since only unpaired nucleons contribute to the search.  T
 spin-independent and spin-dependent DM.  $F_{\mathrm{SI}}^{2}(E)$ and $F_{\mathrm{SD}}^{2}(E)$ are the form factors, which
 account for the cross section's decrease with increasing energy \citeref{Lewin1996}.  Spin-dependence is no longer discussed but details
 are found in \citeref{Lewin1996}.  The SI form factor is
-the Fourier transform of the mass density ground state, and for the parameterization given in \citeref{Helm1956} is given by
+the Fourier transform of the mass density ground state, and for the parameterization given in \citeref{Helm1956} is
 
 \begin{equation}
 F_{\mathrm{SI}} = \frac{3 j_{1}(qr_{\mathrm{n}})}{qr_{\mathrm{n}}} e^{-(qs)^{2}/2}
@@ -624,7 +630,7 @@ cross section is given by
 (A - Z) f_{\mathrm{n}} \big]^{2}}{(f_{\mathrm{p}})^{2}}
 \end{equation}
 
-\noindent where $\sigma_{\mathrm{p}}$ is the cross section of a proton Z is the number of protons and $\mu_{\mathrm{p}}$ is
+\noindent where $\sigma_{\mathrm{p}}$ is the cross section of a proton, $Z$ is the number of protons, and $\mu_{\mathrm{p}}$ is
 the WIMP-nucleon reduced mass. $f_{\mathrm{p/n}}$ is the coupling strength for protons and neutrons, which are assumed to be
 equivalent (see \citeref{Yaguna2017} for $f_{\mathrm{p}} \neq f_{\mathrm{n}}$).  Substituting \eqnref{eq:sigma_si} into
 \eqnref{eq:diff_sigma_si} gives a spin-independent differential cross-section of
@@ -651,7 +657,7 @@ N ( m_{\chi}, \sigma) = T \times M \times \int_{E_{\mathrm{min}}}^{E_{\mathrm{ma
 \end{equation}
 
 \noindent \eqnref{eq:dr_de_final} and \eqnref{eq:counts} state that the sensitivity of an experiment improves linearly with time and
-target mass, but quadratically with $A$.  This makes the atoms of molecules of the target mass important consideration when
+target mass, but quadratically with $A$.  This makes the atoms or molecules of the target mass an important consideration when
 designing a direct detection experiment.
 
 %For SD interactions the cross-section is
@@ -694,9 +700,10 @@ designing a direct detection experiment.
 \label{sec:direct_detect}
 When a moving particle scatters off an atom or molecule that is by comparison somewhat stationary it transfers some of its
 energy.  The energy gained by the atom will cause three effects.  The first is the atom's translational energy might rise (heat) and
-produce phonons that are propagated across the medium.  The second is the electrons may be excited, which generates photons
+produce phonons that propagate across the medium.  The second is electrons may be excited to higher energy orbitals, and generate
+photons
 as they quickly de-excite.  The third is the atom may be ionized, after which the freed electrons may recombine with their parent ion
-to emit photons or escape.  Direct detection experiments can probe each of these observables, with many able to measure two of the three
+and emit photons or escape.  Direct detection experiments can probe each of these effects, and many are able to measure two of the three
 simultaneously.  The different energy channels can be seen in \figref{fig:energy_channels}.
 
 \begin{figure}
@@ -709,9 +716,9 @@ simultaneously.  The different energy channels can be seen in \figref{fig:energy
 Direct detection experiments look for events outside of their expected background.  This requires a comprehensive
 understanding of the detector background to ensure any ``anomalous'' events do not come from mis-modeling and a false discovery is
 claimed.  Different approaches may be
-used for different methods of detection.  For liquid noble gas experiments major efforts are going into screening the radioactivity of
-potential materials.  Radioactivity from outside of the detector is shielded (using e.g. water, lead).  Finally, there may be backgrounds
-that are intrinsic to the target material.
+used for different methods of detection.  For some experiments major efforts are going into screening the radioactivity of
+potential materials.  Radioactivity from outside of the detector may be shielded (using e.g. water, lead).  Finally, there may be
+backgrounds that are intrinsic to the target material.
 
  
 Even with a priori screening, effective shielding, and reducing intrinsic contaminants background events are inevitable.  Identifying a
@@ -720,7 +727,7 @@ an experiment with a large background will report an excess with less significan
 10 event
 background can make a stronger claim on an excess of 5 events than one with 100.  In 1986 it was proposed
 that due to the Earth's motion around the Sun there should be a modulation in signal \citeref{Drukier1986}.  Thus
-detectors could look for an annual variation in event rate its peak in May, when the Earth's velocity around the
+detectors could look for an annual variation in event rate that peaks in May, when the Earth's velocity around the
 Sun aligns with to the Sun's velocity around the galaxy.
 
 \begin{figure}
@@ -740,9 +747,9 @@ should be present for any DM velocity distribution as long as it does not align 
 Superheated liquid detectors are the most sensitive to WIMP masses in the tens of $\mathrm{GeV/c^2}$ range.  Their limits for
 spin-independent
 WIMPs are not as stringent as dual-phase noble gas detectors (\secref{subsec:noble_gas}), but for a number of years they have
-consistently provided the
-strongest constraints in the spin-dependent sector \citeref{PICO2017}.  Their strong sensitivity comes from using fluorinated
-halocarbons, as $^{19}$F is the only stable isotope and its unpaired proton
+consistently provided the strongest constraints in the spin-dependent WIMP-proton sector \citeref{PICO2017}.  Their strong
+sensitivity comes from using fluorinated
+halocarbons, since $^{19}$F is the only stable isotope and its unpaired proton
 almost always carries 1/2 spin \citeref{Ellis1991, PICASSO2012}.
 
 At ambient temperatures and pressures fluorinated halocarbons are in a metastable state.  A colliding particle will transfer some of its
@@ -760,11 +767,13 @@ spin-dependent WIMP-proton cross sections.
 \begin{figure}
  \centering
  \includegraphics[width=0.8\textwidth]{spin_dependent_limits}
- \caption{Spin-dependent WIMP-proton cross-section 90\% C.L. limits for PICO-60 C$_{3}$F${8}$ (thick blue), PICO-60 CF$_{3}$I (thick red,
+ \caption{Spin-dependent WIMP-proton cross-section 90\% C.L. limits for PICO-60 C$_{3}$F${_8}$ (thick blue, \citeref{PICO2017}), PICO-60
+ CF$_{3}$I (thick red,
  \citeref{PICO2016a}), PICO-2L (thick purple, \citeref{PICO2016b}), PICASSO (green, \citeref{PICASSO2017}), SIMPLE (orange,
- \citeref{SIMPLE2014}), PandaX-II (cyan, \citeref{PandaXII2016a}), IceCube (dashed and dotted pink, \citeref{IceCube2017}), and SuperK
- (dashed and
- dotted black, \citeref{SuperK2011, SuperK2015}).  The shaded purple region is constrained parameter space for the minimal
+ \citeref{SIMPLE2014}), and PandaX-II (cyan, \citeref{PandaXII2016a}).  Indirect limits from IceCube
+ (dashed and dotted pink, \citeref{IceCube2017}) and SuperK (dashed and
+ dotted black, \citeref{SuperK2011, SuperK2015}) for $b$ quark (dotted) and $\tau$ lepton (dashed)
+ annihilation are shown.  The shaded purple region is constrained parameter space for the minimal
  supersymmetric model from \citeref{Roszkowski2007}.
  Image credit: \citeref{PICO2017}.}
  \label{fig:sd_limits}
@@ -782,14 +791,15 @@ spin-dependent WIMP-proton cross sections.
 Another target for DM searches is highly radiopure scintillating crystals.  Typically sodium iodide (NaI) or cesium iodide (CsI) is
 chosen, with NaI being the most common.  Their sensitivity to SI
 and SD DM, low energy threshold, room temperature operability, and ability to run over long periods of time
-make them an attractive option.  Doping with thallium increases their light emission and shifts their wavelengths, making the crystals
+make them an attractive option.  Doping these crystals with thallium increases the yield and shifts the wavelengths of the emitted light,
+making the crystals
 more transparent and improving phototube detection efficiency \citeref{Undagoitia2016}.  However, trace amounts of radioactive elements
 are present in NaI(Tl) crystals \citeref{DAMALIBRA2008}.  The 3 keV x-ray/Auger electron from the decay of
 $^{40}$K to \ce{^{40}Ar} through electron capture is particularly concerning because it lays in the region of interest.  In addition a
-flat background is produced by $^{238}$U, $^{232}$Th,
-and $^{87}$R.  Additionally, the features of the scintillation
-does not change for different types of interactions (e.g. $\gamma$-ray, neutron), so particle discrimination is not possible, with the
-excepting of rejecting events with multiple scatters.  Thus differentiating between background from signal on an event by event basis is
+flat background is produced by \ce{^{87}Rb} and the $^{238}$U and $^{232}$Th decay chains.  Additionally, the features of the
+scintillation
+do not change for different types of interactions (e.g. $\gamma$-ray, neutron), so particle discrimination is not possible, with the
+excepting of rejecting events with multiple scatters.  Thus differentiating between background and signal on an event by event basis is
 not possible.  This has made improved radiopurity an increasingly important goal \citeref{Shields2015}.
 
 \begin{figure}
@@ -805,22 +815,23 @@ findings.  Image credit: \citeref{Bernabei2013}.}
 \end{figure}
 
 The DAMA/NaI and its successor DAMA/LIBRA experiments are located underground at the Laboratori Nazionali del Gran Sasso (LNGS) in
-L'Aquila, Italy.  They use NaI(Tl) crystals, which allows them to be sensitive to both low- (Na) and high-mass WIMPs from Na and I,
-respectively \citeref{DAMALIBRA2008}.  For over 14 annual cycles they have observed an annual modulation in the
+L'Aquila, Italy.  They use NaI(Tl) crystals, which allows them to be sensitive to both low- (Na) and high-mass (I) WIMPs
+\citeref{DAMALIBRA2008}.  For over 14 annual cycles they have observed an annual modulation in the
 2-6 \kevee (\secref{subsubsec:tpcs_signals_energy})
 range with 9.3$\sigma$ \citeref{DAMA2013}.  This corresponds to WIMP masses of $10 \mdash 15\ \mathrm{GeV/c^2}$ for sodium-scatters
-and 60-100 GeV for iodine.  Their results are shown in \figref{fig:dama}.  Because NaI(Tl) cannot distinguish scatterings of different
+and $60 \mdash 100\ \mathrm{GeV/c^2}$ for iodine.  Their results are shown in \figref{fig:dama}.  Spin-independent, spin-dependent or
+mixed coupling \citeref{Bernabei2001} and inelastic scattering \citeref{Bernabei2002} WIMPs 
+have been considered.  Because NaI(Tl) cannot distinguish scatterings of different
 particles there is doubt on whether their signal
-is caused by WIMPs, or even dark matter.  Spin-independent, spin-dependent or mixed coupling \citeref{Bernabei2001}
-and inelastic scattering \citeref{Bernabei2002} WIMPs 
-have been considered.  Furthermore, since they cannot specify if the interactions are with nuclei or electrons, alternative dark matter
+is caused by WIMPs, or even dark matter.  Furthermore, since they cannot specify if the interactions are with nuclei or electrons,
+alternative dark matter
 electron-coupling models \citeref{Bernabei2006} have been examined.  Their results are controversial because other experiments
 have surpassed the DAMA/LIBRA sensitivity and see no signal \citeref{Aprile2017a}.  This has prompted theories to explain the annual
 modulation via
 Standard Model particles.  Hypotheses include known variation in muon flux due to changing stratosphere temperatures, which exhibits
-annual modulation in a phase similar to DAMA/LIBRA's findings \citeref{Blum2011}, an incomplete understanding of neutron backgrounds
-\citeref{Ralston2010}, or using a combination of muon-induced neutrons and soloar neutrinos \citeref{2014Davis} (this
-has been received pushback in \citeref{Barbea2014, Klinger2015}).  The Sodium Iodide with Active Background REjection (SABRE) experiment
+annual modulation with a phase similar to DAMA/LIBRA's findings \citeref{Blum2011}, an incomplete understanding of neutron backgrounds
+\citeref{Ralston2010}, or using a combination of muon-induced neutrons and solar neutrinos \citeref{2014Davis} (this
+has been received pushback in \citeref{Barbea2014, Klinger2015}).  The Sodium iodide with Active Background REjection (SABRE) experiment
 is being constructed at LNGS and plans on beginning to take data by the end of 2018 \citeref{Shields2015, SABRE2018}.  By using the same
 technology and location they will be the first experiment to directly challenge DAMA/LIBRA.
 
@@ -829,15 +840,15 @@ technology and location they will be the first experiment to directly challenge 
 \label{subsec:germanium}
 High purity germanium (HPGe) detectors measure ionization and offer exceptional energy resolution.  Like scintillation crystals,
 (\secref{subsec:crystals}) they can reach very low energies (${\sim} 0.5\ \mathrm{keV}$), making them a promising candidate for low-mass
-WIMP (${\sim} 10\ \mathrm{GeV/c^2}$) detection.  It is not possible to differentiate between nuclear recoils from electronic, but
+WIMP (${\sim} 10\ \mathrm{GeV/c^2}$) detection.  HPGe cannot differentiate nuclear recoils from electronic, but
 p-type doped detectors have a dead layer on the surface and can use the
 pulse rise time to reject background surface events.  In 2010 the Coherent Germanium Neutrino Technology (CoGeNT) experiment
 announced it observed an annual modulation similar to DAMA/LIBRA \citeref{CoGeNT2010}.  After continued observation they found the
 modulation had a best-fit
-WIMP mass of $m_{\chi}\sim 8\ \mathrm{GeV/c^2}$ at a $2.2\sigma$ \citeref{CoGeNT2014}.  However, subsequent analyses with
+WIMP mass of $m_{\chi}\sim 8\ \mathrm{GeV/c^2}$ at $2.2\sigma$ \citeref{CoGeNT2014}.  However, subsequent analyses with
 different
-background assumptions showed this significance fell well below 1.7$\sigma$ \citeref{Aalseth2014, Davis2014}.  The China Dark Matter
-EXperiment (CdEX) uses the same setup as CoGeNT and found contradictory results \citeref{CDEX2014}, as did CDMS II for nuclear recoils
+background assumptions showed this significance fell well below 1.7$\sigma$ \citeref{Aalseth2014, Davis2014}.  The China Dark matter
+EXperiment (CDEX) uses the same setup as CoGeNT and found contradictory results \citeref{CDEX2014}, as did CDMS II for nuclear recoils
 only \citeref{CDMS2012}.
 
 
@@ -845,35 +856,36 @@ only \citeref{CDMS2012}.
 \subsection{Cryogenic Bolometers}
 \label{subsec:bolometers}
 Cryogenic bolometers are typically cooled to $10 \mdash 100$ mK so they can detect phonons, allowing a low energy threshold and
-outstanding energy resolution.  The Cryogenic Dark Matter Search (CDMS) collaboration uses silicon and germanium detectors where they
-measure both phonons
+outstanding energy resolution.  The Cryogenic Dark Matter Search (CDMS) collaboration uses silicon and germanium detectors to
+measure phonons
 and ionization.  The ionization-to-phonon ratio is used for discrimination where less than 1 in $10^{6}$ of all electronic recoil events
-are rejected in the $10 \mdash 100$ keV range \citeref{CDMS2015}.  In 2013 an excess of events was reported with a best-fit
+fail to be rejected in the $10 \mdash 100$ keV range \citeref{CDMS2015}.  In 2013 an excess of events was reported with a best-fit
 WIMP mass of $8.6\ \mathrm{GeV/c^2}$ \citeref{Agnese2013}.  However, subsequent measurements did not observe such an excess, nor did
-EDELWEISS (Exp\'erience pour DEtecter Les WIMPS En Site Souterrain), which has an analogous setup \citeref{EDELWEISS2016}.
+Exp\'erience pour DEtecter Les WIMPS En Site Souterrain (EDELWEISS), which has an analogous setup \citeref{EDELWEISS2016}.
 
-The CRESST-II (Cryogenic Rare Event Search with Superconducting Thermometers) experiment measured phonons as well as scintillation using
+The Cryogenic Rare Event Search with Superconducting Thermometers (CRESST-II) experiment measures phonons as well as scintillation using
 CaWO$_{4}$ crystals.  They also observed excesses of
 events at WIMP masses of 11.6 $\mathrm{GeV/c^2}$ at 4.2$\sigma$ and 25.3 $\mathrm{GeV/c^2}$ at 4.7$\sigma$ \citeref{CRESST2012}, but after
 an upgrade reduced their background they were ruled out \citeref{CRESST2015}.
 
 
  %========
-\subsection{Liquid Noble Gas Detectors} \label{subsec:noble_gas}
-Liquid noble gas detectors have led the field for spin-independent WIMP masses at $\gtrsim 20\ \mathrm{GeV/c^2}$, as seen in
-\figref{fig:si_limits}.  Commissioned detectors have
-used either liquid argon (LAr) or liquid xenon (LXe) and the DEAP/CLEAN
-(Dark Matter Experiment using Argon Pulse-Shape/Cryogenic Low-Energy Astrophysics with Noble Liquids ) collaboration is constructing a
-detector than can house
+\subsection{Noble Gas Detectors} \label{subsec:noble_gas}
+Noble gas detectors have led the field for spin-independent WIMPs at masses ${\gtrsim}\, 20\ \mathrm{GeV/c^2}$, as seen in
+\figref{fig:si_limits}.  Commissioned detectors have used either liquid argon (LAr) or liquid xenon (LXe) and the
+Dark matter Experiment using Argon Pulse-shape/Cryogenic Low-Energy Astrophysics with Noble liquids (DEAP/CLEAN) collaboration is
+constructing a detector than can house
 LAr and liquid neon (LNe) independently \citeref{Kearns2012, CLEAN2015}.  Advantages of liquid noble gas detectors
-include scaleability, particle discrimination, and self-shielding, among others.  As the target mass of these detectors passes
-the 1-ton mark they are becoming sensitive to neutrinos, which introduces a new background but can also offer another branch of physics to
-study.  Predicted integral rates for xenon, argon, and neon, as well as germanium are shown in \figref{fig:material_wimp_rate}.
+include scaleability, particle discrimination, and self-shielding.  As the target mass of these detectors passes
+the 1-tonne mark they are becoming sensitive to neutrinos, which introduces a new background but can also offer another branch of physics
+to study.  Predicted integral rates for xenon, argon, and neon, as well as germanium (\secref{subsec:germanium}) are shown in
+\figref{fig:material_wimp_rate}.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{IntegralRateTargets}
-\caption{Expected integral spectra for Xe, Ge, Ar, and Ne for spin-independent elastic scattering of a $100\ \mathrm{GeV/c^2}$ WIMP with
+\caption{Expected integral spectra for Xe (green), Ge (blue), Ar (red), and Ne (black) for spin-independent elastic scattering of
+$100\ \mathrm{GeV/c^2}$ WIMPs with
 cross section $\sigma = 10^{-45}\ \mathrm{cm^{2}}$ per nucleon.  The rates assume perfect energy resolution and are calculated using the
 Standard Halo Model.  The dots correspond to average thresholds for each element.  Image credit: \citeref{Cushman2013}.}
 \label{fig:material_wimp_rate}
@@ -883,7 +895,11 @@ Liquid noble gas detectors can be single- or dual-phase.  Dual phase use an elec
 they are extracted across a gas gap and generate a second scintillation.  Single-phase detectors measure only the scintillation and are
 typically
 spherical.  Because they do not drift electrons they benefit from 4$\pi$ photo-detection (in dual phase this would interfere with the
-electric field).  Dual phase experiments are discussed in detail in \chapref{chap:liquid_xe}.  \figref{fig:si_limits} shows the
+electric field).  Dual phase experiments are discussed in detail in \chapref{chap:liquid_xe}.
+
+Noble gas experiments include the Argon Dark Matter (ArDM) experiment (\citeref{ArDM2013}, DarkSide
+(\citeref{DarkSide2018a, DarkSide2018b, DarkSide2018c}), LUX (\citeref{LUX2017a}),
+PandaX-II (\citeref{PandaXII2017}), XMASS (\citeref{XMASS2018}), and XENON1T (\citeref{Aprile2018b}).  \figref{fig:si_limits} shows the
 current status of spin-independent limits.
 
 \begin{figure}
@@ -891,7 +907,7 @@ current status of spin-independent limits.
 \includegraphics[width=\textwidth]{si_limits}
 \caption{Status of spin-independent WIMP cross section from $0.5 \mdash 1000\ \mathrm{GeV/c^2}$ before XENON1T run-combined analysis
 (\chapref{chap:xenon1t}).  Regions of possible signals from DAMA/LIBRA (shaded green, \citeref{DAMA2009}) and the silicon
-detector of CDMS II (shaded blue, \citeref{CDMS2013}) are shown.  Exclusion limits from PICO-60 (solid yellow, \citeref{PICO2017}),
+detector of CDMS II (shaded blue, \citeref{CDMS2013}) are shown.  Exclusion limits from PICO-60 (solid yellow line, \citeref{PICO2017}),
 DEAP-3600 (dashed purple $> 20\ \mathrm{GeV/c^2}$,
 \citeref{DEAP2017}), SuperCDMS (dashed blue, \citeref{SuperCDMS2017}), NEWS-G (dashed purple $< 20\ \mathrm{GeV/c^2}$,
 \citeref{NEWSG2018}), CRESST (solid red, \citeref{CRESST2016}), CDMSLite2 (solid blue, \citeref{CDMSLite2016}), LUX
@@ -899,7 +915,8 @@ DEAP-3600 (dashed purple $> 20\ \mathrm{GeV/c^2}$,
 \citeref{PandaXII2016a}, dashed dark blue, 2017 \citeref{PandaXII2017}), XENON100 (solid green, \citeref{Aprile2012c}), and
 XENON1T First Results (dashed green, \citeref{Aprile2017f}) are plotted.  Four typical super-symmetric (SUSY) models (CMSSM, NUHM1, NUHM2,
 and pMSSM10) with constraints from ATLAS Run
-1 are shown for reference \citeref{Bagnaschi2015}.  The cross section of neutrino coherent scattering is marked by the orange dashed
+1 are shown (shaded yellow) for reference \citeref{Bagnaschi2015}.  The cross section of neutrino coherent scattering is marked by the
+orange dashed
 line and shaded region.  Image credit: \citeref{Patrignani2016}.}
 \label{fig:si_limits}
 \end{figure}

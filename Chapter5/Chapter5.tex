@@ -1924,7 +1924,7 @@ The electron lifetime evolution MCMC uses 400 walkers for $n = 51\ \mathrm{param
 \subsection{Results}
 \label{subsec:elifetime_fit_results}
 With the electron lifetime evolution model described in \secref{sec:electron_lifetime_model} and the fit method in
-\secref{sec:elifetime_fit}, the results are presented.
+\secref{sec:elifetime_fit}, the results are presented.  The final 1000 iterations of the MCMC are used for the posterior.
 
 Parameters in the model (\eqnref{eq:elifetime_fit_model}) that are assumed to be constant over the lifetime of the experiment are shown in
 \tabref{tab:elifetime_fit_results_posteriors_fixed}.  These values are not queried from the slow control system and are fixed in the
@@ -1976,12 +1976,11 @@ $I_{\mathrm{G}}^0$ & $\geq 0$ & ppb & $9951_{-6224}^{+8538}$ & Initial GXe impur
 $I_{\mathrm{L}}^0$ & $\geq 0$ & ppb & $75.3_{-58.2}^{+80.9}$ & Initial LXe impurity concentration \\
 $\epsilon_{\mathrm{vap}}$ & $0 \mdash 1$ & $-$ & $0.288_{-0.214}^{+0.310}$ & Probability of LXe impurity vaporization, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
 $\epsilon_{\mathrm{cond}}$ & $0 \mdash 1$ & $-$ & $0.994_{-0.015}^{+0.005}$ & Probability of GXe impurity condensation, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
-$T_0$ & $-110 \mdash 20$ & $^{\circ} \mathrm{C}$ & & Base temperature for condensation, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
 \hline
 \hline
 \end{tabular}
 }
-\caption{Time-dependent parameters in fit.}
+\caption{Time-independent parameters in the fit.}
 \label{tab:elifetime_fit_results_posteriors_constant}
 \end{table}
 \egroup
@@ -1989,7 +1988,7 @@ $T_0$ & $-110 \mdash 20$ & $^{\circ} \mathrm{C}$ & & Base temperature for conden
 The results for the outgassing model are shown in \tabref{tab:elifetime_fit_results_posteriors_outgassing}.  The outgassing is split into
 four periods.  The first is from commissioning until the start of Science Run 1.  The second begins with SR1 and continues until April
 2018 when the pipes in the purification system were enlarged.  The reason this period is separate is because the new materials may add
-new outgassing to the system.  The pipes that were exchanged lay before the getters but there is evidence of ${<}, 100\%$ getter
+new outgassing to the system.  The pipes that were exchanged lay before the getters but there is evidence of ${<}\, 100\%$ getter
 efficiency (\secref{subsec:electron_lifetime_model_removal}), particularly at high speeds.  Because the upgrade increased the
 circulation speed it becomes more likely that any imperfections in impurity removal become more dramatic.
 
@@ -2049,10 +2048,20 @@ Parameter & Prior distribution & Units & Start & Posterior & Comment \\
 }
 \caption{Outgassing and leak medians and 68\% credible intervals.  The outgassing is separated into four periods due to changes in the
 experiment that are expected to permanently change the behavior.  The leak values agree nicely with the predicted value of
-$165\ \mathrm{ppb\ \kg\ day^{-1}}$.}
+$165\ \mathrm{ppb\ kg\ day^{-1}}$.}
 \label{tab:elifetime_fit_results_posteriors_outgassing}
 \end{table}
 \egroup
+
+In some cases the behavior of the outgassing may temporarily change due to detector operations.  Situations where this becomes relevant
+are listed in \tabref{tab:elifetime_fit_results_outgassing_changes} and include the GXe-only purification, \ce{LN_2} cooling, and
+halting of purification.  For the GXe-only purification none of the GXe returning to the cryostat will condense,
+so the balance of clean xenon entering the liquid is upset.  While this is not a change in outgassing, parameterizing it as such allows the
+effect to be corrected for still.  Because outgassing is temperature-dependent, changing the \ce{LN_2} coldfinger temperature will change
+the rate.  Complete stoppage is expected to change the outgassing behavior temporarily because
+contaminants that outgas from pipes that circulate the xenon towards the purification system would normally be removed by the
+getter.  Without the flow the impurities are more likely to penetrate the bulk GXe or LXe.  The same effect should exist during the magnetic
+pump installation.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2068,7 +2077,7 @@ Aug. 22-Sep. 2, 2016 & $0 \mdash 1$ & GXe & $0.628_{-0.333}^{+0.236}$ & GXe-only
 Aug. 22-Sep. 2, 2016 & $0 \mdash 1$ & LXe & $0.632_{-0.118}^{+0.081}$ & GXe-only purification\\
 May 8-18, 2018 & $0 \mdash 1$ & GXe & $0.436_{-0.328}^{+0.388}$ & \ce{LN_2} cooling \\
 May 8-18, 2018 & $0 \mdash 1$ & LXe & $0.889_{-0.031}^{+0.033}$ & \ce{LN_2} cooling \\
-May 29-June 5, 2018  $\geq 0$ & & GXe & $1.48_{-1.04}^{+1.11}$ & Circulation stopped \\
+May 29-June 5, 2018 & $\geq 0$ & GXe & $1.48_{-1.04}^{+1.11}$ & Circulation stopped \\
 May 29-June 5, 2018 & $0 \mdash 1$ & LXe & $0.306_{-0.064}^{+0.077}$ & Circulation stopped \\
 June 5-12, 2018 & $ \geq 0$ & LXe & $1.34_{-0.79}^{+0.83}$ & Magnetic pump installation \\
 \hline
@@ -2080,6 +2089,10 @@ with change in conditions.}
 \label{tab:elifetime_fit_results_outgassing_changes}
 \end{table}
 \egroup
+
+Getter defficiencies model periods when the electron lifetime begins to decrease without an explanation.  There are three that are modeled
+in the fit, the latter two of which are expected to result from excess impurities inside the calibration box, released during \ce{^{220}Rn}
+calibrations.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2098,10 +2111,15 @@ $\alpha_3$ & Oct. 25-30, 2017 & $0 \mdash 1$ & $0.979_{-0.017}^{+0.014}$ & \ce{^
 \hline
 \end{tabular}
 }
-\caption{Time-dependent parameters in fit.}
-\label{tab:elifetime_fit_results_posteriors_constant}
+\caption{Getter defficiencies medians and 68\% credible intervals.  The first getter defficiency is not understood, but the latter two are
+thought to result from high levels of impurities inside the calibration source box, since they occur simultaneously with the start of
+\ce{^{220}Rn} calibrations.}
+\label{tab:elifetime_fit_results_posteriors_getter_defficiencies}
 \end{table}
 \egroup
+
+Impurity spikes are modeled as instant increases in impurities.  \tabref{tab:electron_lifetime_model_detector_effects_spikes_dates} lists
+them along with relevant information and the median and 68\% credible interval using the posterior.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2125,17 +2143,23 @@ Mar. 5-7, 2018 & Gate washings & LXe & Liquid level change & $450$ & $-70$ & $2.
 \hline
 \end{tabular}
 }
-\caption{Impurity drops during XENON1T.}
+\caption{Impurity spikes in XENON1T.  Relevant information along with the medians and 68\% credible intervals are listed.  Values with a
+$^{\ast}$ have a period of days to weeks following where no electron lifetime measurements exist so have a larger uncertainty.}
 \label{tab:electron_lifetime_model_detector_effects_spikes_dates}
 \end{table}
 \egroup
 
-The electron lifetime model is shown in \figref{fig:elifetime_fit_results_elifetime}.  It matches the data well.
+The electron lifetime model is shown in \figref{fig:elifetime_fit_results_elifetime}.  The model is shown in red with its 68\% credible
+interval highlighted in blue.  Sudden changes where there is not an event (marked by numbers with dashed black lines) are from the cathode
+voltage changing.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{electron_lifetime_evolution_model}
-\caption{Electron lifetime model and data over the lifetime of XENON1T.}
+\caption{Electron lifetime model and data over the lifetime of XENON1T.  Electron lifetimes calculated via the S2/S1 method (blue circle),
+\ce{^{222}Rn}-\ce{^{218}Po} (green triangle), \ce{^{212}Bi} (red triangle), \ce{^{218}Po} (turquoise triangle), \ce{^{222}Rn} (yellow
+triangle), and \metakr (black circle) are shown.  The best-fit trend (red line) and 68\% credible region (shaded blue) are overlaid for
+comparison.  Dashed lines correspond to events that affected the evolution of the electron lifetime.}
 \label{fig:elifetime_fit_results_elifetime}
 \end{figure}
 
@@ -2148,8 +2172,8 @@ between the two becomes larger at higher $\tau_e$ so scaling by a constant will 
 
 To determine which electron lifetime model should be used to correct background data the combined energy spectrum
 (\secref{subsec:det_char_ces}) is examined.  \figref{fig:elifetime_fit_kr_z_dependence} shows the combined energy spectrum as a function
-of depth using both trends.  The spectrum corrected with lifetimes from \alphadecays shows a shift to higher $E$ at larger $z$, meaning
-it is over-corrected.  The spectrum using \metakr is consistent across the depth of the detector.  This is not so surprising since the
+of depth using both trends.  The spectrum corrected with lifetimes from \alphadecays shows a shift to higher energy at larger $z$, meaning
+it is over-corrected.  The spectrum using \metakr is consistent across the depth of the detector.  This is expected since the
 background is almost entirely electronic recoils.
 
 \begin{figure}
@@ -2170,7 +2194,8 @@ high-energy lines the distortion would need to be fixed.  Aside from using the e
 their width if the underlying background is well understood and there are enough statistics.  This would also result in a measurement of
 the electron lifetime.
 
-From this analysis it is found that \alphadecays and electronic recoils require different electron lifetime corrections.  Because the LXe
-purity has the same effect on both, the behavior of the electron lifetime evolution for the two are the same.  Therefore, the trend derived
-using \metakr measurements is used for the dark matter search since the background in our region of interest comes primarily from electronic
+From this analysis it is found that S2s from \alphadecays and electronic recoils require different electron lifetime corrections.  Because
+the LXe
+purity has the same effect on both, the behavior of the electron lifetime evolution for the two are the same.  Therefore, the \metakr trend
+is used for the dark matter search since the background in our region of interest comes primarily from electronic
 recoils.  Furthermore, nuclear recoils are expected to have a lifetime correction that is similar to that of ERs.

@@ -62,8 +62,12 @@
 \crefname{section}{}{}
 \crefname{figure}{}{}
 \crefname{equation}{}{}
+\crefname{table}{}{}
 \crefformat{footnote}{#2\footnotemark[#1]#3}
 \creflabelformat{equation}{#2#1#3}
+\crefrangeformat{section}{#3#1#4--#5#2#6}
+\crefrangeformat{table}{#3#1#4--#5#2#6}
+\crefrangeformat{figure}{#3#1#4--#5#2#6}
 
 \usepackage{float}
 \usepackage{amsbsy}
@@ -181,6 +185,7 @@
 \newcommand{\epjc}{The European Physical Journal C}
 \newcommand{\epjp}{The European Physical Journal Plus}
 \newcommand{\esasp}{ESA Special Publication}
+\newcommand{\fp}{Frontiers of Physics}
 \newcommand{\hts}{High Temperature Science}
 \newcommand{\ieeetdei}{IEEE Transactions Dielectrics Electrical Insulation}
 \newcommand{\ieeetns}{IEEE Transactions on Nuclear Science}
@@ -284,13 +289,13 @@
 
 
 %% Here's the Title Page
-%\include{./FrontMatter/TitlePage}
+\include{./FrontMatter/TitlePage}
 
 %% Here's the copyright page. I use a Creative Commons license.
-%\include{./FrontMatter/Copyright}
+\include{./FrontMatter/Copyright}
 
 %% Here's the Abstract
-%\include{./FrontMatter/Abstract}
+\include{./FrontMatter/Abstract}
 
 \maxtocdepth{subsubsection}
 
@@ -299,14 +304,14 @@
 \cleardoublepage
 
 %A list of graphs and illustrations should go here if you use any.
-%\listoffigures
+\listoffigures
 \cleardoublepage
 
 % Acknowledgements
-%\include{./FrontMatter/Acknowledgments}
+\include{./FrontMatter/Acknowledgments}
 
 % Dedication
-%\include{./FrontMatter/Dedication}
+\include{./FrontMatter/Dedication}
 
 % Preface if you have one
 
@@ -321,9 +326,9 @@
 
 %\include{./Chapter1/Chapter1}
 %\include{./Chapter2/Chapter2}
-\include{./Chapter3/Chapter3}
-\include{./Chapter4/Chapter4}
-%\include{./Chapter5/Chapter5}
+%\include{./Chapter3/Chapter3}
+%\include{./Chapter4/Chapter4}
+\include{./Chapter5/Chapter5}
 %\include{./Conclusion/Conclusion}
 
 %This final section includes your bibliography.

@@ -72,7 +72,10 @@ region of interest and homogeneous position distribution, Monte Carlo variables 
 $y_{\mathrm{true}}$, and $z_{\mathrm{true}}$ for \ce{^{220}Rn} are each randomly drawn from uniform distributions for each
 event.  \ce{^{241}AmBe} and
 neutron generator Monte Carlo are simulated using GEANT4 \citeref{Agostinelli2003}, and include the number of
-scatters for each neutron.  $\beta^-$ do not scatter so it is not necessary to track the number of scatters for \ce{^{220}Rn}.  These
+scatters for each neutron.  The small volume of energy deposition for $\beta^-$ ($\mathcal{O}({\sim}1)\ \mathrm{\mu m}$) in
+our energy region of interest means it is not necessary to track the number of scatters for
+\ce{^{220}Rn}.\footnote{$1 \mdash 10\ \mathrm{keV}$ $\beta^-$ have stopping powers of ${\sim}28.4 \mdash 85.2\ \mathrm{keV\ \mu m^{-1}}$
+(\secref{subsec:stopping_power}).}  These
 values represent the ``truth'' information - that is, these are the true interaction values, and are inputs to the full
 simulation.  Reconstructed $x \mdash y$ values will be referred to as $x_{\mathrm{rec}}$
 and $y_{\mathrm{rec}}$.  Effects such as electric field non-uniformity and drift time measurement resolution cause
@@ -80,7 +83,7 @@ $||z_{\mathrm{rec}} - z_{\mathrm{true}}|| > 0$.  However, these effects are smal
 true and reconstructed depths will be assumed equivalent and denoted by $z$.  Likewise,
 $E_{\mathrm{rec}} \neq E_{\mathrm{true}}$ since S1 and S2 are used for energy reconstruction
 (\secref{subsubsec:tpcs_signals_energy}).  Because the energy reconstruction method is usually specified, $E \equiv E_{\mathrm{true}}$ for
-this chapter.
+the remainder of this chapter.
 
 \figref{fig:er_nr_calibrations_parameter_determ_flow_chart} shows the flow chart for the band fit.  Each Monte Carlo event is
 simulated through a series of physical models that mimic our best understanding of the expected processes in the detector as closely as
@@ -123,7 +126,7 @@ reasonable level.
 
 The calibrations were fit in the First Results FV ($-92.9 < z < -9\ \mathrm{cm}$, $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$
 \figref{fig:calibrations_position_reconstruction}) despite the 1.3 t fiducial mass used for the dark matter analysis.  This was done to
-minimize wall events and other contamination from materials at the top and bottom of the TPC.
+minimize surface events and other contamination from materials at the top and bottom of the TPC.
 
 
 
@@ -139,6 +142,8 @@ is concern it may attach to the cryostat.}  A total of six calibrations were
 performed during SR0 and SR1.
 
 When energy is deposited in LXe a number of quanta $n_q$ will be produced.  For electronic recoils this follows the normal distribution
+
+\vspace{-10pt}
 
 \begin{equation}
 n_q \sim \mathrm{Norm} \bigg( \mu = \frac{E}{W},\ \sigma^2 = \frac{E F}{W} \bigg)
@@ -175,11 +180,11 @@ r \sim \mathrm{Norm} \Big( \mu = \langle r \rangle,\ \sigma^2 = (\Delta r)^2 \Bi
 
 \noindent where $0 \leq r, \Delta r \leq 1$ and is parameterized using a modified Thomas-Imel box model \citeref{Thomas1987}
 
-\vspace{-20pt}
+\vspace{-15pt}
 
 \begin{equation}
 \langle r \rangle = \frac{1}{1 + e^{-(E - E_0) / E_1}}
-\bigg( 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \bigg)
+\bigg[ 1 - \frac{\mathrm{ln}(1 + n_{\mathrm{ion}} \varsigma / 4)}{n_{\mathrm{ion}} \varsigma / 4} \bigg]
 ,\ \ \varsigma = \gamma_{\mathrm{er}} e^{-E / \omega_{\mathrm{er}}} E_d^{-\delta_{\mathrm{er}}}
 \label{eq:er_nr_calibrations_parameter_determ_ti}
 \end{equation}
@@ -202,7 +207,7 @@ Recombination fluctuations are modeled as
 
 \noindent where parameters $A,B > 0$ are allowed to vary freely.  The number of electron-ion pairs that recombine is
 
-\vspace{-10pt}
+\vspace{-15pt}
 
 \begin{equation}
 n_{\mathrm{rec}} \sim \mathrm{Binom} \big(n = n_{\mathrm{ion}},\ p = r \big)
@@ -257,7 +262,7 @@ shown.  Spectra are normalized by the 2.2-2.7 MeV range.  Image credit: \citeref
 \label{fig:er_nr_calibrations_parameter_determ_nr_ng_energy}
 \end{figure}
 
-\vspace{-25pt}
+\vspace{-30pt}
 
 \begin{subequations}
 \begin{align}
@@ -302,9 +307,6 @@ the NG source.  The black line shows the 1 t fiducial volume.}
 The microphysical processes that follow a nuclear recoil differ from ER (\secref{subsec:er_nr_calibrations_parameter_determ_er}).  As
 discussed in \secref{sec:nr} a sizable portion of the energy is lost to atomic motion.  To model this we use the Lindhard theory
 in \eqnref{eq:er_nr_calibrations_parameter_determ_nr_lindhard}:
-
-\vspace{-20pt}
-
 \begin{subequations}
 \begin{align}
 \epsilon &= 11.5 \bigg( \frac{E}{\mathrm{keV}} \bigg) Z^{-7/3} \\
@@ -314,10 +316,12 @@ L( \epsilon ) &= \frac{k g( \epsilon ) }{1 + k g( \epsilon )}
 \label{eq:er_nr_calibrations_parameter_determ_nr_lindhard}
 \end{subequations}
 
-\vspace{-10pt}
+\vspace{-20pt}
 
 \noindent where $k$ is the proportionality constant between the electronic stopping power and recoiling nucleus velocity.  The Lindhard
 factor $L(\epsilon )$ is the fraction of energy converted to excitons or electron-ion pairs, or total quanta
+
+\vspace{-10pt}
 
 \begin{equation}
 n_{\mathrm{q}} \sim \mathrm{P} \bigg( \mu = \frac{E L}{W} \bigg)
@@ -326,6 +330,8 @@ n_{\mathrm{q}} \sim \mathrm{P} \bigg( \mu = \frac{E L}{W} \bigg)
 
 \noindent that follows a Poisson distribution as an approximation.  In reality the track structure of nuclear recoils makes the true
 distribution more complicated.  The number of ions is found in the same way as electronic recoils
+
+\vspace{-5pt}
 
 \begin{equation}
 n_{\mathrm{ion}} \sim \mathrm{Binom} \Bigg(n = n_{\mathrm{q}},\ p = \frac{1}{1 + \frac{n_{\mathrm{ex}}}{n_{\mathrm{ion}}}} \Bigg)
@@ -341,6 +347,8 @@ n_{\mathrm{rec}} \sim \mathrm{Binom} \big(n = n_{\mathrm{ion}},\ p = r \big)
 
 \noindent where $r$ described by the Thomas-Imel model
 
+\vspace{-10pt}
+
 \begin{equation}
 r = 1 - \frac{\mathrm{ln} (1 + n_{\mathrm{ion}} \varsigma)}{n_{\mathrm{ion}} \varsigma}
 \end{equation}
@@ -355,7 +363,7 @@ is proportional to the ionization density and therefore stopping power $dE / dx$
 and can be
 described by Birks' saturation law, \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \citeref{Birks1951, Birks1964}:
 
-\vspace{-10pt}
+\vspace{-15pt}
 
 \begin{equation}
 f_b = \frac{1}{1 + k_{B}B \frac{dE}{dx}} = \frac{1}{1 + \eta \epsilon^{\lambda}}
@@ -365,6 +373,8 @@ f_b = \frac{1}{1 + k_{B}B \frac{dE}{dx}} = \frac{1}{1 + \eta \epsilon^{\lambda}}
 \noindent where $k_B$ is Birks' constant (calculated in \citeref{Mei2008} to be $2.015 \times 10^{-3}\ \mathrm{g\ MeV^{-1}\ cm^{-2}}$),
 $B$ is the coefficient for the stopping power, and $\eta$ is defined to be their product.  The total quenching from biexcitonic
 quenching and the Penning process is
+
+\vspace{-10pt}
 
 \begin{equation}
 n_{\mathrm{quench}} = \mathrm{Binom} \big( n = n_{\mathrm{ex}},\ p = f_b \big)
@@ -405,7 +415,7 @@ fraction of excitons is favored.
 We see in \eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} that $\varsigma$ is proportional to a power of $E_d$.  The
 Thomas-Imel theory predicts
 
-\vspace{-10pt}
+\vspace{-15pt}
 
 \begin{equation}
 \varsigma = \frac{\alpha^{\prime}}{4 a^2 u_- E_d}
@@ -464,13 +474,10 @@ n_{\mathrm{e}} &= L(E) \frac{E}{W} \frac{1}{1 + n_{\mathrm{ex}}/n_{\mathrm{ion}}
 After the microphysics emission processes, the properties of our detector become relevant as they convert
 $n_{\mathrm{ph}} \rightarrow \mathrm{S1}$ and $n_{\mathrm{e}} \rightarrow \mathrm{S2}$.  This is in part why the
 characterizations detailed in \secref{sec:det_char} are essential.  Although the \ce{^{220}Rn}, \ce{^{241}AmBe}, and NG calibrations
-were performed at different times they were fit simultaneously.  Changes in detector conditions (not just between SR0 and SR1, but also e.g.
-filter box installation) are accounted for by having different central values of the relevant detector parameters.  The simultaneous fit
-ensures the detector parameters - none of which showed any
-time-variation inside either run - have a single posterior, with two exceptions.  The first is the filter boxes were not installed in the
-DAQ until after the SR0 \ambe calibration so the efficiency, bias, and smearing are different.  The second is the electron lifetime
-$\tau_{e}$ since each calibration is performed with a different LXe purity.  However, to account for the possibility of bias in
-electron lifetime measurements a systematic uncertainty is included in the fit that is shared across calibrations.
+were performed at different times they were fit simultaneously.  Changes in detector conditions
+are accounted for by having different central values of the relevant detector parameters.  Parameters that are expected to be correlated
+between calibrations are characterized with a single prior (e.g. though SR0 and SR1 have different S1 cut efficiencies, the relative change
+from central values is shared).
 
 The first process following the microphysics model to consider is position reconstruction
 (\secref{subsec:det_char_position_reconstruction}).  The reason is that
@@ -482,10 +489,9 @@ $n_e \lesssim 100\ e^-$ ($\mathrm{S2_b} \lesssim 1000\ \mathrm{PE}$) indicates t
 the position reconstruction $x_{\mathrm{truth}} \rightarrow x_{\mathrm{rec}}$ and
 $y_{\mathrm{truth}} \rightarrow y_{\mathrm{rec}}$, the truth values are no longer considered in the analysis of the fast MC.
 
-
 The number of photons from the interaction site that produce one or more photoelectrons is dependent on two effects.  The first is
 the position-dependent light collection efficiency (LCE) $\mathcal{C}_{\mathrm{lce}}(x_{\mathrm{rec}}, y_{\mathrm{rec}}, z)$, which
-accounts for detector effects such as $<100\%$ PTFE reflectivity and
+accounts for detector effects such as ${<}\, 100\%$ PTFE reflectivity and
 absorption of light by impurities that reduce the amount of light that reaches the PMTs
 (\secref{subsec:det_char_lce}).  The second is the probability of double photoelectron emission (DPE) $p_{\mathrm{dpe}}$, which was found
 to be much higher than originally thought, ranging from 0.18-0.24 for the various PMTs tested by \citeref{Faham2015} and $0.225 \pm 0.01$
@@ -495,6 +501,8 @@ fraction of incident photons that generate at least one PE $\eta_{\mathrm{p}}$. 
 $\eta_{\mathrm{\mu}} / \eta_{\mathrm{p}} = 1 + p_{\mathrm{dpe}}$.  Accounting for both of these effects the number of photons that
 generate $\geq 1\ \mathrm{PE}$ is shown in \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_npe}.
 
+\vspace{-20pt}
+
 \begin{equation}
 n_{\mathrm{p}} = \mathrm{Binom} \bigg( n = n_{\mathrm{ph}},\ p =
 \frac{g_1 \mathcal{C}_{\mathrm{lce}}(x_{\mathrm{rec}}, y_{\mathrm{rec}}, z)}{1 + p_{\mathrm{dpe}}} \bigg)
@@ -503,7 +511,7 @@ n_{\mathrm{p}} = \mathrm{Binom} \bigg( n = n_{\mathrm{ph}},\ p =
 
 To calculate the total number of photons that produce DPE
 
-\vspace{-20pt}
+\vspace{-25pt}
 
 \begin{subequations}
 \begin{align}
@@ -513,22 +521,24 @@ n_{\mathrm{pe,S1}} &= n_{\mathrm{p}} + n_{\mathrm{dpe}}
 \label{eq:er_nr_calibrations_parameter_determ_det_phys_num_pe}
 \end{subequations}
 
-\vspace{-20pt}
+\vspace{-25pt}
 
 \noindent where $n_{\mathrm{pe,S1}}$ is the total number of photoelectrons.
 
-The signals from the PMTs are fed into and recorded by the DAQ (\secref{subsec:xenon1t_daq}), which introduces three effects:
-efficiency, bias, and smearing - all of which are the most influential at low photon counts.  The efficiency is the probability that
-the signal is found and recognized as an S1 by the reconstruction and
-classification algorithm.  If at least 3 PMTs do not observe the S1 it is discarded.  Even if it meets this requirement, the
-reconstruction
-may not identify that there is a signal at low photon counts.  The reconstruction efficiency cannot be modeled using data since it is
-not possible to know when a signal was not found.  Instead we use simulated waveforms and pass them through the reconstruction.  The
-waveforms are generated with DAQ conditions that have been measured to replicate real waveforms as well as possible.  Separate
-efficiencies are used for the SR0 \ambe calibration (performed before installation of filter boxes), SR0, and SR1.  Although its
-performance is difficult to measure, it is expected to be reasonably accurate and is shown as the red shaded regions in
+As the signals from the PMTs are fed into and recorded by the DAQ (\secref{subsec:xenon1t_daq}) and later processed, three effects are
+introduced:
+S1 peak finding (processor) efficiency, bias, and smearing - all of which are the most influential at low photon counts.  The S1 peak
+finding efficiency is the probability that the S1 is recognized by the reconstruction and
+classification algorithm amongst PMT dark count, DAQ, and other electronic noise, as well as low-energy S2s that are known to occasionally
+follow large S2s (known as S2 ``tails'').  Additionally, if less than three PMTs observe the S1 it is discarded.  The processor efficiency
+cannot be modeled using data since it is
+not possible to know when a signal was not found.  Instead simulated waveforms are processed with the reconstruction and
+classification algorithm.  The
+waveforms are generated with DAQ conditions that have been measured in order to replicate real waveforms as well as possible.  Separate
+efficiencies are used for the SR0 \ambe calibration (performed before installation of filter boxes), SR0, and SR1.  It is expected to be
+reasonably accurate and is shown as the red shaded regions in
 \figref{fig:er_nr_calibrations_parameter_determ_det_phys_inputs}.  For the fit the relative deviation from the median is expected to be a
-systematic effect so is assumed correlated between the three inputs.
+systematic effect so is correlated between the three inputs.
 
 \begin{figure}
 \centering
@@ -542,18 +552,21 @@ processor efficiency also decreased.}
 \label{fig:er_nr_calibrations_parameter_determ_det_phys_inputs}
 \end{figure}
 
-Bias and smearing (\secref{subsec:det_char_bias_smearing}) characterize the difference between true and reconstructed area of the
-scintillation recorded due to PMT and DAQ
-effects.  As with the efficiency, it is impossible to measure directly from data since the true area is not known beforehand.  By using
-waveform simulations however, we can input ``truth'' values and compare with the reconstructed values.  Slices in
+Bias and smearing (\secref{subsec:det_char_bias_smearing}) characterize the difference between true and reconstructed areas of the
+scintillation.  They originate from noise, S2 tails, and the clustering and separation ability of the reconstruction and classification
+algorithm.  As with the efficiency, it is
+impossible to measure directly from data since the true area is not known beforehand.  By using
+waveform simulations however, input ``truth'' values are compared with the reconstructed values.  Slices in
 $(\mathrm{S1_{rec}} - \mathrm{S1_{truth}}) / \mathrm{S1_{truth}}$, where
-$\mathrm{S1_{rec}}$ and $\mathrm{S1_{truth}}$ are the reconstructed and truth S1s, are fit with gaussians, calling the mean
-the fractional bias $\mu_{b, \mathrm{S1}}$ and standard deviation the fractional smearing $\sigma_{b, \mathrm{S1}}$ for each bin.  They
+$\mathrm{S1_{rec}}$ and $\mathrm{S1_{truth}}$ are the reconstructed and truth S1s, are fit with gaussians.  The mean is known as
+the fractional bias $\mu_{b, \mathrm{S1}}$ and standard deviation as fractional smearing $\sigma_{b, \mathrm{S1}}$ for each bin.  They
 are shown as the blue and green shaded regions in
 \figref{fig:er_nr_calibrations_parameter_determ_det_phys_inputs}.  As with the processor efficiency, the bias and smearing changed after
 the filter boxes were installed, and the three inputs share an uncertainty that accounts for systematic effects (bias and smearing have
-independently parameters).  For the fit, they are constrained to the shaded regions and applied
+independent parameters).  For the fit, they are constrained to the shaded regions and applied
 in the fast MC via \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear}.
+
+\vspace{-10pt}
 
 \begin{equation}
 \mathrm{S1} = n_{\mathrm{pe,S1}} \Big[ 1 + \mathrm{Norm} \big( \mu = \mu_{b, \mathrm{S1}},\ \sigma^2 = \sigma_{b, \mathrm{S1}}^2 \big)
@@ -563,6 +576,8 @@ in the fast MC via \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bi
 
 Because multiple scatters happen so close in time the S1s are typically not resolvable.  Thus in the fast MC all S1s are summed, though
 this only affects \ambe and NG data (\betadecay of \ce{^{212}Pb} should not multiple-scatter).  The LCE map is applied
+
+\vspace{-10pt}
 
 \begin{equation}
 \mathrm{cS1} = \frac{\mathrm{S1}}{\mathcal{C}_{\mathrm{lce}}(x_{\mathrm{rec}}, y_{\mathrm{rec}}, z)}
@@ -594,14 +609,15 @@ in the fast MC, introducing a small systematic error.  However, beacause $E_d$ i
 The electron lifetime used is randomly selected from the collection of lifetimes measured for each calibration.  Any global
 systematic error in measured lifetimes \eqnref{eq:det_char_elifetime} is accounted for with a normal distribution
 
+\vspace{-10pt}
+
 \begin{equation}
-\tau_{e, \mathrm{true}} = \mathrm{Norm} \big( \mu = \tau_{e, \mathrm{rec}},\ \sigma^2 = \sigma_{e}^2
-\big)
+\tau_{e, \mathrm{true}} = \tau_{e, \mathrm{rec}} \Big[ 1 + \mathrm{Norm} \big( \mu = 0,\ \sigma^2 = \sigma_{e}^2 \big) \Big]
 \label{eq:er_nr_calibrations_parameter_determ_det_phys_elife_true}
 \end{equation}
 
 \noindent where $\tau_{e, \mathrm{rec}}$ and $\tau_{e, \mathrm{true}}$ refer to the reconstructed (measured) and true electron
-lifetimes, and $\sigma_e$ is the uncertainty on $\tau_{e, \mathrm{rec}}$.  We set the systematic uncertainty to 
+lifetimes, and $\sigma_e$ is the systematic uncertainty on $\tau_{e, \mathrm{rec}}$.  It is set to
 $\sigma_{e, \mathrm{SR0}} = 0.04$ and $\sigma_{e, \mathrm{SR1}} = 0.5 \sigma_{e, \mathrm{SR0}}$.  The difference is because we are
 more confident in the electron lifetimes for SR1 (\figref{fig:det_char_elifetime_evolution}).  The true and reconstructed electron
 survival probabilities are given in \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}.
@@ -616,9 +632,11 @@ p_{\mathrm{true}} (t_d) &= e^{-t_d / \tau_{e, \mathrm{true}}}
 \label{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}
 \end{subequations}
 
-\vspace{-20pt}
+\vspace{-30pt}
 
 The number of \electron that survive to the surface $n_{\mathrm{surv}}$ is calculated using
+
+\vspace{-10pt}
 
 \begin{equation}
 n_{\mathrm{surv}} = \mathrm{Binom} \Big( n = n_{\mathrm{e}},\ p = p_{\mathrm{surv}} \Big) ,\ \ \
@@ -631,6 +649,8 @@ refers to the probability an \electron attaches to the wall; however, because th
 next to the PTFE we can ignore its effects and set $p_{\mathrm{wall}} = 0$.  The number of electrons extracted from the liquid
 $n_{\mathrm{extr}}$ depends only on $n_{\mathrm{surv}}$ and the probability of extraction $\eta_{EE}$
 
+\vspace{-10pt}
+
 \begin{equation}
 n_{\mathrm{extr}} = \mathrm{Binom} \Big( n = n_{\mathrm{surv}},\ p = \eta_{EE} \Big)
 \end{equation}
@@ -638,6 +658,8 @@ n_{\mathrm{extr}} = \mathrm{Binom} \Big( n = n_{\mathrm{surv}},\ p = \eta_{EE} \
 \noindent where $\eta_{EE} = 0.936$ and $0.933$ for SR0 and SR1, respectively, and is fixed in the fast MC (the change in notation from
 \secref{subsec:det_char_photon_charge_efficiencies} is to avoid confusion with $\eta$ in the nuclear recoil model,
 \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks}).  The single electron gain is given by
+
+\vspace{-5pt}
 
 \begin{equation}
 G (x, y) = \frac{g_{2\mathrm{b}} \mathcal{C}_{\mathrm{S2_b}}(x_{\mathrm{rec}}, y_{\mathrm{rec}})}{\eta_{EE}} =
@@ -649,6 +671,8 @@ G_e \mathcal{C}_{\mathrm{S2_b}}(x_{\mathrm{rec}}, y_{\mathrm{rec}})
 $\mathcal{C}_{\mathrm{S2_b}}(x, y)$ is the \stwob $x \mdash y$ correction map
 (\secref{subsec:det_char_s2_position_correction}).  Approximating the amplification as a gaussian the number of photoelectrons is
 
+\vspace{-10pt}
+
 \begin{equation}
 n_{\mathrm{pe,S2_b}} =  \mathrm{Norm} \Big( \mu = n_{\mathrm{extr}} G,\
 \sigma^2 = n_{\mathrm{extr}} \sigma_{G}^2 G^2 \Big)
@@ -657,6 +681,8 @@ n_{\mathrm{pe,S2_b}} =  \mathrm{Norm} \Big( \mu = n_{\mathrm{extr}} G,\
 
 \noindent where $G = G(x, y)$ to simplify notation and $\sigma_G$ is the gas gain resolution and is 0.24 and 0.25 for SR0 and
 SR1.  Similar to the S1, there will be bias and smearing.  Using the same assumptions we find
+
+\vspace{-10pt}
 
 \begin{equation}
 \mathrm{S2_b} = n_{\mathrm{pe,S2_b}} \Big[ 1 + \mathrm{Norm}(\mu = \mu_{b, \mathrm{S2_b}},\ \sigma^2 = \sigma_{b, \mathrm{S2_b}}^2) \Big]
@@ -677,6 +703,8 @@ in the right panel of \figref{fig:er_nr_calibrations_parameter_determ_det_phys_i
 shaded regions for the fit.
 
 Lastly the electron lifetime and S2 position corrections are applied to calculate the corrected S2.
+
+\vspace{-10pt}
 
 \begin{equation}
 \mathrm{cS2_b} = \frac{\mathrm{S2_b}}{\mathcal{C}_{\mathrm{S2_b}} p_{\mathrm{rec}}}
@@ -709,7 +737,7 @@ black (S2) bands in \figref{fig:er_nr_calibrations_parameter_determ_det_phys_inp
 \subsection{Backgrounds}
 \label{subsec:er_nr_calibrations_parameter_determ_additional_components}
 While the majority of events recorded during a calibration are from the source a subset comes
-from background.  These are considered in the analysis to avoid fitting events that are not described by the models.
+from background.  These are included in the analysis to avoid fitting events that are not described by the recoil model of the source.
 
 Electronic recoils (\secref{subsec:backgrounds_electronic}) are by far the largest background.  For \ce{^{220}Rn}
 they do not present a problem but need to be included in the NR fits.  The ER model, constrained by the \ce{^{220}Rn} data, is also used
@@ -717,7 +745,7 @@ in the likelihood for NR calibration data.
 
 The higher event rate causes increased accidental coincidence (\secref{subsec:backgrounds_ac}).  This is more dramatic
 for \ambe and NG data where neutrons with small scattering angles may produce a very small S1 or S2.  AC distributions are included
-in all five calibrations.  SR0 and SR1 \ce{^{220}Rn} AC are constrained by each other through
+in all five calibrations.  SR0 and SR1 \ce{^{220}Rn} AC constrain one other through
 $R_{\mathrm{AC}}^{\mathrm{(SR1)}} = 3.75 R_{\mathrm{AC}}^{\mathrm{(SR0)}} - 0.0625$.  SR0 and SR1 \ambe
 have the same AC expectation since the location and activity of the source and duration were the same.  However, they do not share
 parameters so are independently fit.  AC is not
@@ -730,22 +758,31 @@ Surface events were not included because they are far from the fiducial volume.
 \subsection{Statistical Inference}
 \label{subsec:er_nr_calibrations_parameter_determ_mc_match}
 The fit is performed with a binned likelihood approach using Bayesian inference.  Fast MC events (typically $\mathcal{O}(10^6)$) and
-data are each binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$.  The likelihood between equivalent bins \li is computed as
+data are each binned in cS1 vs. $\mathrm{log_{10}(cS2_b / cS1)}$.  The log-likelihood for the $i^{\mathrm{th}}$ bin is
+computed as
 \begin{subequations}
 \begin{align}
 \mathcal{L}_i &=\frac{\hat{b}_{i}^{b_i} e^{-\hat{b}_{i}}}{b_{i}!} \\
+\mathrm{ln}\, \mathcal{L}_i &= b_i\, \mathrm{ln} (\hat{b}_i) - \hat{b}_i - \mathrm{ln} (b_i !)
+\end{align}
+\end{subequations}
+
+\vspace{-10pt}
+
+\noindent where \bhi and $b_i$ is are the expected (MC) and true (data) number of events in the bin, respectively.  The log-likelihood is
+\begin{subequations}
+\begin{align}
 \mathcal{L} &= \prod_i \mathcal{L}_i \\
 \mathrm{ln}\, \mathcal{L} &= \sum_i \mathrm{ln}\, \mathcal{L}_i = \sum_i b_i\, \mathrm{ln} (\hat{b}_i) - \hat{b}_i - \mathrm{ln} (b_i !)
 \end{align}
 \end{subequations}
 
-\noindent where \bhi and $b_i$ is are the expected (MC) and true (data) number of events in a bin, respectively.  The parameters
+\vspace{-10pt}
+
+\noindent over all bins.  The parameters
 responsible for the fast Monte Carlo ($\hat{b}_i$) were detailed in
-\secref{subsec:er_nr_calibrations_parameter_determ_er,
-subsec:er_nr_calibrations_parameter_determ_nr,subsec:er_nr_calibrations_parameter_determ_det_phys,
-subsec:er_nr_calibrations_parameter_determ_cuts}
-and are listed in
-\tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.  As discussed, each parameter is constrained by our understanding before
+\secref{subsec:er_nr_calibrations_parameter_determ_er,subsec:er_nr_calibrations_parameter_determ_nr,subsec:er_nr_calibrations_parameter_determ_det_phys,subsec:er_nr_calibrations_parameter_determ_cuts}.  As
+discussed, each parameter is constrained by our understanding before
 the fit using a prior distribution.  For the cases where we expect the error to be either negligible or contained in a dependent parameter
 the value is fixed.  Components where we have good knowledge on the uncertainty (e.g. $W$, $g_1$, $g_{2\mathrm{b}}$ etc.) are constrained
 with a gaussian.  The S1 and S2 selection efficiencies as well as the S1 peak finding efficiency are modeled by a gaussian
@@ -799,13 +836,15 @@ subpopulation of MCMC algorithms - including the method used in this analysis - 
 walkers randomly sample the parameter space.
 
 A MCMC runs for $T$ iterations or ``steps'' so the total number of samples is $k \times T$.    An array of $k$ walkers of
-$\vect{\theta}$ over $T$ iterations forms a ``chain'' that contains the history of the walkers.  Each sample contributes its
-integrand to the total integral.  In looking for its next move a walker may make a number of trial steps around its perimeter looking for
+$\vect{\theta}$ over $T$ iterations forms a ``chain'' that contains the history of the walkers.  Each sample contributes
+to the total integral.  In looking for its next move a walker may make a number of trial steps around its perimeter looking for
 a point with a high integrand.  A step is dependent solely on the current positions of all $\vect{\theta}$.  Sometimes referred to as
 ``memorylessness'' this means that with respect to knowing only the walker's current state, knowledge of its entire history would not
 improve predictions of its future state, i.e. a walker's past and future states are independent.
 
 The next state in a Markov Chain is computed by
+
+\vspace{-10pt}
 
 \begin{equation}
 f^{(t + 1)} (\theta) = \int f^{(t)} (\theta^{\prime}) p(\theta|\theta^{\prime}) d\theta^{\prime}
@@ -818,6 +857,8 @@ at $m$ steps into the future can be computed.  In the case when initial distribu
 can be calculated.
 
 A Markov Chain is \textit{reversible} if there exists a probability density $\pi (\theta^{\prime})$ such that
+
+\vspace{-10pt}
 
 \begin{equation}
 \pi (\theta^{\prime}) p(\theta^{\prime}|\theta) = \pi (\theta) p(\theta|\theta^{\prime})
@@ -833,6 +874,8 @@ is said to be \textit{irreducible}.  A chain that does not cycle to any state $\
 \textit{aperiodic}.  \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_detailed_balance}
 is known as the \textit{detailed balance condition} and cannot be solved for all Markov Chains.  For those that can, a simple integration
 gives
+
+\vspace{-10pt}
 
 \begin{equation}
 \begin{aligned}
@@ -850,6 +893,8 @@ gives
 it is also referred to as an \textit{invariant distribution}).  When $p(\theta^{\prime}|\theta)$ is irreducible and
 aperiodic it will have a single stationary distribution and is \textit{ergodic}, or guaranteed to converge as
 $t \rightarrow \infty$ regardless of initial distribution.
+
+\vspace{-15pt}
 
 \begin{equation}
 \lim_{t \rightarrow \infty} f^{(t)}(\theta) \rightarrow \pi (\theta)\ \ \forall f^{(0)}
@@ -874,6 +919,16 @@ marginalized posterior $p(\vect{\theta}^{(I)}|\vectlett{x}, \vect{\alpha})$.  Th
 parameters in $\vect{\theta}$.  Often it is interesting to know the posterior of a single parameter, in which case all others would
 be marginalized over.  This is an advantage over many other techniques.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{affine_invariant_ensemble_sampler_update}
+\caption{Proposed stretch move update step for walker $\vect{\theta}_i$ (blue) with the Affine-Invariant Ensemble Sampler MCMC in two
+dimensions.  The proposed state $\vect{\theta}_p$ (red) uses the difference between $\vect{\theta}_i$ and a randomly selected walker
+$\vect{\theta}_j^{(1)}$ (green) from $S^{(1)}$ and a scale factor $z$.  Additional walkers from $S^{(0)}$ (light blue) and $S^{(1)}$ (light
+green) are shown.}
+\label{fig:er_nr_calibrations_parameter_determ_mcmc_update}
+\end{figure}
+
 MCMCs have become increasingly popular in recent years as advances in methods and computer processing speeds have made them
 a powerful tool that can be run in reasonable timescales.  For this analysis an implementation by \citeref{Foreman2013} of
 the Affine-Invariant Ensemble Sampler proposed by \citeref{Goodman2010} modified to allow stretch move update step parallelization is
@@ -894,8 +949,8 @@ state
 \label{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update}
 \end{equation}
 
-\noindent where $z$ is randomly drawn from distribution $g(z)$. This stretch move is affine-invariant, though some other MCMC
-methods are not.  Choosing
+\noindent where $z$ is randomly drawn from distribution $g(z)$. This affine-invariant stretch move is shown in
+\figref{fig:er_nr_calibrations_parameter_determ_mcmc_update}.  Choosing
 $g(z^{-1}) = z g(z)$ keeps \eqnref{eq:er_nr_calibrations_parameter_determ_mcmc_walker_update} symmetric - that is, the proposal
 distributions for $\vect{\theta}_i \rightarrow \vect{\theta}_p$ and $\vect{\theta}_p \rightarrow \vect{\theta}_i$ are
 equivalent.  Choosing the
@@ -964,9 +1019,11 @@ Sampler with $k = 200$ walkers over 11,000 steps.
 \section{Results}
 \label{sec:er_nr_calibrations_results}
 With the model and statistical inference outlined in \secref{sec:er_nr_calibrations_parameter_determ} the results are now
-presented.  The posterior of the MCMC fit is defined as the final $1000\ \mathrm{iterations}$ for the 200 walkers.  Marginalized
-posteriors in \tabref{tab:er_nr_calibrations_results_er}, \tabref{tab:er_nr_calibrations_parameter_determ_mc_match} and
-\tabref{tab:er_nr_calibrations_results_backgrounds} are calculated using these 200,000 samples.  Medians and credible regions shown in
+presented.  A ``burin-in'' period exists in the beginning of the MCMC as walkers move from their initialized values to fill the parameter
+space that should be ignored in the posterior.  For this analysis the burn-in lasted ${\sim}1000\ \mathrm{iterations}$.  The posterior of
+the MCMC fit is defined as the final $1000\ \mathrm{iterations}$ for the 200 walkers.  Marginalized posteriors in
+\tabref{tab:er_nr_calibrations_results_er,tab:er_nr_calibrations_parameter_determ_mc_match,tab:er_nr_calibrations_results_backgrounds} are
+calculated using these 200,000 samples.  Medians and credible regions shown in
 figures are computed using 400 samples randomly drawn from the posterior.  The Gelman-Rubin statistic in this region is
 shown in \figref{fig:er_nr_calibrations_results_gr} and is ${\sim}2$.  Ideally it would be closer to 1 but time restrictions did not allow
 continued fitting.  Regardless, $\hat{R} \sim 2$ indicates the fit is likely close to the best-fit PDF, though as mentioned above
@@ -978,144 +1035,6 @@ convergence can never be proven for a finite number of steps.
 \caption{Gelman-Rubin test statistic for the electronic and nuclear recoil band fitting.}
 \label{fig:er_nr_calibrations_results_gr}
 \end{figure}
-
-
-
-\subsection{Parameter Posteriors}
-\label{subsec:er_nr_calibrations_results_par_post}
-The microphysics for electronic recoils (\secref{subsec:er_nr_calibrations_parameter_determ_er}) depends on the mean energy
-per quanta $W$, Fano Factor $F$, and exciton-to-ion ratio $n_{\mathrm{ex}} / n_{\mathrm{ion}}$.  Recombination is computed using
-a the modified Thomas-Imel box model (\eqnref{eq:er_nr_calibrations_parameter_determ_ti}) and recombination fluctuations
-(\eqnref{eq:er_nr_calibrations_parameter_determ_er_rec_fluctuations}).
-
-The microphysics for nuclear recoils is described by $\alpha$, $\zeta$, $\beta$, $\gamma$, $\delta$, $k$, $\eta$, and $\lambda$
-(\secref{subsec:er_nr_calibrations_parameter_determ_nr}).  It shares only one
-parameter, $W$, with the electronic recoil model.  The exciton-to-ion ratio is parameterized differently than ER.  To date,
-recombination fluctuations (RF) have not been observed in nuclear recoils so they are omitted from the model.
-
-The priors and marginalized posteriors for the electronic and nuclear recoil model microphysics parameters are shown in
-\tabref{tab:er_nr_calibrations_results_er}.  Because we
-do not use asymmetric gaussian distributions the uncertainties on the NR parameters differ slightly from the values
-found by NEST in \tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}, with generally the larger of the two selected
-\citeref{NEST2015}.
-
-\bgroup
-\def\arraystretch{1.2}
-\begin{table}
-\centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{cccccc}
-\hline
-\hline
-Parameter & Prior & Prior Distribution & Posterior & Source & Comment \\
-\hline
-$W$ & $13.7 \pm 0.2\ \mathrm{eV}$ & Normal & $13.78_{-0.21}^{+0.21}$ & \ce{^{220}Rn}, \ce{^{241}AmBe}, NG &
-\eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta}, \eqnref{eq:er_nr_calibrations_parameter_determ_nr_quanta},
-\citeref{Dahl2009} \\
-\hline
-\multicolumn{6}{c}{Electronic Recoils} \\
-\hline
-$F$ & 0.059 & Fixed & $-$ & \ce{^{220}Rn} & \citeref{Doke1976}, \eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta} \\
-$n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & 0.06-0.2 & Uniform & $0.150_{-0.053}^{+0.034}$ & \ce{^{220}Rn} &
-\eqnref{eq:er_nr_calibrations_parameter_determ_er_nions}, see
-\secref{subsec:er_nr_calibrations_parameter_determ_nr} for NR \\
-$E_0$ & $\geq 0$ & Free & $1.133_{-0.332}^{+0.231}$ & \ce{^{220}Rn} & Recombination, \eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
-$E_1$ & $\geq 0$ & Free & $0.473_{-0.141}^{+0.171}$ & \ce{^{220}Rn} & Recombination, \eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
-$\gamma_{\mathrm{er}}$ & $0 \mdash 0.5$ & Free & $0.125_{-0.028}^{+0.029}$ & \ce{^{220}Rn} & Recombination,
-\eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
-$\omega_{\mathrm{er}}$ &  & Free & $30.5_{-3.3}^{+4.1}$ & \ce{^{220}Rn} & Recombination,
-\eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
-$\delta_{\mathrm{er}}$ &  & Free & $-0.243_{-0.055}^{+0.056}$ & \ce{^{220}Rn} & Recombination,
-\eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
-$A$ & $\geq 0$ & Free & $0.0408^{+0.0058}_{-0.0056}$ & \ce{^{220}Rn} & RF,
-\eqnref{eq:er_nr_calibrations_parameter_determ_er_rec_fluctuations} \\
-$B$ & $\geq 0$ & Free & $1.735_{-1.148}^{+1.320}$ & \ce{^{220}Rn} & RF,
-\eqnref{eq:er_nr_calibrations_parameter_determ_er_rec_fluctuations} \\
-\hline
-\multicolumn{6}{c}{Nuclear Recoils} \\
-\hline
-$\alpha$ & $1.240 \pm 0.079$ & Normal & $1.283_{-0.063}^{+0.070}$ & \ce{^{241}AmBe}, NG &
-\eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
-$\zeta$ & $0.0472 \pm 0.0088$ & Normal & $0.0451_{-0.0083}^{+0.0085}$ & \ce{^{241}AmBe}, NG &
-\eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
-$\beta$ & $239 \pm 28$ & Normal & $271_{-18}^{+22}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
-$\gamma$ & $0.01385 \pm 0.00073$ & Normal & $0.01415_{-0.00060}^{+0.00059}$ & \ce{^{241}AmBe}, NG &
-\eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} \\
-$\delta$ & $0.0620 \pm 0.0064$ & Normal & $0.0615_{-0.0064}^{+0.0054}$ & \ce{^{241}AmBe}, NG &
-\eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} \\
-$k$ & $0.1394 \pm 0.0032$ & Normal & $0.138_{-0.003}^{+0.003}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_lindhard} \\
-$\eta$ & $3.3 \pm 0.7$ & Normal & $3.283_{-0.525}^{+0.675}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
-$\lambda$ & $1.14 \pm 0.45$ & Normal & $1.139_{-0.246}^{+0.354}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
-\hline
-\hline
-\end{tabular}
-}
-\caption{Median and 68\% credible intervals for electronic and nuclear recoil microphysics models using the final
-1000 steps of the fit.  The NR model is adopted from \citeref{NEST2015} and described in
-\secref{subsec:er_nr_calibrations_parameter_determ_nr}.}
-\label{tab:er_nr_calibrations_results_er}
-\end{table}
-\egroup
-
-Once the microphysics of the interaction has occurred, the emitted photons and \electron are influenced by detector effects
-(\secref{subsec:er_nr_calibrations_parameter_determ_det_phys}).  In addition, an S2 threshold requirement, S1 peak finding efficiency, and
-S1 and S2 selection efficiencies remove some events (\secref{subsec:er_nr_calibrations_parameter_determ_cuts}).  Parameters are shared
-within science runs and listed in \tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.
-
-
-
-\subsection{Acceptances}
-\label{subsec:dark_matter_results_selection}
-Events during dark matter data-taking that are below the $-2 \sigma$ quantile of the ER $\mathrm{cS1} \mdash \mathrm{cS2_b}$ band are
-removed before analysis.  Known as ``blinding'' this prevents bias that might occur by adjusting analyses to better fit or reject
-these events.  Data selection includes a valid S1 and S2 pair with $\geq 3$ PMTs observing the S1 in ${<}\, 100\ \mathrm{ns}$.  A position
-reconstruction selection requires the difference between the neural network and likelihood-fit algorithms to be less than 2 (larger S2s)
-to 5 cm (smaller).
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{acceptances_bbf_inputs}
-\caption{Acceptances calculated using 400 samples randomly drawn from the posterior of the MCMC band fit.  Best-fit values are shown for
-S1 (pink) and S2 (light blue) cut acceptances, S2 threshold (green), processor efficiency (red), and cS1 threshold
-(dark blue).  Dashed lines represent medians from SR0 while solid lines and shaded regions show SR1 medians and 68\% credible regions.}
-\label{fig:dark_matter_results_selection_acc_components}
-\end{figure}
-
-The acceptances are calculated using 400 randomly-drawn samples from the posterior from the electronic and nuclear recoil band
-fitting using an expected WIMP spectrum.  While the 1.3 t fiducial mass is used in this analysis, the
-acceptances are calculated using the 1 t mass from the band fitting with differences expected to be small.  Each acceptance is shown in
-\figref{fig:dark_matter_results_selection_acc_components} for SR0 and SR1.  The S1 and S2 cut
-acceptances (\secref{subsec:er_nr_calibrations_parameter_determ_cuts}) are shown in pink and light blue.  They show little variation
-across energy.  The S2 threshold acceptance
-is only relevant at low energy ($\lesssim 5\ \mathrm{keV_{nr}}$) and is highlighted in green.  The processor efficiency is marked in
-red.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{xenon_1ty_paper_acceptance_linear_linear}
-\caption{Nuclear recoil acceptances for WIMPs from this analysis.  Processor efficiency is shown in green, processor efficiency with S1
-and S2 cuts is shown in blue, total acceptance across all \cstwob in black, and total acceptance between the $-2\sigma$ and NR
-median.  Dashed and solid acceptance lines correspond to SR0 and SR1 acceptances,
-respectively.  The shaded regions are the 68\% credible interval for SR1.  Spectra are shown for for 10 (dashed), 50 (dotted), and
-200 (dash-dotted) $\mathrm{GeV/c^2}$ WIMPs.}
-\label{fig:dark_matter_results_acceptances_band_fitting}
-\end{figure}
-
-The energy ROI is selected by requiring cS1 threshold $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$ (blue in
-\figref{fig:dark_matter_results_selection_acc_components}), corresponding to roughly
-$[1.4, 10.6]\ \mathrm{keV_{ee}}$ and $[4.9, 40.9]\ \mathrm{keV_{nr}}$.  The total acceptance is the product of the acceptances shown
-in \figref{fig:dark_matter_results_selection_acc_components} - processor, S2 threshold, cS1 threshold, and
-cut acceptances.  Events that are gained or lost at the fiducial volume edge but such effects are
-expected to be small so are not considered.
-
-Acceptances are calculated using the posterior from the calibration band fitting using an expected
-WIMP spectrum.  While we use a 1 t fiducial mass for the band fitting rather than the 1.3 t run-combined
-result (\figref{fig:calibrations_position_reconstruction}) we expect deviations to be
-small.  \figref{fig:dark_matter_results_acceptances_band_fitting} is redrawn from \secref{subsec:dark_matter_results_selection} and
-shows acceptances for 1) processor (``Detection''), 2) processor and S1
-and S2 cuts (``Selection''), 3) total for SR0 and SR1 across all $\mathrm{cS2_b}$, and 4) same as (3) but in reference region.
-
-The acceptances are used in the likelihood calculation in \secref{subsec:dark_matter_results_background}.
 
 \begin{figure}
 \centering
@@ -1135,6 +1054,16 @@ bottom of the plot.  The sum of \ce{^{220}Rn} and AC are shown in blue.}
 \label{fig:er_nr_calibrations_results_er_sr1_cs1}
 \end{figure}
 
+
+
+\subsection{Detector Physics Model and Backgrounds}
+\label{subsec:er_nr_calibrations_results_par_post}
+Once the microphysics of the interaction has occurred (results in \secref{subsec:er_nr_calibrations_results_ly_qy}), the
+photons and \electron are influenced by detector effects
+(\secref{subsec:er_nr_calibrations_parameter_determ_det_phys}).  In addition, an S2 threshold requirement, S1 peak finding efficiency, and
+S1 and S2 selection efficiencies remove some events (results in \secref{subsec:dark_matter_results_selection}).  Parameters are shared
+within and across science runs and listed in \tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_sr0_cs2}
@@ -1142,16 +1071,6 @@ bottom of the plot.  The sum of \ce{^{220}Rn} and AC are shown in blue.}
 with the possible exception of the $50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice where the model may predict slightly lower
 $\mathrm{cS2_b}$, but limited statistics make it difficult to tell.}
 \label{fig:er_nr_calibrations_results_er_sr0_cs2}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{er_sr1_cs2}
-\caption{\cstwob for SR1 \ce{^{220}Rn} calibration in slices of cS1.  The results from the band fitting match the data well, though in
-the $0 < \mathrm{cS1} < 10\ \mathrm{PE}$ slice the data may follow a slightly narrower distribution, and the
-$50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice, which similar to the SR0 results (\figref{fig:er_nr_calibrations_results_er_sr0_cs2})
-suggests the model predicts lower $\mathrm{cS2_b}$.}
-\label{fig:er_nr_calibrations_results_er_sr1_cs2}
 \end{figure}
 
 \bgroup
@@ -1184,28 +1103,38 @@ $\sigma_{e, \mathrm{SR0}} = 2\sigma_{e, \mathrm{SR1}}$, \eqnref{eq:er_nr_calibra
 Multiscatter Cut & $0 \mdash 1$ & $-$ & Uniform & $0.52_{-0.38}^{+0.34}$ & \\
 $\mu_{b, \mathrm{S1}}$ & $0 \mdash 1$ & $-$ & Uniform & $0.63_{-0.40}^{+0.25}$ &
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
-$\sigma_{b, \mathrm{S1}}$ & $0 \mdash 1$ & $-$ & Uniform & $0.324^{+0.394}_{-0.245}$ &
+$\sigma_{b, \mathrm{S1}}$ & $0 \mdash 1$ & $-$ & Uniform & $0.32^{+0.39}_{-0.25}$ &
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s1_bias_smear} \\
 $\mu_{b, \mathrm{S2}}$ & $0 \mdash 1$ & $-$ & Uniform & $0.45_{-0.29}^{+0.37}$ &
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
 $\sigma_{b, \mathrm{S2}}$ & $0 \mdash 1$ & $-$ & Uniform & $0.52^{+0.35}_{-0.34}$ &
 \eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_s2_bias_smear} \\
 S2 Threshold & 200 & PE & Fixed & $-$ & Cut \\
-Processor Efficiency & $0 \pm 1$ & $-$ & Normal & $-0.25_{-0.98}^{+0.93}$ & \\
+S1 Peak-Finder Efficiency & $0 \pm 1$ & $-$ & Normal & $-0.25_{-0.98}^{+0.93}$ & \\
 S1 Cut Efficiency & $0 \pm 1$ & $-$ & Normal & $0.08_{-1.17}^{+0.92}$ & \\
 S2 Cut Efficiency & $0 \pm 1$ & $-$ & Normal & $-0.1_{-1.0}^{+1.1}$ & \\
 \hline
 \hline
 \end{tabular}
 }
-\caption{Median and 68\% credible intervals for detector, processor, and analysis effects using the final 1000 iterations of the
+\caption{Median and 68\% credible intervals for detector, processor, and analysis effects from the posterior of the
 fit.  Biases and smearings are constrained between their lower (0) and upper (1) limits.  S1 peak finding efficiency and selection
 efficiencies are constrained by a normal distribution centered at the 50th percentile, with standard deviation ($\pm 1$) representing
-the 16\% and 84\% percentiles.  Biases, smearings, selection efficiencies, and S1 peak finding efficiencies are expected to be impacted by
-systematic effects so the relative deviation is correlated between the three inputs (\ambe SR0, SR0, SR1) for each parameter.}
+the 16th and 84th percentiles.  Biases, smearings, selection efficiencies, and S1 peak finding efficiencies are expected to be equally impacted
+by systematic effects so the relative deviation is correlated between the three inputs (\ambe SR0, SR0, and SR1) for each parameter.}
 \label{tab:er_nr_calibrations_parameter_determ_mc_match}
 \end{table}
 \egroup
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{er_sr1_cs2}
+\caption{\cstwob for SR1 \ce{^{220}Rn} calibration in slices of cS1.  The results from the band fitting match the data well, though in
+the $0 < \mathrm{cS1} < 10\ \mathrm{PE}$ slice the data may follow a slightly narrower distribution, and the
+$50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice, which similar to the SR0 results (\figref{fig:er_nr_calibrations_results_er_sr0_cs2})
+suggests the model predicts lower $\mathrm{cS2_b}$.}
+\label{fig:er_nr_calibrations_results_er_sr1_cs2}
+\end{figure}
 
 \begin{figure}
 \centering
@@ -1231,7 +1160,7 @@ shown in blue.}
 \caption{cS1 for SR0 \ambe calibration.  The total number of events (blue) agrees reasonably well with the data.  Single- (red) and
 multiple-scatter (green) neutrons are shown.  Multiple-scatters make up a larger fraction of events
 at low cS1.  Electronic recoils (gold) make up a decent fraction of the total events, especially at $\mathrm{cS1} \gtrsim 50\ \mathrm{PE}$
-where they are $> 30\%$.  Accidental coincidence is barely visible along the bottom and is expected to be responsible for ${\sim}2$
+where they are ${>}\, 30\%$.  Accidental coincidence is barely visible along the bottom and is expected to be responsible for ${\sim}2$
 events.}
 \label{fig:er_nr_calibrations_results_ambe_sr0_cs1}
 \end{figure}
@@ -1241,18 +1170,21 @@ events.}
 \includegraphics[width=\textwidth]{ambe_sr1_cs1}
 \caption{cS1 for SR1 \ambe calibration.  The total number of events from the band fitting (blue) is compared with data.  Single- (red)
 and multiple-scatter (green) nuclear recoils are shown.  The fraction of multiple-scatter events increases at low cS1.  The low-ER
-background (gold) and AC (pink) contribute ${\sim}60$ and $\lesssim 2$ events, respectively.}
+background (gold) and AC (pink) contribute ${\sim}60$ and ${\lesssim}\, 2$ events, respectively.}
 \label{fig:er_nr_calibrations_results_ambe_sr1_cs1}
 \end{figure}
 
-Finally, accidental coincidence and electronic recoil backgrounds during calibrations (due to
-$r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$ wall leak is negligible if not absent,
-\secref{subsec:er_nr_calibrations_parameter_determ_additional_components}) must be considered.  The method
-described in \secref{subsec:er_nr_calibrations_parameter_determ_additional_components} tightly constrains the AC shape.  The AC
-distributions and expectations are computed independently for each source.  The ER background - only relevant for \ambe and NG
-(for \ce{^{220}Rn} it simply contributes to the ER band) - is left free.  The initial values, ranges, and posteriors are given in
-\tabref{tab:er_nr_calibrations_results_backgrounds}.  \figref{fig:er_nr_calibrations_results_ambe_sr1_cs1} shows the AC (pink) and ER
-(gold) spectra.
+Accidental coincidence and electronic recoil backgrounds during calibrations (surface events are absent or negligible at
+$r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$) are considered.  AC
+distributions and expectations are computed separately for each source and tightly constrained by the method in
+\secref{subsec:er_nr_calibrations_parameter_determ_additional_components}.  SR0 and SR1 \ce{^{220}Rn} calibrations are constrained by a
+single parameter since they are expected to be correlated as
+$R_{\mathrm{AC}}^{\mathrm{(SR1)}} = 3.75 R_{\mathrm{AC}}^{\mathrm{(SR0)}} - 0.0625$.  ER backgrounds - only relevant for
+\ambe and NG
+(for \ce{^{220}Rn} it simply contributes to the ER band) - is required to be $\geq 0$ but otherwise is unconstrained.  The initial values,
+ranges, and posteriors are given in
+\tabref{tab:er_nr_calibrations_results_backgrounds}.  \figref{fig:er_nr_calibrations_results_ambe_sr0_cs1,fig:er_nr_calibrations_results_ambe_sr1_cs1,fig:er_nr_calibrations_results_ambe_sr0_cs2,fig:er_nr_calibrations_results_ambe_sr0_cs1_log_cs2_cs1,fig:er_nr_calibrations_results_ambe_sr1_cs1_log_cs2_cs1,fig:er_nr_calibrations_results_ambe_sr1_cs2,fig:er_nr_calibrations_results_ng_sr1_cs1,fig:er_nr_calibrations_results_ng_sr1_cs2,fig:er_nr_calibrations_results_ng_sr1_cs1_log_cs2_cs1}
+show the AC and ER spectra.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -1332,7 +1264,7 @@ from the SR1 ER band from the fit.  Nuclear recoil lines are blue.}
 \centering
 \includegraphics[width=\textwidth]{ng_sr1_cs1}
 \caption{cS1 for NG calibration.  The fit agrees with the data.  Single-scatter (red) and multiple-scatter (green) neutrons are shown.  ER
-background (gold) is responsible for $\lesssim 25$ events.  Accidental coincidence (pink) is too small to be observed but makes up
+background (gold) is responsible for ${\lesssim}\, 25$ events.  Accidental coincidence (pink) is too small to be observed but makes up
 7-10 events.}
 \label{fig:er_nr_calibrations_results_ng_sr1_cs1}
 \end{figure}
@@ -1356,30 +1288,32 @@ recoil lines are taken from the SR1 ER model from the fit.}
 \label{fig:er_nr_calibrations_results_ng_sr1_cs1_log_cs2_cs1}
 \end{figure}
 
-Another effect of interest is the influence of neutrons that scatter more than once in the TPC.  As mentioned in
-\secref{subsec:er_nr_calibrations_parameter_determ_cuts} a single scatter selection is applied to remove multiple-scatter
+Some portion of events in the \ambe and NG data are from neutrons that scatter more than once in the TPC.  As mentioned in
+\secref{subsec:er_nr_calibrations_parameter_determ_cuts}, a single scatter selection is applied to remove multiple-scatter
 events.  However,
-it is difficult in some cases to determine if in fact additional scatters occurred - particularly at low energy.  The fast MC framework
-applies the same selection used on the data to replicate this effect as closely as possible.  In extracting the spectra of single and
-multiple scatters separately we gain a powerful tool to examine this physics.  The cS1 and \cstwob \ambe and NG figures show the single
-and multiple scatters separately in red and green.  Additionally, their contributions to the total nuclear recoil band are shown in
-the cS1-$\mathrm{log}_{10}(\mathrm{cS2_b/cS1})$ plots.
+it can be difficult in some cases to determine if in fact additional scatters occurred - particularly at low energy.  The fast MC framework
+applies the same selection used on the data to replicate this effect as closely as possible.  Extracting the spectra of single and
+multiple scatters separately provides a powerful tool to examine this.  The \ambe
+(\figref{fig:er_nr_calibrations_results_ambe_sr0_cs1,fig:er_nr_calibrations_results_ambe_sr1_cs1,fig:er_nr_calibrations_results_ambe_sr0_cs2,fig:er_nr_calibrations_results_ambe_sr1_cs2,fig:er_nr_calibrations_results_ambe_sr0_cs1_log_cs2_cs1,fig:er_nr_calibrations_results_ambe_sr1_cs1_log_cs2_cs1})
+and NG
+(\figref{fig:er_nr_calibrations_results_ng_sr1_cs1,fig:er_nr_calibrations_results_ng_sr1_cs2,fig:er_nr_calibrations_results_ng_sr1_cs1_log_cs2_cs1})
+figures show the single-
+and multiple-scatter contributions in cS1, $\mathrm{cS2_b}$, and cS1-$\mathrm{log}_{10}(\mathrm{cS2_b/cS1})$.
 
 The fraction of \ambe data that comes from single scatters is $f_{\mathrm{^{241}AmBe, ss}} = 0.6742_{-0.0081}^{+0.0096}$
 (fraction of multiple scatters is $f_{\mathrm{^{241}AmBe, ms}} = 0.3258_{-0.0096}^{+0.0081}$).  For NG data it is
 $f_{\mathrm{NG, ss}} = 0.6483_{-0.0079}^{+0.0092}$ ($f_{\mathrm{NG, ms}} = 0.3517_{-0.0092}^{+0.0079}$).  Despite the single scatter
 selection
-roughly one third of multi-scatter events end up in the final data.  From the energy spectra in
-\figref{fig:er_nr_calibrations_parameter_determ_nr_ambe_spectrum} the vast majority of events occur at low energy, which is where
-we know the selection is least effective.  Because we consider multiple-scatter neutrons in the fast MC this should not significantly
-bias our final result.
+roughly one third of events in the final data come from multiple scatters.  This is because the vast majority of events occur at low energy,
+which is where the selection is least effective.  Because multiple-scatter neutrons are considered in the fast MC this should not have a
+large bias on our final result.
 
 The fraction of nuclear recoil events that scatter more than once and pass the multiple scatter (and other) selection for the SR1 \ambe
 calibration is shown in
-\figref{fig:er_nr_calibrations_results_ms_fraction}.  Because S1s cannot be resolved events with multiple scatters will appear to have an
-inflated S1.  The resulting decrease in $\mathrm{log}_{10}(\mathrm{cS2_b / cS1_{sum}})$ will become more dramatic for events with a
-greater number of scatters.  In addition the positition used for the LCE map correction
-(\eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_cs1}) is from the highest-energy event.  This
+\figref{fig:er_nr_calibrations_results_ms_fraction}.  Because S1s cannot be resolved, events with multiple scatters will have an
+inflated S1.  The resulting decrease in $\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ will become more dramatic for events with a
+larger number of scatters.  In addition, the LCE map correction
+(\eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_cs1}) uses the position of the highest-energy event.  This
 increases the spread in the cS1 distribution since additional scatters in lower or higher LCE region will be under- or over-corrected,
 respectively.  As the highest-energy event increases, the relative effect becomes smaller since the multiple scatter cut prevents large
 secondary \stwob and therefore large S1s.
@@ -1404,18 +1338,132 @@ multiple scatter fraction with respect to $\mathrm{cS1}$ (top) and $\mathrm{log}
 
 
 
+\subsection{Acceptances}
+\label{subsec:dark_matter_results_selection}
+The acceptances are calculated using 400 randomly-drawn samples from the posterior
+and an expected WIMP spectrum.  While the 1.3 t fiducial mass is used for the dark matter analysis, the
+acceptances are calculated using the 1 t mass from the band fit, though they are not expected to differ significantly.  The posterior
+for the S1 peak-finding efficiency and S1 and S2 cut efficiencies are listed in
+\tabref{tab:er_nr_calibrations_parameter_determ_mc_match}.  They, along with the S2 and cS1 thresholds, are
+shown in \figref{fig:dark_matter_results_selection_acc_components} for SR0 and SR1.  The S1 and S2 cut
+efficiencies (\secref{subsec:er_nr_calibrations_parameter_determ_cuts}) are shown in pink and light blue, and show little variation
+across energy.  The S2 threshold
+is only relevant at low energies (${\lesssim}\, 5\ \mathrm{keV_{nr}}$) and is highlighted in green.  The processor efficiency is marked in
+red.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{acceptances_bbf_inputs}
+\caption{Nuclear recoil energy-dependent efficiencies calculated using 400 samples randomly drawn from the posterior of the band fit.  Best-fit
+values are shown for S1 (pink) and S2 (light blue) selection, S2 threshold (green), processor (red), and cS1 threshold (dark blue)
+efficiencies.  Dashed lines represent medians from SR0 while solid lines and shaded regions show SR1 medians and 68\% credible regions.}
+\label{fig:dark_matter_results_selection_acc_components}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{xenon_1ty_paper_acceptance_linear_linear}
+\caption{Nuclear recoil energy-dependent efficiencies for WIMPs from this analysis.  Processor (green), processor with S1
+and S2 selection (blue), total ignoring the reference region (black), and total in the reference region (pink) efficiencies are
+shown.  Dashed and solid acceptance lines correspond to SR0 and SR1 acceptances,
+respectively.  The shaded regions are the 68\% credible interval for SR1.  Spectra are shown for 10 (dashed), 50 (dotted), and
+200 (dash-dotted) $\mathrm{GeV/c^2}$ WIMPs in purple.}
+\label{fig:dark_matter_results_acceptances_band_fitting}
+\end{figure}
+
+The cS1 threshold $3 \leq \mathrm{cS1} \leq 70\ \mathrm{PE}$ (blue in
+\figref{fig:dark_matter_results_selection_acc_components}) marks the energy region of interest, corresponding to roughly
+$[1.4, 10.6]\ \mathrm{keV_{ee}}$ and $[4.9, 40.9]\ \mathrm{keV_{nr}}$.  The total acceptance is the product of the acceptances shown
+in \figref{fig:dark_matter_results_selection_acc_components}.  Effects from events that are gained or lost at the edge of the fiducial
+volume are expected to be small so are not considered.
+
+\figref{fig:dark_matter_results_acceptances_band_fitting} (redrawn from \secref{subsec:dark_matter_results_selection})
+shows the efficiencies for 1) S1 peak finding (``Detection''), 2) S1 peak finding and S1
+and S2 selections (``Selection''), 3) total, excluding the reference region (``Energy region''), and 4) total, including the reference
+region (``Reference'').
+
+The acceptances are used in the likelihood calculation in \secref{subsec:dark_matter_results_background}.
+
+
+
 \subsection{Light and Charge Yields}
 \label{subsec:er_nr_calibrations_results_ly_qy}
 In \secref{subsec:er_nr_calibrations_parameter_determ_er,subsec:er_nr_calibrations_parameter_determ_nr} the number
 of photons and electrons produced were calculated for electronic and nuclear recoils using models that describe
 the microphysics of xenon interactions.  Because dark matter searches rely on energy reconstruction, having dependable models is
 crucial.  Values are quoted as light (or photon) yield, $L_y$, and charge (or electron) yield $Q_y$ and are defined as
-$n_{\mathrm{ph}}/E$ and $n_{\mathrm{e}} / E$, respectively.  \figref{fig:er_nr_calibrations_results_ly_qy_er} shows the light and
+$n_{\mathrm{ph}}/E$ and $n_{\mathrm{e}} / E$, respectively.
+
+The microphysics model for electronic recoils depends on the mean energy
+per quanta $W$, Fano Factor $F$, and exciton-to-ion ratio $n_{\mathrm{ex}} / n_{\mathrm{ion}}$.  Recombination is computed using
+a modified Thomas-Imel box model (\eqnref{eq:er_nr_calibrations_parameter_determ_ti}) and recombination fluctuations
+(\eqnref{eq:er_nr_calibrations_parameter_determ_er_rec_fluctuations}).  The priors and marginalized posteriors are shown in
+\tabref{tab:er_nr_calibrations_results_er}.
+
+\figref{fig:er_nr_calibrations_results_ly_qy_er} shows the light and
 charge yields for electronic recoils for this result along with values from previous experiments.  Because the ER model parameters were
 not constrained (aside from physical restrictions) our result is an independent measurement of $L_y$ and $Q_y$.  Our
 $82\ \mathrm{V\ cm^{-1}}$ seems to be higher (lower) in $L_y$ ($Q_y$) at $E \gtrsim 2\ \mathrm{keV}$ than
-other points, while the $200\ \mathrm{V\ cm^{-1}}$ agree well with all but the PIXeY \ce{^{37}Ar}.  However, we should be careful when
-comparing measurements since different electric fields change the $L_y/Q_y$ ratio.
+other measurements, while the $200\ \mathrm{V\ cm^{-1}}$ agrees well with all but the PIXeY \ce{^{37}Ar}.  However, we should be careful
+when comparing measurements since different electric fields change the $L_y/Q_y$ ratio.
+
+\bgroup
+\def\arraystretch{1.2}
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{cccccc}
+\hline
+\hline
+Parameter & Prior & Prior Distribution & Posterior & Source & Comment \\
+\hline
+$W$ & $13.7 \pm 0.2\ \mathrm{eV}$ & Normal & $13.78_{-0.21}^{+0.21}$ & \ce{^{220}Rn}, \ce{^{241}AmBe}, NG &
+\eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta,eq:er_nr_calibrations_parameter_determ_nr_quanta},
+\citeref{Dahl2009} \\
+\hline
+\multicolumn{6}{c}{Electronic Recoils} \\
+\hline
+$F$ & 0.059 & Fixed & $-$ & \ce{^{220}Rn} & \citeref{Doke1976}, \eqnref{eq:er_nr_calibrations_parameter_determ_er_quanta} \\
+$n_{\mathrm{ex}} / n_{\mathrm{ion}}$ & 0.06-0.2 & Uniform & $0.150_{-0.053}^{+0.034}$ & \ce{^{220}Rn} &
+\eqnref{eq:er_nr_calibrations_parameter_determ_er_nions}, see
+\secref{subsec:er_nr_calibrations_parameter_determ_nr} for NR \\
+$E_0$ & $\geq 0$ & Free & $1.133_{-0.332}^{+0.231}$ & \ce{^{220}Rn} & Recombination, \eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
+$E_1$ & $\geq 0$ & Free & $0.473_{-0.141}^{+0.171}$ & \ce{^{220}Rn} & Recombination, \eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
+$\gamma_{\mathrm{er}}$ & $0 \mdash 0.5$ & Free & $0.125_{-0.028}^{+0.029}$ & \ce{^{220}Rn} & Recombination,
+\eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
+$\omega_{\mathrm{er}}$ &  & Free & $30.5_{-3.3}^{+4.1}$ & \ce{^{220}Rn} & Recombination,
+\eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
+$\delta_{\mathrm{er}}$ &  & Free & $-0.243_{-0.055}^{+0.056}$ & \ce{^{220}Rn} & Recombination,
+\eqnref{eq:er_nr_calibrations_parameter_determ_ti} \\
+$A$ & $\geq 0$ & Free & $0.0408^{+0.0058}_{-0.0056}$ & \ce{^{220}Rn} & RF,
+\eqnref{eq:er_nr_calibrations_parameter_determ_er_rec_fluctuations} \\
+$B$ & $\geq 0$ & Free & $1.735_{-1.148}^{+1.320}$ & \ce{^{220}Rn} & RF,
+\eqnref{eq:er_nr_calibrations_parameter_determ_er_rec_fluctuations} \\
+\hline
+\multicolumn{6}{c}{Nuclear Recoils} \\
+\hline
+$\alpha$ & $1.240 \pm 0.079$ & Normal & $1.283_{-0.063}^{+0.070}$ & \ce{^{241}AmBe}, NG &
+\eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\zeta$ & $0.0472 \pm 0.0088$ & Normal & $0.0451_{-0.0083}^{+0.0085}$ & \ce{^{241}AmBe}, NG &
+\eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\beta$ & $239 \pm 28$ & Normal & $271_{-18}^{+22}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_nex_nion} \\
+$\gamma$ & $0.01385 \pm 0.00073$ & Normal & $0.01415_{-0.00060}^{+0.00059}$ & \ce{^{241}AmBe}, NG &
+\eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} \\
+$\delta$ & $0.0620 \pm 0.0064$ & Normal & $0.0615_{-0.0064}^{+0.0054}$ & \ce{^{241}AmBe}, NG &
+\eqnref{eq:er_nr_calibrations_parameter_determ_nr_recomb_sigma} \\
+$k$ & $0.1394 \pm 0.0032$ & Normal & $0.138_{-0.003}^{+0.003}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_lindhard} \\
+$\eta$ & $3.3 \pm 0.7$ & Normal & $3.283_{-0.525}^{+0.675}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+$\lambda$ & $1.14 \pm 0.45$ & Normal & $1.139_{-0.246}^{+0.354}$ & \ce{^{241}AmBe}, NG & \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \\
+\hline
+\hline
+\end{tabular}
+}
+\caption{Median and 68\% credible intervals for electronic and nuclear recoil microphysics models using the final
+1000 steps of the fit.  The NR model is adopted from \citeref{NEST2015} and described in
+\secref{subsec:er_nr_calibrations_parameter_determ_nr}.}
+\label{tab:er_nr_calibrations_results_er}
+\end{table}
+\egroup
 
 \begin{figure}
 \centering
@@ -1429,19 +1477,26 @@ acceptance for events with energies higher than the dashed blue line (\secref{su
 \label{fig:er_nr_calibrations_results_ly_qy_er}
 \end{figure}
 
+The microphysics for nuclear recoils is described by $\alpha$, $\zeta$, $\beta$, $\gamma$, $\delta$, $k$, $\eta$, and $\lambda$.  It shares
+only one
+parameter, $W$, with the electronic recoil model.  The exciton-to-ion ratio is parameterized differently than for electronic recoils.  To
+date, recombination fluctuations (RFs) have not been observed for nuclear recoils so they are omitted from the model.  The priors and
+marginalized posteriors are shown in \tabref{tab:er_nr_calibrations_results_er}.  Because
+asymmetric gaussian distributions are not used, the uncertainties differ slightly from the NEST results
+(\tabref{tab:er_nr_calibrations_parameter_determ_nr_nest}), with generally the larger of the two selected
+\citeref{NEST2015}.
+
 Historically nuclear recoil light yield measurements have been quoted as
 $\mathcal{L}_{eff}$, the ratio of scintillation yields of nuclear recoils to that of the \ce{^{57}Co} 122 keV \gammaray at zero
 electric field.  This was done in part to account for detector effects so long as a second measurement with \ce{^{57}Co} was
-performed.  In the era of ton-scale detectors, 122 keV photons, with an attenuation length of just 3 mm, can probe only the very
-outermost region of the TPC.  Therefore the absolute light yield $L_y = \mathcal{L}_{eff} \times 63\ \mathrm{ph\ keV^{-1}}$ has
+performed.  122 keV photons have an attenuation length of just 3 mm so can probe only the very
+outermost region of tonne-scale TPCs.  Therefore the absolute light yield $L_y = \mathcal{L}_{eff} \times 63\ \mathrm{ph\ keV^{-1}}$ has
 become the standard notation.  \figref{fig:er_nr_calibrations_results_ly_qy_nr} shows the light and charge yields for nuclear
-recoils.  This result was calculated using expected WIMP data rather than \ambe or NG to avoid effects that would incorrectly modify
-our results (e.g. summing S1s from multiple-scatter events that pass our cut or a non-homogeneous energy distribution across the
-TPC).  Unlike our electronic recoil result, this is not an independent measurement of $L_y$ and $Q_y$ since our emission model parameters
-are constrained by \citeref{NEST2015}.  We
-see our $L_y$ agrees well at ${\gtrsim}\, 3\ \mathrm{keV}$ but has larger disagreement in $Q_y$.  Strangely, it diverges significantly at
+recoils.  Unlike the electronic recoil result, this is not an independent measurement of $L_y$ and $Q_y$ since the emission model
+parameters are constrained by \citeref{NEST2015}.  The
+$L_y$ agrees well at ${\gtrsim}\, 3\ \mathrm{keV}$ but there is larger disagreement in $Q_y$.  Strangely, it diverges significantly at
 $E > 40\ \mathrm{keV}$ where our acceptance is high (${\sim} 80\%$).  As with \figref{fig:er_nr_calibrations_results_ly_qy_er} we should
-exercise caution when contrasting yields at different fields, though the effect for nuclear recoils is known to be less stark.
+exercise caution when comparing yields at different fields, though the effect for nuclear recoils is known to be less stark.
 
 \begin{figure}
 \centering
@@ -1449,7 +1504,7 @@ exercise caution when contrasting yields at different fields, though the effect 
 \caption{Photon and charge yields for nuclear recoils.  This result at $82\ \mathrm{V\ cm^{-1}}$ is shown in blue.  It is not
 an independent measurement since the model is constrained by previous work.  $L_y$ measurements are represented by purple triangles
 \citeref{Aprile2005}, grey triangles \citeref{Aprile2009b}, light green triangles \citeref{Plante2011}, and magenta triangles
-\citeref{Manzur2010}.  $Q_y$ are represented by purple diamonds \citeref{Aprile2006b}, red band \citeref{Aprile2013}, black squares
+\citeref{Manzur2010}.  $Q_y$ are represented by purple diamonds \citeref{Aprile2006b}, red band \citeref{Aprile2013a}, black squares
 \citeref{Sorenson2009} and light blue triangles \citeref{Manzur2010}.  $L_y$ and $Q_y$ from the same measurement are shown by orange
 squares
 \citeref{LUX2016b}.  The NEST v1.0 model was used to constrain our fit and is shown as the green band \citeref{NEST2015}.  This

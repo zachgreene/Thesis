@@ -141,11 +141,6 @@ listed.}
 \label{tab:xe_unstable_isotopes}
 \end{table}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figure 1 from SeeFig15}
-\end{figure}
-
 
 
 %====================================
@@ -228,10 +223,9 @@ less desirable than liquid argon (LAr), which has single and triplet states of $
 \end{table}
 
 \figref{fig:interaction_channels} shows the interaction
-channels of $\beta$- or $\gamma$-induced xenon recoils described in \eqnref{eq:recomb} and \eqnref{eq:deexcite}.
-However, in nuclear recoils
-it has been observed that two excitons may collide and free an electron as shown in \eqnref{eq:biexcitonic} in what is known as
-biexcitonic quenching (\secref{subsec:recombination}).
+channels of $\beta$- or $\gamma$-induced xenon recoils described in \eqnref{eq:recomb} and \eqnref{eq:deexcite}.  It does not not show
+photon quenching due to biexcitonic quenching or the Penning process, which are important in nuclear recoils
+(\secref{subsec:recombination}).
 
 \begin{figure}
 \centering
@@ -619,18 +613,35 @@ the \ce{^{222}Rn} decay chain were observed to drift towards the cathode - possi
 
 \subsection{Neutrinos}
 \label{subsec:neutrinos}
-Neutrinos impact both electronic and nuclear recoil spectra at low energies.  Solar neutrinos can elastically scatter off \electron
+Neutrinos produce both electronic and nuclear recoils at low energies.  Solar neutrinos can elastically scatter off \electron
 and produce an electronic recoil.  \textit{pp} neutrinos make up 92\% of these scatters, with \ce{^{7}Be} making 7\%, and all other
-sources contributing $<1$\% \citeref{Aprile2016a}.
+sources contributing ${<1}\, $\% \citeref{Aprile2016a}.
 
-Coherent neutrino-nucleus scattering produces nuclear recoils.  The majority of these interactions in the energy region of interest come
-from Solar \ce{^{8}Be}
+Coherent neutrino-nuclear scattering (CNNS) is the process by which low energy neutrinos interact coherently with protons and neutrons in
+nuclei.  This process produces nuclear recoils with a cross section that is greatly increased due to the coherent nature of the
+interaction.  The majority of these interactions in the energy region of interest come from Solar \ce{^{8}Be}
 and \textit{hep} neutrinos, as those at higher energy sources such as diffuse supernovae and Earth's atmosphere have a significantly
-lower rate.
+lower rate.  Integral rates for $100\ \mathrm{GeV/c^2}$ WIMPs and two CNNS sources are shown in
+\figref{fig:neutrinos_integral_spectra}.  The majority of CNNS events occur below the typical threshold for xenon.
 
 Neutrinos are an irreducible background that affects our detector uniformly.  Its contribution scales proportionally with mass so as
 detectors continue to grow its contribution will become larger.  The neutrino coherent scattering cross section is shown in
 \figref{fig:si_limits}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{integral_spectra}
+\caption{Predicted integral spectra for xenon (green), germanium (blue), argon (red), and neon (black) for WIMP elastic scattering (left)
+and coherent neutrino-nucleus elastic scattering (right).  The expected WIMP spectra are for $m_{\chi} = 100\ \mathrm{GeV/c^2}$ with a
+cross section of $10^{-45}\ \mathrm{cm^2}$ per nucleon, computed using \citeref{Lewin1996} and assuming the standard halo model
+(\secref{subsec:direct}).  The circles mark
+characteristic thresholds.  The expected CNNS integral rates are shown for 10 m from a $3\ \mathrm{GW_{th}}$ nuclear
+reactor and the ISIS neutron spallation source \citeref{Burman1996} (fluxes of
+$4 \times 10^{13}$ and $10^{7}\ \mathrm{\nu\ cm^{-2}\ s^{-1}}$, respectively).  The majority of CNNS events occur below the
+thresholds of each material.  Both plots assume perfect energy resolution.  Image credit:
+\citeref{Chepel2013}.}
+\label{fig:neutrinos_integral_spectra}
+\end{figure}
 
 
 \subsection{Neutrons}

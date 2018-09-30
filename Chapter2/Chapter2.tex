@@ -8,17 +8,16 @@
 \label{chap:liquid_xe}
 
 Liquid xenon (LXe) direct detection experiments have led the field for spin-independent WIMP searches with masses ${\gtrsim}\, 20$ for
-roughly a decade.  More so than liquid argon (LAr), LXe results have been paved the way to new limits, surpassing on the way only those of
-other
-LXe experiments.
+roughly a decade.  More so than liquid argon (LAr), LXe results have paved the way to new limits, surpassing on the way only those of
+other LXe experiments.
 
-Commercial business, such as steelmaking and coal gasification, rely relatively pure oxygen or nitrogen.  During the separation,
+Commercial business, such as steelmaking and coal gasification, rely on pure oxygen or nitrogen.  During the separation,
 the small amount of xenon and krypton in the air is extracted into a mixture as a by-product.  A distillation process can uncouple
 the two, leaving highly pure xenon.
 
 This chapter begins by discussing general properties of xenon and why it is such an effective element for a dark matter search
 (\secref{sec:properties}), followed by a summary of signal production in liquid xenon (\secref{sec:scintillation}).  Next the signal
-properties for different types of interactions are covered (\secref{sec:interactions}) with brief introductions on the microphysics of
+properties for different types of interactions are covered (\secref{sec:interactions}) with brief introductions to the microphysics of
 electronic (\secref{sec:er}) and nuclear (\secref{sec:nr}) recoils.  Finally, details of time projection chambers are discussed
 (\secref{sec:tpcs}).
 
@@ -81,9 +80,9 @@ including the electron lifetime (\secref{subsec:electron_lifetimes_measurement_g
 excited states, which have $t_{1/2} = 0.97\ \mathrm{ns}$ and 0.48 ns, respectively, are rarely resolvable from the signal of the
 particle-nucleus scatter.
 
-Xenon has several advantages that make it a good target for dark matter detection.  At \$2000/kg it is scaleable for larger
-detectors.  Its high molar mass provides excellent self-shielding, which reduces background contamination in the region of interest due to
-external radiation
+Xenon has several advantages that make it a good target for dark matter detection.  At an average current price of \$2000/kg, xenon allows
+scalability to larger detectors.  Its high atomic number and density provide excellent self-shielding, which reduces background contamination
+in the region of interest due to external radiation
 (\secref{subsec:backgrounds_detector_materials}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe,
 which gives it sensitivity to spin-dependent interactions.  Its production of light and charge - referred to as light and charge yields
 (\secref{subsec:er_nr_calibrations_results_ly_qy}) - are among the highest noble gases.  Finally, the expected background contribution
@@ -172,6 +171,8 @@ strength of the electric
 field.  However, even without a field there will not be
 100\% recombination because some of the freed $e^{-}$ will escape the electromagnetic pull of their parent ions.
 
+\vspace{-10}
+
 \begin{subequations}
 \begin{align}
 \mathrm{Xe}^{+} + \mathrm{Xe} &\rightarrow \mathrm{Xe}_{2}^{+} \\
@@ -181,9 +182,13 @@ field.  However, even without a field there will not be
 \label{eq:recomb}
 \end{subequations}
 
-The Xe$^{*}$ that has results from recombination is equivalent to if it had only ever been excited.  At this point
+\vspace{-10}
+
+The Xe$^{*}$ that results from recombination is equivalent to if it had only ever been excited.  At this point
 it de-excites via \eqnref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
 ($^{1}\Sigma$) or triplet ($^{3}\Sigma$) state and quickly de-excites to the ground state.
+
+\vspace{-10}
 
 \begin{subequations}
 \begin{align}
@@ -193,28 +198,30 @@ it de-excites via \eqnref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
 \label{eq:deexcite}
 \end{subequations}
 
-The average \gammaray in \eqnref{eq:deexcite_gamma} has a wavelength of 178 nm.  Not surprisingly, the number of photons is
+\vspace{-10}
+
+The average \gammaray in \eqnref{eq:deexcite_gamma} has a wavelength of 178 nm.  The number of photons is
 anti-correlated with the number of electrons, since for each \electron that
 recombines with xenon a \gammaray is emitted.  The lifetimes for the singlet and triplet
 excimers are $3.1 \pm 0.7$ ns and $24 \pm 1$ ns, respectively \citeref{Mock2014}.  The singlet-to-triplet ratios for
 a number of different interactions are shown in \tabref{tab:singlet_to_triplet}.  Detecting WIMPS requires differentiating between
-scatters with the xenon electron shells (electronic recoils) and nucleus (nuclear recoils).  \tabref{tab:singlet_to_triplet} shows that
+scatters with the xenon electron shells (electronic recoils) and nucleus (nuclear recoils).  \tabref{tab:singlet_to_triplet} shows
 nuclear recoils result in a higher fraction of singlet states.  Unfortunately the $^1\Sigma$ and $^3\Sigma$ lifetimes
 are too short to resolve so they cannot be used for discrimination.  This makes single-phase LXe detectors
-less desirable than liquid argon (LAr), which has single and triplet states of ${<}\, 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
+less desirable than liquid argon (LAr), which has single and triplet state lifetimes of ${<}\, 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
 \citeref{Heindl2011}.
 
 \begin{table}[t]
  \centering
- \begin{tabular}{cc}
+ \begin{tabular}{ccc}
  \hline
  \hline
- Event & $^1\Sigma / ^3\Sigma$ \\
+ Event & $^1\Sigma / ^3\Sigma$ & Reference \\
  \hline
- ER (direct excitation from $\gamma$) & $0.17 \pm 0.05$ \\
- ER (recombination from $\gamma$) & $0.8 \pm 0.2$ \\
- ER (from $\alpha$) & $2.3 \pm 0.51$ \\
- NR (from neutron) & $7.8 \pm 1.5$ \\
+ ER (direct excitation from $\gamma$) & $0.17 \pm 0.05$ & \\
+ ER (recombination from $\gamma$) & $0.8 \pm 0.2$ & \\
+ ER (from $\alpha$) & $2.3 \pm 0.51$ & \\
+ NR (from neutron) & $7.8 \pm 1.5$ & \\
  \hline
  \hline
  \end{tabular}
@@ -229,8 +236,9 @@ photon quenching due to biexcitonic quenching or the Penning process, which are 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{interaction_channels}
-\caption{Signal generation pathways for electronic and nuclear recoils.  Describe paths of electrons.  Image credit: \citeref{Faham2014}.}
+\includegraphics[width=\textwidth]{interaction_channels}
+\caption[Signal generation pathways for electronic and nuclear recoils.]{Signal generation pathways for electronic and nuclear
+recoils.  Energy is split into heat, light, and charge.}
 \label{fig:interaction_channels}
 \end{figure}
 
@@ -296,7 +304,9 @@ transfer its energy more densely along its track.  This affects recombination be
 
 \begin{figure}[t]
 \includegraphics[width=0.8\textwidth]{stopping_power_components}
-\caption{Mass stopping power for alphas (blue), $e^{-}$ (green), and protons (pink).  Electronic (long dashed), nuclear (short dashed),
+\caption[Mass stopping power for alphas (blue), $e^{-}$ (green), and protons (pink).  Electronic (long dashed), nuclear (short dashed),
+and total (solid) stopping powers for each are shown.]{Mass stopping power for alphas (blue), $e^{-}$ (green), and protons
+(pink).  Electronic (long dashed), nuclear (short dashed),
 and total (solid) stopping powers for each are shown.  The electronic stopping power is more significant except for $e^-$ at
 ${\gtrsim}\, 15\ \mathrm{MeV}$.  Data from \citeref{Berger2018a}.}
 \label{fig:mass_stopping_power}
@@ -345,8 +355,8 @@ density of the medium, LXe is more effective at self-shielding than liquid argon
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{recoil_diagram}
-\caption{Electronic (top, $\gamma$) and nuclear (bottom, neutron) recoil tracks for 20 keV scatters.  Excitons (red circles), ions
-(blue), and
+\caption[Electronic (top, $\gamma$) and nuclear (bottom, neutron) recoil tracks for 20 keV scatters.]{Electronic (top, $\gamma$) and nuclear
+(bottom, neutron) recoil tracks for 20 keV scatters.  Excitons (red circles), ions (blue), and
 heat (grey) are marked along the track.  The electronic recoil produces ${\sim} 20 \times$ as many ions as excitons while for nuclear
 recoil they are roughly equal.  Heat is only relevant in NRs and leads to signal quenching.  The electronic recoil has a path of
 ${\sim} 1\ \mathrm{\mu m}$ while the much denser 10 nm of the NR compels higher recombination.  Image credit: \citeref{Faham2014}.}
@@ -442,7 +452,8 @@ recombination, though as mentioned above, this likely occurs outside of the typi
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{ti_recombination}
-\caption{Measurements of charge collected ($q \propto 1 - r$) for LAr and LXe with respect to $E_d$.  Squares correspond to LXe and were
+\caption[Measurements of charge collected ($q \propto 1 - r$) for LAr and LXe with respect to $E_d$.]{Measurements of charge collected
+($q \propto 1 - r$) for LAr and LXe with respect to $E_d$.  Squares correspond to LXe and were
 measured with $\varsigma N_0 E = 0.15\ \mathrm{kV\ cm^{-1}}$.  Triangles and circles are LAr and were measured at
 $\varsigma N_0 E = 0.84\ \mathrm{kV\ cm^{-1}}$.  Curves are fits to data using the Thomas-Imdel box model \citeref{Thomas1987}.}
 \label{fig:ti_recomb}
@@ -511,7 +522,8 @@ recoils this there is no true decrease in photons and electrons so this effect d
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{ScintillationYield}
-\caption{Scintillation yield as a function of LET in LXe.  Open circles represent electrons, alpha particles, and fission
+\caption[Scintillation yield as a function of LET in LXe for electrons, alpha particles, fission fragments, relativistic heavy particles, and
+$\gamma$-rays.]{Scintillation yield as a function of LET in LXe.  Open circles represent electrons, alpha particles, and fission
 fragments.  Solid circles represent relativistic heavy particles.  Open squares mark gamma-rays.  Solid lines trace various fits
 to $\beta$-$\gamma$ data from \citeref{Doke2002}.  Image credit: \citeref{Doke2002}.}
 \label{fig:scintillation_yield}
@@ -526,8 +538,8 @@ Because WIMPs are expected to scatter with nuclei electronic recoils are exclude
 \chapref{chap:xenon1t}) as possible signals and considered only as background.\footnote{Results from a WIMP-electron coupling analysis can
 be found in \citeref{Aprile2015a}.}  However, understanding the electronic recoil background is necessary to be able to discriminate
 against nuclear recoils.  Detector materials have radioactive elements that decay inside the detector, and there are intrinsic
-backgrounds such as \krypton and \radon.  The latter is much more concerning since events from
-detectors materials cannot breach the inner volume, but intrinsic sources are uniformly distributed throughout the xenon.
+backgrounds such as \krypton and \radon.  Both are a concern since events from
+detectors materials cannot breach the inner volume, and intrinsic sources are uniformly distributed throughout the xenon.
 
 To understand our detector calibrations are regularly performed (\secref{sec:det_char}).  In the tonne-scale era of liquid xenon
 detectors external sources, which were effective in past experiments, are less efficient because xenon's self-shielding makes it extremely
@@ -538,7 +550,7 @@ sources and their progenies have short half-lifes or are stable, they do not con
 \subsection{Photons}
 \label{subsec:photons}
 Photons produce electronic recoils as they interact with \electron via Compton scattering, pair production, or photoelectric absorption
-as shown in \figref{fig:phot_atten}.  Coherent (Rayleigh and Thomson) scattering are also shown though their net energy deposition in the
+as shown in \figref{fig:phot_atten}.  Coherent (Rayleigh and Thomson) scattering is also shown though their net energy deposition in the
 xenon is zero.
 
 In Compton scattering the photon recoils off of an $e^{-}$ and transfers to it a portion of its energy.  The final energy of the photon
@@ -550,7 +562,7 @@ scatters.
 Pair production occurs when a high-energy photon produces a particle-antiparticle pair.  Typically this refers to a photon passing
 sufficiently
 close to an atom's nucleus and creating an electron-positron pair.  The proximity of the nucleus is required to conserve momentum so it
-will recoil slightly.  The photon must have an energy of at least twice the electron mass $m_{e}$, or $1.0222\ \mathrm{MeV/c^2}$.  Pair
+will recoil slightly.  The photon must have an energy of at least twice the electron mass $m_{e}$, or $1.022\ \mathrm{MeV/c^2}$.  Pair
 production
 also occurs for a photon in the presence of an atomic electron but is less probable and requires an energy of at least $4m_{e}$.  This
 is known as triplet production since the recoiling electron creates a track in addition to the electron-positron pair
@@ -567,7 +579,10 @@ energy region of interest ($E < 20\ \mathrm{keV}$), and is shown as the red dott
 \begin{figure}
  \centering
  \includegraphics[width=0.8\textwidth]{photon_scatter}
- \caption{Mass attenuation coefficient and attenuation length for $1\ \mathrm{keV}$ to $100\ \mathrm{MeV}$ photons.  Photoelectric
+ \caption[Mass attenuation coefficient and attenuation length for $1\ \mathrm{keV}$ to $100\ \mathrm{MeV}$ photons.  Photoelectric
+ absorption, Compton scattering, coherent (Rayleigh and Thomson) scattering, and pair production are
+ shown in addition to the total.]{Mass attenuation coefficient and attenuation length for $1\ \mathrm{keV}$ to
+ $100\ \mathrm{MeV}$ photons.  Photoelectric
  absorption (red dashed), Compton scattering (green), coherent (Rayleigh and Thomson) scattering (purple), and pair production (blue) are
  shown in addition to the total (solid black).  The discontinuity at ${\sim}5\ \mathrm{keV}$ occurs just above the binding energy of the
  L-shell electrons and is due to an increase in photoelectric absorption.  A similar process occurs for the K-shell at
@@ -586,7 +601,7 @@ experiments low-energy \betadecays contribute the most contamination in the sear
 \ce{^{85}Kr} and \ce{^{222}Rn} being uniformly throughout the detector.  \krypton decays via
 
 \begin{equation}
-\ce{^{85}Kr} \rightarrow \ce{^{85}Rb} + e^{-} + \overline{\nu_{e}}
+\ce{^{85}Kr} \rightarrow \ce{^{85}Rb} + e^{-} + \overline{\nu}_e
 \end{equation}
 
 \noindent with an end-point energy of 687 keV and branching ratio of 99.53\% and (remaining 0.47\% is 173 keV plus 514 keV
@@ -602,7 +617,7 @@ dangerous because there is no observable hallmark of its decay.  Its end-point e
 \bismuthtwofourteen
 
 \begin{equation}
-\ce{^{214}Pb} \rightarrow \ce{^{214}Bi} + e^{-} + \overline{\nu_{e}}
+\ce{^{214}Pb} \rightarrow \ce{^{214}Bi} + e^{-} + \overline{\nu}_e
 \end{equation}
 
 \noindent is 1019 keV.  More concerning is a decay to higher energy levels, which
@@ -615,7 +630,7 @@ the \ce{^{222}Rn} decay chain were observed to drift towards the cathode - possi
 \label{subsec:neutrinos}
 Neutrinos produce both electronic and nuclear recoils at low energies.  Solar neutrinos can elastically scatter off \electron
 and produce an electronic recoil.  \textit{pp} neutrinos make up 92\% of these scatters, with \ce{^{7}Be} making 7\%, and all other
-sources contributing ${<1}\, $\% \citeref{Aprile2016a}.
+sources contributing $< 1\, $\% \citeref{Aprile2016a}.
 
 Coherent neutrino-nuclear scattering (CNNS) is the process by which low energy neutrinos interact coherently with protons and neutrons in
 nuclei.  This process produces nuclear recoils with a cross section that is greatly increased due to the coherent nature of the
@@ -631,11 +646,15 @@ detectors continue to grow its contribution will become larger.  The neutrino co
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{integral_spectra}
-\caption{Predicted integral spectra for xenon (green), germanium (blue), argon (red), and neon (black) for WIMP elastic scattering (left)
-and coherent neutrino-nucleus elastic scattering (right).  The expected WIMP spectra are for $m_{\chi} = 100\ \mathrm{GeV/c^2}$ with a
+\caption[Predicted integral spectra for xenon, germanium, argon, and neon for WIMP elastic scattering
+and CNNS.  The WIMP spectra are for $m_{\chi} = 100\ \mathrm{GeV/c^2}$ with a
+cross section of $10^{-45}\ \mathrm{cm^2}$ per nucleon.  The CNNS integral rates are shown for 10 m from a $3\ \mathrm{GW_{th}}$ nuclear
+reactor and the ISIS neutron spallation source.]{Predicted integral spectra for xenon (green), germanium (blue), argon (red), and
+neon (black) for WIMP elastic scattering (left)
+and coherent neutrino-nucleus elastic scattering (right).  The WIMP spectra are for $m_{\chi} = 100\ \mathrm{GeV/c^2}$ with a
 cross section of $10^{-45}\ \mathrm{cm^2}$ per nucleon, computed using \citeref{Lewin1996} and assuming the standard halo model
 (\secref{subsec:direct}).  The circles mark
-characteristic thresholds.  The expected CNNS integral rates are shown for 10 m from a $3\ \mathrm{GW_{th}}$ nuclear
+characteristic thresholds.  The CNNS integral rates are shown for 10 m from a $3\ \mathrm{GW_{th}}$ nuclear
 reactor and the ISIS neutron spallation source \citeref{Burman1996} (fluxes of
 $4 \times 10^{13}$ and $10^{7}\ \mathrm{\nu\ cm^{-2}\ s^{-1}}$, respectively).  The majority of CNNS events occur below the
 thresholds of each material.  Both plots assume perfect energy resolution.  Image credit:
@@ -674,9 +693,9 @@ by the getters from the LXe before they decay, as will with stable daughters \ce
  \ce{^{125}Xe} & $\ce{^{125}Xe} \rightarrow \ce{^{125}I} + e^{+} + \nu_{e}$ & 622.17 & 16.89 h \\
   & $\ce{^{125}I} + e^{-} \rightarrow \ce{^{125}Te} + \nu_{e}$ & 185.77 & 59.38 d \\
  \ce{^{127}Xe} & $\ce{^{127}Xe} + e^{-} \rightarrow \ce{^{127}I} + \nu_{e}$ & 662.33 & 36.34 d \\
- \ce{^{133}Xe} & $\ce{^{133}Xe} \rightarrow \ce{^{133}Cs} + e^{-} + \overline{\nu_{e}}$ & 427.36 & 5.24 d \\
- \ce{^{135}Xe} & $\ce{^{135}Xe} \rightarrow \ce{^{135}Cs} + e^{-} + \overline{\nu_{e}}$ & 1164.8 & 9.14 h \\
-  & $\ce{^{135}Cs} \rightarrow \ce{^{135}Ba} + e^{-} + \overline{\nu_{e}}$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
+ \ce{^{133}Xe} & $\ce{^{133}Xe} \rightarrow \ce{^{133}Cs} + e^{-} + \overline{\nu}_e$ & 427.36 & 5.24 d \\
+ \ce{^{135}Xe} & $\ce{^{135}Xe} \rightarrow \ce{^{135}Cs} + e^{-} + \overline{\nu}_e$ & 1164.8 & 9.14 h \\
+  & $\ce{^{135}Cs} \rightarrow \ce{^{135}Ba} + e^{-} + \overline{\nu}_e$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
  \hline
  \end{tabular}
  \caption{Radioactive isotopes of Xe produced from neutron capture.  Decays are shown to stable elements along with decay energies and
@@ -688,7 +707,7 @@ by the getters from the LXe before they decay, as will with stable daughters \ce
 A neutron that inelastically scatters with xenon will leave the nucleus in an excited state.  The neutron will still cause a nuclear
 recoil but the nuclear activation will de-excited with the emission of a $\gamma$-ray.  The most relevant isotopes for our detector are
 \ce{^{129}Xe} and \ce{^{131}Xe},
-which have half-livfs of 0.97 and 0.48 ns and decay with energies 36.9 and 80.2 keV, respectively.  These lifetimes are much shorter
+which have half-lifes of 0.97 and 0.48 ns and decay with energies 36.9 and 80.2 keV, respectively.  These lifetimes are much shorter
 than the temporal resolution of the detector ($\mathcal{O}(10)\ \mathrm{ns}$) so the recoil and de-excitation will appear as a single
 event.  However, the mean free path for the de-excitation photon is $\mathcal{O}(1)\ \mathrm{mm}$ so they may be spatially
 resolvable \citeref{McCabe2016}.  Longer-lived activations for metastable
@@ -699,9 +718,11 @@ over a period of weeks, and does not affect dark matter data taking.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{ElasticInelasticRates}
-\caption{Spin-dependent recoil spectra for \ce{^{129}Xe} and \ce{^{131}Xe} for elastic and inelastic scatters.  WIMP masses
-of of $100\ \mathrm{GeV/c^2}$ with cross section $\sigma_{n}^{0} = 10^{-40}\ \mathrm{cm^{2}}$
-and $1000\ \mathrm{GeV/c^2}$ with cross section $\sigma_{n}^{0} = 10^{-39}\ \mathrm{cm^{2}}$ are assumed.  Elastic scattering
+\caption[Spin-dependent recoil spectra for \ce{^{129}Xe} and \ce{^{131}Xe} for elastic and inelastic scattering of $100$ and
+$1000\ \mathrm{GeV/c^2}$ WIMPs.  The WIMPs have $\sigma_{n}^{0} = 10^{-40}$ and $10^{-39}\ \mathrm{cm^2}$, respectively.]{Spin-dependent
+recoil spectra for \ce{^{129}Xe} and \ce{^{131}Xe} for elastic and inelastic scattering.  WIMP masses
+of $100\ \mathrm{GeV/c^2}$ with cross section $\sigma_{n}^{0} = 10^{-40}\ \mathrm{cm^{2}}$
+and $1000\ \mathrm{GeV/c^2}$ with cross section $\sigma_{n}^{0} = 10^{-39}\ \mathrm{cm^{2}}$ are used.  Elastic scattering
 is preferred across all recoil energies, though at larger $E_{\mathrm{R}}$ and $m_{\chi}$ inelastic has a greater relative
 impact.  Inelastic scattering drops to 0 at 
 $E_{R} = 0\ \mathrm{keV}$ because conservation of momentum mandates that the nucleus cannot be excited while the atom remains at rest
@@ -812,8 +833,11 @@ $f_{n}$ is sometimes written as $L(E)$.  It is shown in \figref{fig:lindhard} fo
 
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{lindhard_biexcitonic_penning}
-\caption{Fraction of nuclear recoil energy that produces excitons and ions $L(E)$ in xenon using Lindhard's theory (green)
-\citeref{Lindhard1965}.}
+\caption[Fraction of nuclear recoil energy that produces excitons and ions (i.e. not lost as heat) $L(E)$ in xenon using Lindhard's theory
+and fraction of photons that are not quenched from biexcitonic quenching and Penning process.]{Fraction of nuclear recoil energy
+that produces excitons and ions (i.e. not lost as heat) $L(E)$ in xenon using Lindhard's theory (green)
+\citeref{Lindhard1965} and fraction of photons that are not quenched from biexcitonic quenching and Penning process (purple).  Lines and
+shaded regions represent the medians and 68\% credible region using results from \citeref{NEST2015}.}
 \label{fig:lindhard}
 \end{figure}
 
@@ -846,7 +870,7 @@ n_{\mathrm{e}} &= (1 - r)n_{\mathrm{ion}}
 
 
 %====================================
-\section{Time Projection Chambers}
+\section{Dual Phase Time Projection Chambers}
 \label{sec:tpcs}
 Time projection chambers (TPCs) measure the light and charge of an interaction.  They have been leading the
 spin-independent search for WIMP masses ${>}\, 10\ \mathrm{GeV/c^2}$ for ${\sim}10\ \mathrm{years}$, and as we reach the tonne-scale era
@@ -857,8 +881,8 @@ xenon but for most details an identical treatment can be applied to argon and ne
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{SensitivityEvolutionBetter}
-\caption{Spin-independent cross-section evolution for WIMPs with $m_{\chi} \sim 30 \mdash 70\ \mathrm{GeV/c^2}$.  Solid markers represent
-realized
+\caption[Spin-independent cross-section evolution for WIMPs with $m_{\chi} \sim 30 \mdash 70\ \mathrm{GeV/c^2}$.]{Spin-independent
+cross-section evolution for WIMPs with $m_{\chi} \sim 30 \mdash 70\ \mathrm{GeV/c^2}$.  Solid markers represent realized
 values while empty squares denote projected.  Purple markers refer to germanium (\secref{subsec:germanium}) as well as CsI and NaI
 detectors (\secref{subsec:crystals}), orange represent cryogenic bolometers (\secref{subsec:bolometers}), turquoise denotes single-phase
 noble liquid chambers, and green symbolizes dual-phase.  For approximately the last decade LXe detectors have led the search and are
@@ -925,7 +949,8 @@ impurities is discussed in \secref{subsec:xenon1t_pur} and measuring the electro
 
 \begin{figure}
 \includegraphics[width=0.6\textwidth]{attachingratevsfield}
-\caption{Attaching rate constant $k_{S}$ for O$_{2}$, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
+\caption[Attaching rate constant $k_{S}$ for O$_{2}$, N$_{2}$O, and SF$_{6}$ with respect to electric field.]{Attaching rate constant $k_{S}$
+for O$_{2}$, N$_{2}$O, and SF$_{6}$ with respect to electric field.  At
 larger $E_d$ $k_{S}$ increases for N$_{2}$O and decreases for \otwo and SF$_{6}$.  Image credit: \citeref{Bakale1976}.}
 \label{fig:attachment_rate}
 \end{figure}
@@ -984,7 +1009,8 @@ wavelength shifters.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{pmt_efficiency}
-\caption{Quantum efficiency with respect to wavelength for the Hamamatsu R11410 PMT, used in XENON1T.  The peak efficiency occurs near
+\caption[Quantum efficiency with respect to wavelength for the Hamamatsu R11410 PMT, used in XENON1T.]{Quantum efficiency with respect to
+wavelength for the Hamamatsu R11410 PMT, used in XENON1T.  The peak efficiency occurs near
 the xenon scintillation wavelength 178 nm at ${\sim} 35 \%$.  Image credit: \citeref{Lung2012}.}
 \label{fig:tpcs_pmts_qe}
 \end{figure}
@@ -1015,7 +1041,7 @@ uniform since the solid angle per PMT is less.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{xenon1t_tpc}
-\caption{Diagram of an interaction in a LXe TPC.  The S1 is immediately
+\caption[Diagram of an interaction in a LXe TPC.]{Diagram of an interaction in a LXe TPC.  The S1 is immediately
 observed by the PMTs.  The \electron drift towards the top of the detector, where they are extracted across GXe,
 creating the S2.  A typical waveform is shown at the bottom.  The S2 is significantly
 larger than the S1 due to the amplification of electroluminescence.  The relative intensity of light in the PMTs, or PMT hit
@@ -1094,7 +1120,10 @@ reason several energy scales are used (\secref{subsubsec:tpcs_signals_energy}).
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_nr_discrimination}
-\caption{S2 (proportional) vs. S1 (prompt) for XENON1T calibration data.  Electronic recoils are from the \ce{^{220}Rn} decay chain as
+\caption[S2 (proportional) vs. S1 (prompt) for XENON1T \ce{^{220}Rn} and \ambe calibration data.  S2/S1 is larger for electronic recoils,
+which enables discrimination
+between possible WIMPs and the ER background.]{S2 (proportional) vs. S1 (prompt) for XENON1T calibration data.  Electronic recoils are from
+the \ce{^{220}Rn} decay chain as
 progeny \ce{^{212}Pb} undergoes $\beta$-decay with an end-point energy of 569.9 keV (red).  Nuclear
 recoils are from americium beryllium (\ce{^{241}AmBe}) (blue).  S2/S1 is larger for electronic recoils, which enables discrimination
 between possible WIMPs and the ER background.}
@@ -1118,8 +1147,8 @@ significant change in ER is due to its sparser ionization density and suggests t
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{LYQY}
-\caption{Field dependence of light (S(E)/S$_{0}$, red) and charge (Q(E)/Q$_{0}$, blue) yields.  S$_{0}$ is the light yield at zero field
-and Q$_{0}$ is the charge yield at
+\caption[Field dependence of light and charge yields.]{Field dependence of light S(E)/S$_{0}$ (red) and charge Q(E)/Q$_{0}$ (blue)
+yields.  S$_{0}$ is the light yield at zero field and Q$_{0}$ is the charge yield at
 infinite field.  Electronic recoils are shown as solid diamonds and are measured from \ce{^{57}Co} 122 keV $\gamma$-rays.  56.5
 keV elastic neutron scatters from \ambe and \ce{^{252}Cf} are marked by hollow squares.Nuclear recoils
 are marked by hollow squares and are from elastic 56.5 keV neutron scatters from \ambe and \ce{^{252}Cf}.  Solid circles represent \ce{^{210}Po}

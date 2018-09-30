@@ -55,8 +55,9 @@ cross sections below some value match the data.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{wimp_contours}
-\caption{Total background model from First Results with 50, 90, and 99\% contours for 6 (left), 50 (center), and 1000 (right)
-$\mathrm{GeV/c^2}$ WIMPs.  The bright yellow region is the
+\caption[Total background model from First Results with 50, 90, and 99\% contours for 6, 50, and 1000
+$\mathrm{GeV/c^2}$ WIMPs.]{Total background model from First Results with 50, 90, and 99\% contours for 6 (left), 50 (center), and 1000
+(right) $\mathrm{GeV/c^2}$ WIMPs.  The bright yellow region is the
 electronic recoil band, which was fit using a similar method to this section.  Accidental coincidence is visible as the horizontal strip
 around $\mathrm{cS2_b} = 150\ \mathrm{PE}$.  The expected signal region changes with WIMP mass.}
 \label{fig:er_nr_calibrations_purpose_wimp_contours}
@@ -98,7 +99,8 @@ will increase or decrease and the minimizer will find the best-fit values.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{flow_chart}
-\caption{Steps for fitting electronic and nuclear recoil bands.  The signal (NR) model, background (ER) model, and additional inputs (e.g.
+\caption[Steps for fitting electronic and nuclear recoil bands.]{Steps for fitting electronic and nuclear recoil bands.  The signal (NR)
+model, background (ER) model, and additional inputs (e.g.
 detector model, S2 threshold, AC) (red) make up the parameters (yellow) in the fit.  Each parameter is constrained by its
 prior distribution (yellow).  Parameters convert truth MC (grey) to cS1 and \cstwob in the fast MC (yellow), which is then binned.  Data
 (pink) from calibrations is binned
@@ -256,7 +258,9 @@ population is produced by tritium via
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{ng_energy_spectrum}
-\caption{Simulated neutron energy spectra in fusion region of the NG (red dashed line) and at the pulse shape discriminator during
+\caption[Simulated neutron energy spectra in fusion region of the NG and at the pulse shape discriminator during
+calibration before installation at LNGS.]{Simulated neutron energy spectra in fusion region of the NG (red dashed line) and at the pulse
+shape discriminator during
 calibration before installation at LNGS (blue shaded region).  Deconvolution of data from calibration (black solid line) is also
 shown.  Spectra are normalized by the 2.2-2.7 MeV range.  Image credit: \citeref{Lang2018}.}
 \label{fig:er_nr_calibrations_parameter_determ_nr_ng_energy}
@@ -290,7 +294,9 @@ however, were present since it preceded the online distillation (\secref{subsec:
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ambe_positions}
-\caption{Positions of events from SR1 \ambe calibration.  Events are clustered in the region of the detector closest to the \ambe
+\caption[Positions of events from SR1 \ambe calibration.  Events are clustered in the region of the detector closest to the \ambe
+source.  The black line marks the 1 t fiducial volume.]{Positions of events from SR1 \ambe calibration.  Events are clustered in the region
+of the detector closest to the \ambe
 source.  The black line marks the 1 t fiducial volume.  Aside from the higher ER background, the SR0 distribution looks similar since the
 source was placed in the same location inside the water tank.}
 \label{fig:er_nr_calibrations_parameter_determ_nr_ambe_positions}
@@ -354,11 +360,14 @@ r = 1 - \frac{\mathrm{ln} (1 + n_{\mathrm{ion}} \varsigma)}{n_{\mathrm{ion}} \va
 \end{equation}
 
 \noindent with $\varsigma$ field-dependent.  Unlike ER, no recombination fluctuations have been observed for nuclear recoils so
-$\Delta r$ is not included.  Biexcitonic quenching and Penning processes, both of which decrease
-$\mathrm{n_{ph}}$, must also be considered.  Biexcitonic quenching arises when two
+$\Delta r$ is not included.
+
+Biexcitonic quenching and the Penning process - depicted in \figref{fig:interaction_channels} - decrease
+$n_{\mathrm{ph}}$ in nuclear recoils.  Biexcitonic quenching arises when two
 \ce{Xe^{*}} interact to free an $e^-$, which quickly loses its kinetic energy
 and recombines with a \ce{Xe^{+}}.  Thus, what would have been two photons instead results in one.  The Penning process describes when
-two excimers interact and result in an excited and ground state \citeref{Mei2008}.  Both of these depend on the exciton density, which
+two excimers interact and result in an excited and ground state \citeref{Mei2008} - ultimately leading to a single excimer.  Both of these
+depend on the exciton density, which
 is proportional to the ionization density and therefore stopping power $dE / dx$ (\secref{subsec:stopping_power}).  They result in quenching
 and can be
 described by Birks' saturation law, \eqnref{eq:er_nr_calibrations_parameter_determ_nr_birks} \citeref{Birks1951, Birks1964}:
@@ -543,7 +552,8 @@ systematic effect so is correlated between the three inputs.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{bbf_inputs_sr0_sr1}
-\caption{S1- and $\mathrm{S2_b}$-dependent detector parameter 68\% credible intervals for SR0 (left) and SR1 (right).  Processor
+\caption[S1- and $\mathrm{S2_b}$-dependent detector parameter 68\% credible intervals for SR0 (left) and SR1 (right).]{S1- and
+$\mathrm{S2_b}$-dependent detector parameter 68\% credible intervals for SR0 (left) and SR1 (right).  Processor
 efficiency (red) is plotted with respect to the
 S1 axis but in units of hits.  Filter boxes were installed on the DAQ between the SR0 \ambe calibration and
 dark matter data taking so separate processor efficiencies and S1 and S2 biases and smearings are used (shown as transparent in same
@@ -922,7 +932,8 @@ be marginalized over.  This is an advantage over many other techniques.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{affine_invariant_ensemble_sampler_update}
-\caption{Proposed stretch move update step for walker $\vect{\theta}_i$ (blue) with the Affine-Invariant Ensemble Sampler MCMC in two
+\caption[Proposed stretch move update step for walker $\vect{\theta}_i$ with the Affine-Invariant Ensemble Sampler MCMC in two
+dimensions.]{Proposed stretch move update step for walker $\vect{\theta}_i$ (blue) with the Affine-Invariant Ensemble Sampler MCMC in two
 dimensions.  The proposed state $\vect{\theta}_p$ (red) uses the difference between $\vect{\theta}_i$ and a randomly selected walker
 $\vect{\theta}_j^{(1)}$ (green) from $S^{(1)}$ and a scale factor $z$.  Additional walkers from $S^{(0)}$ (light blue) and $S^{(1)}$ (light
 green) are shown.}
@@ -1039,7 +1050,8 @@ convergence can never be proven for a finite number of steps.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_sr0_cs1}
-\caption{cS1 for SR0 \ce{^{220}Rn} calibration.  The median and 68\% credible region from the posterior are shown as the solid lines and
+\caption[cS1 median and 68\% credible region for SR0 \ce{^{220}Rn} calibration.]{cS1 for SR0 \ce{^{220}Rn} calibration.  The median and 68\%
+credible region from the posterior are shown as the solid lines and
 shaded regions, respectively, and matches the data well.  Aside from \ce{^{220}Rn}, the only contributor to
 data is accidental coincidence, which has a small contribution and is visible in pink at the bottom.  The sum of AC and \ce{^{220}Rn} is
 shown in blue.}
@@ -1049,7 +1061,8 @@ shown in blue.}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_sr1_cs1}
-\caption{cS1 for SR1 \ce{^{220}Rn} calibration.  The median and 68\% credible region match the data well.  AC is shown in pink at the
+\caption[cS1 median and 68\% credible region for SR1 \ce{^{220}Rn} calibration.]{cS1 for SR1 \ce{^{220}Rn} calibration.  The median and 68\%
+credible region match the data well.  AC is shown in pink at the
 bottom of the plot.  The sum of \ce{^{220}Rn} and AC are shown in blue.}
 \label{fig:er_nr_calibrations_results_er_sr1_cs1}
 \end{figure}
@@ -1067,7 +1080,8 @@ within and across science runs and listed in \tabref{tab:er_nr_calibrations_para
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_sr0_cs2}
-\caption{\cstwob for SR0 \ce{^{220}Rn} data with median and 68\% credible interval in slices of cS1.  The model matches the data well,
+\caption[\cstwob for SR0 \ce{^{220}Rn} data with median and 68\% credible interval in slices of cS1.]{\cstwob for SR0 \ce{^{220}Rn} data with
+median and 68\% credible interval in slices of cS1.  The model matches the data well,
 with the possible exception of the $50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice where the model may predict slightly lower
 $\mathrm{cS2_b}$, but limited statistics make it difficult to tell.}
 \label{fig:er_nr_calibrations_results_er_sr0_cs2}
@@ -1129,7 +1143,8 @@ by systematic effects so the relative deviation is correlated between the three 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{er_sr1_cs2}
-\caption{\cstwob for SR1 \ce{^{220}Rn} calibration in slices of cS1.  The results from the band fitting match the data well, though in
+\caption[\cstwob for SR1 \ce{^{220}Rn} data with median and 68\% credible interval in slices of cS1.]{\cstwob for SR1 \ce{^{220}Rn}
+calibration in slices of cS1.  The results from the band fitting match the data well, though in
 the $0 < \mathrm{cS1} < 10\ \mathrm{PE}$ slice the data may follow a slightly narrower distribution, and the
 $50 < \mathrm{cS1} < 70\ \mathrm{PE}$ slice, which similar to the SR0 results (\figref{fig:er_nr_calibrations_results_er_sr0_cs2})
 suggests the model predicts lower $\mathrm{cS2_b}$.}
@@ -1139,7 +1154,10 @@ suggests the model predicts lower $\mathrm{cS2_b}$.}
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{er_sr0_cs1_log_cs2_cs1}
-\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ce{^{220}Rn} calibration.  Electronic (red)
+\caption[cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ce{^{220}Rn} calibration.  Electronic
+and nuclear recoil medians and $\pm 2\sigma$ are marked in solid and dashed
+lines.  Accidental coincidence is shown in the bottom panel.]{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0
+\ce{^{220}Rn} calibration.  Electronic (red)
 and nuclear (blue) recoil (calculated using SR0 \ce{^{241}AmBe} fit) medians and $\pm 2\sigma$ are marked in solid and dashed
 lines.  Accidental coincidence is shown in the bottom panel.}
 \label{fig:er_nr_calibrations_results_er_sr0_cs1_log_cs2_cs1}
@@ -1148,7 +1166,10 @@ lines.  Accidental coincidence is shown in the bottom panel.}
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{er_sr1_cs1_log_cs2_cs1}
-\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ce{^{220}Rn} calibration.  Electronic recoil
+\caption[cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ce{^{220}Rn} calibration.  Electronic
+and nuclear recoil medians and $\pm 2\sigma$ are marked in solid and dashed
+lines.  Accidental coincidence is shown in the bottom panel.]{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1
+\ce{^{220}Rn} calibration.  Electronic recoil
 median and $\pm 2\sigma$ are shown as red solid and dashed lines.  Nuclear recoil are computed using the SR1 \ambe calibration fit and
 shown in blue.}
 \label{fig:er_nr_calibrations_results_er_sr1_cs1_log_cs2_cs1}
@@ -1157,7 +1178,9 @@ shown in blue.}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ambe_sr0_cs1}
-\caption{cS1 for SR0 \ambe calibration.  The total number of events (blue) agrees reasonably well with the data.  Single- (red) and
+\caption[cS1 for SR0 \ambe calibration.  The total number of events agrees reasonably well with the data.  Single- and
+multiple-scatter neutrons, electronic recoils, and AC are shown.]{cS1 for SR0 \ambe calibration.  The total number of events (blue) agrees
+reasonably well with the data.  Single- (red) and
 multiple-scatter (green) neutrons are shown.  Multiple-scatters make up a larger fraction of events
 at low cS1.  Electronic recoils (gold) make up a decent fraction of the total events, especially at $\mathrm{cS1} \gtrsim 50\ \mathrm{PE}$
 where they are ${>}\, 30\%$.  Accidental coincidence is barely visible along the bottom and is expected to be responsible for ${\sim}2$
@@ -1168,7 +1191,9 @@ events.}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ambe_sr1_cs1}
-\caption{cS1 for SR1 \ambe calibration.  The total number of events from the band fitting (blue) is compared with data.  Single- (red)
+\caption[cS1 for SR1 \ambe calibration.  The total number of events agrees reasonably well with the data.  Single- and
+multiple-scatter neutrons, electronic recoils, and AC are shown.]{cS1 for SR1 \ambe calibration.  The total number of events from the band
+fitting (blue) is compared with data.  Single- (red)
 and multiple-scatter (green) nuclear recoils are shown.  The fraction of multiple-scatter events increases at low cS1.  The low-ER
 background (gold) and AC (pink) contribute ${\sim}60$ and ${\lesssim}\, 2$ events, respectively.}
 \label{fig:er_nr_calibrations_results_ambe_sr1_cs1}
@@ -1227,7 +1252,8 @@ calibrations calculated using the posterior of the band fits.  AC is tightly con
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ambe_sr0_cs2}
-\caption{\cstwob in slices of cS1 for SR0 \ambe data.  The band fitting results (blue) match the data nicely. The ratio of multi- (green)
+\caption[\cstwob in slices of cS1 for SR0 \ambe data.]{\cstwob in slices of cS1 for SR0 \ambe data.  The band fitting results (blue) match
+the data nicely. The ratio of multi- (green)
 to single-scatter (red) neutrons is higher at low $\mathrm{cS2_b}$.  The electronic recoil band (gold) is easily visible.  AC (pink)
 is too low to observe.}
 \label{fig:er_nr_calibrations_results_ambe_sr0_cs2}
@@ -1236,7 +1262,8 @@ is too low to observe.}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ambe_sr1_cs2}
-\caption{\cstwob for SR1 \ambe calibration data in slices of cS1.  The median and 68\% credible interval of the fit (blue) is compared
+\caption[\cstwob in slices of cS1 for SR1 \ambe data.]{\cstwob for SR1 \ambe calibration data in slices of cS1.  The median and 68\% credible
+interval of the fit (blue) is compared
 to the data.  Single-scatter (red) and multiple-scatter (green) nuclear recoils, ER (gold), and AC (pink) are shown.  The ER background
 contributes only ${\sim}3\%$ of all events.  AC is too small to be visible.}
 \label{fig:er_nr_calibrations_results_ambe_sr1_cs2}
@@ -1245,7 +1272,10 @@ contributes only ${\sim}3\%$ of all events.  AC is too small to be visible.}
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{ambe_sr0_cs1_log_cs2_cs1}
-\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ambe calibration.  The top panel shows the
+\caption[cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ambe calibration.  The top panel shows the
+total while the rest show the contributions from different components normalized with respect to the total.  Medians and $\pm 2\sigma$
+from electronic and nuclear recoil bands are shown.]{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR0 \ambe
+calibration.  The top panel shows the
 total while the rest show the contributions from different components normalized with respect to the total.  Medians and $\pm 2\sigma$
 from electronic (red) and nuclear (blue) recoil bands are shown as solid and dashed lines.  The ER lines are taken from SR0 ER band fit.}
 \label{fig:er_nr_calibrations_results_ambe_sr0_cs1_log_cs2_cs1}
@@ -1254,7 +1284,10 @@ from electronic (red) and nuclear (blue) recoil bands are shown as solid and das
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{ambe_sr1_cs1_log_cs2_cs1}
-\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ambe calibration.  The total is shown
+\caption[cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ambe calibration.  The top panel shows the
+total while the rest show the contributions from different components normalized with respect to the total.  Medians and $\pm 2\sigma$
+from electronic and nuclear recoil bands are shown.]{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 \ambe
+calibration.  The total is shown
 in the top panel with the separate contributors displayed below.  The electronic recoil band median and $\pm 2\sigma$ are derived
 from the SR1 ER band from the fit.  Nuclear recoil lines are blue.}
 \label{fig:er_nr_calibrations_results_ambe_sr1_cs1_log_cs2_cs1}
@@ -1263,7 +1296,8 @@ from the SR1 ER band from the fit.  Nuclear recoil lines are blue.}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ng_sr1_cs1}
-\caption{cS1 for NG calibration.  The fit agrees with the data.  Single-scatter (red) and multiple-scatter (green) neutrons are shown.  ER
+\caption[cS1 for NG calibration.]{cS1 for NG calibration.  The fit agrees with the data.  Single-scatter (red) and multiple-scatter (green)
+neutrons are shown.  ER
 background (gold) is responsible for ${\lesssim}\, 25$ events.  Accidental coincidence (pink) is too small to be observed but makes up
 7-10 events.}
 \label{fig:er_nr_calibrations_results_ng_sr1_cs1}
@@ -1272,7 +1306,8 @@ background (gold) is responsible for ${\lesssim}\, 25$ events.  Accidental coinc
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ng_sr1_cs2}
-\caption{\cstwob for SR1 NG calibration in slices of cS1.  The fit (blue) matches the data nicely, though in the
+\caption[\cstwob for SR1 NG calibration in slices of cS1.]{\cstwob for SR1 NG calibration in slices of cS1.  The fit (blue) matches the data
+nicely, though in the
 $10 < \mathrm{cS1} < 20\ \mathrm{PE}$ slice the model predicts a lower $\mathrm{cS2_b}$.  Similar to \ambe the ratio of multi-
 (green) to single-scatter neutrons (red) is larger at low $\mathrm{cS2_b}$.  ER background (gold) and AC (pink) have too few events
 to be visible.}
@@ -1282,7 +1317,9 @@ to be visible.}
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{ng_sr1_cs1_log_cs2_cs1}
-\caption{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 neutron generator calibration band fitting.  Medians and
+\caption[cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1 neutron generator calibration band fitting.  Medians and
+$\pm 2\sigma$ for the electronic and nuclear recoil bands are shown.]{cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$ distribution for the SR1
+neutron generator calibration band fitting.  Medians and
 $\pm 2\sigma$ for the electronic (red) and nuclear (blue) recoil bands are shown as solid and dashed lines, respectively.  Electronic
 recoil lines are taken from the SR1 ER model from the fit.}
 \label{fig:er_nr_calibrations_results_ng_sr1_cs1_log_cs2_cs1}
@@ -1321,7 +1358,9 @@ secondary \stwob and therefore large S1s.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ms_fraction}
-\caption{Fraction of nuclear recoil events in SR1 \ambe calibration that result from multiple scatters.  In the main panel red and
+\caption[Fraction of nuclear recoil events in SR1 \ambe calibration that result from multiple scatters in
+cS1-$\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$.]{Fraction of nuclear recoil events in SR1 \ambe calibration that result from multiple
+scatters.  In the main panel red and
 blue lines mark the median and $\pm 2\sigma$ for single and multiple scatters, respectively (at $\mathrm{cS1} > 60\ \mathrm{PE}$ the
 number of multiple scatter events is too low for calculation).  Multiple scatters will be pushed to smaller
 $\mathrm{log}_{10}(\mathrm{cS2_b / cS1})$.  The effect becomes more dramatic at lower
@@ -1354,8 +1393,11 @@ red.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{acceptances_bbf_inputs}
-\caption{Nuclear recoil energy-dependent efficiencies calculated using 400 samples randomly drawn from the posterior of the band fit.  Best-fit
-values are shown for S1 (pink) and S2 (light blue) selection, S2 threshold (green), processor (red), and cS1 threshold (dark blue)
+\caption[Nuclear recoil energy-dependent efficiencies calculated using 400 samples randomly drawn from the posterior of the band
+fit for S1 and S2 selections, S2 threshold, processor, and cS1 threshold
+efficiencies.  Medians for SR0 and medians with 68\% credible regions for SR1 are shown.]{Nuclear recoil energy-dependent efficiencies
+calculated using 400 samples randomly drawn from the posterior of the band fit.  Best-fit
+values are shown for S1 (pink) and S2 (light blue) selections, S2 threshold (green), processor (red), and cS1 threshold (dark blue)
 efficiencies.  Dashed lines represent medians from SR0 while solid lines and shaded regions show SR1 medians and 68\% credible regions.}
 \label{fig:dark_matter_results_selection_acc_components}
 \end{figure}
@@ -1363,8 +1405,9 @@ efficiencies.  Dashed lines represent medians from SR0 while solid lines and sha
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{xenon_1ty_paper_acceptance_linear_linear}
-\caption{Nuclear recoil energy-dependent efficiencies for WIMPs from this analysis.  Processor (green), processor with S1
-and S2 selection (blue), total ignoring the reference region (black), and total in the reference region (pink) efficiencies are
+\caption[Nuclear recoil energy-dependent efficiencies for WIMPs from this analysis.  Recoil spectra are shown for 10, 50, and
+200 $\mathrm{GeV/c^2}$ WIMPs.]{Nuclear recoil energy-dependent efficiencies for WIMPs from this analysis.  Processor (green), processor with
+S1 and S2 selection (blue), total ignoring the reference region (black), and total in the reference region (pink) efficiencies are
 shown.  Dashed and solid acceptance lines correspond to SR0 and SR1 acceptances,
 respectively.  The shaded regions are the 68\% credible interval for SR1.  Spectra are shown for 10 (dashed), 50 (dotted), and
 200 (dash-dotted) $\mathrm{GeV/c^2}$ WIMPs in purple.}
@@ -1468,7 +1511,8 @@ $\lambda$ & $1.14 \pm 0.45$ & Normal & $1.139_{-0.246}^{+0.354}$ & \ce{^{241}AmB
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ER_LYQY_final_logx}
-\caption{Photon and charge yields electronic recoils.  This result is shown in blue at $82\ \mathrm{V\ cm^{-1}}$ (SR1) and its
+\caption[Photon and charge yields for electronic recoils.]{Photon and charge yields for electronic recoils.  This result is shown in blue at
+$82\ \mathrm{V\ cm^{-1}}$ (SR1) and its
 extrapolation to $200\ \mathrm{V\ cm^{-1}}$ is shown in green.  The purple band represents XENON100 tritium calibration
 \citeref{Aprile2018a}, red triangles and orange squares represent
 LUX \ce{^{127}Xe} \citeref{LUX2017c} and tritium \citeref{LUX2016}, respectively, and grey triangles represent PIXeY \ce{^{37}Ar}
@@ -1501,7 +1545,8 @@ exercise caution when comparing yields at different fields, though the effect fo
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{NR_LYQY_final_logx}
-\caption{Photon and charge yields for nuclear recoils.  This result at $82\ \mathrm{V\ cm^{-1}}$ is shown in blue.  It is not
+\caption[Photon and charge yields for nuclear recoils.]{Photon and charge yields for nuclear recoils.  This result at
+$82\ \mathrm{V\ cm^{-1}}$ is shown in blue.  It is not
 an independent measurement since the model is constrained by previous work.  $L_y$ measurements are represented by purple triangles
 \citeref{Aprile2005}, grey triangles \citeref{Aprile2009b}, light green triangles \citeref{Plante2011}, and magenta triangles
 \citeref{Manzur2010}.  $Q_y$ are represented by purple diamonds \citeref{Aprile2006b}, red band \citeref{Aprile2013a}, black squares

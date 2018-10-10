@@ -80,7 +80,8 @@ including the electron lifetime (\secref{subsec:electron_lifetimes_measurement_g
 excited states, which have $t_{1/2} = 0.97\ \mathrm{ns}$ and 0.48 ns, respectively, are rarely resolvable from the signal of the
 particle-nucleus scatter.
 
-Xenon has several advantages that make it a good target for dark matter detection.  At an average current price of \$2000/kg, xenon allows
+Xenon has several advantages that make it a good target for dark matter detection.  At an average current price of \$2000/kg, it is cheap
+compared to solid-state materials, and allows
 scalability to larger detectors.  Its high atomic number and density provide excellent self-shielding, which reduces background contamination
 in the region of interest due to external radiation
 (\secref{subsec:backgrounds_detector_materials}).  Furthermore, nearly 50\% of naturally occurring xenon is $^{129}$Xe or $^{131}$Xe,
@@ -145,50 +146,94 @@ listed.}
 %====================================
 \section{Signal Production}
 \label{sec:scintillation}
-As radiation scatters off a xenon atom it will cause photon emission due to two effects.  The first is electrons excited to
-higher orbitals will quickly de-excite, with the energy carried away by photons.  The second possibility is ionized xenon may
-recombine with an
-electron (can but doesn't need to be its own), after which it is in an excited state equivalent to the first scenario.  In the
-context of this and other experiments the photons are observed as primary (or prompt) scintillation.  Secondary scintillation results from
-electrons that do not recombine and is measured only in a time-projection
-chamber (TPC).  This chapter only considers interactions in xenon in the presence of an electric field, unless otherwise
-specified.
+A particle may scatter with the electron shell or nucleus of a xenon atom.  In the case of the former - known as an electronic recoil - the
+particle transfers some or all of its energy to a valence electron, ionizing the atom.  The electron is ejected into the surrounding xenon
+where it
+excites and ionizes additional atoms until its energy is depleted and it comes to rest.  Scatters with the nucleus - or nuclear
+recoils - result in a recoiling atom.  Like electronic recoils, they excite and ionize nearby xenon atoms.  However,
+they also transfer energy as heat, which cannot be measured in time projection chambers (\secref{sec:tpcs}).\footnote{To date heat has not
+been observed in electronic recoils.}  The process is shown in \figref{fig:interaction_channels}.  This chapter only considers interactions
+in xenon in the presence of an electric field, unless otherwise specified.
 
 
 
 %========
 \subsection{Primary Scintillation}
 \label{subsec:primary}
-When a particle scatters off a xenon atom it can excite or ionize its valence electrons.  A freed electron can escape or recombine with a
-Xe$^{+}$.  Excitons Xe$^{*}$ can bond with another Xe atom to create
-dimers, Xe$_{2}^{*}$, commonly referred to as excimers.  The processes of recombination is shown in \eqnref{eq:recomb}, where $Q$
-represents heat.
+Some fraction of atoms that interact with the recoiling electron or atom are left in excited states.  Electrons that are ionized
+can escape or recombine with
+Xe$^{+}$ (details of recombination are discussed in \secref{subsec:recombination}).  The process of recombination is shown in
+\eqnref{eq:recomb} where $Q$ represents heat from the de-excitation of the doubly excited xenon atom.
 
-If the interaction occurs in an electric field some $e^{-}$ will be pulled from the site, which lowers recombination and therefore
-decreases primary
-scintillation and increases secondary scintillation (\secref{subsec:secondary}).  The extent to which recombination changes depends on the
-strength of the electric
-field.  However, even without a field there will not be
-100\% recombination because some of the freed $e^{-}$ will escape the electromagnetic pull of their parent ions.
-
-\vspace{-20pt}
+\vspace{-25pt}
 
 \begin{subequations}
 \begin{align}
 \mathrm{Xe}^{+} + \mathrm{Xe} &\rightarrow \mathrm{Xe}_{2}^{+} \\
-\mathrm{Xe}_{2}^{+} + e^{-} &\rightarrow \mathrm{Xe}^{**} + \mathrm{Xe} \\
+\mathrm{Xe}_{2}^{+} + e^{-} &\rightarrow \mathrm{Xe}^{**} + \mathrm{Xe} \label{eq:recomb_dimer_ionized} \\
 \mathrm{Xe}^{**} &\rightarrow \mathrm{Xe}^{*} + Q
 \end{align}
 \label{eq:recomb}
 \end{subequations}
 
-\vspace{-20pt}
+\vspace{-25pt}
 
-The Xe$^{*}$ that results from recombination is equivalent to if it had only ever been excited.  At this point
-it de-excites via \eqnref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
-($^{1}\Sigma$) or triplet ($^{3}\Sigma$) state and quickly de-excites to the ground state.
+The fraction of electrons and ions that recombine depends on whether an electric field exists at the interaction
+site, and its magnitude (with no field there may still be less than 100\% recombination, and the timescale will be long enough that
+only a fraction occurs in the expected window).  Electrons that escape recombination are discussed in \secref{subsec:secondary}.
 
-\vspace{-20pt}
+\eqnref{eq:recomb} shows that excitons result from electron-ion recombination in addition to xenon atoms that are initially
+excited by the recoiling electron or atom.  Recoils with high exciton densities may undergo biexcitonic quenching
+
+\vspace{-25pt}
+
+\begin{subequations}
+\begin{align}
+\mathrm{Xe}^* + \mathrm{Xe}^* &\rightarrow \mathrm{Xe}_2^{**} \\
+\mathrm{Xe}_2^{**} &\rightarrow \mathrm{Xe} + \mathrm{Xe}^+ + e^-
+\end{align}
+\label{eq:biexcitonic_quenching}
+\end{subequations}
+
+\vspace{-25pt}
+
+\noindent for some fraction of \ce{Xe^*}.  The \electron is freed with kinetic energy
+$E_{\mathrm{kin}} = 2E_{\mathrm{ex}} - E_{\mathrm{g}}$ where $E_{\mathrm{ex}}$ and
+$E_{\mathrm{g}}$ are the exciton and band gap energies, respectively.  $E_{\mathrm{kin}}$ is too low to escape the Coulomb force from the
+\ce{Xe^+}, so the electron-ion pair quickly recombines.  The result is a single exciton instead of the original two, with the rest of the
+energy lost as heat.  Biexcitonic quenching is known to occur in nuclear recoils but has not been observed in electronic recoils.
+
+Xe$^{*}$ that do not undergo biexcitonic quenching bond with Xe to create excited dimers, Xe$_{2}^{*}$, commonly referred to as
+excimers.  The singlet ($^1 \Sigma_u^+$) and triplet ($^3 \Sigma_u^+$) excimer states have lifetimes of $3.1 \pm 0.7$ and
+$24 \pm 1\ \mathrm{ns}$,
+respectively \citeref{Mock2014}.  Singlet-to-triplet ratios have been measured to vary across recoil type and are shown in
+\tabref{tab:singlet_to_triplet}.  It has been proposed that singlets which undergo superelastic collisions with thermal electrons may form
+triplets \citeref{Hitachi1983}.  This hypothesis is supported by observations of singlet quenching in the gaseous state \citeref{Lorents1976}
+and slower
+recombination amongst low linear energy transfer tracks (\secref{subsec:stopping_power}), which allows more time for superelastic
+collisions.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{interaction_channels}
+\caption[Signal generation pathways for electronic and nuclear recoils.]{Signal generation pathways for electronic and nuclear
+recoils.  Energy is split into heat, light, and charge.  Superelastic collisions (SEC) result in singlet quenching.}
+\label{fig:interaction_channels}
+\end{figure}
+
+$\mathrm{Xe}_2^*$ may be quenched via the Penning process
+
+\begin{equation}
+\mathrm{Xe}_2^* + \mathrm{Xe}_2^* \rightarrow 2\mathrm{Xe} + \mathrm{Xe}_2^+ + e^-
+\end{equation}
+
+\noindent where the last two terms on the right side equation recombine according to \eqnref{eq:recomb_dimer_ionized}.  Like biexcitonic
+quenching, Penning collisions are only relevant for high density tracks, and lead to a single excimer, with excess energy lost to heat.  Thus
+these do not need to be considered for electronic recoils, but do for nuclear recoils.
+
+Excimers that are not quenched will de-excite to the ground state
+
+\vspace{-25pt}
 
 \begin{subequations}
 \begin{align}
@@ -198,49 +243,38 @@ it de-excites via \eqnref{eq:deexcite}.  Xe$_{2}^{*}$ is in either a singlet
 \label{eq:deexcite}
 \end{subequations}
 
-\vspace{-20pt}
+\vspace{-25pt}
 
-The average \gammaray in \eqnref{eq:deexcite_gamma} has a wavelength of 178 nm.  The number of photons is
-anti-correlated with the number of electrons, since for each \electron that
-recombines with xenon a \gammaray is emitted.  The lifetimes for the singlet and triplet
-excimers are $3.1 \pm 0.7$ ns and $24 \pm 1$ ns, respectively \citeref{Mock2014}.  The singlet-to-triplet ratios for
-a number of different interactions are shown in \tabref{tab:singlet_to_triplet}.  Detecting WIMPS requires differentiating between
-scatters with the xenon electron shells (electronic recoils) and nucleus (nuclear recoils).  \tabref{tab:singlet_to_triplet} shows
-nuclear recoils result in a higher fraction of singlet states.  Unfortunately the $^1\Sigma$ and $^3\Sigma$ lifetimes
-are too short to resolve so they cannot be used for discrimination.  This makes single-phase LXe detectors
-less desirable than liquid argon (LAr), which has single and triplet state lifetimes of ${<}\, 6.2$ ns and $1.30 \pm 0.06\ \mathrm{\mu s}$
-\citeref{Heindl2011}.
+\noindent where the photon has a mean wavelength of 178 nm.  Thus, ignoring quenching \eqnref{eq:recomb,eq:deexcite} show that for each
+electron lost due to recombination a photon is gained, i.e. $-1e^- = +1\gamma$.
+
+Because the $^1\Sigma_u^+ / ^3\Sigma_u^+$ ratio changes with recoil type, the
+time distribution of photons could in principle be used to help ascertain the source.  Unfortunately the lifetimes are two short to be
+resolved in our detector, which records in 10 ns intervals.\footnote{While xenon is advantageous as described in \secref{sec:properties}, one
+advantage of liquid argon is the singlet lifetime of ${<}\, 6.2\ \mathrm{ns}$ is much shorter than that of the triplet,
+$1.30 \pm 0.06\ \mathrm{\mu s}$ \citeref{Heindl2011}.}  These photons produce the first of two observables in time projection chambers,
+known as primary scintillation, or an S1.
 
 \begin{table}[t]
  \centering
  \begin{tabular}{ccc}
  \hline
  \hline
- Event & $^1\Sigma / ^3\Sigma$ & Reference \\
+ Recoil type & $^1\Sigma_u^+ / ^3\Sigma_u^+$ & Reference \\
  \hline
- ER (direct excitation from $\gamma$) & $0.17 \pm 0.05$ & \\
- ER (recombination from $\gamma$) & $0.8 \pm 0.2$ & \\
- ER (from $\alpha$) & $2.3 \pm 0.51$ & \\
- NR (from neutron) & $7.8 \pm 1.5$ & \\
+ ER $\mathcal{O}(\mathrm{keV})$ & $0.042 \pm 0.006\ (\mathrm{stat})_{-0.034}^{+0.092}\ (\mathrm{sys})$ & \citeref{Akerib2018} \\
+ ER $\mathcal{O}(1 \mdash 10\ \mathrm{keV})$ & $0.043_{-0.018}^{+0.016}\ \mdash \ 0.145_{-0.019}^{+0.018}$ & \citeref{Takiya2016} \\
+ ER $\mathcal{O}(0.5 \mdash 1\ \mathrm{MeV})$ & 0.05 & \citeref{Kubota1978} \\
+ NR & $0.269 \pm 0.034\ (\mathrm{stat})_{-0.083}^{+0.182}\ (\mathrm{sys})$ & \citeref{Akerib2018} \\
+ $\alpha$ & $0.45 \pm 0.07$ & \citeref{Hitachi1983} \\
+ Fission fragment & $1.6 \pm 0.2$ & \citeref{Hitachi1983} \\
  \hline
  \hline
  \end{tabular}
- \caption{Error-weighted average of world data for single-to-triplet ratios for various scattering cases \citeref{Mock2014}.}
+ \caption{Singlet-to-triplet ratios for ER, NR, $\alpha$-decays, and fission fragments.  Values from
+ \citeref{Takiya2016, Kubota1978} are converted from the fraction of all excimers that are singlets.}
 \label{tab:singlet_to_triplet}
 \end{table}
-
-\figref{fig:interaction_channels} shows the interaction
-channels of $\beta$- or $\gamma$-induced xenon recoils described in \eqnref{eq:recomb} and \eqnref{eq:deexcite}.  It does not not show
-photon quenching due to biexcitonic quenching or the Penning process, which are important in nuclear recoils
-(\secref{subsec:recombination}).
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{interaction_channels}
-\caption[Signal generation pathways for electronic and nuclear recoils.]{Signal generation pathways for electronic and nuclear
-recoils.  Energy is split into heat, light, and charge.  Some electrons will recombine with ions.}
-\label{fig:interaction_channels}
-\end{figure}
 
 
 
@@ -248,21 +282,20 @@ recoils.  Energy is split into heat, light, and charge.  Some electrons will rec
 %========
 \subsection{Secondary Scintillation}
 \label{subsec:secondary}
-In an electric field $E$ an \electron that is freed but does not recombine with its parent or other ions will move anti-parallel
-to the field at drift velocity $v_{d}$.  At fields of ${\lesssim}\, 100\ \mathrm{V\ cm^{-1}}$ the drift velocity is nearly proportional to
-$E$ and is given by $v_{d} = \mu E$
+If the interaction occurs in an electric field $E$, $e^{-}$ that do not recombine will move anti-parallel to the field at drift velocity
+$v_d$.  Larger electric fields have lower recombination as the electromagnetic force from $E$ opposes that of the \ce{Xe^+}, leading to small
+S1s.  At fields of ${\lesssim}\, 100\ \mathrm{V\ cm^{-1}}$ the drift velocity is nearly proportional to $E$ and is given by $v_{d} = \mu E$
 where $\mu$ is the electron mobility, estimated to be ${\sim}2200\ \mathrm{cm^{2}\ V^{-2}\ s^{-1}}$ at these fields
-\citeref{Miller1968}.  As
-$E$ increases $v_{d} \propto E^{1/2}$ until approximately $10^4\ \mathrm{V\ cm^{-1}}$ where it flattens at
+\citeref{Miller1968}.  As $E$ increases $v_{d} \propto E^{1/2}$ until approximately $10^4\ \mathrm{V\ cm^{-1}}$ where it flattens at
 ${\sim} 3\ \mathrm{mm\ \mu s}$.  \figref{fig:drift_velocity} shows \vd
 as a function of $E$ and \tabref{tab:drift_velocity} gives the approximate relationship.
 
 In liquid noble gas detectors used for dark matter searches electrons are drifted to the surface of the liquid and
 extracted across ${\sim}5\ \mathrm{mm}$ of xenon gas.  As the electrons drift across the gas they excite and ionize new xenon atoms,
-creating a second signal referred to as secondary scintillation.  Because the amount of scintillation
+creating a second signal referred to as secondary scintillation, referred to as an S2.  Because the amount of scintillation
 produced per electron is independent of the number of electrons extracted this is also known as proportional scintillation.  By
 measuring this scintillation the number of \electron extracted can be determined.  Details of \electron drift and proportional
-scintillation is found in \secref{subsec:tpcs_working_principle}.
+scintillation are found in \secref{subsec:tpcs_working_principle}.
 
 \begin{table}
  \centering
@@ -325,6 +358,8 @@ MeV.  The total stopping power is
 \begin{equation}
 \bigg( \frac{dE}{dx} \bigg)_{\mathrm{tot}} = \bigg( \frac{dE}{dx} \bigg)_{\mathrm{elec}} + \bigg( \frac{dE}{dx} \bigg)_{\mathrm{nucl}}
 \end{equation}
+
+\vspace{5pt}
 
 \noindent and is shown as the solid lines in \figref{fig:mass_stopping_power}.  The mean path length of a particle with initial energy
 $E_0$ can be approximated by
@@ -408,6 +443,8 @@ As a result of these disparities another model was proposed that includes diffus
 recombination depends on
 the density of \electron and ions independently \citeref{Jaffe1913}.  Its derivation comes by
 
+\vspace{-15pt}
+
 \begin{subequations}
 \begin{align}
 \frac{\partial N_{+}}{\partial t} &= -u_{+} \mathbf{E}_d \cdot \nabla N_{+} + d_{+} \nabla^{2} N_{+} - \alpha N_{+} N_{-}
@@ -418,6 +455,8 @@ the density of \electron and ions independently \citeref{Jaffe1913}.  Its deriva
 \label{eq:diff_plus_mins}
 \end{subequations}
 
+\vspace{-15pt}
+
 \noindent where $N_{\pm}$ are the ion ($+$) and electron ($-$) charge distributions ($N_+ = N_-$), $\mu_{\pm}$ are their mobilities,
 $d_{\pm}$ and $\alpha$
 are the coefficients for diffusion and recombination, and $\mathbf{E}_d$ is the electric field.  The terms on the right sides of
@@ -425,6 +464,8 @@ are the coefficients for diffusion and recombination, and $\mathbf{E}_d$ is the 
 diffusion in xenon is small (millimeters per drift meter \citeref{Deiters1981}) and can be ignored.  Likewise the ion mobility $\mu_{+}$
 is several orders of magnitude smaller than that
 of the electron and is disregarded.  Thus \eqnref{eq:diff_plus_mins} can be simplified to
+
+\vspace{-20pt}
 
 \begin{subequations}
 \begin{align}
@@ -493,19 +534,8 @@ ${\sim} 10\ \mathrm{kV\ cm^{-1}}$
 (for electrons this is nearly 100\%) \citeref{Chepel2013}.  The consistency in charge collection across different fields causes
 difficulties in distinguishing recombination from excitation.
 
-Birk's saturation law explains biexcitonic quenching and the Penning process, which play major roles in nuclear recoils.  Biexcitonic
-quenching occurs as
-
-\begin{equation}
-\mathrm{Xe}^{*} + \mathrm{Xe}^{*} \rightarrow \mathrm{Xe} + \mathrm{Xe}^{+} + e^{-}
-\label{eq:biexcitonic_again}
-\end{equation}
-
-\noindent where the \electron escapes with kinetic energy $E = 2E_{\mathrm{ex}} - E_{\mathrm{g}}$ where $E_{\mathrm{ex}}$ and
-$E_{\mathrm{g}}$ are the energies of an exciton and band gap, respectively.  The \electron will quickly lose its energy and recombine,
-resulting in the emission of a single photon instead of two from the initial excitons.  A second quenching comes from collisions between
-excimers via the Penning process that results in an excited and ground molecular states \citeref{Mei2008}.  For nuclear recoils these
-quenching factors can be parameterized by
+Birk's saturation law explains biexcitonic quenching and the Penning process (\secref{subsec:primary}), which play major roles in nuclear
+recoils.  For nuclear recoils these quenching factors can be parameterized by
 
 \begin{equation}
 f_{b} = \frac{1}{1 + k_B B \frac{dE}{dx}}
@@ -591,7 +621,7 @@ energy region of interest ($E < 20\ \mathrm{keV}$), and is shown as the red dott
 \end{figure}
 
 
-\subsection[$\beta$-Decays][$\beta$-Decays]{$\mathbf{\beta}$-Decays}
+\subsection[$\beta$-decays][$\beta$-decays]{$\boldsymbol{\beta}$-decays}
 \label{subsec:beta}
 \betadecays are the emission of an electron-antineutrino (positron-neutrino) from a neutron (proton).  As with photons, they interact
 with the \electron shell and produce electronic recoils.  Because the neutrino carries
@@ -686,16 +716,16 @@ by the getters from the LXe before they decay, as will with stable daughters \ce
 \def\arraystretch{1.2}
 \begin{table}
  \centering
- \begin{tabular}{cccc}
+ \begin{tabular}{cr@{}lccc}
  \centering
- Isotope & Decay & Energy [keV] & Half-Life \\
+ Isotope & \multicolumn{2}{c}{Decay} & Energy [keV] & Half-Life \\
  \hline
- \ce{^{125}Xe} & $\ce{^{125}Xe} \rightarrow \ce{^{125}I} + e^{+} + \nu_{e}$ & 622.17 & 16.89 h \\
-  & $\ce{^{125}I} + e^{-} \rightarrow \ce{^{125}Te} + \nu_{e}$ & 185.77 & 59.38 d \\
- \ce{^{127}Xe} & $\ce{^{127}Xe} + e^{-} \rightarrow \ce{^{127}I} + \nu_{e}$ & 662.33 & 36.34 d \\
- \ce{^{133}Xe} & $\ce{^{133}Xe} \rightarrow \ce{^{133}Cs} + e^{-} + \overline{\nu}_e$ & 427.36 & 5.24 d \\
- \ce{^{135}Xe} & $\ce{^{135}Xe} \rightarrow \ce{^{135}Cs} + e^{-} + \overline{\nu}_e$ & 1164.8 & 9.14 h \\
-  & $\ce{^{135}Cs} \rightarrow \ce{^{135}Ba} + e^{-} + \overline{\nu}_e$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
+ \ce{^{125}Xe} & $\ce{^{125}Xe}$\: & $\rightarrow \ce{^{125}I} + e^{+} + \nu_{e}$ & 622.17 & 16.89 h \\
+  & $\ce{^{125}I} + e^{-}$\: & $\rightarrow \ce{^{125}Te} + \nu_{e}$ & 185.77 & 59.38 d \\
+ \ce{^{127}Xe} & $\ce{^{127}Xe} + e^{-}$\: & $\rightarrow \ce{^{127}I} + \nu_{e}$ & 662.33 & 36.34 d \\
+ \ce{^{133}Xe} & $\ce{^{133}Xe}$\: & $\rightarrow \ce{^{133}Cs} + e^{-} + \overline{\nu}_e$ & 427.36 & 5.24 d \\
+ \ce{^{135}Xe} & $\ce{^{135}Xe}$\: & $\rightarrow \ce{^{135}Cs} + e^{-} + \overline{\nu}_e$ & 1164.8 & 9.14 h \\
+  & $\ce{^{135}Cs}$\: & $\rightarrow \ce{^{135}Ba} + e^{-} + \overline{\nu}_e$ & 268.66 & $2.315 \times 10^{6}\ \mathrm{y}$ \\
  \hline
  \end{tabular}
  \caption{Radioactive isotopes of Xe produced from neutron capture.  Decays are shown to stable elements along with decay energies and
@@ -911,7 +941,7 @@ diffusion coefficients $D_{L}$ and $D_{T}$ are dependent on the electric field w
 be written as $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the electron drift time and $d$ is the drift distance.
 
 Impurities that outgas from detector materials mix into the gas and liquid.  Electronegative impurities in particular are a problem
-because they attach to drifting $e^{-}$ and
+because they trap drifting $e^{-}$ and
 lower the number that reach the liquid-gas interface.  The attachment process
 is \eqnref{eq:impurity_attach}.
 

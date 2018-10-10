@@ -201,6 +201,7 @@
 \newcommand{\josa}{Journal of the Optical Society of America}
 \newcommand{\jpc}{Journal of Physical Chemistry}
 \newcommand{\jpcm}{Journal of Physics: Condensed Matter}
+\newcommand{\jpcss}{Journal of Physics C}
 \newcommand{\jpdap}{Journal of Physics D}
 \newcommand{\jpgnp}{Journal of Physics G}
 \newcommand{\jvst}{Journal of Vacuum Science and Technology}
@@ -213,6 +214,7 @@
 \newcommand{\nimpra}{Nuclear Instruments and Methods in Physics Research A}
 \newcommand{\npb}{Nuclear Physics B}
 \newcommand{\pasp}{Publication of the Astronomical Society of the Pacific}
+\newcommand{\pbc}{Physica B+C}
 \newcommand{\pdu}{Physics of the Dark Universe}
 \newcommand{\physpro}{Physics Procedia}
 \newcommand{\physrep}{Physical Reports}
@@ -236,6 +238,22 @@
 \newcommand{\statsci}{Statistical Science}
 \newcommand{\universe}{Universe}
 
+\makeatletter \def\clearforchapter{\clearpage\if@twoside \ifodd\c@page\else \hbox{}\vfill\begin{center}This page intentionally left blank.\end{center}\vfill \thispagestyle{cleared}%
+\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}\makeatother
+
+
+
+\newcommand*{\blankpage}{%
+\vspace*{\fill}
+{\centering This page is intentionally left blank.\par}
+\vspace{\fill}}
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+\blankpage
+\thispagestyle{empty}
+\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
 
 % look at (22; 31; 49; 71; 142; 169; 203) in Aprile2009 for info on purification methods
 
@@ -246,7 +264,21 @@
 %\usepackage[backend=bibtex8,style=authoryear,texencoding=utf8,bibencoding=utf8]{biblatex} %The command here uses biblatex to render your bibliography, and it tells biblatex to use Unicode fonts. You can change the style of your citations easily by changing the value for "style" -- I use authoryear-icomp which takes care of the id/ibid citations automatically. There are many styles available if you want to change it.
 %I have tried to use biber instead of biblatex many times, but it's never worked properly for me. I use biblatex, but feel free to try biber instead. 
 
-\usepackage[backend=bibtex,style=ieee]{biblatex} 
+%\usepackage[backend=bibtex,sorting=none]{biblatex}
+%\usepackage[%
+%  bibstyle=ieee,
+%  citestyle=numeric,
+%  isbn=true,
+%  doi=false,
+%  sorting=none,
+%  url=true,
+%  defernumbers=true,
+%  bibencoding=utf8,
+%  backend=bibtex
+%]{biblatex}
+\usepackage[backend=bibtex,bibstyle=ieee,sorting=none,style=numeric-comp]{biblatex}
+\renewbibmacro{in:}{}
+%\usepackage[backend=bibtex,style=ieee]{biblatex}
 \addbibresource{./bibliography.bib} %Your bibliography file. I use JabRef to keep track of my bibliography. Highly recommended, and free! You can use Zotero if you want, but I've had trouble exporting to .bib files from my Zotero database.
 \setlength{\bibitemsep}{\baselineskip} %Skip lines between bibliography entries. Columbia requires that you skip a line between entries.
 
@@ -283,6 +315,8 @@
 
 \makepagestyle{cu}
 \copypagestyle{cu}{ruled}
+	\makeevenhead{cu}{}{\leftmark}{}
+	\makeoddhead{cu}{}{\rightmark}{}
 	\makeevenfoot{cu}{}{\thepage}{}
 	\makeoddfoot{cu}{}{\thepage}{}
 
@@ -300,15 +334,20 @@
 \maxtocdepth{subsubsection}
 
 \frontmatter
-\tableofcontents % You need to put your ToC after frontmatter so that it will get lowercase Roman numerals.
-\cleardoublepage
+\begin{KeepFromToc}
+        \pagestyle{plain}\tableofcontents{\protect\thispagestyle{plain}} % You need to put your ToC after frontmatter so that it will get lowercase Roman numerals.
+\end{KeepFromToc}
+%\clearpage
+%\tableofcontents % You need to put your ToC after frontmatter so that it will get lowercase Roman numerals.
+%\cleardoublepage
 
 %A list of graphs and illustrations should go here if you use any.
-\listoffigures
-\cleardoublepage
+\pagestyle{plain}\listoffigures{\protect\thispagestyle{plain}}
+%\listoffigures
 
 % Acknowledgements
-\include{./FrontMatter/Acknowledgments}
+\pagestyle{plain}\include{./FrontMatter/Acknowledgments}
+%\include{./FrontMatter/Acknowledgments}
 
 % Dedication
 \include{./FrontMatter/Dedication}
@@ -325,9 +364,9 @@
 %I use subdirectories for each part of my dissertation just to keep the files tidy. LaTeX generates a lot of different files for output, and using subdirectories allows you to find your .tex files more easily.
 
 \include{./Chapter1/Chapter1}
-\include{./Chapter2/Chapter2}
-\include{./Chapter3/Chapter3}
-\include{./Chapter4/Chapter4}
+%\include{./Chapter2/Chapter2}
+%\include{./Chapter3/Chapter3}
+%\include{./Chapter4/Chapter4}
 \include{./Chapter5/Chapter5}
 %\include{./Conclusion/Conclusion}
 

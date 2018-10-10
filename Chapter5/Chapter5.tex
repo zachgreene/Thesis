@@ -4,36 +4,36 @@
 
 \pagestyle{cu}
 \graphicspath{{./Chapter5/Figures/}}
-\chapter[Purity and the Electron Lifetime][Purity and the Electron Lifetime]{Purity and the Electron Lifetime}
+\chapter[Measurements and a Time-Dependent Model of the Electronegative Impurity Concentration][Measurements and a Time-Dependent Model of the Electronegative Impurity Concentration]{Measurements and a Time-Dependent Model of the Electronegative Impurity Concentration}
 \label{chap:purification}
 
-In a noble element dark matter detection experiment the purity of the target mass is an essential consideration and must be consistently
-measured.  The effects of electronegative impurities - which attenuate light and charge - are easily measured through the electron
-lifetime.  However, a reliable model for the evolution of the impurities does not exist to explain and predict the behavior.
+In a liquid noble element dark matter detection experiment the purity of the target mass is essential and must be
+consistently measured.  Purity usually refers to two distinct but often correlated groups.  The first is background contamination from
+radioactive isotopes of noble elements distributed throughout the sensitive volume.  For xenon
+the primary challenges are \ce{^{85}Kr} (\secref{subsubsec:backgrounds_electronic_krypton}) and \ce{^{222}Rn}
+(\secref{subsubsec:backgrounds_electronic_radon}), since \betadecays at ${\lesssim}\, 20\ \mathrm{keV}$ are inside the region of
+interest.  The concentration of electronegative impurities - which attenuate light and charge - are calculated from electron
+lifetime measurements.  A physics model for the time-dependent impurity concentration evolution could explain and
+predict the behavior - however, such a model did not exist.
 
-This chapter focuses on the effects of impurities (\secref{sec:importance_procedure_effects}), electron lifetime measurements
-(\secref{sec:electron_lifetime_measurements}), the derivation of the electron lifetime model (\secref{sec:electron_lifetime_model}), and
-the results (\secref{sec:elifetime_fit}).  Finally, purification for the next generation XENON experiment, XENONnT, is outlined
-(\secref{sec:xenonnt}).
+This chapter focuses on the effects of electronegative impurities (\secref{sec:importance_procedure_effects}), electron lifetime measurements
+(\secref{sec:electron_lifetime_measurements}), and the derivation (\secref{sec:electron_lifetime_model}) and results of an electronegative
+impurity evolution model (\secref{sec:elifetime_fit}).  Finally, purification for the next generation XENON experiment, XENONnT, is briefly
+outlined (\secref{sec:xenonnt}).
 
 
 
 \section{Effects of Electronegative Impurities}
 \label{sec:importance_procedure_effects}
-Electronegative impurities mainly come from outgassing from detector materials.
-
-Impurity usually refers to two distinct but correlated group, though the degree of the correlation can depend on the
-experiment.  The first is background contamination from radioactive elements of other noble elements inside the TPC.  For xenon
-the primary challenges are \ce{^{85}Kr} (\secref{subsubsec:backgrounds_electronic_krypton}) and \ce{^{222}Rn}
-(\secref{subsubsec:backgrounds_electronic_radon}) as they have low-energy decays that can reach our region of interest.
-
-The second type is the density of electronegative impurities such as \ce{O_2} or
-\ce{N_2}, which attach to drifting electrons, lowering or even eliminating the S2.  This can have the largest impact at low energies
-since the number of \electron is much fewer.  To correct for the expected initial number of electrons we can use the electron lifetime
-$\tau_{\mathrm{e}}$.  Of course, if the entire cloud of electrons is
-removed by these impurities we cannot apply a correction since we have no knowledge of where in the detector it occurred or the energy
-deposition.  Even if some electrons make it to the surface a low electron lifetime creates more uncertainty when correcting the S2.  This
-chapter is focused electronegative impurities, though its examination necessitates consideration of the radioactive background
+Drifting electrons attach to electronegative impurities, such as \ce{O_2} and \ce{N_2}, lowering or possibly eliminating the S2
+(\eqnref{eq:er_nr_calibrations_parameter_determ_det_phys_prob_elifetime}).  This
+is most worrisome at low energies
+where there are fewer $e^-$.  To correct for the loss of electrons, an electron lifetime
+$\tau_{\mathrm{e}}$ correction is applied.  If the entire electron cloud is
+absorbed a correction is not possible since no knowledge of the energy or position exists.  Lower electron lifetimes create greater
+uncertainty when reconstructing the initial number of electrons, which can negatively impact
+analyses.  While this
+chapter is focused on electronegative impurities, its examination at times necessitates consideration of the radioactive background
 concentration.
 
 \subsection{Photon Attenuation}
@@ -49,26 +49,27 @@ distances are required.  The intensity drop due to photon attenuation is given b
 I(x) = I_0 e^{-x / \lambda_{\mathrm{att}}}
 \end{equation}
 
-\noindent where $I_0$ is initial intensity, $x$ is distance, and $\lambda_{\mathrm{att}}$ is the attenuation length, and
+\noindent where $I_0$ is the initial intensity, $x$ is distance, and $\lambda_{\mathrm{att}}$ is the attenuation length, and
 $1 / \lambda_{\mathrm{att}} = 1 / \lambda_{\mathrm{abs}} + 1 / \lambda_{\mathrm{scatt}}$ where $\lambda_{\mathrm{abs}}$ and
 $\lambda_{\mathrm{scatt}}$ are the the absorption and scattering lengths, respectively.  The absorption length describes loss of
 photons due to absorption by an element or molecule while the scattering length describes the elastic scattering of photons.  For
 perfectly pure xenon
 $\lambda_{\mathrm{abs}} \sim \infty$ (\citeref{Baldini2005} found $\lambda_{\mathrm{abs}} > 100\ \mathrm{cm}$ at 90\% confidence
-level).
+level).  The scattering length describes the elastic scattering of photons and is dominated by Rayleigh scattering.  Measurements and
+calculations estimate $\lambda_{\mathrm{scatt}} \sim 29 \mdash 50\ \mathrm{cm}$ \citeref{Ishida1997, Seidel2002, Chepel1994, Braem1992}.
 
-High levels of impurities, however, can shorten the absorption
+Higher levels of impurities shorten the absorption
 length.  \figref{fig:importance_procedure_effects_photons_absorption_coefficents} shows the absorption coefficients
 ($\lambda_{\mathrm{abs}}^{-1}$) for 1 ppm \htwoo and \otwo from $130 \mdash 200\ \mathrm{nm}$.  They overlap with shorter wavelengths
-of the xenon spectrum (included for comparison), meaning light detected by PMTs will have an asymmetric distribution.  With a nearly
-1-meter tall detector a 1 ppm concentration of \htwoo would have at 10\% effect or more at ${\lesssim}\, 180\ \mathrm{nm}$.
+of the xenon spectrum, causing light detected by PMTs to have an asymmetric distribution.  With a
+1-meter tall detector, a 1 ppm concentration of \htwoo would have a ${>}\,10\%$ effect at ${\lesssim}\, 180\ \mathrm{nm}$.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{absorption_spectra}
-\caption[Absorption coefficient for photons at 1 ppm \ce{H_2O} vapor and \ce{O_2}.  The Xe scintillation
-spectrum is overlaid for comparison.]{Absorption coefficient for photons at 1 ppm \ce{H_2O} vapor (solid red) and \ce{O_2} (dashed green).  The Xe scintillation
-spectrum is overlaid for comparison (dashed blue).  \ce{H_2O} impacts Xe scintillation considerably
+\caption[Absorption coefficients for 1 ppm \ce{H_2O} vapor and \ce{O_2}.  The Xe scintillation
+spectrum is overlaid for comparison.]{Absorption coefficients for 1 ppm \ce{H_2O} vapor (solid red) and \ce{O_2} (dashed green).  The Xe
+scintillation spectrum is overlaid for comparison (dashed blue).  \ce{H_2O} impacts Xe scintillation considerably
 more than \ce{O_2} when at the same concentration.  Image credit: \citeref{Ozone2005}, \ce{H_2O} data from \citeref{Yoshino1996}.}
 \label{fig:importance_procedure_effects_photons_absorption_coefficents}
 \end{figure}
@@ -76,9 +77,9 @@ more than \ce{O_2} when at the same concentration.  Image credit: \citeref{Ozone
 The relative intensities for different \ce{H_2O}/Xe and \ce{O_2}/Xe concentrations from $0 \mdash 60\ \mathrm{cm}$ are shown in
 \figref{fig:importance_procedure_effects_photons_absorption_distance}.  At the level of $\mathcal{O}(100)\ \mathrm{ppb}$ of
 oxygen $I / I_0 > 0.8$ at 60 cm.  The effect of water is substantially worse with $I / I_0 < 0.3$, highlighting the need for
-significant reduction LXe experiments.  Even with a LXe purity that is appreciably better than
-\figref{fig:importance_procedure_effects_photons_absorption_distance} $\lambda_{\mathrm{att}} \approx \lambda_{\mathrm{abs}}$ since
-the effects of scattering are subdominant with respect to absorption.
+significant reduction in LXe experiments.  Historically, detectors would have had $\lambda_{\mathrm{att}} \approx \lambda_{\mathrm{abs}}$
+since the effects of scattering would have been subdominant with respect to absorption.  For tonne-scale detectors $\lambda_{\mathrm{scatt}}$
+becomes relevant and leads to larger absorption as photons are forced to travel longer distances.
 
 \begin{figure}
 \centering
@@ -88,35 +89,36 @@ the effects of scattering are subdominant with respect to absorption.
 \label{fig:importance_procedure_effects_photons_absorption_distance}
 \end{figure}
 
-Photon attenuation ultimately increases our energy threshold as we are less sensitive to lower energies as few photons are
-measured.
+Higher photon attenuation increases the detector's energy threshold, as it is less likely to observe lower energy events where fewer photons
+are emitted.
 
 
 
 \subsection{Charge Depletion}
 \label{subsubsec:importance_procedure_effects_charge}
-As the electron cloud following a recoil drifts it diffuses
+As the electron cloud drifts, it diffuses
 longitudinally (in the direction of $E_{d}$) and transversely (perpendicular to $E_{d}$).  The
-diffusion coefficients $D_{L}$ and $D_{T}$ depend on the electric field with $D_{T}/D_{L} \sim 10$.  The electron spread is
+diffusion coefficients $D_{L}$ and $D_{T}$ depend on the electric field and have a ratio $D_{T}/D_{L} \sim 10$.  The electron spread is
 $\sigma_{D_{T}} = \sqrt{D_{T} t_{d}}$ where $t_{d} = d/v_{d}$ is the drift time and $d$ is the drift distance.
 
-The behavior of electrons can be classified according to their mobility in the limit of $E \rightarrow 0$, $\mu_0$.  When LXe is
-polarized by electrons its high polarizability ($4.0 \times 10^{-24}\ \mathrm{cm^3}$, highest for among noble gases) make it
+The behavior of electrons can be classified according to their mobility in the limit of $E_d\! \rightarrow \! 0$, $\mu_0$.  When LXe is
+polarized by electrons its high polarizability $4.0 \times 10^{-24}\ \mathrm{cm^3}$\footnote{Highest among noble gases.} makes it
 attract \electron and interact with nearby Xe atoms through dipole-dipole interactions.  The equilibrium of these two effects
 determines the potential energy of the ground state of electrons $V_0$, which is anti-correlated with $\mu_0$.  For LXe these have
 been measured to be $V_0 = -0.61 \pm 0.05\ \mathrm{K}$ \citeref{Tauchert1977} and $\mu_0 = 2200 \pm 200\ \mathrm{cm^2\ V^{-1}\ s^{-1}}$
-\citeref{Yoshino1976} at $165\ \mathrm{K}$ (in addition $\mu_0$ was found to be $1900$ and $2200\ \mathrm{cm^2\ V^{-1}\ s^{-1}}$
-at $163\ \mathrm{K}$ by \citeref{Yoshino1976} and \citeref{Miller1968}, respectively).  The large electron mobilities indicate the
-electrons are \textit{quasifree}, and have drift velocities that can exceed even those of GXe, as shown in
+\citeref{Yoshino1976} at $165\ \mathrm{K}$ (in addition, $\mu_0$ was found to be $1900$ \citeref{Yoshino1976} and
+$2200\ \mathrm{cm^2\ V^{-1}\ s^{-1}}$ \citeref{Miller1968}
+at $163\ \mathrm{K}$.  The large electron mobility indicates the
+electrons are \textit{quasifree}, and have drift velocities that can exceed those of GXe, as shown in
 \figref{fig:importance_procedure_effects_charge_drift_velocity}.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{drift_velocity_field}
-\caption[Drift velocity (here defined as $W$) dependence on reduced electric field $E_d/N$ where $N$ is the number of molecules per
-volume.]{Drift velocity (here defined as $W$) dependence on reduced electric field $E_d/N$ where $N$ is the number of molecules per
+\caption[Drift velocity dependence on reduced electric field $E_d/N$ where $N$ is the number of molecules per
+volume.]{Drift velocity (defined here as $W$) dependence on reduced electric field $E_d/N$ where $N$ is the number of molecules per
 volume.  Points are from experimental data \citeref{Gushchin1982, Huang1978, Wagner1967, Pack1992} and curves are from
-calculations.  $1\ \mathrm{Td} = 10^{-17}\ \mathrm{V\ cm^2}$.  LXe has a higher drift velocity than GXe at
+calculations.  LXe has a higher drift velocity than GXe at
 $E_d/N \lesssim 1\ \mathrm{Td}\ (1\ \mathrm{Td} = 10^{-17}\ \mathrm{V\ cm^2})$.  Image credit: \citeref{Atrazhev2005}.}
 \label{fig:importance_procedure_effects_charge_drift_velocity}
 \end{figure}
@@ -131,10 +133,9 @@ $\eta$ is the liquid viscosity and $\alpha = 1 \mdash 2$.  The diffusion coeffic
 \end{equation}
 
 \noindent where $\mathcal{F} = 0.5 \mdash 1$ depends on the electron distribution function (e.g. $\mathcal{F} = 2/3$ for a
-Maxwellian distribution).
-
-The mobilities for holes, \ce{TMSi^+}, $\mathrm{O_2^-}$, \ce{^{226}Th}, \ce{^{208}Tl}, and $\mathrm{Xe_2^+}$ in in LXe are listed in
-\tabref{tab:importance_procedure_effects_charge_mobilities}.  They are ${\sim} 10^6$ times smaller than the electron mobility.
+Maxwellian distribution).  The mobilities for holes, \ce{TMSi^+}, $\mathrm{O_2^-}$, \ce{^{226}Th}, \ce{^{208}Tl}, and $\mathrm{Xe_2^+}$ in
+LXe are listed in \tabref{tab:importance_procedure_effects_charge_mobilities}.  They are ${\sim} 10^6$ times smaller than the electron
+mobility.
 
 \begin{table}
 \centering
@@ -161,8 +162,8 @@ are ${\sim} 10$ times larger than ions.  Summarized data is given in \citeref{Ap
 \label{tab:importance_procedure_effects_charge_mobilities}
 \end{table}
 
-Hole mobility can be described by the hopping model of charge carrier transport.  In this temperature-dependent model charge is
-propagated through jumps between traps yielding
+Hole mobility can be described by the hopping model of charge carrier transport.  In this temperature-dependent model, charge is
+propagated via jumps between traps, yielding
 
 \vspace{-10pt}
 
@@ -180,7 +181,7 @@ propagated through jumps between traps yielding
 \end{equation}
 
 \noindent where $\omega_0$ is the phonon frequency and $P(\omega_0 / 2 \pi)$ is the tunneling probability between adjacent holes with
-activation energy $E_{\mathrm{a}}$.  \figref{fig:importance_procedure_effects_charge_hole_mobility} shows hole mobility in
+activation energy $E_{\mathrm{a}}$.  \figref{fig:importance_procedure_effects_charge_hole_mobility} shows the hole mobility in
 LXe.  The solid curve represents a model that parameterizes \eqnref{eq:importance_procedure_effects_charge_mobility_simple} as
 
 \vspace{-15pt}
@@ -190,7 +191,7 @@ b^3(T) = \sqrt{2} M / \rho (T)
 \end{equation}
 
 \noindent where $M$ is the atomic mass of xenon and $\rho (T)$ is the temperature-dependent density \citeref{Hilt1994b}.  It
-additionally assumes the hole is self-trapped between two rare atoms in a potential well, forming a polaron.  It gives a hole mobility of
+assumes the hole is self-trapped between two rare atoms in a potential well, forming a polaron.  It gives a hole mobility of
 
 \vspace{-5pt}
 
@@ -211,7 +212,7 @@ using \eqnref{eq:importance_procedure_effects_charge_mobility_polaron} is shown 
 \label{fig:importance_procedure_effects_charge_hole_mobility}
 \end{figure}
 
-As the electron cloud drifts electronegative impurities bond to \electron
+As the electron cloud drifts \electron attach via
 
 \vspace{-10pt}
 
@@ -220,11 +221,12 @@ e^{-} + S \rightarrow S^{-}
 \label{eq:impurity_attach}
 \end{equation}
 
-\noindent where $S$ refers to the impurity (e.g. $e^- + \mathrm{O_2} \rightarrow \mathrm{O_2^-}$).
+\noindent where $S$ refers to the electronegative impurity (e.g. $e^- + \mathrm{O_2} \rightarrow \mathrm{O_2^-}$).  There are several
+ways an electron may be trapped.
 
 \begin{enumerate}
-\item Radiative attachment is given by
-\vspace{-10pt}
+\item In radiative attachment a photon is emitted as the electron is trapped
+\vspace{-5pt}
 \begin{equation}
 e^- + XY \rightarrow XY^- + h \nu
 \end{equation}
@@ -233,50 +235,54 @@ e^- + XY \rightarrow XY^- + h \nu
 
 \noindent where $XY$ is some atom or molecule.
 
-\item Dissociative electron attachment (DEA) is when a low-energy electron bonds to a molecule causing it to fracture.  The process
+\item Dissociative electron attachment (DEA) occurs when a low-energy electron bonds to a molecule, causing it to fracture.  The process
 is given by
 
-\vspace{-10pt}
+\vspace{-25pt}
 
-\begin{equation}
-\begin{aligned}
-e^- + XY \rightarrow XY^* + e^- \rightarrow X^+ + Y^- + e^- \\
-e^- + XY \rightarrow XY^- \rightarrow X + Y^-
-\end{aligned}
-\end{equation}
+\begin{subequations}
+\begin{align}
+e^- + XY &\rightarrow XY^* + e^- \rightarrow X^+ + Y^- + e^- \\
+e^- + XY &\rightarrow XY^- \rightarrow X + Y^-
+\end{align}
+\end{subequations}
 
-\noindent where molecule $XY$ is separated into components $X$ and $Y$.  \ce{O_2} has 5.116 eV dissociation energy (the energy needed to
-separate the oxygen) and \ce{O^-} has electron affinity (energy released in forming ion) of 1.461 eV.
+\vspace{-5pt}
+
+\noindent where molecule $XY$ is separated into components $X$ and $Y$.  \ce{O_2} has a dissociation energy (the energy needed to
+separate the oxygen atoms) of 5.116 eV, and \ce{O^-} has an electron affinity (energy released in forming ion) of 1.461 eV.
 
 \item Three-body attachment proceeds via the two-stage Bloch-Bradbury reaction \citeref{Bloch1935, Herzenberg1969}
 
-\vspace{-15pt}
+\vspace{-30pt}
 
-\begin{equation}
-\begin{aligned}
-e^- + XY &\leftrightarrow (XY^-)* \\
+\begin{subequations}
+\begin{align}
+e^- + XY &\leftrightarrow (XY^-)^* \\
 (XY^-)^* + Z &\rightarrow XY^- + Z
-\end{aligned}
-\end{equation}
+\end{align}
+\end{subequations}
+
+\vspace{-5pt}
 
 \noindent where $Z$ is an atom or molecule from the majority gas population.  It carries out the bonding energy between the
-\electron and electronegative $XY$.  Oxygen was studied \citeref{Aleksandrov1993, Aleksandrov1981, Aleksandrov2009}.
+\electron and electronegative $XY$.  Oxygen was studied in \citeref{Aleksandrov1993, Aleksandrov1981, Aleksandrov2009}.
 \end{enumerate}
 
 
 
 \section{Measuring the Electron Lifetime}
 \label{sec:electron_lifetime_measurements}
-Mono-energetic radioactive decays are used to measure the electron lifetime.  For XENON1T electron lifetimes were calculated
-using elements distributed in the xenon, since external \gammaray sources such as \ce{^{137}Cs} and
-wall events could not reach the FV.  This was done primarily with $\mathrm{^{83m}Kr}$, $\mathrm{^{129m}Xe}$, $\mathrm{^{131m}Xe}$,
-\ce{^{212}Bi}, \ce{^{218}Po}, and \ce{^{222}Rn} (other lines such as the $39.6\ \mathrm{keV}$ of $\mathrm{^{129}Xe}$ and
-$80.2\ \mathrm{keV}$ of $\mathrm{^{131}Xe}$ during nuclear recoil calibrations were used but the short half-lifes made measurements
-difficult).  Information for each element is listed in \tabref{tab:electron_lifetimes_isotopes}.  An
-additional method of minimizing the \stwob width of the
-\ce{^{212}Pb} electronic recoil band to address a discrepancy between
+The electron lifetime $\tau_e$ is the time it takes for the charge to drop by a factor of $e$.  It is typically measured using mono-energetic
+radioactive decays.  For XENON1T electron lifetimes were calculated
+using elements distributed throughout the xenon, since external \gammaray sources such as \ce{^{137}Cs} and
+surface events could not reach the FV.  This was done primarily with $\mathrm{^{83m}Kr}$, $\mathrm{^{129m}Xe}$, $\mathrm{^{131m}Xe}$,
+\ce{^{212}Bi}, \ce{^{218}Po}, and \ce{^{222}Rn}.\footnote{Other lines such as the $39.6\ \mathrm{keV}$ of $\mathrm{^{129}Xe}$ and
+$80.2\ \mathrm{keV}$ of $\mathrm{^{131}Xe}$ during nuclear recoil calibrations were used but the short half-lifes (0.97 and 0.48 ns,
+respectively) made measurements difficult.}  Information for each element is listed in \tabref{tab:electron_lifetimes_isotopes}.  An
+additional method of minimizing the \stwob width of the \ce{^{212}Pb} electronic recoil band to address a discrepancy between
 $\mathrm{^{83m}Kr}$ and \alphadecays (\secref{subsec:electron_lifetimes_rn222_vs_kr83m}) was tried but the uncertainty was too large to
-draw any conclusions.
+draw any conclusion.
 
 
 
@@ -286,20 +292,20 @@ In the period immediately following XENON1T coming online the electron lifetime 
 the same time.  The first in-situ calibration was not performed until almost three months later and mono-energetic
 background decays had not yet been investigated, though \ce{^{222}Rn} and \ce{^{218}Po} would have had too few events in the top of the
 detector to be reliable anyways.  However,
-S2/S1 - though not energy-independent - was enough so to give reasonable estimates.  It was too early to have official cuts but
-the ones used were sufficient and based on a history of knowledge of TPC detectors.
+S2/S1 - though not energy-independent - was enough so to give reasonable estimates.  Official cuts had not yet been developed but
+those used were sufficient and based knowledge of previous experiments.
 
-S1 (S2) single scatter cuts required that the second largest S1 (S2) be ${<}\, 0.2$ that of the first.  The purpose of these cuts was to
+S1 (S2) single scatter cuts required that the second largest S1 (S2) be ${<}\, 0.2$ of the first.  The purpose of these cuts was to
 prevent S1-S2 mismatching: the S1 cut would
-remove the possibility that we do not observe the S2 of a scatter deep in the TPC, while the S2 eliminated any ambiguity in matching a
+remove the possibility that we do not observe the S2 of a scatter deep in the TPC, while the S2 cut eliminated ambiguity in matching a
 single S1 with two potential S2s.
 
 To reject noise at least three PMTs were required to observe the S1.  This is the same cut that was used in the dark matter
 analysis.  Finally, the fraction of light seen on the top PMT array must fall between $0.2 \mdash 0.6$ for S1s and $0.5 \mdash 0.9$ for
 S2s.
 
-On a few occasions a \ce{^{137}Cs} was placed outside the detector.  While the water and LXe self-shielding limited the fraction of
-radiation that made it inside the TPC, there were enough events for measurements.  This method was used until early August 2016.
+On a few occasions a \ce{^{137}Cs} was placed outside the detector.  Because the water and LXe self-shielding greatly reduced the fraction of
+radiation that reached the TPC, measurements required many hours of data taking.  This method was used until early August 2016.
 
 \begin{table}
 \centering
@@ -319,45 +325,44 @@ $\mathrm{^{131m}Xe}$ & $\gamma$ & $163.9\ \mathrm{keV}$ & 11.93 d & \secref{subs
 \end{tabular}
 \caption{Isotopes used for electron lifetime analysis.  Background \ce{^{222}Rn} and \ce{^{218}Po} \alphadecays allow continual
 monitoring but have relatively low statistics.  $\mathrm{^{83m}Kr}$ and \ce{^{212}Bi} have high statistics but are only available during
-calibrations.  Excited nuclear states $\mathrm{^{131m}Xe}$ and $\mathrm{^{129m}Xe}$ are present in background after nuclear recoil
-calibrations but their half-lifes limit their viability after several weeks.}
+calibrations.  Excited nuclear states $\mathrm{^{131m}Xe}$ and $\mathrm{^{129m}Xe}$ are present in the background after nuclear recoil
+calibrations, but their half-lifes limit their viability after several weeks.}
 \label{tab:electron_lifetimes_isotopes}
 \end{table}
 
 
 
-\subsection[$\alpha$-decays][$\alpha$-decays]{$\mathbf{\alpha}$-decays}
+\subsection[$\alpha$-decays][$\alpha$-decays]{$\boldsymbol{\alpha}$-decays}
 \label{subsec:electron_lifetimes_measurement_alphas}
 The high energy and substantial stopping power (\figref{fig:mass_stopping_power}) of $\alpha$ interactions causes a large fraction of
-electrons to recombine with their parent or nearby \ce{Xe^+} atoms.  Their S1s are significantly higher than electronic or nuclear recoils
-so are
-easily distinguishable.  Because they are so recognizable and do not scatter many of the cuts developed for the science run analysis are
-not necessary (some may not be reliable since they were developed using low-energy electronic recoils).  Therefore, just a small
-number of cuts are used.
+electrons to recombine with their parent or nearby \ce{Xe^+} atoms.  Their large energy and high recombination fraction create S1s that are
+easily distinguished from electronic or nuclear recoils.  Because they are so recognizable and do not scatter many of the cuts developed for
+the science run analysis are
+not necessary.\footnote{Because the science run cuts were developed using low-energy electronic recoils, they may be unreliable at high
+energy regardless of the interaction type.}  Therefore, only a small number of cuts are used.
 
 Events must have $r_{\mathrm{rec}} < 36.94\ \mathrm{cm}$.  This is in part for consistency with the First Results FV
-\citeref{Aprile2017f}, but also because the greatest inhomogeneities in the electric field are expected to be largest at the top,
-bottom, and
-sides of the TPC as seen in \figref{fig:xenon1t_tpc_efield}.  Changes in field will produce different light and charge yields
+\citeref{Aprile2017f}, but also because inhomogeneities in the electric field are expected to be smallest in the center of the TPC as
+seen in \figref{fig:xenon1t_tpc_efield}.  Changes in field produce different light and charge yields
 (\secref{subsec:det_char_ly_cy}), so the number of photons and electrons would vary according to position.  In addition, the impurity
-attachment rate dependence on field will cause the rate of electron removal to change inside the TPC
+attachment rate field-dependence will cause the rate of electron attachment to change inside the TPC
 (\secref{subsec:electron_lifetime_model_field}).  Finally, the radial cut removes \alphadecays near the wall that would lose drifting
 \electron to the PTFE.
 
 The fraction of light seen by the top PMTs from electroluminescence is tightly constrained by stable detector conditions
-(\eqnref{eq:electronlum}).  The percentage of events that fail this cut is small but it is important to remove any
+(\eqnref{eq:electronlum}).  The percentage of events that fail this cut is small, but it is important to remove any
 ``fake'' or gas events (a cut on the S1 fraction seen by the top PMTs will also remove GXe events).
 
-In addition data acquisition quality cuts are used in data selection.  The first is the high energy veto, which is triggered by a very
+In addition, data acquisition quality cuts are used for data selection.  The first is the high energy veto, which is triggered by a very
 large S2.  The second is produced by one or more digitizers nearly filling its memory buffer, and is called a busy veto.  The third is
 a busy type check, which removes events that have a busy signal anywhere in the waveform.  The final is an end of run check, which
-disqualifies the last 21 seconds per run (each run is 1 hour).  Details for each are given in \secref{subsec:xenon1t_daq}.
+disqualifies the last 21 seconds per run (each run is 1 hour).  Further details for each are given in \secref{subsec:xenon1t_daq}.
 
 \figref{fig:electron_lifetimes_measurement_alphas_s1} shows cS1 dependence on $z$ for the \alphadecays of \ce{^{222}Rn}
 (${\sim} 5.1 \times 10^4 \ \mathrm{PE}$) and \ce{^{218}Po} (${\sim} 5.6 \times 10^4\ \mathrm{PE}$) after these cuts.  The large
 S1s from events deep in the detector saturate PMTs in the bottom array, which leads to under-corrected cS1s as shown in the left
-panel.  To correct for this the data are split into slices in $z$ and fit in cS1 with gaussians.  Fits in the region
-$-40 \lesssim z \lesssim -10\ \mathrm{cm}$, where saturation is not present, are used to define the correct cS1 distribution, which is
+panel.  To correct for this, the data are split into slices in $z$ and fit in cS1 with gaussians.  Fits in the region
+$-40 \lesssim z \lesssim -10\ \mathrm{cm}$, where saturation is not present, are used to define the correct cS1 distribution, and
 extrapolated across the entire length of
 the TPC.  Differences in fit parameters are used to relocate events deeper in the detector into the proper cS1 band.  The
 $\alpha$-corrected cS1 distribution is shown in the right panel of \figref{fig:electron_lifetimes_measurement_alphas_s1}.
@@ -365,7 +370,7 @@ $\alpha$-corrected cS1 distribution is shown in the right panel of \figref{fig:e
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{rn_po_cs1_alpha}
-\caption[cS1 (left) and $\alpha$-corrected cS1 (right) dependence on $z$ for \ce{^{222}Rn} and \ce{^{218}Po} $\alpha$-decays.]{cS1 (left) and
+\caption[cS1 and $\alpha$-corrected cS1 dependence on $z$ for \ce{^{222}Rn} and \ce{^{218}Po} $\alpha$-decays.]{cS1 (left) and
 $\alpha$-corrected cS1 (right) dependence on $z$.  The large \alphadecay S1s deep in
 the TPC sature the bottom PMTs, causing an under-corrected cS1, which
 results in the distortion seen in the left panel.  Near the top ($z \gtrsim -5\ \mathrm{cm}$) a similar effect is observed from top PMT
@@ -375,16 +380,16 @@ the events selected to calculate $\tau_e$.  The colors of data markers correspon
 \end{figure}
 
 Even with the $\alpha$-corrected cS1s there is saturation near the very bottom of the TPC.  The saturation is so great
-here that events from \ce{^{222}Rn} and \ce{^{218}Po} cannot be distinguished from one another.  This is generally not a problem since it
-lays outside the fiducial volume.  There is also some distortion at $z \gtrsim -5\ \mathrm{cm}$ from events
+here that events from \ce{^{222}Rn} and \ce{^{218}Po} cannot be distinguished from one another.  This is in general not a problem since they
+lay outside the fiducial volume.  There is also some distortion at $z \gtrsim -5\ \mathrm{cm}$ from events
 near the LXe surface, whose light is tightly concentrated in the top PMT array.
 
 Selected \ce{^{222}Rn} and \ce{^{218}Po} events are indicated by red and blue boxes, respectively.  Events with $-89< z < -9\ \mathrm{cm}$
 and $4.9 \times 10^4 < \alpha \mdash \mathrm{corrected\ cS1} < 5.3 \times 10^4\ \mathrm{PE}$ (\ce{^{222}Rn}) and
 $5.35 \times 10^4 < \alpha \mdash \mathrm{corrected\ cS1} < 5.8 \times 10^4\ \mathrm{PE}$ (\ce{^{218}Po}) are used.  The electron
-lifetimes are calculated independently, which provides a nice cross-check.  Because the decay of \ce{^{222}Rn} can leave \ce{^{218}Po}
-in a charged state it has slightly fewer ($5 \mdash 10\%$) events.  Electron lifetimes are calculated using 48 hours of data in order to
-get sufficient statistics.
+lifetimes are calculated independently, which provides a cross-check.  Because the decay of \ce{^{222}Rn} can leave \ce{^{218}Po}
+in a charged state, \ce{^{218}Po} has slightly fewer ($5 \mdash 10\%$) events.  Electron lifetimes are calculated using 48 hours of data in
+order to get sufficient statistics.
 
 The data is binned in drift time slices $\Delta t_d$ and an initial fit is performed on the 50th percentiles of the \stwob distributions
 from each slice.  The purpose of this preliminary electron lifetime $\tau_e^{(\mathrm{p})}$ is to remove events that are far from the
@@ -392,15 +397,15 @@ distribution.  The data
 in each $\Delta t_d$ slice is binned in cS1 and fit with a gaussian.  The means and standard deviations are then fit
 with an exponential to give the final electron lifetime $\tau_e$.  An example can be seen in
 \figref{fig:electron_lifetimes_measurement_alphas_elifetime}.  The pink dashed lines define the boundaries above and below which
-events were cut using the preliminary fit.  \ce{^{222}Rn} (left) and \ce{^{218}Po} (right) have good agreement.
+events were cut from the result of the preliminary fit.  \ce{^{222}Rn} (left) and \ce{^{218}Po} (right) have good agreement.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{rn_po_electron_lifetime_log}
 \caption[Electron lifetime measurements using \ce{^{222}Rn} (left) and \ce{^{218}Po} (right) from October 29-31, 2017.]{Electron lifetime
 measurements using \ce{^{222}Rn} (left) and \ce{^{218}Po} (right) from October 29-31, 2017.  The red and blue
-lines correspond to \ce{^{222}Rn} and \ce{^{218}Po}, respectively, and are drawn in the drift time region that was used for the fit (see
-text for event selection).  They are each drawn in both panels to show the \stwob overlap, highlighting the need for the
+lines correspond to \ce{^{222}Rn} and \ce{^{218}Po} fits, respectively, and are drawn in the drift time region that was used (see
+text for event selection).  Each is drawn in both panels to show the \stwob overlap, highlighting the need for the
 $\alpha$-corrected cS1 cut.  The pink dashed lines mark the boundaries derived from the preliminary fit outside of which events were not
 considered for the final fit.  The electron lifetime measurements agree within uncertainty.}
 \label{fig:electron_lifetimes_measurement_alphas_elifetime}
@@ -409,20 +414,18 @@ considered for the final fit.  The electron lifetime measurements agree within u
 In \figref{fig:electron_lifetimes_measurement_alphas_elifetime} the results of both fits are plotted in each panel for comparison.  It is
 clear that without the $\alpha$-corrected cS1 cut the overlap in \stwob would make it impossible to decouple the \ce{^{222}Rn} from
 \ce{^{218}Po} events.  Originally a cS1 $\alpha$-correction map did not exist so \ce{^{222}Rn} and \ce{^{218}Po} were fit together.  This
-turned out to give slightly lower electron lifetimes than independent fits.  Once
+turned out to give slightly lower electron lifetimes than independent fits, which may be attributed to the later discovery of different $z$
+distributions.  Once
 the $\alpha$-correction was developed $tau_e$ was re-computed; however, this was not possible for some of the pre-SR0 data that had been
-deleted.
-
-This method can in principle be used for any $\alpha$-emitting element distributed throughout the FV of the detector and is done so
-for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.  Despite \ce{^{220}Rn} and \ce{^{216}Po} also being $\alpha$-emitters their short
-half-lifes (55.6 s and 145 ms, respectively) exclude them from consideration.  \ce{^{220}Rn} and \ce{^{216}Po} are also $\alpha$-emitters
-and are visible when the source valve is open.  However, between the requirement that the source valve be closed and the time it takes to
-see
-the rate stabilize and switch to good data taking their short half-lifes (55.6 s and 145 ms, respectively) exclude them from
-observation.  Even if this were not the case the $\alpha$-corrected cS1s of \ce{^{220}Rn} (6.405 MeV) and \ce{^{212}Bi} (6.207 MeV)
-overlap, so a joint
+deleted.  This method can in principle be used for any $\alpha$-emitting element distributed throughout the FV of the detector, and is done so
+for \ce{^{212}Bi} during \ce{^{220}Rn} calibrations.\footnote{\ce{^{220}Rn} and \ce{^{216}Po} are also
+$\alpha$-emitters, and are visible when the source valve is open.  However, between the requirement that the source valve be closed for
+analysis data and the time it takes to see
+the rate stabilize and switch to good data taking, their short half-lifes (55.6 s and 145 ms, respectively) eliminate them from
+observation.  Even if this were not the case the distribution of $\alpha$-corrected cS1s of \ce{^{220}Rn} (6.405 MeV) and \ce{^{212}Bi}
+(6.207 MeV) overlap, and a joint
 measurement is likely to lead to a biased $\tau_e$.  Due to the enormous number of events there is also some small overlap between
-\ce{^{220}Rn} and \ce{^{216}Po} (6.906 MeV).
+\ce{^{220}Rn} and \ce{^{216}Po} (6.906 MeV).}
 
 
 
@@ -478,7 +481,7 @@ discusses the reason for the discrepancy between \alphadecays and \metakr and wh
 
 
 
-\subsection{$\mathbf{\gamma}$-rays}
+\subsection[$\gamma$-rays][$\gamma$-rays]{$\boldsymbol{\gamma}$-rays}
 \label{subsec:electron_lifetimes_measurement_gammas}
 The full absorption peak of \gammarays make them great candidates for electron lifetime measurements.  Unfortunately nearly all
 \gammarays in the TPC come from elements in detector materials or external sources placed inside the water tank
@@ -554,7 +557,7 @@ background.
 \ce{^{222}Rn}-\ce{^{218}Po} (green triangles), \ce{^{222}Rn}
 (yellow triangles), \ce{^{220}Rn} (red triangles), \ce{^{218}Po} (turquoise triangles), and
 \metakr (black circles).  \metakr (orange shaded), \ce{^{220}Rn} (red), \ambe (green), and NG (blue) calibrations
-are shown as highlighted regions.  Events that disrupt the electron lifetime evolution are marked by numbers at the top of each panel.}
+are shown as shaded regions.  Events that disrupt the electron lifetime evolution are marked by numbers at the top of each panel.}
 \label{fig:electron_lifetimes_evolution_no_model}
 \end{figure}
 
@@ -566,18 +569,21 @@ is shown in \figref{fig:electron_lifetimes_measurement_gammas_elifetime}.
 
 \subsection[\ce{^{222}Rn} vs. $\mathrm{^{83m}Kr}$][\ce{^{222}Rn} vs. $\mathrm{^{83m}Kr}$]{\ce{^{222}Rn} vs. $\mathbf{^{83m}Kr}$}
 \label{subsec:electron_lifetimes_rn222_vs_kr83m}
-\figref{fig:electron_lifetimes_evolution_no_model} shows a clear disagreement in electron lifetimes between $\alpha$-emitters and \metakr
-at $\tau_e \gtrsim 400\ \mathrm{\mu s}$.  This presents a challenge in knowing how to properly correct \stwob for signals in the TPC.
+\figref{fig:electron_lifetimes_evolution_no_model} shows a disagreement between electron lifetimes from $\alpha$-emitters and \metakr
+at $\tau_e \gtrsim 400\ \mathrm{\mu s}$.  Because an inaccurate electron lifetime produces an under- or over-corrected
+$\mathrm{cS2_b}$, thereby changing the probability of its origin (\figref{fig:dark_matter_results_bands}), it is imperative to be able to
+reliably state which should be used for different recoil types and energies.
 
-The discrepancy is the result of field non-uniformity in the TPC (\figref{fig:xenon1t_tpc_efield}).  Because the change in recombination
+One possible solution to this discrepancy is field non-uniformity in the TPC (\figref{fig:xenon1t_tpc_efield}).  Because the change in
+recombination
 of \alphadecays with respect to field differs from that of electronic recoils (\figref{fig:tpcs_signals_drift_field}) the ratio
 of the charge yields vary
 inhomogeneously across the detector.  Thus two issues are apparent.  The first is bias will be present between any two events of equal
-energy and type (ER, NR, $\alpha$) that occur at different fields in the detector.  Therefore we cannot expect electron lifetime
+energy and type (ER, NR, $\alpha$) that occur at different fields.  Therefore we cannot expect electron lifetime
 measurements to accurately
-report the xenon purity unless field distortion is accounted for.  The second is two events whose \electron yield changes with respect to
-electric field
-$dE/de^-$ are dissimilar require independent lifetime corrections.  LUX also observed a disparity between \metakr and \ce{^{222}Rn}
+report the xenon purity unless field distortion is accounted for.  The second is two events whose have dissimilar changes in \electron yield
+with respect to electric field
+$dE/de^-$ require independent lifetime corrections.  LUX also observed a disparity between \metakr and \ce{^{222}Rn}
 lifetimes as well as field inhomogeneity, though the effects were not as stark \citeref{LUX2017d, Knoche2016}.
 
 \begin{figure}
@@ -594,25 +600,27 @@ and bottom of the TPC is $\gtrsim 2\times$ larger for \ce{^{222}Rn}, causing its
 \end{figure}
 
 In \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc} the electron yields for $\mathrm{^{129m}Xe}$ and \ce{^{222}Rn}
-are shown throughout the TPC according to NEST assuming azimuthal symmetry \citeref{NEST2013}.  The yields are normalized to the
-region [$-90 \leq z \leq -85\ \mathrm{cm}$,
+are shown throughout the TPC according to the Noble Element Simulation Technique (NEST) assuming azimuthal symmetry \citeref{NEST2013}.  The
+yields are normalized to the region [$-90 \leq z \leq -85\ \mathrm{cm}$,
 $r < 36.94\ \mathrm{cm}$].  The 1 t fiducial volume is marked by the black line.  Both have decreasing yields in the $-z$ direction,
 with the deviation for \ce{^{222}Rn} being more than twice as large as $\mathrm{^{129m}Xe}$.  This means while $\tau_e$ is biased towards
 smaller values for both elements, the effect is more significant for \ce{^{222}Rn} and other $\alpha$-emitters.
-
-S1 below 10 keV has minimal field dependence because recombination is minimal.  Over 10 keV recombination increases.
 
 The $z$-dependence of electron yields for $\mathrm{^{129m}Xe}$, $\mathrm{^{131m}Xe}$, \ce{^{60}Co}, \ce{^{208}Tl}, and \ce{^{222}Rn} is
 plotted in \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_z} (averaged over $r < 36.94\ \mathrm{cm}$).  The NEST results are
 normalized to the same region as \figref{fig:electron_lifetimes_rn222_vs_kr83m_field_tpc}.  \ce{^{60}Co} and \ce{^{208}Tl} (1173.2 and
 2614.5 keV, respectively) are shown for comparison with $\mathrm{^{131m}Xe}$.  The difference in relative yields is
-small - though because in reality the distribution of these detector material-driven events is more condensed at larger $r$ where there
-is moderately more $z$-dependent variation they may be higher.  Nonetheless, in either case this
-would explain the inconsistencies at higher energies in the combined energy spectrum
+small.\footnote{\figref{fig:electron_lifetimes_rn222_vs_kr83m_field_z} assumes a homogeneous event distribution throughout the
+TPC.  Because \ce{^{60}Co} and \ce{^{208}Tl} are in detector materials their event distributions increase along $\hat{r}$, where
+there is greater field distortion.  Therefore, the change in yield will be slightly more exaggerated.}  This
+could in part also explain the inconsistencies at higher energies in the combined energy spectrum
 (\figref{fig:calibrations_photon_charge_efficiences_ces_resolution}).  The
 effect of \ce{^{222}Rn} is more substantial and demonstrates that calculations of $\tau_e$ - which depend on slices in $z$ - suffer from
-greater bias as a result of change in recombination with respect to field.  The higher sensitivity of \alphadecays in part explains
-the lower measured lifetime.  A separate field-dependent effect is discussed in \secref{subsec:electron_lifetime_model_field}.
+greater bias as a result of change in recombination with respect to field.  The higher sensitivity of \alphadecays may in part explain
+the lower measured lifetime.\footnote{A more recent version of NEST was released in July 2018.  It shows the magnitude of this effect is much
+smaller than in the version used in this analysis.  However, at the time of this writing no paper exists, so the reasons for the changes are
+not well detailed.  The code can be found at \citeref{NEST2018}.}  A separate field-dependent effect is discussed in
+\secref{subsec:electron_lifetime_model_field}.
 
 \begin{figure}
 \centering
@@ -623,20 +631,19 @@ $r < 36.94\ \mathrm{cm}$ at $V_c = 8\ \mathrm{kV}$ (${\sim}80\ \mathrm{V\ cm^{-1
 are shown, with higher energies \ce{^{60}Co} and \ce{^{208}Tl} plotted for comparison.]{Relative electron yield dependence on $z$ with
 respect to the region $-90 \leq z \leq -85\ \mathrm{cm}$ and
 $r < 36.94\ \mathrm{cm}$ at $V_c = 8\ \mathrm{kV}$ (${\sim}80\ \mathrm{V\ cm^{-1}}$) using NEST \citeref{NEST2013}.  Internal
-$\gamma$ sources $\mathrm{^{131m}Xe}$ (green) and
-$\mathrm{^{129m}Xe}$
+$\gamma$ sources $\mathrm{^{131m}Xe}$ (green) and $\mathrm{^{129m}Xe}$
 (red) are shown, with higher energies \ce{^{60}Co} (black) and \ce{^{208}Tl} (pink) plotted for comparison. Their relative
 light yields vary by ${\sim} 5\%$, with the higher-energy lines having only ${\sim} 1\%$ greater difference than $\mathrm{^{131m}Xe}$ and
-$\mathrm{^{129m}Xe}$.  \ce{^{222}Rn} (blue) changes by $> 10\%$.  The disproportionate growth demonstrates the ratio between
-$\alpha$ and $\gamma$ electron yields is largest at the top of the detector, causing the fewer \electron from deep \alphadecays to
-mimic a smaller $\tau_e$.  \metakr cannot be compared as the NEST version is only for high-energy.}
+$\mathrm{^{129m}Xe}$.  \ce{^{222}Rn} (blue) changes by ${>}\, 10\%$.  The disproportionate growth demonstrates the ratio between
+$\alpha$ and $\gamma$ electron yields is largest at the top of the detector, causing the fewer \electron from deep \alphadecays that
+mimics a smaller $\tau_e$.  \metakr cannot be compared as the NEST version is only for high-energy.}
 \label{fig:electron_lifetimes_rn222_vs_kr83m_field_z}
 \end{figure}
 
 We expect nuclear recoils to have a different bias than electronic or $\alpha$-decays.  In the dark matter analysis all
-science run and calibration data were corrected using the \metakr electron lifetime.  Nuclear recoil \cstwob were then incorrect and had
-some bias with respect to ER.  However, the disparity between NR and ER should be much smaller than $\alpha$ so we can expect this effect
-to be small if not negligible.
+science run and calibration data were corrected using the \metakr electron lifetime.  Nuclear recoil \cstwob were then likely incorrect and
+had some bias with respect to electronic recoils.  However, the disparity between NR and ER should be much smaller than $\alpha$ so we can
+expect this effect to be small if not negligible.
 
 
 
@@ -678,7 +685,7 @@ replaced by a QDrive (\secref{subsec:xenon1t_pur}).  Pipes for GXe circulation w
 \subsection{Impurity Removal}
 \label{subsec:electron_lifetime_model_removal}
 Impurities are removed in the purification system (\secref{subsec:xenon1t_pur}) by two SAES PS4-MT50-R getters.  They operate between
-$5 \mdash 100\ \mathrm{slpm}$ and uses heated zirconium ($400^{\circ}\mathrm{C}$ nominal operating temperature) to form irreversible
+$5 \mdash 100\ \mathrm{slpm}$ and uses heated metals ($400^{\circ}\mathrm{C}$ nominal operating temperature) to form irreversible
 chemical bonds with \ce{O_2}, \ce{CO}, \ce{CO_2}, \ce{H_2O}, \ce{H_2}, \ce{N_2}, and \ce{CH_4}, and is capable of achieving levels of
 ${<}\, 1\ \mathrm{ppb}$.
 
@@ -704,11 +711,10 @@ value for $\tau_e$ increases with flow speed - however, it drops at 80 slpm.  Th
 to result from gas passing through the getter too quickly to remove the impurities completely.
 
 For XENON1T the two getters cleaned a combined flow of ${\lesssim}\, 50\ \mathrm{slpm}$ until after SR1.  This was only half of the design
-value and was largely the result of the 1/2" outer diameter pipes connecting the cryogenic system to the purification system producing
-higher than expected
+value and was largely the result of the QDrive minimum inlet pressure for stable operation being higher than expected
 resistance.  A series of upgrades were performed in April-June 2018 that increased flows to ${\sim} 80\ \mathrm{slpm}$
 (\secref{subsec:electron_lifetime_model_ops}).  Because in both cases the flow through each getter never exceeded 50 slpm the electron
-lifetime model assumes 100\% of contaminants are absorbed by the zirconium, though we cannot know if this is truly the case.  However,
+lifetime model assumes 100\% of contaminants are absorbed by the metals, though we cannot know if this is truly the case.  However,
 including a variable in the model to reflect a portion of impurities returned
 to the detector would be equally problematic because \figref{fig:electron_lifetime_model_removal_demonstrator_circ} suggests any
 inefficiency is
@@ -831,14 +837,14 @@ $F_{\mathrm{G}}^{\inp} + F_{\mathrm{L}}^{\inp} = F_{\mathtt{FC201}} + F_{\mathtt
 
 \subsection{Vaporization and Condensation}
 \label{subsec:electron_lifetime_model_vap_and_cond}
-Impurity migration between the liquid and gas requires consideration of both volumes rather than strictly the liquid.  Electronegative
-particles (e.g. \ce{O_2}, \ce{CO}, etc.) are expected to be more densely distributed in the GXe due to their lighter atomic mass.  To
+Impurity migration between the liquid and gas requires consideration of both volumes rather than strictly the liquid.  Due to their lighter
+atomic mass, electronegative particles (e.g. \ce{O_2}, \ce{CO}, etc.) are expected to be more densely distributed in the GXe.  To
 parameterize the migration rates for an impurity from the liquid to the gas or vice versa, the condensation and
 vaporization rates need to be included.
 
 The pulse-tube refrigerators (PTRs) and \ce{LN_2} supply the cooling power to the system (\secref{subsec:xenon1t_cryo}) and are balanced
 by heat from the GXe and resistive heaters (one on each coldfinger) that keep detector conditions stable.  The resistive heaters are run
-by proportional-integral-derivative (PID) controllers and adjust in real-time to maintain a stable coldfinger temperature.  Because there
+by proportional-integral-derivative (PID) controllers and adjust in real-time to maintain stable coldfinger temperatures.  Because there
 is no flow of heat into or out of the coldfinger the three balance
 
 \vspace{-10pt}
@@ -848,10 +854,11 @@ is no flow of heat into or out of the coldfinger the three balance
 \label{eq:electron_lifetime_model_vap_and_cond_heat_cons}
 \end{equation}
 
-\noindent where $\dot{Q}$ is the heat transfer rate with $\dot{Q}_{\mathrm{CF}} < 0$ and
-$\dot{Q}_{\mathrm{GXe}}, \dot{Q}_{\mathrm{H}} > 0$.  Because the slow control system only monitors the resistive heaters the
-other two are disentangled via a measurement of $\dot{Q}_{\mathrm{H}}$ when the inner vessel was under vacuum before filling
-($\dot{Q}_{\mathrm{GXe}} = 0$).  It was found
+\noindent where $\dot{Q}_{\mathrm{CF}}$, $\dot{Q}_{\mathrm{GXe}}$, and $\dot{Q}_{\mathrm{H}}$ are the coldfinger, GXe, and resistive
+heater heat transfer rates.  They are defined in \eqnref{eq:electron_lifetime_model_vap_and_cond_heat_cons} so that
+$\dot{Q}_{\mathrm{CF}} < 0$ and $\dot{Q}_{\mathrm{GXe}}, \dot{Q}_{\mathrm{H}} > 0$.  Because the slow control system only monitors the
+resistive heaters, $\dot{Q}_{\mathrm{CF}}$ and \qdg are disentangled via measurement of \qdh when the
+inner vessel was under vacuum before filling ($\dot{Q}_{\mathrm{GXe}} = 0$).  It was measured
 to be $\dot{Q}_{\mathrm{CF}} = -\dot{Q}_{\mathrm{H}} = -260\ \mathrm{W}$.  \eqnref{eq:electron_lifetime_model_vap_and_cond_heat_cons} can
 be rewritten as
 
@@ -862,12 +869,12 @@ be rewritten as
 \label{eq:electron_lifetime_model_vap_and_cond_heat_gxe}
 \end{equation}
 
-\noindent so as the heat load from the xenon increases the current in the resistive heater decreases.
+\noindent so as the heat load from the xenon increases the current in the resistive heater will decrease.
 
-Purification has the greatest variability among heat sources during stable conditions as a result of changes in circulation speed.  For
-roughly two days shortly after XENON1T came online purification was halted entirely, as shown in
-\figref{fig:electron_lifetime_model_vap_and_cond_no_flow}.  Once the system stabilized $\dot{Q}_0 \equiv \dot{Q}_{\mathrm{GXe}}$ was
-calculated via
+Purification has the greatest variability among heat sources under stable detector conditions due to changes in circulation speed.  For
+roughly two days shortly after XENON1T came online purification was halted, i.e. $F_{\mathrm{G}} = 0$, $F_{\mathrm{L}} = 0$, as shown in
+\figref{fig:electron_lifetime_model_vap_and_cond_no_flow}.  Once the system stabilized
+$\dot{Q}_0 \equiv \dot{Q}_{\mathrm{GXe}}(F_{\mathrm{G}} = 0, F_{\mathrm{L}} = 0)$ was calculated via
 \eqnref{eq:electron_lifetime_model_vap_and_cond_heat_gxe} to be 140 W.  Because the system was stable the vaporization and condensation
 rates must be equivalent.  The total xenon mass has remained unchanged by ${>}\, 99\%$ so it is reasonable to assume the \qdh and
 vaporization and condensation rates under these conditions hold true today.
@@ -887,7 +894,7 @@ stable value.}
 
 While xenon returning from purification will add heat to the system, with a total mass of more than 3 t and narrow temperature range
 (${<}\, 1^{\circ}\mathrm{C}$ between bottommost and topmost sensors) the thermal load of the liquid xenon does not
-appreciably change.  Therefore the vaporization rate is constant regardless of flow and can be modeled using the zero-flow period
+change appreciably.  Therefore the vaporization rate is constant regardless of flow and can be modeled using the zero-flow period
 
 \vspace{-10pt}
 
@@ -897,9 +904,9 @@ M_{\mathrm{G}} \frac{dI_{\mathrm{G}}}{dt}^{(\mathrm{vap})} = -M_{\mathrm{L}} \fr
 \end{equation}
 
 \noindent where $\epsilon_{\mathrm{vap}}$ is the vaporization probability for impurities in the liquid and
-$L = 9.6 \times 10^4\ \mathrm{J\ kg^{-1}}$ is the latent heat of vaporization.
+$L = 9.6 \times 10^4\ \mathrm{J\ kg^{-1}}$ is the latent heat of vaporization for xenon.
 
-The excess heat will increase the thermal load of the gas so its contribution to the coldfinger will grow.  The specific heat for
+Excess heat will increase the thermal load of the gas so its contribution to the coldfinger will grow.  The specific heat for
 xenon gas at constant pressure is $c_p = 158\ \mathrm{J\ kg^{-1}\ K^{-1}}$.  The condensation rate for xenon is
 
 \begin{equation}
@@ -920,17 +927,22 @@ xenon gas at constant pressure is $c_p = 158\ \mathrm{J\ kg^{-1}\ K^{-1}}$.  The
 \end{equation}
 
 \noindent where $\epsilon_{\mathrm{cond}}$ is the probability of condensation for impurities in the gas and $T$ is the temperature of
-the GXe inside the unpowered PTR cooling tower.  Selecting a temperature sensor is somewhat arbitrary since the gas inside the inner
-vessel - despite a temperature range of $> 100^{\circ}\mathrm{C}$ - should exhibit similar behavior.  To account for this $T_0$ is left as
-a free parameter but constrained so that $T - T_0$ is within the vaporization and maximum detector temperatures.
+the GXe inside the unpowered PTR cooling tower according to the slow control system.  Selecting a temperature sensor is somewhat arbitrary
+since the gas inside the inner
+vessel - despite a temperature range of ${>}\, 100^{\circ}\mathrm{C}$ - should exhibit similar behavior.  To account for this $T_0$ is left
+as a free parameter but constrained to $163 \leq T_0 \leq 298\ \mathrm{K}$ so that $T - T_0$ is within the vaporization and maximum detector
+temperatures.
 
 A complication in calculating \qdg is $\dot{Q}_{\mathrm{CF}}$ is known to decrease in time.  This can be indirectly observed by
 the long-term behavior in $\dot{Q}_{\mathrm{H}}$ as shown in \figref{fig:electron_lifetime_model_vap_and_cond_heater_all}.  As a result
-\eqnref{eq:electron_lifetime_model_vap_and_cond_heat_gxe} leads to increasing overestimation of the condensation over time if not
-corrected, though this can be difficult since \qdh also corrects for real temperature changes of the
+\eqnref{eq:electron_lifetime_model_vap_and_cond_heat_gxe} leads to increasing overestimation of condensation if not
+corrected, though this can be difficult since \qdh also adjusts for real temperature changes in the
 GXe.  In addition, the rate of decrease is not consistent so piecewise corrections are
-applied.  \figref{fig:electron_lifetime_model_vap_and_cond_heater_all} shows the raw (from slow control) and corrected \qdh over the course of
-the experiment.
+applied.  \figref{fig:electron_lifetime_model_vap_and_cond_heater_all} shows the original (from slow control) and corrected \qdh over the
+course of the experiment.  The erratic behavior due to detector adjustments and optimization from May-September 2016 makes it difficult to
+monitor any $\dot{Q}_{\mathrm{CF}}$ decrease, so corrections begin around October 2016.  Because $Q_0$ was measured several months prior, a
+decrease would mean it may no longer be compatible with the corrected $\dot{Q}_{\mathrm{H}}$.  However, because in \qdh in general declines
+slowly, any offset should be small.
 
 \begin{figure}
 \centering
@@ -988,7 +1000,8 @@ oxygen level in the gas than liquid.  The line is connected to the inner vessel 
 the water tank to lessen the contaminants that reach the LXe through condensation either at the liquid-gas surface or from the PTR
 (\secref{subsec:electron_lifetime_model_vap_and_cond}).  Both this line as well
 as the one connected to the cable tube have flow control valves that are independent from each other and the cooling tower pipes, allowing
-custom ratios of flow between the three.
+custom ratios of flow between the three.  During standard operations GXe is passed through the getters at
+$F_{\mathrm{G}} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of the total flow during SR0 and SR1.
 
 \begin{figure}
 \centering
@@ -1001,9 +1014,6 @@ gas and liquid, which depends on vaporization/condensation and outgassing.}
 \label{fig:electron_lifetime_model_gxe_xenon1t}
 \end{figure}
 
-During standard operations GXe is passed through the getters at $F_{\mathrm{G}} {\sim} 3.75\ \mathrm{slpm}$, or roughly $7 \mdash 8\%$ of
-the total flow during SR0 and SR1.
-
 From August 22 to September 2, 2016 LXe purification was halted to study the effect that GXe purification has by
 decoupling it from the liquid.  The electron lifetime decreased more rapidly than anticipated, indicating that while the
 impurities in the GXe were influential, they were not to the extent predicted by the Demonstrator.  The physics of the GXe-only
@@ -1013,7 +1023,7 @@ vaporization, and condensation rates.
 
 
 
-\subsection{Outgassing and Leak}
+\subsection{Outgassing and Leak Rate}
 \label{subsec:electron_lifetime_model_outgassing}
 Xenon is continuously contaminated with impurities that outgas from detector materials.  Therefore the outgassing model plays a
 critical role in the outcome of the electron lifetime model.  Historically electron lifetimes have followed a Fermi-Dirac during periods
@@ -1161,9 +1171,9 @@ A & Vacuum for 75 h & 430 & 10 & 670 & 65 \\
  & $150^{\circ} \mathrm{C}$ bakeout for 50 h & 13 & 0.03 & 290 & 4.5 \\
 B & $300^{\circ} \mathrm{C}$ bakeout for 40 h & 0.5 & 0.01 & 62 & 1.7 \\
 C & $400^{\circ} \mathrm{C}$ degassing for 20 h in vacuum & 0.2 & 0.08 & 14 & 0.33 \\
-D & $800^{\circ} \mathrm{C}$ degassing for 2 h in vacuum & - & 0.04 & 2.7 & 0.05 \\
- & 5-month exposure to atmosphere then vacuum for 24 h & 55 & 10 & - & 50 \\
- & $150^{\circ} \mathrm{C}$ bakeout for 20 h & - & 0.03 & 2.5 & 0.06 \\
+D & $800^{\circ} \mathrm{C}$ degassing for 2 h in vacuum & $-$ & 0.04 & 2.7 & 0.05 \\
+ & 5-month exposure to atmosphere then vacuum for 24 h & 55 & 10 & $-$ & 50 \\
+ & $150^{\circ} \mathrm{C}$ bakeout for 20 h & $-$ & 0.03 & 2.5 & 0.06 \\
 \hline
 \hline
 \end{tabular}
@@ -1370,7 +1380,7 @@ I_{\mathrm{L}} = ( \tau_e k)^{-1}
 \begin{equation}
 \begin{aligned}
 R_I &= F_{\mathrm{L}} \rho_{\mathrm{GXe}} (\tau_e k)^{-1} \\[2pt]
-&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{s\ \mu s^{-1}\ ppb^{-1}})^{-1} \\[2pt]
+&= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (600\ \mathrm{\mu s})^{-1} (0.004\ \mathrm{\mu s^{-1}\ ppb^{-1}})^{-1} \\[2pt]
 &= (48\ \mathrm{slpm}) (5.984\ \mathrm{g\ l^{-1}}) (2.5\ \mathrm{ppb^{-1}})^{-1} \\[2pt]
 &= 165\ \mathrm{ppb\ kg\ day^{-1}}
 \label{eq:electron_lifetime_model_outgassing_leak}
@@ -1390,9 +1400,9 @@ slightly $165\ \mathrm{ppb\ kg\ day^{-1}}$ should serve only as an approximation
 
 \subsection{Getter Deficiencies}
 \label{subsec:electron_lifetime_model_detector_effects_getter}
-One of the stranger effects observed in the beginning of SR0 was a slow decrease in lifetime when it seemed detection conditions were not
-changing over a number of (${\lesssim}\, 10$) days.  Two more have appeared since then showing the same behavior.  They are referred to
-as ``getter deficiencies'' because the evolution during these times follows ${<}\, 100\%$ removal of
+One of the stranger effects observed in the beginning of SR0 was a slow decrease in lifetime when when apparently no changes in the
+detector's conditions were recorded over a number of (${\lesssim}\, 10$) days.  Two more have appeared since then showing the same
+behavior.  They are referred to as ``getter deficiencies'' because the evolution during these times follows ${<}\, 100\%$ removal of
 contaminants by the getters, and there is evidence to support this was the case for at least two of the three periods.
 
 The first getter deficiency
@@ -1532,8 +1542,8 @@ value is dependent on when the drop (or drops) occurred.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{purity_drops}
-\caption{Purity drops on June 5, 2017, due to gate washing following the appearance of a hotspot (left), and February 21, 2018, which results
-from a power glitch (right).}
+\caption{Purity drops on June 5, 2017, due to the gate washing following the appearance of a hotspot (left), and February 21, 2018, which
+resulted from a power glitch (right).}
 \label{fig:electron_lifetime_model_detector_effects_spikes_examples}
 \end{figure}
 
@@ -1612,7 +1622,7 @@ the pumps.  These additions likely added more outgassing
 through the
 getter after the QDrives it is not expected to change the outgassing model or purity because the model assumes that 100\% of all
 contaminants are
-absorbed by the zirconium.  However, there are plausible scenarios when this would not be the case, such as large initial impurity residue
+absorbed by the getters.  However, there are plausible scenarios when this would not be the case, such as large initial impurity residue
 on the materials from exposure to air during installation, an sizable initial outgassing that overwhelms the getters, or the rise
 in flow speed (\secref{subsec:electron_lifetime_model_removal}).
 
@@ -1628,25 +1638,28 @@ respectively.}
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{pressure_purification_before_upgrade}
-\caption{Change in pressure across purification system as a function of purification speed with the 1/2" outer diameter tubing.}
+\caption{Prediction of the change in pressure across purification system as a function of purification speed with the 1/2" outer diameter
+tubing.}
 \label{fig:electron_lifetime_model_ops_original_pressure}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{pressure_purification_after_upgrade_option_a}
-\caption{Change in pressure across purification system as a function of purification speed with the larger 1" outer diameter tubing following
-the upgrade.}
+\caption{Prediction of the change in pressure across purification system as a function of purification speed with the larger 1" outer
+diameter tubing following the upgrade.}
 \label{fig:electron_lifetime_model_ops_improved_pressure}
 \end{figure}
 
-During Science Runs 0 and 1 no hardware was exchanged so detector conditions were stable.  In April 2018 pipes in the purification
-system were upgraded from 1/2" outer diameter to 1" to increase conductance.  The pressure drops across the purification system before and
-after the upgrade are shown in
+During Science Runs 0 and 1 no hardware was exchanged so detector conditions were stable.  A larger than expected minimum inlet pressures to
+the QDrives for stable operation prevented XENON1T from reaching its purification speed goal.  The simplest solution to increase the inlet
+pressure was to improve the conductance between the cryogenic and purification systems.  In April 2018 the pipes
+were upgraded from 1/2" outer diameter to 1" and several valves were replaced.  The pressure drops across the purification system
+before and after the upgrade are shown in
 \figref{fig:electron_lifetime_model_ops_original_pressure,fig:electron_lifetime_model_ops_improved_pressure}.  The horizontal dashed line
-marks the pressure drop across the system.  The purification speed is marked where the horizontal dashed line intersects with the
-pressure difference across just the gravitational pressure difference and cryopipe tube.  When purification resumed the
-circulation speed reached 70 slpm.
+marks the minimum acceptable inlet pressure.  The predicted purification speed from the upgrade in
+\figref{fig:pressure_purification_after_upgrade_option_a} is marked by the first arrow at ${\sim} 75$ slpm using the QDrive configuration at
+the time.  When purification resumed the circulation speed reached 70 slpm.
 
 \begin{figure}
 \centering
@@ -1656,7 +1669,7 @@ washings.  Subsequent changes are caused by upgrades to the purification system.
 \label{fig:electron_lifetime_model_ops_post_sr1}
 \end{figure}
 
-The final hardware upgrade was in the middle of June when a magnetic pump \citeref{Brown2018} was installed in parallel with the
+The most recent hardware upgrade was in the middle of June when a magnetic pump \citeref{Brown2018} was installed in parallel with the
 QDrives.  With the QDrives off it reached ${\sim} 80\ \mathrm{slpm}$.
 
 The QDrives were chosen in part because they did not risk exposure to air if something were to
@@ -2028,10 +2041,11 @@ one implies a smaller concentration in the other.
 \hline
 Parameter & Prior distribution & Units & Posterior & Comment \\
 \hline
-$I_{\mathrm{G}}^0$ & $\geq 0$ & ppb & $9951_{-6224}^{+8538}$ & Initial GXe impurity concentration \\
-$I_{\mathrm{L}}^0$ & $\geq 0$ & ppb & $75.3_{-58.2}^{+80.9}$ & Initial LXe impurity concentration \\
-$\epsilon_{\mathrm{vap}}$ & $0 \mdash 1$ & $-$ & $0.288_{-0.214}^{+0.310}$ & Probability of LXe impurity vaporization, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
-$\epsilon_{\mathrm{cond}}$ & $0 \mdash 1$ & $-$ & $0.994_{-0.015}^{+0.005}$ & Probability of GXe impurity condensation, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
+$I_{\mathrm{G}}^0$ & $\geq 0$ & ppb & $9524_{-6612}^{+11309}$ & Initial GXe impurity concentration \\
+$I_{\mathrm{L}}^0$ & $\geq 0$ & ppb & $117_{-72}^{+75}$ & Initial LXe impurity concentration \\
+$\epsilon_{\mathrm{vap}}$ & $0 \mdash 1$ & $-$ & $0.321_{-0.219}^{+0.299}$ & Probability of LXe impurity vaporization, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
+$\epsilon_{\mathrm{cond}}$ & $0 \mdash 1$ & $-$ & $0.995_{-0.021}^{+0.004}$ & Probability of GXe impurity condensation, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
+$T_0$ & 163-298 & K & $294_{-11}^{+3}$ & Condensation temperature offset, \secref{subsec:electron_lifetime_model_vap_and_cond} \\
 \hline
 \hline
 \end{tabular}
@@ -2051,8 +2065,8 @@ circulation speed it becomes more likely that any imperfections in impurity remo
 The fourth period begins on June 12, 2018 with the installation of the magnetic pump.  The reason for the isolation of parameters is similar
 to the previous period.  New materials were added to the system and the purification flow increased again.
 
-The leak rate in all four periods falls close to one another, at roughly $160 \mdash 170\ \mathrm{ppb\ kg\ day^{-1}}$.  This agrees
-nicely with the expected value from \eqnref{eq:electron_lifetime_model_outgassing_leak} of $165\ \mathrm{ppb\ kg\ day^{-1}}$.
+The leak rate in all four periods falls close to the expected value from \eqnref{eq:electron_lifetime_model_outgassing_leak} of
+$165\ \mathrm{ppb\ kg\ day^{-1}}$.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -2064,40 +2078,40 @@ nicely with the expected value from \eqnref{eq:electron_lifetime_model_outgassin
 \hline
 Parameter & Prior distribution & Units & Start & Posterior & Comment \\
 \hline
-\multirow{4}{*}{$A_{\mathrm{G}}$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{ppb\ kg\ day^{-1}}$} & May 1, 2016 & $321_{-76}^{+77}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
-& & & February 1, 2017 & $2.2_{-1.6}^{+2.4}$ & \\
-& & & April 10, 2018 & $7.1_{-4.5}^{+8.2}$ & \\
-& & & June 12, 2018 & $15.1_{-9.7}^{+12.6}$ & \\
+\multirow{4}{*}{$A_{\mathrm{G}}$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{ppb\ kg\ day^{-1}}$} & May 1, 2016 & $357_{-74}^{+68}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
+& & & February 1, 2017 & $26.0_{-11.6}^{+15.7}$ & \\
+& & & April 10, 2018 & $10.2_{-6.43}^{+9.10}$ & \\
+& & & June 12, 2018 & $3.76_{-2.56}^{+4.42}$ & \\
 \hline
-\multirow{4}{*}{$\beta_1$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $0.0027_{-0.0014}^{+0.0020}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
-& & & February 1, 2017 & $0.0048_{-0.0035}^{+0.0053}$ & \\
-& & & April 10, 2018 & $0.0086_{-0.0058}^{+0.0070}$ & \\
-& & & June 12, 2018 & $0.0060_{-0.0038}^{+0.0067}$ & \\
+\multirow{4}{*}{$\beta_1$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $0.0016_{-0.0011}^{+0.0017}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
+& & & February 1, 2017 & $0.0042_{-0.0030}^{+0.0045}$ & \\
+& & & April 10, 2018 & $0.0094_{-0.0066}^{+0.0086}$ & \\
+& & & June 12, 2018 & $0.0055_{-0.0036}^{+0.0051}$ & \\
 \hline
-\multirow{4}{*}{$\beta_2$} & \multirow{4}{*}{} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $5.37_{-9.71}^{+10.2} \times 10^{-4}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
-& & & February 1, 2017 & $0.0043_{-0.0750}^{+0.1382}$ & \\
-& & & April 10, 2018 & $0.09_{-0.10}^{+0.14}$ & \\
-& & & June 12, 2018 & $0.10_{-0.10}^{+0.11}$ & \\
+\multirow{4}{*}{$\beta_2$} & \multirow{4}{*}{} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $0.0012_{-0.0008}^{+0.0010}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
+& & & February 1, 2017 & $0.16_{-0.13}^{+0.13}$ & \\
+& & & April 10, 2018 & $-0.0038_{-0.0859}^{+0.0913}$ & \\
+& & & June 12, 2018 & $-0.086_{-0.129}^{+0.117}$ & \\
 \hline
-\multirow{4}{*}{$A_{\mathrm{L}}$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{ppb\ kg\ day^{-1}}$} & May 1, 2016 & $49.3_{-25.2}^{+28.5}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
-& & & February 1, 2017 & $11.7_{-1.8}^{+1.8}$ & \\
-& & & April 10, 2018 & $3.4_{-2.3}^{+2.6}$ & \\
-& & & June 12, 2018 & $7.5_{-4.3}^{+4.7}$ & \\
+\multirow{4}{*}{$A_{\mathrm{L}}$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{ppb\ kg\ day^{-1}}$} & May 1, 2016 & $27.7_{-20.7}^{+29.8}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
+& & & February 1, 2017 & $9.47_{-1.37}^{+1.18}$ & \\
+& & & April 10, 2018 & $6.48_{-3.57}^{+5.13}$ & \\
+& & & June 12, 2018 & $7.74_{-4.24}^{+9.02}$ & \\
 \hline
-\multirow{4}{*}{$\beta_3$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $0.0069_{-0.0051}^{+0.0053}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
-& & & February 1, 2017 & $0.0107_{-0.0016}^{+0.0017}$ & \\
-& & & April 10, 2018 & $0.0031_{-0.0021}^{+0.0040}$ & \\
-& & & June 12, 2018 & $0.0042_{-0.0028}^{+0.0053}$ & \\
+\multirow{4}{*}{$\beta_3$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $0.011_{-0.007}^{+0.007}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
+& & & February 1, 2017 & $0.011_{-0.002}^{+0.002}$ & \\
+& & & April 10, 2018 & $0.0063_{-0.0044}^{+0.0064}$ & \\
+& & & June 12, 2018 & $0.0050_{-0.0033}^{+0.0049}$ & \\
 \hline
-\multirow{4}{*}{$\beta_4$} & \multirow{4}{*}{} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $0.0017_{-0.0052}^{+0.0046}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
-& & & February 1, 2017 & $0.00221_{-0.00053}^{+0.00076}$ & \\
-& & & April 10, 2018 & $0.031_{-0.027}^{+0.034}$ & \\
-& & & June 12, 2018 & $0.037_{-0.040}^{+0.054}$ & \\
+\multirow{4}{*}{$\beta_4$} & \multirow{4}{*}{} & \multirow{4}{*}{$\mathrm{day^{-1}}$} & May 1, 2016 & $-1.4_{-65.2}^{+68.8} \times 10^{-4}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_model}} \\
+& & & February 1, 2017 & $0.0030_{-0.0005}^{+0.0008}$ & \\
+& & & April 10, 2018 & $0.0089_{-0.0154}^{+0.0205}$ & \\
+& & & June 12, 2018 & $0.044_{-0.042}^{+0.070}$ & \\
 \hline
-\multirow{4}{*}{$R_I$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{ppb\ kg\ day^{-1}}$} & May 1, 2016 & $170_{-58}^{+64}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_leak_model}} \\
-& & & February 1, 2017 & $159.5_{-2.3}^{+3.3}$ & \\
-& & & April 10, 2018 & $172.5_{-3.5}^{+3.7}$ & \\
-& & & June 12, 2018 & $176.9_{-6.7}^{+6.53}$ & \\
+\multirow{4}{*}{$R_I$} & \multirow{4}{*}{$\geq 0$} & \multirow{4}{*}{$\mathrm{ppb\ kg\ day^{-1}}$} & May 1, 2016 & $151_{-64}^{+59}$ & \multirow{4}{*}{\secref{subsubsec:electron_lifetime_model_outgassing_leak_model}} \\
+& & & February 1, 2017 & $160.8_{-2.3}^{+3.0}$ & \\
+& & & April 10, 2018 & $170.1_{-6.6}^{+4.1}$ & \\
+& & & June 12, 2018 & $178.6_{-8.2}^{+6.8}$ & \\
 \hline
 \hline
 \end{tabular}
@@ -2129,13 +2143,13 @@ pump installation.
 \hline
 Date & Prior distribution & Region & Posterior & Comment \\
 \hline
-Aug. 22-Sep. 2, 2016 & $0 \mdash 1$ & GXe & $0.628_{-0.333}^{+0.236}$ & GXe-only purification \\
-Aug. 22-Sep. 2, 2016 & $0 \mdash 1$ & LXe & $0.632_{-0.118}^{+0.081}$ & GXe-only purification\\
-May 8-18, 2018 & $0 \mdash 1$ & GXe & $0.436_{-0.328}^{+0.388}$ & \ce{LN_2} cooling \\
-May 8-18, 2018 & $0 \mdash 1$ & LXe & $0.889_{-0.031}^{+0.033}$ & \ce{LN_2} cooling \\
-May 29-June 5, 2018 & $\geq 0$ & GXe & $1.48_{-1.04}^{+1.11}$ & Circulation stopped \\
-May 29-June 5, 2018 & $0 \mdash 1$ & LXe & $0.306_{-0.064}^{+0.077}$ & Circulation stopped \\
-June 5-12, 2018 & $ \geq 0$ & LXe & $1.34_{-0.79}^{+0.83}$ & Magnetic pump installation \\
+Aug. 22-Sep. 2, 2016 & $0 \mdash 1$ & GXe & $0.80_{-0.24}^{+0.18}$ & GXe-only purification \\
+Aug. 22-Sep. 2, 2016 & $0 \mdash 1$ & LXe & $0.58_{-0.22}^{+0.11}$ & GXe-only purification\\
+May 8-18, 2018 & $0 \mdash 1$ & GXe & $0.38_{-0.28}^{+0.38}$ & \ce{LN_2} cooling \\
+May 8-18, 2018 & $0 \mdash 1$ & LXe & $0.882_{-0.044}^{+0.033}$ & \ce{LN_2} cooling \\
+May 29-June 5, 2018 & $\geq 0$ & GXe & $0.66_{-0.48}^{+0.76}$ & Circulation stopped \\
+May 29-June 5, 2018 & $0 \mdash 1$ & LXe & $0.301_{-0.078}^{+0.084}$ & Circulation stopped \\
+June 5-12, 2018 & $ \geq 0$ & GXe & $0.93_{-0.58}^{+0.89}$ & Magnetic pump installation \\
 \hline
 \hline
 \end{tabular}
@@ -2160,9 +2174,9 @@ calibrations.
 \hline
 Parameter & Date & Prior distribution & Posterior & Comment \\
 \hline
-$\alpha_1$ & Nov. 26-Dec. 5, 2016 & $0 \mdash 1$ & $0.822_{-0.018}^{+0.019}$ & \\
-$\alpha_2$ & Dec. 19-21, 2016 & $0 \mdash 1$ & $0.687_{-0.272}^{+0.208}$ & \ce{^{220}Rn} calibration \\
-$\alpha_3$ & Oct. 25-30, 2017 & $0 \mdash 1$ & $0.979_{-0.017}^{+0.014}$ & \ce{^{220}Rn} calibration \\
+$\alpha_1$ & Nov. 26-Dec. 5, 2016 & $0 \mdash 1$ & $0.829_{-0.020}^{+0.024}$ & \\
+$\alpha_2$ & Dec. 19-21, 2016 & $0 \mdash 1$ & $0.67_{-0.26}^{+0.24}$ & \ce{^{220}Rn} calibration \\
+$\alpha_3$ & Oct. 25-30, 2017 & $0 \mdash 1$ & $0.978_{-0.020}^{+0.014}$ & \ce{^{220}Rn} calibration \\
 \hline
 \hline
 \end{tabular}
@@ -2187,14 +2201,14 @@ them along with relevant information and the median and 68\% credible interval u
 \hline
 Date & Origin & Region & Possible cause & ${\sim} \tau_e\ [\mathrm{\mu s}]$ & ${\sim} \Delta \tau_e\ [\mathrm{\mu s}]$ & $\Delta I\ [\mathrm{ppb}]$ \\
 \hline
-June 14, 2016 & Power glitch & GXe & PTR power$\rightarrow 0$ & $65$ & $-30$ & $73.9_{-29.5}^{+25.4}$ \\
-July 15, 2016 & \ce{LN_2} test & GXe & PTR power$\rightarrow 0$ & $225^{\ast}$ & $-100$ & $32.2_{-2.6}^{+2.3}$ \\
-Nov. 21, 2016 & Power disruption & LXe & Temperature increase & $450$ & $-75$ & $2.96_{-0.26}^{+0.29}$ \\
-Jan. 18-Feb. 1, 2017 & Earthquake & GXe + LXe & Liquid level change & $520^{\ast}$ & $-120$ & $2.57_{-0.23}^{+0.21}$ \\
-June 5, 2017 & Gate washing & LXe & Liquid level change & $575$ & $-50$ & $1.03_{-0.14}^{+0.14}$ \\
-Feb. 21, 2018 & Power glitch & GXe & PTR power drop of ${\sim}50\%$ & $600$ & $-150$ & $3.79_{-0.09}^{+0.11}$ \\
-Feb. 24, 2018 & Blackout & GXe + LXe & PTR power$\rightarrow 0$, $F_{\mathrm{G}} = F_{\mathrm{L}} = 0$ & $500^{\ast}$ & $-150$ & $3.31_{-1.76}^{+1.84}$ \\
-Mar. 5-7, 2018 & Gate washings & LXe & Liquid level change & $450$ & $-70$ & $2.02_{-0.78}^{+0.76}$ \\
+June 14, 2016 & Power glitch & GXe & PTR power$\rightarrow 0$ & $65$ & $-30$ & $47.3_{-18.3}^{+21.4}$ \\
+July 15, 2016 & \ce{LN_2} test & GXe & PTR power$\rightarrow 0$ & $225^{\ast}$ & $-100$ & $31.5_{-2.3}^{+2.2}$ \\
+Nov. 21, 2016 & Power disruption & LXe & Temperature increase & $450$ & $-75$ & $2.92_{-0.27}^{+0.32}$ \\
+Jan. 18-Feb. 1, 2017 & Earthquake & GXe + LXe & Liquid level change & $520^{\ast}$ & $-120$ & $2.75_{-0.19}^{+0.19}$ \\
+June 5, 2017 & Gate washing & LXe & Liquid level change & $575$ & $-50$ & $1.05_{-0.15}^{+0.15}$ \\
+Feb. 21, 2018 & Power glitch & GXe & PTR power drop of ${\sim}50\%$ & $600$ & $-150$ & $3.89_{-0.10}^{+0.10}$ \\
+Feb. 24, 2018 & Blackout & GXe + LXe & PTR power$\rightarrow 0$, $F_{\mathrm{G}} = F_{\mathrm{L}} = 0$ & $500^{\ast}$ & $-150$ & $4.47_{-3.08}^{+2.66}$ \\
+Mar. 5-7, 2018 & Gate washings & LXe & Liquid level change & $450$ & $-70$ & $1.54_{-1.16}^{+1.30}$ \\
 \hline
 \hline
 \end{tabular}
@@ -2223,7 +2237,7 @@ overlaid.  Dashed lines correspond to events that affected the evolution of the 
 
 \subsection[$\mathrm{^{83m}Kr}$ Evolution][$\mathrm{^{83m}Kr}$ Evolution]{$\mathbf{^{83m}Kr}$ Evolution}
 \label{subsec:elifetime_fit_kr}
-An separate electron lifetime trend is needed to describe the \metakr measurements.  Because the evolution of the trend is independent
+A separate electron lifetime trend is needed to describe the \metakr measurements.  Because the evolution of the trend is independent
 of the isotope used for the measurement the alpha model will describe the \metakr model if it can be adjusted upwards.  The ratio
 between the two becomes larger at higher $\tau_e$ so scaling by a constant will not work.
 
@@ -2260,16 +2274,16 @@ recoils.  Furthermore, nuclear recoils are expected to have a lifetime correctio
 
 \section{XENONnT Purification}
 \label{sec:xenonnt}
-The next generation XENON experiment, XENONnT, will house 8 tonnes of xenon and have a drift length of 150 cm.  With two and a half times as
+The next generation XENON experiment, XENONnT, will use 8 tonnes of xenon and have a drift length of 150 cm.  With two and a half times as
 much xenon as XENON1T, improvements in purification are critical.
 
 The first way the purification will be improved is by upgrading the XENON1T purification system.  This has already been done three
 times - each producing a sizable improvement.  The first was the installation of the third QDrive before Science Run 0.  Roughly a year and
-a half later, with the completion of Science Run 1, the conductance of the purification system was increased via the exchange of the 1/2"
-with 1" pipes.  The most recent upgrade replaced the QDrives with a magnetic pump, which improved the circulation speed and cut the
-\ce{^{222}Rn} background by ${\sim}45\%$.  The upgrades are discussed in more detail in \secref{subsec:electron_lifetime_model_ops}.
+a half later, after the completion of Science Run 1, the conductance of the purification system was increased via the exchange of the 1/2"
+with 1" outer diameter pipes.  The most recent upgrade replaced the QDrives with a magnetic pump, which improved the circulation speed and
+cut the \ce{^{222}Rn} background by ${\sim}45\%$.  The upgrades are discussed in more detail in \secref{subsec:electron_lifetime_model_ops}.
 
 Research and development is leading to new tools to improve purification.  The magnetic pump that was recently installed was developed by the
-University of M\"unster group in XENON.  Additionally, ongoing work at Columbia is making advancements in liquid xenon purification, which
-would allow significantly quicker purification.  Preliminary estimates put the electron lifetime as high as ${\sim}10\ \mathrm{ms}$.  The
-future of purification for XENONnT is promising.
+University of M\"unster group in XENON.  Additionally, ongoing work at Columbia is making advancements in the purification of liquid xenon,
+which would allow significantly quicker purification.  Preliminary estimates project the electron lifetime as high as
+${\sim}10\ \mathrm{ms}$.  The future of purification for XENONnT is promising.
